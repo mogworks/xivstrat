@@ -1,0 +1,42 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Separator from '@/components/Separator.astro'
+import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import EventSection from '@/components/section/EventSection.astro'
+
+interface Props {
+  time?: Time
+  base?: Time
+}
+
+const { time = 0, base = 0 }: Props = Astro.props
+---
+
+<EventSection time={time} base={base}>
+  <span class="text-foreground/75 text-sm">或</span>
+  <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
+  <ul class="list-none space-y-4">
+    <li class="flex items-center gap-1 text-lg">
+      <Span variant="yellow">Flip to A-side</Span>
+      伤害判定
+      <Span variant="yellow">Play A-side</Span>
+      <DamageInfo damage="95000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+      <Badge variant="emerald">45°扇形</Badge>
+      <Badge variant="yellow">职能分散</Badge>
+    </li>
+    <li class="flex items-center gap-1 text-lg">
+      <Span variant="yellow">Flip to B-side</Span>
+      伤害判定
+      <Span variant="yellow">Play B-side</Span>
+      <DamageInfo damage="125000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+      <Badge variant="emerald">8m宽直线</Badge>
+      <Badge variant="yellow">四四分摊</Badge>
+    </li>
+  </ul>
+</EventSection>

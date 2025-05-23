@@ -1,0 +1,52 @@
+---
+import type { ImageMetadata } from 'astro'
+import type { VariantType } from '@/components/Span.vue'
+
+import { Image } from 'astro:assets'
+
+import VueBuff from '@/components/Buff.vue'
+import VueHoverBuff from '@/components/HoverBuff.vue'
+
+interface Props {
+  icon: ImageMetadata
+  name: string
+  nameVariant?: VariantType
+  description: string
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const {
+  icon,
+  name,
+  nameVariant = 'default',
+  description,
+  tag = '',
+  hover = false,
+  class: className = '',
+}: Props = Astro.props
+---
+
+{
+  hover ? (
+    <VueHoverBuff
+      icon={icon}
+      name={name}
+      nameVariant={nameVariant}
+      description={description}
+      tag={tag}
+      class={className}
+      client:idle
+    >
+      <Image slot="icon" src={icon} alt={description} />
+      <slot>
+        <p>{description}</p>
+      </slot>
+    </VueHoverBuff>
+  ) : (
+    <VueBuff icon={icon} name={name} description={description} tag={tag} class={className} client:idle>
+      <Image src={icon} alt={description} />
+    </VueBuff>
+  )
+}

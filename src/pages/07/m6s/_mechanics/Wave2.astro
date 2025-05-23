@@ -1,0 +1,340 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import JobIcon from '@/components/JobIcon.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import VulnerabilityUp from '@/components/buff/VulnerabilityUp.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import FeatherRay from '../_components/FeatherRay.astro'
+import GimmeCat from '../_components/GimmeCat.astro'
+import Jabberwock from '../_components/Jabberwock.astro'
+import LivePaintingCast from '../_components/LivePaintingCast.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+import AttackSection from '../_components/SugarRiotAttackSection.astro'
+import Mu from '../_components/Mu.astro'
+import Yan from '../_components/Yan.astro'
+
+import wave2 from '@/assets/07/m6s/paint_mark/wave2@3x.png'
+import wave2_solution_0 from '@/assets/07/m6s/soul_sugar/wave2_solution_0.png'
+import wave2_solution_1 from '@/assets/07/m6s/soul_sugar/wave2_solution_1.png'
+import wave2_solution_2 from '@/assets/07/m6s/soul_sugar/wave2_solution_2.png'
+import wave2_solution_3 from '@/assets/07/m6s/soul_sugar/wave2_solution_3.png'
+import wave2_solution_4 from '@/assets/07/m6s/soul_sugar/wave2_solution_4.png'
+import wave2_solution_5 from '@/assets/07/m6s/soul_sugar/wave2_solution_5.png'
+
+interface Props {
+  base?: Time
+}
+
+const { base = 0 }: Props = Astro.props
+---
+
+<LivePaintingCast start="04:09.934" base={base} class="-my-5">
+  <Image src={wave2} alt="Paint Mark: Wave #2" class="-mr-3 -ml-2 w-30 drop-shadow-sm drop-shadow-black" />
+  ，激活
+  <Mu>
+    <Span variant="orange">×2</Span>
+  </Mu>
+  <FeatherRay>
+    <Span variant="orange">×2</Span>
+  </FeatherRay>
+</LivePaintingCast>
+<SolutionSection title="解法：Wave #2">
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      目标优先级：
+      <Yan>
+        <Span variant="red">#1</Span>
+      </Yan>
+      &gt;
+      <GimmeCat>
+        <Span variant="red">#1</Span>
+      </GimmeCat>
+      &gt; 右<FeatherRay />
+      &gt; 左<FeatherRay />
+      &gt;
+      <Mu />
+    </div>
+    <div class="gap-strat flex items-center">
+      一般来说，第2轮开始时，
+      <Yan>
+        <Span variant="red">#1</Span>
+      </Yan>
+      应当早已击杀，
+      <GimmeCat>
+        <Span variant="red">#1</Span>
+      </GimmeCat>
+      最多剩余半血
+    </div>
+    <div class="gap-strat mt-12 flex items-center">
+      1. 初始站位如下（以
+      <RoleIcon role="ranged" tag="D3" />
+      <RoleIcon role="healer" tag="H2" />
+      引导水圈为例）：
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <Image
+          src={wave2_solution_0}
+          alt="Wave #2: Solution 0"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <Image
+          src={wave2_solution_1}
+          alt="Wave #2: Solution 1"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      若
+      <GimmeCat>
+        <Span variant="red">#1</Span>
+      </GimmeCat>
+      还未击杀，远程职业抓紧时间输出
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="tank" tag="MT" />
+      拉好
+      <SugarRiot />
+      和
+      <Mu />
+      ，和
+      <RoleIcon role="tank" tag="ST" />
+      <RoleIcon role="melee" />
+      一起AoE，
+      <RoleIcon role="tank" tag="ST" />
+      注意关闭盾姿
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="ranged" tag="D3" />
+      引导
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      ，
+      <RoleIcon role="healer" tag="H2" />
+      引导
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      ，注意第一时间转火，
+      <FeatherRay />
+      会连线第1个攻击它的人
+    </div>
+    <div class="gap-strat flex items-center opacity-80">
+      <ListDot />
+      <Span variant="pink">如果是固定队</Span>
+      ，可尝试此优先级：
+    </div>
+    <div class="gap-strat flex items-center pl-6 opacity-80">
+      <ListDot />
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      ：
+      <JobIcon job="MCH" />
+      <JobIcon job="BRD" />
+      &gt;
+      <JobIcon job="BLM" />
+      <JobIcon job="SMN" />
+      &gt;
+      <JobIcon job="PCT" />
+      <JobIcon job="RDM" />
+      &gt;
+      <JobIcon job="DNC" />
+    </div>
+    <div class="gap-strat flex items-center pl-6 opacity-80">
+      <ListDot />
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      ：
+      <JobIcon job="MCH" />
+      <JobIcon job="BRD" />
+      &gt;
+      <JobIcon job="BLM" />
+      <JobIcon job="SMN" />
+      &gt;
+      <JobIcon job="AST" />
+      &gt;
+      <JobIcon job="SGE" />
+      &gt;
+      <JobIcon job="WHM" />
+      <JobIcon job="SCH" />
+      &gt;
+      <JobIcon job="PCT" />
+      <JobIcon job="RDM" />
+      &gt;
+      <JobIcon job="DNC" />
+    </div>
+    <div class="gap-strat flex items-center pl-6 opacity-80">
+      <ListDot />
+      这是因为
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      会先被击杀，一般只会放出1个水圈，让腿更短的引导
+    </div>
+    <div class="gap-strat flex items-center pl-6 opacity-80">
+      <ListDot />
+      而
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      被击杀时，
+      <Jabberwock>
+        <Span variant="blue">#3</Span>
+      </Jabberwock>
+      会在西侧刷新，若
+      <RoleIcon role="healer" />
+      引导
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      会来不及远离
+    </div>
+    <div class="gap-strat flex items-center pl-6 opacity-80">
+      <ListDot />
+      <JobIcon job="DNC" />
+      引导水圈会损失很多AoE输出，所以优先级最低
+    </div>
+    <div class="gap-strat mt-12 flex items-center">
+      2.
+      <RoleIcon role="tank" tag="MT" />
+      拉好
+      <Span variant="blue">C</Span>
+      点刷新的
+      <Mu />
+      后，迅速带着
+      <SugarRiot />
+      和
+      <Mu />
+      转移到
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      处一起AoE：
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <Image
+          src={wave2_solution_2}
+          alt="Wave #2: Solution 2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <Image
+          src={wave2_solution_3}
+          alt="Wave #2: Solution 3"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      使用AoE技能时请务必选择
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      为主目标
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="tank" tag="MT" />
+      注意不要被水圈喷到，否则会因为
+      <VulnerabilityUp hover />
+      被普通攻击杀死
+    </div>
+    <div class="gap-strat mt-12 flex items-center">
+      3. 击杀
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      后，
+      <RoleIcon role="tank" tag="MT" />
+      迅速带着
+      <SugarRiot />
+      和
+      <Mu />
+      转移到
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      处一起AoE：
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <Image
+          src={wave2_solution_4}
+          alt="Wave #2: Solution 4"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <Image
+          src={wave2_solution_5}
+          alt="Wave #2: Solution 5"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      注意选择
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      为主目标，此时
+      <Mu>
+        <Span variant="red">×2</Span>
+        <Span variant="red">#1</Span>
+      </Mu>
+      应该已经被击杀，剩余
+      <Mu>
+        <Span variant="orange">×2</Span>
+        <Span variant="orange">#2</Span>
+      </Mu>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="tank" tag="MT" />
+      注意把
+      <Mu />
+      带到
+      <Span variant="pink">偏左侧</Span>
+      的位置，以免与下一波
+      <Yan>
+        <Span variant="blue">#3</Span>
+      </Yan>
+      （<Span variant="red">A</Span>点刷新）太近
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="ranged" tag="D3" />
+      注意贴边，以免水圈砸到人群；
+      <RoleIcon role="tank" tag="MT" />
+      注意
+      <Span variant="pink">不要被水圈喷到</Span>
+      ，否则会因为
+      <VulnerabilityUp hover />
+      被普通攻击杀死
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="healer" />
+      可以在
+      <Span variant="pink">场中偏右下</Span>
+      的位置待机，为下一波
+      <Jabberwock>
+        <Span variant="blue">#3</Span>
+      </Jabberwock>
+      （<Span variant="purple">西侧</Span>刷新） 点名做准备
+    </div>
+  </div>
+</SolutionSection>
+<AttackSection time="04:16.750" base={base} damage="57000" damageType="magical" />
+<AttackSection time="04:19.775" base={base} damage="57000" damageType="magical" />
+<AttackSection time="04:22.803" base={base} damage="57000" damageType="magical" />
+<AttackSection time="04:25.830" base={base} damage="57000" damageType="magical" />
+<AttackSection time="04:28.861" base={base} damage="57000" damageType="magical" />
+<AttackSection time="04:31.891" base={base} damage="57000" damageType="magical" />

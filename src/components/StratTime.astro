@@ -1,0 +1,44 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { cn } from '@/lib/utils'
+
+interface Props {
+  time?: Time
+  base?: Time
+  class?: string
+}
+
+const { time = 0, base = 0, class: className = '' }: Props = Astro.props
+---
+
+<span class={cn('strat-time text-lg text-blue-700 dark:text-blue-300', className)} data-time={time} data-base={base}>
+  00:00.0
+</span>
+
+<script>
+  import { subscribeKeys } from 'nanostores'
+
+  import { timeToSeconds } from '@/lib/utils'
+  import { $stratSettings } from '@/stores/stratSettings'
+
+  subscribeKeys($stratSettings, ['timelineOrigin', 'timeFormat'], (stratSettings) => {
+    document.querySelectorAll('span.strat-time').forEach((ele) => {
+      const span = ele as HTMLSpanElement
+      const time = span.dataset.time ?? '0'
+      const base = span.dataset.base ?? '0'
+      const seconds = timeToSeconds(time)
+      const baseSeconds = timeToSeconds(base)
+      const showSeconds = stratSettings.timelineOrigin === 'phase' ? seconds - baseSeconds : seconds
+      if (stratSettings.timeFormat === 's') {
+        span.textContent = showSeconds.toFixed(1)
+      } else {
+        const m = Math.floor(showSeconds / 60)
+        const s = showSeconds % 60
+        const mStr = m < 10 ? `0${m}` : `${m}`
+        const sStr = s < 10 ? `0${s.toFixed(1)}` : s.toFixed(1)
+        span.textContent = `${mStr}:${sStr}`
+      }
+    })
+  })
+</script>

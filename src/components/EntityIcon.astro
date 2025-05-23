@@ -1,0 +1,22 @@
+---
+import { cn } from '@/lib/utils'
+
+import Icon from '@/components/Icon.astro'
+
+interface Props {
+  icon: string | ImageMetadata
+  tag?: string
+  alt?: string
+  class?: string
+  iconClass?: string
+}
+
+const { icon, tag = '', alt = '', class: className = '', iconClass = '' }: Props = Astro.props
+---
+
+<div class={cn('relative h-full inline-flex items-center gap-px', className)}>
+  <Icon img={icon} alt={alt ?? tag} tag={tag} iconClass={iconClass} />
+  <div class="text-decimal">
+    <slot />
+  </div>
+</div>

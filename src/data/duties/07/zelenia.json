@@ -1,0 +1,40 @@
+{
+  "name": "泽莱妮娅歼殛战",
+  "short": "Zelenia",
+  "type": "trial",
+  "title": "泽莱妮娅歼殛战 攻略",
+  "description": "最终幻想14 泽莱妮娅歼殛战 超详解动态图文攻略",
+  "banner": "@/assets/banners/07/zelenia.png",
+  "date": "",
+  "href": "/07/zelenia",
+  "status": "upcoming",
+  "indexAvailable": false,
+  "phases": [
+    {
+      "href": "/07/zelenia/p1",
+      "title": "Part 1",
+      "subtitle": "前半",
+      "name": "P1 - 前半",
+      "mechanics": []
+    },
+    {
+      "href": "/07/zelenia/p2",
+      "title": "Part 2",
+      "subtitle": "小怪阶段",
+      "name": "P2 - 小怪阶段",
+      "mechanics": []
+    },
+    {
+      "href": "/07/zelenia/p3",
+      "title": "Part 3",
+      "subtitle": "后半",
+      "name": "P3 - 后半",
+      "mechanics": []
+    }
+  ],
+  "locales": {
+    "Thorned Catharsis": {},
+    "Shock": {},
+    "Alexandrian Holy": {}
+  }
+}

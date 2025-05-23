@@ -1,0 +1,272 @@
+---
+import { Image } from 'astro:assets'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import DamageUp from '@/components/buff/DamageUp.astro'
+import Bind from '@/components/buff/Bind.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import Dropsy from '@/components/buff/Dropsy.astro'
+import HPPenalty from '@/components/buff/HPPenalty.astro'
+import SustainedDamage from '@/components/buff/SustainedDamage.astro'
+import VulnerabilityUp from '@/components/buff/VulnerabilityUp.astro'
+
+import HuffyCatBuff from '../_components/HuffyCatBuff.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+
+import feather_ray from '@/assets/07/m6s/adds/feather_ray.png'
+import gimme_cat from '@/assets/07/m6s/adds/gimme_cat.png'
+import jabberwock from '@/assets/07/m6s/adds/jabberwock.png'
+import mu from '@/assets/07/m6s/adds/mu.png'
+import yan from '@/assets/07/m6s/adds/yan.png'
+---
+
+<div class="grid grid-cols-[minmax(0,15rem)_minmax(36rem,1fr)] rounded-md border border-dashed">
+  <div class="flex items-center justify-center border-r border-b border-dashed p-4">
+    <Image src={mu} alt="Sugarscape: Mu" class="drop-shadow-sm drop-shadow-black" />
+  </div>
+  <div class="flex flex-col gap-4 border-b border-dashed p-4">
+    <h4 class="text-xl">
+      <Span variant="yellow">Mu</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      后文以【
+      <Span variant="yellow">松鼠</Span>
+      】代称，
+      <Span variant="green">HP 2,591,008</Span>
+      ，对
+      <RoleIcon role="tank" />
+      攻击
+      <DamageInfo damage="9500" type="physical" />
+    </div>
+    <div class="gap-strat flex items-center">
+      靠近【
+      <Span variant="yellow">羊</Span>
+      】时会赋予其永久的
+      <DamageUp hover />
+      <Span variant="lime" class="text-decimal">300%↑</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      在
+      <SugarRiot />
+      释放
+      <Span variant="yellow">Ready Ore Not</Span>
+      后会开始读条
+      <Span variant="yellow">Ore-rigato</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      可造成全屏伤害
+      <DamageInfo damage="100000" type="physical" />
+      <SustainedDamage layer={1} tag="15" hover />
+      <DotInfo damage="30000" />
+    </div>
+    <div class="gap-strat flex items-center">该DoT伤害不受T职被动减免，且可叠加层数</div>
+    <div class="gap-strat flex items-center">
+      若有≥2只同时释放
+      <Span variant="yellow">Ore-rigato</Span>
+      基本意味着团灭
+    </div>
+    <div class="gap-strat flex items-center">
+      会在
+      <Span variant="default">Wave</Span>
+      <Span variant="red">#1</Span>
+      <Span variant="orange">#2</Span>
+      <Span variant="purple">#4</Span>
+      各刷新2只
+    </div>
+  </div>
+  <div class="flex items-center justify-center border-r border-b border-dashed p-4">
+    <Image src={yan} alt="Sugarscape: Yan" class="drop-shadow-sm drop-shadow-black" />
+  </div>
+  <div class="flex flex-col gap-4 border-b border-dashed p-4">
+    <h4 class="text-xl">
+      <Span variant="yellow">Yan</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      后文以【
+      <Span variant="yellow">羊</Span>
+      】代称，
+      <Span variant="green">HP 2,835,798</Span>
+      ，对
+      <RoleIcon role="tank" />
+      攻击
+      <DamageInfo damage="65000" type="physical" />
+    </div>
+    <div class="gap-strat flex items-center">
+      靠近【
+      <Span variant="yellow">松鼠</Span>
+      】时会被赋予永久的
+      <DamageUp hover />
+      <Span variant="lime" class="text-decimal">300%↑</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      若未在本阶段末尾
+      <SugarRiot />
+      读条AoE
+      <Span variant="yellow">Mousse Mural</Span>
+      前击杀
+    </div>
+    <div class="gap-strat flex items-center">
+      则会变为不可选中状态，并连线强化
+      <SugarRiot />
+      ，使AoE变为团灭级伤害
+    </div>
+    <div class="gap-strat flex items-center">
+      会在
+      <Span variant="default">Wave</Span>
+      <Span variant="red">#1</Span>
+      <Span variant="blue">#3</Span>
+      <Span variant="purple">#4</Span>
+      各刷新1只
+    </div>
+  </div>
+  <div class="flex items-center justify-center border-r border-b border-dashed p-4">
+    <Image src={gimme_cat} alt="Sugarscape: Gimme Cat" class="drop-shadow-sm drop-shadow-black" />
+  </div>
+  <div class="flex flex-col gap-4 border-b border-dashed p-4">
+    <h4 class="text-xl">
+      <Span variant="yellow">Gimme Cat</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      后文以【
+      <Span variant="yellow">猫</Span>
+      】代称，
+      <Span variant="green">HP 1,101,555</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      一出场就会释放
+      <Span variant="yellow">Unlimited Craving</Span>
+      偷取LB，接着满场乱跳
+    </div>
+    <div class="gap-strat flex items-center">
+      每跳6次后，第7次会随机跳到一名玩家处读条
+      <Span variant="yellow">I Crave Violence</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      半径
+      <Span variant="pink">6m</Span>
+      的圆形AoE，吃到会被赋予
+      <DamageDown tag="30" hover />
+      <Span variant="rose" class="text-decimal">30%↓</Span>
+      <HPPenalty tag="30" hover />
+      <Span variant="rose" class="text-decimal">70%↓</Span>
+      ，并扣除
+      <Span variant="pink" class="text-decimal">9900</Span>
+      MP
+    </div>
+    <div class="gap-strat flex items-center">
+      若没有命中任何玩家，则会给自己叠加1层
+      <HuffyCatBuff hover />
+    </div>
+    <div class="gap-strat flex items-center">
+      叠到3层后会读条狂暴技能
+      <Span variant="yellow">Hangry Hiss</Span>
+      ，造成团灭级全屏AoE
+    </div>
+    <div class="gap-strat flex items-center">
+      会在
+      <Span variant="default">Wave</Span>
+      <Span variant="red">#1</Span>
+      <Span variant="blue">#3</Span>
+      <Span variant="purple">#4</Span>
+      各刷新1只
+    </div>
+  </div>
+  <div class="flex items-center justify-center border-r border-b border-dashed p-4">
+    <Image src={feather_ray} alt="Sugarscape: Feather Ray" class="drop-shadow-sm drop-shadow-black" />
+  </div>
+  <div class="flex flex-col gap-4 border-b border-dashed p-4">
+    <h4 class="text-xl">
+      <Span variant="yellow">Feather Ray</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      后文以【
+      <Span variant="yellow">鱼</Span>
+      】代称，
+      <Span variant="green">HP 1,628,795</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      连线最先攻击它的玩家，每隔约
+      <Span variant="pink">9s</Span>
+      对连线玩家读条
+      <Span variant="yellow">Water III</Span>
+      喷水
+    </div>
+    <div class="gap-strat flex items-center">
+      喷的那一下是半径
+      <Span variant="pink">8m</Span>
+      的圆形AoE，造成
+      <DamageInfo damage="45000" type="magical" />
+      <VulnerabilityUp tag="8" hover />
+      <Span variant="rose" class="text-decimal">3100%↑</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      同时在连线玩家脚下留下半径
+      <Span variant="pink">9m</Span>
+      的水圈，踩进去会被赋予
+      <Dropsy tag="15" hover />
+      <DotInfo damage="48000" />
+    </div>
+    <div class="gap-strat flex items-center">长时间不击杀会导致水圈铺满全场，最终站无可站</div>
+    <div class="gap-strat flex items-center">
+      会在
+      <Span variant="default">Wave</Span>
+      <Span variant="orange">#2</Span>
+      <Span variant="purple">#4</Span>
+      各刷新2只
+    </div>
+  </div>
+  <div class="flex items-center justify-center border-r border-dashed p-4">
+    <Image src={jabberwock} alt="Sugarscape: Jabberwock" class="drop-shadow-sm drop-shadow-black" />
+  </div>
+  <div class="flex flex-col gap-4 p-4">
+    <h4 class="text-xl">
+      <Span variant="yellow">Jabberwock</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      后文以【
+      <Span variant="yellow">马</Span>
+      】代称，
+      <Span variant="green">HP 1,673,987</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      出场后对随机
+      <RoleIcon role="healer" />
+      释放
+      <Span variant="yellow">Manxome Windersnatch</Span>
+      <DamageInfo damage="120000" type="magical" />
+      <Bind hover />
+    </div>
+    <div class="gap-strat flex items-center">
+      接着朝该
+      <RoleIcon role="healer" />
+      缓慢移动，若移动到面前，则秒杀该
+      <RoleIcon role="healer" />
+    </div>
+    <div class="gap-strat flex items-center">
+      （伤害名
+      <Span variant="yellow">Slayous Snicker-snack</Span>
+      <DamageInfo damage="9999999" type="special" />
+      ）
+    </div>
+    <div class="gap-strat flex items-center">
+      接着继续对另一
+      <RoleIcon role="healer" />
+      循环（暂不知
+      <RoleIcon role="healer" />
+      都死亡后是否会继续随机抓人）
+    </div>
+    <div class="gap-strat flex items-center">
+      <Span variant="pink">眩晕类技能对其有效</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      会在
+      <Span variant="default">Wave</Span>
+      <Span variant="blue">#3</Span>
+      <Span variant="purple">#4</Span>
+      各刷新1只
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import spotlightless from '@/assets/buff/07/m5s/214285.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={spotlightless}
+  name="Spotlightless"
+  nameVariant="yellow"
+  description="Publicly failed to strike a groovy pose. Ego injury is resulting in greatly increased magic damage taken."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

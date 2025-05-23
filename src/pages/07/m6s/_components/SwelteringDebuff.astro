@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import sweltering from '@/assets/buff/07/m6s/214273.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={sweltering}
+  name="Sweltering"
+  nameVariant="yellow"
+  description="Unable to bear the heat and taking damage over time."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import icon from '@/assets/buff/215520.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={icon}
+  name="伤害降低"
+  nameVariant="yellow"
+  description="攻击所造成的伤害降低"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

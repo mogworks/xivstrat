@@ -1,0 +1,71 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import Bleeding from '@/components/buff/Bleeding.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import deep_cut_img from '@/assets/07/m5s/deep_cut.png'
+
+import DeepCutCast from '../_components/DeepCutCast.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<DeepCutCast start={start} base={base} />
+<MechanicSection>
+  <div class="gap-strat flex items-center">
+    点名
+    <Span variant="pink">一二仇</Span>
+    的
+    <Span variant="pink">45°扇形死刑</Span>
+    ，对
+    <Span variant="blue">防护职业</Span>
+    造成
+    <DamageInfo damage="300000" type="magical" />
+    <MagicVulnerabilityUp tag="2" hover />
+    ，附加
+    <Bleeding hover tag="15" />
+    <DotInfo damage="34000" />
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex gap-4">
+    <div class="max-w-90 shrink">
+      <Image src={deep_cut_img} alt="Deep Cut Solution" class="border-2 border-amber-800/75 dark:border-amber-100" />
+    </div>
+    <div class="shrink-0 grow space-y-4">
+      <div class="gap-strat flex items-center">
+        <RoleIcon role="tank" tag="MT" />
+        在
+        <Boss />
+        <Span variant="pink">左前</Span>
+        引导，
+        <RoleIcon role="tank" tag="ST" />
+        在
+        <Boss />
+        <Span variant="pink">右前</Span>
+        引导
+      </div>
+      <div class="gap-strat flex items-center">
+        由于首次出现在开场不久，
+        <RoleIcon role="tank" tag="ST" />
+        注意
+        <Span variant="pink">及时建立仇恨</Span>
+      </div>
+    </div>
+  </div>
+</SolutionSection>

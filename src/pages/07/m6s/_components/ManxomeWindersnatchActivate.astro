@@ -1,0 +1,29 @@
+---
+import type { Time } from '@/lib/utils'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import Span from '@/components/Span.vue'
+import Bind from '@/components/buff/Bind.astro'
+import EventSection from '@/components/section/EventSection.astro'
+
+import Jabberwock from './Jabberwock.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+  wave: number
+}
+
+const { time, base = 0, wave }: Props = Astro.props
+---
+
+<EventSection time={time} base={base}>
+  <Jabberwock wave={wave} />
+  对随机
+  <RoleIcon role="healer" />
+  释放
+  <Span variant="yellow">Manxome Windersnatch</Span>
+  <DamageInfo damage="120000" type="magical" />
+  <Bind hover />
+</EventSection>

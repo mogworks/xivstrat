@@ -1,0 +1,22 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<CastSection start={start} base={base} duration={7.7} ability="Artistic Anarchy">
+  <SugarRiot slot="source" />
+  <Span slot="ability" variant="fuchsia">Artistic Anarchy</Span>
+  <Badge variant="fuchsia">狂暴</Badge>
+</CastSection>

@@ -1,0 +1,62 @@
+---
+import type { Duty } from '@/data/duty'
+
+import { Image } from 'astro:assets'
+
+import { cn } from '@/lib/utils'
+
+interface Props {
+  duty: Duty
+}
+
+const { duty }: Props = Astro.props
+
+const href = (() => {
+  if (duty.status === 'upcoming') return undefined
+  if (duty.indexAvailable) return duty.href
+  if (duty.phases.length > 0) return duty.phases[0].href
+  return undefined
+})()
+---
+
+<a
+  href={href}
+  class="bg-card/50 hover:bg-card/80 border-border/50 relative cursor-pointer rounded-xl border shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+>
+  <div class="bg-dots fade-y absolute inset-0 opacity-20"></div>
+  <div class="relative flex h-full flex-col gap-4 p-8">
+    <div class="flex items-center justify-between">
+      <time class="text-sm font-medium text-zinc-600 dark:text-zinc-400">{duty.date}</time>
+      <div class="flex items-center gap-1">
+        {
+          duty.status !== 'done' && (
+            <span
+              class={cn(
+                'rounded-full px-3 py-0.5 text-sm font-medium',
+                duty.status === 'upcoming' && 'bg-rose-200 text-rose-700 dark:bg-rose-800/90 dark:text-rose-200/90',
+                duty.status === 'live' && 'bg-green-200 text-green-700 dark:bg-green-800/90 dark:text-green-200/90',
+              )}
+            >
+              {duty.status === 'upcoming' ? '待更新' : duty.status === 'live' ? '更新中' : '已完成'}
+            </span>
+          )
+        }
+        <span
+          class="rounded-full bg-zinc-200 px-3 py-0.5 text-sm font-medium text-zinc-700 dark:bg-zinc-700 dark:text-zinc-300"
+        >
+          {duty.short}
+        </span>
+      </div>
+    </div>
+
+    <div class="flex justify-center overflow-hidden rounded-md">
+      <Image
+        src={duty.banner}
+        alt={duty.name}
+        class="h-36 w-full scale-105 object-cover duration-300 hover:scale-110"
+      />
+    </div>
+
+    <h3 class="text-lg font-semibold">{duty.name}</h3>
+  </div>
+</a>

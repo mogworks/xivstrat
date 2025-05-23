@@ -1,0 +1,147 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import SustainedDamage from '@/components/buff/SustainedDamage.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import GimmeCat from '../_components/GimmeCat.astro'
+import Mu from '../_components/Mu.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+import AttackSection from '../_components/SugarRiotAttackSection.astro'
+import SoulSugarCast from '../_components/SoulSugarCast.astro'
+import SoulSugarTable from '../_components/SoulSugarTable.astro'
+
+import genseki from '@/assets/07/m6s/paint_mark/genseki@3x.png'
+import ranged_lb from '@/assets/07/m6s/soul_sugar/ranged_lb.png'
+import magic_lb from '@/assets/07/m6s/soul_sugar/magic_lb.png'
+
+interface Props {
+  base?: Time
+}
+
+const { base = 0 }: Props = Astro.props
+---
+
+<SoulSugarCast start="03:34.629" end="03:37.609" base={base} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center border-l-2 border-yellow-500 pl-2 opacity-80">
+      准备好了吗，冒险者？即将进入本次零式最重量级的阶段
+    </div>
+    <h4 class="mt-12 text-2xl">
+      <Span variant="yellow">Live Painting</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      <SugarRiot />
+      读条
+      <Span variant="yellow">Soul Sugar</Span>
+      后，场上会每隔一段时间生成若干软糊怪，共4轮（后文称
+      <Span variant="default">Wave</Span>
+      <Span variant="red">#1</Span>
+      <Span variant="orange">#2</Span>
+      <Span variant="blue">#3</Span>
+      <Span variant="purple">#4</Span>
+      ）
+    </div>
+    <div class="gap-strat flex items-center">
+      每轮开始，
+      <SugarRiot />
+      会读条
+      <Span variant="yellow">Live Painting</Span>
+      将软糊怪激活为不同类型的小可爱：
+    </div>
+    <SoulSugarTable />
+    <h4 class="mt-12 text-2xl">
+      <Span variant="yellow">Ready Ore Not</Span>
+    </h4>
+    <div class="gap-strat -my-4 flex items-center">
+      <SugarRiot />
+      画出
+      <Image src={genseki} alt="Paint Mark: Ready Ore Not" class="-mr-2 -ml-3 w-25 drop-shadow-sm drop-shadow-black" />
+      ，对
+      <RoleIcon role="all" tag="全员" />
+      造成全屏AoE
+      <DamageInfo damage="200000" type="magical" />
+    </div>
+    <div class="gap-strat flex items-center">
+      若此时场上还有
+      <Mu />
+      ，则引发其读条
+      <Span variant="yellow">Ore-rigato</Span>
+      ，造成全屏AoE
+      <DamageInfo damage="100000" type="physical" />
+      <SustainedDamage layer={1} tag="15" hover />
+      <DotInfo damage="30000" />
+    </div>
+    <h4 class="mt-12 text-2xl">
+      <Span variant="yellow">Unlimited Craving</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      <GimmeCat />
+      一出现就会发动的特殊机制，会偷取所有的LB条，主要是为了防止玩家通过LB逃课
+    </div>
+    <div class="gap-strat flex items-center">
+      相应的，在通关本阶段后，
+      <Span variant="cyan">会获得3段LB的奖励补偿</Span>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection title="解法：正式开始之前">
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="lime">Limit Break 预读</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      由于
+      <GimmeCat />
+      一出现就会偷取LB，为了不浪费，可以在本阶段正式开始前用掉
+    </div>
+    <div class="flex gap-3">
+      <div class="flex max-w-96 flex-col items-center gap-2">
+        <Image
+          src={ranged_lb}
+          alt="Soul Sugar: Ranged LB"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div class="gap-strat flex items-center">1段LB：远敏覆盖4目标</div>
+      </div>
+      <div class="flex max-w-96 flex-col items-center gap-2">
+        <Image src={magic_lb} alt="Soul Sugar: Magic LB" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <div class="gap-strat flex items-center">≥2段LB：法系覆盖4目标</div>
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      如果只有1段LB，由
+      <RoleIcon role="ranged" tag="D3" />
+      覆盖4目标，预先选中
+      <SugarRiot />
+      释放
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      如果有≥2段LB，由
+      <RoleIcon role="magic" tag="D4" />
+      覆盖4目标（
+      <GimmeCat />
+      此时不可选中，无法覆盖）
+    </div>
+    <div class="gap-strat flex items-center">
+      释放时机为：
+      <SugarRiot />
+      连线软糊怪，软糊怪周围的环绕特效
+      <Span variant="pink">闪烁4~5次</Span>
+      时
+    </div>
+    <div class="gap-strat flex items-center">释放时机需要大量的练习，因此作为锦上添花的选项吧，失败了也没关系！</div>
+  </div>
+</SolutionSection>
+<AttackSection time="03:38.455" base={base} damage="57000" damageType="magical" />

@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import icon from '@/assets/buff/215078.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={icon}
+  name="魔力衰减"
+  nameVariant="yellow"
+  description="魔力最大值降低"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

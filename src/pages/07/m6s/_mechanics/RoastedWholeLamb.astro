@@ -1,0 +1,208 @@
+---
+import { Image } from 'astro:assets'
+
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import ContentSection from '@/components/section/ContentSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import FeatherRay from '../_components/FeatherRay.astro'
+import Mu from '../_components/Mu.astro'
+import Yan from '../_components/Yan.astro'
+
+import wave1_solution_2 from '@/assets/07/m6s/soul_sugar/wave1_solution_2.png'
+import roasted_whole_lamb_1 from '@/assets/07/m6s/soul_sugar/roasted_whole_lamb_1.png'
+import roasted_whole_lamb_2 from '@/assets/07/m6s/soul_sugar/roasted_whole_lamb_2.png'
+import roasted_whole_lamb_3 from '@/assets/07/m6s/soul_sugar/roasted_whole_lamb_3.png'
+---
+
+<ContentSection class="opacity-80">
+  <div class="gap-strat flex items-center">
+    注：该解法对
+    <RoleIcon role="tank" />
+    <RoleIcon role="healer" />
+    要求较高，且拉怪时机需要沟通，只建议在固定队尝试
+  </div>
+</ContentSection>
+<SolutionSection title="解法：双T无敌烤全羊">
+  <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4 border-l-2 border-lime-500 pl-2 opacity-80">
+      <div class="gap-strat flex items-center">一句话概括：</div>
+      <div class="gap-strat flex items-center">
+        <Span variant="pink">不延后团辅</Span>
+        ，每轮团辅开启时，
+        <RoleIcon role="tank" />
+        分别开启无敌，把
+        <Yan />
+        <Mu />
+        拉一起AoE，利用团辅迅速融化
+        <Yan />
+      </div>
+    </div>
+    <div class="gap-strat mt-8 flex items-center">大部分内容与正攻解法相同，不再赘述，以下仅列出不同之处</div>
+    <h4 class="mt-12 text-2xl">
+      <Span variant="lime">Wave #1</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      前面流程一致，在4分钟团辅时，
+      <RoleIcon role="tank" tag="MT" />
+      挑衅
+      <Yan />
+      并开启无敌，把
+      <Yan />
+      拉到
+      <Span variant="blue">C</Span>
+      点一起AoE
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <Image
+          src={wave1_solution_2}
+          alt="Roasted Whole Lamb Wave #1: 1"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <Image
+          src={roasted_whole_lamb_1}
+          alt="Roasted Whole Lamb Wave #1: 2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <Span variant="pink">不要延后团辅</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      必须由
+      <RoleIcon role="tank" tag="MT" />
+      挑衅
+      <Yan />
+      并开启无敌，不能由
+      <RoleIcon role="tank" tag="ST" />
+      带
+      <Yan />
+      过去，因为
+      <RoleIcon role="tank" tag="ST" />
+      的无敌要留到第4轮
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      团辅开启前，一般能把
+      <Yan />
+      打到剩
+      <Span variant="pink">1/3</Span>
+      血，拉到一起后基本随便蹭一下AoE就能完成击杀
+    </div>
+    <div class="gap-strat flex items-center pl-6">
+      <ListDot />
+      因为
+      <Yan />
+      死的很快，可以把
+      <Span variant="cyan">溅射能力强的技能</Span>
+      延后到团辅期的
+      <Span variant="pink">后半段</Span>
+      ，留给
+      <Span variant="orange">Wave #2</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="tank" tag="ST" />
+      打
+      <Mu />
+      时记得
+      <Span variant="pink">关闭盾姿</Span>
+    </div>
+    <h4 class="mt-12 text-2xl">
+      <Span variant="lime">Wave #4</Span>
+    </h4>
+    <div class="gap-strat flex items-center">前面流程一致，在6分钟团辅时：</div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      若
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      尚存活（低概率），则
+      <RoleIcon role="tank" tag="ST" />
+      把
+      <Yan />
+      拉到
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      处并开启无敌
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      若
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      已击杀（大概率），则
+      <RoleIcon role="tank" tag="MT" />
+      把
+      <Mu />
+      拉到
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      处，
+      <RoleIcon role="tank" tag="ST" />
+      开启无敌
+    </div>
+    <div class="flex gap-3">
+      <div class="flex max-w-96 flex-col items-center gap-2">
+        <Image
+          src={roasted_whole_lamb_2}
+          alt="Roasted Whole Lamb Wave #4: 1"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div class="gap-strat flex items-center">
+          6分钟团辅时
+          <Span variant="pink">右</Span>
+          <FeatherRay />
+          尚存活
+        </div>
+      </div>
+      <div class="flex max-w-96 flex-col items-center gap-2">
+        <Image
+          src={roasted_whole_lamb_3}
+          alt="Roasted Whole Lamb Wave #4: 2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div class="gap-strat flex items-center">
+          6分钟团辅时
+          <Span variant="pink">右</Span>
+          <FeatherRay />
+          已击杀
+        </div>
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      正攻法打
+      <Yan />
+      时，一般会优先击杀血更少的
+      <Yan>
+        <Span variant="blue">#3</Span>
+      </Yan>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      而此打法要尽量让
+      <Yan>
+        <Span variant="blue">#3</Span>
+      </Yan>
+      <Yan>
+        <Span variant="purple">#4</Span>
+      </Yan>
+      血量保持一致，以保证团辅期AoE团伤最大化
+    </div>
+    <div class="gap-strat flex items-center pl-6">
+      <ListDot />
+      因此在团辅期
+      <RoleIcon role="tank" tag="ST" />
+      开启无敌前，可能会有一小段时间血量压力比正攻法更大
+    </div>
+  </div>
+</SolutionSection>

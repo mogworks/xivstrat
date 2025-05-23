@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import perfect_groove from '@/assets/buff/07/m5s/214283.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={perfect_groove}
+  name="Perfect Groove"
+  nameVariant="yellow"
+  description="An impeccable Arcady Night Fever performance is inspiring excessive confidence. Damage dealt is increased."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

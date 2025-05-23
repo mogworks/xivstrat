@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import icon from '@/assets/buff/215530.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={icon}
+  name="出血"
+  nameVariant="yellow"
+  description="无属性持续伤害，体力逐渐流失"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

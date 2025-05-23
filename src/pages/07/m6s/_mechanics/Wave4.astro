@@ -1,0 +1,500 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import Bind from '@/components/buff/Bind.astro'
+import SustainedDamage from '@/components/buff/SustainedDamage.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import FeatherRay from '../_components/FeatherRay.astro'
+import GimmeCat from '../_components/GimmeCat.astro'
+import HangryHissCast from '../_components/HangryHissCast.astro'
+import HuffyCatBuff from '../_components/HuffyCatBuff.astro'
+import Jabberwock from '../_components/Jabberwock.astro'
+import LivePaintingCast from '../_components/LivePaintingCast.astro'
+import ManxomeWindersnatchActivate from '../_components/ManxomeWindersnatchActivate.astro'
+import Mu from '../_components/Mu.astro'
+import OreRigatoCast from '../_components/OreRigatoCast.astro'
+import ReadyOreNotCast from '../_components/ReadyOreNotCast.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+import AttackSection from '../_components/SugarRiotAttackSection.astro'
+import UnlimitedCravingActivate from '../_components/UnlimitedCravingActivate.astro'
+import Yan from '../_components/Yan.astro'
+
+import wave4 from '@/assets/07/m6s/paint_mark/wave4@3x.png'
+import wave4_solution_1 from '@/assets/07/m6s/soul_sugar/wave4_solution_1.png'
+import wave4_solution_2 from '@/assets/07/m6s/soul_sugar/wave4_solution_2.png'
+import wave4_solution_3 from '@/assets/07/m6s/soul_sugar/wave4_solution_3.png'
+import wave4_solution_4 from '@/assets/07/m6s/soul_sugar/wave4_solution_4.png'
+import wave4_solution_5 from '@/assets/07/m6s/soul_sugar/wave4_solution_5.png'
+import wave4_solution_6 from '@/assets/07/m6s/soul_sugar/wave4_solution_6.png'
+import wave4_solution_7 from '@/assets/07/m6s/soul_sugar/wave4_solution_7.png'
+import wave4_solution_8 from '@/assets/07/m6s/soul_sugar/wave4_solution_8.png'
+import wave4_solution_9 from '@/assets/07/m6s/soul_sugar/wave4_solution_9.png'
+
+interface Props {
+  base?: Time
+}
+
+const { base = 0 }: Props = Astro.props
+---
+
+<LivePaintingCast start="05:11.333" base={base} class="-my-5">
+  <Image src={wave4} alt="Paint Mark: Wave #4" class="-mx-2 w-30 drop-shadow-sm drop-shadow-black" />
+  ，激活
+  <Mu>
+    <Span variant="purple">×2</Span>
+  </Mu>
+  <Yan>
+    <Span variant="purple">×1</Span>
+  </Yan>
+  <GimmeCat>
+    <Span variant="purple">×1</Span>
+  </GimmeCat>
+  <FeatherRay>
+    <Span variant="purple">×2</Span>
+  </FeatherRay>
+  <Jabberwock>
+    <Span variant="purple">×1</Span>
+  </Jabberwock>
+</LivePaintingCast>
+<AttackSection time="05:17.213" base={base} damage="57000" damageType="magical" />
+<UnlimitedCravingActivate time="05:18.463" base={base} wave={4} />
+<AttackSection time="05:20.245" base={base} damage="57000" damageType="magical" />
+<AttackSection time="05:23.280" base={base} damage="57000" damageType="magical" />
+<ManxomeWindersnatchActivate time="05:23.505" base={base} wave={4} />
+<AttackSection time="05:26.314" base={base} damage="57000" damageType="magical" />
+<AttackSection time="05:29.342" base={base} damage="57000" damageType="magical" />
+<HangryHissCast start="05:24.666" base={base} wave={3} />
+<AttackSection time="05:32.374" base={base} damage="57000" damageType="magical" />
+<AttackSection time="05:35.403" base={base} damage="57000" damageType="magical" />
+<AttackSection time="05:38.432" base={base} damage="57000" damageType="magical" />
+<AttackSection time="05:41.456" base={base} damage="57000" damageType="magical" />
+<AttackSection time="05:44.486" base={base} damage="57000" damageType="magical" />
+<AttackSection time="05:47.515" base={base} damage="57000" damageType="magical" />
+<AttackSection time="05:50.547" base={base} damage="57000" damageType="magical" />
+<AttackSection time="05:53.577" base={base} damage="57000" damageType="magical" />
+<AttackSection time="05:56.608" base={base} damage="57000" damageType="magical" />
+<AttackSection time="05:59.637" base={base} damage="57000" damageType="magical" />
+<AttackSection time="06:02.663" base={base} damage="57000" damageType="magical" />
+<HangryHissCast start="06:03.946" base={base} wave={4} />
+<AttackSection time="06:05.691" base={base} damage="57000" damageType="magical" />
+<AttackSection time="06:08.726" base={base} damage="57000" damageType="magical" />
+<AttackSection time="06:11.757" base={base} damage="57000" damageType="magical" />
+<AttackSection time="06:14.787" base={base} damage="57000" damageType="magical" />
+<AttackSection time="06:17.820" base={base} damage="57000" damageType="magical" />
+<AttackSection time="06:20.850" base={base} damage="57000" damageType="magical" />
+<ReadyOreNotCast start="06:22.502" base={base} />
+<AttackSection time="06:30.923" base={base} damage="57000" damageType="magical" />
+<OreRigatoCast start="06:30.572" base={base}>
+  <Mu wave={4} />
+</OreRigatoCast>
+<SolutionSection title="解法：Wave #4">
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      目标优先级：
+      <GimmeCat>
+        <Span variant="blue">#3</Span>
+      </GimmeCat>
+      &gt;
+      <Jabberwock />
+      &gt;
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      ≥
+      <GimmeCat>
+        <Span variant="purple">#4</Span>
+      </GimmeCat>
+      &gt;
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      &gt;
+      <Mu />
+      &gt;
+      <Yan />
+    </div>
+    <div class="gap-strat flex items-center">
+      一般来说，第4轮开始时，
+      <GimmeCat>
+        <Span variant="blue">#3</Span>
+      </GimmeCat>
+      应当仅剩余一丝血，可在第4轮小怪可选中前击杀
+    </div>
+    <div class="gap-strat flex items-center">
+      如果
+      <GimmeCat>
+        <Span variant="blue">#3</Span>
+      </GimmeCat>
+      打慢了，场上可能会同时存在两只
+      <GimmeCat />
+      ，注意分辨，优先击杀
+      <GimmeCat>
+        <Span variant="blue">#3</Span>
+      </GimmeCat>
+    </div>
+    <div class="gap-strat flex items-center">
+      以下图示均以
+      <GimmeCat>
+        <Span variant="blue">#3</Span>
+      </GimmeCat>
+      预先击杀为例，图中
+      <GimmeCat />
+      均为
+      <GimmeCat>
+        <Span variant="purple">#4</Span>
+      </GimmeCat>
+      而非
+      <GimmeCat>
+        <Span variant="blue">#3</Span>
+      </GimmeCat>
+    </div>
+    <div class="gap-strat mt-12 flex items-center">1. 初始站位如下：</div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <Image
+          src={wave4_solution_1}
+          alt="Wave #4: Solution 1"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <Image
+          src={wave4_solution_2}
+          alt="Wave #4: Solution 2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="tank" tag="MT" />
+      拉好
+      <Mu />
+      后，带着
+      <SugarRiot />
+      和
+      <Mu />
+      移动至
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      处
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="tank" tag="ST" />
+      拉
+      <Yan />
+      ，等待
+      <Jabberwock />
+      经过
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      被
+      <Jabberwock />
+      点名的
+      <RoleIcon role="healer" />
+      迅速到
+      <Span variant="pink">右下角</Span>
+      远离
+      <Jabberwock />
+      ，点名出现约
+      <Span variant="pink">5s</Span>
+      后会被赋予
+      <Bind hover />
+      ，无法移动
+    </div>
+    <div class="gap-strat flex items-center pl-6">
+      <ListDot />
+      开荒初期装等不高，
+      <Jabberwock />
+      打得慢，被点名的
+      <RoleIcon role="healer" />
+      可以多往右下跑，增加距离
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="melee" />
+      跟着
+      <RoleIcon role="tank" tag="ST" />
+      打
+      <Yan />
+      ，等待
+      <Jabberwock />
+      经过
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="ranged" tag="D3" />
+      引导
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      ，
+      <RoleIcon role="magic" tag="D4" />
+      引导
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      ，注意第一时间转火，
+      <FeatherRay />
+      会连线第1个攻击它的人
+    </div>
+    <div class="gap-strat mt-12 flex items-center">
+      2. <Jabberwock />
+      可选中，开始朝被点名
+      <RoleIcon role="healer" />
+      移动，经过
+      <Span variant="red">A</Span>
+      点时，
+      <RoleIcon role="tank" tag="ST" />
+      下踢眩晕：
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <Image
+          src={wave4_solution_3}
+          alt="Wave #4: Solution 3"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <Image
+          src={wave4_solution_4}
+          alt="Wave #4: Solution 4"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <Jabberwock />
+      可选中后，全员优先集火，AoE技能主目标务必调整为
+      <Jabberwock />
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <Jabberwock />
+      经过
+      <Span variant="red">A</Span>
+      点时，
+      <RoleIcon role="tank" tag="ST" />
+      下踢眩晕，这样
+      <Jabberwock />
+      和
+      <Yan />
+      会组成3目标的小集团，可以顺便溅射
+      <Yan />
+    </div>
+    <div class="gap-strat flex items-center pl-6">
+      <ListDot />
+      <RoleIcon role="tank" tag="ST" />
+      可以打约
+      <Span variant="pink">3</Span>
+      个群体GCD，之后带着
+      <Yan />
+      移动至
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      处
+    </div>
+    <div class="gap-strat flex items-center pl-6">
+      <ListDot />
+      <RoleIcon role="melee" />
+      则跟着
+      <Jabberwock />
+      同步移动，继续攻击
+      <Jabberwock />
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <Jabberwock />
+      经过
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      处时，
+      <RoleIcon role="tank" tag="MT" />
+      下踢眩晕，并将主目标调整为
+      <Jabberwock />
+    </div>
+    <div class="gap-strat flex items-center pl-6">
+      <ListDot />
+      <RoleIcon role="melee" />
+      继续攻击
+      <Jabberwock />
+      ，等
+      <Jabberwock />
+      眩晕结束，使用扫腿再次眩晕
+      <Jabberwock />
+      ，优先级
+      <RoleIcon role="melee" tag="D1" />
+      &gt;
+      <RoleIcon role="melee" tag="D2" />
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      若
+      <GimmeCat />
+      跳入怪堆，可顺便溅射
+    </div>
+    <div class="gap-strat mt-12 flex items-center">
+      3. 击杀<Jabberwock />后，被点名的
+      <RoleIcon role="healer" />
+      解除止步，全员优先集火
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      ≥
+      <GimmeCat />
+      ：
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <Image
+          src={wave4_solution_5}
+          alt="Wave #4: Solution 5"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <Image
+          src={wave4_solution_6}
+          alt="Wave #4: Solution 6"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      在
+      <GimmeCat />
+      乱跳的时候，优先集火
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      ，若
+      <GimmeCat />
+      跳入怪堆，临时切主目标为
+      <GimmeCat />
+    </div>
+    <div class="gap-strat flex items-center pl-6">
+      <ListDot />
+      若
+      <GimmeCat />
+      已经在读条第
+      <Span variant="pink">3</Span>
+      次
+      <Span variant="yellow">I Crave Violence</Span>
+      ，则优先集火
+      <GimmeCat />
+    </div>
+    <div class="gap-strat flex items-center pl-12">
+      <ListDot />
+      <GimmeCat />
+      每释放1次
+      <Span variant="yellow">I Crave Violence</Span>
+      就会叠一层
+      <HuffyCatBuff hover />
+    </div>
+    <div class="gap-strat flex items-center pl-12">
+      <ListDot />
+      如果
+      <GimmeCat />
+      读条
+      <Span variant="yellow">I Crave Violence</Span>
+      时已经有2层
+      <HuffyCatBuff hover />
+      ，说明这是第3次读条
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      这里
+      <RoleIcon role="tank" tag="ST" />
+      血量压力非常大，可以看时机开启无敌类技能，
+      <RoleIcon role="healer" />
+      注意抬血
+    </div>
+    <div class="gap-strat mt-12 flex items-center">
+      4. 击杀<Span variant="pink">右</Span>
+      <FeatherRay />和
+      <GimmeCat />后，依次处理
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      &gt;
+      <Mu />
+      &gt;
+      <Yan />：
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <Image
+          src={wave4_solution_7}
+          alt="Wave #4: Solution 7"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <Image
+          src={wave4_solution_8}
+          alt="Wave #4: Solution 8"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <SugarRiot />
+      释放
+      <Span variant="yellow">Ready Ore Not</Span>
+      <DamageInfo damage="200000" type="magical" />
+      约
+      <Span variant="pink">1s</Span>
+      后，
+      <Mu />
+      开始读条
+      <Span variant="yellow">Ore-rigato</Span>
+      <DamageInfo damage="100000" type="physical" />
+      <SustainedDamage layer={1} tag="15" hover />
+      <DotInfo damage="30000" />
+    </div>
+    <div class="gap-strat flex items-center pl-6">
+      <ListDot />
+      最多只能留1只
+      <Mu />
+      ，≥2只
+      <Mu />
+      同时释放
+      <Span variant="yellow">Ore-rigato</Span>
+      基本等于团灭
+    </div>
+    <div class="gap-strat mt-12 flex items-center">
+      5. 击杀<Mu />后，
+      <RoleIcon role="tank" />
+      把
+      <Yan />和
+      <SugarRiot />
+      拉到一起打：
+    </div>
+    <Image
+      src={wave4_solution_9}
+      alt="Wave #4: Solution 9"
+      class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+    />
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      必须在
+      <Span variant="pink">6:55</Span>
+      <SugarRiot />
+      读条
+      <Span variant="yellow">Mousse Mural</Span>
+      前击杀
+      <Yan />
+      ，否则
+      <Yan />
+      会连线强化
+      <SugarRiot />
+    </div>
+  </div>
+</SolutionSection>

@@ -1,0 +1,51 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import StratInterval from '@/components/StratInterval.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+
+import ArtisticAnarchyCast from '../_components/ArtisticAnarchyCast.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+
+import final from '@/assets/07/m6s/paint_mark/final@3x.png'
+
+interface Props {
+  base?: Time
+}
+
+const { base = 0 }: Props = Astro.props
+---
+
+<ArtisticAnarchyCast start="11:09.425" base={base} />
+<EventSection>
+  <StratInterval slot="time" start="11:20.556" end="11:23.541" base={base} />
+  <Fragment>
+    <RoleIcon role="enemy_level1">
+      <Span variant="rose">绘画图案</Span>
+    </RoleIcon>
+    读条，发动相应图案效果，造成
+    <DamageInfo damage="9999999" type="special" />
+    <Badge variant="red">团灭</Badge>
+  </Fragment>
+</EventSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      <SugarRiot />
+      绘制如下图案
+    </div>
+    <Image src={final} alt="Artistic Anarchy: Final" class="w-50" />
+    <div class="gap-strat flex items-center">
+      最终所有图案效果同时发动，伤害均为
+      <DamageInfo damage="9999999" type="special" />
+      ，玩家无处可躲，副本进程终结
+    </div>
+  </div>
+</MechanicSection>

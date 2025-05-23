@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import in_the_spotlight from '@/assets/buff/07/m5s/214284.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={in_the_spotlight}
+  name="In the Spotlight"
+  nameVariant="yellow"
+  description="Struck a groovy pose to the adulation of all on the dance floor. Cannot stop thinking about it, resulting in increased magic damage taken."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

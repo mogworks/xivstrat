@@ -1,0 +1,25 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import α from '@/assets/buff/07/m5s/214281.png'
+import β from '@/assets/buff/07/m5s/214282.png'
+
+interface Props {
+  type: 'α' | 'β'
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { type, tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={type === 'α' ? α : β}
+  name={`Wavelength ${type}`}
+  nameVariant={type === 'α' ? 'amber' : 'indigo'}
+  description="A sound bomb will detonate when this effect expires. Its damage can be reduced by sound of a different wavelength. However, mixing two sounds of the same wavelength, or more than two sounds total, will result in cacophonous explosion."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

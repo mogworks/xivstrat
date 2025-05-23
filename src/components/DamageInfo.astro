@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets'
+
+import { cn } from '@/lib/utils'
+
+import physical from '@/assets/damage_type/physical.png'
+import magical from '@/assets/damage_type/magical.png'
+import special from '@/assets/damage_type/special.png'
+
+interface Props {
+  damage: string
+  type: 'physical' | 'magical' | 'special'
+  class?: string
+}
+
+const { damage, type, class: className = '' }: Props = Astro.props
+
+const style = {
+  physical: 'border-sky-600 from-sky-600/75 to-sky-950 dark:to-sky-600/0',
+  magical: 'border-purple-600 from-purple-600/75 to-purple-950 dark:to-purple-600/0',
+  special: 'border-green-600 from-green-600/75 to-green-950 dark:to-green-600/0',
+}[type]
+
+const img = { physical, magical, special }[type]
+---
+
+<span
+  class={cn(
+    'damage-info inline-flex items-center rounded border bg-gradient-to-r pr-[calc(1em*6/18)] text-decimal text-white',
+    style,
+    className,
+  )}
+>
+  <Image src={img} alt={type} class="ml-[calc(1em*2/18)] h-[calc(1em*20/18)] w-[calc(1em*20/18)]" />
+  {damage}
+</span>

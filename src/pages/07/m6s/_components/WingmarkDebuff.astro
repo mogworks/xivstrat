@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import wingmark from '@/assets/buff/07/m6s/214274.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={wingmark}
+  name="Wingmark"
+  nameVariant="yellow"
+  description="Bearing painted wings. Will fly forward when this effect expires."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

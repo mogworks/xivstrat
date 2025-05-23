@@ -1,0 +1,52 @@
+---
+import DamageInfo from '@/components/DamageInfo.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import SustainedDamage from '@/components/buff/SustainedDamage.astro'
+
+import Wavelength from './Wavelength.astro'
+---
+
+<div class="gap-strat flex items-center">
+  <Wavelength type="α" hover />
+  <Wavelength type="β" hover />
+  <Span variant="pink">倒计时结束</Span>
+  时，会进行一个半径
+  <Span variant="pink">2m</Span>
+  的小范围检定：
+</div>
+<div class="gap-strat flex items-center">
+  <ListDot />
+  若范围内
+  <Span variant="pink">有</Span>
+  <Span variant="red">同时长同种debuff</Span>
+  ，则共同产生
+  <Span variant="red">团灭级全屏伤害</Span>
+  <Span variant="yellow">Major Freak Out</Span>
+  <DamageInfo damage=">1000000" type="magical" />
+</div>
+<div class="gap-strat flex items-center">
+  <ListDot />
+  若范围内
+  <Span variant="pink">有</Span>
+  <Span variant="green">同时长异种debuff</Span>
+  ，则共同产生
+  <Span variant="green">小范围圆形伤害</Span>
+  <Span variant="yellow">Minor Freak Out</Span>
+  <DamageInfo damage="30000" type="magical" />
+  <MagicVulnerabilityUp tag="19" hover />
+</div>
+<div class="gap-strat flex items-center">
+  <ListDot />
+  若范围内
+  <Span variant="pink">无</Span>
+  <Span variant="purple">同时长异种debuff</Span>
+  ，则产生
+  <Span variant="purple">单体伤害</Span>
+  <Span variant="yellow">Freak Out</Span>
+  <DamageInfo damage="100000" type="magical" />
+  <SustainedDamage tag="15" hover />
+  <DotInfo damage="30000" />
+</div>

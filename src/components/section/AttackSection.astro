@@ -1,0 +1,34 @@
+---
+import type { VariantType } from '@/components/Span.vue'
+
+import type { Time } from '@/lib/utils'
+
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+
+interface Props {
+  time?: Time
+  base?: Time
+  name?: string
+  nameVariant?: VariantType
+  damage: string
+  damageType: 'physical' | 'magical' | 'special'
+  [key: string]: any
+}
+
+const { time = 0, base = 0, name = '攻击', nameVariant = 'yellow', damage, damageType, ...rest }: Props = Astro.props
+---
+
+<EventSection time={time} base={base} class="attack-section hidden" {...rest}>
+  <slot name="source">
+    <Boss />
+  </slot>
+  对
+  <RoleIcon role="all" tag="一仇" />
+  发动
+  <Span variant={nameVariant}>{name}</Span>
+  <DamageInfo damage={damage} type={damageType} />
+</EventSection>

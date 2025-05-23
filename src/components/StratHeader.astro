@@ -1,0 +1,90 @@
+---
+import type { DutyPhase } from '@/data/duty'
+
+import DarkModeButton from '@/components/DarkModeButton.astro'
+import Separator from '@/components/Separator.astro'
+import { cn } from '@/lib/utils'
+
+interface Props {
+  baseUrl?: string
+  name: string
+  phases: DutyPhase[]
+}
+
+const { baseUrl, name, phases }: Props = Astro.props
+---
+
+<header
+  class="border-border/50 bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50 border-b py-2 backdrop-blur"
+>
+  <div class="max-w-strat-max min-w-strat-min mx-auto grid grid-cols-[16rem_1fr_16rem] px-4">
+    <section class="flex items-center justify-self-end px-4">
+      <a href="/" class="text-xl font-bold tracking-tight hover:text-blue-700 dark:hover:text-blue-400">XivStrat</a>
+    </section>
+    <section class="flex items-center">
+      <Separator orientation="vertical" class="h-8" />
+      {
+        baseUrl ? (
+          <a
+            href={baseUrl}
+            class="px-4 text-xl font-medium whitespace-nowrap text-yellow-600 [text-shadow:_0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300"
+          >
+            {name}
+          </a>
+        ) : (
+          <span class="px-4 text-xl font-medium whitespace-nowrap text-yellow-600 [text-shadow:_0_0_1px_yellow] dark:text-yellow-400">
+            {name}
+          </span>
+        )
+      }
+      <Separator orientation="vertical" class="h-8" />
+      <nav class="flex flex-grow items-center gap-4 px-4">
+        {
+          phases.map((phase) => {
+            const isActive = Astro.url.pathname === phase.href || Astro.url.pathname === `${phase.href}/`
+            return (
+              <a
+                href={phase.href}
+                class="group relative flex h-12 flex-col items-center justify-center text-base font-medium hover:text-black dark:hover:text-white"
+              >
+                <div class={cn('flex h-12 items-center', phase.subtitle && 'h-6')}>
+                  <span class="text-lg whitespace-nowrap text-blue-600 group-hover:text-blue-700 dark:text-blue-400 dark:group-hover:text-blue-300">
+                    {phase.title}
+                  </span>
+                </div>
+                {phase.subtitle && (
+                  <div class="flex h-6 items-center">
+                    <span class="text-sm whitespace-nowrap text-zinc-600 group-hover:text-zinc-800 dark:text-zinc-300 dark:group-hover:text-zinc-100">
+                      {phase.subtitle}
+                    </span>
+                  </div>
+                )}
+                <div
+                  class={`pointer-events-none absolute inset-x-0 [bottom:-9px] h-0.5 bg-blue-600 ${isActive ? 'opacity-80' : 'opacity-0'} [mask-image:linear-gradient(to_right,transparent,black,transparent)] transition-opacity duration-300 group-hover:opacity-80 dark:bg-blue-400`}
+                />
+              </a>
+            )
+          })
+        }
+      </nav>
+      <Separator orientation="vertical" class="h-8" />
+    </section>
+    <section class="flex items-center gap-2 px-4">
+      <DarkModeButton />
+      <a class="h-5 w-5 text-current/75 hover:text-current" href="https://space.bilibili.com/25787773" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="h-full w-full">
+          <title>Bilibili</title>
+          <g fill="none" fill-rule="evenodd">
+            <path
+              d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"
+            ></path>
+            <path
+              fill="currentColor"
+              d="M6.445 3.168a1 1 0 0 1 1.387.277L9.535 6h4.93l1.703-2.555a1 1 0 0 1 1.664 1.11L16.87 6H18a4 4 0 0 1 4 4v7a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-7a4 4 0 0 1 4-4h1.131l-.963-1.445a1 1 0 0 1 .277-1.387M8.986 8H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2H9.016zM9 11a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1m6 0a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1"
+            ></path>
+          </g>
+        </svg>
+      </a>
+    </section>
+  </div>
+</header>

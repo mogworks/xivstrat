@@ -1,0 +1,26 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<CastSection start={start} base={base} duration={4.7} ability="Pudding Party" target>
+  <SugarRiot slot="source" />
+  <Fragment slot="target">
+    随机
+    <RoleIcon role="healer" />
+  </Fragment>
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="yellow">5×连续分摊</Badge>
+</CastSection>

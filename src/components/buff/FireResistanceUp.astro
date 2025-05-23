@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import icon from '@/assets/buff/215028.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={icon}
+  name="火属性耐性提升"
+  nameVariant="yellow"
+  description="对火属性的耐性有所提高"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

@@ -1,0 +1,26 @@
+---
+import type { Time } from '@/lib/utils'
+
+import StratTime from '@/components/StratTime.astro'
+import Section from '@/components/section/Section.astro'
+
+interface Props {
+  time?: Time
+  base?: Time
+  class?: string
+  [key: string]: any
+}
+
+const { time = 0, base = 0, class: className = '', ...rest }: Props = Astro.props
+---
+
+<Section class={className} {...rest}>
+  <div class="self-center justify-self-end px-4">
+    <slot name="time">
+      <StratTime time={time} base={base} />
+    </slot>
+  </div>
+  <div class="flex items-center gap-1 px-4 text-lg">
+    <slot />
+  </div>
+</Section>

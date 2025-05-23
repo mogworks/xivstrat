@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content'
+
+import Layout from '@/layouts/Layout.astro'
+import Footer from '@/components/Footer.astro'
+import DutyGroup from '@/components/DutyGroup.astro'
+import DarkModeButton from '@/components/DarkModeButton.astro'
+
+const dutyGroups = await getCollection('dutyGroups')
+---
+
+<Layout>
+  <div class="@container relative flex min-h-dvh min-w-sm flex-col items-center">
+    <div class="bg-dots fade-b absolute inset-x-0 top-0 h-48"></div>
+    <DarkModeButton class="fixed top-8 right-8" />
+    <header class="mt-20 text-center">
+      <h1 class="text-5xl leading-tight font-semibold tracking-tight">XivStrat</h1>
+      <p class="mt-7 text-lg leading-relaxed font-medium text-zinc-400">从7.2开始的最终幻想14中文攻略站</p>
+    </header>
+    <main class="mb-24 w-full px-8 py-16 @md:max-w-md @3xl:max-w-4xl @7xl:max-w-7xl">
+      <div class="space-y-16">
+        {dutyGroups.map((dutyGroup) => <DutyGroup dutyGroup={dutyGroup.data} />)}
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

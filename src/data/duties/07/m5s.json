@@ -1,0 +1,115 @@
+{
+  "name": "阿卡狄亚零式登天斗技场 中量级1",
+  "short": "M5S",
+  "type": "raid",
+  "title": "阿卡狄亚零式登天斗技场 中量级1 攻略",
+  "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级1 超详解动态图文攻略",
+  "banner": "@/assets/banners/07/m5s.png",
+  "date": "25/05/09 16:30",
+  "href": "/07/m5s",
+  "status": "done",
+  "indexAvailable": false,
+  "phases": [
+    {
+      "href": "/07/m5s/p1",
+      "title": "Part 1",
+      "subtitle": "阿卡狄亚夜狂热",
+      "name": "P1 - 阿卡狄亚夜狂热",
+      "mechanics": [
+        {
+          "href": "#deep-cut",
+          "name": "Deep Cut"
+        },
+        {
+          "href": "#flip-to-x-side",
+          "name": "Flip to (A|B)-side"
+        },
+        {
+          "href": "#disco-infernal",
+          "name": "Disco Infernal"
+        },
+        {
+          "href": "#funky-floor",
+          "name": "Funky Floor"
+        },
+        {
+          "href": "#inside-out-or-outside-in",
+          "name": "Inside Out | Outside In"
+        },
+        {
+          "href": "#arcady-night-fever",
+          "name": "Arcady Night Fever"
+        },
+        {
+          "href": "#lets-dance",
+          "name": "Let's Dance!"
+        },
+        {
+          "href": "#lets-pose",
+          "name": "Let's Pose!"
+        }
+      ]
+    },
+    {
+      "href": "/07/m5s/p2",
+      "title": "Part 2",
+      "subtitle": "阿卡狄亚夜安可",
+      "name": "P2 - 阿卡狄亚夜安可",
+      "mechanics": [
+        {
+          "href": "#ride-the-waves",
+          "name": "Ride the Waves"
+        },
+        {
+          "href": "#frogtourage",
+          "name": "Frogtourage"
+        },
+        {
+          "href": "#disco-infernal",
+          "name": "Disco Infernal"
+        },
+        {
+          "href": "#arcady-night-encore",
+          "name": "Arcady Night Encore"
+        },
+        {
+          "href": "#lets-dance-remix",
+          "name": "Let's Dance! Remix"
+        },
+        {
+          "href": "#lets-pose",
+          "name": "Let's Pose!"
+        }
+      ]
+    },
+    {
+      "href": "/07/m5s/p3",
+      "title": "Part 3",
+      "subtitle": "终幕狂热",
+      "name": "P3 - 终幕狂热",
+      "mechanics": [
+        {
+          "href": "#frogtourage-part-1",
+          "name": "Frogtourage Part 1"
+        },
+        {
+          "href": "#frogtourage-part-2",
+          "name": "Frogtourage Part 2"
+        },
+        {
+          "href": "#frogtourage-part-3",
+          "name": "Frogtourage Part 3"
+        },
+        {
+          "href": "#funky-floor",
+          "name": "Funky Floor"
+        },
+        {
+          "href": "#hi-nrg-fever",
+          "name": "Hi-NRG Fever"
+        }
+      ]
+    }
+  ],
+  "locales": {}
+}

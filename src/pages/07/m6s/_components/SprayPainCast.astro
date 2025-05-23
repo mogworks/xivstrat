@@ -1,0 +1,27 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EntityIcon from '@/components/EntityIcon.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+
+import icon from '@/assets/07/m6s/entity_icons/cactus.png'
+
+interface Props {
+  start: Time
+  base?: Time
+  duration?: Time
+  num?: number
+}
+
+const { start, base = 0, duration = 6.7, num = 5 }: Props = Astro.props
+---
+
+<CastSection start={start} base={base} duration={duration} ability="Spray Pain">
+  <EntityIcon slot="source" icon={icon} alt="仙人掌">
+    <Span variant="rose">仙人掌×{num}</Span>
+  </EntityIcon>
+  <Fragment slot="cast">逐渐变大并释放</Fragment>
+  <Badge variant="emerald">10m圆形</Badge>
+</CastSection>

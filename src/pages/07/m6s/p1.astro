@@ -1,0 +1,53 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import ColorRiotCast from './_components/ColorRiotCast.astro'
+import MousseMuralCast from './_components/MousseMuralCast.astro'
+import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+import SugarRiot from './_components/SugarRiot.astro'
+import AttackSection from './_components/SugarRiotAttackSection.astro'
+
+import ColorClash from './_mechanics/ColorClash.astro'
+import ColorRiot from './_mechanics/ColorRiot.astro'
+import DoubleStyleP1 from './_mechanics/DoubleStyleP1.astro'
+import StickyMousse from './_mechanics/StickyMousse.astro'
+import Wingmark from './_mechanics/Wingmark.astro'
+
+const dutyId = '07/m6s'
+const base = 0
+---
+
+<DutyStratLayout dutyId={dutyId}>
+  <EventSection>
+    <RoleIcon role="tank" tag="MT" />
+    开怪，将
+    <SugarRiot />
+    固定在场中偏南一点的位置
+  </EventSection>
+  <AttackSection time="00:00.003" base={base} damage="57000" damageType="magical" />
+  <AttackSection time="00:03.022" base={base} damage="57000" damageType="magical" />
+  <AttackSection time="00:06.045" base={base} damage="57000" damageType="magical" />
+  <MousseMuralCast start="00:06.177" base={base} />
+  <AttackSection time="00:14.078" base={base} damage="57000" damageType="magical" />
+  <AttackSection time="00:17.100" base={base} damage="57000" damageType="magical" />
+  <SeparatorSection id="color-riot" title="Color Riot" />
+  <ColorRiot base={base} />
+  <SeparatorSection />
+  <AttackSection time="00:27.369" base={base} damage="57000" damageType="magical" />
+  <MoveToCenterEvent time="00:29.678" base={base} />
+  <SeparatorSection id="wingmark" title="Wingmark" />
+  <Wingmark base={base} />
+  <SeparatorSection id="color-clash" title="Color Clash" />
+  <ColorClash base={base} />
+  <SeparatorSection id="double-style" title="Double Style" />
+  <DoubleStyleP1 base={base} />
+  <SeparatorSection id="sticky-mousse" title="Sticky Mousse" />
+  <StickyMousse base={base} />
+  <SeparatorSection />
+  <ColorRiotCast start="01:16.779" base={base} />
+  <AttackSection time="01:26.860" base={base} damage="57000" damageType="magical" />
+</DutyStratLayout>

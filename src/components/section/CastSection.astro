@@ -1,0 +1,71 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { timeToSeconds } from '@/lib/utils'
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import StratInterval from '@/components/StratInterval.astro'
+import Section from '@/components/section/Section.astro'
+
+interface Props {
+  start?: Time
+  duration?: Time
+  end?: Time
+  base?: Time
+  ability?: string
+  target?: boolean
+  damage?: string
+  damageType?: 'physical' | 'magical' | 'special'
+  adjustDuration?: boolean
+  [key: string]: any
+}
+
+const {
+  start = undefined,
+  duration = undefined,
+  end = undefined,
+  base = 0,
+  ability = '',
+  target = false,
+  damage = undefined,
+  damageType = 'physical',
+  adjustDuration = true,
+  ...rest
+}: Props = Astro.props
+
+// 修正延迟
+const adjustedDuration = adjustDuration
+  ? duration !== undefined
+    ? timeToSeconds(duration) + 0.3
+    : undefined
+  : duration
+---
+
+<Section {...rest}>
+  <div class="self-center justify-self-end px-4">
+    <StratInterval start={start} duration={adjustedDuration} end={end} base={base} />
+  </div>
+  <div class="flex items-center gap-1 px-4 text-lg">
+    <slot name="source">
+      <Boss />
+    </slot>
+    {
+      target && (
+        <>
+          对
+          <slot name="target">
+            <RoleIcon role="all" tag="全员" />
+          </slot>
+        </>
+      )
+    }
+    <slot name="cast">读条</slot>
+    <slot name="ability">
+      <Span variant="yellow">{ability}</Span>
+    </slot>
+    {damage && <DamageInfo damage={damage} type={damageType} />}
+    <slot />
+  </div>
+</Section>

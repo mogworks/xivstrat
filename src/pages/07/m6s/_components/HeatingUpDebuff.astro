@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import heating_up from '@/assets/buff/07/m6s/214278.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={heating_up}
+  name="Heating Up"
+  nameVariant="yellow"
+  description="Getting hotter by the moment, resulting in damage to those nearby when this effect expires."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

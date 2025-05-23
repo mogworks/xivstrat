@@ -1,0 +1,25 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import Span from '@/components/Span.vue'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<CastSection start={start} base={base} duration={4.7} ability="Do the Hustle">
+  <Fragment slot="source">
+    <RoleIcon role="enemy_level1">
+      <Span variant="rose">青蛙×2</Span>
+    </RoleIcon>
+    <Span variant="zinc">在随机相邻斜点方向</Span>
+  </Fragment>
+  <Badge variant="yellow">左右刀</Badge>
+</CastSection>

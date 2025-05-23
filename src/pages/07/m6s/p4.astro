@@ -1,0 +1,50 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import MousseMuralCast from './_components/MousseMuralCast.astro'
+import MoveToNorthEvent from './_components/MoveToNorthEvent.astro'
+import SugarRiot from './_components/SugarRiot.astro'
+import AttackSection from './_components/SugarRiotAttackSection.astro'
+
+import DoubleStyleP4 from './_mechanics/DoubleStyleP4.astro'
+import Layer3 from './_mechanics/Layer3.astro'
+import Layer4 from './_mechanics/Layer4.astro'
+import SugarscapeP4 from './_mechanics/SugarscapeP4.astro'
+
+const dutyId = '07/m6s'
+const base = '07:07.286'
+---
+
+<DutyStratLayout dutyId={dutyId}>
+  <MoveToNorthEvent time="07:07.286" base={base} />
+  <SeparatorSection id="sugarscape" title="Sugarscape" />
+  <SugarscapeP4 base={base} />
+  <SeparatorSection id="double-style" title="Double Style" />
+  <DoubleStyleP4 base={base} />
+  <SeparatorSection id="layer-3" title="Layer #3" />
+  <Layer3 base={base} />
+  <SeparatorSection id="layer-4" title="Layer #4" />
+  <Layer4 base={base} />
+  <SeparatorSection />
+  <MousseMuralCast id="mousse-mural" start="09:53.472" base={base} />
+  <EventSection time="09:59.0" base={base}>
+    <Span variant="zinc">场地复原</Span>
+  </EventSection>
+  <NoteSection>
+    <div class="gap-strat flex items-center">
+      场地复原后，
+      <RoleIcon role="tank" tag="MT" />
+      迅速将
+      <SugarRiot />
+      往场中带位，方便处理后续机制
+    </div>
+  </NoteSection>
+  <AttackSection time="10:00.469" base={base} damage="57000" damageType="magical" />
+  <AttackSection time="10:03.501" base={base} damage="57000" damageType="magical" />
+</DutyStratLayout>

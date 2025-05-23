@@ -1,0 +1,65 @@
+---
+import { cn } from '@/lib/utils'
+
+interface Props {
+  variant:
+    | 'red'
+    | 'orange'
+    | 'amber'
+    | 'yellow'
+    | 'lime'
+    | 'green'
+    | 'emerald'
+    | 'teal'
+    | 'cyan'
+    | 'sky'
+    | 'blue'
+    | 'indigo'
+    | 'violet'
+    | 'purple'
+    | 'fuchsia'
+    | 'pink'
+    | 'rose'
+    | 'slate'
+    | 'gray'
+    | 'zinc'
+    | 'neutral'
+    | 'stone'
+  class?: string
+}
+
+const { variant, class: className = '' }: Props = Astro.props
+
+const style = {
+  red: 'bg-red-700/90 border-red-200/75',
+  orange: 'bg-orange-700/90 border-orange-200/75',
+  amber: 'bg-amber-700/90 border-amber-200/75',
+  yellow: 'bg-yellow-700/90 border-yellow-200/75',
+  lime: 'bg-lime-700/90 border-lime-200/75',
+  green: 'bg-green-700/90 border-green-200/75',
+  emerald: 'bg-emerald-700/90 border-emerald-200/75',
+  teal: 'bg-teal-700/90 border-teal-200/75',
+  cyan: 'bg-cyan-700/90 border-cyan-200/75',
+  sky: 'bg-sky-700/90 border-sky-200/75',
+  blue: 'bg-blue-700/90 border-blue-200/75',
+  indigo: 'bg-indigo-700/90 border-indigo-200/75',
+  violet: 'bg-violet-700/90 border-violet-200/75',
+  purple: 'bg-purple-700/90 border-purple-200/75',
+  fuchsia: 'bg-fuchsia-700/90 border-fuchsia-200/75',
+  pink: 'bg-pink-700/90 border-pink-200/75',
+  rose: 'bg-rose-700/90 border-rose-200/75',
+  slate: 'bg-slate-700/90 border-slate-200/75',
+  gray: 'bg-gray-700/90 border-gray-200/75',
+  zinc: 'bg-zinc-700/90 border-zinc-200/75',
+  neutral: 'bg-neutral-700/90 border-neutral-200/75',
+  stone: 'bg-stone-700/90 border-stone-200/75',
+}[variant]
+---
+
+<span
+  class={cn(
+    'inline-flex items-center rounded-full px-[calc(1em*9/18)] py-[calc(1em*1/18)] text-[calc(1em*14/18)] text-white border',
+    style,
+    className,
+  )}><slot /></span
+>

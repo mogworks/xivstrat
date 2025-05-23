@@ -1,0 +1,48 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { timeToSeconds } from '@/lib/utils'
+import Separator from '@/components/Separator.astro'
+import StratTime from '@/components/StratTime.astro'
+
+interface Props {
+  start?: Time
+  duration?: Time
+  end?: Time
+  base?: Time
+}
+
+const { start = undefined, duration = undefined, end = undefined, base = 0 }: Props = Astro.props
+if (
+  (start === undefined && duration === undefined) ||
+  (start === undefined && end === undefined) ||
+  (duration === undefined && end === undefined)
+) {
+  throw new Error('At least two of start, duration and end are required')
+}
+let startSeconds, durationSeconds, endSeconds
+if (start === undefined) {
+  durationSeconds = timeToSeconds(duration!)
+  endSeconds = timeToSeconds(end!)
+  startSeconds = endSeconds - durationSeconds
+} else if (end === undefined) {
+  startSeconds = timeToSeconds(start!)
+  durationSeconds = timeToSeconds(duration!)
+  endSeconds = startSeconds + durationSeconds
+} else {
+  startSeconds = timeToSeconds(start!)
+  endSeconds = timeToSeconds(end!)
+  durationSeconds = endSeconds - startSeconds
+}
+---
+
+<div class="relative flex flex-col items-center">
+  <div class="flex items-center gap-1.5">
+    <StratTime time={startSeconds} base={base} />
+    <Separator class="bg-foreground/75 relative w-9" />
+    <StratTime time={endSeconds} base={base} />
+  </div>
+  <span class="text-foreground/75 absolute bottom-3.5 text-xs">
+    {`${durationSeconds.toFixed(1)}s`}
+  </span>
+</div>

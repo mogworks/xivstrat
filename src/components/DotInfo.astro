@@ -1,0 +1,14 @@
+---
+import Span from '@/components/Span.vue'
+
+import { cn } from '@/lib/utils'
+
+interface Props {
+  damage: string
+  class?: string
+}
+
+const { damage, class: className = '' }: Props = Astro.props
+---
+
+<Span variant="orange" class={cn('damage-info text-decimal', className)}>{`${damage}/3s`}</Span>

@@ -1,0 +1,13 @@
+xivstrat.com {
+	root * /srv
+	file_server
+
+	handle_errors {
+		@custom_err file /{err.status_code}.html
+		handle @custom_err {
+			rewrite * {file_match.relative}
+			file_server
+		}
+		respond "{err.status_code} {err.status_text}"
+	}
+}

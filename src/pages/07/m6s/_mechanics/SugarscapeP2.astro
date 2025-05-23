@@ -1,0 +1,150 @@
+---
+import { timeToSeconds, type Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import FireResistanceDownII from '@/components/buff/FireResistanceDownII.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+
+import BurningUpDebuff from '../_components/BurningUpDebuff.astro'
+import HeatingUpDebuff from '../_components/HeatingUpDebuff.astro'
+import SugarscapeCast from '../_components/SugarscapeCast.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+import SwelteringDebuff from '../_components/SwelteringDebuff.astro'
+
+import paint_1 from '@/assets/07/m6s/paint/1.png'
+import floor_p2 from '@/assets/07/m6s/floor_p2.png'
+
+interface Props {
+  base: Time
+}
+
+const { base = 0 }: Props = Astro.props
+
+const start = '01:30.298'
+const duration = 7.7
+const adjustedDuration = duration + 0.3
+const end = timeToSeconds(start) + adjustedDuration
+---
+
+<SugarscapeCast start={start} end={end} base={base}>
+  ，场地变换为沙漠，
+  <RoleIcon role="all" tag="全员" />
+  被赋予
+  <SwelteringDebuff hover />
+  <DotInfo damage="15000" />
+</SugarscapeCast>
+<EventSection time={end} base={base}>
+  <RoleIcon role="healer" tag="H1" />
+  <RoleIcon role="healer" tag="H2" />
+  被赋予
+  <HeatingUpDebuff tag="74" hover />
+  ，随机
+  <Span variant="default">1</Span>
+  <RoleIcon role="tank" />
+  <Span variant="default">1</Span>
+  <RoleIcon role="dps" />
+  被赋予
+  <HeatingUpDebuff tag="43" hover />
+  ，随机
+  <Span variant="default">1</Span>
+  无
+  <HeatingUpDebuff hover />
+  的人被赋予
+  <BurningUpDebuff tag="43" hover />
+</EventSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">Sugarscape</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      <SugarRiot />
+      连线场外北侧画卷，绘制如下图案
+    </div>
+    <Image src={paint_1} alt="Sugarscape Paint P2" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <div class="gap-strat mt-8 flex items-center">
+      <SugarRiot />
+      读条结束后，画卷具现化，场地变换为沙漠，如下图
+    </div>
+    <Image src={floor_p2} alt="P2 Floor" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <div class="gap-strat flex items-center">
+      同时，全员被赋予永续
+      <SwelteringDebuff hover /><DotInfo damage="15000" />
+      ，该
+      <Span variant="default">DoT</Span>
+      伤害不受
+      <RoleIcon role="tank" />
+      被动减免，对
+      <RoleIcon role="all" tag="全员" />
+      伤害一致
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">Heating Up</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      <RoleIcon role="healer" tag="H1" />
+      <RoleIcon role="healer" tag="H2" />
+      被赋予
+      <HeatingUpDebuff tag="74" hover />
+      ，随机
+      <Span variant="default">1</Span>
+      <RoleIcon role="tank" />
+      <Span variant="default">1</Span>
+      <RoleIcon role="dps" />
+      被赋予
+      <HeatingUpDebuff tag="43" hover />
+    </div>
+    <div class="gap-strat flex items-center">
+      <HeatingUpDebuff hover />
+      倒计时结束后会爆炸，产生半径
+      <Span variant="pink">15m</Span>
+      的圆形AoE：
+    </div>
+    <div class="gap-strat flex items-center pl-4">
+      <ListDot />
+      对持有者造成
+      <Span variant="yellow">Brûlée</Span>
+      <DamageInfo damage="100000" type="magical" />
+      <FireResistanceDownII tag="3" hover />
+    </div>
+    <div class="gap-strat flex items-center pl-4">
+      <ListDot />
+      对范围内其他人造成
+      <Span variant="yellow">Brûlée</Span>
+      <DamageInfo damage="100000" type="magical" />
+      <FireResistanceDownII tag="3" hover />
+      <DamageDown tag="30" hover />
+      <Span variant="rose" class="text-decimal">30%↓</Span>
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">Burning Up</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      随机
+      <Span variant="default">1</Span>
+      无
+      <HeatingUpDebuff hover />
+      的人被赋予
+      <BurningUpDebuff tag="43" hover />
+    </div>
+    <div class="gap-strat flex items-center">
+      <BurningUpDebuff hover />
+      倒计时结束后会爆炸，产生可分摊的半径
+      <Span variant="pink">5m</Span>
+      的圆形AoE
+    </div>
+    <div class="gap-strat flex items-center">
+      6人分摊时每人受到
+      <Span variant="yellow">Crowd Brûlée</Span>
+      <DamageInfo damage="100000" type="magical" />
+    </div>
+  </div>
+</MechanicSection>

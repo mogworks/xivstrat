@@ -1,0 +1,23 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+
+import GimmeCat from './GimmeCat.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+  wave: number
+}
+
+const { time, base = 0, wave }: Props = Astro.props
+---
+
+<EventSection time={time} base={base}>
+  <GimmeCat wave={wave} />
+  发动
+  <Span variant="yellow">Unlimited Craving</Span>
+  偷取LB
+</EventSection>

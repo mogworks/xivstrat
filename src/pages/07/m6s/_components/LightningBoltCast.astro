@@ -1,0 +1,26 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<CastSection start={start} base={base} duration={2.7} ability="Lightning Bolt">
+  <Fragment slot="source">
+    <RoleIcon role="enemy_level1">
+      <Span variant="rose">BOSS分身[不可视]×6</Span>
+    </RoleIcon>
+  </Fragment>
+  <Badge variant="emerald">4m圆形</Badge>
+  <Badge variant="yellow">随机地面AoE</Badge>
+</CastSection>

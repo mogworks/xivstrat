@@ -1,0 +1,27 @@
+---
+import Buff from '@/components/Buff.astro'
+import Span from '@/components/Span.vue'
+
+import warm_tint from '@/assets/buff/07/m6s/214275.png'
+
+interface Props {
+  hover?: boolean
+  class?: string
+}
+
+const { hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={warm_tint}
+  name="Warm Tint"
+  nameVariant="orange"
+  description="Bodily aether has become unbalanced by the influence of warm hues. Will take severe damage if hit by another Warm Bomb."
+  hover={hover}
+  class={className}
+>
+  <p>
+    Bodily aether has become unbalanced by the influence of <Span variant="orange">warm</Span> hues. Will take severe damage
+    if hit by another <Span variant="orange">Warm Bomb</Span>.
+  </p>
+</Buff>

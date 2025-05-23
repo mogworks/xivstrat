@@ -1,0 +1,30 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import HPPenalty from '@/components/buff/HPPenalty.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import GimmeCat from './GimmeCat.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+  wave: number
+}
+
+const { start, base = 0, wave }: Props = Astro.props
+---
+
+<CastSection start={start} base={base} duration={2.7} ability="I Crave Violence">
+  <GimmeCat slot="source" wave={wave} />
+  <Fragment slot="cast">跳向随机玩家，读条</Fragment>
+  <Span variant="pink" class="text-decimal">MP-9900</Span>
+  <DamageDown tag="30" hover />
+  <Span variant="rose" class="text-decimal">30%↓</Span>
+  <HPPenalty tag="30" hover />
+  <Span variant="rose" class="text-decimal">70%↓</Span>
+  <Badge variant="emerald">6m圆形</Badge>
+</CastSection>

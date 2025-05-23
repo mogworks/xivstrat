@@ -1,0 +1,24 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Boss from '@/components/Boss.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<EventSection time={start} base={base}>
+  <Boss />
+  目标圈取消身位限制
+</EventSection>
+<CastSection start={start} base={base} duration={2.7} ability="Ensemble Assemble" />
+<NoteSection>
+  <div class="gap-strat flex items-center">无实际意义</div>
+</NoteSection>

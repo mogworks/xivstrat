@@ -1,0 +1,388 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import Badge from '@/components/Badge.astro'
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import StratLink from '@/components/StratLink.astro'
+import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import AttackSection from '@/components/section/AttackSection.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import QuarterOrEighthBeatsAbility from '../_components/QuarterOrEighthBeatsAbility.astro'
+import QuarterOrEighthBeatsCast from '../_components/QuarterOrEighthBeatsCast.astro'
+
+import ride_the_waves_25_omen from '@/assets/07/m5s/ride_the_waves/25_omen.png'
+import ride_the_waves_47_omen from '@/assets/07/m5s/ride_the_waves/47_omen.png'
+import ride_the_waves_25_half from '@/assets/07/m5s/ride_the_waves/25_half.png'
+import ride_the_waves_47_half from '@/assets/07/m5s/ride_the_waves/47_half.png'
+import ride_the_waves_25_final from '@/assets/07/m5s/ride_the_waves/25_final.png'
+import ride_the_waves_47_final from '@/assets/07/m5s/ride_the_waves/47_final.png'
+import ride_the_waves_jp_1 from '@/assets/07/m5s/ride_the_waves/jp_1.png'
+import ride_the_waves_jp_2 from '@/assets/07/m5s/ride_the_waves/jp_2.png'
+import ride_the_waves_jp_3 from '@/assets/07/m5s/ride_the_waves/jp_3.png'
+import ride_the_waves_jp_4 from '@/assets/07/m5s/ride_the_waves/jp_4.png'
+import ride_the_waves_jp_5 from '@/assets/07/m5s/ride_the_waves/jp_5.png'
+import ride_the_waves_optimize_1 from '@/assets/07/m5s/ride_the_waves/optimize_1.png'
+import ride_the_waves_optimize_2 from '@/assets/07/m5s/ride_the_waves/optimize_2.png'
+import ride_the_waves_optimize_3 from '@/assets/07/m5s/ride_the_waves/optimize_3.png'
+import ride_the_waves_optimize_4 from '@/assets/07/m5s/ride_the_waves/optimize_4.png'
+
+interface Props {
+  base?: Time
+}
+
+const { base = 0 }: Props = Astro.props
+---
+
+<CastSection start="03:48.804" base={base} duration={3.2} ability="Ride the Waves">
+  <Badge variant="yellow">步进式地火</Badge>
+</CastSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      <RoleIcon role="tank" tag="双T" />
+      注意：若采用
+      <StratLink variant="lime" href="#ride-the-waves-solution-jp">解法：日野主流</StratLink>
+      ，读条后只有
+      <Span variant="pink">5s</Span>
+      调整
+      <Boss />
+      位置
+    </div>
+    <div class="gap-strat flex items-center">
+      <RoleIcon role="tank" tag="MT" />
+      尽快拉到两列安全列之间，以免近战罚站，
+      <RoleIcon role="tank" tag="ST" />
+      可视情况挑衅带位
+    </div>
+  </div>
+</NoteSection>
+<AttackSection time="03:53.2" base={base} damage="55000" damageType="physical" />
+<AttackSection time="03:56.2" base={base} damage="55000" damageType="physical" />
+<QuarterOrEighthBeatsCast start="03:57.454" base={base} />
+<AttackSection time="04:04.3" base={base} damage="55000" damageType="physical" />
+<QuarterOrEighthBeatsCast start="04:05.611" base={base} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">Ride the Waves</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      场地
+      <Span variant="pink">北边</Span>
+      出现步进式地火预兆，地火行进方向固定由北向南，只有如下两种情况
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_25_omen}
+          alt="Ride the Waves Omen (2nd & 5th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">情形1：初始第2、5列安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_47_omen}
+          alt="Ride the Waves Omen (4th & 7th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">情形2：初始第4、7列安全</div>
+      </div>
+    </div>
+    <div class="gap-strat mt-4 flex items-center">
+      在地火行进至南半场时，安全区会固定向第3、6列拐一下，最终形成如下的图形
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_25_final}
+          alt="Ride the Waves Final (Initial 2nd & 5th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">情形1：初始第2、5列安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_47_final}
+          alt="Ride the Waves Final (Initial 4th & 7th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">情形2：初始第4、7列安全</div>
+      </div>
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">Quarter Beats</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      点名
+      <Span variant="default">4</Span>
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      或
+      <Span variant="default">4</Span>
+      <RoleIcon role="dps" />
+      的半径
+      <Span variant="pink">4m</Span>
+      的圆形AoE，二人分摊时造成
+      <DamageInfo damage="125000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">Eighth Beats</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      点名
+      <RoleIcon role="all" tag="全员" />
+      的半径
+      <Span variant="pink">5m</Span>
+      的圆形AoE，造成
+      <DamageInfo damage="125000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+    </div>
+  </div>
+</MechanicSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      <Span variant="yellow">Ride the Waves</Span>
+      期间会有两次不同的
+      <QuarterOrEighthBeatsAbility />
+    </div>
+    <div class="gap-strat flex items-center">
+      第1次
+      <QuarterOrEighthBeatsAbility />
+      判定时，地火刚好跑完北半场
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_25_half}
+          alt="Ride the Waves Half (Initial 2nd & 5th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">情形1：初始第2、5列安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_47_half}
+          alt="Ride the Waves Half (Initial 4th & 7th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">情形2：初始第4、7列安全</div>
+      </div>
+    </div>
+    <div class="gap-strat mt-4 flex items-center">
+      第2次
+      <QuarterOrEighthBeatsAbility />
+      判定时，地火刚好跑完整个场地
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_25_final}
+          alt="Ride the Waves Final (Initial 2nd & 5th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">情形1：初始第2、5列安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_47_final}
+          alt="Ride the Waves Final (Initial 4th & 7th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">情形2：初始第4、7列安全</div>
+      </div>
+    </div>
+  </div>
+</NoteSection>
+<SolutionSection title="解法：日野主流" id="ride-the-waves-solution-jp">
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center border-l-2 border-teal-500 pl-2 opacity-80">以初始第2、5列安全为例</div>
+    <div class="gap-strat mt-4 flex items-center">
+      地火预兆出现后，
+      <RoleIcon role="tank" tag="MT" />
+      迅速将
+      <Boss />
+      拉到两列安全列之间，以免近战罚站，
+      <RoleIcon role="tank" tag="ST" />
+      可视情况挑衅带位
+    </div>
+    <div class="max-w-90">
+      <Image
+        src={ride_the_waves_jp_1}
+        alt="Ride the Waves JP Solution 1/5"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+    </div>
+    <div class="gap-strat mt-4 flex items-center">
+      第1次
+      <QuarterOrEighthBeatsAbility />
+      站位如下
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_jp_2}
+          alt="Ride the Waves JP Solution 2/5"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">
+          情形1：
+          <Span variant="yellow">Quarter Beats</Span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_jp_3}
+          alt="Ride the Waves JP Solution 3/5"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">
+          情形2：
+          <Span variant="yellow">Eighth Beats</Span>
+        </div>
+      </div>
+    </div>
+    <div class="gap-strat mt-4 flex items-center">
+      第2次
+      <QuarterOrEighthBeatsAbility />
+      站位如下
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_jp_4}
+          alt="Ride the Waves JP Solution 4/5"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">
+          情形1：
+          <Span variant="yellow">Quarter Beats</Span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_jp_5}
+          alt="Ride the Waves JP Solution 5/5"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">
+          情形2：
+          <Span variant="yellow">Eighth Beats</Span>
+        </div>
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      此时由于
+      <Boss />
+      位置很难调整，近战有可能会罚站
+    </div>
+  </div>
+</SolutionSection>
+<SolutionSection title="解法：近战优化" id="ride-the-waves-solution-optimize">
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center border-l-2 border-teal-500 pl-2 opacity-80">以初始第2、5列安全为例</div>
+    <div class="gap-strat mt-4 flex items-center">
+      <RoleIcon role="tank" tag="MT" />
+      注意：在
+      <Boss />
+      目标圈
+      <StratLink variant="lime" href="#target-circle-restore">恢复身位限制时</StratLink>
+      ，预先将
+      <Boss />
+      拉到南半场
+    </div>
+    <div class="gap-strat mt-4 flex items-center">
+      由于第1次
+      <QuarterOrEighthBeatsAbility />
+      判定时，南半场没有地火，近战组大可不必去北半场没苦硬吃
+    </div>
+    <div class="gap-strat flex items-center">
+      且远程组去北半场也不会增加处理难度，因此，可以将近战组和远程组整体换位，如下
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_optimize_1}
+          alt="Ride the Waves Optimize Solution 1/4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">
+          情形1：
+          <Span variant="yellow">Quarter Beats</Span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_optimize_2}
+          alt="Ride the Waves Optimize Solution 2/4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">
+          情形2：
+          <Span variant="yellow">Eighth Beats</Span>
+        </div>
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      这样一来，第1次
+      <QuarterOrEighthBeatsAbility />
+      判定时，近战组在南半场的站位就会非常宽松
+    </div>
+    <div class="gap-strat flex items-center">
+      且第2次
+      <QuarterOrEighthBeatsAbility />
+      判定前，
+      <RoleIcon role="tank" tag="MT" />
+      也会有更多时间将
+      <Boss />
+      拉到两列安全列之间
+    </div>
+    <div class="gap-strat mt-4 flex items-center">
+      相应的，第2次
+      <QuarterOrEighthBeatsAbility />
+      判定时，站位如下
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_optimize_3}
+          alt="Ride the Waves Optimize Solution 3/4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">
+          情形1：
+          <Span variant="yellow">Quarter Beats</Span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_optimize_4}
+          alt="Ride the Waves Optimize Solution 4/4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="gap-strat flex items-center">
+          情形2：
+          <Span variant="yellow">Eighth Beats</Span>
+        </div>
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      对比
+      <StratLink variant="lime" href="#ride-the-waves-solution-jp">解法：日野主流</StratLink>
+      ，由于安全区的拐点尚未到来，无需调整
+      <Boss />
+      位置，近战始终不会罚站
+    </div>
+  </div>
+</SolutionSection>

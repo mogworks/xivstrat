@@ -1,0 +1,99 @@
+---
+import EntityIcon from '@/components/EntityIcon.astro'
+
+import PLD from '/pixi/job/PLD.png?url'
+import WAR from '/pixi/job/WAR.png?url'
+import DRK from '/pixi/job/DRK.png?url'
+import GNB from '/pixi/job/GNB.png?url'
+import WHM from '/pixi/job/WHM.png?url'
+import SCH from '/pixi/job/SCH.png?url'
+import AST from '/pixi/job/AST.png?url'
+import SGE from '/pixi/job/SGE.png?url'
+import MNK from '/pixi/job/MNK.png?url'
+import DRG from '/pixi/job/DRG.png?url'
+import NIN from '/pixi/job/NIN.png?url'
+import SAM from '/pixi/job/SAM.png?url'
+import RPR from '/pixi/job/RPR.png?url'
+import VPR from '/pixi/job/VPR.png?url'
+import BRD from '/pixi/job/BRD.png?url'
+import MCH from '/pixi/job/MCH.png?url'
+import DNC from '/pixi/job/DNC.png?url'
+import BLM from '/pixi/job/BLM.png?url'
+import SMN from '/pixi/job/SMN.png?url'
+import RDM from '/pixi/job/RDM.png?url'
+import PCT from '/pixi/job/PCT.png?url'
+import TANK from '/pixi/job/TANK.png?url'
+import HEALER from '/pixi/job/HEALER.png?url'
+import DPS from '/pixi/job/DPS.png?url'
+import MELEE from '/pixi/job/MELEE.png?url'
+import RANGED from '/pixi/job/RANGED.png?url'
+import MAGIC from '/pixi/job/MAGIC.png?url'
+
+interface Props {
+  job:
+    | 'PLD'
+    | 'WAR'
+    | 'DRK'
+    | 'GNB'
+    | 'WHM'
+    | 'SCH'
+    | 'AST'
+    | 'SGE'
+    | 'MNK'
+    | 'DRG'
+    | 'NIN'
+    | 'SAM'
+    | 'RPR'
+    | 'VPR'
+    | 'BRD'
+    | 'MCH'
+    | 'DNC'
+    | 'BLM'
+    | 'SMN'
+    | 'RDM'
+    | 'PCT'
+    | 'tank'
+    | 'healer'
+    | 'dps'
+    | 'melee'
+    | 'ranged'
+    | 'magic'
+  tag?: string
+  class?: string
+}
+
+const { job, tag = '', class: className = '' }: Props = Astro.props
+const icon = {
+  PLD,
+  WAR,
+  DRK,
+  GNB,
+  WHM,
+  SCH,
+  AST,
+  SGE,
+  MNK,
+  DRG,
+  NIN,
+  SAM,
+  RPR,
+  VPR,
+  BRD,
+  MCH,
+  DNC,
+  BLM,
+  SMN,
+  RDM,
+  PCT,
+  tank: TANK,
+  healer: HEALER,
+  dps: DPS,
+  melee: MELEE,
+  ranged: RANGED,
+  magic: MAGIC,
+}[job]
+---
+
+<EntityIcon icon={icon} tag={tag} alt={tag ?? job} class={className}>
+  <slot />
+</EntityIcon>

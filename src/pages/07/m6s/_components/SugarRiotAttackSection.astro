@@ -1,0 +1,20 @@
+---
+import type { Time } from '@/lib/utils'
+
+import AttackSection from '@/components/section/AttackSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+  damage: string
+  damageType: 'physical' | 'magical' | 'special'
+}
+
+const { time, base = 0, damage, damageType }: Props = Astro.props
+---
+
+<AttackSection time={time} base={base} damage={damage} damageType={damageType}>
+  <SugarRiot slot="source" />
+</AttackSection>

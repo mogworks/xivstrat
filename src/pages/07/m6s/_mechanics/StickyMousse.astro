@@ -1,0 +1,155 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import MousseMineDebuff from '../_components/MousseMineDebuff.astro'
+import StickyMousseCast from '../_components/StickyMousseCast.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+
+import spread from '@/assets/07/m6s/sticky_mousse/spread.png'
+import spread_h1_d1 from '@/assets/07/m6s/sticky_mousse/spread_h1_d1.png'
+import spread_d2_d4 from '@/assets/07/m6s/sticky_mousse/spread_d2_d4.png'
+import stack_h1_d1 from '@/assets/07/m6s/sticky_mousse/stack_h1_d1.png'
+import stack_d2_d4 from '@/assets/07/m6s/sticky_mousse/stack_d2_d4.png'
+
+interface Props {
+  base: Time
+}
+
+const { base = 0 }: Props = Astro.props
+---
+
+<StickyMousseCast start="01:04.616" end="01:10.402" base={base} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      <SugarRiot />
+      随机点名
+      <Span variant="default">2</Span>
+      <RoleIcon role="healer" />
+      <RoleIcon role="dps" />
+      半径
+      <Span variant="pink">4m</Span>
+      的圆形AoE，被命中的玩家会被赋予
+      <MousseMineDebuff tag="5" hover />
+      ，持续时间内无法移动
+    </div>
+    <div class="gap-strat flex items-center">
+      <MousseMineDebuff hover />
+      倒计时结束后会爆炸，产生可分摊的半径
+      <Span variant="pink">4m</Span>
+      的圆形AoE，4人分摊时每人
+      <DamageInfo damage="160000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      由于该机制不会点名
+      <RoleIcon role="tank" />
+      ，故初始
+      <RoleIcon role="tank" />
+      去
+      <SugarRiot />
+      脚下，
+      <RoleIcon role="healer" />
+      <RoleIcon role="dps" />
+      以
+      <SugarRiot />
+      <Span variant="pink">面向为基准</Span>
+      分散
+    </div>
+    <Image src={spread} alt="Sticky Mousse Spread" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <div class="gap-strat mt-8 flex items-center">
+      分散点名确定后，
+      <RoleIcon role="tank" tag="MT" />
+      从12点开始
+      <Span variant="pink">逆时针</Span>
+      找被点名者分摊，
+      <RoleIcon role="tank" tag="ST" />
+      从12点开始
+      <Span variant="pink">顺时针</Span>
+      找被点名者分摊
+    </div>
+    <div class="gap-strat flex items-center">
+      除
+      <RoleIcon role="tank" />
+      外的其余人
+      <Span variant="pink">就近</Span>
+      找被点名的人集合分摊
+    </div>
+    <div class="flex gap-4">
+      <Image
+        src={spread_h1_d1}
+        alt="Sticky Mousse: H1 D1"
+        class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+      />
+      <Image
+        src={stack_h1_d1}
+        alt="Sticky Mousse Stack: H1 D1"
+        class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+      />
+    </div>
+    <div class="gap-strat mt-8 flex items-center">
+      除
+      <RoleIcon role="tank" />
+      外，若两位被点名者与自身距离相同，则
+      <Span variant="pink">顺时针</Span>
+      找被点名者分摊
+    </div>
+    <div class="gap-strat flex items-center">
+      下图中，
+      <RoleIcon role="healer" tag="H1" />
+      <RoleIcon role="healer" tag="H2" />
+      与被点名者
+      <RoleIcon role="melee" tag="D2" />
+      <RoleIcon role="magic" tag="D4" />
+      的距离相同，
+      <RoleIcon role="healer" tag="H1" />
+      顺时针找
+      <RoleIcon role="magic" tag="D4" />
+      ，
+      <RoleIcon role="healer" tag="H2" />
+      顺时针找
+      <RoleIcon role="melee" tag="D2" />
+    </div>
+    <div class="flex gap-4">
+      <Image
+        src={spread_d2_d4}
+        alt="Sticky Mousse: D2 D4"
+        class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+      />
+      <Image
+        src={stack_d2_d4}
+        alt="Sticky Mousse Stack: D2 D4"
+        class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+      />
+    </div>
+  </div>
+</SolutionSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      以上站位均以
+      <SugarRiot />
+      <Span variant="pink">面向为基准</Span>
+      ，而非场地基准
+    </div>
+    <div class="gap-strat flex items-center">
+      这是因为后续该机制可能紧跟在其它机制之后，彼时
+      <SugarRiot />
+      不一定在场中，面向也可能是乱的
+    </div>
+  </div>
+</NoteSection>

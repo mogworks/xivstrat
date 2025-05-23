@@ -1,0 +1,37 @@
+---
+import '@/styles/global.css'
+
+interface Props {
+  lang?: string
+  title?: string
+  description?: string
+}
+
+const {
+  lang = 'zh-CN',
+  title = 'XivStrat | 最终幻想14中文攻略站',
+  description = '从7.2开始的最终幻想14中文攻略站',
+}: Props = Astro.props
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <script is:inline src="/scripts/initTheme.min.js"></script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<script>
+  import { init } from '@/stores/theme'
+
+  init()
+</script>

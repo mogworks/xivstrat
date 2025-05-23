@@ -1,0 +1,36 @@
+---
+import DamageInfo from '@/components/DamageInfo.astro'
+import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+
+import CoolTint from './CoolTint.astro'
+import WarmTint from './WarmTint.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+
+interface Props {
+  type: 'cool' | 'warm'
+  hover?: boolean
+}
+
+const { type, hover = false }: Props = Astro.props
+---
+
+<div class="flex items-center gap-strat">
+  半径
+  <Span variant="pink">4m</Span>
+  的圆形死刑，消除
+  {type === 'cool' ? <WarmTint hover={hover} /> : <CoolTint hover={hover} />}
+  ，并附加
+  {type === 'cool' ? <CoolTint hover={hover} /> : <WarmTint hover={hover} />}
+  ，持续时间永久
+</div>
+<div class="flex items-center gap-strat">
+  可对
+  <RoleIcon role="tank" />
+  造成
+  <DamageInfo damage="330000" type="magical" />
+  <MagicVulnerabilityUp tag="2" hover />
+  ，若先前已持有
+  {type === 'cool' ? <CoolTint hover={hover} /> : <WarmTint hover={hover} />}
+  ，则伤害更严重
+</div>

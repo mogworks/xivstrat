@@ -1,0 +1,17 @@
+---
+import type { VariantType } from '@/components/Span.vue'
+
+import Span from '@/components/Span.vue'
+
+interface Props {
+  variant: VariantType
+  href: string
+  target?: string
+}
+
+const { variant, href, target = undefined }: Props = Astro.props
+---
+
+<Span variant={variant} class="underline underline-offset-2">
+  <a target={target} href={href}><slot /></a>
+</Span>

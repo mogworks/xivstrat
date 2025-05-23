@@ -1,0 +1,251 @@
+---
+import { timeToSeconds, type Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import FireResistanceDownII from '@/components/buff/FireResistanceDownII.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import BurningUpDebuff from '../_components/BurningUpDebuff.astro'
+import HeatingUpDebuff from '../_components/HeatingUpDebuff.astro'
+import LayerCast from '../_components/LayerCast.astro'
+import SprayPainCast from '../_components/SprayPainCast.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+import AttackSection from '../_components/SugarRiotAttackSection.astro'
+
+import paint_2 from '@/assets/07/m6s/paint/2.png'
+import pattern1_1 from '@/assets/07/m6s/layer_1/pattern_1/1.png'
+import pattern1_2 from '@/assets/07/m6s/layer_1/pattern_1/2.png'
+import pattern1_3 from '@/assets/07/m6s/layer_1/pattern_1/3.png'
+import pattern1_4 from '@/assets/07/m6s/layer_1/pattern_1/4.png'
+import pattern1_5 from '@/assets/07/m6s/layer_1/pattern_1/5.png'
+import pattern1_6 from '@/assets/07/m6s/layer_1/pattern_1/6.png'
+import pattern2_1 from '@/assets/07/m6s/layer_1/pattern_2/1.png'
+import pattern2_2 from '@/assets/07/m6s/layer_1/pattern_2/2.png'
+import pattern2_3 from '@/assets/07/m6s/layer_1/pattern_2/3.png'
+import pattern2_4 from '@/assets/07/m6s/layer_1/pattern_2/4.png'
+import pattern2_5 from '@/assets/07/m6s/layer_1/pattern_2/5.png'
+import pattern2_6 from '@/assets/07/m6s/layer_1/pattern_2/6.png'
+import pattern3_1 from '@/assets/07/m6s/layer_1/pattern_3/1.png'
+import pattern3_2 from '@/assets/07/m6s/layer_1/pattern_3/2.png'
+import pattern3_3 from '@/assets/07/m6s/layer_1/pattern_3/3.png'
+import pattern3_4 from '@/assets/07/m6s/layer_1/pattern_3/4.png'
+import pattern3_5 from '@/assets/07/m6s/layer_1/pattern_3/5.png'
+import pattern3_6 from '@/assets/07/m6s/layer_1/pattern_3/6.png'
+import pattern4_1 from '@/assets/07/m6s/layer_1/pattern_4/1.png'
+import pattern4_2 from '@/assets/07/m6s/layer_1/pattern_4/2.png'
+import pattern4_3 from '@/assets/07/m6s/layer_1/pattern_4/3.png'
+import pattern4_4 from '@/assets/07/m6s/layer_1/pattern_4/4.png'
+import pattern4_5 from '@/assets/07/m6s/layer_1/pattern_4/5.png'
+import pattern4_6 from '@/assets/07/m6s/layer_1/pattern_4/6.png'
+import solution_1 from '@/assets/07/m6s/layer_1/solution_1.png'
+import solution_2 from '@/assets/07/m6s/layer_1/solution_2.png'
+import solution_3 from '@/assets/07/m6s/layer_1/solution_3.png'
+
+interface Props {
+  base: Time
+}
+
+const { base = 0 }: Props = Astro.props
+
+const start = '01:46.578'
+const duration = 6.7
+const adjustedDuration = duration + 0.3
+const end = timeToSeconds(start) + adjustedDuration
+const patternGroups = [
+  { title: '模式一', images: [pattern1_1, pattern1_2, pattern1_3, pattern1_4, pattern1_5, pattern1_6] },
+  { title: '模式二', images: [pattern2_1, pattern2_2, pattern2_3, pattern2_4, pattern2_5, pattern2_6] },
+  { title: '模式三', images: [pattern3_1, pattern3_2, pattern3_3, pattern3_4, pattern3_5, pattern3_6] },
+  { title: '模式四', images: [pattern4_1, pattern4_2, pattern4_3, pattern4_4, pattern4_5, pattern4_6] },
+]
+---
+
+<LayerCast start={start} end={end} base={base} />
+<AttackSection time="01:54.609" base={base} damage="57000" damageType="magical" />
+<AttackSection time="01:57.646" base={base} damage="57000" damageType="magical" />
+<AttackSection time="02:00.681" base={base} damage="57000" damageType="magical" />
+<SprayPainCast start="01:54.743" base={base} />
+<AttackSection time="02:03.718" base={base} damage="57000" damageType="magical" />
+<SprayPainCast start="01:57.780" base={base} />
+<AttackSection time="02:06.755" base={base} damage="57000" damageType="magical" />
+<SprayPainCast start="02:00.815" base={base} />
+<AttackSection time="02:09.781" base={base} damage="57000" damageType="magical" />
+<SprayPainCast start="02:03.851" base={base} />
+<AttackSection time="02:12.814" base={base} damage="57000" damageType="magical" />
+<SprayPainCast start="02:06.889" base={base} />
+<AttackSection time="02:15.849" base={base} damage="57000" damageType="magical" />
+<SprayPainCast start="02:09.916" base={base} />
+<AttackSection time="02:18.886" base={base} damage="57000" damageType="magical" />
+<EventSection time="02:21.381" base={base}>
+  <HeatingUpDebuff tag="43" hover />
+  倒计时结束判定伤害，
+  <Span variant="default">1</Span>
+  <RoleIcon role="tank" />
+  <Span variant="default">1</Span>
+  <RoleIcon role="dps" />
+  受到
+  <Span variant="yellow">Brûlée</Span>
+  <DamageInfo damage="100000" type="magical" />
+  <FireResistanceDownII tag="3" hover />
+  <Badge variant="emerald">15m圆形</Badge>
+  <Badge variant="yellow">分散</Badge>
+</EventSection>
+<EventSection time="02:21.381" base={base}>
+  <BurningUpDebuff tag="43" hover />
+  倒计时结束判定伤害，余下
+  <Span variant="default">6</Span>
+  人受到
+  <Span variant="yellow">Crowd Brûlée</Span>
+  <DamageInfo damage="100000" type="magical" />
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="yellow">分摊</Badge>
+</EventSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">Layer</Span>
+      {' '}
+      <Span variant="zinc">#1</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      <SugarRiot />
+      连线场外北侧画卷，添加仙人掌图层
+    </div>
+    <Image src={paint_2} alt="Layer Paint #1" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <div class="gap-strat flex items-center">
+      <SugarRiot />
+      读条结束后，图层具现化，场地每
+      <Span variant="pink">3</Span>
+      秒出现一轮仙人掌，共
+      <Span variant="pink">6</Span>
+      轮
+    </div>
+    <div class="gap-strat flex items-center">
+      每轮有
+      <Span variant="pink">5</Span>
+      只仙人掌，出现后会逐渐变大，并在
+      <Span variant="pink">7</Span>
+      秒后释放半径
+      <Span variant="pink">10m</Span>
+      的圆形AoE
+      <Span variant="yellow">Spray Pain</Span>
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">Spray Pain</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      半径
+      <Span variant="pink">10m</Span>
+      的圆形AoE，对范围内的玩家造成
+      <DamageInfo damage="110000" type="physical" />
+      <DamageDown tag="30" hover />
+      <Span variant="rose" class="text-decimal">30%↓</Span>
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">仙人掌刷新模式</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      共有4种，如下<Span variant="cyan">（仅作参考，无需记忆）</Span>：
+    </div>
+    {
+      patternGroups.map((group, i) => {
+        return (
+          <div class="flex flex-col gap-2">
+            <h4 class="text-lg">
+              <Span variant="yellow">{group.title}</Span>
+            </h4>
+            <div class="flex gap-1">
+              {group.images.map((img, j) => {
+                return (
+                  <div>
+                    <Image
+                      src={img}
+                      alt={`Layer #1 Pattern ${i + 1}: ${j}`}
+                      class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+                    />
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )
+      })
+    }
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      <RoleIcon role="any" tag="全员" />
+      先去场地北侧，左右横穿躲避仙人掌的圆形AoE
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-96">
+        <Image
+          src={solution_1}
+          alt="Layer #1 Solution: 1/3"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <Image
+          src={solution_2}
+          alt="Layer #1 Solution: 2/3"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="gap-strat mt-8 flex items-center">
+      躲完
+      <Span variant="default">6</Span>
+      轮仙人掌后：
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      持有
+      <HeatingUpDebuff hover />
+      的
+      <RoleIcon role="tank" />
+      <RoleIcon role="dps" />
+      从场边出发，
+      <Span variant="pink">以面向场中为12点</Span>
+      ，<RoleIcon role="tank" />向左前、<RoleIcon role="dps" />向右前远离人群分散
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      其余人在场边分摊
+      <BurningUpDebuff hover />
+      的伤害
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      若持有
+      <HeatingUpDebuff hover />
+      的
+      <RoleIcon role="tank" />
+      为
+      <RoleIcon role="tank" tag="MT" />
+      ，则
+      <RoleIcon role="tank" tag="ST" />
+      提前挑衅换为一仇，以免在场边的
+      <RoleIcon role="melee" />
+      罚站，之后
+      <RoleIcon role="tank" tag="MT" />
+      再挑回来
+    </div>
+    <Image
+      src={solution_3}
+      alt="Layer #1 Solution: 3/3"
+      class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+    />
+  </div>
+</SolutionSection>
+<AttackSection time="02:21.918" base={base} damage="57000" damageType="magical" />

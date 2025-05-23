@@ -1,0 +1,27 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import BurnBabyBurn from './BurnBabyBurn.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<CastSection
+  start={start}
+  base={base}
+  duration={3.7}
+  ability="Disco Infernal"
+  target
+  damage="125000"
+  damageType="magical"
+>
+  <BurnBabyBurn hover />
+  <Badge variant="yellow">AoE</Badge>
+</CastSection>

@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import icon from '@/assets/buff/07/m6s/219486.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={icon}
+  name="Huffy Cat"
+  nameVariant="yellow"
+  description="Failure to purloin tasty aether is inspiring pure and fluffy rage."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>
