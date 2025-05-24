@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets'
 
+import type { Time } from '@/lib/utils'
+
 import Boss from '@/components/Boss.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import ListDot from '@/components/ListDot.astro'
@@ -29,11 +31,17 @@ import FlipToXSideCast from '../_components/FlipToXSideCast.astro'
 import PlayXSideCast from '../_components/PlayXSideCast.astro'
 import XSnapTwistAndDropTheNeedleAbility from '../_components/XSnapTwistAndDropTheNeedleAbility.astro'
 import XSnapTwistAndDropTheNeedleCast from '../_components/XSnapTwistAndDropTheNeedleCast.astro'
+
+interface Props {
+  base?: Time
+}
+
+const { base = 0 }: Props = Astro.props
 ---
 
-<FlipToXSideCast start="00:22.543" />
-<XSnapTwistAndDropTheNeedleCast start="00:28.644" />
-<PlayXSideCast time="00:38.937" />
+<FlipToXSideCast start="00:22.543" base={base} />
+<XSnapTwistAndDropTheNeedleCast start="00:28.644" base={base} />
+<PlayXSideCast time="00:38.937" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="text-2xl">
