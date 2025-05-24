@@ -5,10 +5,32 @@
   "title": "阿卡狄亚零式登天斗技场 中量级3 攻略",
   "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级3 超详解动态图文攻略",
   "banner": "@/assets/banners/07/m7s.png",
-  "date": "",
+  "date": "25/05/24 17:00",
   "href": "/07/m7s",
-  "status": "upcoming",
+  "status": "live",
   "indexAvailable": false,
-  "phases": [],
+  "phases": [
+    {
+      "href": "/07/m7s/p1",
+      "title": "Part 1",
+      "subtitle": "叫啥名呢",
+      "name": "P1 - 叫啥名呢",
+      "mechanics": []
+    },
+    {
+      "href": "/07/m7s/p2",
+      "title": "Part 2",
+      "subtitle": "不知道",
+      "name": "P2 - 不知道",
+      "mechanics": []
+    },
+    {
+      "href": "/07/m7s/p3",
+      "title": "Part 3",
+      "subtitle": "再想想",
+      "name": "P3 - 再想想",
+      "mechanics": []
+    }
+  ],
   "locales": {}
 }

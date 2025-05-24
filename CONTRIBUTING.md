@@ -28,6 +28,7 @@
 具体可以参考 assets 目录下的任一战术图，如 https://github.com/mogworks/xivstrat/blob/main/src/assets/07/m6s/double_style_p4/solution/thunder_1.png
 
 ### 推荐工具
+
 - 对不擅长 Photoshop 的前端程序员：推荐使用 [StratBoard](https://github.com/mogworks/stratboard) - 专为本站开发的FF14战术图制作工具
 - 对PS糕手：Adobe Photoshop等
 
@@ -38,6 +39,7 @@
 ## 💻 前端开发者贡献指南
 
 ### 技术栈
+
 - Astro + Vue 3 + TailwindCSS + PixiJS + Framer Motion + TypeScript
 
 ### 📁 项目结构
