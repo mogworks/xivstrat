@@ -244,21 +244,19 @@ const { base = 0 }: Props = Astro.props
     </div>
     <div class="gap-strat flex items-center">
       <ListDot />
-      <RoleIcon role="tank" />
-      <RoleIcon role="dps" />
+      <RoleIcon role="healer" />
       站在
       <Span variant="pink">场地中轴线</Span>
-      上，离场中
-      <Span variant="pink">近一些</Span>
+      上
     </div>
     <div class="gap-strat flex items-center">
       <ListDot />
-      <RoleIcon role="healer" />
+      <RoleIcon role="tank" />
+      <RoleIcon role="dps" />
       则站在
-      <Span variant="pink">场地对角线</Span>
-      上，离场中
-      <Span variant="pink">远一些</Span>
-      ，可参考地板花纹站在格子交点上
+      <Span variant="pink">第二轮安全半场的场地对角线</Span>
+      上，并且
+      <Span variant="pink">不要超过目标圈内环</Span>
     </div>
     <div class="flex gap-2">
       <div class="flex flex-col items-center gap-2">
@@ -293,7 +291,10 @@ const { base = 0 }: Props = Astro.props
       </div>
     </div>
     <div class="gap-strat flex items-center">
-      <Span variant="pink">注意上图是以左右刀最后一刀打右半场为例，若最后一刀打左半场，则治疗的站位是轴对称的</Span>
+      <Span variant="pink">注意上图是以左右刀最后一刀打右半场为例，若最后一刀打左半场，则</Span>
+      <RoleIcon role="tank" />
+      <RoleIcon role="dps" />
+      <Span variant="pink">的站位是镜像对称的</Span>
     </div>
     <div class="gap-strat flex items-center">
       与
@@ -305,10 +306,8 @@ const { base = 0 }: Props = Astro.props
     </div>
     <div class="gap-strat flex items-center">
       代价是
-      <RoleIcon role="healer" />
-      跑动距离更长，且
       <RoleIcon role="healer" tag="H1" />
-      要注意给自己单减
+      要注意给自己单减，否则三人分摊可能会暴毙
     </div>
   </div>
 </SolutionSection>
