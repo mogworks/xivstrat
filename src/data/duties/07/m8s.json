@@ -7,8 +7,137 @@
   "banner": "@/assets/banners/07/m8s.png",
   "date": "",
   "href": "/07/m8s",
-  "status": "upcoming",
+  "status": "live",
   "indexAvailable": false,
-  "phases": [],
+  "phases": [
+    {
+      "href": "/07/m8s/p1",
+      "title": "Part 1",
+      "subtitle": "门神1",
+      "name": "P1 - 门神1",
+      "mechanics": [
+        {
+          "href": "#stonefang-or-windfang",
+          "name": "Stonefang | Windfang"
+        },
+        {
+          "href": "#revolutionary-reign-or-eminent-reign",
+          "name": "Revolutionary Reign | Eminent Reign"
+        },
+        {
+          "href": "#millennial-decay",
+          "name": "Millennial Decay"
+        },
+        {
+          "href": "#tracking-tremors",
+          "name": "Tracking Tremors"
+        },
+        {
+          "href": "#great-divide",
+          "name": "Great Divide"
+        },
+        {
+          "href": "#terrestrial-titans",
+          "name": "Terrestrial Titans"
+        }
+      ]
+    },
+    {
+      "href": "/07/m8s/p2",
+      "title": "Part 2",
+      "subtitle": "门神2 小怪",
+      "name": "P2 - 门神2 小怪",
+      "mechanics": [
+        {
+          "href": "#tactical-pack",
+          "name": "Tactical Pack"
+        },
+        {
+          "href": "#howling-havoc",
+          "name": "Howling Havoc"
+        },
+        {
+          "href": "#pack-predation",
+          "name": "Pack Predation"
+        },
+        {
+          "href": "#forlorn-wind-and-forlorn-stone",
+          "name": "Forlorn Wind & Forlorn Stone"
+        }
+      ]
+    },
+    {
+      "href": "/07/m8s/p3",
+      "title": "Part 3",
+      "subtitle": "门神3",
+      "name": "P3 - 门神3",
+      "mechanics": [
+        {
+          "href": "#terrestrial-rage",
+          "name": "Terrestrial Rage"
+        },
+        {
+          "href": "#fanged-charge",
+          "name": "Fanged Charge"
+        },
+        {
+          "href": "#shadowchase",
+          "name": "Shadowchase"
+        },
+        {
+          "href": "#roaring-wind",
+          "name": "Roaring Wind"
+        },
+        {
+          "href": "#weal-of-stone",
+          "name": "Weal of Stone"
+        },
+        {
+          "href": "#beckon-moonlight",
+          "name": "Beckon Moonlight"
+        },
+        {
+          "href": "#extraplanar-feast",
+          "name": "Extraplanar Feast"
+        }
+      ]
+    },
+    {
+      "href": "/07/m8s/p4",
+      "title": "Part 4",
+      "subtitle": "本体1",
+      "name": "P4 - 本体1",
+      "mechanics": [
+        {
+          "href": "#quake-iii",
+          "name": "Quake III"
+        }
+      ]
+    },
+    {
+      "href": "/07/m8s/p5",
+      "title": "Part 5",
+      "subtitle": "本体2",
+      "name": "P5 - 本体2",
+      "mechanics": [
+        {
+          "href": "#champions-circuit",
+          "name": "Champion's Circuit"
+        }
+      ]
+    },
+    {
+      "href": "/07/m8s/p6",
+      "title": "Part 6",
+      "subtitle": "软狂暴",
+      "name": "P6 - 软狂暴",
+      "mechanics": [
+        {
+          "href": "#howling-eight",
+          "name": "Howling Eight"
+        }
+      ]
+    }
+  ],
   "locales": {}
 }
