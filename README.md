@@ -1,6 +1,6 @@
 <div align="center">
   <h1>XivStrat</h1>
-  <p>从7.2开始的最终幻想14中文攻略站: <a href="https://xivstrat.com">https://xivstrat.com</a></p>
+  <p>从7.2开始的最终幻想14中文攻略站：<a href="https://xivstrat.com">https://xivstrat.com</a></p>
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Astro](https://img.shields.io/badge/Astro-FF5D01?logo=astro&logoColor=white)](https://astro.build)
