@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import immobile_suit from '@/assets/buff/07/m8s/215370.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={immobile_suit}
+  name="Immobile Suit"
+  nameVariant="yellow"
+  description="Unable to teleport due to system overload."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>
