@@ -8,10 +8,13 @@ import DotInfo from '@/components/DotInfo.astro'
 import ListDot from '@/components/ListDot.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
+import Dropsy from '@/components/buff/Dropsy.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
+import VulnerabilityUp from '@/components/buff/VulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
+import FeatherRay from '../_components/FeatherRay.astro'
 import GimmeCat from '../_components/GimmeCat.astro'
 import Mu from '../_components/Mu.astro'
 import SugarRiot from '../_components/SugarRiot.astro'
@@ -91,6 +94,44 @@ const { base = 0 }: Props = Astro.props
     <div class="gap-strat flex items-center">
       相应的，在通关本阶段后，
       <Span variant="cyan">会获得3段LB的奖励补偿</Span>
+    </div>
+    <h4 class="mt-12 text-2xl">
+      <Span variant="yellow">Water III</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      <FeatherRay />
+      每隔约
+      <Span variant="pink">9s</Span>
+      对连线玩家读条
+      <Span variant="yellow">Water III</Span>
+      喷水
+    </div>
+    <div class="gap-strat flex items-center">
+      喷水是半径
+      <Span variant="pink">8m</Span>
+      的圆形AoE，造成
+      <DamageInfo damage="45000" type="magical" />
+      <VulnerabilityUp tag="8" hover />
+      <Span variant="rose" class="text-decimal">3100%↑</Span>
+      ，如果拉怪的
+      <RoleIcon role="tank" />
+      被蹭到就会因
+      <VulnerabilityUp tag="8" hover />
+      暴毙
+    </div>
+    <div class="gap-strat flex items-center">
+      喷完约
+      <Span variant="pink">2s</Span>
+      后才会在连线玩家脚下留下半径
+      <Span variant="pink">9m</Span>
+      的水圈，踩进去会被赋予
+      <Dropsy tag="15" hover />
+      <DotInfo damage="48000" />
+    </div>
+    <div class="gap-strat flex items-center">
+      由于读条结束就判定易伤，约
+      <Span variant="pink">2s</Span>
+      后才会留下水圈，故不能以水圈位置作为分锅依据，要十分小心
     </div>
   </div>
 </MechanicSection>

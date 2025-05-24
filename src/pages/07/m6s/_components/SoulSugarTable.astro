@@ -13,8 +13,10 @@ import HPPenalty from '@/components/buff/HPPenalty.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 import VulnerabilityUp from '@/components/buff/VulnerabilityUp.astro'
 
-import HuffyCatBuff from '../_components/HuffyCatBuff.astro'
-import SugarRiot from '../_components/SugarRiot.astro'
+import FeatherRay from './FeatherRay.astro'
+import HuffyCatBuff from './HuffyCatBuff.astro'
+import Jabberwock from './Jabberwock.astro'
+import SugarRiot from './SugarRiot.astro'
 
 import feather_ray from '@/assets/07/m6s/adds/feather_ray.png'
 import gimme_cat from '@/assets/07/m6s/adds/gimme_cat.png'
@@ -166,6 +168,13 @@ import yan from '@/assets/07/m6s/adds/yan.png'
       ，造成团灭级全屏AoE
     </div>
     <div class="gap-strat flex items-center">
+      （不会跳
+      <FeatherRay />
+      连线和
+      <Jabberwock />
+      点名的人）
+    </div>
+    <div class="gap-strat flex items-center">
       会在
       <Span variant="default">Wave</Span>
       <Span variant="red">#1</Span>
@@ -203,7 +212,8 @@ import yan from '@/assets/07/m6s/adds/yan.png'
       <Span variant="rose" class="text-decimal">3100%↑</Span>
     </div>
     <div class="gap-strat flex items-center">
-      同时在连线玩家脚下留下半径
+      <Span variant="pink">2s</Span>
+      后在连线玩家脚下留下半径
       <Span variant="pink">9m</Span>
       的水圈，踩进去会被赋予
       <Dropsy tag="15" hover />
