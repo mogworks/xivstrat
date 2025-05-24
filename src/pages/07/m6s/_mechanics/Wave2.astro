@@ -3,6 +3,7 @@ import type { Time } from '@/lib/utils'
 
 import { Image } from 'astro:assets'
 
+import DamageInfo from '@/components/DamageInfo.astro'
 import JobIcon from '@/components/JobIcon.astro'
 import ListDot from '@/components/ListDot.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -329,6 +330,38 @@ const { base = 0 }: Props = Astro.props
         <Span variant="blue">#3</Span>
       </Jabberwock>
       （<Span variant="purple">西侧</Span>刷新） 点名做准备
+    </div>
+    <h4 class="mt-12 text-xl">
+      <Span variant="lime">连线玩家放水圈的细节</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      如前文所述，
+      <FeatherRay />
+      读条结束时判定半径
+      <Span variant="pink">8m</Span>
+      的圆形AoE
+      <Span variant="yellow">Water III</Span>
+      <DamageInfo damage="45000" type="magical" />
+      <VulnerabilityUp tag="8" hover />
+      <Span variant="rose" class="text-decimal">3100%↑</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      要小心别蹭到拉怪的
+      <RoleIcon role="tank" />
+      ，之后再过约
+      <Span variant="pink">2s</Span>
+      ，也就是
+      <VulnerabilityUp hover />
+      剩余约
+      <Span variant="pink">6s</Span>
+      时在脚下留下水圈
+    </div>
+    <div class="gap-strat flex items-center">
+      之后直到下一次
+      <FeatherRay />
+      读条，是有一小段空档可以回场中打AoE的，可以根据
+      <VulnerabilityUp hover />
+      剩余秒数来判断
     </div>
   </div>
 </SolutionSection>

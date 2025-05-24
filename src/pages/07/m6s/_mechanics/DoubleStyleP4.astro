@@ -17,6 +17,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
 import DoubleStyleCast from '../_components/DoubleStyleCast.astro'
@@ -368,3 +369,10 @@ const { base = 0 }: Props = Astro.props
     </div>
   </div>
 </SolutionSection>
+<NoteSection>
+  <div class="gap-strat flex items-center">
+    安全格子是
+    <Span variant="pink">7m×7m</Span>
+    ，理论上部分格子可以容纳多个AoE圈，但风险很高，不建议这么搞
+  </div>
+</NoteSection>
