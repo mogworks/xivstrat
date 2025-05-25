@@ -1,18 +1,28 @@
 ---
 import type { Time } from '@/lib/utils'
 import CastSection from '@/components/section/CastSection.astro'
+import Boss from '@/components/Boss.astro'
 import Badge from '@/components/Badge.astro'
 
 interface Props {
   start: Time
   base?: Time
+
+  [key: string]: any
 }
 
 const { start, base = 0 }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={8.7} ability='Explosion' damage='220000~760000' damageType='magical'>
-  在场地上召唤陨石Aoe
-  <Badge variant='pink'>距离衰减</Badge>
-  <Badge variant='pink'>AoE x3</Badge>
+<CastSection
+  start={start}
+  base={base}
+  duration={4.7}
+  ability="Brutal Impact"
+  target
+  damage="60000"
+  damageType="physical"
+>
+  <Boss slot="source" />
+  <Badge variant="pink">AoE x6</Badge>
 </CastSection>

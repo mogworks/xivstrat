@@ -17,80 +17,78 @@ interface Props {
 const { base = 0 }: Props = Astro.props
 ---
 
-<StoneringerCast start='00:20.89' base={base} />
+<StoneringerCast start="00:20.89" base={base} />
 <MechanicSection>
-  <div class='flex flex-col gap-4'>
-    <div class='gap-strat flex items-center'>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
       根据Boss手中的武器判断接下来释放的是钢铁还是月环，后续会和别的机制形成组合机制
     </div>
 
-    <div class='flex gap-4'>
-      <div class='max-w-50 shrink'>
-        <Image src={img} alt='' class='rounded border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+    <div class="flex gap-4">
+      <div class="max-w-50 shrink">
+        <Image src={img} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
-      <div class='shrink-0 grow space-y-4 rounded-md border border-dashed p-4'>
-        <h4 class='text-xl'>
-          <Span variant='yellow'>情形1</Span>
+      <div class="shrink-0 grow space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形1</Span>
         </h4>
-        <div class='gap-strat flex items-center'>
+        <div class="gap-strat flex items-center">
           武器为棒槌，稍后释放
-          <Span variant='red'>钢铁</Span>
+          <Span variant="red">钢铁</Span>
         </div>
       </div>
     </div>
-    <div class='flex gap-4'>
-      <div class='max-w-50 shrink'>
-        <Image src={img} alt='' class='rounded border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+    <div class="flex gap-4">
+      <div class="max-w-50 shrink">
+        <Image src={img} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
-      <div class='shrink-0 grow space-y-4 rounded-md border border-dashed p-4'>
-        <h4 class='text-xl'>
-          <Span variant='yellow'>情形2</Span>
+      <div class="shrink-0 grow space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形2</Span>
         </h4>
-        <div class='gap-strat flex items-center'>
+        <div class="gap-strat flex items-center">
           武器为砍刀，稍后释放
-          <Span variant='red'>月环</Span>
+          <Span variant="red">月环</Span>
         </div>
       </div>
     </div>
   </div>
 </MechanicSection>
 <SolutionSection>
-  <div class='gap-strat flex items-center'>
-    棒槌钢铁，砍刀月环，钢铁范围大于最大近战攻击距离
-  </div>
+  <div class="gap-strat flex items-center">棒槌钢铁，砍刀月环，钢铁范围大于最大近战攻击距离</div>
 </SolutionSection>
-<SmashHereCast start='00:28.76' base={base} />
+<SmashHereCast start="00:28.76" base={base} />
 <MechanicSection>
-  <div class='flex flex-col gap-4'>
-    <div class='gap-strat flex items-center'>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
       死刑紧接着钢铁月环判定，需要
-      <RoleIcon role='tank' tag='' />
+      <RoleIcon role="tank" tag="" />
       在场地北侧躲避钢铁月环时引导分摊死刑，根据小队情况自行安排T无敌单吃或双T分摊
     </div>
 
-    <div class='flex gap-4'>
-      <div class='max-w-50 shrink'>
-        <Image src={img} alt='' class='rounded border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+    <div class="flex gap-4">
+      <div class="max-w-50 shrink">
+        <Image src={img} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
-      <div class='shrink-0 grow space-y-4 rounded-md border border-dashed p-4'>
-        <h4 class='text-xl'>
-          <Span variant='yellow'>情形1</Span>
+      <div class="shrink-0 grow space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形1</Span>
         </h4>
-        <div class='gap-strat flex items-center'>
-          读条Smash Here，对距离<Span variant='red'>最近</Span>的玩家释放 可分摊死刑
+        <div class="gap-strat flex items-center">
+          读条Smash Here，对距离<Span variant="red">最近</Span>的玩家释放 可分摊死刑
         </div>
       </div>
     </div>
-    <div class='flex gap-4'>
-      <div class='max-w-50 shrink'>
-        <Image src={img} alt='' class='rounded border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+    <div class="flex gap-4">
+      <div class="max-w-50 shrink">
+        <Image src={img} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
-      <div class='shrink-0 grow space-y-4 rounded-md border border-dashed p-4'>
-        <h4 class='text-xl'>
-          <Span variant='yellow'>情形2</Span>
+      <div class="shrink-0 grow space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形2</Span>
         </h4>
-        <div class='gap-strat flex items-center'>
-          读条Smash There，对距离<Span variant='red'>最远</Span>的玩家释放 可分摊死刑
+        <div class="gap-strat flex items-center">
+          读条Smash There，对距离<Span variant="red">最远</Span>的玩家释放 可分摊死刑
         </div>
       </div>
     </div>

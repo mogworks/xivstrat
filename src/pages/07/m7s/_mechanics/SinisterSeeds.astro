@@ -11,7 +11,7 @@ import img from '@/assets/07/m7s/Tmp.png'
 import MoveToCenterEvent from '../_components/MoveToCenterEvent.astro'
 import SinisterSeedsCast from '../_components/SinisterSeeedsCast.astro'
 import WindingWildwinds from '../_components/WindingWildwinds .astro'
-import CrossingCrosswinds from '../_components/CrossingCrosswinds.astro'
+import CrossingCrosswindsCast from '../_components/CrossingCrosswindsCast.astro'
 
 interface Props {
   base: Time
@@ -20,133 +20,133 @@ interface Props {
 const { base = 0 }: Props = Astro.props
 ---
 
-<SporeSacCast start='00:40.06' base={base} />
+<SporeSacCast start="00:40.06" base={base} />
 
 <MechanicSection>
-  <div class='flex flex-col gap-4'>
-    <div class='gap-strat flex items-center'>场地上落下种子，种子长出根产生扩散AOE并生成小怪</div>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">场地上落下种子，种子长出根产生扩散AOE并生成小怪</div>
 
-    <h4 class='mt-4 text-2xl'>
-      <Span variant='yellow'>扩散Aoe</Span>
+    <h4 class="mt-4 text-2xl">
+      <Span variant="yellow">扩散Aoe</Span>
     </h4>
-    <div class='grid grid-cols-4 gap-x-2 gap-y-4'>
-      <div class='flex flex-col items-center gap-1'>
-        <Image src={img} alt='' class='border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
+      <div class="flex flex-col items-center gap-1">
+        <Image src={img} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
         <div>情况1</div>
       </div>
-      <div class='flex flex-col items-center gap-1'>
-        <Image src={img} alt='' class='border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+      <div class="flex flex-col items-center gap-1">
+        <Image src={img} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
         <div>情况2</div>
       </div>
-      <div class='flex flex-col items-center gap-1'>
-        <Image src={img} alt='' class='border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+      <div class="flex flex-col items-center gap-1">
+        <Image src={img} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
         <div>情况3</div>
       </div>
-      <div class='flex flex-col items-center gap-1'>
-        <Image src={img} alt='' class='border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+      <div class="flex flex-col items-center gap-1">
+        <Image src={img} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
         <div>情况4</div>
       </div>
     </div>
   </div>
 </MechanicSection>
 <SolutionSection>
-  <div class='flex flex-col gap-4'>
-    <div class='gap-strat flex items-center'>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
       首先
-      <RoleIcon role='all' tag='所有人' />预站位如下
+      <RoleIcon role="all" tag="所有人" />预站位如下
     </div>
-    <Image src={img} alt='' class='w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100' />
-    <div class='gap-strat mt-4 flex items-center'>Aoe扩散后近战组在内侧南边安全区集合，远程组前往指定角落躲避</div>
-    <h4 class='mt-4 text-2xl'>
-      <Span variant='yellow'>安全区</Span>
+    <Image src={img} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <div class="gap-strat mt-4 flex items-center">Aoe扩散后近战组在内侧南边安全区集合，远程组前往指定角落躲避</div>
+    <h4 class="mt-4 text-2xl">
+      <Span variant="yellow">安全区</Span>
     </h4>
-    <div class='grid grid-cols-4 gap-x-2 gap-y-4'>
-      <div class='flex flex-col items-center gap-1'>
-        <Image src={img} alt='' class='border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
+      <div class="flex flex-col items-center gap-1">
+        <Image src={img} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
         <div>情况1</div>
       </div>
-      <div class='flex flex-col items-center gap-1'>
-        <Image src={img} alt='' class='border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+      <div class="flex flex-col items-center gap-1">
+        <Image src={img} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
         <div>情况2</div>
       </div>
     </div>
   </div>
 </SolutionSection>
 
-<MoveToCenterEvent time='00:46.22' base={base} />
-<SinisterSeedsCast start='00:48.63' base={base} />
-<WindingWildwinds start='01:11.47' number={1} base={base} />
-<WindingWildwinds start='01:11.47' number={2} base={base} />
-<CrossingCrosswinds start='01:11.47' number={3} base={base} />
-<CrossingCrosswinds start='01:11.47' number={4} base={base} />
+<MoveToCenterEvent time="00:46.22" base={base} />
+<SinisterSeedsCast start="00:48.63" base={base} />
+<WindingWildwinds start="01:11.47" number={1} base={base} />
+<WindingWildwinds start="01:11.47" number={2} base={base} />
+<CrossingCrosswindsCast start="01:11.47" number={3} base={base} />
+<CrossingCrosswindsCast start="01:11.47" number={4} base={base} />
 
 <MechanicSection>
-  <div class='flex flex-col gap-4'>
-    <div class='gap-strat flex items-center'>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
       点名最近或最远4名玩家放置冰花或追踪Aoe，并且之前生成的小怪会读条十字或月环Aoe
     </div>
   </div>
 </MechanicSection>
 <SolutionSection>
-  <div class='flex flex-col gap-4'>
-    <div class='gap-strat flex flex-wrap items-center'>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex flex-wrap items-center">
       在放置冰花或追踪Aoe的过程中
-      <RoleIcon role='tank' tag='MT' />
-      <Span variant='pink'>挑衅</Span>左半场的两只小怪，
-      <RoleIcon role='tank' tag='ST' />
-      <Span variant='pink'>挑衅</Span>右半场的两只小怪， 方便处理后续机制
+      <RoleIcon role="tank" tag="MT" />
+      <Span variant="pink">挑衅</Span>左半场的两只小怪，
+      <RoleIcon role="tank" tag="ST" />
+      <Span variant="pink">挑衅</Span>右半场的两只小怪， 方便处理后续机制
     </div>
-    <div class='flex gap-4'>
-      <div class='max-w-84 flex-1'>
-        <Image src={img} alt='' class='w-84 rounded border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+    <div class="flex gap-4">
+      <div class="max-w-84 flex-1">
+        <Image src={img} alt="" class="w-84 rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
-      <div class='flex-2 space-y-4 rounded-md border border-dashed p-4'>
-        <h4 class='text-xl'>
-          <Span variant='yellow'>情形1：近战组放冰花</Span>
+      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形1：近战组放冰花</Span>
         </h4>
-        <div class='gap-strat flex items-center break-words'>
+        <div class="gap-strat flex items-center break-words">
           近战直接前往如图点位放置冰花，远程沿着场边放置追踪Aoe，然后前往场中
         </div>
       </div>
     </div>
-    <div class='flex gap-4'>
-      <div class='max-w-84 flex-1'>
-        <Image src={img} alt='' class='w-full rounded border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+    <div class="flex gap-4">
+      <div class="max-w-84 flex-1">
+        <Image src={img} alt="" class="w-full rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
-      <div class='flex-2 space-y-4 rounded-md border border-dashed p-4'>
-        <h4 class='text-xl'>
-          <Span variant='yellow'>情形2：远程组放冰花</Span>
+      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形2：远程组放冰花</Span>
         </h4>
-        <div class='gap-strat flex items-center break-words'>
+        <div class="gap-strat flex items-center break-words">
           近战沿着安全区->上->中->下的顺序放置追踪Aoe，远程等待黄圈消失后放置冰花
         </div>
       </div>
     </div>
 
-    <div class='gap-strat flex items-center'>
-      放置冰花后前往指定位置参与点名<RoleIcon role='healer' />的分摊
+    <div class="gap-strat flex items-center">
+      放置冰花后前往指定位置参与点名<RoleIcon role="healer" />的分摊
     </div>
-    <Image src={img} alt='' class='w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+    <Image src={img} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
 
-    <div class='gap-strat flex flex-wrap items-center'>
+    <div class="gap-strat flex flex-wrap items-center">
       随后，之前放置的追踪Aoe会再次出现并扩大范围，这边统一为
-      <RoleIcon role='tank' />
-      将小怪拉到场地西侧，随后小怪读条<Span variant='pink'>可打断</Span>十字Aoe和月环Aoe，由
-      <RoleIcon role='tank' />或
-      <RoleIcon role='dps' tag='D3' />使用
-      <Span variant='pink'>插言</Span>/<Span variant='pink'>伤头</Span>
+      <RoleIcon role="tank" />
+      将小怪拉到场地西侧，随后小怪读条<Span variant="pink">可打断</Span>十字Aoe和月环Aoe，由
+      <RoleIcon role="tank" />或
+      <RoleIcon role="dps" tag="D3" />使用
+      <Span variant="pink">插言</Span>/<Span variant="pink">伤头</Span>
       优先打断正在读条的月环Aoe的小怪
     </div>
-    <Image src={img} alt='' class='w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100' />
-    <div class='gap-strat flex flex-wrap items-center'>小怪Aoe读条完毕后会读条狂暴，在狂暴之前集火击杀小怪</div>
+    <Image src={img} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <div class="gap-strat flex flex-wrap items-center">小怪Aoe读条完毕后会读条狂暴，在狂暴之前集火击杀小怪</div>
   </div>
 </SolutionSection>
 <NoteSection>
-  <div class='flex flex-col gap-4'>
-    <div class='gap-strat flex flex-wrap items-center'>
-      打断小怪可以按<RoleIcon role='tank' tag='MT' />从敌对列表上往下打断，<RoleIcon
-        role='tank'
-        tag='ST'
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex flex-wrap items-center">
+      打断小怪可以按<RoleIcon role="tank" tag="MT" />从敌对列表上往下打断，<RoleIcon
+        role="tank"
+        tag="ST"
       />从下往上打断，防止打断重复，
     </div>
   </div>
