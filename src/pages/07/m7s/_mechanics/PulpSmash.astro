@@ -7,7 +7,7 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import Boss from '@/components/Boss.astro'
 import img from '@/assets/07/m7s/Tmp.png'
 import PulpSmashCast from '../_components/PulpSmashCast.astro'
-import TheUnpotted from '../_components/TheUnpotted.astro'
+import TheUnpottedActivate from '../_components/TheUnpottedActivate.astro'
 
 interface Props {
   base: Time
@@ -17,7 +17,7 @@ const { base = 0 }: Props = Astro.props
 ---
 
 <PulpSmashCast start="02:02.23" base={base} />
-<TheUnpotted time="02:09.41" />
+<TheUnpottedActivate time="02:09.41" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="gap-strat flex items-center">
