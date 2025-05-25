@@ -18,27 +18,27 @@
       "mechanics": [
         {
           "href": "#stonefang-or-windfang",
-          "name": "Stonefang | Windfang"
+          "name": "土の魔技 | 风の魔技"
         },
         {
           "href": "#revolutionary-reign-or-eminent-reign",
-          "name": "Revolutionary Reign | Eminent Reign"
+          "name": "廻の郡狼剣 | 薙の郡狼剣"
         },
         {
           "href": "#millennial-decay",
-          "name": "Millennial Decay"
+          "name": "千年の風化"
         },
         {
           "href": "#tracking-tremors",
-          "name": "Tracking Tremors"
+          "name": "连震擊"
         },
         {
           "href": "#great-divide",
-          "name": "Great Divide"
+          "name": "一刀両断"
         },
         {
           "href": "#terrestrial-titans",
-          "name": "Terrestrial Titans"
+          "name": "大地の呼び声"
         }
       ]
     },
@@ -50,19 +50,19 @@
       "mechanics": [
         {
           "href": "#tactical-pack",
-          "name": "Tactical Pack"
+          "name": "光狼招来"
         },
         {
           "href": "#howling-havoc",
-          "name": "Howling Havoc"
+          "name": "風塵の咆哮"
         },
         {
           "href": "#pack-predation",
-          "name": "Pack Predation"
+          "name": "光狼陣"
         },
         {
           "href": "#forlorn-wind-and-forlorn-stone",
-          "name": "Forlorn Wind & Forlorn Stone"
+          "name": "風の狼吼 & 土の狼吼"
         }
       ]
     },
@@ -74,31 +74,31 @@
       "mechanics": [
         {
           "href": "#terrestrial-rage",
-          "name": "Terrestrial Rage"
+          "name": "大地之怒"
         },
         {
           "href": "#fanged-charge",
-          "name": "Fanged Charge"
+          "name": "突進光牙"
         },
         {
           "href": "#shadowchase",
-          "name": "Shadowchase"
+          "name": "殘影劍"
         },
         {
           "href": "#roaring-wind",
-          "name": "Roaring Wind"
+          "name": "風狼豪波"
         },
         {
           "href": "#weal-of-stone",
-          "name": "Weal of Stone"
+          "name": "地烈波"
         },
         {
           "href": "#beckon-moonlight",
-          "name": "Beckon Moonlight"
+          "name": "幻狼招来"
         },
         {
           "href": "#extraplanar-feast",
-          "name": "Extraplanar Feast"
+          "name": "空間斬り·終"
         }
       ]
     }

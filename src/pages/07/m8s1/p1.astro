@@ -1,8 +1,21 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
+import RoleIcon from '@/components/RoleIcon.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Boss from '@/components/Boss.astro'
+import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
+import SeparatorSection from '../../../components/section/SeparatorSection.astro'
+
 const dutyId = '07/m8s1'
 const base = 0
 ---
 
-<DutyStratLayout dutyId={dutyId} />
+<DutyStratLayout dutyId={dutyId}>
+  <EventSection>
+    <RoleIcon role="tank" tag="MT" />
+    开怪，将<Boss />固定在场中位置
+  </EventSection>
+  <ExtraplanarPursuitCast start="00:10.200" base={base}/>
+  <SeparatorSection id="stonefang-or-windfang" title="土の魔技 | 风の魔技"/>
+</DutyStratLayout>
