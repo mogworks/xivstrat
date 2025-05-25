@@ -1,0 +1,51 @@
+{
+  "name": "阿卡狄亚零式登天斗技场 中量级4 后半",
+  "short": "M8S后半",
+  "type": "raid",
+  "title": "阿卡狄亚零式登天斗技场 中量级4 后半 攻略",
+  "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级4 后半 超详解动态图文攻略",
+  "banner": "@/assets/banners/07/m8s.png",
+  "date": "25/05/25 08:30",
+  "href": "/07/m8s2",
+  "status": "live",
+  "indexAvailable": false,
+  "phases": [
+    {
+      "href": "/07/m8s2/p1",
+      "title": "Part 4",
+      "subtitle": "本体1",
+      "name": "P4 - 本体1",
+      "mechanics": [
+        {
+          "href": "#quake-iii",
+          "name": "Quake III"
+        }
+      ]
+    },
+    {
+      "href": "/07/m8s2/p2",
+      "title": "Part 5",
+      "subtitle": "本体2",
+      "name": "P5 - 本体2",
+      "mechanics": [
+        {
+          "href": "#champions-circuit",
+          "name": "Champion's Circuit"
+        }
+      ]
+    },
+    {
+      "href": "/07/m8s2/p3",
+      "title": "Part 6",
+      "subtitle": "软狂暴",
+      "name": "P6 - 软狂暴",
+      "mechanics": [
+        {
+          "href": "#howling-eight",
+          "name": "Howling Eight"
+        }
+      ]
+    }
+  ],
+  "locales": {}
+}

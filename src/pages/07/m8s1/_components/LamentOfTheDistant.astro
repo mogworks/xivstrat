@@ -1,7 +1,7 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import earthborne_end from '@/assets/buff/07/m8s/214266.png'
+import lament_of_the_distant from '@/assets/buff/07/m8s1/214272.png'
 
 interface Props {
   tag?: string
@@ -13,10 +13,10 @@ const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 ---
 
 <Buff
-  icon={earthborne_end}
-  name="Earthborne End"
+  icon={lament_of_the_distant}
+  name="Lament of the Distant"
   nameVariant="yellow"
-  description="Condemned by the element of earth to perish when this effect expires. Effect can be removed through contact with a font of earth aether."
+  description="Growing too close to the bearer of the same lament will result in a massive explosion."
   tag={tag}
   hover={hover}
   class={className}

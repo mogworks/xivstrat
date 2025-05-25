@@ -1,7 +1,7 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import windborne_end from '@/assets/buff/07/m8s/214267.png'
+import patience_of_stone from '@/assets/buff/07/m8s1/214270.png'
 
 interface Props {
   tag?: string
@@ -13,10 +13,10 @@ const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 ---
 
 <Buff
-  icon={windborne_end}
-  name="Windborne End"
+  icon={patience_of_stone}
+  name="Patience of Stone"
   nameVariant="yellow"
-  description="Condemned by the element of wind to perish when this effect expires. Effect can be removed through contact with a font of wind aether."
+  description="Earth aether lurks in the body, waiting to be unleashed upon the surrounding area when this effect expires."
   tag={tag}
   hover={hover}
   class={className}

@@ -1,7 +1,7 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import windpack from '@/assets/buff/07/m8s/214264.png'
+import stonepack from '@/assets/buff/07/m8s1/214265.png'
 
 interface Props {
   tag?: string
@@ -13,10 +13,10 @@ const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 ---
 
 <Buff
-  icon={windpack}
-  name="Windpack"
+  icon={stonepack}
+  name="Stonepack"
   nameVariant="yellow"
-  description="Bound by wind aether and unable to deal damage to the wolf of wind."
+  description="Bound by earth aether and unable to deal damage to the wolf of stone."
   tag={tag}
   hover={hover}
   class={className}

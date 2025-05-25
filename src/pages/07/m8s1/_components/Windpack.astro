@@ -1,7 +1,7 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import hungry_for_victory from '@/assets/buff/07/m8s/214287.png'
+import windpack from '@/assets/buff/07/m8s1/214264.png'
 
 interface Props {
   tag?: string
@@ -13,10 +13,10 @@ const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 ---
 
 <Buff
-  icon={hungry_for_victory}
-  name="Hungry for Victory"
+  icon={windpack}
+  name="Windpack"
   nameVariant="yellow"
-  description="Invigorated by the thrill of battle and commanding pack spirits to aid in combat."
+  description="Bound by wind aether and unable to deal damage to the wolf of wind."
   tag={tag}
   hover={hover}
   class={className}
