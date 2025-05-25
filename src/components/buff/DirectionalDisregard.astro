@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import icon from '@/assets/buff/214224.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={icon}
+  name="免除方向要求"
+  nameVariant="yellow"
+  description="具有方向要求的技能击中时默认方向正确"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

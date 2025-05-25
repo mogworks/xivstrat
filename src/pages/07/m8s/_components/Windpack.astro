@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import windpack from '@/assets/buff/07/m8s/214264.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={windpack}
+  name="Windpack"
+  nameVariant="yellow"
+  description="Bound by wind aether and unable to deal damage to the wolf of wind."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>
