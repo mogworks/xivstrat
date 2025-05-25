@@ -1,0 +1,19 @@
+---
+import type { Time } from '@/lib/utils'
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+
+interface Props {
+  start: Time
+  number: Number
+  base?: Time
+}
+
+const { start, number, base = 0 }: Props = Astro.props
+---
+
+<CastSection start={start} base={base} duration={6.7} ability='Winding Wildwinds '>
+  <Span variant='red' slot='source'> Blooming Abomination {number}</Span>
+  <Badge variant='pink'>十字Aoe</Badge>
+</CastSection>

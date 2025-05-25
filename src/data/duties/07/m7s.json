@@ -13,22 +13,43 @@
     {
       "href": "/07/m7s/p1",
       "title": "Part 1",
-      "subtitle": "叫啥名呢",
-      "name": "P1 - 叫啥名呢",
-      "mechanics": []
+      "subtitle": "爆裂开场",
+      "name": "P1 - 爆裂开场",
+      "mechanics": [
+        {
+          "href": "#stoneringer",
+          "name": "Stoneringer"
+        },
+        {
+          "href": "#sinister-seeds",
+          "name": "Sinister Seeds"
+        },
+        {
+          "href": "#quarry-wwamp",
+          "name": "Quarry Swamp"
+        },
+        {
+          "href": "#pulp-smash",
+          "name": "Pulp Smash"
+        },
+        {
+          "href": "#neo-bombarian-special",
+          "name": "Neo Bombarian Special"
+        }
+      ]
     },
     {
       "href": "/07/m7s/p2",
       "title": "Part 2",
-      "subtitle": "不知道",
-      "name": "P2 - 不知道",
+      "subtitle": "野蛮交锋",
+      "name": "P2 - 野蛮交锋",
       "mechanics": []
     },
     {
       "href": "/07/m7s/p3",
       "title": "Part 3",
-      "subtitle": "再想想",
-      "name": "P3 - 再想想",
+      "subtitle": "终极狂潮",
+      "name": "P3 - 终极狂潮",
       "mechanics": []
     }
   ],

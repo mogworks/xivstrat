@@ -1,0 +1,28 @@
+---
+import type { Time } from '@/lib/utils'
+import CastSection from '@/components/section/CastSection.astro'
+import Boss from '@/components/Boss.astro'
+import Badge from '@/components/Badge.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+
+  [key: string]: any
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<CastSection
+  start={start}
+  base={base}
+  duration={4.7}
+  ability='Brutal Impact'
+  target
+  damage='60000'
+  damageType='physical'
+>
+  <Boss slot='source' />
+  <Badge variant='pink'>AoE x6</Badge>
+</CastSection>

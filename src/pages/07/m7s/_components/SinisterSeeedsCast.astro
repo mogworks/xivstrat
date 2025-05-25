@@ -1,0 +1,15 @@
+---
+import type { Time } from '@/lib/utils'
+import CastSection from '@/components/section/CastSection.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0}: Props = Astro.props
+---
+
+<CastSection start={start} base={base} duration={3.7} ability="Sinister Seeds">
+  点4名玩家放置冰花，4名玩家追踪Aoe
+</CastSection>
