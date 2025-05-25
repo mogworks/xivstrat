@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import lament_of_the_distant from '@/assets/buff/07/m8s/214272.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={lament_of_the_distant}
+  name="Lament of the Distant"
+  nameVariant="yellow"
+  description="Growing too close to the bearer of the same lament will result in a massive explosion."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

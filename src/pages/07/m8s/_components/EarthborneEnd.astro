@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import earthborne_end from '@/assets/buff/07/m8s/214266.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+---
+
+<Buff
+  icon={earthborne_end}
+  name="Earthborne End"
+  nameVariant="yellow"
+  description="Condemned by the element of earth to perish when this effect expires. Effect can be removed through contact with a font of earth aether."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>
