@@ -1,7 +1,7 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import lament_of_the_close from '@/assets/buff/07/m8s1/214271.png'
+import lament_of_the_distant from '@/assets/buff/07/m8s2/214272.png'
 
 interface Props {
   tag?: string
@@ -13,10 +13,10 @@ const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 ---
 
 <Buff
-  icon={lament_of_the_close}
-  name="Lament of the Close"
+  icon={lament_of_the_distant}
+  name="Lament of the Distant"
   nameVariant="yellow"
-  description="Moving too far from the bearer of the same lament will result in a massive explosion."
+  description="Growing too close to the bearer of the same lament will result in a massive explosion."
   tag={tag}
   hover={hover}
   class={className}
