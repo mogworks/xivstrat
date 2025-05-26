@@ -1,5 +1,6 @@
 ---
 import type { Time } from '@/lib/utils'
+import type { RoleType } from '@/pixi/role'
 
 import { timeToSeconds } from '@/lib/utils'
 import Boss from '@/components/Boss.astro'
@@ -15,7 +16,8 @@ interface Props {
   end?: Time
   base?: Time
   ability?: string
-  target?: boolean
+  target?: boolean | RoleType
+  targetTag?: string
   damage?: string
   damageType?: 'physical' | 'magical' | 'special'
   adjustDuration?: boolean
@@ -29,6 +31,7 @@ const {
   base = 0,
   ability = '',
   target = false,
+  targetTag = undefined,
   damage = undefined,
   damageType = 'physical',
   adjustDuration = true,
@@ -55,9 +58,12 @@ const adjustedDuration = adjustDuration
       target && (
         <>
           对
-          <slot name="target">
-            <RoleIcon role="all" tag="全员" />
-          </slot>
+          {
+            // 兼容老实现：传入 true 等于传入 all
+            <slot name="target">
+              {target === true ? <RoleIcon role='all' tag='全员' /> : <RoleIcon role={target} tag={targetTag} />}
+            </slot>
+          }
         </>
       )
     }
