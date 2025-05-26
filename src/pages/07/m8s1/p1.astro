@@ -6,9 +6,10 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
-import HowlingBladeIcon from './_components/HowlingBladeIcon.astro'
-
 import Xfang from './_mechanics/Xfang.astro'
+import XReign from './_mechanics/XReign.astro'
+
+import HowlingBladeIcon from './_components/HowlingBladeIcon.astro'
 
 const dutyId = '07/m8s1'
 const base = 0
@@ -23,6 +24,10 @@ const base = 0
   </EventSection>
   <SeparatorSection id="extraplanar-pursuit" title="Extraplanar Pursuit" />
   <ExtraplanarPursuitCast start="00:10.195" base={base} />
+
   <SeparatorSection id="stonefang-or-windfang" title="土の魔技 | 风の魔技" />
   <Xfang time="00:23.131" />
+  <SeparatorSection id="xregin" title="Revolutionary Regin | Eminent Regin" />
+  <XReign time="00:34.289" />
+  <ExtraplanarPursuitCast start="00:49.014" base={base} />
 </DutyStratLayout>
