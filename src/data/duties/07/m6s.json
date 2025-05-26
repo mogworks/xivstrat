@@ -18,23 +18,38 @@
       "mechanics": [
         {
           "href": "#color-riot",
-          "name": "Color Riot"
+          "name": "Color Riot",
+          "name_en": "Color Riot",
+          "name_ja": "",
+          "name_ch": "色彩暴动"
         },
         {
           "href": "#wingmark",
-          "name": "Wingmark"
+          "name": "Wingmark",
+          "name_en": "Wingmark",
+          "name_ja": "",
+          "name_ch": "翼痕"
         },
         {
           "href": "#color-clash",
-          "name": "Color Clash"
+          "name": "Color Clash",
+          "name_en": "Color Clash",
+          "name_ja": "",
+          "name_ch": "色彩冲突"
         },
         {
           "href": "#double-style",
-          "name": "Double Style"
+          "name": "Double Style",
+          "name_en": "Double Style",
+          "name_ja": "",
+          "name_ch": "双重风格"
         },
         {
           "href": "#sticky-mousse",
-          "name": "Sticky Mousse"
+          "name": "Sticky Mousse",
+          "name_en": "Sticky Mousse",
+          "name_ja": "",
+          "name_ch": "粘稠慕斯"
         }
       ]
     },
@@ -46,19 +61,31 @@
       "mechanics": [
         {
           "href": "#sugarscape",
-          "name": "Sugarscape"
+          "name": "Sugarscape",
+          "name_en": "Sugarscape",
+          "name_ja": "",
+          "name_ch": "糖原幻境"
         },
         {
           "href": "#layer-1",
-          "name": "Layer #1"
+          "name": "Layer #1",
+          "name_en": "Layer #1",
+          "name_ja": "",
+          "name_ch": "第一层"
         },
         {
           "href": "#layer-2",
-          "name": "Layer #2"
+          "name": "Layer #2",
+          "name_en": "Layer #2",
+          "name_ja": "",
+          "name_ch": "第二层"
         },
         {
           "href": "#double-style",
-          "name": "Double Style"
+          "name": "Double Style",
+          "name_en": "Double Style",
+          "name_ja": "",
+          "name_ch": "双重风格"
         }
       ]
     },
@@ -70,31 +97,52 @@
       "mechanics": [
         {
           "href": "#soul-sugar",
-          "name": "Soul Sugar"
+          "name": "Soul Sugar",
+          "name_en": "Soul Sugar",
+          "name_ja": "",
+          "name_ch": "灵魂砂糖"
         },
         {
           "href": "#wave-1",
-          "name": "Wave #1"
+          "name": "Wave #1",
+          "name_en": "Wave #1",
+          "name_ja": "",
+          "name_ch": "第一波"
         },
         {
           "href": "#wave-2",
-          "name": "Wave #2"
+          "name": "Wave #2",
+          "name_en": "Wave #2",
+          "name_ja": "",
+          "name_ch": "第二波"
         },
         {
           "href": "#wave-3",
-          "name": "Wave #3"
+          "name": "Wave #3",
+          "name_en": "Wave #3",
+          "name_ja": "",
+          "name_ch": "第三波"
         },
         {
           "href": "#wave-4",
-          "name": "Wave #4"
+          "name": "Wave #4",
+          "name_en": "Wave #4",
+          "name_ja": "",
+          "name_ch": "第四波"
         },
         {
           "href": "#roasted-whole-lamb",
-          "name": "补充：双T无敌烤全羊"
+          "name": "补充：双T无敌烤全羊",
+          "name_en": "Roasted Whole Lamb",
+          "name_ja": "",
+          "name_ch": "补充：双T无敌烤全羊"
         },
         {
           "href": "#single-style",
-          "name": "Single Style"
+          "name": "Single Style",
+          "name_en": "Single Style",
+          "name_ja": "",
+          "name_ch": "单一风格"
         }
       ]
     },
@@ -106,19 +154,31 @@
       "mechanics": [
         {
           "href": "#sugarscape",
-          "name": "Sugarscape"
+          "name": "Sugarscape",
+          "name_en": "Sugarscape",
+          "name_ja": "",
+          "name_ch": "糖原幻境"
         },
         {
           "href": "#double-style",
-          "name": "Double Style"
+          "name": "Double Style",
+          "name_en": "Double Style",
+          "name_ja": "",
+          "name_ch": "双重风格"
         },
         {
           "href": "#layer-3",
-          "name": "Layer #3"
+          "name": "Layer #3",
+          "name_en": "Layer #3",
+          "name_ja": "",
+          "name_ch": "第三层"
         },
         {
           "href": "#layer-4",
-          "name": "Layer #4"
+          "name": "Layer #4",
+          "name_en": "Layer #4",
+          "name_ja": "",
+          "name_ch": "第四层"
         }
       ]
     },
@@ -130,19 +190,31 @@
       "mechanics": [
         {
           "href": "#sticky-mousse",
-          "name": "Sticky Mousse"
+          "name": "Sticky Mousse",
+          "name_en": "Sticky Mousse",
+          "name_ja": "",
+          "name_ch": "粘稠慕斯"
         },
         {
           "href": "#color-riot",
-          "name": "Color Riot"
+          "name": "Color Riot",
+          "name_en": "Color Riot",
+          "name_ja": "",
+          "name_ch": "色彩暴动"
         },
         {
           "href": "#w-cc-ds",
-          "name": "W. + CC. + DS."
+          "name": "W. + CC. + DS.",
+          "name_en": "W. + CC. + DS.",
+          "name_ja": "",
+          "name_ch": "W. + CC. + DS."
         },
         {
           "href": "#artistic-anarchy",
-          "name": "Artistic Anarchy"
+          "name": "Artistic Anarchy",
+          "name_en": "Artistic Anarchy",
+          "name_ja": "",
+          "name_ch": "艺术狂潮"
         }
       ]
     }
