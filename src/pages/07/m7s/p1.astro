@@ -1,10 +1,13 @@
 ---
-import DutyStratLayout from '../../../layouts/DutyStratLayout.astro'
-import EventSection from '../../../components/section/EventSection.astro'
-import Boss from '../../../components/Boss.astro'
-import RoleIcon from '../../../components/RoleIcon.astro'
-import SeparatorSection from '../../../components/section/SeparatorSection.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
+
 import Stoneringer from './_mechanics/Stoneringer.astro'
 import SinisterSeeds from './_mechanics/SinisterSeeds.astro'
 import QuarrySwamp from './_mechanics/QuarrySwamp.astro'
@@ -21,7 +24,7 @@ const base = 0
   <EventSection>
     <RoleIcon role="tank" tag="MT" />
     开怪，将
-    <Boss />
+    <BruteAbombinator />
     固定在场中偏南一点的位置
   </EventSection>
   <!-- Attack -->

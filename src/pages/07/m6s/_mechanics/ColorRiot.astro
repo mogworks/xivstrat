@@ -98,11 +98,11 @@ const { base = 0 }: Props = Astro.props
     <div class="gap-strat flex items-center">
       首次固定由
       <RoleIcon role="tank" tag="MT" />
-      远离目标圈
-      <Span variant="pink">引导远</Span>，
-      <RoleIcon role="tank" tag="ST" />
       进入目标圈
-      <Span variant="pink">引导近</Span>
+      <Span variant="pink">引导近</Span>，
+      <RoleIcon role="tank" tag="ST" />
+      远离目标圈
+      <Span variant="pink">引导远</Span>
     </div>
     <div class="gap-strat flex items-center">
       之后
@@ -112,7 +112,7 @@ const { base = 0 }: Props = Astro.props
     <div class="gap-strat flex items-center">
       可观察
       <SugarRiot />
-      双手颜色，向下的左手代表远引导的颜色，高举的右手则为近引导的颜色
+      双手颜色，高举的右手代表近引导的颜色，向下的左手则为远引导的颜色
     </div>
     <div class="mt-8 gap-strat flex items-center">
       远引导
@@ -123,7 +123,7 @@ const { base = 0 }: Props = Astro.props
       <SugarRiot />
       脚下偏前一点，
       <RoleIcon role="tank" tag="双T" />
-      左右分开一定角度
+      左右分开一定距离
     </div>
     <div class="gap-strat flex items-center">
       <RoleIcon role="healer" />

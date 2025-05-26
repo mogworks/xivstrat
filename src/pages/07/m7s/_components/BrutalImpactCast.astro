@@ -1,8 +1,10 @@
 ---
 import type { Time } from '@/lib/utils'
-import CastSection from '@/components/section/CastSection.astro'
-import Boss from '@/components/Boss.astro'
+
 import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
 
 interface Props {
   start: Time
@@ -23,6 +25,6 @@ const { start, base = 0 }: Props = Astro.props
   damage="60000"
   damageType="physical"
 >
-  <Boss slot="source" />
+  <BruteAbombinator slot="source" />
   <Badge variant="pink">AoE x6</Badge>
 </CastSection>
