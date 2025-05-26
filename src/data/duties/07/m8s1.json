@@ -18,27 +18,45 @@
       "mechanics": [
         {
           "href": "#stonefang-or-windfang",
-          "name": "土の魔技 | 风の魔技"
+          "name": "土の魔技 | 风の魔技",
+          "name_en": "Stonefang | Windfang",
+          "name_ja": "土の魔技 | 风の魔技",
+          "name_ch": "土魔牙 | 风魔牙"
         },
         {
           "href": "#revolutionary-reign-or-eminent-reign",
-          "name": "廻の郡狼剣 | 薙の郡狼剣"
+          "name": "廻の郡狼剣 | 薙の郡狼剣",
+          "name_en": "Revolutionary Reign | Eminent Reign",
+          "name_ja": "廻の郡狼剣 | 薙の郡狼剣",
+          "name_ch": "回旋群狼剑 | 横扫群狼剑"
         },
         {
           "href": "#millennial-decay",
-          "name": "千年の風化"
+          "name": "千年の風化",
+          "name_en": "Millennial Decay",
+          "name_ja": "千年の風化",
+          "name_ch": "千年风化"
         },
         {
           "href": "#tracking-tremors",
-          "name": "连震擊"
+          "name": "連震撃",
+          "name_en": "Tracking Tremors",
+          "name_ja": "連震撃",
+          "name_ch": "连震击"
         },
         {
           "href": "#great-divide",
-          "name": "一刀両断"
+          "name": "一刀両断",
+          "name_en": "Great Divide",
+          "name_ja": "一刀両断",
+          "name_ch": "一刀两断"
         },
         {
           "href": "#terrestrial-titans",
-          "name": "大地の呼び声"
+          "name": "大地の呼び声",
+          "name_en": "Terrestrial Titans",
+          "name_ja": "大地の呼び声",
+          "name_ch": "大地的呼唤"
         }
       ]
     },
@@ -50,19 +68,31 @@
       "mechanics": [
         {
           "href": "#tactical-pack",
-          "name": "光狼招来"
+          "name": "光狼招来",
+          "name_en": "Luminous Lupine Call",
+          "name_ja": "光狼招来",
+          "name_ch": "光狼招来"
         },
         {
           "href": "#howling-havoc",
-          "name": "風塵の咆哮"
+          "name": "風塵の咆哮",
+          "name_en": "Howling Havoc",
+          "name_ja": "風塵の咆哮",
+          "name_ch": "风尘咆哮"
         },
         {
           "href": "#pack-predation",
-          "name": "光狼陣"
+          "name": "光狼陣",
+          "name_en": "Lupine Formation",
+          "name_ja": "光狼陣",
+          "name_ch": "光狼阵"
         },
         {
           "href": "#forlorn-wind-and-forlorn-stone",
-          "name": "風の狼吼 & 土の狼吼"
+          "name": "風の狼吼 & 土の狼吼",
+          "name_en": "Howl of Windwolf & Howl of Stonewolf",
+          "name_ja": "風の狼吼 & 土の狼吼",
+          "name_ch": "风狼咆哮 & 土狼咆哮"
         }
       ]
     },
@@ -74,31 +104,52 @@
       "mechanics": [
         {
           "href": "#terrestrial-rage",
-          "name": "大地之怒"
+          "name": "大地之怒",
+          "name_en": "Terrestrial Rage",
+          "name_ja": "大地の怒り",
+          "name_ch": "大地之怒"
         },
         {
           "href": "#fanged-charge",
-          "name": "突進光牙"
+          "name": "突進光牙",
+          "name_en": "Fanged Charge",
+          "name_ja": "突進光牙",
+          "name_ch": "突进光牙"
         },
         {
           "href": "#shadowchase",
-          "name": "殘影劍"
+          "name": "殘影劍",
+          "name_en": "Shadowchase",
+          "name_ja": "残影剣",
+          "name_ch": "残影剑"
         },
         {
           "href": "#roaring-wind",
-          "name": "風狼豪波"
+          "name": "風狼豪波",
+          "name_en": "Roaring Wind",
+          "name_ja": "風狼豪波",
+          "name_ch": "风狼豪波"
         },
         {
           "href": "#weal-of-stone",
-          "name": "地烈波"
+          "name": "地烈波",
+          "name_en": "Weal of Stone",
+          "name_ja": "地烈波",
+          "name_ch": "地烈波"
         },
         {
           "href": "#beckon-moonlight",
-          "name": "幻狼招来"
+          "name": "幻狼招来",
+          "name_en": "Phantasmal Lupine Call",
+          "name_ja": "幻狼招来",
+          "name_ch": "幻狼招来"
         },
         {
           "href": "#extraplanar-feast",
-          "name": "空間斬り·終"
+          "name": "空間斬り·終",
+          "name_en": "Extraplanar Feast",
+          "name_ja": "空間斬り・終",
+          "name_ch": "空间斩·终"
         }
       ]
     }
