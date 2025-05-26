@@ -43,7 +43,12 @@
       "title": "Part 2",
       "subtitle": "野蛮交锋",
       "name": "P2 - 野蛮交锋",
-      "mechanics": []
+      "mechanics": [
+        {
+          "href": "#strange-seeds",
+          "name": "StrangeSeeds"
+        }
+      ]
     },
     {
       "href": "/07/m7s/p3",
