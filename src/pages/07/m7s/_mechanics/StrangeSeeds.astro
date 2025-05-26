@@ -9,13 +9,18 @@ import Span from '@/components/Span.vue'
 
 import floor_p2_3 from '@/assets/07/m7s/floor_p2_3.png'
 
+import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import Image from 'astro/components/Image.astro'
 import Badge from '@/components/Badge.astro'
 
-interface Props {}
+interface Props {
+  start: Time
+  base?: Time
+}
+const { start, base = 0 }: Props = Astro.props
 ---
-
+<StrangeSeedsCast start={start} base={base} />
 <MechanicSection>
   <div class='flex flex-col gap-4'>
     <div class='flex flex-col gap-4'>
