@@ -9,11 +9,12 @@ import BruteAbombinator from './BruteAbombinator.astro'
 interface Props {
   start: Time
   base?: Time
+  toln: number
 
   [key: string]: any
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start, base = 0, toln }: Props = Astro.props
 ---
 
 <CastSection
@@ -26,5 +27,5 @@ const { start, base = 0 }: Props = Astro.props
   damageType="physical"
 >
   <BruteAbombinator slot="source" />
-  <Badge variant="pink">AoE x6</Badge>
+  <Badge variant="pink">AoE x{toln}</Badge>
 </CastSection>
