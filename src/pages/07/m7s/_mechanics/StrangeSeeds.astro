@@ -1,5 +1,6 @@
 ---
 import type { Time } from '@/lib/utils'
+import { Image } from 'astro:assets'
 
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
@@ -8,10 +9,12 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 
 import floor_p2_3 from '@/assets/07/m7s/floor_p2_3.png'
+import strange_seeds_safe_point from '@/assets/07/m7s/strange_seeds/strange_seeds_safe_point.png'
+import strange_seeds_13_point from '@/assets/07/m7s/strange_seeds/strange_seeds_13_point.png'
+
 
 import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
-import { Image } from 'astro:assets'
 import Badge from '@/components/Badge.astro'
 
 interface Props {
@@ -24,7 +27,7 @@ const { start, base = 0 }: Props = Astro.props
 <MechanicSection>
   <div class='flex flex-col gap-4'>
     <div class='flex flex-col gap-4'>
-      <Image src={floor_p2_3} alt='' class='border-2 border-fuchsia-400 dark:border-fuchsia-100' />
+      <Image width={495} height={127} src={floor_p2_3} alt='' class='border-2 border-fuchsia-400 dark:border-fuchsia-100' />
       <div class='shrink-0 grow space-y-4'>
         <div class='gap-strat flex-col items-center'>
           <div>
@@ -75,13 +78,7 @@ const { start, base = 0 }: Props = Astro.props
     <!-- 安全区 -->
     <div class='flex flex-row gap-4'>
       <div class='flex flex-col items-center gap-2'>
-        <StratBoard
-          width={400}
-          height={400}
-          key='funky-floor'
-          class='max-h-112.5 max-w-112.5 shrink'
-          canvasClass='h-full w-full border-2 border-amber-800/75 dark:border-amber-100'
-        />
+        <Image width={495} height={127} src={strange_seeds_safe_point} alt='' class='border-2 border-fuchsia-400 dark:border-fuchsia-100' />
         <div class='gap-strat flex items-center'>未被点名时待在安全区内</div>
       </div>
       <div class='gap-strat flex-col'>
@@ -93,19 +90,13 @@ const { start, base = 0 }: Props = Astro.props
     <!-- 1/3 -->
     <div class='flex flex-row gap-4'>
       <div class='flex flex-col items-center gap-2'>
-        <StratBoard
-          width={400}
-          height={400}
-          key='funky-floor'
-          class='max-h-112.5 max-w-112.5 shrink'
-          canvasClass='h-full w-full border-2 border-amber-800/75 dark:border-amber-100'
-        />
+        <Image width={495} height={127} src={strange_seeds_13_point} alt='' class='border-2 border-fuchsia-400 dark:border-fuchsia-100' />
         <div class='gap-strat flex items-center'>奇数 1/3轮,放角落或中央点</div>
       </div>
       <div class='gap-strat flex-col'>
-        <div class='gap-strat flex'>站位尽量分开,保证被点名时可以直接判断是</div>
-        <div class='gap-strat flex'>谁被点名</div>
-        <div class='gap-strat flex'>需要注意中央点位的放置需要相当准确</div>
+        <div class='gap-strat flex'>站位尽量分开,保证被点名时</div>
+        <div class='gap-strat flex mt-2'>可以直接判断是谁被点名</div>
+        <div class='gap-strat flex mt-2'>注意中央点位的放置需要相当准确</div>
       </div>
     </div>
     <!-- 2/4 -->
