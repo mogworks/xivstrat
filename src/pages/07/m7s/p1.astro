@@ -1,10 +1,15 @@
 ---
-import DutyStratLayout from '../../../layouts/DutyStratLayout.astro'
-import EventSection from '../../../components/section/EventSection.astro'
-import Boss from '../../../components/Boss.astro'
-import RoleIcon from '../../../components/RoleIcon.astro'
-import SeparatorSection from '../../../components/section/SeparatorSection.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
+import BrutalImpactActivate from './_components/BrutalImpactActivate.astro'
+import BrutalImpact from './_mechanics/BrutalImpact.astro'
+
 import Stoneringer from './_mechanics/Stoneringer.astro'
 import SinisterSeeds from './_mechanics/SinisterSeeds.astro'
 import QuarrySwamp from './_mechanics/QuarrySwamp.astro'
@@ -21,11 +26,20 @@ const base = 0
   <EventSection>
     <RoleIcon role="tank" tag="MT" />
     开怪，将
-    <Boss />
+    <BruteAbombinator />
     固定在场中偏南一点的位置
   </EventSection>
   <!-- Attack -->
-  <BrutalImpactCast start="00:05.165" base={base} />
+  <SeparatorSection id="BrutalImpact" title="Brutal Impact" />
+  <BrutalImpactCast start="00:05.165" base={base} toln={6} />
+  <BrutalImpactActivate time="00:10.381" base={base} num={1} toln={6} />
+  <BrutalImpactActivate time="00:11.451" base={base} num={2} toln={6} />
+  <BrutalImpactActivate time="00:12.521" base={base} num={3} toln={6} />
+  <BrutalImpactActivate time="00:13.589" base={base} num={4} toln={6} />
+  <BrutalImpactActivate time="00:14.657" base={base} num={5} toln={6} />
+  <BrutalImpactActivate time="00:15.727" base={base} num={6} toln={6} />
+  <BrutalImpact base={base} />
+
   <SeparatorSection id="stoneringer" title="Stoneringer" />
   <Stoneringer base={base} />
 

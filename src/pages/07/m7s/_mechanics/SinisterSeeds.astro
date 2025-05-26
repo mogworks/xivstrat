@@ -1,17 +1,21 @@
 ---
 import type { Time } from '@/lib/utils'
+
 import { Image } from 'astro:assets'
+
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import SporeSacCast from '../_components/SporeSacCast.astro'
-import img from '@/assets/07/m7s/Tmp.png'
+
+import CrossingCrosswindsCast from '../_components/CrossingCrosswindsCast.astro'
 import MoveToCenterEvent from '../_components/MoveToCenterEvent.astro'
 import SinisterSeedsCast from '../_components/SinisterSeeedsCast.astro'
+import SporeSacCast from '../_components/SporeSacCast.astro'
 import WindingWildwindsCast from '../_components/WindingWildwindsCast.astro'
-import CrossingCrosswindsCast from '../_components/CrossingCrosswindsCast.astro'
+
+import img from '@/assets/07/m7s/Tmp.png'
 
 interface Props {
   base: Time
@@ -75,10 +79,10 @@ const { base = 0 }: Props = Astro.props
 
 <MoveToCenterEvent time="00:46.22" base={base} />
 <SinisterSeedsCast start="00:48.63" base={base} />
-<WindingWildwindsCast start="01:11.47" number={1} base={base} />
-<WindingWildwindsCast start="01:11.47" number={2} base={base} />
-<CrossingCrosswindsCast start="01:11.47" number={3} base={base} />
-<CrossingCrosswindsCast start="01:11.47" number={4} base={base} />
+<WindingWildwindsCast start="01:11.47" num={1} base={base} />
+<WindingWildwindsCast start="01:11.47" num={2} base={base} />
+<CrossingCrosswindsCast start="01:11.47" num={3} base={base} />
+<CrossingCrosswindsCast start="01:11.47" num={4} base={base} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

@@ -3,6 +3,8 @@ import type { Time } from '@/lib/utils'
 import CastSection from '@/components/section/CastSection.astro'
 import Badge from '@/components/Badge.astro'
 
+import BruteAbombinator from './BruteAbombinator.astro'
+
 interface Props {
   start: Time
   base?: Time
@@ -12,6 +14,6 @@ const { start, base = 0 }: Props = Astro.props
 ---
 
 <CastSection start={start} base={base} duration={1.7} ability="Stoneringer">
-  掏出一把武器在之后释放
+  <BruteAbombinator slot="source" />
   <Badge variant="yellow">钢铁/月环</Badge>
 </CastSection>
