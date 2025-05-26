@@ -18,23 +18,38 @@
       "mechanics": [
         {
           "href": "#stoneringer",
-          "name": "Stoneringer"
+          "name": "Stoneringer",
+          "name_en": "Stoneringer",
+          "name_ja": "",
+          "name_ch": "石环咏唱"
         },
         {
           "href": "#sinister-seeds",
-          "name": "Sinister Seeds"
+          "name": "Sinister Seeds",
+          "name_en": "Sinister Seeds",
+          "name_ja": "",
+          "name_ch": "邪种播撒"
         },
         {
           "href": "#quarry-wwamp",
-          "name": "Quarry Swamp"
+          "name": "Quarry Swamp",
+          "name_en": "Quarry Swamp",
+          "name_ja": "",
+          "name_ch": "采石泥沼"
         },
         {
           "href": "#pulp-smash",
-          "name": "Pulp Smash"
+          "name": "Pulp Smash",
+          "name_en": "Pulp Smash",
+          "name_ja": "",
+          "name_ch": "果浆碎击"
         },
         {
           "href": "#neo-bombarian-special",
-          "name": "Neo Bombarian Special"
+          "name": "Neo Bombarian Special",
+          "name_en": "Neo Bombarian Special",
+          "name_ja": "",
+          "name_ch": "新式爆弹人特调"
         }
       ]
     },
