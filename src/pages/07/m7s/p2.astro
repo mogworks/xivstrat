@@ -6,12 +6,14 @@ import StrangeSeeds from './_mechanics/StrangeSeeds.astro'
 import StrangeSeedsCast from './_components/StrangeSeedsCast.astro'
 
 
+import PowerSlam from './_components/PowerSlam.astro'
+
 const dutyId = '07/m7s'
 const base = '02:38.206'
 ---
-
 <DutyStratLayout dutyId={dutyId}>
   <SeparatorSection id="strange-seeds" title="StrangeSeeds" />
   <StrangeSeedsCast start="04:48.21" base={base} />
   <StrangeSeeds/>
+  <PowerSlam time="05:51.804" base={base} />
 </DutyStratLayout>

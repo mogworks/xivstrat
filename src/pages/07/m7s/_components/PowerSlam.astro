@@ -1,0 +1,21 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import EventSection from '@/components/section/EventSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+---
+
+<CastSection start={time} base={base} duration={5.7} ability="PowerSlam ">
+    <Badge variant="pink">全屏AoE</Badge>
+</CastSection>
