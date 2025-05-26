@@ -1,21 +1,28 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
-import RoleIcon from '@/components/RoleIcon.astro'
 import EventSection from '@/components/section/EventSection.astro'
-import Boss from '@/components/Boss.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
-import SeparatorSection from '../../../components/section/SeparatorSection.astro'
+import HowlingBladeIcon from './_components/HowlingBladeIcon.astro'
+
+import Xfang from './_mechanics/Xfang.astro'
 
 const dutyId = '07/m8s1'
 const base = 0
 ---
 
 <DutyStratLayout dutyId={dutyId}>
-  <EventSection>
+  <EventSection time="00:00.0" base={base}>
     <RoleIcon role="tank" tag="MT" />
-    开怪，将<Boss />固定在场中位置
+    开怪，将
+    <HowlingBladeIcon />
+    固定在场中。
   </EventSection>
-  <ExtraplanarPursuitCast start="00:10.200" base={base}/>
-  <SeparatorSection id="stonefang-or-windfang" title="土の魔技 | 风の魔技"/>
+  <SeparatorSection id="extraplanar-pursuit" title="Extraplanar Pursuit" />
+  <ExtraplanarPursuitCast start="00:10.195" base={base} />
+  <SeparatorSection id="stonefang-or-windfang" title="土の魔技 | 风の魔技" />
+  <Xfang time="00:23.131" />
 </DutyStratLayout>
