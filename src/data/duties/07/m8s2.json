@@ -12,37 +12,105 @@
   "phases": [
     {
       "href": "/07/m8s2/p1",
-      "title": "Part 4",
+      "title": "Part 1",
       "subtitle": "本体1",
-      "name": "P4 - 本体1",
+      "name": "P1 - 本体1",
       "mechanics": [
         {
           "href": "#quake-iii",
-          "name": "Quake III"
+          "name": "爆震"
+        },
+        {
+          "href": "#ultraviolent-ray",
+          "name": "魔光"
+        },
+        {
+          "href": "#twinbite",
+          "name": "雙牙擊"
+        },
+        {
+          "href": "#heros-blow",
+          "name": "鎧袖一触"
+        },
+        {
+          "href": "#mooncleaver",
+          "name": "剛刃一閃"
+        },
+        {
+          "href": "#elemental-purge",
+          "name": "風震の魔印"
+        },
+        {
+          "href": "#prowling-gale",
+          "name": "風狼陣"
         }
       ]
     },
     {
       "href": "/07/m8s2/p2",
       "title": "Part 5",
-      "subtitle": "本体2",
-      "name": "P5 - 本体2",
+      "subtitle": "一运",
+      "name": "P2 - 一运",
       "mechanics": [
         {
+          "href": "#rise-of-the-howling-wind",
+          "name": "魔狼戰型·天嵐の相"
+        },
+        {
+          "href": "#twofold-tempest",
+          "name": "雙牙暴風擊"
+        },
+        {
+          "href": "#bare-fangs",
+          "name": "光牙招来"
+        },
+        {
           "href": "#champions-circuit",
-          "name": "Champion's Circuit"
+          "name": "廻天動地"
         }
       ]
     },
     {
       "href": "/07/m8s2/p3",
-      "title": "Part 6",
+      "title": "Part 3",
+      "subtitle": "二运",
+      "name": "P3 - 二运",
+      "mechanics": [
+        {
+          "href": "#rise-of-the-hunters-blade",
+          "name": "魔狼戰型·呪刃の相"
+        },
+        {
+          "href": "#lone-wolfs-lament",
+          "name": "孤狼の呪い"
+        },
+        {
+          "href": "#heros-blow",
+          "name": "鎧袖一触"
+        },
+        {
+          "href": "#ultraviolent-ray",
+          "name": "魔光"
+        }
+      ]
+    },
+    {
+      "href": "/07/m8s2/p4",
+      "title": "Part 4",
       "subtitle": "软狂暴",
-      "name": "P6 - 软狂暴",
+      "name": "P4 - 软狂暴",
       "mechanics": [
         {
           "href": "#howling-eight",
-          "name": "Howling Eight"
+          "name": "八連光彈"
+        },
+        {
+          "href": "#mooncleaver",
+          "name": "剛刃一閃"
+        },
+        {
+          "href": "#starcleaver",
+          "name": "剛刃一閃·終"
         }
       ]
     }

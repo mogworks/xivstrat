@@ -1,7 +1,7 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import immobile_suit from '@/assets/buff/07/m8s1/215370.png'
+import terrestrail_chains from '@/assets/buff/07/m8s2/214268.png'
 
 interface Props {
   tag?: string
@@ -13,10 +13,10 @@ const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 ---
 
 <Buff
-  icon={immobile_suit}
-  name="Immobile Suit"
+  icon={terrestrail_chains}
+  name="Terrestrail Chains"
   nameVariant="yellow"
-  description="Unable to teleport due to system overload."
+  description="Bound to the ground and unable to jump."
   tag={tag}
   hover={hover}
   class={className}

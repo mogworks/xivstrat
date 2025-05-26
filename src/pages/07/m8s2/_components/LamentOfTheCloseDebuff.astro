@@ -1,7 +1,7 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import patience_of_wind from '@/assets/buff/07/m8s1/214269.png'
+import lament_of_the_close from '@/assets/buff/07/m8s2/214271.png'
 
 interface Props {
   tag?: string
@@ -13,10 +13,10 @@ const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 ---
 
 <Buff
-  icon={patience_of_wind}
-  name="Patience of Wind"
+  icon={lament_of_the_close}
+  name="Lament of the Close"
   nameVariant="yellow"
-  description="Wind aether lurks in the body, waiting to be unleashed upon the surrounding area when this effect expires."
+  description="Moving too far from the bearer of the same lament will result in a massive explosion."
   tag={tag}
   hover={hover}
   class={className}

@@ -1,7 +1,7 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import terrestrail_chains from '@/assets/buff/07/m8s1/214268.png'
+import patience_of_wind from '@/assets/buff/07/m8s2/214269.png'
 
 interface Props {
   tag?: string
@@ -13,10 +13,10 @@ const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 ---
 
 <Buff
-  icon={terrestrail_chains}
-  name="Terrestrail Chains"
+  icon={patience_of_wind}
+  name="Patience of Wind"
   nameVariant="yellow"
-  description="Bound to the ground and unable to jump."
+  description="Wind aether lurks in the body, waiting to be unleashed upon the surrounding area when this effect expires."
   tag={tag}
   hover={hover}
   class={className}
