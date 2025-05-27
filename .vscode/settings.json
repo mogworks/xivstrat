@@ -1,0 +1,22 @@
+{
+  "prettier.configPath": ".prettierrc",
+  "prettier.requireConfig": true,
+  "prettier.trailingComma": "es5",
+  "eslint.format.enable": true,
+  "eslint.codeActionsOnSave.rules": null,
+  "eslint.options": {
+    "rules": {
+      "no-console": "off",
+      "style/brace-style": ["error", "1tbs"],
+      "style/member-delimiter-style": ["error", { "multiline": { "delimiter": "none" } }],
+      "style/operator-linebreak": "off",
+      "perfectionist/sort-imports": ["error", { "tsconfigRootDir": "." }],
+      "unicorn/number-literal-case": "off",
+      "style/quotes": ["error", "single"],
+      "style/jsx-quotes": ["error", "prefer-single"],
+      "style/comma-dangle": ["error", "only-multiline"]
+    }
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

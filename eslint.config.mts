@@ -32,6 +32,9 @@ export default antfu(
       'style/operator-linebreak': 'off',
       'perfectionist/sort-imports': ['error', { tsconfigRootDir: '.' }],
       'unicorn/number-literal-case': 'off',
+      'style/quotes': ['error', 'single'],
+      'style/jsx-quotes': ['error', 'prefer-single'],
+      'style/comma-dangle': ['error', 'only-multiline'],
     },
-  },
+  }
 )
