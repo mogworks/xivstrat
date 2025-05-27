@@ -228,7 +228,7 @@ async function processScriptsDirectory() {
 
   // Report if no files needed processing
   if (processedCount === 0) {
-    logSuccess(`All files are already up to date`)
+    logSuccess('All files are already up to date')
   } else {
     const savingsPercent = ((1 - totalOutputSize / totalInputSize) * 100).toFixed(1)
     const savedBytes = totalInputSize - totalOutputSize
@@ -242,6 +242,6 @@ async function processScriptsDirectory() {
 
 // Execute the main function
 processScriptsDirectory().catch((err) => {
-  logError(`Unhandled exception`, err.stack || err)
+  logError('Unhandled exception', err.stack || err)
   process.exit(1)
 })
