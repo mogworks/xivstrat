@@ -1,0 +1,44 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+  [key: string]: any
+}
+
+const ability = 'Winds of Decay'
+const damage='70000'
+const damageType='magical'
+
+const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
+
+// 狼头连线扇形，魔法易伤
+---
+
+<EventSection
+  time={time}
+  base={base}
+>
+  狼头连线随机
+  4
+  <RoleIcon role="dps" />
+  或4
+  <RoleIcon role="tank" />
+  <RoleIcon role="healer" />
+  扇形AoE
+
+  <DamageInfo damage={damage} type={damageType} />
+<MagicVulnerabilityUp tag=1 />
+
+  <Badge variant="green">扇形</Badge>
+  <Badge variant="yellow">AoE</Badge>
+</EventSection>
