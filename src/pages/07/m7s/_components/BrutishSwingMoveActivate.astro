@@ -1,0 +1,24 @@
+---
+import type { Time } from '@/lib/utils'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import Icon from '@/components/Icon.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+
+import icon from '@/assets/buff/215057.png'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+---
+
+<EventSection time={time} base={base}>
+  <BruteAbombinator /> 开始移动至墙壁
+</EventSection>
