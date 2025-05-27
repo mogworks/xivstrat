@@ -3,7 +3,6 @@ import type { Time } from '@/lib/utils'
 
 import { Image } from 'astro:assets'
 
-import Boss from '@/components/Boss.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -22,23 +21,18 @@ interface Props {
 const { start, base = 0 }: Props = Astro.props
 ---
 
-<CastSection
-  start={start}
-  base={base}
-  duration={2.7}
-  ability="大地の怒り"
->
-  ，标志一连串机制即将开始。
-</CastSection>
+<CastSection start={start} base={base} duration={2.7} ability="大地の怒り"> ，标志一连串机制即将开始。 </CastSection>
 <MechanicSection>
   <div class="flex gap-4">
     <div class="max-w-90 shrink">
-      <Image src={terrestrial_rage_img} alt="Terrestrial Rage Mechanics" class="border-2 border-amber-800/75 dark:border-amber-100" />
+      <Image
+        src={terrestrial_rage_img}
+        alt="Terrestrial Rage Mechanics"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
     </div>
     <div class="shrink-0 grow space-y-4">
-      <div class="gap-strat flex items-center">
-        场上分两次出现斜着的浮游炮，一次两个。按出现顺序先后释放直线攻击。
-      </div>
+      <div class="gap-strat flex items-center">场上分两次出现斜着的浮游炮，一次两个。按出现顺序先后释放直线攻击。</div>
       <div class="gap-strat flex items-center">
         同时随机点名
         <RoleIcon role="tank" />
@@ -54,21 +48,22 @@ const { start, base = 0 }: Props = Astro.props
         其余4人中点名一人
         <Span variant="yellow">分摊</Span>
         <DamageInfo damage="110000" type="magical" />
-        。
-        分散和分摊都会附加短暂的
+        。 分散和分摊都会附加短暂的
         <MagicVulnerabilityUp tag="2" hover />
         。
       </div>
-      <div class="gap-strat flex items-center">
-        判定顺序为：第一轮浮游炮 - 分散/分摊 - 第二轮浮游炮。
-      </div>
+      <div class="gap-strat flex items-center">判定顺序为：第一轮浮游炮 - 分散/分摊 - 第二轮浮游炮。</div>
     </div>
   </div>
 </MechanicSection>
 <SolutionSection>
   <div class="flex gap-4">
     <div class="max-w-90 shrink">
-      <Image src={terrestrial_rage_img} alt="Terrestrial Rage Solution" class="border-2 border-amber-800/75 dark:border-amber-100" />
+      <Image
+        src={terrestrial_rage_img}
+        alt="Terrestrial Rage Solution"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
     </div>
     <div class="shrink-0 grow space-y-4">
       <div class="gap-strat flex items-center">
@@ -84,9 +79,7 @@ const { start, base = 0 }: Props = Astro.props
         <Span variant="yellow">分散点名</Span>
         按图中所示前往自己的正点并调整位置。
       </div>
-      <div class="gap-strat flex items-center">
-        二穿一躲避浮游炮并分摊/分散。
-      </div>
+      <div class="gap-strat flex items-center">二穿一躲避浮游炮并分摊/分散。</div>
     </div>
   </div>
 </SolutionSection>
