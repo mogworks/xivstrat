@@ -1,0 +1,15 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import AttackSection from '@/components/section/AttackSection.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+---
+
+<AttackSection time={time} base={base} damage="80000" damageType="physical" />

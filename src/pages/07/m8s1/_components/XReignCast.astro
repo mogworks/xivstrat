@@ -1,0 +1,32 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+
+interface Props {
+  time?: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+
+const duration = 4.8
+
+// const damageApplyTime =
+// time !== undefined ?
+//   timeToSeconds(time) + duration + 0.3 // 修正延迟，计算伤害生效时间
+// : undefined
+
+// const revolutionaryReign = "Revolutionary Reign"
+// const eminentReign = "Eminent Reign"
+
+const abilityName = 'Revolutionary | Eminent Reign'
+---
+
+<CastSection start={time} base={base} duration={duration} ability={abilityName}>
+  <HowlingBladeIcon slot="source" />
+  <Badge variant="emerald">延迟生效</Badge>
+</CastSection>

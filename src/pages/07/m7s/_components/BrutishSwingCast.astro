@@ -1,0 +1,18 @@
+---
+import type { Time } from '@/lib/utils'
+import CastSection from '@/components/section/CastSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<CastSection start={start} base={base} duration={7.8} ability="Brutish Swing">
+  <BruteAbombinator slot="source" />
+  连线场地墙壁，随后移动至连线墙壁
+</CastSection>
