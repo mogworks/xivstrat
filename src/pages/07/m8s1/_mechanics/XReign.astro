@@ -1,0 +1,107 @@
+---
+import { Image } from 'astro:assets'
+
+import type { Time } from '@/lib/utils'
+import { timeToSeconds } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+
+import XReginCast from '../_components/XReignCast.astro'
+import WolvesReignEndCast from '../_components/WolvesReignEndCast.astro'
+import WolvesReignLineCast from '../_components/WolvesReignLineCast.astro'
+
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+  dragon?: boolean
+}
+
+const revolutionaryReign = 'Revolutionary Reign'
+const wolvesReign = "Wolves' Reign"
+const eminentReign = 'Eminent Reign'
+
+const { time, base = 0, dragon = false }: Props = Astro.props
+
+const reign1Time = time !== undefined ? timeToSeconds(time) + 8 : undefined
+
+const reign2Time = time !== undefined ? timeToSeconds(time) + 11 : undefined
+---
+
+<XReginCast time={time} base={base} />
+<WolvesReignLineCast time={reign1Time} base={base} />
+<WolvesReignEndCast time={reign2Time} base={base} />
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="text-2xl">
+      <Span variant="yellow">{revolutionaryReign} </Span>
+      <Span variant="violet">|</Span>
+      <Span variant="yellow">{eminentReign}</Span>
+    </div>
+
+    <div class="gap-strat flex items-center">
+      <HowlingBladeIcon />
+      在读条
+      <Span variant="yellow">{revolutionaryReign} </Span>
+      <Span variant="violet">|</Span>
+      <Span variant="yellow">{eminentReign}</Span>
+      后会进入一段组合技。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      <HowlingBladeIcon />
+      会先在身边召唤三个分身冲向三个不同的方向，并且在自身脚下以及分身落点出释放直径为6m的钢铁。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      之后，
+      <HowlingBladeIcon />
+      随机选择一个分身的方向，跳到场边，读条
+      <Span variant="yellow">{wolvesReign}</Span>
+      ，对正前方释放宽为5m的直线AoE，并且跳到对面。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      随后，
+      <HowlingBladeIcon />
+      读条
+      <Span variant="yellow">
+        {wolvesReign}
+      </Span>
+      释放刚刚储存的技能，
+    </div>
+
+    <div class="gap-strat flex items-center">
+      <Span variant="yellow">{eminentReign}</Span>
+      是
+      <HowlingBladeIcon />
+      <Span variant="yellow">{revolutionaryReign}</Span>
+      是以
+      <HowlingBladeIcon />
+      为中心直径14m的钢铁，扇形和钢铁均带有击退效果。
+    </div>
+    <div class="gap-strat flex items-center">
+      与此同时，
+      <HowlingBladeIcon />
+      还会对
+      <RoleIcon role="tank" tag="双T" />
+      <DamageInfo damage="360000" type="physical" />
+      <PhysicalVulnerabilityUp tag="1" hover />
+      ，对
+      <RoleIcon role="healer" tag="双奶" />
+      <DamageInfo damage="180000" type="physical" />
+      <PhysicalVulnerabilityUp tag="1" hover />
+      。
+    </div>
+
+    <div class="gap-strat flex items-center">两者均带有物理易伤，重叠即死。</div>
+  </div>
+</MechanicSection>
+<SolutionSection />
