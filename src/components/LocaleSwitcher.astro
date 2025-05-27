@@ -6,7 +6,7 @@ const lang = Astro.currentLocale || defaultLocale
 
 <select
   id="locale-switcher"
-  class="fixed top-6.5 right-8 z-50 scale-90 appearance-none rounded-md border border-gray-200 bg-white py-1.5 pr-8 pl-3 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+  class="z-50 scale-90 appearance-none rounded-md border border-gray-200 bg-white py-1.5 pr-8 pl-3 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
 >
   {
     Object.entries(locales).map(([localeKey, localeValue]) => (

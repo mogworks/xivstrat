@@ -4,6 +4,7 @@ import type { DutyPhase } from '@/data/duty'
 import DarkModeButton from '@/components/DarkModeButton.astro'
 import Separator from '@/components/Separator.astro'
 import { cn } from '@/lib/utils'
+import LocaleSwitcher from './LocaleSwitcher.astro'
 
 interface Props {
   baseUrl?: string
@@ -85,6 +86,7 @@ const { baseUrl, name, phases }: Props = Astro.props
           </g>
         </svg>
       </a>
+      <LocaleSwitcher />
     </section>
   </div>
 </header>

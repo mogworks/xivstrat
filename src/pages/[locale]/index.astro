@@ -24,8 +24,10 @@ export function getStaticPaths() {
 <Layout>
   <div class="@container relative flex min-h-dvh min-w-sm flex-col items-center">
     <div class="bg-dots fade-b absolute inset-x-0 top-0 h-48"></div>
-    <DarkModeButton class="fixed top-[2.05rem] right-32" />
-    <LocaleSwitcher />
+    <DarkModeButton class="fixed top-[2.05rem] right-33" />
+    <div class="fixed top-6.5 right-8">
+      <LocaleSwitcher />
+    </div>
     <header class="mt-20 text-center">
       <h1 class="text-5xl leading-tight font-semibold tracking-tight">XivStrat</h1>
       <p class="mt-7 text-lg leading-relaxed font-medium text-zinc-400">{t('webIntroduction')}</p>
