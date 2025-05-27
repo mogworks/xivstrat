@@ -18,31 +18,52 @@
       "mechanics": [
         {
           "href": "#quake-iii",
-          "name": "爆震"
+          "name": "爆震",
+          "name_en": "Quake III",
+          "name_ja": "爆震",
+          "name_ch": "爆震"
         },
         {
           "href": "#ultraviolent-ray",
-          "name": "魔光"
+          "name": "魔光",
+          "name_en": "Ultraviolent Ray",
+          "name_ja": "魔光",
+          "name_ch": "魔光"
         },
         {
           "href": "#twinbite",
-          "name": "雙牙擊"
+          "name": "雙牙擊",
+          "name_en": "Twinbite",
+          "name_ja": "双牙撃",
+          "name_ch": "双牙击"
         },
         {
           "href": "#heros-blow",
-          "name": "鎧袖一触"
+          "name": "鎧袖一触",
+          "name_en": "Hero's Blow",
+          "name_ja": "鎧袖一触",
+          "name_ch": "铠袖一触"
         },
         {
           "href": "#mooncleaver",
-          "name": "剛刃一閃"
+          "name": "剛刃一閃",
+          "name_en": "Mooncleaver",
+          "name_ja": "剛刃一閃",
+          "name_ch": "刚刃一闪"
         },
         {
           "href": "#elemental-purge",
-          "name": "風震の魔印"
+          "name": "風震の魔印",
+          "name_en": "Elemental Purge",
+          "name_ja": "風震の魔印",
+          "name_ch": "风震魔印"
         },
         {
           "href": "#prowling-gale",
-          "name": "風狼陣"
+          "name": "風狼陣",
+          "name_en": "Prowling Gale",
+          "name_ja": "風狼陣",
+          "name_ch": "风狼阵"
         }
       ]
     },
@@ -54,19 +75,31 @@
       "mechanics": [
         {
           "href": "#rise-of-the-howling-wind",
-          "name": "魔狼戰型·天嵐の相"
+          "name": "魔狼戰型·天嵐の相",
+          "name_en": "Howling Wind Stance",
+          "name_ja": "魔狼戦型・天嵐の相",
+          "name_ch": "魔狼战型·天岚之相"
         },
         {
           "href": "#twofold-tempest",
-          "name": "雙牙暴風擊"
+          "name": "雙牙暴風擊",
+          "name_en": "Twofold Tempest",
+          "name_ja": "双牙暴風撃",
+          "name_ch": "双牙暴风击"
         },
         {
           "href": "#bare-fangs",
-          "name": "光牙招来"
+          "name": "光牙招来",
+          "name_en": "Bare Fangs",
+          "name_ja": "光牙招来",
+          "name_ch": "光牙招来"
         },
         {
           "href": "#champions-circuit",
-          "name": "廻天動地"
+          "name": "廻天動地",
+          "name_en": "Champion's Circuit",
+          "name_ja": "廻天動地",
+          "name_ch": "回天动地"
         }
       ]
     },
@@ -78,19 +111,31 @@
       "mechanics": [
         {
           "href": "#rise-of-the-hunters-blade",
-          "name": "魔狼戰型·呪刃の相"
+          "name": "魔狼戰型·呪刃の相",
+          "name_en": "Hunter's Blade Stance",
+          "name_ja": "魔狼戦型・呪刃の相",
+          "name_ch": "魔狼战型·咒刃之相"
         },
         {
           "href": "#lone-wolfs-lament",
-          "name": "孤狼の呪い"
+          "name": "孤狼の呪い",
+          "name_en": "Lone Wolf's Lament",
+          "name_ja": "孤狼の呪い",
+          "name_ch": "孤狼的诅咒"
         },
         {
           "href": "#heros-blow",
-          "name": "鎧袖一触"
+          "name": "鎧袖一触",
+          "name_en": "Hero's Blow",
+          "name_ja": "鎧袖一触",
+          "name_ch": "铠袖一触"
         },
         {
           "href": "#ultraviolent-ray",
-          "name": "魔光"
+          "name": "魔光",
+          "name_en": "Ultraviolent Ray",
+          "name_ja": "魔光",
+          "name_ch": "魔光"
         }
       ]
     },

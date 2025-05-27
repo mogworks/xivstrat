@@ -1,0 +1,94 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import Span from '@/components/Span.vue'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import img from '@/assets/07/m7s/Tmp.png'
+import StoneringerCast from '../_components/StoneringerCast.astro'
+import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
+import GlowerPowerCast from '../_components/GlowerPowerCast.astro'
+import ElectrogeneticForceActivate from '../_components/ElectrogeneticForceActivate.astro'
+import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
+import BrutishSwingMoveActivate from '../_components/BrutishSwingMoveActivate.astro'
+import RevengeOfTheVinesCast from '../_components/RevengeOfTheVinesCast.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+
+interface Props {
+  base: Time
+}
+
+const { base = 0 }: Props = Astro.props
+---
+
+<StoneringerCast start="02:48.01" base={base} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">观察Boss武器判断接下来Aoe类型，后续会和别的机制形成组合机制</div>
+
+    <div class="flex gap-4">
+      <div class="max-w-88 flex-1">
+        <Image src={img} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      </div>
+      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形1</Span>
+        </h4>
+        <div class="gap-strat flex items-center">
+          武器如图所示，稍后释放
+          <Span variant="yellow">钢铁</Span>， 吃到后会被赋予 <DamageDown tag="30" />
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-88 flex-1">
+        <Image src={img} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      </div>
+      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形2</Span>
+        </h4>
+        <div class="gap-strat flex items-center">
+          武器如图所示，稍后释放
+          <Span variant="yellow">月环</Span>， 吃到后会被赋予 <DamageDown tag="30" />
+        </div>
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">武器发光时根据武器类型追加钢铁月环Aoe</div>
+    <h4 class="mt-4 text-2xl">
+      <Span variant="yellow">范围参考</Span>
+    </h4>
+    <div class="grid grid-cols-2 gap-x-2 gap-y-4">
+      <div class="flex flex-col items-center gap-1">
+        <Image src={img} alt="" class="min-w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <div>钢铁</div>
+      </div>
+      <div class="flex flex-col items-center gap-1">
+        <Image src={img} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <div>月环</div>
+      </div>
+    </div>
+  </div>
+</SolutionSection>
+<BrutishSwingCast start="02:55.84" base={base} />
+<BrutishSwingMoveActivate time="02:59.81" base={base} />
+<BrutishSwingActivate time="03:02.71" base={base} />
+<GlowerPowerCast start="03:04.80" base={base} />
+<ElectrogeneticForceActivate time="03:08.64" base={base} />
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      直线范围与<RoleIcon role="all" tag="所有人" />站位如下
+    </div>
+    <Image src={img} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+  </div>
+</SolutionSection>
+<RevengeOfTheVinesCast start="03:09.61" base={base} />
