@@ -1,0 +1,66 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import BruteAbombinator from './_components/BruteAbombinator.astro'
+import BrutalImpactCast from './_components/BrutalImpactCast.astro'
+import BrutalImpactActivate from './_components/BrutalImpactActivate.astro'
+import BrutalImpact from './_mechanics/BrutalImpact.astro'
+
+import Stoneringer from './_mechanics/Stoneringer.astro'
+import SinisterSeeds from './_mechanics/SinisterSeeds.astro'
+import QuarrySwamp from './_mechanics/QuarrySwamp.astro'
+import StoneringerCast from './_components/StoneringerCast.astro'
+import SmashHereCast from './_components/SmashHereCast.astro'
+import PulpSmash from './_mechanics/PulpSmash.astro'
+import NeoBombarianSpecial from './_mechanics/NeoBombarianSpecial.astro'
+
+import { supportedLocales } from '@/i18n/config'
+
+const dutyId = '07/m7s'
+const base = 0
+
+export function getStaticPaths() {
+  return supportedLocales.map((localeItem) => ({ params: { locale: localeItem } }))
+}
+---
+
+<DutyStratLayout dutyId={dutyId}>
+  <EventSection>
+    <RoleIcon role='tank' tag='MT' />
+    开怪，将
+    <BruteAbombinator />
+    固定在场中偏南一点的位置
+  </EventSection>
+  <!-- Attack -->
+  <SeparatorSection id='BrutalImpact' title='Brutal Impact' />
+  <BrutalImpactCast start='00:05.165' base={base} toln={6} />
+  <BrutalImpactActivate time='00:10.381' base={base} num={1} toln={6} />
+  <BrutalImpactActivate time='00:11.451' base={base} num={2} toln={6} />
+  <BrutalImpactActivate time='00:12.521' base={base} num={3} toln={6} />
+  <BrutalImpactActivate time='00:13.589' base={base} num={4} toln={6} />
+  <BrutalImpactActivate time='00:14.657' base={base} num={5} toln={6} />
+  <BrutalImpactActivate time='00:15.727' base={base} num={6} toln={6} />
+  <BrutalImpact base={base} />
+
+  <SeparatorSection id='stoneringer' title='Stoneringer' />
+  <Stoneringer base={base} />
+
+  <SeparatorSection id='sinister-seeds' title='Sinister Seeds' />
+  <SinisterSeeds base={base} />
+
+  <SeparatorSection id='quarry-wwamp' title='Quarry Swamp' />
+  <QuarrySwamp base={base} />
+
+  <StoneringerCast start='01:46.61' base={base} />
+  <SmashHereCast start='01:54.42' base={base} />
+
+  <SeparatorSection id='pulp-smash' title='Pulp Smash' />
+  <PulpSmash base={base} />
+
+  <SeparatorSection id='neo-bombarian-special' title='Neo Bombarian Special' />
+  <NeoBombarianSpecial base={base} />
+</DutyStratLayout>

@@ -10,4 +10,12 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+
+  i18n: {
+    locales: ['en', 'zh', 'ja'],
+    defaultLocale: 'zh',
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
 })

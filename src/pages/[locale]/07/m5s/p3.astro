@@ -1,0 +1,80 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import Badge from '@/components/Badge.astro'
+import Boss from '@/components/Boss.astro'
+import Span from '@/components/Span.vue'
+import AttackSection from '@/components/section/AttackSection.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import CelebrateGoodTimesCast from './_components/CelebrateGoodTimesCast.astro'
+import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+
+import FrogtourageP3 from './_mechanics/FrogtourageP3.astro'
+import DeepCutCast from './_components/DeepCutCast.astro'
+import FunkyFloorP3 from './_mechanics/FunkyFloorP3.astro'
+
+import { supportedLocales } from '@/i18n/config'
+
+const dutyId = '07/m5s'
+const base = '07:14.7'
+
+export function getStaticPaths() {
+  return supportedLocales.map((localeItem) => ({ params: { locale: localeItem } }))
+}
+---
+
+<DutyStratLayout dutyId={dutyId}>
+  <EventSection time='07:14.7' base={base}>
+    <Boss />
+    目标圈恢复身位限制
+  </EventSection>
+  <AttackSection time='07:14.7' base={base} damage='55000' damageType='physical' />
+  <AttackSection time='07:17.7' base={base} damage='55000' damageType='physical' />
+  <AttackSection time='07:20.7' base={base} damage='55000' damageType='physical' />
+  <MoveToCenterEvent time='07:23.840' base={base} />
+  <SeparatorSection title='Frogtourage' />
+  <FrogtourageP3 base={base} />
+  <SeparatorSection />
+  <DeepCutCast start='08:28.712' base={base} />
+  <AttackSection time='08:35.8' base={base} damage='55000' damageType='physical' />
+  <AttackSection time='08:38.8' base={base} damage='55000' damageType='physical' />
+  <MoveToCenterEvent time='08:39.900' base={base} />
+  <SeparatorSection id='funky-floor' title='Funky Floor' />
+  <FunkyFloorP3 base={base} />
+  <SeparatorSection />
+  <CelebrateGoodTimesCast start='09:14.998' base={base} />
+  <AttackSection time='09:22.0' base={base} damage='55000' damageType='physical' />
+  <AttackSection time='09:25.1' base={base} damage='55000' damageType='physical' />
+  <CelebrateGoodTimesCast start='09:25.162' base={base} />
+  <AttackSection time='09:33.1' base={base} damage='55000' damageType='physical' />
+  <AttackSection time='09:36.2' base={base} damage='55000' damageType='physical' />
+  <AttackSection time='09:39.2' base={base} damage='55000' damageType='physical' />
+  <AttackSection time='09:42.2' base={base} damage='55000' damageType='physical' />
+  <MoveToCenterEvent time='09:45.161' base={base} />
+  <SeparatorSection id='hi-nrg-fever' title='Hi-NRG Fever' />
+  <CastSection start='09:47.567' base={base} duration={2.7} ability='Frogtourage Finale' />
+  <NoteSection>
+    <div class='gap-strat flex items-center'>无实际意义</div>
+  </NoteSection>
+  <CastSection
+    start='09:53.711'
+    base={base}
+    duration={11.7}
+    target
+    ability='Hi-NRG Fever'
+    damage='9999999'
+    damageType='special'
+  >
+    <Span slot='ability' variant='fuchsia'>Hi-NRG Fever</Span>
+    <Badge variant='fuchsia'>狂暴</Badge>
+    <Badge variant='red'>团灭</Badge>
+  </CastSection>
+  <EventSection time='10:07' base={base}>
+    <Span variant='fuchsia'>Hi-NRG Fever</Span>
+    伤害结算，副本进程终结
+  </EventSection>
+</DutyStratLayout>

@@ -1,0 +1,14 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import { supportedLocales } from '@/i18n/config'
+
+const dutyId = '07/m8s1'
+const base = '02:59.090'
+
+export function getStaticPaths() {
+  return supportedLocales.map((localeItem) => ({ params: { locale: localeItem } }))
+}
+---
+
+<DutyStratLayout dutyId={dutyId} />

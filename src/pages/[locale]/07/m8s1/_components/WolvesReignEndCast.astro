@@ -1,0 +1,65 @@
+---
+import type { Time } from '@/lib/utils'
+import { timeToSeconds } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Span from '@/components/Span.vue'
+import Badge from '@/components/Badge.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
+
+import HowlingBladeIcon from './HowlingBladeIcon.astro'
+
+interface Props {
+  time?: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+
+const duration = 1.2
+
+const damageApplyTime =
+  time !== undefined
+    ? timeToSeconds(time) + duration + 0.3 // 修正延迟，计算伤害生效时间
+    : undefined
+
+// const revolutionaryReign = "Revolutionary Reign"
+// const eminentReign = "Eminent Reign"
+
+const reignEnd = "Reign's End"
+const sovereignScar = 'Sovereign Scar'
+const abilityName = "Wolves' Reign"
+---
+
+<CastSection start={time} base={base} duration={duration} ability={abilityName}>
+  <HowlingBladeIcon slot='source' />
+
+  <Badge variant='emerald'>钢铁/扇形</Badge>
+</CastSection>
+
+<EventSection time={damageApplyTime}>
+  <HowlingBladeIcon />
+  使用
+  <Span variant='yellow'> {reignEnd} </Span>
+  对
+  <RoleIcon role='tank' />
+  造成
+  <DamageInfo damage='360000' type='physical' />
+  <PhysicalVulnerabilityUp tag='1' hover />
+  <Badge variant='red'>死刑</Badge>
+</EventSection>
+
+<EventSection time={damageApplyTime}>
+  <HowlingBladeIcon />
+  使用
+  <Span variant='yellow'> {sovereignScar} </Span>
+  对
+  <RoleIcon role='healer' />
+  造成需要分摊的伤害，三人分摊时人均
+  <DamageInfo damage='180000' type='physical' />
+  <PhysicalVulnerabilityUp tag='1' hover />
+  <Badge variant='pink'>双奶三三分摊</Badge>
+</EventSection>

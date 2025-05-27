@@ -1,0 +1,19 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import SBGR from './_mechanics/SBGR.astro'
+
+import { supportedLocales } from '@/i18n/config'
+
+const dutyId = '07/m7s'
+const base = '02:38.206'
+
+export function getStaticPaths() {
+  return supportedLocales.map((localeItem) => ({ params: { locale: localeItem } }))
+}
+---
+
+<DutyStratLayout dutyId={dutyId}>
+  <SeparatorSection id='SBGR' title='SBGR' />
+  <SBGR base={base} />
+</DutyStratLayout>

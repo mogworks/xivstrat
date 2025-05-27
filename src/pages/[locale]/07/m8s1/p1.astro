@@ -1,0 +1,42 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
+import Recenter from './_components/Recenter.astro'
+
+import Xfang from './_mechanics/Xfang.astro'
+import XReign from './_mechanics/XReign.astro'
+
+import HowlingBladeIcon from './_components/HowlingBladeIcon.astro'
+
+import { supportedLocales } from '@/i18n/config'
+
+const dutyId = '07/m8s1'
+const base = 0
+
+export function getStaticPaths() {
+  return supportedLocales.map((localeItem) => ({ params: { locale: localeItem } }))
+}
+---
+
+<DutyStratLayout dutyId={dutyId}>
+  <EventSection time='00:00.0' base={base}>
+    <RoleIcon role='tank' tag='MT' />
+    开怪，将
+    <HowlingBladeIcon />
+    固定在场中。
+  </EventSection>
+  <SeparatorSection id='extraplanar-pursuit' title='Extraplanar Pursuit' />
+  <ExtraplanarPursuitCast start='00:10.195' base={base} />
+  <SeparatorSection id='stonefang-or-windfang' title='土の魔技 | 风の魔技' />
+  <Recenter time='00:20.019' />
+  <Xfang time='00:23.131' />
+  <SeparatorSection id='xregin' title='Revolutionary Regin | Eminent Regin' />
+  <XReign time='00:34.289' />
+  <ExtraplanarPursuitCast start='00:49.014' base={base} />
+  <Recenter time='00:58.834' />
+</DutyStratLayout>

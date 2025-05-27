@@ -1,0 +1,40 @@
+---
+import { defaultLocale, locales } from '@/i18n/config'
+
+const lang = Astro.currentLocale || defaultLocale
+---
+
+<select
+  id="locale-switcher"
+  class="fixed top-6.5 right-8 z-50 scale-90 appearance-none rounded-md border border-gray-200 bg-white py-1.5 pr-8 pl-3 text-sm text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+>
+  {
+    Object.entries(locales).map(([localeKey, localeValue]) => (
+      <option value={localeKey} selected={localeKey === lang}>
+        {localeValue.label}
+      </option>
+    ))
+  }
+</select>
+
+<script define:vars={{ locales, lang }} is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const localeSwitcher = document.getElementById('locale-switcher')
+
+    if (localeSwitcher) {
+      localeSwitcher.addEventListener('change', (event) => {
+        const targetLocale = event.target.value
+        window.localStorage.setItem('locale', targetLocale)
+
+        const localeRegex = /^\/([a-z]{2})(\/|$)/
+        const currentPath = window.location.pathname
+        if (currentPath.match(localeRegex)) {
+          const pathWithoutLang = currentPath.replace(localeRegex, '/')
+          window.location.href = `/${targetLocale}${pathWithoutLang === '/' ? '' : pathWithoutLang}`
+        } else {
+          window.location.href = `/${targetLocale}${currentPath === '/' ? '' : currentPath}`
+        }
+      })
+    }
+  })
+</script>

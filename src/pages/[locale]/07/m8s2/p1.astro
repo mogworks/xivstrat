@@ -1,0 +1,23 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import DownForTheCount from '@/components/buff/DownForTheCount.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+
+import { supportedLocales } from '@/i18n/config'
+
+const dutyId = '07/m8s2'
+const base = '07:33.729'
+
+export function getStaticPaths() {
+  return supportedLocales.map((localeItem) => ({ params: { locale: localeItem } }))
+}
+---
+
+<DutyStratLayout dutyId={dutyId}>
+  <EventSection time={base} base={base}>
+    <RoleIcon role='all' tag='全员' />
+    身上的
+    <DownForTheCount hover />消失，进入战斗的后半阶段
+  </EventSection>
+</DutyStratLayout>

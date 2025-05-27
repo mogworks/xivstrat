@@ -1,0 +1,68 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import { timeToSeconds } from '@/lib/utils'
+
+import DotInfo from '@/components/DotInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import MousseMuralCast from './_components/MousseMuralCast.astro'
+import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+import MoveToNorthEvent from './_components/MoveToNorthEvent.astro'
+import PuddingGrafCast from './_components/PuddingGrafCast.astro'
+import StickyMousseCast from './_components/StickyMousseCast.astro'
+import AttackSection from './_components/SugarRiotAttackSection.astro'
+import SwelteringDebuff from './_components/SwelteringDebuff.astro'
+
+import Layer1 from './_mechanics/Layer1.astro'
+import Layer2 from './_mechanics/Layer2.astro'
+import SugarscapeP2 from './_mechanics/SugarscapeP2.astro'
+import DoubleStyleP2 from './_mechanics/DoubleStyleP2.astro'
+
+import { supportedLocales } from '@/i18n/config'
+
+const dutyId = '07/m6s'
+const base = '01:29.093'
+
+export function getStaticPaths() {
+  return supportedLocales.map((localeItem) => ({ params: { locale: localeItem } }))
+}
+---
+
+<DutyStratLayout dutyId={dutyId}>
+  <MoveToNorthEvent time='01:29.093' base={base} />
+  <AttackSection time='01:29.897' base={base} damage='57000' damageType='magical' />
+  <SeparatorSection id='sugarscape' title='Sugarscape' />
+  <SugarscapeP2 base={base} />
+  <AttackSection time='01:39.351' base={base} damage='57000' damageType='magical' />
+  <AttackSection time='01:42.384' base={base} damage='57000' damageType='magical' />
+  <AttackSection time='01:45.418' base={base} damage='57000' damageType='magical' />
+  <SeparatorSection id='layer-1' title='Layer #1' />
+  <Layer1 base={base} />
+  <SeparatorSection />
+  <MoveToCenterEvent time='02:22.765' base={base} />
+  <StickyMousseCast start='02:24.104' end='02:29.898' base={base} />
+  <SeparatorSection id='layer-2' title='Layer #2' />
+  <Layer2 base={base} />
+  <SeparatorSection />
+  <AttackSection time='02:53.567' base={base} damage='57000' damageType='magical' />
+  <PuddingGrafCast start='02:53.612' base={base} />
+  <EventSection time={timeToSeconds('02:53.612') + 5} base={base}><Span variant='zinc'>场中流沙消失</Span></EventSection
+  >
+  <AttackSection time='02:59.634' base={base} damage='57000' damageType='magical' />
+  <MoveToCenterEvent time='02:59.768' base={base} />
+  <SeparatorSection id='double-style' title='Double Style' />
+  <DoubleStyleP2 base={base} />
+  <SeparatorSection />
+  <MousseMuralCast start='03:14.202' base={base} />
+  <EventSection time='03:19.952' base={base}><Span variant='zinc'>场地北/南侧流沙消失</Span></EventSection>
+  <EventSection time='03:19.952' base={base}>
+    场地复原，
+    <RoleIcon role='all' tag='全员' />
+    消除
+    <SwelteringDebuff hover />
+    <DotInfo damage='15000' />
+  </EventSection>
+</DutyStratLayout>
