@@ -1,8 +1,8 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import Boss from '@/components/Boss.astro'
 import EventSection from '@/components/section/EventSection.astro'
+import HowlingBladeIcon from './HowlingBladeIcon.astro'
 
 interface Props {
   time: Time
@@ -13,6 +13,6 @@ const { time, base = 0 }: Props = Astro.props
 ---
 
 <EventSection time={time} base={base}>
-  <Boss />
+  <HowlingBladeIcon />
   上天，不可选中
 </EventSection>

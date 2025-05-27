@@ -3,6 +3,7 @@ import type { Time } from '@/lib/utils'
 
 import { Image } from 'astro:assets'
 
+import Boss from '@/components/Boss.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -12,6 +13,7 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
 import terrestrial_rage_img from '@/assets/07/m8s1/Tmp.png'
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
 
 interface Props {
   start: Time
@@ -21,38 +23,52 @@ interface Props {
 const { start, base = 0 }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={2.7} ability="大地の怒り"> ，标志一连串机制即将开始。 </CastSection>
+<CastSection start={start} base={base} duration={2.7} ability="大地の怒り">
+  <HowlingBladeIcon slot="source" />
+  ，标志一连串机制即将开始。
+</CastSection>
 <MechanicSection>
-  <div class="flex gap-4">
-    <div class="max-w-90 shrink">
-      <Image
-        src={terrestrial_rage_img}
-        alt="Terrestrial Rage Mechanics"
-        class="border-2 border-amber-800/75 dark:border-amber-100"
-      />
+  <div class="flex flex-col gap-4">
+    <div class="text-2xl">
+      <Span variant="yellow">大地の怒り</Span>
     </div>
-    <div class="shrink-0 grow space-y-4">
-      <div class="gap-strat flex items-center">场上分两次出现斜着的浮游炮，一次两个。按出现顺序先后释放直线攻击。</div>
-      <div class="gap-strat flex items-center">
-        同时随机点名
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
-        TH组4人或
-        <RoleIcon role="dps" />
-        DPS组4人
-        <Span variant="yellow">分散</Span>
-        <DamageInfo damage="110000" type="magical" />
-        。
+    <div class="flex gap-4">
+      <div class="max-w-90 shrink">
+        <Image
+          src={terrestrial_rage_img}
+          alt="Terrestrial Rage Mechanics"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
       </div>
-      <div class="gap-strat flex items-center">
-        其余4人中点名一人
-        <Span variant="yellow">分摊</Span>
-        <DamageInfo damage="110000" type="magical" />
-        。 分散和分摊都会附加短暂的
-        <MagicVulnerabilityUp tag="2" hover />
-        。
+      <div class="shrink-0 grow space-y-4">
+        <div class="gap-strat flex items-center">场上先后出现四个斜着的浮游炮，短暂延迟后按出现顺序释放直线攻击。</div>
+        <div class="gap-strat flex items-center">
+          同时随机点名
+          <RoleIcon role="tank" />
+          <RoleIcon role="healer" />
+          TH组4人或
+          <RoleIcon role="dps" />
+          DPS组4人
+          <Span variant="yellow">分散</Span>
+          <DamageInfo damage="110000" type="magical" />
+          。
+        </div>
+        <div class="gap-strat flex items-center">
+          其余4人中点名一人
+          <Span variant="yellow">分摊</Span>
+          <DamageInfo damage="110000" type="magical" />
+          。 分散和分摊都会附加短暂的
+          <MagicVulnerabilityUp tag="2" hover />
+          。
+        </div>
+        <div class="gap-strat flex items-center">判定顺序为：第一轮浮游炮 - 分散/分摊 - 第二轮浮游炮。</div>
+        <div class="gap-strat flex items-center"></div>
+        <div class="gap-strat flex items-center">
+          后续的
+          <Span variant="yellow">残影剣</Span>
+          机制中，分摊组与分散组会对换再进行一次。
+        </div>
       </div>
-      <div class="gap-strat flex items-center">判定顺序为：第一轮浮游炮 - 分散/分摊 - 第二轮浮游炮。</div>
     </div>
   </div>
 </MechanicSection>
@@ -67,7 +83,7 @@ const { start, base = 0 }: Props = Astro.props
     </div>
     <div class="shrink-0 grow space-y-4">
       <div class="gap-strat flex items-center">
-        浮游炮固定与 1-3 或 2-4 标点连线平行，不难发现
+        浮游炮方向一定与标点 13/24 连线平行，不难发现
         <Span variant="lime">4个正点</Span>
         附近一定有安全点。
       </div>

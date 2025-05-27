@@ -1,0 +1,59 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import Boss from '@/components/Boss.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import UntargetableEvent from '../_components/UntargetableEvent.astro'
+
+import shadowchase_case1_img from '@/assets/07/m8s1/Tmp.png'
+import shadowchase_case2_img from '@/assets/07/m8s1/Tmp.png'
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+
+interface Props {
+  base?: Time
+}
+
+const { base = 0 }: Props = Astro.props
+---
+
+<UntargetableEvent time="04:47.0" base={base} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="text-2xl">
+      <Span variant="yellow">残影剣</Span>
+    </div>
+    <div class="flex flex-col gap-4">
+      <div class="flex gap-4">
+        <div class="flex max-w-112.5 shrink grow flex-col items-center gap-2">
+          <Image
+            src={shadowchase_case1_img}
+            alt="shadowchase_case1"
+            class="border-2 border-amber-800/75 dark:border-amber-100"
+          />
+          <div class="gap-strat flex items-center">可能情况1</div>
+        </div>
+        <div class="flex max-w-112.5 shrink grow flex-col items-center gap-2">
+          <Image
+            src={shadowchase_case2_img}
+            alt="shadowchase_case2"
+            class="border-2 border-amber-800/75 dark:border-amber-100"
+          />
+          <div class="gap-strat flex items-center">可能情况2</div>
+        </div>
+      </div>
+      <div class="gap-strat flex items-center">
+        <HowlingBladeIcon />在
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection />
