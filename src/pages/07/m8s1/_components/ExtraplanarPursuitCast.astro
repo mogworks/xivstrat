@@ -4,8 +4,7 @@ import type { Time } from '@/lib/utils'
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
-// need to be edited after drawing HowlingBlade icon
-import Boss from '@/components/Boss.astro'
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
 
 interface Props {
   start: Time
@@ -23,9 +22,9 @@ const { start, base = 0, ...rest }: Props = Astro.props
   ability="空間斬り"
   target
   damage="180000"
-  damageType="magical"
+  damageType="physical"
   {...rest}
 >
-  <Boss slot="source" />
+  <HowlingBladeIcon slot="source" />
   <Badge variant="pink">AoE</Badge>
 </CastSection>

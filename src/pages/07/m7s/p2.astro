@@ -1,11 +1,13 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
-
-import PowerSlam from './_components/PowerSlam.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import SBGR from './_mechanics/SBGR.astro'
 
 const dutyId = '07/m7s'
 const base = '02:38.206'
 ---
 
-<DutyStratLayout dutyId={dutyId} />
-<PowerSlam time="05:51.804" base={base} />
+<DutyStratLayout dutyId={dutyId}>
+  <SeparatorSection id='SBGR' title='SBGR' />
+  <SBGR base={base} />
+</DutyStratLayout>
