@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets'
-
 import type { Time } from '@/lib/utils'
 import { timeToSeconds } from '@/lib/utils'
 
@@ -27,7 +25,7 @@ const revolutionaryReign = 'Revolutionary Reign'
 const wolvesReign = "Wolves' Reign"
 const eminentReign = 'Eminent Reign'
 
-const { time, base = 0, dragon = false }: Props = Astro.props
+const { time, base = 0 }: Props = Astro.props
 
 const reign1Time = time !== undefined ? timeToSeconds(time) + 8 : undefined
 

@@ -1,7 +1,10 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import StrangeSeeds from './_mechanics/StrangeSeeds.astro'
 import SBGR from './_mechanics/SBGR.astro'
+import PowerSlam from './_components/PowerSlam.astro'
 
 import { supportedLocales } from '@/i18n/config'
 
@@ -14,6 +17,9 @@ export function getStaticPaths() {
 ---
 
 <DutyStratLayout dutyId={dutyId}>
-  <SeparatorSection id='SBGR' title='SBGR' />
+  <SeparatorSection id="SBGR" title="SBGR" />
   <SBGR base={base} />
+  <SeparatorSection id="strange-seeds" title="StrangeSeeds" />
+  <StrangeSeeds start="04:48.21" base={base} />
+  <PowerSlam time="05:51.804" base={base} />
 </DutyStratLayout>
