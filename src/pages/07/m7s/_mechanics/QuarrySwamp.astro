@@ -37,10 +37,11 @@ const { base = 0 }: Props = Astro.props
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="gap-strat flex items-center">
-      随机顺序生成三个造成
-      <Span variant="sky">距离衰减</Span>
-      伤害的
+      随机顺序生成三枚
       <Span variant="rose">陨石AoE</Span>
+      ，依次落地并造成
+      <Span variant="sky">距离衰减</Span>
+      伤害
     </div>
     <h4 class="mt-4 text-2xl">
       <Span variant="yellow">陨石刷新</Span>
@@ -66,7 +67,7 @@ const { base = 0 }: Props = Astro.props
       <Span variant="red">陨石一</Span>
       爆炸后，远离
       <Span variant="yellow">陨石二</Span>
-      靠近
+      并靠近
       <Span variant="red">陨石一</Span>
       的刷新点
     </div>
