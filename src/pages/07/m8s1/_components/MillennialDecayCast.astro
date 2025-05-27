@@ -1,0 +1,51 @@
+---
+import type { Time } from '@/lib/utils'
+import { timeToSeconds } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import WindWolveheadIcon from '../_components/WindWolveheadIcon.astro'
+
+interface Props {
+  time?: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+
+const duration = 4.7
+
+const damageApplyTime = 
+time !== undefined ? 
+  timeToSeconds(time) + duration + 0.3 // 修正延迟，计算伤害生效时间
+: undefined
+
+
+// const revolutionaryReign = "Revolutionary Reign"
+// const eminentReign = "Eminent Reign"
+
+const millennialDecay = "千年の風化"
+
+---
+
+<CastSection 
+  start={time}
+  base={base}
+  duration={duration}
+  ability={millennialDecay}
+  target
+  damage="170000"
+>
+  <HowlingBladeIcon slot="source" />
+  <Badge variant="pink"> AoE </Badge>
+</CastSection>
+<EventSection time={damageApplyTime}>
+  随后，
+  <HowlingBladeIcon />
+  会在12点或6点方向开始，顺时针或者逆时针依次召唤5只
+  <WindWolveheadIcon />
+  释放可回避直线AoE。
+</EventSection>

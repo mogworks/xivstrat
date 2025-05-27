@@ -12,6 +12,7 @@ import Xfang from './_mechanics/Xfang.astro'
 import XReign from './_mechanics/XReign.astro'
 
 import HowlingBladeIcon from './_components/HowlingBladeIcon.astro'
+import MillennialDecay from './_mechanics/MillennialDecay.astro'
 
 const dutyId = '07/m8s1'
 const base = 0
@@ -24,13 +25,14 @@ const base = 0
     <HowlingBladeIcon />
     固定在场中。
   </EventSection>
-  <SeparatorSection id="extraplanar-pursuit" title="Extraplanar Pursuit" />
+  <SeparatorSection id="extraplanar-pursuit" title="空間斬り" />
   <ExtraplanarPursuitCast start="00:10.195" base={base} />
   <SeparatorSection id="stonefang-or-windfang" title="土の魔技 | 风の魔技" />
   <Recenter time="00:20.019" />
   <Xfang time="00:23.131" />
-  <SeparatorSection id="xregin" title="Revolutionary Regin | Eminent Regin" />
+  <SeparatorSection id="xregin" title="廻の郡狼剣 | 薙の郡狼剣" />
   <XReign time="00:34.289" />
   <ExtraplanarPursuitCast start="00:49.014" base={base} />
   <Recenter time="00:58.834" />
+  <MillennialDecay time="01:01.456"/>
 </DutyStratLayout>
