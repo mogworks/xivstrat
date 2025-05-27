@@ -1,0 +1,30 @@
+---
+import type { Time } from '@/lib/utils'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import Icon from '@/components/Icon.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+
+import icon from '@/assets/buff/215057.png'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+---
+
+<EventSection time={time} base={base}>
+  <BruteAbombinator />
+  对
+  <RoleIcon role="all" tag="所有人" />
+  发动
+  <Span variant="yellow">Electrogenetic Force</Span>
+  <DamageInfo damage="78000" type="magical" />
+  <Icon img={icon} tag="2" alt="" />
+</EventSection>

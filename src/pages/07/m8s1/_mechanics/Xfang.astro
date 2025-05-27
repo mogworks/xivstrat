@@ -1,0 +1,140 @@
+---
+import { Image } from 'astro:assets'
+
+import type { Time } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import XfangCast from '../_components/XfangCast.astro'
+import LaserIcon from '../_components/LaserIcon.astro'
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+
+import intercardWindfang from '@/assets/07/m8s1/intercardWindfang.png'
+import intercardStonefang from '@/assets/07/m8s1/intercardStonefang.png'
+import cardWindfang from '@/assets/07/m8s1/cardWindfang.png'
+import cardStonefang from '@/assets/07/m8s1/cardStonefang.png'
+import intercardWindfangSol from '@/assets/07/m8s1/intercardWindfangSol.png'
+import intercardStonefangSol from '@/assets/07/m8s1/intercardStonefangSol.png'
+import cardWindfangSol from '@/assets/07/m8s1/cardWindfangSol.png'
+import cardStonefangSol from '@/assets/07/m8s1/cardStonefangSol.png'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const stonefang = 'Stonefang'
+const windfang = 'Windfang'
+
+const { time, base = 0 }: Props = Astro.props
+---
+
+<XfangCast time={time} base={base} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="text-2xl">
+      <Span variant="yellow">{stonefang} </Span>
+      <Span variant="violet">|</Span>
+      <Span variant="yellow">{windfang}</Span>
+    </div>
+
+    <div class="gap-strat flex items-center">
+      根据读条不同，
+      <HowlingBladeIcon />
+      会释放
+      <Span variant="yellow"> 钢铁 </Span>
+      +
+      <Span variant="pink"> 八方分散 </Span>
+      或者
+      <Span variant="yellow"> 月环 </Span>
+      +
+      <Span variant="pink"> 二二分摊 </Span>
+      的扇形点名。 同时，
+      <HowlingBladeIcon />
+      还会在正点或者斜点释放四台
+      <LaserIcon />
+      使用
+      <Span variant="yellow"> 直线aoe </Span>
+      。
+    </div>
+    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
+      <div class="flex flex-col items-center gap-1">
+        <Image
+          src={cardWindfang}
+          alt="Cardinal + Windfang"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div>正点激光 + {windfang}</div>
+      </div>
+
+      <div class="flex flex-col items-center gap-1">
+        <Image
+          src={intercardWindfang}
+          alt="Intercardinal + Windfang"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div>斜点激光 + {windfang}</div>
+      </div>
+
+      <div class="flex flex-col items-center gap-1">
+        <Image
+          src={cardStonefang}
+          alt="Cardinal + Stonefang"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div>正点激光 + {stonefang}</div>
+      </div>
+
+      <div class="flex flex-col items-center gap-1">
+        <Image
+          src={intercardStonefang}
+          alt="Intercardinal + Stonefang"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div>斜点激光 + {stonefang}</div>
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="grid grid-cols-4 gap-x-2 gap-y-4">
+    <div class="flex flex-col items-center gap-1">
+      <Image
+        src={cardWindfangSol}
+        alt="Cardinal + Windfang"
+        class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+      />
+      <div>正点激光 + {windfang}</div>
+    </div>
+
+    <div class="flex flex-col items-center gap-1">
+      <Image
+        src={intercardWindfangSol}
+        alt="Intercardinal + Windfang"
+        class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+      />
+      <div>斜点激光 + {windfang}</div>
+    </div>
+
+    <div class="flex flex-col items-center gap-1">
+      <Image
+        src={cardStonefangSol}
+        alt="Cardinal + Stonefang"
+        class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+      />
+      <div>正点激光 + {stonefang}</div>
+    </div>
+
+    <div class="flex flex-col items-center gap-1">
+      <Image
+        src={intercardStonefangSol}
+        alt="Intercardinal + Stonefang"
+        class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+      />
+      <div>斜点激光 + {stonefang}</div>
+    </div>
+  </div>
+</SolutionSection>
