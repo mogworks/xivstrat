@@ -111,6 +111,7 @@
   /* size */
   --container-strat-max: --spacing(416);
   --container-strat-min: --spacing(340);
+  --article-row-gap: --spacing(6);
 }
 
 @layer base {
