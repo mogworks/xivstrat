@@ -17,7 +17,7 @@ const duty = (await getEntry('duties', dutyId))!.data
 
 <DutyLayout dutyId={dutyId}>
   <main class="max-w-strat-max min-w-strat-min relative mx-auto mb-20 grid grid-cols-[1fr_16rem] p-4">
-    <article class="flex flex-col gap-6 tracking-wide">
+    <article class="flex flex-col gap-(--article-row-gap) tracking-wide">
       <slot />
     </article>
     <StratAside currentUrl={Astro.url.pathname} phases={duty.phases} client:idle />
