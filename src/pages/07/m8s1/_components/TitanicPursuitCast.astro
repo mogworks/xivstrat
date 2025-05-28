@@ -12,22 +12,21 @@ interface Props {
   [key: string]: any
 }
 
-const ability = 'Aero III'
-
 const { start, base = 0, ...rest }: Props = Astro.props
+const ability = '斬空劍' //切断柱子+全屏aoe
 ---
 
 <CastSection
   start={start}
   base={base}
-  duration={4.7}
-  ability={ability}
+  duration={3.7}
   target
-  damage="60000"
-  damageType="magical"
+  damage="65000"
+  damageType="physical"
+  ability={ability}
   {...rest}
 >
   <HowlingBladeIcon slot="source" />
-  <Badge variant="green">击退</Badge>
-  <Badge variant="yellow">AoE</Badge>
+  ，全屏AoE以及砍竹子。
+  <Badge variant="green">AoE</Badge>
 </CastSection>

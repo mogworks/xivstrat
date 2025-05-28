@@ -12,9 +12,8 @@ interface Props {
   [key: string]: any
 }
 
-const ability = 'Aero III'
-
 const { start, base = 0, ...rest }: Props = Astro.props
+const ability = '一刀両断'
 ---
 
 <CastSection
@@ -22,12 +21,13 @@ const { start, base = 0, ...rest }: Props = Astro.props
   base={base}
   duration={4.7}
   ability={ability}
-  target
-  damage="60000"
-  damageType="magical"
+  target="tank"
+  targetTag="一仇"
+  damage="1050000"
+  damageType="physical"
   {...rest}
 >
   <HowlingBladeIcon slot="source" />
-  <Badge variant="green">击退</Badge>
-  <Badge variant="yellow">AoE</Badge>
+  <Badge variant="green">直线</Badge>
+  <Badge variant="red">死刑</Badge>
 </CastSection>

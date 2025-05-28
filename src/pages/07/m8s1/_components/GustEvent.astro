@@ -16,35 +16,31 @@ interface Props {
 }
 
 const ability = 'Gust'
-const damage='110000'
-const damageType='magical'
+const damage = '110000'
+const damageType = 'magical'
 
 const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
 ---
 
-<EventSection
-  time={time}
-  base={base}
->
+<EventSection time={time} base={base}>
   <HowlingBladeIcon />
-  {reverse === 0 ? (
-    <>
-    会对随机
-    4
-    <RoleIcon role="dps" />
-    或4
-    <RoleIcon role="tank" />
-    <RoleIcon role="healer" />
-    </>
+  {
+    reverse === 0 ? (
+      <>
+        会对随机4
+        <RoleIcon role="dps" />
+        或4
+        <RoleIcon role="tank" />
+        <RoleIcon role="healer" />
+      </>
     ) : (
-    <>
-    会对另外
-    4
-    <RoleIcon role="tank" />
-    <RoleIcon role="healer" />
-    或4
-    <RoleIcon role="dps" />
-    </>
+      <>
+        会对另外4
+        <RoleIcon role="tank" />
+        <RoleIcon role="healer" />
+        或4
+        <RoleIcon role="dps" />
+      </>
     )
   }
   释放半径5m的AoE

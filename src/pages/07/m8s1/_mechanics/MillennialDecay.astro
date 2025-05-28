@@ -6,7 +6,11 @@ import type { Time } from '@/lib/utils'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 
 import MillennialDecayCast from '../_components/MillennialDecayCast.astro'
 import BreathOfDecayCast from '../_components/BreathOfDecayCast.astro'
@@ -25,21 +29,22 @@ interface Props {
   base?: Time
 }
 
-const millennialDecay = "千年の風化"
+const millennialDecay = '千年の風化'
 const gust = '旋風'
-const breathOfDecay = "千年の風声"
-const aero = "エアロが"
+const breathOfDecay = '千年の風声'
+const aero = 'エアロが'
+const greatWhirlwind = 'Great Whirlwind' //炸塔的伤害名称
 
-const { time, base = 0}: Props = Astro.props
+const { time, base = 0 }: Props = Astro.props
 ---
 
-<MillennialDecayCast time={time}/>
+<MillennialDecayCast time={time} />
 <AeroIIICast start="01:12.135" />
 <BreathOfDecayCast start="01:10.623" />
 <GustEvent time="01:19.081" />
 <BreathOfDecayCast start="01:12.625" />
 <BreathOfDecayCast start="01:14.628" />
-<GustEvent time="01:24.065" reverse=1/>
+<GustEvent time="01:24.065" reverse="1" />
 <BreathOfDecayCast start="01:16.630" />
 <BreathOfDecayCast start="01:18.635" />
 <AeroIIICast start="01:27.802" />
@@ -47,7 +52,6 @@ const { time, base = 0}: Props = Astro.props
 <WindsOfDecayEvent time="01:35.233" />
 
 <MechanicSection>
-
   <div class="flex flex-col gap-4">
     <div class="text-2xl">
       <Span variant="yellow">{millennialDecay} </Span>
@@ -56,90 +60,104 @@ const { time, base = 0}: Props = Astro.props
     <div class="gap-strat flex items-center">
       这是本层第一次运动会，随着
       <HowlingBladeIcon />
-        读条
-        <Span variant="yellow">{millennialDecay}</Span>
-        结束，场地北边或者南边会有狼头
+      读条
+      <Span variant="yellow">{millennialDecay}</Span>
+      结束，场地北边或者南边会有狼头
       <WindWolveheadIcon />
-        刷新，
+      刷新，
     </div>
 
     <div class="gap-strat flex items-center">
-        随后顺时针或者逆时针每过36°刷新一只。
+      随后顺时针或者逆时针每过36°刷新一只。
 
-        <WindWolveheadIcon />
-        开始读条
-        <Span variant="yellow">{breathOfDecay}</Span>
-        并且
-        会在不久之后释放直线AoE。
+      <WindWolveheadIcon />
+      开始读条
+      <Span variant="yellow">{breathOfDecay}</Span>
+      并且 会在不久之后释放直线AoE。
     </div>
 
     <div class="gap-strat flex items-center">
-        在这之前，
-        <HowlingBladeIcon />会在场中释放
-        <Span variant="yellow">{aero}</Span>
-        ，对
-        <RoleIcon role="all"/>造成伤害并击退玩家，放击退有效。
+      在这之前，
+      <HowlingBladeIcon />会在场中释放
+      <Span variant="yellow">{aero}</Span>
+      ，对
+      <RoleIcon role="all" />造成伤害并击退玩家，放击退有效。
     </div>
 
     <div class="gap-strat flex items-center">
-        击退判定后，
-        <HowlingBladeIcon />
-        会对随机
-        4
-        <RoleIcon role="dps" />
-        或4
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
-        点名释放半径5m的
-        <Span variant="yellow">{gust}</Span>
-        并且附加魔法易伤，重叠即死。
-      </div>
-
-    <div class="gap-strat flex items-center">
-        随后第一只<WindWolveheadIcon />的直线AoE伤害判定，
-        第一轮点名伤害判定，
-        <HowlingBladeIcon />
-        会对另外4
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
-        或4
-        <RoleIcon role="dps" />
-        点名
-        <Span variant="yellow"> {gust} </Span>
-        。
+      击退判定后，
+      <HowlingBladeIcon />
+      会对随机4
+      <RoleIcon role="dps" />
+      或4
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      点名释放半径5m的
+      <Span variant="yellow">{gust}</Span>
+      并且附加魔法易伤，重叠即死。
     </div>
 
     <div class="gap-strat flex items-center">
-        之后第二、三只<WindWolveheadIcon />判定，然后第二轮点名伤害判定，剩余<WindWolveheadIcon />伤害判定。
+      随后第一只<WindWolveheadIcon />的直线AoE伤害判定， 第一轮点名伤害判定，
+      <HowlingBladeIcon />
+      会对另外4
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      或4
+      <RoleIcon role="dps" />
+      点名
+      <Span variant="yellow"> {gust} </Span>
+      。
     </div>
 
     <div class="gap-strat flex items-center">
-        场边<WindWolveheadIcon />消失后，
-        在随机四个正点或者斜点会出现新的四只<WindWolveheadIcon />
-        连线随机4
-        <RoleIcon role="dps" />
-        或4
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
+      之后第二、三只<WindWolveheadIcon />判定，然后第二轮点名伤害判定，剩余<WindWolveheadIcon />伤害判定。
     </div>
 
     <div class="gap-strat flex items-center">
-        释放扇形AoE并且附加魔法易伤，在没有龙头的其余四个斜点或正点会刷新四座塔。
+      场边<WindWolveheadIcon />消失后， 在随机四个正点或者斜点会出现新的四只<WindWolveheadIcon />
+      连线随机4
+      <RoleIcon role="dps" />
+      或4
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
     </div>
 
     <div class="gap-strat flex items-center">
-        与此同时，
-        <HowlingBladeIcon />
-        在场中开始读条
-        <Span variant="yellow">{aero}</Span>
-        准备对全员造成击退。击退后龙头和塔同时判定，运动会结束。
-
+      释放扇形AoE并且附加魔法易伤，在没有龙头的其余四个斜点或正点会刷新四座塔。
     </div>
 
-
+    <div class="gap-strat flex items-center">
+      与此同时，
+      <HowlingBladeIcon />
+      在场中开始读条
+      <Span variant="yellow">{aero}</Span>
+      准备对全员造成击退。击退后龙头和塔同时判定，运动会结束。
+    </div>
   </div>
-
 </MechanicSection>
 
-<SolutionSection>
-</SolutionSection>
+<SolutionSection />
+
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      <WindWolveheadIcon />释放的直线AoE伤害约为
+      <DamageInfo damage="90000" type="magical" />
+      <DamageDown tag="30" />
+      如果有人不小心吃到了能稍微抢救一下。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      如果最后的塔没有踩到，每个会对全团造成
+      <Span variant="yellow">{greatWhirlwind}</Span>
+      <DamageInfo damage="100000" type="magical" />
+      并赋予
+      <SustainedDamage tag="15" layer={1} />
+      每跳伤害
+      <DamageInfo damage="30000" type="special" />
+    </div>
+
+    <div class="gap-strat flex items-center">紧接着后面会有多段分摊AoE，一层DoT勉强可以奶得起来，两层基本团灭。</div>
+  </div>
+</NoteSection>
