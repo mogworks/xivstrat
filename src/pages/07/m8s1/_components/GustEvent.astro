@@ -2,6 +2,7 @@
 import type { Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
 import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
@@ -27,7 +28,7 @@ const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
   {
     reverse === 0 ? (
       <>
-        会对随机4
+        对随机4
         <RoleIcon role="dps" />
         或4
         <RoleIcon role="tank" />
@@ -35,7 +36,7 @@ const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
       </>
     ) : (
       <>
-        会对另外4
+        对另外4
         <RoleIcon role="tank" />
         <RoleIcon role="healer" />
         或4
@@ -43,7 +44,8 @@ const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
       </>
     )
   }
-  释放半径5m的AoE
+  <!-- 释放半径5m的AoE -->
+  <Span variant="yellow">{ability}</Span>
   <DamageInfo damage={damage} type={damageType} />
   <MagicVulnerabilityUp tag="7" hover />
 
