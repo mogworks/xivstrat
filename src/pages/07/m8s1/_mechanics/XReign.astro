@@ -22,7 +22,7 @@ interface Props {
 }
 
 const revolutionaryReign = '廻の郡狼剣'
-const wolvesReign = "群狼劍"
+const wolvesReign = '群狼劍'
 const eminentReign = '薙の郡狼剣'
 
 const { time, base = 0 }: Props = Astro.props
@@ -66,8 +66,7 @@ const reign2Time = time !== undefined ? timeToSeconds(time) + 11 : undefined
     </div>
 
     <div class="gap-strat flex items-center">
-      对正前方释放宽为5m的直线AoE，并且跳到对面。
-      随后，
+      对正前方释放宽为5m的直线AoE，并且跳到对面。随后，
       <HowlingBladeIcon />
       读条
       <Span variant="yellow">
@@ -98,12 +97,10 @@ const reign2Time = time !== undefined ? timeToSeconds(time) + 11 : undefined
     <div class="gap-strat flex items-center">
       对
       <RoleIcon role="healer" tag="双奶" />
-      释放30°扇形分摊，
-      三人分摊是人均
+      释放30°扇形分摊，三人分摊是人均
       <DamageInfo damage="180000" type="physical" />
       <PhysicalVulnerabilityUp tag="1" hover />
-      。
-      两者均带有物理易伤，重叠即死。
+      。两者均带有物理易伤，重叠即死。
     </div>
   </div>
 </MechanicSection>

@@ -18,27 +18,18 @@ const { time, base = 0 }: Props = Astro.props
 
 const duration = 4.7
 
-const damageApplyTime = 
-time !== undefined ? 
-  timeToSeconds(time) + duration + 0.3 // 修正延迟，计算伤害生效时间
-: undefined
-
+const damageApplyTime =
+  time !== undefined
+    ? timeToSeconds(time) + duration + 0.3 // 修正延迟，计算伤害生效时间
+    : undefined
 
 // const revolutionaryReign = "Revolutionary Reign"
 // const eminentReign = "Eminent Reign"
 
-const millennialDecay = "千年の風化"
-
+const millennialDecay = '千年の風化'
 ---
 
-<CastSection 
-  start={time}
-  base={base}
-  duration={duration}
-  ability={millennialDecay}
-  target
-  damage="170000"
->
+<CastSection start={time} base={base} duration={duration} ability={millennialDecay} target damage="170000">
   <HowlingBladeIcon slot="source" />
   <Badge variant="pink"> AoE </Badge>
 </CastSection>

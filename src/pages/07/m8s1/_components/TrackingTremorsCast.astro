@@ -20,7 +20,7 @@ interface Props {
 const { start, base = 0 }: Props = Astro.props
 const index = [...Array(8).keys()]
 const duration = 4.7
-const ability="连震擊"
+const ability = '连震擊'
 
 const damageApplyTime =
   start !== undefined
@@ -29,7 +29,6 @@ const damageApplyTime =
 
 //理论上是aoe一秒判定一次，锚定时间轴的logs里面有一个偏差，
 //如果需要可以更改为5s连续钢铁月环的写法
-
 ---
 
 <CastSection
@@ -42,7 +41,6 @@ const damageApplyTime =
   damage="800000"
   damageType="magical"
 >
-
   <HowlingBladeIcon slot="source" />
   ，半径6m的圆形分摊点名
   <Badge variant="green">6m</Badge>
@@ -50,42 +48,37 @@ const damageApplyTime =
 </CastSection>
 
 {
-  index.map((i) => 
-  (damageApplyTime !== undefined ? 
-  <EventSection time = {damageApplyTime + i + 1}> 
-  <RoleIcon role="all" /> 
-  分摊
-  <Span variant="yellow"> {ability} </Span>
-  <DamageInfo damage="800000" type="magical" />
-  <Badge variant="yellow">分摊</Badge>
-  </EventSection>
-  :
-  <></>
+  index.map(
+    (i) =>
+      damageApplyTime !== undefined && (
+        <>
+          <EventSection time={damageApplyTime + i + 1}>
+            <RoleIcon role="all" />
+            分摊
+            <Span variant="yellow"> {ability} </Span>
+            <DamageInfo damage="800000" type="magical" />
+            <Badge variant="yellow">分摊</Badge>
+          </EventSection>
+        </>
+      ),
   )
-)}
+}
 
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
-      很痛，建议合理安排减伤以及多奶几口。
-    </div>
-
+    <div class="gap-strat flex items-center">很痛，建议合理安排减伤以及多奶几口。</div>
     <div class="gap-strat flex items-center">
       8人分摊时伤害为
-    <DamageInfo damage="100000" type="magical" />
+      <DamageInfo damage="100000" type="magical" />
       每人，7人分摊则是
-    <DamageInfo damage="115000" type="magical" />
+      <DamageInfo damage="115000" type="magical" />
       每人。
     </div>
-
     <div class="gap-strat flex items-center">
       如果有人在上一机制去世导致没踩到塔，那么每人会受到每跳
-    <DamageInfo damage="30000" type="special" />
+      <DamageInfo damage="30000" type="special" />
       的DoT加上7人分摊
-    <DamageInfo damage="115000" type="magical" />
+      <DamageInfo damage="115000" type="magical" />
     </div>
-
   </div>
 </NoteSection>
-
-

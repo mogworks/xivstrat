@@ -16,20 +16,16 @@ interface Props {
 }
 
 const ability = 'Winds of Decay'
-const damage='70000'
-const damageType='magical'
+const damage = '70000'
+const damageType = 'magical'
 
 const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
 
 // 狼头连线扇形，魔法易伤
 ---
 
-<EventSection
-  time={time}
-  base={base}
->
-  狼头连线随机
-  4
+<EventSection time={time} base={base}>
+  狼头连线随机4
   <RoleIcon role="dps" />
   或4
   <RoleIcon role="tank" />
@@ -37,7 +33,7 @@ const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
   扇形AoE
 
   <DamageInfo damage={damage} type={damageType} />
-<MagicVulnerabilityUp tag=1 />
+  <MagicVulnerabilityUp tag="1" />
 
   <Badge variant="green">扇形</Badge>
   <Badge variant="yellow">AoE</Badge>
