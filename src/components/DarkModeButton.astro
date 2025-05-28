@@ -9,7 +9,7 @@ const { class: className = '' }: Props = Astro.props
 ---
 
 <dark-mode-button class={cn('h-5 w-5', className)}>
-  <button class="text-current/75 hover:text-current" aria-label="切换明暗主题" type="button">
+  <button class="text-current/75 hover:text-current cursor-pointer" aria-label="切换明暗主题" type="button">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
