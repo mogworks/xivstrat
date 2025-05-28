@@ -28,9 +28,12 @@ const { baseUrl, name, phases }: Props = Astro.props
         baseUrl ? (
           <a
             href={baseUrl}
-            class="px-4 text-xl font-medium whitespace-nowrap text-yellow-600 [text-shadow:_0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300"
+            class="group relative px-4 text-xl font-medium whitespace-nowrap text-yellow-600 [text-shadow:_0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300"
           >
             {name}
+            <div
+              class={`pointer-events-none absolute inset-x-0 mx-auto max-w-2/3 -bottom-5 h-0.5 bg-yellow-600 ${Astro.url.pathname === baseUrl || Astro.url.pathname === `${baseUrl}/` ? 'opacity-50' : 'opacity-0'}  [mask-image:linear-gradient(to_right,transparent,black,transparent)] transition-opacity duration-300 group-hover:opacity-50 dark:bg-yellow-400`}
+            />
           </a>
         ) : (
           <span class="px-4 text-xl font-medium whitespace-nowrap text-yellow-600 [text-shadow:_0_0_1px_yellow] dark:text-yellow-400">
