@@ -26,9 +26,9 @@ const damageApplyTime =
     ? timeToSeconds(time) + duration + 0.3 // 修正延迟，计算伤害生效时间
     : undefined
 
-const stonefang = 'Stonefang'
-const windfang = 'Windfang'
-const abilityName = 'Windfang | Stonefang'
+const stonefang = '土の魔技'
+const windfang = '风の魔技'
+const abilityName = '风の魔技 | 土の魔技'
 ---
 
 <CastSection start={time} base={base} duration={duration} target ability={abilityName}>
@@ -44,7 +44,7 @@ const abilityName = 'Windfang | Stonefang'
       <RoleIcon role="all" tag="全员" />
       <DamageInfo damage="160000" type="magical" />
       <MagicVulnerabilityUp tag="1" hover />
-      <Badge variant="yellow">直线aoe</Badge>
+      <Badge variant="yellow">直线AoE</Badge>
       <Badge variant="yellow">钢铁</Badge>
       <Badge variant="pink">八方分散</Badge>
     </li>
@@ -57,7 +57,7 @@ const abilityName = 'Windfang | Stonefang'
       <RoleIcon role="healer" />
       <DamageInfo damage="190000" type="magical" />
       <MagicVulnerabilityUp tag="1" hover />
-      <Badge variant="yellow">直线aoe</Badge>
+      <Badge variant="yellow">直线AoE</Badge>
       <Badge variant="yellow">月环</Badge>
       <Badge variant="pink">二二分摊</Badge>
     </li>

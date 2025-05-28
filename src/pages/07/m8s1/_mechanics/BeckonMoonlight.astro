@@ -1,0 +1,104 @@
+---
+import type { Time } from '@/lib/utils'
+import { timeToSeconds } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Image from 'astro/components/Image.astro'
+import Span from '@/components/Span.vue'
+
+import EventSection from '@/components/section/EventSection.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import MoonbeamsBiteCast from '../_components/MoonbeamsBiteCast.astro'
+
+import beckon_moonlight_solution_img from '@/assets/07/m8s1/Tmp.png'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+
+const terrestrial_rage_start = timeToSeconds(start) + 7.2
+const moonbeams_bite_start = terrestrial_rage_start + 1
+const terrestrial_rage_1 = moonbeams_bite_start + 9
+const terrestrial_rage_2 = terrestrial_rage_1 + 7
+---
+
+<CastSection start={start} base={base} ability="幻狼招来" duration={2.7}>
+  <HowlingBladeIcon slot="source" />
+</CastSection>
+<CastSection start={terrestrial_rage_start} base={base} ability="大地の怒り" duration={2.7}>
+  <HowlingBladeIcon slot="source" />
+</CastSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="text-2xl">
+      <Span variant="yellow">幻狼招来</Span>
+    </div>
+    <div class="flex flex-col gap-4">
+      <div class="gap-strat flex items-center">
+        四个分身按顺/逆时针从
+        <HowlingBladeIcon />
+        身上飞向正点场边。按出现顺序读条
+        <Span variant="yellow">幻狼剣</Span>
+        <Badge variant="yellow">半场AoE</Badge>
+        ，向拿剑一侧冲锋。
+      </div>
+      <div class="gap-strat flex items-center">
+        同时
+        <Span variant="yellow">大地の怒り</Span>
+        进行两轮按职能点名的分摊/分散
+        <DamageInfo damage="110000" type="magical" />
+        <MagicVulnerabilityUp tag="2" hover />
+        。
+      </div>
+      <div class="gap-strat flex items-center">
+        第一轮分摊分散与第一次冲锋同时判定；第二轮分摊分散略晚于第四次冲锋判定。
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex gap-4">
+    <div class="max-w-90 shrink">
+      <Image
+        src={beckon_moonlight_solution_img}
+        alt="Beckon Moonlight Solution"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+    </div>
+    <div class="shrink-0 grow space-y-4">
+      <div class="gap-strat flex items-center">由于机制速度非常快，请提前看好冲锋的安全区。</div>
+      <div class="gap-strat flex items-center">以危险半场为12点，基础分摊分散站位如图。</div>
+      <div class="gap-strat flex items-center"></div>
+      <div class="gap-strat flex items-center">首先前往第一次冲锋安全区，按图站位等待分摊分散判定。</div>
+      <div class="gap-strat flex items-center">
+        判定后
+        <Span variant="lime">开启冲刺</Span>
+        ，快速前往
+        <Span variant="lime">二、三次冲锋的公共安全区</Span>。
+      </div>
+      <div class="gap-strat flex items-center">最后前往第四次冲锋安全区，按图站位处理第二次分摊分散。</div>
+    </div>
+  </div>
+</SolutionSection>
+<EventSection time={terrestrial_rage_1} base={base}>
+  <Span variant="yellow">大震撃 | 大岩石</Span>
+  <DamageInfo damage="110000" type="magical" />
+  <MagicVulnerabilityUp tag="2" hover />
+  判定
+</EventSection>
+<MoonbeamsBiteCast start={moonbeams_bite_start} base={base} />
+<EventSection time={terrestrial_rage_2} base={base}>
+  <Span variant="yellow">大震撃 | 大岩石</Span>
+  <DamageInfo damage="110000" type="magical" />
+  <MagicVulnerabilityUp tag="2" hover />
+  判定
+</EventSection>
