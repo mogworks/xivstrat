@@ -4,13 +4,14 @@ import { Image } from 'astro:assets'
 
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import StratBoard from '@/components/StratBoard.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 
 import floor_p2_3 from '@/assets/07/m7s/floor_p2_3.png'
 import strange_seeds_safe_point from '@/assets/07/m7s/strange_seeds/strange_seeds_safe_point.png'
 import strange_seeds_13_point from '@/assets/07/m7s/strange_seeds/strange_seeds_13_point.png'
+import strange_seeds_24_point from '@/assets/07/m7s/strange_seeds/strange_seeds_24_point.png'
+import strange_seeds_killer_seeds_point from '@/assets/07/m7s/strange_seeds/strange_seeds_killer_seeds_point.png'
 
 import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
@@ -26,14 +27,8 @@ const { start, base = 0 }: Props = Astro.props
 <StrangeSeedsCast start={start} base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="flex flex-col gap-4">
-      <Image
-        width={495}
-        height={127}
-        src={floor_p2_3}
-        alt=""
-        class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
-      />
+    <div class="flex w-4/6 flex-col gap-4">
+      <Image src={floor_p2_3} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       <div class="shrink-0 grow space-y-4">
         <div class="gap-strat flex-col items-center">
           <div>
@@ -82,16 +77,12 @@ const { start, base = 0 }: Props = Astro.props
 <SolutionSection title="解法：萨利式">
   <div class="flex flex-col gap-4">
     <!-- 安全区 -->
-    <div class="flex flex-row gap-4">
-      <div class="flex flex-col items-center gap-2">
-        <Image
-          width={495}
-          height={127}
-          src={strange_seeds_safe_point}
-          alt=""
-          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
-        />
-        <div class="gap-strat flex items-center">未被点名时待在安全区内</div>
+    <div class="items-left flex flex-col gap-4">
+      <div class="flex flex-row gap-4">
+        <div class="flex w-4/6 flex-col items-center gap-2">
+          <Image src={strange_seeds_safe_point} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+          <div class="gap-strat flex items-center">未被点名时待在安全区内</div>
+        </div>
       </div>
       <div class="gap-strat flex-col">
         <div>首先</div>
@@ -99,46 +90,39 @@ const { start, base = 0 }: Props = Astro.props
         <div>长边dot线必定由<RoleIcon role="dps" tag="D4" />负责</div>
       </div>
     </div>
+
     <!-- 1/3 -->
-    <div class="flex flex-row gap-4">
-      <div class="flex flex-col items-center gap-2">
-        <Image
-          width={495}
-          height={127}
-          src={strange_seeds_13_point}
-          alt=""
-          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
-        />
-        <div class="gap-strat flex items-center">奇数 1/3轮,放角落或中央点</div>
+    <div class="items-left flex flex-col gap-4">
+      <div class="flex flex-row gap-4">
+        <div class="flex w-4/6 flex-col items-center gap-2">
+          <Image src={strange_seeds_13_point} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+          <div class="gap-strat flex items-center">奇数 1/3轮,放角落或中央点</div>
+        </div>
       </div>
       <div class="gap-strat flex-col">
         <div class="gap-strat flex">站位尽量分开,保证被点名时</div>
-        <div class="gap-strat flex mt-2">可以直接判断是谁被点名</div>
-        <div class="gap-strat flex mt-2">注意中央点位的放置需要相当准确</div>
+        <div class="gap-strat mt-2 flex">可以直接判断是谁被点名</div>
+        <div class="gap-strat mt-2 flex">注意中央点位的放置需要相当准确</div>
       </div>
     </div>
+
     <!-- 2/4 -->
-    <div class="flex flex-row gap-4">
-      <div class="flex flex-col items-center gap-2">
-        <StratBoard
-          width={400}
-          height={400}
-          key="funky-floor"
-          class="max-h-112.5 max-w-112.5 shrink"
-          canvasClass="h-full w-full border-2 border-amber-800/75 dark:border-amber-100"
-        />
-        <div class="gap-strat flex items-center">偶数 2/4轮,放标点或标记位</div>
+    <div class="items-left flex flex-row gap-2">
+      <div class="flex w-4/6 flex-col items-center gap-2">
+        <Image src={strange_seeds_24_point} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <div class="gap-strat flex flex-col items-center">
+          <div>偶数 2/4轮,放标点或标记位</div>
+        </div>
       </div>
     </div>
+
     <!-- 分摊站位 -->
     <div class="flex flex-row gap-4">
-      <div class="flex flex-col items-center gap-2">
-        <StratBoard
-          width={400}
-          height={400}
-          key="funky-floor"
-          class="max-h-112.5 max-w-112.5 shrink"
-          canvasClass="h-full w-full border-2 border-amber-800/75 dark:border-amber-100"
+      <div class="flex w-4/6 flex-col items-center gap-2">
+        <Image
+          src={strange_seeds_killer_seeds_point}
+          alt=""
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
         <div class="gap-strat flex items-center">
           第4轮种子落下后,<RoleIcon role="tank" /><RoleIcon role="healer" />组或<RoleIcon role="dps" />组分摊站位
