@@ -1,0 +1,118 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import WindWolveheadIcon from '../_components/WindWolveheadIcon.astro'
+
+import shadowchase_case1_img from '@/assets/07/m8s1/Tmp.png'
+import shadowchase_case2_img from '@/assets/07/m8s1/Tmp.png'
+import shadowchase_solution_img from '@/assets/07/m8s1/Tmp.png'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<CastSection start={start} base={base} ability="残影剣" duration={2.7}>
+  <HowlingBladeIcon slot="source" />
+  。读条结束后上天，变为不可选中
+</CastSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="text-2xl">
+      <Span variant="yellow">残影剣</Span>
+    </div>
+    <div class="flex flex-col gap-4">
+      <div class="flex gap-4">
+        <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+          <Image
+            src={shadowchase_case1_img}
+            alt="shadowchase_case1"
+            class="border-2 border-amber-800/75 dark:border-amber-100"
+          />
+          <div class="gap-strat flex items-center">可能情况1</div>
+        </div>
+        <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+          <Image
+            src={shadowchase_case2_img}
+            alt="shadowchase_case2"
+            class="border-2 border-amber-800/75 dark:border-amber-100"
+          />
+          <div class="gap-strat flex items-center">可能情况2</div>
+        </div>
+      </div>
+      <div class="gap-strat flex items-center">
+        <HowlingBladeIcon />
+        在场上召唤出5个分身，读条向前方释放
+        <Span variant="yellow">残影剣</Span>
+        <Badge variant="yellow">直线AoE</Badge>
+        。
+      </div>
+      <div class="gap-strat flex items-center">
+        <Span variant="yellow">大地の怒り</Span>
+        点名与先前相反的分摊/分散
+        <Span variant="yellow">大震撃</Span>
+        |
+        <Span variant="yellow">大岩石</Span>
+        <DamageInfo damage="110000" type="magical" />
+        <MagicVulnerabilityUp tag="2" hover />
+        。
+      </div>
+      <div class="gap-strat flex items-center">
+        分摊/分散判定后，分身夹缝中出现5个
+        <WindWolveheadIcon />
+        风狼头，读条向前方释放
+        <Span variant="yellow">風狼豪波</Span>
+        <Badge variant="yellow">直线AoE</Badge>
+        。
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex gap-4">
+    <div class="max-w-90 shrink">
+      <Image
+        src={shadowchase_solution_img}
+        alt="Shadowchase Solution"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+    </div>
+    <div class="shrink-0 grow space-y-4">
+      <div class="gap-strat flex items-center">分身与风狼头的AoE安全点都在后方。</div>
+      <div class="gap-strat flex items-center"></div>
+      <div class="gap-strat flex items-center">
+        将视角转向
+        <Span variant="lime">A点开始顺时针第一个分身</Span>
+        作为12点处理该机制。
+      </div>
+      <div class="gap-strat flex items-center">
+        <Span variant="yellow">分摊点名</Span>
+        和无点名前往12点集合分摊；
+      </div>
+      <div class="gap-strat flex items-center">
+        <Span variant="yellow">分散点名</Span>
+        按图示前往自己的分散位置。
+      </div>
+      <div class="gap-strat flex items-center"></div>
+      <div class="gap-strat flex items-center">
+        分摊分散判定，去
+        <WindWolveheadIcon />
+        后方躲避直线AoE。
+      </div>
+    </div>
+  </div>
+</SolutionSection>

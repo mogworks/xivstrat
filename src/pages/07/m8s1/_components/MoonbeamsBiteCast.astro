@@ -1,0 +1,31 @@
+---
+import type { Time } from '@/lib/utils'
+import { timeToSeconds } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+
+import HowlingBladeIcon from './HowlingBladeIcon.astro'
+import EventSection from '@/components/section/EventSection.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+
+const index = [...Array(4).keys()]
+---
+
+{
+  index.map((i) => (
+    <>
+      <CastSection ability="幻狼剣" start={timeToSeconds(start) + i * 2} duration={8.7}>
+        <div slot="source">
+          <HowlingBladeIcon />
+          分身
+        </div>
+      </CastSection>
+    </>
+  ))
+}
