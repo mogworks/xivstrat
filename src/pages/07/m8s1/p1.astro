@@ -6,10 +6,13 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
-import Recenter from './_components/Recenter.astro'
+import TrackingTremorsCast from './_components/TrackingTremorsCast.astro'
+import RecenterEvent from './_components/RecenterEvent.astro'
+import GreatDivide from './_components/GreatDivide.astro'
 
 import Xfang from './_mechanics/Xfang.astro'
 import XReign from './_mechanics/XReign.astro'
+import TerrestrialTitans from './_mechanics/TerrestrialTitans.astro'
 
 import HowlingBladeIcon from './_components/HowlingBladeIcon.astro'
 import MillennialDecay from './_mechanics/MillennialDecay.astro'
@@ -28,11 +31,22 @@ const base = 0
   <SeparatorSection id="extraplanar-pursuit" title="空間斬り" />
   <ExtraplanarPursuitCast start="00:10.195" base={base} />
   <SeparatorSection id="stonefang-or-windfang" title="土の魔技 | 风の魔技" />
-  <Recenter time="00:20.019" />
+  <RecenterEvent time="00:20.019" />
   <Xfang time="00:23.131" />
   <SeparatorSection id="xregin" title="廻の郡狼剣 | 薙の郡狼剣" />
   <XReign time="00:34.289" />
   <ExtraplanarPursuitCast start="00:49.014" base={base} />
-  <Recenter time="00:58.834" />
+  <RecenterEvent time="00:58.834" />
+  <SeparatorSection id="millennial-decay" title="千年の風化" />
   <MillennialDecay time="01:01.456"/>
+  <TrackingTremorsCast start="01:35.945" />
+  <ExtraplanarPursuitCast start="01:51.126" base={base} />
+  <SeparatorSection id="great-divide" title="一刀両断" />
+  <GreatDivide start="01:58.873" />
+  <RecenterEvent time="02:12.198" />
+  <SeparatorSection id="terrestrial-titans" title="大地の呼び声"/>
+  <TerrestrialTitans time="02:14.825"/>
+  <XReign time="02:34.000" />
+
+
 </DutyStratLayout>

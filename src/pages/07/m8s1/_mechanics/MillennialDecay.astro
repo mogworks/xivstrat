@@ -6,7 +6,11 @@ import type { Time } from '@/lib/utils'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 
 import MillennialDecayCast from '../_components/MillennialDecayCast.astro'
 import BreathOfDecayCast from '../_components/BreathOfDecayCast.astro'
@@ -29,6 +33,7 @@ const millennialDecay = "千年の風化"
 const gust = '旋風'
 const breathOfDecay = "千年の風声"
 const aero = "エアロが"
+const greatWhirlwind = "Great Whirlwind" //炸塔的伤害名称
 
 const { time, base = 0}: Props = Astro.props
 ---
@@ -138,8 +143,33 @@ const { time, base = 0}: Props = Astro.props
 
 
   </div>
-
 </MechanicSection>
 
 <SolutionSection>
 </SolutionSection>
+
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      <WindWolveheadIcon />释放的直线AoE伤害约为
+      <DamageInfo damage="90000" type="magical" />
+      <DamageDown tag="30" />
+      如果有人不小心吃到了能稍微抢救一下。
+    </div>
+
+    <div class="gap-strat flex items-center">
+        如果最后的塔没有踩到，每个会对全团造成
+        <Span variant="yellow">{greatWhirlwind}</Span>
+        <DamageInfo damage="100000" type="magical" />
+        并赋予
+        <SustainedDamage tag="15" layer={1} />
+        每跳伤害
+      <DamageInfo damage="30000" type="special" />
+    </div>
+
+    <div class="gap-strat flex items-center">
+        紧接着后面会有多段分摊AoE，一层DoT勉强可以奶得起来，两层基本团灭。
+    </div>
+
+  </div>
+</NoteSection>
