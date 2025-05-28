@@ -1,0 +1,29 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+  [key: string]: any
+}
+
+const ability = 'Prowling Gale'
+const damage = '75000'
+const damageType = 'magical'
+
+const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
+
+// 踩塔，无易伤
+---
+
+<EventSection time={time} base={base}>
+  正点或斜点四座塔
+  <DamageInfo damage={damage} type={damageType} />
+
+  <Badge variant="green">踩塔</Badge>
+  <Badge variant="yellow">AoE</Badge>
+</EventSection>

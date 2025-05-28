@@ -1,0 +1,21 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+  [key: string]: any
+}
+
+const { start, base = 0, ...rest }: Props = Astro.props
+const ability = '大地の呼び声' //召唤柱子
+---
+
+<CastSection start={start} base={base} duration={3.7} ability={ability} {...rest}>
+  <HowlingBladeIcon slot="source" />
+  ，在场地南北或东西两侧各召唤一根柱子。
+</CastSection>

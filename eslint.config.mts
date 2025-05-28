@@ -33,7 +33,7 @@ export default antfu(
       'perfectionist/sort-imports': ['error', { tsconfigRootDir: '.' }],
       'unicorn/number-literal-case': 'off',
       'style/quotes': ['error', 'single'],
-      'style/jsx-quotes': ['error', 'prefer-single'],
+      'style/jsx-quotes': ['error', 'prefer-double'],
       'style/comma-dangle': ['error', 'only-multiline'],
     },
   }

@@ -51,7 +51,10 @@ const { time, base = 0 }: Props = Astro.props
       <Span variant="yellow"> 月环 </Span>
       +
       <Span variant="pink"> 二二分摊 </Span>
-      的扇形点名。 同时，
+      的扇形点名。
+    </div>
+    <div class="gap-strat flex items-center">
+      同时，
       <HowlingBladeIcon />
       还会在正点或者斜点释放四台
       <LaserIcon />
@@ -77,7 +80,9 @@ const { time, base = 0 }: Props = Astro.props
         />
         <div>斜点激光 + {windfang}</div>
       </div>
+    </div>
 
+    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
       <div class="flex flex-col items-center gap-1">
         <Image
           src={cardStonefang}
@@ -118,7 +123,9 @@ const { time, base = 0 }: Props = Astro.props
       />
       <div>斜点激光 + {windfang}</div>
     </div>
+  </div>
 
+  <div class="grid grid-cols-4 gap-x-2 gap-y-4">
     <div class="flex flex-col items-center gap-1">
       <Image
         src={cardStonefangSol}
