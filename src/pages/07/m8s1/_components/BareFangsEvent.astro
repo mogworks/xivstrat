@@ -1,0 +1,25 @@
+---
+import type { Time } from '@/lib/utils'
+
+import EventSection from '@/components/section/EventSection.astro'
+
+
+interface Props {
+  time: Time
+  base?: Time
+  [key: string]: any
+}
+
+const ability = '光牙招来'
+
+const { time, base = 0, ...rest }: Props = Astro.props
+
+//TODO: 加入两侧浮游炮的贴图
+---
+
+<EventSection
+  time={time}
+  base={base}
+>
+  在东西或南北两侧各召唤一个释放十字AoE的浮游炮，必定与柱子相反。
+</EventSection>

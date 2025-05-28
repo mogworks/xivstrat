@@ -1,0 +1,94 @@
+---
+import { Image } from 'astro:assets'
+
+import type { Time } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import TerrestrialTitansCast from '../_components/TerrestrialTitansCast.astro'
+import TitanicPursuitCast from '../_components/TitanicPursuitCast.astro'
+import BareFangsEvent from '../_components/BareFangsEvent.astro'
+import Towerfall from '../_components/Towerfall.astro'
+
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const terrestrialTitans = '大地の呼び声' //召唤柱子
+const titanicPursuit = '斬空劍' //切断柱子+全屏aoe
+const towerfall = 'Towerfall' //柱子倒下
+const bareFangs = '光牙招来' //召唤浮游炮
+
+const { time, base = 0 }: Props = Astro.props
+---
+
+<TerrestrialTitansCast start="02:14.825" />
+<TitanicPursuitCast start="02:21.940" />
+<BareFangsEvent time="02:26.654" />
+<Towerfall time="02:33.543" />
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="text-2xl">
+      <Span variant="yellow">{terrestrialTitans} </Span>
+    </div>
+
+    <div class="gap-strat flex items-center">
+      <HowlingBladeIcon />
+      读条
+      <Span variant="yellow">{terrestrialTitans} </Span>
+      在场地南北或东西两侧各召唤一根柱子，
+      随后读条
+      <Span variant="yellow">{titanicPursuit} </Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      造成少量AoE伤害并且斩断柱子，此时柱子上会有一根蓝色的线，稍后柱子会沿着此线向两侧倒去。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      之后，
+      <HowlingBladeIcon />
+      会在没有柱子的两侧各召唤一个释放十字AoE的浮游炮。
+      两个浮游炮必定是分别打正点和斜点。
+    </div>
+    <div class="gap-strat flex items-center">
+      随后柱子倒下的伤害和浮游炮的AoE同时伤害判定。
+    </div>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      此机制的安全区一定是四个斜点也就是数字标点处。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      我们需要先躲开地上的柱子，随后AoE闪过之后柱子上的蓝线会先出现。
+      此时观察蓝线，
+    </div>
+
+    <div class="gap-strat flex items-center">
+      蓝线正对的两个数字标点会成为备选的安全区。看向其中一个安全区，等待浮游炮出现。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      随后观察浮游炮是否覆盖标点，如果没有被覆盖，那么此处便是安全区。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      如果被覆盖，那对面必定是安全区。举个例子，蓝线出现，正对着1点和3点，
+    </div>
+
+    <div class="gap-strat flex items-center">
+      此时看向1点，等浮游炮出现。如果浮游炮的AoE会覆盖1点，那么3点便是安全区。
+    </div>
+
+  </div>
+</SolutionSection>
