@@ -42,7 +42,6 @@ const damageApplyTime =
   damageType="magical"
 >
   <HowlingBladeIcon slot="source" />
-  ，半径6m的圆形分摊点名
   <Badge variant="green">6m</Badge>
   <Badge variant="pink">8次连续分摊</Badge>
 </CastSection>
@@ -60,25 +59,19 @@ const damageApplyTime =
             <Badge variant="yellow">分摊</Badge>
           </EventSection>
         </>
-      ),
+      )
   )
 }
 
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">很痛，建议合理安排减伤以及多奶几口。</div>
+    <div class="gap-strat flex items-center">很痛，建议合理安排减伤和资源。</div>
     <div class="gap-strat flex items-center">
       8人分摊时伤害为
       <DamageInfo damage="100000" type="magical" />
       每人，7人分摊则是
       <DamageInfo damage="115000" type="magical" />
       每人。
-    </div>
-    <div class="gap-strat flex items-center">
-      如果有人在上一机制去世导致没踩到塔，那么每人会受到每跳
-      <DamageInfo damage="30000" type="special" />
-      的DoT加上7人分摊
-      <DamageInfo damage="115000" type="magical" />
     </div>
   </div>
 </NoteSection>

@@ -18,10 +18,11 @@ const damageType = 'magical'
 const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
 
 // 踩塔，无易伤
+// TODO:这里塔可以换成icon
 ---
 
 <EventSection time={time} base={base}>
-  正点或斜点四座塔
+  塔
   <DamageInfo damage={damage} type={damageType} />
 
   <Badge variant="green">踩塔</Badge>

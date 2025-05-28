@@ -25,8 +25,8 @@ interface Props {
   base?: Time
 }
 
-const stonefang = 'Stonefang'
-const windfang = 'Windfang'
+const stonefang = '土の魔技'
+const windfang = '风の魔技'
 
 const { time, base = 0 }: Props = Astro.props
 ---
@@ -35,11 +35,8 @@ const { time, base = 0 }: Props = Astro.props
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="text-2xl">
-      <Span variant="yellow">{stonefang} </Span>
-      <Span variant="violet">|</Span>
-      <Span variant="yellow">{windfang}</Span>
+      <Span variant="yellow">{stonefang} | {windfang} </Span>
     </div>
-
     <div class="gap-strat flex items-center">
       根据读条不同，
       <HowlingBladeIcon />
@@ -59,7 +56,7 @@ const { time, base = 0 }: Props = Astro.props
       还会在正点或者斜点释放四台
       <LaserIcon />
       使用
-      <Span variant="yellow"> 直线aoe </Span>
+      <Span variant="yellow"> 直线AoE </Span>
       。
     </div>
     <div class="grid grid-cols-4 gap-x-2 gap-y-4">
@@ -71,7 +68,6 @@ const { time, base = 0 }: Props = Astro.props
         />
         <div>正点激光 + {windfang}</div>
       </div>
-
       <div class="flex flex-col items-center gap-1">
         <Image
           src={intercardWindfang}
@@ -80,9 +76,6 @@ const { time, base = 0 }: Props = Astro.props
         />
         <div>斜点激光 + {windfang}</div>
       </div>
-    </div>
-
-    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
       <div class="flex flex-col items-center gap-1">
         <Image
           src={cardStonefang}
@@ -91,7 +84,6 @@ const { time, base = 0 }: Props = Astro.props
         />
         <div>正点激光 + {stonefang}</div>
       </div>
-
       <div class="flex flex-col items-center gap-1">
         <Image
           src={intercardStonefang}
@@ -114,7 +106,6 @@ const { time, base = 0 }: Props = Astro.props
       />
       <div>正点激光 + {windfang}</div>
     </div>
-
     <div class="flex flex-col items-center gap-1">
       <Image
         src={intercardWindfangSol}
@@ -123,9 +114,6 @@ const { time, base = 0 }: Props = Astro.props
       />
       <div>斜点激光 + {windfang}</div>
     </div>
-  </div>
-
-  <div class="grid grid-cols-4 gap-x-2 gap-y-4">
     <div class="flex flex-col items-center gap-1">
       <Image
         src={cardStonefangSol}
@@ -134,7 +122,6 @@ const { time, base = 0 }: Props = Astro.props
       />
       <div>正点激光 + {stonefang}</div>
     </div>
-
     <div class="flex flex-col items-center gap-1">
       <Image
         src={intercardStonefangSol}
