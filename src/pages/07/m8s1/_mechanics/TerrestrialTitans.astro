@@ -14,6 +14,8 @@ import Towerfall from '../_components/Towerfall.astro'
 
 import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
 
+import tmp from '@/assets/07/m8s1/Tmp.png'
+
 interface Props {
   time: Time
   base?: Time
@@ -66,11 +68,19 @@ const { time, base = 0 }: Props = Astro.props
       我们需要先躲开地上的柱子，随后AoE闪过之后柱子上的蓝线会先出现。此时观察蓝线，
     </div>
 
+    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+      <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
+    </div>
+
     <div class="gap-strat flex items-center">
       蓝线正对的两个数字标点会成为备选的安全区。看向其中一个安全区，等待浮游炮出现。
     </div>
 
     <div class="gap-strat flex items-center">随后观察浮游炮是否覆盖标点，如果没有被覆盖，那么此处便是安全区。</div>
+
+    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+      <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
+    </div>
 
     <div class="gap-strat flex items-center">如果被覆盖，那对面必定是安全区。举个例子，蓝线出现，正对着1点和3点，</div>
 
