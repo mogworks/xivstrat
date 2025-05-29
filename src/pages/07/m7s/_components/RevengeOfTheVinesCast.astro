@@ -5,6 +5,7 @@ import DamageInfo from '@/components/DamageInfo.astro'
 import BruteAbombinator from './BruteAbombinator.astro'
 
 import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
 
 interface Props {
   start: Time
@@ -14,7 +15,8 @@ interface Props {
 const { start, base = 0 }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={4.7} ability="Revenge of the Vines">
-  <BruteAbombinator slot="source" />
-  <DamageInfo damage="120000" type="magical" />
+<CastSection start={start} base={base} duration={4.7} ability='Revenge of the Vines'>
+  <BruteAbombinator slot='source' />
+  <DamageInfo damage='120000' type='magical' />
+  <Badge variant='pink'>AoE</Badge>
 </CastSection>
