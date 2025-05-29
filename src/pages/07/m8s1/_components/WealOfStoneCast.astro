@@ -1,0 +1,22 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+
+import StoneWolfheadIcon from './StoneWolfheadIcon.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+
+const abilityName = '地烈波'
+---
+
+<CastSection ability={abilityName} start={start} duration={2.2}>
+  <StoneWolfheadIcon slot="source" />
+  <Badge variant="yellow">直线AoE</Badge>
+</CastSection>

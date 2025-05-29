@@ -104,17 +104,10 @@
       "mechanics": [
         {
           "href": "#terrestrial-rage",
-          "name": "大地之怒",
+          "name": "大地の怒り",
           "name_en": "Terrestrial Rage",
           "name_ja": "大地の怒り",
           "name_ch": "大地之怒"
-        },
-        {
-          "href": "#fanged-charge",
-          "name": "突進光牙",
-          "name_en": "Fanged Charge",
-          "name_ja": "突進光牙",
-          "name_ch": "突进光牙"
         },
         {
           "href": "#shadowchase",
@@ -122,13 +115,6 @@
           "name_en": "Shadowchase",
           "name_ja": "残影剣",
           "name_ch": "残影剑"
-        },
-        {
-          "href": "#roaring-wind",
-          "name": "風狼豪波",
-          "name_en": "Roaring Wind",
-          "name_ja": "風狼豪波",
-          "name_ch": "风狼豪波"
         },
         {
           "href": "#weal-of-stone",

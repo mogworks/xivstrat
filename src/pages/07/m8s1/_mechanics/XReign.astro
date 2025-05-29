@@ -21,9 +21,9 @@ interface Props {
   dragon?: boolean
 }
 
-const revolutionaryReign = 'Revolutionary Reign'
-const wolvesReign = "Wolves' Reign"
-const eminentReign = 'Eminent Reign'
+const revolutionaryReign = '廻の郡狼剣'
+const wolvesReign = '群狼劍'
+const eminentReign = '薙の郡狼剣'
 
 const { time, base = 0 }: Props = Astro.props
 
@@ -62,12 +62,11 @@ const reign2Time = time !== undefined ? timeToSeconds(time) + 11 : undefined
       之后，
       <HowlingBladeIcon />
       随机选择一个分身的方向，跳到场边，读条
-      <Span variant="yellow">{wolvesReign}</Span>
-      ，对正前方释放宽为5m的直线AoE，并且跳到对面。
+      <Span variant="yellow">{wolvesReign}</Span> ，
     </div>
 
     <div class="gap-strat flex items-center">
-      随后，
+      对正前方释放宽为5m的直线AoE，并且跳到对面。随后，
       <HowlingBladeIcon />
       读条
       <Span variant="yellow">
@@ -90,16 +89,19 @@ const reign2Time = time !== undefined ? timeToSeconds(time) + 11 : undefined
       <HowlingBladeIcon />
       还会对
       <RoleIcon role="tank" tag="双T" />
+      释放60°扇形AoE
       <DamageInfo damage="360000" type="physical" />
       <PhysicalVulnerabilityUp tag="1" hover />
-      ，对
+      ，
+    </div>
+    <div class="gap-strat flex items-center">
+      对
       <RoleIcon role="healer" tag="双奶" />
+      释放30°扇形分摊，三人分摊是人均
       <DamageInfo damage="180000" type="physical" />
       <PhysicalVulnerabilityUp tag="1" hover />
-      。
+      。两者均带有物理易伤，重叠即死。
     </div>
-
-    <div class="gap-strat flex items-center">两者均带有物理易伤，重叠即死。</div>
   </div>
 </MechanicSection>
 <SolutionSection />

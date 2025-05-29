@@ -1,0 +1,17 @@
+---
+import type { Time } from '@/lib/utils'
+
+import EventSection from '@/components/section/EventSection.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+  [key: string]: any
+}
+
+const ability = 'Towerfall'
+
+const { time, base = 0, ...rest }: Props = Astro.props
+---
+
+<EventSection time={time} base={base}>塔倒下，塔和浮游炮伤害判定。</EventSection>

@@ -2,13 +2,15 @@
 import { cn } from '@/lib/utils'
 
 interface Props {
+  id?: string
   class?: string
   [key: string]: any
 }
 
-const { class: className = '', ...rest }: Props = Astro.props
+const { id = undefined, class: className = '', ...rest }: Props = Astro.props
 ---
 
-<section class={cn('strat-section grid scroll-mt-[calc(5rem+1px)] grid-cols-[16rem_1fr]', className)} {...rest}>
+{id && <div id={id} class="scroll-mt-[calc(5rem+1px)] h-0 -mb-(--article-row-gap)" />}
+<section class={cn('strat-section grid grid-cols-[16rem_1fr]', className)} {...rest}>
   <slot />
 </section>

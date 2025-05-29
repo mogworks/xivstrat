@@ -1,0 +1,23 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import WindWolveheadIcon from '../_components/WindWolveheadIcon.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+  [key: string]: any
+}
+
+const ability = 'Breath of Decay'
+
+const { start, base = 0, ...rest }: Props = Astro.props
+---
+
+<CastSection start={start} base={base} duration={7.7} ability={ability} damage="100000" damageType="magical" {...rest}>
+  <WindWolveheadIcon slot="source" />
+  <Badge variant="pink">AoE</Badge>
+</CastSection>
