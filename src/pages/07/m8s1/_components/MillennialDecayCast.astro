@@ -4,10 +4,8 @@ import { timeToSeconds } from '@/lib/utils'
 
 import CastSection from '@/components/section/CastSection.astro'
 import Badge from '@/components/Badge.astro'
-import EventSection from '@/components/section/EventSection.astro'
 
 import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
-import WindWolveheadIcon from '../_components/WindWolveheadIcon.astro'
 
 interface Props {
   time?: Time
@@ -22,9 +20,6 @@ const damageApplyTime =
   time !== undefined
     ? timeToSeconds(time) + duration + 0.3 // 修正延迟，计算伤害生效时间
     : undefined
-
-// const revolutionaryReign = "Revolutionary Reign"
-// const eminentReign = "Eminent Reign"
 
 const millennialDecay = '千年の風化'
 ---
