@@ -1,0 +1,20 @@
+---
+import type { Time } from '@/lib/utils'
+
+import EventSection from '@/components/section/EventSection.astro'
+import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
+
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+---
+
+<EventSection time={time} base={base}>
+  <HowlingBladeIcon />
+  跳到北边，并获得<DirectionalDisregard hover />
+</EventSection>
