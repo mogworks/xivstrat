@@ -60,6 +60,10 @@
       "name": "P2 - 野蛮交锋",
       "mechanics": [
         {
+          "href": "#SBGR",
+          "name": "SBGR"
+        },
+        {
           "href": "#strange-seeds",
           "name": "StrangeSeeds"
         }
