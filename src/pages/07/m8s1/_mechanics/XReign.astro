@@ -2,6 +2,8 @@
 import type { Time } from '@/lib/utils'
 import { timeToSeconds } from '@/lib/utils'
 
+import { Image } from 'astro:assets'
+
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
@@ -14,6 +16,8 @@ import WolvesReignEndCast from '../_components/WolvesReignEndCast.astro'
 import WolvesReignLineCast from '../_components/WolvesReignLineCast.astro'
 
 import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+
+import tmp from '@/assets/07/m8s1/Tmp.png'
 
 interface Props {
   time: Time
@@ -58,6 +62,10 @@ const reign2Time = time !== undefined ? timeToSeconds(time) + 11 : undefined
       会先在身边召唤三个分身冲向三个不同的方向，并且在自身脚下以及分身落点出释放直径为6m的钢铁。
     </div>
 
+    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+      <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
+    </div>
+
     <div class="gap-strat flex items-center">
       之后，
       <HowlingBladeIcon />
@@ -75,6 +83,10 @@ const reign2Time = time !== undefined ? timeToSeconds(time) + 11 : undefined
       释放刚刚储存的技能，
     </div>
 
+    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+      <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
+    </div>
+
     <div class="gap-strat flex items-center">
       <Span variant="yellow">{eminentReign}</Span>
       是
@@ -84,6 +96,18 @@ const reign2Time = time !== undefined ? timeToSeconds(time) + 11 : undefined
       <HowlingBladeIcon />
       为中心直径14m的钢铁，扇形和钢铁均带有击退效果。
     </div>
+
+    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
+      <div class="flex flex-col items-center gap-1">
+        <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
+        <div>{revolutionaryReign}</div>
+      </div>
+      <div class="flex flex-col items-center gap-1">
+        <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
+        <div>{eminentReign}</div>
+      </div>
+    </div>
+
     <div class="gap-strat flex items-center">
       与此同时，
       <HowlingBladeIcon />
@@ -104,4 +128,30 @@ const reign2Time = time !== undefined ? timeToSeconds(time) + 11 : undefined
     </div>
   </div>
 </MechanicSection>
-<SolutionSection />
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      如图所示，我们永远以面向
+      <HowlingBladeIcon />
+      为基准，MT组在左侧，ST组在右侧。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      如果是{revolutionaryReign}，就是1331的站位，T在两侧开好减伤吃死刑，双奶在中间分摊。
+    </div>
+
+    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+      <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
+    </div>
+
+    <div class="gap-strat flex items-center">
+      如果是{eminentReign}，就是3113的站位，T在靠近
+      <HowlingBladeIcon />
+      的内测开好减伤吃死刑，双奶在两侧分摊。
+    </div>
+
+    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+      <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
+    </div>
+  </div>
+</SolutionSection>

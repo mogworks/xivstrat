@@ -31,29 +31,7 @@ const hoverNavItemStyle = 'hover:bg-muted/50'
   <aside
     class="bg-card text-card-foreground sticky top-[calc(5rem+1px)] mx-4 space-y-4 self-start rounded-lg border p-4 shadow-md"
   >
-    <nav class="space-y-2">
-      <h2 class="text-md font-semibold">
-        机制跳转
-      </h2>
-      <ul class="space-y-1">
-        <template v-if="mechanics.length > 0">
-          <motion.li
-            v-for="item in mechanics"
-            :key="item.href"
-            :while-hover="{ x: 2 }"
-            :transition="{ type: 'tween', duration: 0.2 }"
-          >
-            <a :href="item.href" :class="`${baseNavItemStyle} ${hoverNavItemStyle}`">
-              <span class="ml-1">{{ item.name }}</span>
-            </a>
-          </motion.li>
-        </template>
-        <li v-else class="text-muted-foreground text-sm">
-          待更新
-        </li>
-      </ul>
-    </nav>
-    <Separator />
+    <!-- 阶段跳转 -->
     <nav class="space-y-2">
       <h2 class="text-md font-semibold">
         阶段跳转
@@ -76,6 +54,30 @@ const hoverNavItemStyle = 'hover:bg-muted/50'
             <span class="ml-1">{{ phase.name }}</span>
           </a>
         </motion.li>
+      </ul>
+    </nav>
+    <Separator />
+    <!-- 机制跳转 -->
+    <nav class="space-y-2">
+      <h2 class="text-md font-semibold">
+        机制跳转
+      </h2>
+      <ul class="space-y-1">
+        <template v-if="mechanics.length > 0">
+          <motion.li
+            v-for="item in mechanics"
+            :key="item.href"
+            :while-hover="{ x: 2 }"
+            :transition="{ type: 'tween', duration: 0.2 }"
+          >
+            <a :href="item.href" :class="`${baseNavItemStyle} ${hoverNavItemStyle}`">
+              <span class="ml-1">{{ item.name }}</span>
+            </a>
+          </motion.li>
+        </template>
+        <li v-else class="text-muted-foreground text-sm">
+          待更新
+        </li>
       </ul>
     </nav>
   </aside>

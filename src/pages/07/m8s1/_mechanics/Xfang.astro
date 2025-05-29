@@ -6,6 +6,8 @@ import type { Time } from '@/lib/utils'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
 
 import XfangCast from '../_components/XfangCast.astro'
 import LaserIcon from '../_components/LaserIcon.astro'
@@ -97,6 +99,69 @@ const { time, base = 0 }: Props = Astro.props
 </MechanicSection>
 
 <SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">不难看出，安全区在四个正点或者四个斜点。</div>
+
+    <div class="gap-strat flex items-center">
+      如果是
+      <Span variant="yellow">{windfang}</Span>
+      ，我们就按图示分组：
+    </div>
+
+    <div class="gap-strat flex items-center">
+      <RoleIcon role="tank" tag="MT" />
+      和
+      <RoleIcon role="ranged" tag="D3" />
+      去
+      <Span variant="red">红色</Span>
+      标点，也就是
+      <Span variant="red">A</Span>
+      或者
+      <Span variant="red">1</Span>
+      。
+      <RoleIcon role="tank" tag="ST" />
+      和
+      <RoleIcon role="magic" tag="D4" />
+      去
+      <Span variant="yellow">黄色</Span>
+      标点，也就是
+      <Span variant="yellow">B</Span>
+      或者
+      <Span variant="yellow">2</Span>
+      。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      <RoleIcon role="healer" tag="H2" />
+      和
+      <RoleIcon role="melee" tag="D2" />
+      去
+      <Span variant="sky">蓝色</Span>
+      标点，也就是
+      <Span variant="sky">C</Span>
+      或者
+      <Span variant="sky">3</Span>
+      。
+      <RoleIcon role="healer" tag="H1" />
+      和
+      <RoleIcon role="melee" tag="D1" />
+      去
+      <Span variant="purple">紫色</Span>
+      标点，也就是
+      <Span variant="purple">D</Span>
+      或者
+      <Span variant="purple">4</Span>
+      。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      如果是
+      <Span variant="yellow">{stonefang}</Span>
+      ，我们就按图示固定八方站位，此时可以无视十字激光。
+    </div>
+
+    <div class="gap-strat flex items-center"></div>
+  </div>
   <div class="grid grid-cols-4 gap-x-2 gap-y-4">
     <div class="flex flex-col items-center gap-1">
       <Image
@@ -132,3 +197,18 @@ const { time, base = 0 }: Props = Astro.props
     </div>
   </div>
 </SolutionSection>
+
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      如果是
+      <Span variant="yellow">{stonefang}</Span>
+      ，挤一挤一个角落可以站三个人，不推荐，但是紧急情况可以灵性。
+    </div>
+    <div class="gap-strat flex items-center">
+      如果是
+      <Span variant="yellow">{windfang}</Span>
+      并且有减员，优先保证有人和奶一起分摊。
+    </div>
+  </div>
+</NoteSection>

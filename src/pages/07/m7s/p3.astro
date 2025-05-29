@@ -1,6 +1,7 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
-
+import EventSection from '@/components/section/EventSection.astro'
+import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
 import BrutalImpactActivate from './_components/BrutalImpactActivate.astro'
 
@@ -9,6 +10,10 @@ const base = '06:16.310'
 ---
 
 <DutyStratLayout dutyId={dutyId}>
+  <EventSection time="06:09.273">
+    <BruteAbombinator />可选中
+  </EventSection>
+
   <BrutalImpactCast start="06:16.310" base={base} toln={7} />
   <BrutalImpactActivate time="06:21.518" base={base} num={1} toln={7} />
   <BrutalImpactActivate time="06:22.587" base={base} num={2} toln={7} />
