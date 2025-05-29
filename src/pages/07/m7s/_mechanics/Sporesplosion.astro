@@ -1,0 +1,37 @@
+---
+import type { Time } from '@/lib/utils'
+import { Image } from 'astro:assets'
+
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import StratBoard from '@/components/StratBoard.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+
+import floor_p2_3 from '@/assets/07/m7s/floor_p2_3.png'
+import strange_seeds_safe_point from '@/assets/07/m7s/strange_seeds/strange_seeds_safe_point.png'
+import strange_seeds_13_point from '@/assets/07/m7s/strange_seeds/strange_seeds_13_point.png'
+
+import SporesplosionCast from '../_components/SporesplosionCast.astro'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import Badge from '@/components/Badge.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+const { start, base = 0 }: Props = Astro.props
+---
+
+<SporesplosionCast start={start} base={base} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    出现三波圆形区域的范围攻击覆盖全场
+  </div>
+</MechanicSection>
+
+<SolutionSection title="解法">
+  <div class="flex flex-col gap-4">
+    从最后区域穿到最初区域，同时注意躲避Brutish Swing和Glower Power
+  </div>
+</SolutionSection>

@@ -2,8 +2,9 @@
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
-import StrangeSeeds from './_mechanics/StrangeSeeds.astro'
 import SBGR from './_mechanics/SBGR.astro'
+import Sporesplosion from './_mechanics/Sporesplosion.astro'
+import StrangeSeeds from './_mechanics/StrangeSeeds.astro'
 import PowerSlam from './_components/PowerSlam.astro'
 
 const dutyId = '07/m7s'
@@ -13,6 +14,8 @@ const base = '02:38.206'
 <DutyStratLayout dutyId={dutyId}>
   <SeparatorSection id="SBGR" title="SBGR" />
   <SBGR base={base} />
+  <SeparatorSection id="sporesplosion" title="Sporesplosion" />
+  <Sporesplosion start="03:51.154" base={base} />
   <SeparatorSection id="strange-seeds" title="StrangeSeeds" />
   <StrangeSeeds start="04:48.21" base={base} />
   <PowerSlam time="05:51.804" base={base} />
