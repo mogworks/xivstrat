@@ -34,7 +34,6 @@ const { start, base = 0 }: Props = Astro.props
       覆盖全场，每组生成6个位置随机的孢子，按照生成顺序造成伤害。受到伤害则会被附加
       <DamageDown tag="30" hover />
     </div>
-
     <h4 class="mt-4 text-2xl">
       <Span variant="yellow">生成分布</Span>
     </h4>
@@ -75,6 +74,7 @@ const { start, base = 0 }: Props = Astro.props
     </div>
   </div>
 </NoteSection>
+
 <BrutishSwingCast start="04:02.287" base={base} />
 <GlowerPowerCast start="04:09.948" base={base} />
 <ElectrogeneticForceActivate time="04:11.101" base={base} />
