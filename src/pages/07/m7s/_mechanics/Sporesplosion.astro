@@ -16,6 +16,7 @@ import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
 import GlowerPowerCast from '../_components/GlowerPowerCast.astro'
 import ElectrogeneticForceActivate from '../_components/ElectrogeneticForceActivate.astro'
 import RevengeOfTheVinesCast from '../_components/RevengeOfTheVinesCast.astro'
+import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
 
 interface Props {
   start: Time
@@ -33,7 +34,6 @@ const { start, base = 0 }: Props = Astro.props
       覆盖全场，每组生成6个位置随机的孢子，按照生成顺序造成伤害。受到伤害则会被附加
       <DamageDown tag="30" hover />
     </div>
-    
     <h4 class="mt-4 text-2xl">
       <Span variant="yellow">生成分布</Span>
     </h4>
@@ -74,20 +74,24 @@ const { start, base = 0 }: Props = Astro.props
     </div>
   </div>
 </NoteSection>
-<BrutishSwingCast start={"04:02.287"} base={base} />
-<GlowerPowerCast start={"04:09.948"} base={base} />
+
+<BrutishSwingCast start="04:02.287" base={base} />
+<GlowerPowerCast start="04:09.948" base={base} />
 <ElectrogeneticForceActivate time="04:11.101" base={base} />
-<RevengeOfTheVinesCast start={"04:17.078"} base={base} />
+<RevengeOfTheVinesCast start="04:17.078" base={base} />
+<AttackSection time="04:19.661" base={base} damage="57000" damageType="physical" />
+<AttackSection time="04:22.696" base={base} damage="57000" damageType="physical" />
+<AttackSection time="04:28.850" base={base} damage="57000" damageType="physical" />
+<AttackSection time="04:31.880" base={base} damage="57000" damageType="physical" />
+<AttackSection time="04:42.302" base={base} damage="57000" damageType="physical" />
 
 <script>
   import { listenKeys } from 'nanostores'
   import { Assets, Container, Graphics, Sprite } from 'pixi.js'
 
-  import { getScale, YmToPx } from '@/pixi/utils'
-
-  import { $stratBoards } from '@/stores/stratBoards'
-
   import floor_img from '@/assets/07/m7s/sporesplosion/floor_p2_1@3x.png'
+  import { getScale, YmToPx } from '@/pixi/utils'
+  import { $stratBoards } from '@/stores/stratBoards'
 
   const group1 = [
     { x: 100, y: -16.25 }, { x: 108.5, y: -7.75 }, { x: 91.5, y: 0.75 },
@@ -104,13 +108,13 @@ const { start, base = 0 }: Props = Astro.props
 
   function transferPos(p: { x: number; y: number }) {
     return {
-      x:  1.2941 * p.y - 6.4706,
-      y: -1.2529 * p.x - 0.0007 * p.y + 125.3141
+      x: 1.2941 * p.y - 6.4706,
+      y: -1.2529 * p.x - 0.0007 * p.y + 125.3141,
     }
   }
 
   listenKeys($stratBoards, ['sporesplosion'], async (stratBoards) => {
-    const app = stratBoards['sporesplosion']
+    const app = stratBoards.sporesplosion
 
     const container = new Container()
     container.position.set(app.screen.width / 2, app.screen.height / 2)
@@ -143,16 +147,12 @@ const { start, base = 0 }: Props = Astro.props
       })
     }
 
-    const groupSprites = [
-      createAoeSprites(group1),
-      createAoeSprites(group2),
-      createAoeSprites(group3),
-    ]
+    const groupSprites = [createAoeSprites(group1), createAoeSprites(group2), createAoeSprites(group3)]
 
     function showGroups(upToIndex: number) {
       for (let i = 0; i < groupSprites.length; i++) {
         const visible = i <= upToIndex
-        groupSprites[i].forEach(sprite => {
+        groupSprites[i].forEach((sprite) => {
           sprite.visible = visible
         })
       }
@@ -167,9 +167,8 @@ const { start, base = 0 }: Props = Astro.props
       if (phase < 3) {
         showGroups(phase)
       } else {
-        showGroups(-1) 
+        showGroups(-1)
       }
     })
-
   })
 </script>
