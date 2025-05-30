@@ -9,12 +9,14 @@ interface Props {
   class?: string
 }
 
+const name = 'Windpack' //"風の戒め"
+
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 ---
 
 <Buff
   icon={windpack}
-  name="Windpack"
+  name={name}
   nameVariant="yellow"
   description="Bound by wind aether and unable to deal damage to the wolf of wind."
   tag={tag}
