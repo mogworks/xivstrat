@@ -6,7 +6,6 @@ import { Image } from 'astro:assets'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
@@ -14,6 +13,7 @@ import EventSection from '@/components/section/EventSection.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
 import Separator from '@/components/Separator.astro'
 import ListDot from '@/components/ListDot.astro'
+import Badge from '@/components/Badge.astro'
 
 import spore_case_1 from '@/assets/07/m7s/sinister_seeds/spore_case_1.png'
 import spore_case_2 from '@/assets/07/m7s/sinister_seeds/spore_case_2.png'
@@ -40,15 +40,14 @@ import CrossingCrosswindsCast from '../_components/CrossingCrosswindsCast.astro'
 import SinisterSeedsCast from '../_components/SinisterSeedsCast.astro'
 import SporeSacCast from '../_components/SporeSacCast.astro'
 import WindingWildwindsCast from '../_components/WindingWildwindsCast.astro'
-
-import img from '@/assets/07/m7s/Tmp.png'
 import PollenCast from '../_components/PollenCast.astro'
-import BloomingAbomination from '../_components/BloomingAbomination.astro'
-import BloomingAbominationSimplified from '../_components/BloomingAbominationSimplified.astro'
-import Badge from '@/components/Badge.astro'
-import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import QuarrySwampCast from '../_components/QuarrySwampCast.astro'
 import HurricaneForceCast from '../_components/HurricaneForceCast.astro'
+
+import BloomingAbomination from '../_components/BloomingAbomination.astro'
+import BloomingAbominationSimplified from '../_components/BloomingAbominationSimplified.astro'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
 
 interface Props {
   base: Time
@@ -61,9 +60,7 @@ const { base = 0 }: Props = Astro.props
 <SinisterSeedsCast start="00:48.384" base={base} />
 <PollenCast start="00:49.812" />
 <EventSection time="00:55.000">
-  <BloomingAbomination num={4} />生成在
-  <Span variant="green">种子</Span>
-  落下的地方
+  <BloomingAbomination num={4} />生成
 </EventSection>
 <EventSection time="01:01.133">
   分散点名伤害判定
@@ -194,6 +191,18 @@ const { base = 0 }: Props = Astro.props
       </div>
     </div>
     <div class="gap-strat flex items-center">即一定会有四个安全区，其中两个在内场的对角方向，两个在相对的角落</div>
+    <div class="gap-strat flex items-center">
+      <Span variant="yellow">Pollen</Span>伤害判定后，在
+      <Span variant="green">种子</Span>
+      落下的地方会生成<BloomingAbominationSimplified />
+    </div>
+    <div class="gap-strat flex items-center">
+      <BloomingAbominationSimplified />在生成后，会每3秒1次释放对
+      <RoleIcon role="all" tag="一仇" />的普通攻击， 对<RoleIcon role="tank" />造成<DamageInfo
+        damage="28000"
+        type="physical"
+      />， 对<RoleIcon role="all" tag="非T" />造成<DamageInfo damage="45000" type="physical" />
+    </div>
   </div>
   <div class="flex flex-col gap-4">
     <h4 class="mt-8 text-2xl">
@@ -446,8 +455,17 @@ const { base = 0 }: Props = Astro.props
 </EventSection>
 <WindingWildwindsCast start="01:11.201" num={2} base={base} />
 <CrossingCrosswindsCast start="01:11.201" num={2} base={base} />
+<AttackSection time="01:15.925" base={base} damage="57000" damageType="physical" />
+<AttackSection time="01:18.951" base={base} damage="57000" damageType="physical" />
+<AttackSection time="01:21.979" base={base} damage="57000" damageType="physical" />
 <HurricaneForceCast start="01:24.200" base={base} />
+<AttackSection time="01:25.008" base={base} damage="57000" damageType="physical" />
+<AttackSection time="01:28.037" base={base} damage="57000" damageType="physical" />
 <QuarrySwampCast start="01:29.48" base={base} />
+<AttackSection time="01:35.074" base={base} damage="57000" damageType="physical" />
+<AttackSection time="01:38.103" base={base} damage="57000" damageType="physical" />
+<AttackSection time="01:41.133" base={base} damage="57000" damageType="physical" />
+<AttackSection time="01:44.162" base={base} damage="57000" damageType="physical" />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
