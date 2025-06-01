@@ -53,10 +53,7 @@ const duty = (await getEntry('duties', dutyId))!.data
         // 若仅保留伤害，则隐藏不含伤害信息的元素，否则都要显示
         e.classList.toggle(
           'grid',
-          !e.classList.toggle(
-            'hidden',
-            stratSettings.viewMode === 'damage' && e.querySelector('.damage-info') === null,
-          ),
+          !e.classList.toggle('hidden', stratSettings.viewMode === 'damage' && e.querySelector('.damage-info') === null)
         )
       })
       // 对于内容
@@ -72,8 +69,8 @@ const duty = (await getEntry('duties', dutyId))!.data
             'grid',
             !e.classList.toggle(
               'hidden',
-              e.classList.contains('mechanic-section') || e.classList.contains('note-section'),
-            ),
+              e.classList.contains('mechanic-section') || e.classList.contains('note-section')
+            )
           )
         })
       } else {
