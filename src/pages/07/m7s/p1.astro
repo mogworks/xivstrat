@@ -12,11 +12,12 @@ import BrutalImpact from './_mechanics/BrutalImpact.astro'
 
 import Stoneringer from './_mechanics/Stoneringer.astro'
 import SinisterSeeds from './_mechanics/SinisterSeeds.astro'
-import QuarrySwamp from './_mechanics/QuarrySwamp.astro'
+import Explosion from './_mechanics/Explosion.astro'
 import StoneringerCast from './_components/StoneringerCast.astro'
 import SmashHereCast from './_components/SmashHereCast.astro'
 import PulpSmash from './_mechanics/PulpSmash.astro'
 import NeoBombarianSpecial from './_mechanics/NeoBombarianSpecial.astro'
+import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
 
 const dutyId = '07/m7s'
 const base = 0
@@ -29,7 +30,7 @@ const base = 0
     <BruteAbombinator />
     固定在场中偏南一点的位置
   </EventSection>
-  <!-- Attack -->
+  <AttackSection time="00:03.832" base={base} damage="57000" damageType="physical" />
   <SeparatorSection id="BrutalImpact" title="Brutal Impact" />
   <BrutalImpactCast start="00:05.165" base={base} toln={6} />
   <BrutalImpactActivate time="00:10.381" base={base} num={1} toln={6} />
@@ -39,21 +40,28 @@ const base = 0
   <BrutalImpactActivate time="00:14.657" base={base} num={5} toln={6} />
   <BrutalImpactActivate time="00:15.727" base={base} num={6} toln={6} />
   <BrutalImpact base={base} />
+  <AttackSection time="00:18.577" base={base} damage="57000" damageType="physical" />
 
   <SeparatorSection id="stoneringer" title="Stoneringer" />
   <Stoneringer base={base} />
+  <AttackSection time="00:35.910" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="00:39.740" base={base} damage="57000" damageType="physical" />
 
   <SeparatorSection id="sinister-seeds" title="Sinister Seeds" />
   <SinisterSeeds base={base} />
 
-  <SeparatorSection id="quarry-wwamp" title="Quarry Swamp" />
-  <QuarrySwamp base={base} />
+  <SeparatorSection id="explosion" title="Explosion" />
+  <Explosion base={base} />
 
   <StoneringerCast start="01:46.61" base={base} />
   <SmashHereCast start="01:54.42" base={base} />
+  <AttackSection time="02:02.160" base={base} damage="57000" damageType="physical" />
 
   <SeparatorSection id="pulp-smash" title="Pulp Smash" />
   <PulpSmash base={base} />
+  <AttackSection time="02:11.071" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="02:14.104" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="02:17.136" base={base} damage="57000" damageType="physical" />
 
   <SeparatorSection id="neo-bombarian-special" title="Neo Bombarian Special" />
   <NeoBombarianSpecial base={base} />

@@ -2,18 +2,34 @@
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
-import StrangeSeeds from './_mechanics/StrangeSeeds.astro'
 import SBGR from './_mechanics/SBGR.astro'
+import Sporesplosion from './_mechanics/Sporesplosion.astro'
+import StrangeSeeds from './_mechanics/StrangeSeeds.astro'
 import PowerSlam from './_components/PowerSlam.astro'
+import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
 
 const dutyId = '07/m7s'
 const base = '02:38.206'
 ---
 
 <DutyStratLayout dutyId={dutyId}>
+  <AttackSection time="02:43.372" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="02:46.402" base={base} damage="57000" damageType="physical" />
+
   <SeparatorSection id="SBGR" title="SBGR" />
   <SBGR base={base} />
+  <AttackSection time="03:17.190" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="03:20.219" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="03:43.624" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="03:46.656" base={base} damage="57000" damageType="physical" />
+
+  <SeparatorSection id="sporesplosion" title="Sporesplosion" />
+  <Sporesplosion start="03:51.154" base={base} />
+
   <SeparatorSection id="strange-seeds" title="StrangeSeeds" />
   <StrangeSeeds start="04:48.21" base={base} />
+  <AttackSection time="05:42.223" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="05:45.255" base={base} damage="57000" damageType="physical" />
+
   <PowerSlam time="05:51.804" base={base} />
 </DutyStratLayout>

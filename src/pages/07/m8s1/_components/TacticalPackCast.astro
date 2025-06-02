@@ -4,7 +4,7 @@ import type { Time } from '@/lib/utils'
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
-import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
 
 interface Props {
   start: Time
@@ -12,12 +12,11 @@ interface Props {
   [key: string]: any
 }
 
-const ability = 'Breath of Decay'
-
 const { start, base = 0, ...rest }: Props = Astro.props
+const ability = '光狼招来'
 ---
 
-<CastSection start={start} base={base} duration={7.7} ability={ability} damage="100000" damageType="magical" {...rest}>
-  <WindWolfheadIcon slot="source" />
-  <Badge variant="pink">AoE</Badge>
+<CastSection start={start} base={base} duration={2.7} ability={ability} {...rest}>
+  <HowlingBladeIcon slot="source" />
+  <Badge variant="green">召唤小怪</Badge>
 </CastSection>

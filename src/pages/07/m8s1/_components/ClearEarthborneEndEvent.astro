@@ -7,7 +7,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
-import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
+import EarthborneEndDebuff from '../_components/EarthborneEndDebuff.astro'
 
 interface Props {
   time: Time
@@ -15,27 +15,18 @@ interface Props {
   [key: string]: any
 }
 
-const ability = 'Winds of Decay'
-const damage = '70000'
+const ability = 'Wind Surge'
+const damage = '15000'
 const damageType = 'magical'
 
 const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
-
-// 狼头连线扇形，魔法易伤
 ---
 
 <EventSection time={time} base={base}>
-  <WindWolfheadIcon />
-  连线随机4
-  <RoleIcon role="dps" />
-  或4
-  <RoleIcon role="tank" />
-  <RoleIcon role="healer" />
-  扇形AoE
-
+  消除<EarthborneEndDebuff tag="1" />， 对
+  <RoleIcon role="all" tag="全员" />
   <DamageInfo damage={damage} type={damageType} />
-  <MagicVulnerabilityUp tag="1" />
+  <MagicVulnerabilityUp tag="4" hover />
 
-  <Badge variant="green">扇形</Badge>
-  <Badge variant="yellow">AoE</Badge>
+  <Badge variant="green">AoE</Badge>
 </EventSection>
