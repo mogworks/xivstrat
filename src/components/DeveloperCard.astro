@@ -1,0 +1,40 @@
+---
+interface Props {
+  name: string
+  gameName: string
+  imgUrl: string
+  link?: string
+  class?: string
+}
+
+const { name, gameName, imgUrl, link, class: className = '' }: Props = Astro.props
+---
+
+<!-- <div
+  class="bg-card/50 hover:bg-card/80 border-border/50 relative flex cursor-pointer flex-col justify-start rounded-xl border p-3 shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+>
+  <div><img src={imgUrl} class="rounded-full object-cover" /></div>
+  <div class="ml-4 flex flex-col items-center justify-center">
+    <h1 class="text-center">{name}</h1>
+    <h2>{gameName}</h2>
+    {
+      link && (
+        <a href={link} target="_blank" class="text-neutral-400 hover:underline">
+          {link}
+        </a>
+      )
+    }
+  </div>
+</div> -->
+<div
+  class="group bg-card/50 hover:bg-card/80 border-border/50 relative flex max-w-sm flex-col items-center overflow-hidden rounded-xl p-4 text-center shadow-xl transition-all duration-500 hover:shadow-2xl"
+>
+  <div>
+    <img src={imgUrl} alt={name} class="w-24 rounded-full object-cover" />
+  </div>
+  <div class="duration-500">
+    <h1 class="font-semibold text-zinc-700 dark:text-zinc-300">{name}</h1>
+    <p class="text-sm text-zinc-700 dark:text-zinc-300">{gameName}</p>
+    <a href={link} target="_blank" class="text-zinc-500 dark:text-zinc-400">{link}</a>
+  </div>
+</div>

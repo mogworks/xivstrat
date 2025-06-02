@@ -1,0 +1,32 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+
+import WindborneEndDebuff from '../_components/WindborneEndDebuff.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+  [key: string]: any
+}
+
+const ability = 'Wind Surge'
+const damage = '15000'
+const damageType = 'magical'
+
+const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
+---
+
+<EventSection time={time} base={base}>
+  消除<WindborneEndDebuff tag="1" />， 对
+  <RoleIcon role="all" tag="全员" />
+  <DamageInfo damage={damage} type={damageType} />
+  <MagicVulnerabilityUp tag="4" hover />
+
+  <Badge variant="green">AoE</Badge>
+</EventSection>

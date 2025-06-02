@@ -1,19 +1,38 @@
 ---
-import type { Time } from '@/lib/utils'
+import { timeToSeconds, type Time } from '@/lib/utils'
 
 import CastSection from '@/components/section/CastSection.astro'
 
 import BruteAbombinator from './BruteAbombinator.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Badge from '@/components/Badge.astro'
+
+import PollenCast from '../_components/PollenCast.astro'
+import StratInterval from '../../../../components/StratInterval.astro'
+import MoveToCenterEvent from './MoveToCenterEvent.astro'
 
 interface Props {
   start: Time
+  end: Time
   base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start, end, base = 0 }: Props = Astro.props
+const hintStart = timeToSeconds(end) + 1.16
+const moveToCenter = timeToSeconds(end) + 2
+const seedFallen = timeToSeconds(end) + 1.16 + 4.0
 ---
 
-<CastSection start={start} base={base} duration={2.7} ability="Spore Sac">
+<CastSection start={start} end={end} base={base} duration={2.7} ability="Spore Sac">
   <BruteAbombinator slot="source" />
-  在场上召唤种子
 </CastSection>
+<MoveToCenterEvent time={moveToCenter} base={base} />
+<EventSection time={seedFallen} base={base}>
+  <Span variant="green">种子×4</Span>
+  落下，对范围内的玩家造成
+  <DamageInfo damage="110000" type="magical" />
+  <DamageDown tag="30" hover />
+</EventSection>

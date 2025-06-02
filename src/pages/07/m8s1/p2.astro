@@ -1,8 +1,45 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import TacticalPackCast from './_components/TacticalPackCast.astro'
+import UntargetbaleEvent from './_components/UntargetableEvent.astro'
+import HowlingHavocCast from './_components/HowlingHavocCast.astro'
+import WolvesHeadAppearEvent from './_components/WolvesHeadAppearEvent.astro'
+import PackPredationCast from './_components/PackPredationCast.astro'
+import ClearWindborneEndEvent from './_components/ClearWindborneEndEvent.astro'
+import ClearEarthborneEndEvent from './_components/ClearEarthborneEndEvent.astro'
+import ForlornWindCast from './_components/ForlornWindCast.astro'
+import ForlornStoneCast from './_components/ForlornStoneCast.astro'
+
+import TracticalPack from './_mechanics/TacticalPack.astro'
+
 const dutyId = '07/m8s1'
 const base = '02:59.090'
 ---
 
-<DutyStratLayout dutyId={dutyId} />
+<DutyStratLayout dutyId={dutyId}>
+  <SeparatorSection id="tactical-pack" title="光狼招来" />
+  <TacticalPackCast start="02:56.110" base={base} />
+  <UntargetbaleEvent time="03:01.224" base={base} />
+  <WolvesHeadAppearEvent time="03:03.000" base={base} />
+  <HowlingHavocCast start="03:03.400" base={base} />
+
+  <PackPredationCast start="03:13.586" base={base} />
+  <ClearEarthborneEndEvent time="03:20.000" base={base} />
+  <ClearWindborneEndEvent time="03:24.000" base={base} />
+
+  <PackPredationCast start="03:27.703" base={base} />
+  <ClearEarthborneEndEvent time="03:34.000" base={base} />
+  <ClearWindborneEndEvent time="03:38.000" base={base} />
+
+  <PackPredationCast start="03:41.8422" base={base} />
+  <ClearEarthborneEndEvent time="03:48.000" base={base} />
+  <ClearWindborneEndEvent time="03:52.000" base={base} />
+
+  <ForlornWindCast start="04:01.992" base={base} />
+  <ForlornStoneCast start="04:01.992" base={base} />
+
+  <TracticalPack time="02:56.110" base={base} />
+</DutyStratLayout>

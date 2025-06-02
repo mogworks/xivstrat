@@ -1,0 +1,192 @@
+---
+import type { Time } from '@/lib/utils'
+import { Image } from 'astro:assets'
+
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import StratBoard from '@/components/StratBoard.astro'
+import Span from '@/components/Span.vue'
+import DamageDown from '@/components/buff/DamageDown.astro'
+
+import pos_img from '@/assets/07/m7s/sporesplosion/sporesplosion_pos.png'
+
+import SporesplosionCast from '../_components/SporesplosionCast.astro'
+import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
+import GlowerPowerCast from '../_components/GlowerPowerCast.astro'
+import ElectrogeneticForceActivate from '../_components/ElectrogeneticForceActivate.astro'
+import RevengeOfTheVinesCast from '../_components/RevengeOfTheVinesCast.astro'
+import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+const { start, base = 0 }: Props = Astro.props
+---
+
+<SporesplosionCast start={start} base={base} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      生成三组
+      <Span variant="rose">圆形AoE</Span>
+      覆盖全场，每组生成6个位置随机的孢子，按照生成顺序造成伤害。受到伤害则会被附加
+      <DamageDown tag="30" hover />
+    </div>
+    <h4 class="mt-4 text-2xl">
+      <Span variant="yellow">生成分布</Span>
+    </h4>
+    <div class="grid grid-cols-2 gap-x-2 gap-y-4">
+      <div class="flex flex-col items-center gap-1">
+        <Image src={pos_img} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      </div>
+      <div class="flex flex-col items-center gap-1">
+        <StratBoard
+          width={654}
+          height={327}
+          key="sporesplosion"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+          canvasClass="h-full w-full"
+        />
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection title="解法">
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      在后续区域等待第一组判定生效后，穿到安全区
+      <Span variant="rose">圆形AoE</Span>
+    </div>
+  </div>
+</SolutionSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      同时观察Boss手中的武器和连线墙，注意站位，紧接着需要躲避
+      <Span variant="yellow">Brutish Swing</Span>
+      ，
+      <Span variant="yellow">Glower Power</Span>
+      和
+      <Span variant="yellow">Electrogenetic Force</Span>
+      的组合技
+    </div>
+  </div>
+</NoteSection>
+
+<BrutishSwingCast start="04:02.287" base={base} />
+<GlowerPowerCast start="04:09.948" base={base} />
+<ElectrogeneticForceActivate time="04:11.101" base={base} />
+<RevengeOfTheVinesCast start="04:17.078" base={base} />
+<AttackSection time="04:19.661" base={base} damage="57000" damageType="physical" />
+<AttackSection time="04:22.696" base={base} damage="57000" damageType="physical" />
+<AttackSection time="04:28.850" base={base} damage="57000" damageType="physical" />
+<AttackSection time="04:31.880" base={base} damage="57000" damageType="physical" />
+<AttackSection time="04:42.302" base={base} damage="57000" damageType="physical" />
+
+<script>
+  import { listenKeys } from 'nanostores'
+  import { Assets, Container, Graphics, Sprite } from 'pixi.js'
+
+  import floor_img from '@/assets/07/m7s/sporesplosion/floor_p2_1@3x.png'
+  import { getScale, YmToPx } from '@/pixi/utils'
+  import { $stratBoards } from '@/stores/stratBoards'
+
+  const group1 = [
+    { x: 100, y: -16.25 },
+    { x: 108.5, y: -7.75 },
+
+    { x: 91.5, y: 0.75 },
+    { x: 100, y: 9.25 },
+    { x: 91.5, y: 17.75 },
+
+    { x: 108.5, y: 26.25 },
+  ]
+  const group2 = [
+    { x: 91.5, y: -16.25 },
+    { x: 100, y: -7.75 },
+
+    { x: 108.5, y: 0.75 },
+    { x: 108.5, y: 9.25 },
+    { x: 100, y: 17.75 },
+
+    { x: 91.5, y: 26.25 },
+  ]
+  const group3 = [
+    { x: 108.5, y: -16.25 },
+    { x: 91.5, y: -7.75 },
+
+    { x: 100, y: 0.75 },
+    { x: 91.5, y: 9.25 },
+    { x: 108.5, y: 17.75 },
+
+    { x: 100, y: 26.25 },
+  ]
+
+  function transferPos(p: { x: number; y: number }) {
+    return {
+      x: 1.2941 * p.y - 6.4706,
+      y: -1.2529 * p.x - 0.0007 * p.y + 125.3141,
+    }
+  }
+
+  listenKeys($stratBoards, ['sporesplosion'], async (stratBoards) => {
+    const app = stratBoards.sporesplosion
+
+    const container = new Container()
+    container.position.set(app.screen.width / 2, app.screen.height / 2)
+    app.stage.addChild(container)
+
+    const floorTexture = await Assets.load(floor_img)
+    const floor = Sprite.from(floorTexture)
+    floor.anchor.set(0.5, 0.5)
+    container.addChild(floor)
+
+    const rectMask = new Graphics()
+    const width = floor.width
+    const height = floor.height
+    rectMask.rect(-width / 2, -height / 2, width, height)
+    rectMask.fill({ color: 'white' })
+    container.addChild(rectMask)
+    container.mask = rectMask
+
+    const fan_360_Texture = await Assets.load('omen/fan/360_r20.png')
+    function createAoeSprites(group: { x: number; y: number }[]) {
+      return group.map((p) => {
+        const fan_360 = new Sprite(fan_360_Texture)
+        const pos = transferPos(p)
+        fan_360.anchor.set(0.5, 0.5)
+        fan_360.position.set(pos.x * YmToPx, pos.y * YmToPx)
+        fan_360.scale.set(getScale() / 1.95)
+        fan_360.visible = false // 初始不显示
+        container.addChild(fan_360)
+        return fan_360
+      })
+    }
+
+    const groupSprites = [createAoeSprites(group1), createAoeSprites(group2), createAoeSprites(group3)]
+
+    function showGroups(upToIndex: number) {
+      for (let i = 0; i < groupSprites.length; i++) {
+        const visible = i <= upToIndex
+        groupSprites[i].forEach((sprite) => {
+          sprite.visible = visible
+        })
+      }
+    }
+
+    let elapsed = 0
+    app.ticker.add((ticker) => {
+      elapsed += ticker.elapsedMS
+
+      const phase = Math.floor(elapsed / 2000) % 4
+
+      if (phase < 3) {
+        showGroups(phase)
+      } else {
+        showGroups(-1)
+      }
+    })
+  })
+</script>

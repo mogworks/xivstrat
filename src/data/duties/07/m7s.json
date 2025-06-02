@@ -31,11 +31,11 @@
           "name_ch": "邪种播撒"
         },
         {
-          "href": "#quarry-wwamp",
-          "name": "Quarry Swamp",
-          "name_en": "Quarry Swamp",
+          "href": "#explosion",
+          "name": "Explosion",
+          "name_en": "Explosion",
           "name_ja": "",
-          "name_ch": "采石泥沼"
+          "name_ch": "大爆炸"
         },
         {
           "href": "#pulp-smash",
@@ -62,6 +62,10 @@
         {
           "href": "#SBGR",
           "name": "SBGR"
+        },
+        {
+          "href": "#sporesplosion",
+          "name": "Sporesplosion"
         },
         {
           "href": "#strange-seeds",

@@ -1,0 +1,250 @@
+---
+import { Image } from 'astro:assets'
+
+import type { Time } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+
+import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
+import StoneWolfheadIcon from '../_components/StoneWolfheadIcon.astro'
+
+import WindpackDebuff from '../_components/WindpackDebuff.astro'
+import StonepackDebuff from '../_components/StonepackDebuff.astro'
+import WindborneEndDebuff from '../_components/WindborneEndDebuff.astro'
+import EarthborneEndDebuff from '../_components/EarthborneEndDebuff.astro'
+
+import img from '@/assets/07/m8s1/tmp.png'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const tracticalPack = '光狼招来'
+const howlingHoavoc = '風麈の咆哮'
+const packPredation = '光狼陣'
+
+//TODO: 找俩icon把这玩意替换掉
+const greenBall = '绿色的球'
+const yellowCude = '黄色的正方体'
+
+const { time, base = 0 }: Props = Astro.props
+---
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="text-2xl">
+      <Span variant="yellow">{tracticalPack} </Span>
+    </div>
+
+    <div class="gap-strat flex items-center">
+      <HowlingBladeIcon />上天，预示着小怪阶段开始。 此时场地东西侧会出现
+      <WindWolfheadIcon />
+      <StoneWolfheadIcon />
+      并连线玩家。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      会有 1<RoleIcon role="tank" />
+      1<RoleIcon role="healer" />
+      2<RoleIcon role="dps" />
+      获得绿色连线，其余人获得黄色连线。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      在
+      <Span variant="yellow">{howlingHoavoc}</Span>
+      伤害判定之后，场地南北侧会出现{greenBall}和{yellowCude}。 玩家获得debuff如下：
+    </div>
+
+    <div class="gap-strat flex items-center pl-6">
+      <WindpackDebuff hover />：无法对<WindWolfheadIcon />造成伤害。
+    </div>
+
+    <div class="gap-strat flex items-center pl-6">
+      <StonepackDebuff hover />：无法对<StoneWolfheadIcon />造成伤害。
+    </div>
+
+    <div class="gap-strat flex items-center pl-6">
+      <WindborneEndDebuff hover tag="21" />
+      <WindborneEndDebuff hover tag="37" />
+      <WindborneEndDebuff hover tag="54" />
+      ：倒计时结束前需要穿过场上{greenBall}以消除该debuff，否则团灭。
+    </div>
+
+    <div class="gap-strat flex items-center pl-6">
+      <EarthborneEndDebuff hover tag="21" />
+      <EarthborneEndDebuff hover tag="37" />
+      <EarthborneEndDebuff hover tag="54" />
+      ：倒计时结束前需要穿过场上{yellowCude}以消除该debuff，否则团灭。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      <EarthborneEndDebuff hover />
+      <WindborneEndDebuff hover />
+      被消除会对全团造成一个微量的魔法伤害，并且赋予
+      <MagicVulnerabilityUp tag="4" hover />
+      ，若是在有
+      <MagicVulnerabilityUp hover />
+      时消除debuff会导致团灭。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      消除debuff还会对
+      <EarthborneEndDebuff hover />
+      <WindborneEndDebuff hover />
+      造成约
+      <DamageInfo damage="2100000" type="special" />的伤害，15%。
+    </div>
+
+    <div class="gap-strat flex items-center">绿色的球和黄色正方体开始顺时针或逆时针绕场地旋转。</div>
+
+    <div class="gap-strat flex items-center">
+      随后，<WindWolfheadIcon /><StoneWolfheadIcon />开始读条
+      <Span variant="yellow">{packPredation}</Span>
+      分别对当前
+      <RoleIcon role="tank" />
+      释放扇形死刑，并且附加
+      <MagicVulnerabilityUp tag="1" hover />
+    </div>
+
+    <div class="gap-strat flex items-center">
+      同时会各点名一个拥有<WindpackDebuff /><StonepackDebuff />的玩家释放直线AoE，并且附加
+      <MagicVulnerabilityUp tag="1" hover />
+    </div>
+
+    <div class="gap-strat flex items-center">
+      <Span variant="yellow">{packPredation}</Span>
+      总计会有三次，每次间隔约14s。
+    </div>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      连线出现，我们首先把连线拉长，去对面的
+      <WindWolfheadIcon />
+      <StoneWolfheadIcon />
+      等待
+      <Span variant="green">{greenBall}</Span>
+      和
+      <Span variant="yellow">{yellowCude}</Span>
+      出现。
+    </div>
+
+    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+      <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
+      <div>应该是狼头+线的图片</div>
+    </div>
+
+    <div class="gap-strat flex items-center">
+      之后，
+      <RoleIcon role="tank" />将
+      <WindWolfheadIcon />
+      <StoneWolfheadIcon />
+      面向同色的方向，跟随
+      <Span variant="green">{greenBall}</Span>
+      和
+      <Span variant="yellow">{yellowCude}</Span>
+      旋转。
+    </div>
+
+    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+      <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
+      <div>狼头+两个球+所有人的图片</div>
+    </div>
+
+    <div class="gap-strat flex items-center">注意此处可以在不撞到他们的前提下尽量靠近。</div>
+
+    <div class="gap-strat flex items-center pl-6">
+      因为
+      <WindWolfheadIcon />
+      <StoneWolfheadIcon />
+      开始读条
+      <Span variant="yellow">{packPredation}</Span>
+      之后会停止移动，但是
+      <Span variant="green">{greenBall}</Span>
+      和
+      <Span variant="yellow">{yellowCude}</Span>
+      还会继续移动。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      人群站在
+      <WindWolfheadIcon />
+      <StoneWolfheadIcon />
+      后面，等待点名出现。伤害判定后，等
+      <MagicVulnerabilityUp tag="1" hover />
+      消失，
+    </div>
+
+    <div class="gap-strat flex items-center">
+      <EarthborneEndDebuff hover tag="21" />
+      向后走穿过
+      <Span variant="yellow">{yellowCude}</Span>
+      消除debuff，此时全员获得
+      <MagicVulnerabilityUp tag="4" hover />
+      。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      <WindborneEndDebuff hover tag="21" />
+      等
+      <MagicVulnerabilityUp tag="4" hover />
+      消失后向后走穿过
+      <Span variant="green">{greenBall}</Span>
+      消除debuff，全员获得
+      <MagicVulnerabilityUp tag="4" hover />
+      。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      此时应该距离下一次
+      <Span variant="yellow">{packPredation}</Span>
+      伤害判定应该还有至少4s，
+      <MagicVulnerabilityUp tag="4" hover />
+      在伤害之前消失。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      再重复两次，分别消除
+      <WindborneEndDebuff hover tag="37" />
+      <WindborneEndDebuff hover tag="54" />
+      <EarthborneEndDebuff hover tag="37" />
+      <EarthborneEndDebuff hover tag="54" />
+      。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      所有debuff消除后，
+      <WindWolfheadIcon />
+      <StoneWolfheadIcon />
+      开始读条狂暴，请尽快击杀。
+    </div>
+  </div>
+</SolutionSection>
+
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      <EarthborneEndDebuff hover />
+      在AoE判定后应该尽快去消除，给
+      <WindborneEndDebuff hover />
+      留出充足的时间 。1s的易伤走过去差不多基本消失了。
+    </div>
+
+    <div class="gap-strat flex items-center">场中不能踩，但是因为场地大小的缘故，请离场中尽可能近一些方便奶。</div>
+
+    <div class="gap-strat flex items-center">
+      虽然消除buff的伤害很低，但是如果减伤/血量不足还是有可能会出事，请注意。
+    </div>
+  </div>
+</NoteSection>
