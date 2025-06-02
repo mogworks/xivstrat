@@ -13,15 +13,16 @@ import XfangCast from '../_components/XfangCast.astro'
 import GleamingFang from '../_components/GleamingFang.astro'
 import HowlingBlade from '../_components/HowlingBlade.astro'
 
-import intercardWindfang from '@/assets/07/m8s1/intercardWindfang.png'
-import intercardStonefang from '@/assets/07/m8s1/intercardStonefang.png'
-import cardWindfang from '@/assets/07/m8s1/cardWindfang.png'
-import cardStonefang from '@/assets/07/m8s1/cardStonefang.png'
-import intercardWindfangSol from '@/assets/07/m8s1/intercardWindfangSol.png'
-import intercardStonefangSol from '@/assets/07/m8s1/intercardStonefangSol.png'
-import cardWindfangSol from '@/assets/07/m8s1/cardWindfangSol.png'
-import cardStonefangSol from '@/assets/07/m8s1/cardStonefangSol.png'
 import tmp from '@/assets/07/m8s1/tmp.png'
+import stonefang_1 from '@/assets/07/m8s1/xfang/stonefang_1.png'
+import stonefang_2 from '@/assets/07/m8s1/xfang/stonefang_2.png'
+import stonefang_3 from '@/assets/07/m8s1/xfang/stonefang_3.png'
+import stonefang_4 from '@/assets/07/m8s1/xfang/stonefang_4.png'
+import stonefang_5 from '@/assets/07/m8s1/xfang/stonefang_5.png'
+import windfang_1 from '@/assets/07/m8s1/xfang/windfang_1.png'
+import windfang_2 from '@/assets/07/m8s1/xfang/windfang_2.png'
+import windfang_3 from '@/assets/07/m8s1/xfang/windfang_3.png'
+import windfang_4 from '@/assets/07/m8s1/xfang/windfang_4.png'
 
 interface Props {
   time: Time
@@ -119,39 +120,19 @@ const { time, base = 0 }: Props = Astro.props
       <GleamingFang />
       最终形成如下的组合攻击：
     </div>
-    <div class="flex gap-2">
-      <div class="flex flex-col items-center gap-1">
-        <Image
-          src={cardStonefang}
-          alt="Cardinal + Stonefang"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <div><Span variant="orange">{stonefang}</Span> + 正向浮游炮</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image
-          src={intercardStonefang}
-          alt="Intercardinal + Stonefang"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <div><Span variant="orange">{stonefang}</Span> + 斜向浮游炮</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image
-          src={cardWindfang}
-          alt="Cardinal + Windfang"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <div><Span variant="green">{windfang}</Span> + 正向浮游炮</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image
-          src={intercardWindfang}
-          alt="Intercardinal + Windfang"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <div><Span variant="green">{windfang}</Span> + 斜向浮游炮</div>
-      </div>
+    <div class="grid grid-cols-4 gap-2">
+      <Image src={stonefang_1} alt="Stonefang: 1" class="rounded-full border-2 border-cyan-700 dark:border-cyan-100" />
+      <Image src={stonefang_2} alt="Stonefang: 2" class="rounded-full border-2 border-cyan-700 dark:border-cyan-100" />
+      <Image src={windfang_1} alt="Windfang: 1" class="rounded-full border-2 border-cyan-700 dark:border-cyan-100" />
+      <Image src={windfang_2} alt="Windfang: 2" class="rounded-full border-2 border-cyan-700 dark:border-cyan-100" />
+      <Image src={stonefang_3} alt="Stonefang: 3" class="rounded-full border-2 border-cyan-700 dark:border-cyan-100" />
+      <Image src={stonefang_4} alt="Stonefang: 4" class="rounded-full border-2 border-cyan-700 dark:border-cyan-100" />
+      <Image src={windfang_3} alt="Windfang: 3" class="rounded-full border-2 border-cyan-700 dark:border-cyan-100" />
+      <Image src={windfang_4} alt="Windfang: 4" class="rounded-full border-2 border-cyan-700 dark:border-cyan-100" />
+      <div class="justify-self-center"><Span variant="orange">{stonefang}</Span> + 正向浮游炮</div>
+      <div class="justify-self-center"><Span variant="orange">{stonefang}</Span> + 斜向浮游炮</div>
+      <div class="justify-self-center"><Span variant="green">{windfang}</Span> + 正向浮游炮</div>
+      <div class="justify-self-center"><Span variant="green">{windfang}</Span> + 斜向浮游炮</div>
     </div>
   </div>
 </MechanicSection>
@@ -223,7 +204,7 @@ const { time, base = 0 }: Props = Astro.props
   <div class="grid grid-cols-4 gap-x-2 gap-y-4">
     <div class="flex flex-col items-center gap-1">
       <Image
-        src={cardWindfangSol}
+        src={windfang_1}
         alt="Cardinal + Windfang"
         class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
       />
@@ -231,7 +212,7 @@ const { time, base = 0 }: Props = Astro.props
     </div>
     <div class="flex flex-col items-center gap-1">
       <Image
-        src={intercardWindfangSol}
+        src={windfang_2}
         alt="Intercardinal + Windfang"
         class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
       />
@@ -239,7 +220,7 @@ const { time, base = 0 }: Props = Astro.props
     </div>
     <div class="flex flex-col items-center gap-1">
       <Image
-        src={cardStonefangSol}
+        src={stonefang_1}
         alt="Cardinal + Stonefang"
         class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
       />
@@ -247,7 +228,7 @@ const { time, base = 0 }: Props = Astro.props
     </div>
     <div class="flex flex-col items-center gap-1">
       <Image
-        src={intercardStonefangSol}
+        src={stonefang_2}
         alt="Intercardinal + Stonefang"
         class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
       />
