@@ -10,7 +10,7 @@ import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 
 import XfangCast from '../_components/XfangCast.astro'
-import LaserIcon from '../_components/LaserIcon.astro'
+import GleamingFang from '../_components/GleamingFang.astro'
 import HowlingBlade from '../_components/HowlingBlade.astro'
 
 import intercardWindfang from '@/assets/07/m8s1/intercardWindfang.png'
@@ -21,6 +21,7 @@ import intercardWindfangSol from '@/assets/07/m8s1/intercardWindfangSol.png'
 import intercardStonefangSol from '@/assets/07/m8s1/intercardStonefangSol.png'
 import cardWindfangSol from '@/assets/07/m8s1/cardWindfangSol.png'
 import cardStonefangSol from '@/assets/07/m8s1/cardStonefangSol.png'
+import tmp from '@/assets/07/m8s1/tmp.png'
 
 interface Props {
   time: Time
@@ -37,64 +38,119 @@ const { time, base = 0 }: Props = Astro.props
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="text-2xl">
-      <Span variant="yellow">{stonefang}</Span>
+      <Span variant="orange">{stonefang}</Span>
       |
-      <Span variant="yellow">{windfang}</Span>
+      <Span variant="green">{windfang}</Span>
     </div>
     <div class="gap-strat flex items-center">
       根据读条不同，
       <HowlingBlade />
       会释放
-      <Span variant="yellow"> 钢铁 </Span>
+      <Span variant="orange">钢铁</Span>
       +
-      <Span variant="pink"> 八方分散 </Span>
-      或者
-      <Span variant="yellow"> 月环 </Span>
+      <Span variant="yellow">八方分散</Span>
+      或
+      <Span variant="green">月环</Span>
       +
-      <Span variant="pink"> 二二分摊 </Span>
-      的扇形点名。
+      <Span variant="pink">四方二二分摊</Span>
+      的组合技：
+    </div>
+    <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
+      <div class="gap-strat flex items-center">
+        <Span variant="orange">{stonefang}</Span>
+        对应半径
+        <Span variant="cyan">9m</Span>
+        的圆形AoE + 点名
+        <RoleIcon role="all" tag="全员" />
+        的
+        <Span variant="cyan">25°</Span>
+        <Span variant="yellow">扇形分散</Span>
+      </div>
+      <div class="gap-strat flex items-center">
+        <Span variant="green">{windfang}</Span>
+        对应内径
+        <Span variant="cyan">8m</Span>
+        的环形AoE + 点名
+        <Span variant="default">4</Span><RoleIcon role="tank" /><RoleIcon role="healer" />
+        或
+        <Span variant="default">4</Span><RoleIcon role="dps" />
+        的
+        <Span variant="cyan">25°</Span>
+        <Span variant="pink">扇形分摊</Span>
+      </div>
     </div>
     <div class="gap-strat flex items-center">
-      同时，
-      <HowlingBlade />
-      还会在正点或者斜点释放四台
-      <LaserIcon />
-      使用
-      <Span variant="yellow"> 直线AoE </Span>
-      。
+      <Span variant="pink">扇形分摊</Span>
+      会比
+      <Span variant="yellow">扇形分散</Span>
+      略疼一些
     </div>
-    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image
-          src={cardWindfang}
-          alt="Cardinal + Windfang"
-          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
-        />
-        <div>正点激光 + {windfang}</div>
+    <div class="gap-strat mt-8 flex items-center">
+      除了
+      <Span variant="orange">钢铁</Span>
+      和
+      <Span variant="green">月环</Span>
+      ，
+      <HowlingBlade />
+      背后的
+      <GleamingFang />
+      也会进入攻击姿态，在正点/斜点方向形成十字/X字形AoE
+    </div>
+    <div class="gap-strat flex items-center">
+      需要根据
+      <GleamingFang />
+      的展开位置来判断：
+    </div>
+    <div class="flex gap-4">
+      <div class="flex max-w-90 flex-col items-center gap-1">
+        <Image src={tmp} alt="Cardinal + Windfang" class="border-2 border-cyan-700 dark:border-cyan-100" />
+        <div>正向浮游炮</div>
       </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image
-          src={intercardWindfang}
-          alt="Intercardinal + Windfang"
-          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
-        />
-        <div>斜点激光 + {windfang}</div>
+      <div class="flex max-w-90 flex-col items-center gap-1">
+        <Image src={tmp} alt="Intercardinal + Windfang" class="border-2 border-cyan-700 dark:border-cyan-100" />
+        <div>斜向浮游炮</div>
       </div>
+    </div>
+    <div class="gap-strat mt-8 flex items-center">
+      <Span variant="orange">{stonefang}</Span>
+      |
+      <Span variant="green">{windfang}</Span>
+      +
+      <GleamingFang />
+      最终形成如下的组合攻击：
+    </div>
+    <div class="flex gap-2">
       <div class="flex flex-col items-center gap-1">
         <Image
           src={cardStonefang}
           alt="Cardinal + Stonefang"
-          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
         />
-        <div>正点激光 + {stonefang}</div>
+        <div><Span variant="orange">{stonefang}</Span> + 正向浮游炮</div>
       </div>
       <div class="flex flex-col items-center gap-1">
         <Image
           src={intercardStonefang}
           alt="Intercardinal + Stonefang"
-          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
         />
-        <div>斜点激光 + {stonefang}</div>
+        <div><Span variant="orange">{stonefang}</Span> + 斜向浮游炮</div>
+      </div>
+      <div class="flex flex-col items-center gap-1">
+        <Image
+          src={cardWindfang}
+          alt="Cardinal + Windfang"
+          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+        <div><Span variant="green">{windfang}</Span> + 正向浮游炮</div>
+      </div>
+      <div class="flex flex-col items-center gap-1">
+        <Image
+          src={intercardWindfang}
+          alt="Intercardinal + Windfang"
+          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+        <div><Span variant="green">{windfang}</Span> + 斜向浮游炮</div>
       </div>
     </div>
   </div>
@@ -169,7 +225,7 @@ const { time, base = 0 }: Props = Astro.props
       <Image
         src={cardWindfangSol}
         alt="Cardinal + Windfang"
-        class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
       />
       <div>正点激光 + {windfang}</div>
     </div>
@@ -177,7 +233,7 @@ const { time, base = 0 }: Props = Astro.props
       <Image
         src={intercardWindfangSol}
         alt="Intercardinal + Windfang"
-        class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
       />
       <div>斜点激光 + {windfang}</div>
     </div>
@@ -185,7 +241,7 @@ const { time, base = 0 }: Props = Astro.props
       <Image
         src={cardStonefangSol}
         alt="Cardinal + Stonefang"
-        class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
       />
       <div>正点激光 + {stonefang}</div>
     </div>
@@ -193,7 +249,7 @@ const { time, base = 0 }: Props = Astro.props
       <Image
         src={intercardStonefangSol}
         alt="Intercardinal + Stonefang"
-        class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
       />
       <div>斜点激光 + {stonefang}</div>
     </div>
