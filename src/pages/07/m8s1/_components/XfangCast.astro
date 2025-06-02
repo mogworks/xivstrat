@@ -11,7 +11,7 @@ import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
 
 interface Props {
   time?: Time
@@ -32,7 +32,7 @@ const abilityName = '风の魔技 | 土の魔技'
 ---
 
 <CastSection start={time} base={base} duration={duration} target ability={abilityName}>
-  <HowlingBladeIcon slot="source" />
+  <HowlingBlade slot="source" />
 </CastSection>
 <EventSection time={damageApplyTime} , base={base}>
   <span class="text-foreground/75 text-sm">或</span>

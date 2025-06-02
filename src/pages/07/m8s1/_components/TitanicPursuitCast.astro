@@ -4,7 +4,7 @@ import type { Time } from '@/lib/utils'
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
 
 interface Props {
   start: Time
@@ -26,7 +26,7 @@ const ability = '斬空劍' //切断柱子+全屏aoe
   ability={ability}
   {...rest}
 >
-  <HowlingBladeIcon slot="source" />
+  <HowlingBlade slot="source" />
   砍柱子
   <Badge variant="green">AoE</Badge>
 </CastSection>

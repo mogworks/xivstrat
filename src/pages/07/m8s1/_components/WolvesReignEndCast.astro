@@ -10,7 +10,7 @@ import EventSection from '@/components/section/EventSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
 
 interface Props {
   time?: Time
@@ -35,13 +35,13 @@ const abilityName = '群狼劍'
 ---
 
 <CastSection start={time} base={base} duration={duration} ability={abilityName}>
-  <HowlingBladeIcon slot="source" />
+  <HowlingBlade slot="source" />
 
   <Badge variant="emerald">钢铁/扇形</Badge>
 </CastSection>
 
 <EventSection time={damageApplyTime}>
-  <HowlingBladeIcon />
+  <HowlingBlade />
   使用
   <Span variant="yellow"> {reignEnd} </Span>
   对
@@ -53,7 +53,7 @@ const abilityName = '群狼劍'
 </EventSection>
 
 <EventSection time={damageApplyTime}>
-  <HowlingBladeIcon />
+  <HowlingBlade />
   使用
   <Span variant="yellow"> {sovereignScar} </Span>
   对

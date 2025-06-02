@@ -6,17 +6,16 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
-import TrackingTremorsCast from './_components/TrackingTremorsCast.astro'
-import RecenterEvent from './_components/RecenterEvent.astro'
 import GreatDivide from './_components/GreatDivide.astro'
+import HowlingBlade from './_components/HowlingBlade.astro'
 import JumpNorthEvent from './_components/JumpNorthEvent.astro'
+import RecenterEvent from './_components/RecenterEvent.astro'
+import TrackingTremorsCast from './_components/TrackingTremorsCast.astro'
 
+import MillennialDecay from './_mechanics/MillennialDecay.astro'
+import TerrestrialTitans from './_mechanics/TerrestrialTitans.astro'
 import Xfang from './_mechanics/Xfang.astro'
 import XReign from './_mechanics/XReign.astro'
-import TerrestrialTitans from './_mechanics/TerrestrialTitans.astro'
-
-import HowlingBladeIcon from './_components/HowlingBladeIcon.astro'
-import MillennialDecay from './_mechanics/MillennialDecay.astro'
 
 const dutyId = '07/m8s1'
 const base = 0
@@ -26,10 +25,9 @@ const base = 0
   <EventSection time="00:00.0" base={base}>
     <RoleIcon role="tank" tag="MT" />
     开怪，将
-    <HowlingBladeIcon />
-    固定在场中。
+    <HowlingBlade />
+    固定在场中偏南一点的位置
   </EventSection>
-  <SeparatorSection id="extraplanar-pursuit" title="空間斬り" />
   <ExtraplanarPursuitCast start="00:10.195" base={base} />
   <SeparatorSection id="stonefang-or-windfang" title="土の魔技 | 风の魔技" />
   <RecenterEvent time="00:20.019" />

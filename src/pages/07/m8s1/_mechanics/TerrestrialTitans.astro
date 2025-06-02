@@ -12,7 +12,7 @@ import TitanicPursuitCast from '../_components/TitanicPursuitCast.astro'
 import BareFangsEvent from '../_components/BareFangsEvent.astro'
 import Towerfall from '../_components/Towerfall.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
 
 import tmp from '@/assets/07/m8s1/Tmp.png'
 
@@ -41,7 +41,7 @@ const { time, base = 0 }: Props = Astro.props
     </div>
 
     <div class="gap-strat flex items-center">
-      <HowlingBladeIcon />
+      <HowlingBlade />
       读条
       <Span variant="yellow">{terrestrialTitans} </Span>
       在场地南北或东西两侧各召唤一根柱子，随后读条
@@ -53,7 +53,7 @@ const { time, base = 0 }: Props = Astro.props
 
     <div class="gap-strat flex items-center">
       之后，
-      <HowlingBladeIcon />
+      <HowlingBlade />
       会在没有柱子的两侧各召唤一个释放十字AoE的浮游炮。两个浮游炮必定是分别打正点和斜点。
     </div>
     <div class="gap-strat flex items-center">随后柱子倒下的伤害和浮游炮的AoE同时伤害判定。</div>

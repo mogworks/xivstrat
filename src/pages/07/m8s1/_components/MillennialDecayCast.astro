@@ -5,7 +5,7 @@ import { timeToSeconds } from '@/lib/utils'
 import CastSection from '@/components/section/CastSection.astro'
 import Badge from '@/components/Badge.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
 
 interface Props {
   time?: Time
@@ -25,6 +25,6 @@ const millennialDecay = '千年の風化'
 ---
 
 <CastSection start={time} base={base} duration={duration} ability={millennialDecay} target damage="170000">
-  <HowlingBladeIcon slot="source" />
+  <HowlingBlade slot="source" />
   <Badge variant="pink"> AoE </Badge>
 </CastSection>

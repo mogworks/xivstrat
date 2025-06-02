@@ -19,7 +19,7 @@ import GustEvent from '../_components/GustEvent.astro'
 import PowerlingGaleEvent from '../_components/ProwlingGaleEvent.astro'
 import WindsOfDecayEvent from '../_components/WindsOfDecayEvent.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
 import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
 
 import img from '@/assets/07/m8s1/tmp.png'
@@ -85,7 +85,7 @@ const { time, base = 0 }: Props = Astro.props
 
     <div class="gap-strat flex items-center">
       这是本层第一个难点机制，随着
-      <HowlingBladeIcon />
+      <HowlingBlade />
       读条
       <Span variant="yellow">{millennialDecay}</Span>
       结束，场地北边或者南边会有狼头
@@ -115,7 +115,7 @@ const { time, base = 0 }: Props = Astro.props
 
     <div class="gap-strat flex items-center">
       在这之前，
-      <HowlingBladeIcon />会在场中释放
+      <HowlingBlade />会在场中释放
       <Span variant="yellow">{aero}</Span>
       ，对
       <RoleIcon role="all" tag="全员" />造成伤害并击退玩家，防击退有效。
@@ -123,7 +123,7 @@ const { time, base = 0 }: Props = Astro.props
 
     <div class="gap-strat flex items-center">
       击退判定后，
-      <HowlingBladeIcon />
+      <HowlingBlade />
       会对随机4
       <RoleIcon role="dps" />
       或4
@@ -136,7 +136,7 @@ const { time, base = 0 }: Props = Astro.props
 
     <div class="gap-strat flex items-center">
       随后第一只<WindWolfheadIcon />的直线AoE伤害判定， 第一轮点名伤害判定，
-      <HowlingBladeIcon />
+      <HowlingBlade />
       会对另外4
       <RoleIcon role="tank" />
       <RoleIcon role="healer" />
@@ -166,7 +166,7 @@ const { time, base = 0 }: Props = Astro.props
 
     <div class="gap-strat flex items-center">
       与此同时，
-      <HowlingBladeIcon />
+      <HowlingBlade />
       在场中开始读条
       <Span variant="yellow">{aero}</Span>
       准备对
@@ -211,8 +211,8 @@ const { time, base = 0 }: Props = Astro.props
     <div class="gap-strat flex items-center">
       H1/D1去
       <Span variant="purple">4</Span>， H2/D2去
-      <Span variant="sky">3</Span>。近战可以稍微靠近<HowlingBladeIcon
-      />在最远近战距离输出。无点名的安全区在<HowlingBladeIcon />的侧面。
+      <Span variant="sky">3</Span>。近战可以稍微靠近<HowlingBlade />在最远近战距离输出。无点名的安全区在<HowlingBlade
+      />的侧面。
     </div>
 
     <div class="grid grid-cols-4 gap-x-2 gap-y-4">
