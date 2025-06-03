@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 
-import type { VariantType } from '@/components/Span.vue'
+import type { VariantType } from '@/lib/variant'
 
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/shadcn-vue/hover-card'
 import Span from '@/components/Span.vue'

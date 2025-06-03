@@ -8,7 +8,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
 
 interface Props {
   time: Time
@@ -24,7 +24,7 @@ const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
 ---
 
 <EventSection time={time} base={base}>
-  <HowlingBladeIcon />
+  <HowlingBlade />
   {
     reverse === 0 ? (
       <>

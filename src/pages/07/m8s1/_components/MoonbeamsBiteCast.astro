@@ -4,7 +4,7 @@ import { timeToSeconds } from '@/lib/utils'
 
 import CastSection from '@/components/section/CastSection.astro'
 
-import HowlingBladeIcon from './HowlingBladeIcon.astro'
+import HowlingBlade from './HowlingBlade.astro'
 import EventSection from '@/components/section/EventSection.astro'
 
 interface Props {
@@ -22,7 +22,7 @@ const index = [...Array(4).keys()]
     <>
       <CastSection ability="幻狼剣" start={timeToSeconds(start) + i * 2} duration={8.7}>
         <div slot="source">
-          <HowlingBladeIcon />
+          <HowlingBlade />
           分身
         </div>
       </CastSection>

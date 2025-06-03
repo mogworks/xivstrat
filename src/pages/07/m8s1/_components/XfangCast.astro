@@ -1,65 +1,59 @@
 ---
 import type { Time } from '@/lib/utils'
-import { timeToSeconds } from '@/lib/utils'
 
-import Span from '@/components/Span.vue'
-import CastSection from '@/components/section/CastSection.astro'
-import Separator from '@/components/Separator.astro'
-import EventSection from '@/components/section/EventSection.astro'
 import Badge from '@/components/Badge.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
+import Separator from '@/components/Separator.astro'
+import Span from '@/components/Span.vue'
+import StratInterval from '@/components/StratInterval.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
 
 interface Props {
-  time?: Time
+  start: Time
   base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { start, base = 0 }: Props = Astro.props
 
+// 修正延迟
 const duration = 5.7
-const damageApplyTime =
-  time !== undefined
-    ? timeToSeconds(time) + duration + 0.3 // 修正延迟，计算伤害生效时间
-    : undefined
-
-const stonefang = '土の魔技'
-const windfang = '风の魔技'
-const abilityName = '风の魔技 | 土の魔技'
+const adjustedDuration = duration + 0.3
 ---
 
-<CastSection start={time} base={base} duration={duration} target ability={abilityName}>
-  <HowlingBladeIcon slot="source" />
-</CastSection>
-<EventSection time={damageApplyTime} , base={base}>
+<EventSection>
+  <StratInterval slot="time" start={start} duration={adjustedDuration} base={base} />
   <span class="text-foreground/75 text-sm">或</span>
   <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
   <ul class="list-none space-y-4">
     <li class="flex items-center gap-1 text-lg">
-      <Span variant="yellow">{stonefang}</Span>
+      <HowlingBlade />
       对
       <RoleIcon role="all" tag="全员" />
+      读条
+      <Span variant="orange">土の魔技</Span>
       <DamageInfo damage="160000" type="magical" />
       <MagicVulnerabilityUp tag="1" hover />
-      <Badge variant="yellow">直线AoE</Badge>
-      <Badge variant="yellow">钢铁</Badge>
-      <Badge variant="pink">八方分散</Badge>
+      <Badge variant="emerald">25°扇形</Badge>
+      <Badge variant="emerald">八方</Badge>
+      <Badge variant="yellow">分散</Badge>
     </li>
     <li class="flex items-center gap-1 text-lg">
-      <Span variant="yellow">{windfang}</Span>
-      对4
-      <RoleIcon role="dps" />
-      或4
-      <RoleIcon role="tank" />
-      <RoleIcon role="healer" />
+      <HowlingBlade />
+      对
+      <Span variant="default">4</Span><RoleIcon role="tank" /><RoleIcon role="healer" />
+      或
+      <Span variant="default">4</Span><RoleIcon role="dps" />
+      读条
+      <Span variant="green">风の魔技</Span>
       <DamageInfo damage="190000" type="magical" />
       <MagicVulnerabilityUp tag="1" hover />
-      <Badge variant="yellow">直线AoE</Badge>
-      <Badge variant="yellow">月环</Badge>
-      <Badge variant="pink">二二分摊</Badge>
+      <Badge variant="emerald">25°扇形</Badge>
+      <Badge variant="emerald">四方</Badge>
+      <Badge variant="purple">二二分摊</Badge>
     </li>
   </ul>
 </EventSection>

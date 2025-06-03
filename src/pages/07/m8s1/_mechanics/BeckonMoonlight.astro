@@ -13,7 +13,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
 import MoonbeamsBiteCast from '../_components/MoonbeamsBiteCast.astro'
 
 import beckon_moonlight_solution_img from '@/assets/07/m8s1/Tmp.png'
@@ -32,10 +32,10 @@ const terrestrial_rage_2 = terrestrial_rage_1 + 7
 ---
 
 <CastSection start={start} base={base} ability="幻狼招来" duration={2.7}>
-  <HowlingBladeIcon slot="source" />
+  <HowlingBlade slot="source" />
 </CastSection>
 <CastSection start={terrestrial_rage_start} base={base} ability="大地の怒り" duration={2.7}>
-  <HowlingBladeIcon slot="source" />
+  <HowlingBlade slot="source" />
 </CastSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
@@ -45,7 +45,7 @@ const terrestrial_rage_2 = terrestrial_rage_1 + 7
     <div class="flex flex-col gap-4">
       <div class="gap-strat flex items-center">
         四个分身按顺/逆时针从
-        <HowlingBladeIcon />
+        <HowlingBlade />
         身上飞向正点场边。按出现顺序读条
         <Span variant="yellow">幻狼剣</Span>
         <Badge variant="yellow">半场AoE</Badge>

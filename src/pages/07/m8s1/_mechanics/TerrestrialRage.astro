@@ -12,8 +12,8 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
-import LaserIcon from '../_components/LaserIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
+import GleamingFang from '../_components/GleamingFang.astro'
 
 import terrestrial_rage_img from '@/assets/07/m8s1/Tmp.png'
 
@@ -26,7 +26,7 @@ const { start, base = 0 }: Props = Astro.props
 ---
 
 <CastSection start={start} base={base} duration={2.7} ability="大地の怒り">
-  <HowlingBladeIcon slot="source" />
+  <HowlingBlade slot="source" />
 </CastSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
@@ -70,7 +70,7 @@ const { start, base = 0 }: Props = Astro.props
         <div class="gap-strat flex items-center"></div>
         <div class="gap-strat flex items-center">
           场上先后出现四个斜向的
-          <LaserIcon />
+          <GleamingFang />
           浮游炮。
         </div>
         <div class="gap-strat flex items-center">
@@ -81,7 +81,7 @@ const { start, base = 0 }: Props = Astro.props
         </div>
         <div class="gap-strat flex items-center"></div>
         <div class="gap-strat flex items-center">
-          判定顺序：1轮<LaserIcon />浮游炮 - 分摊分散 - 2轮<LaserIcon />浮游炮。
+          判定顺序：1轮<GleamingFang />浮游炮 - 分摊分散 - 2轮<GleamingFang />浮游炮。
         </div>
         <div class="gap-strat flex items-center"></div>
       </div>

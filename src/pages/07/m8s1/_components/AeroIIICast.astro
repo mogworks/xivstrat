@@ -4,7 +4,7 @@ import type { Time } from '@/lib/utils'
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
 
 interface Props {
   start: Time
@@ -27,7 +27,7 @@ const { start, base = 0, ...rest }: Props = Astro.props
   damageType="magical"
   {...rest}
 >
-  <HowlingBladeIcon slot="source" />
+  <HowlingBlade slot="source" />
   <Badge variant="green">击退</Badge>
   <Badge variant="yellow">AoE</Badge>
 </CastSection>
