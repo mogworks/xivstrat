@@ -18,9 +18,8 @@ const { start, base = 0 }: Props = Astro.props
 
 <CastSection start={start} base={base} duration={4.7} ability="Deep Cut" target damage="300000" damageType="magical">
   <Fragment slot="target">
-    <RoleIcon role="all" tag="一仇" />
-    和
-    <RoleIcon role="all" tag="二仇" />
+    <RoleIcon role="tank" tag="一仇" />
+    <RoleIcon role="tank" tag="二仇" />
   </Fragment>
   <Fragment>
     <MagicVulnerabilityUp tag="2" hover />

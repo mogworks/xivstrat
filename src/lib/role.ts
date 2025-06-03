@@ -1,0 +1,11 @@
+export type RoleType =
+  | 'any'
+  | 'all'
+  | 'tank'
+  | 'healer'
+  | 'dps'
+  | 'melee'
+  | 'ranged'
+  | 'magic'
+  | 'boss'
+  | 'enemy_level1'

@@ -1,16 +1,6 @@
-import { Icon } from './icon'
+import type { RoleType } from '@/lib/role'
 
-export type RoleType =
-  | 'any'
-  | 'all'
-  | 'tank'
-  | 'healer'
-  | 'dps'
-  | 'melee'
-  | 'ranged'
-  | 'magic'
-  | 'boss'
-  | 'enemy_level1'
+import { Icon } from './icon'
 
 export class Role extends Icon {
   role: RoleType
@@ -30,7 +20,7 @@ export class Role extends Icon {
         boss: 'enemy/061712.png',
         enemy_level1: 'enemy/061707.png',
       }[role],
-      tag,
+      tag
     )
     this.role = role
     this.tag = tag
