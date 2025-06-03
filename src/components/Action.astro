@@ -8,21 +8,14 @@ import { cn } from '@/lib/utils'
 interface Props {
   icon: ImageMetadata
   name: string
-  description: string
   class?: string
 }
 
-const { icon, name, description, class: className = '' }: Props = Astro.props
+const { icon, name, class: className = '' }: Props = Astro.props
 ---
 
-<span
-  class={cn(
-    'relative -mx-[calc(1em*2/18)] inline-block h-[calc(1em*30/18)] w-[calc(1em*30/18)]',
-    `action-${name}`,
-    className
-  )}
->
+<span class={cn('relative -mx-[calc(1em*2/18)] inline-block h-[calc(1em*30/18)] w-[calc(1em*30/18)]', className)}>
   <div class="relative inline-block w-full">
-    <Image src={icon} alt={description} />
+    <Image src={icon} alt={name} />
   </div>
 </span>
