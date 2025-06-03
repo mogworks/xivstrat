@@ -1,0 +1,20 @@
+---
+import type { ImageMetadata } from 'astro'
+
+import { Image } from 'astro:assets'
+
+import VueAction from '@/components/Action.vue'
+
+interface Props {
+  icon: ImageMetadata
+  name: string
+  description: string
+  class?: string
+}
+
+const { icon, name, description, class: className = '' }: Props = Astro.props
+---
+
+<VueAction icon={icon} name={name} description={description} class={className} client:idle>
+  <Image src={icon} alt={description} />
+</VueAction>

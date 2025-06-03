@@ -1,0 +1,57 @@
+---
+import Action from '@/components/Action.astro'
+
+import icon from '@/assets/action/31399.png'
+import JobIcon from '../JobIcon.astro'
+
+import { cn } from '@/lib/utils'
+
+interface Props {
+  class?: string
+  actionClass?: string
+  job?:
+    | 'PLD'
+    | 'WAR'
+    | 'DRK'
+    | 'GNB'
+    | 'WHM'
+    | 'SCH'
+    | 'AST'
+    | 'SGE'
+    | 'MNK'
+    | 'DRG'
+    | 'NIN'
+    | 'SAM'
+    | 'RPR'
+    | 'VPR'
+    | 'BRD'
+    | 'MCH'
+    | 'DNC'
+    | 'BLM'
+    | 'SMN'
+    | 'RDM'
+    | 'PCT'
+    | 'tank'
+    | 'healer'
+    | 'dps'
+    | 'melee'
+    | 'ranged'
+    | 'magic'
+  stage?: 0 | 1 | 2 | 3
+  tag?: string
+}
+
+const { actionClass = '', class: className = '', job, stage, tag }: Props = Astro.props
+---
+
+<div class={cn('relative inline-flex', className)}>
+  {job && <JobIcon job={job} class="relative -bottom-2 left-2.5 z-10 -ml-3" />}
+  <Action icon={icon} name="极限技" description="极限技" class={actionClass} />
+  {
+    (tag || stage !== void 0) && (
+      <div class="flex items-center justify-center rounded-2xl rounded-l-none border-1 border-l-0 border-[#E4C78B] bg-[#ED9734] px-2">
+        <p class="text-sm text-white">{tag ? tag : stage ? `${stage}段` : ''}</p>
+      </div>
+    )
+  }
+</div>
