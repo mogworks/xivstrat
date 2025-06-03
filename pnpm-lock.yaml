@@ -36,8 +36,8 @@ importers:
         specifier: 0.511.0
         version: 0.511.0(vue@3.5.16(typescript@5.8.3))
       motion:
-        specifier: 12.15.0
-        version: 12.15.0
+        specifier: 12.16.0
+        version: 12.16.0
       motion-v:
         specifier: 1.1.1
         version: 1.1.1(vue@3.5.16(typescript@5.8.3))
@@ -2287,8 +2287,8 @@ packages:
       react-dom:
         optional: true
 
-  framer-motion@12.15.0:
-    resolution: {integrity: sha512-XKg/LnKExdLGugZrDILV7jZjI599785lDIJZLxMiiIFidCsy0a4R2ZEf+Izm67zyOuJgQYTHOmodi7igQsw3vg==}
+  framer-motion@12.16.0:
+    resolution: {integrity: sha512-xryrmD4jSBQrS2IkMdcTmiS4aSKckbS7kLDCuhUn9110SQKG1w3zlq1RTqCblewg+ZYe+m3sdtzQA6cRwo5g8Q==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -2905,8 +2905,8 @@ packages:
   motion-dom@12.12.1:
     resolution: {integrity: sha512-GXq/uUbZBEiFFE+K1Z/sxdPdadMdfJ/jmBALDfIuHGi0NmtealLOfH9FqT+6aNPgVx8ilq0DtYmyQlo6Uj9LKQ==}
 
-  motion-dom@12.15.0:
-    resolution: {integrity: sha512-D2ldJgor+2vdcrDtKJw48k3OddXiZN1dDLLWrS8kiHzQdYVruh0IoTwbJBslrnTXIPgFED7PBN2Zbwl7rNqnhA==}
+  motion-dom@12.16.0:
+    resolution: {integrity: sha512-Z2nGwWrrdH4egLEtgYMCEN4V2qQt1qxlKy/uV7w691ztyA41Q5Rbn0KNGbsNVDZr9E8PD2IOQ3hSccRnB6xWzw==}
 
   motion-utils@12.12.1:
     resolution: {integrity: sha512-f9qiqUHm7hWSLlNW8gS9pisnsN7CRFRD58vNjptKdsqFLpkVnX00TNeD6Q0d27V9KzT7ySFyK1TZ/DShfVOv6w==}
@@ -2916,8 +2916,8 @@ packages:
     peerDependencies:
       vue: '>=3.0.0'
 
-  motion@12.15.0:
-    resolution: {integrity: sha512-HLouXyIb1uQFiZgJTYGrtEzbatPc6vK+HP+Qt6afLQjaudiGiLLVsoy71CwzD/Stlh06FUd5OpyiXqn6XvqjqQ==}
+  motion@12.16.0:
+    resolution: {integrity: sha512-P3HA83fnPMEGBLfKdD5vDdjH1Aa3wM3jT3+HX3fCVpy/4/lJiqvABajLgZenBu+rzkFzmeaPkvT7ouf9Tq5tVQ==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -6495,9 +6495,9 @@ snapshots:
       motion-utils: 12.12.1
       tslib: 2.8.1
 
-  framer-motion@12.15.0:
+  framer-motion@12.16.0:
     dependencies:
-      motion-dom: 12.15.0
+      motion-dom: 12.16.0
       motion-utils: 12.12.1
       tslib: 2.8.1
 
@@ -7287,7 +7287,7 @@ snapshots:
     dependencies:
       motion-utils: 12.12.1
 
-  motion-dom@12.15.0:
+  motion-dom@12.16.0:
     dependencies:
       motion-utils: 12.12.1
 
@@ -7305,9 +7305,9 @@ snapshots:
       - react
       - react-dom
 
-  motion@12.15.0:
+  motion@12.16.0:
     dependencies:
-      framer-motion: 12.15.0
+      framer-motion: 12.16.0
       tslib: 2.8.1
 
   mrmime@2.0.1: {}
