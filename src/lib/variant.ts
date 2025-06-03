@@ -8,14 +8,14 @@ export type VariantType =
   | 'green' // 低威胁的伤害、治疗职业
   | 'emerald' // 不涉及伤害的信息标签（如45°、8m直线）
   | 'teal'
-  | 'cyan' // NoteSection、高亮色
+  | 'cyan' // NoteSection、高亮色2（辅助）
   | 'sky' // 标点C、标点3
   | 'blue' // 防护职业
   | 'indigo'
   | 'violet' // “|”（或连接符）
-  | 'purple' // 标点D、标点4
+  | 'purple' // 超血量上限的高威胁的非死刑伤害（但不至于团灭）、标点D、标点4
   | 'fuchsia' // 狂暴（狂暴不等于团灭）
-  | 'pink' // 超血量上限的高威胁的非死刑伤害（但不至于团灭）
+  | 'pink' // 高亮色1（常用）
   | 'rose' // 小怪名称
   | 'slate'
   | 'gray'
