@@ -4,6 +4,7 @@ import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import Badge from '@/components/Badge.astro'
 import Boss from '@/components/Boss.astro'
 import Span from '@/components/Span.vue'
+import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
 import AttackSection from '@/components/section/AttackSection.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
@@ -24,7 +25,9 @@ const base = '07:14.7'
 <DutyStratLayout dutyId={dutyId}>
   <EventSection time="07:14.7" base={base}>
     <Boss />
-    目标圈恢复身位限制
+    失去
+    <DirectionalDisregard hover />
+    ，目标圈恢复身位限制
   </EventSection>
   <AttackSection time="07:14.7" base={base} damage="55000" damageType="physical" />
   <AttackSection time="07:17.7" base={base} damage="55000" damageType="physical" />

@@ -28,17 +28,17 @@ import windfang_3 from '@/assets/07/m8s1/xfang/windfang_3.png'
 import windfang_4 from '@/assets/07/m8s1/xfang/windfang_4.png'
 
 interface Props {
-  time: Time
+  start: Time
   base?: Time
 }
 
 const stonefang = '土の魔技'
 const windfang = '风の魔技'
 
-const { time, base = 0 }: Props = Astro.props
+const { start, base = 0 }: Props = Astro.props
 ---
 
-<XfangCast start={time} base={base} />
+<XfangCast start={start} base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="text-2xl">
@@ -319,7 +319,7 @@ const { time, base = 0 }: Props = Astro.props
         <Span variant="red">A</Span>
         或
         <Span variant="red">1</Span>
-        ，
+        ；
         <RoleIcon role="tank" tag="ST" />
         <RoleIcon role="magic" tag="D4" />
         去
@@ -338,7 +338,7 @@ const { time, base = 0 }: Props = Astro.props
         <Span variant="sky">C</Span>
         或
         <Span variant="sky">3</Span>
-        ，
+        ；
         <RoleIcon role="healer" tag="H1" />
         <RoleIcon role="melee" tag="D1" />
         去

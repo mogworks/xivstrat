@@ -16,6 +16,7 @@ import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import LimitBreak from '@/components/action/LimitBreak.astro'
 
 import RoleOrder from '../_components/GetDownOrder.vue'
 import Wavelength from '../_components/Wavelength.astro'
@@ -208,7 +209,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Grooviness</Span>
     </h4>
-    <div class="gap-strat flex items-center">机制开始时会出现一个计量槽，累积满时会奖励一段LB</div>
+    <div class="gap-strat flex items-center">机制开始时会出现一个计量槽，累积满时会奖励<LimitBreak stage={1} /></div>
     <div class="gap-strat flex items-center">
       错误处理会导致计量值积攒变慢，若本阶段完全正确处理则会累积
       <Span variant="pink">66</Span>
@@ -539,7 +540,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
   import { listenKeys } from 'nanostores'
   import { AnimatedSprite, Assets, Container, Graphics, Sprite, Texture } from 'pixi.js'
 
-  import type { RoleType } from '@/pixi/role'
+  import type { RoleType } from '@/lib/role'
 
   import { Role } from '@/pixi/role'
   import { getScale, YmToPx, YmToPxMap } from '@/pixi/utils'
