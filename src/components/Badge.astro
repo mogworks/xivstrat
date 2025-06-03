@@ -1,36 +1,16 @@
 ---
 import { cn } from '@/lib/utils'
+import type { VariantType } from '@/lib/variant'
 
 interface Props {
-  variant:
-    | 'red'
-    | 'orange'
-    | 'amber'
-    | 'yellow'
-    | 'lime'
-    | 'green'
-    | 'emerald'
-    | 'teal'
-    | 'cyan'
-    | 'sky'
-    | 'blue'
-    | 'indigo'
-    | 'violet'
-    | 'purple'
-    | 'fuchsia'
-    | 'pink'
-    | 'rose'
-    | 'slate'
-    | 'gray'
-    | 'zinc'
-    | 'neutral'
-    | 'stone'
+  variant: VariantType
   class?: string
 }
 
 const { variant, class: className = '' }: Props = Astro.props
 
 const style = {
+  default: 'bg-foreground/90 text-background border-background/75',
   red: 'bg-red-700/90 border-red-200/75',
   orange: 'bg-orange-700/90 border-orange-200/75',
   amber: 'bg-amber-700/90 border-amber-200/75',
