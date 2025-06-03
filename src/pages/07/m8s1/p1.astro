@@ -8,7 +8,7 @@ import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
 import GreatDivide from './_components/GreatDivide.astro'
 import HowlingBlade from './_components/HowlingBlade.astro'
-import JumpNorthEvent from './_components/JumpNorthEvent.astro'
+import MoveToNorthEvent from './_components/MoveToNorthEvent.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 import TrackingTremorsCast from './_components/TrackingTremorsCast.astro'
 
@@ -29,22 +29,23 @@ const base = 0
     固定在场中偏南一点的位置
   </EventSection>
   <ExtraplanarPursuitCast start="00:10.195" base={base} />
-  <MoveToCenterEvent time="00:20.019" />
+  <MoveToCenterEvent time="00:20.019" base={base} />
   <SeparatorSection id="stonefang-or-windfang" title="土の魔技 | 风の魔技" />
   <Xfang time="00:23.131" base={base} />
   <SeparatorSection id="xregin" title="廻の郡狼剣 | 薙の郡狼剣" />
-  <XReign time="00:34.289" />
+  <XReign time="00:34.289" base={base} />
+  <SeparatorSection />
   <ExtraplanarPursuitCast start="00:49.014" base={base} />
-  <MoveToCenterEvent time="00:58.834" />
+  <MoveToCenterEvent time="00:58.834" base={base} />
   <SeparatorSection id="millennial-decay" title="千年の風化" />
-  <MillennialDecay time="01:01.456" />
-  <TrackingTremorsCast start="01:35.945" />
+  <MillennialDecay time="01:01.456" base={base} />
+  <TrackingTremorsCast start="01:35.945" base={base} />
   <ExtraplanarPursuitCast start="01:51.126" base={base} />
   <SeparatorSection id="great-divide" title="一刀両断" />
-  <GreatDivide start="01:58.873" />
-  <MoveToCenterEvent time="02:12.198" />
+  <GreatDivide start="01:58.873" base={base} />
+  <MoveToCenterEvent time="02:12.198" base={base} />
   <SeparatorSection id="terrestrial-titans" title="大地の呼び声" />
-  <TerrestrialTitans time="02:14.825" />
-  <XReign time="02:34.000" />
-  <JumpNorthEvent time="02:49.069" />
+  <TerrestrialTitans time="02:14.825" base={base} />
+  <XReign time="02:34.000" base={base} />
+  <MoveToNorthEvent time="02:53.751" base={base} />
 </DutyStratLayout>

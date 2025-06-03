@@ -25,6 +25,7 @@ import Frogtourage from './_mechanics/Frogtourage.astro'
 import LetsDanceRemix from './_mechanics/LetsDanceRemix.astro'
 import LetsPose from './_mechanics/LetsPose.astro'
 import RideTheWaves from './_mechanics/RideTheWaves.astro'
+import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
 
 const dutyId = '07/m5s'
 const base = '03:33.5'
@@ -33,10 +34,12 @@ const base = '03:33.5'
 <DutyStratLayout dutyId={dutyId}>
   <EventSection time="03:33.5" base={base} id="target-circle-restore">
     <Boss />
-    目标圈恢复身位限制
+    失去
+    <DirectionalDisregard hover />
+    ，目标圈恢复身位限制
   </EventSection>
   <NoteSection>
-    <div class="flex items-center gap-strat">
+    <div class="gap-strat flex items-center">
       <RoleIcon role="tank" tag="MT" />
       注意：若需要调整
       <Boss />
@@ -58,7 +61,7 @@ const base = '03:33.5'
   <MoveToCenterEvent time="04:13.760" base={base} />
   <InsideOutOrOutsideInCast start="04:16.122" base={base} />
   <NoteSection>
-    <div class="flex items-center gap-strat">此时北半场已经没有地火，简单躲避即可</div>
+    <div class="gap-strat flex items-center">此时北半场已经没有地火，简单躲避即可</div>
   </NoteSection>
   <XSnapTwistAndDropTheNeedleCast start="04:26.100" base={base} />
   <PlayXSideCast time="04:35.233" base={base} />
