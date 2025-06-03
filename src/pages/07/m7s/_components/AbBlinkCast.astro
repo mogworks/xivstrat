@@ -1,0 +1,26 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<CastSection start={start} base={base} duration={5.0} ability="Abominable Blink">
+  <BruteAbombinator slot="source" />
+  对
+  <RoleIcon role="tank" tag="其一" />
+  施加距离衰减AoE点名
+  <DamageInfo damage="70000~160000" type="magical" />
+  <Badge variant="pink">AoE</Badge>
+</CastSection>
