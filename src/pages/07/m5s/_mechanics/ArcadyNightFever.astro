@@ -540,7 +540,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
   import { listenKeys } from 'nanostores'
   import { AnimatedSprite, Assets, Container, Graphics, Sprite, Texture } from 'pixi.js'
 
-  import type { RoleType } from '@/pixi/role'
+  import type { RoleType } from '@/lib/role'
 
   import { Role } from '@/pixi/role'
   import { getScale, YmToPx, YmToPxMap } from '@/pixi/utils'
@@ -588,7 +588,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
     circleFrames: Texture[],
     ringFrames: Texture[],
     fanFrames: Texture[],
-    startAt: number
+    startAt: number,
   ) {
     const played = Array.from({ length: 9 }).fill(false)
 

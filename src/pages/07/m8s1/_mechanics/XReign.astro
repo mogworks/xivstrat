@@ -1,6 +1,5 @@
 ---
 import type { Time } from '@/lib/utils'
-import { timeToSeconds } from '@/lib/utils'
 
 import { Image } from 'astro:assets'
 
@@ -12,38 +11,28 @@ import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.a
 import DamageInfo from '@/components/DamageInfo.astro'
 
 import XReginCast from '../_components/XReignCast.astro'
-import WolvesReignEndCast from '../_components/WolvesReignEndCast.astro'
-import WolvesReignLineCast from '../_components/WolvesReignLineCast.astro'
-
 import HowlingBlade from '../_components/HowlingBlade.astro'
 
 import tmp from '@/assets/07/m8s1/Tmp.png'
 
 interface Props {
-  time: Time
+  start: Time
   base?: Time
-  dragon?: boolean
 }
 
 const revolutionaryReign = '廻の郡狼剣'
-const wolvesReign = '群狼劍'
 const eminentReign = '薙の郡狼剣'
+const wolvesReign = '群狼劍'
 
-const { time, base = 0 }: Props = Astro.props
-
-const reign1Time = time !== undefined ? timeToSeconds(time) + 8 : undefined
-
-const reign2Time = time !== undefined ? timeToSeconds(time) + 11 : undefined
+const { start, base = 0 }: Props = Astro.props
 ---
 
-<XReginCast time={time} base={base} />
-<WolvesReignLineCast time={reign1Time} base={base} />
-<WolvesReignEndCast time={reign2Time} base={base} />
+<XReginCast start={start} base={base} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="text-2xl">
-      <Span variant="yellow">{revolutionaryReign} </Span>
+      <Span variant="yellow">{revolutionaryReign}</Span>
       <Span variant="violet">|</Span>
       <Span variant="yellow">{eminentReign}</Span>
     </div>
@@ -51,7 +40,7 @@ const reign2Time = time !== undefined ? timeToSeconds(time) + 11 : undefined
     <div class="gap-strat flex items-center">
       <HowlingBlade />
       在读条
-      <Span variant="yellow">{revolutionaryReign} </Span>
+      <Span variant="yellow">{revolutionaryReign}</Span>
       <Span variant="violet">|</Span>
       <Span variant="yellow">{eminentReign}</Span>
       后会进入一段组合技。
