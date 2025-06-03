@@ -25,15 +25,15 @@ const duties = defineCollection({
             z.object({
               href: z.string(),
               name: z.string(),
-            }),
+            })
           ),
-        }),
+        })
       ),
       locales: z.record(
         z.object({
           cn: z.string().optional(),
           jp: z.string().optional(),
-        }),
+        })
       ),
     }),
 })
@@ -47,4 +47,14 @@ const dutyGroups = defineCollection({
   }),
 })
 
-export const collections = { duties, dutyGroups }
+const developers = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/data/developers' }),
+  schema: z.object({
+    name: z.string(),
+    gameName: z.string(),
+    imgUrl: z.string(),
+    link: z.string(),
+  }),
+})
+
+export const collections = { duties, dutyGroups, developers }
