@@ -232,6 +232,11 @@ const { time, base = 0 }: Props = Astro.props
         <Span variant="pink">判定</Span>
       </div>
     </div>
+    <div class="gap-strat flex items-center opacity-80">
+      注：下表
+      <Span variant="orange">{stonefang}</Span>
+      站位图中已将浮游炮的两种情况叠加
+    </div>
     <div
       id="xfang-solution-grid"
       class="grid grid-cols-[min-content_1px_minmax(0,23.5rem)_1px_minmax(0,23.5rem)] grid-rows-[min-content_1px_1fr_1px_1fr]"
@@ -294,12 +299,12 @@ const { time, base = 0 }: Props = Astro.props
     </div>
     <div class="gap-strat mt-8 flex items-center">
       若是
-      <Span variant="yellow">{stonefang}</Span>
+      <Span variant="orange">{stonefang}</Span>
       ，可无视浮游炮方位，按图示固定站位（图示已将浮游炮的两种情况叠加，显然无影响）
     </div>
     <div class="gap-strat flex items-center">
       若是
-      <Span variant="yellow">{windfang}</Span>
+      <Span variant="green">{windfang}</Span>
       ，则两两分组找
       <Span variant="cyan">同色标点</Span>
       ：
@@ -350,7 +355,7 @@ const { time, base = 0 }: Props = Astro.props
   <div class="flex flex-col gap-4">
     <div class="gap-strat flex items-center">
       若是
-      <Span variant="yellow">{stonefang}</Span>
+      <Span variant="orange">{stonefang}</Span>
       ，一个角落是可以站下三个人的，紧急情况时可以站到
       <Span variant="cyan">标点位置</Span>
       ，这样不会影响他人
