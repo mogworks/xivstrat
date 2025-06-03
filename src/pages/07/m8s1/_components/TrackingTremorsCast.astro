@@ -10,7 +10,7 @@ import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
 
 interface Props {
   start: Time
@@ -41,9 +41,9 @@ const damageApplyTime =
   damage="800000"
   damageType="magical"
 >
-  <HowlingBladeIcon slot="source" />
+  <HowlingBlade slot="source" />
   <Badge variant="green">6m</Badge>
-  <Badge variant="pink">8次连续分摊</Badge>
+  <Badge variant="purple">8次连续分摊</Badge>
 </CastSection>
 
 {

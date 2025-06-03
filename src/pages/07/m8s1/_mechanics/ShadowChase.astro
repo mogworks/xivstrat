@@ -11,7 +11,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
-import HowlingBladeIcon from '../_components/HowlingBladeIcon.astro'
+import HowlingBlade from '../_components/HowlingBlade.astro'
 import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
 
 import shadowchase_case1_img from '@/assets/07/m8s1/Tmp.png'
@@ -27,7 +27,7 @@ const { start, base = 0 }: Props = Astro.props
 ---
 
 <CastSection start={start} base={base} ability="残影剣" duration={2.7}>
-  <HowlingBladeIcon slot="source" />
+  <HowlingBlade slot="source" />
   。读条结束后上天，变为不可选中
 </CastSection>
 <MechanicSection>
@@ -55,7 +55,7 @@ const { start, base = 0 }: Props = Astro.props
         </div>
       </div>
       <div class="gap-strat flex items-center">
-        <HowlingBladeIcon />
+        <HowlingBlade />
         在场上召唤出5个分身，读条向前方释放
         <Span variant="yellow">残影剣</Span>
         <Badge variant="yellow">直线AoE</Badge>

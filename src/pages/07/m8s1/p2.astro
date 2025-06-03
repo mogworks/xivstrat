@@ -12,6 +12,7 @@ import ClearWindborneEndEvent from './_components/ClearWindborneEndEvent.astro'
 import ClearEarthborneEndEvent from './_components/ClearEarthborneEndEvent.astro'
 import ForlornWindCast from './_components/ForlornWindCast.astro'
 import ForlornStoneCast from './_components/ForlornStoneCast.astro'
+import RavenousSaberCast from './_components/RavenousSaberCast.astro'
 
 import TracticalPack from './_mechanics/TacticalPack.astro'
 
@@ -42,4 +43,12 @@ const base = '02:59.090'
   <ForlornStoneCast start="04:01.992" base={base} />
 
   <TracticalPack time="02:56.110" base={base} />
+
+  <SeparatorSection id="ravenous-saber" title="風塵光狼斬" />
+
+  <RavenousSaberCast start="04:14.555" damage="60000" duration={3.1} />
+  <RavenousSaberCast start="04:14.555" damage="60000" duration={3.3} />
+  <RavenousSaberCast start="04:14.555" damage="60000" duration={3.6} />
+  <RavenousSaberCast start="04:14.555" damage="100000" duration={5.7} />
+  <RavenousSaberCast start="04:14.555" damage="210000" duration={7.0} />
 </DutyStratLayout>

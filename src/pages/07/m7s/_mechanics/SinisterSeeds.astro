@@ -66,10 +66,10 @@ const { base = 0 }: Props = Astro.props
   分散点名伤害判定
   <DamageInfo damage="120000" type="magical" />
   <MagicVulnerabilityUp tag="2" hover />
-  ，随后在判定位置生成米字型AoE提示
+  ，随后在判定位置生成米字形AoE提示
 </EventSection>
 <EventSection time="01:05.678">
-  米字型AoE判定，同时
+  米字形AoE判定，同时
   <Span variant="yellow">Impact</Span>
   判定
   <DamageInfo damage="150000" type="magical" />
@@ -142,7 +142,7 @@ const { base = 0 }: Props = Astro.props
     <div class="gap-strat flex items-center">
       <ListDot />
       分散点名在判定时，会根据判定的位置生成
-      <Span variant="pink">米字型AoE</Span>
+      <Span variant="pink">米字形AoE</Span>
       提示，也就是我们俗称的
       <Span variant="pink">“冰花”</Span>
     </div>
@@ -329,24 +329,24 @@ const { base = 0 }: Props = Astro.props
           <RoleIcon role="melee" tag="D1" />
           <RoleIcon role="melee" tag="D2" />
         </div>
-        <div class="gap-strat flex items-center break-words pl-6">
+        <div class="gap-strat flex items-center pl-6 break-words">
           <ListDot />
           直接前往自己应去的数字标点，等待放置
           <Span variant="pink">冰花</Span>
         </div>
-        <div class="mt-8 gap-strat flex items-center break-words">
+        <div class="gap-strat mt-8 flex items-center break-words">
           <Span variant="green">远程组</Span>
           <RoleIcon role="ranged" tag="D3" />
           <RoleIcon role="magic" tag="D4" />
           <RoleIcon role="healer" tag="H1" />
           <RoleIcon role="healer" tag="H2" />
         </div>
-        <div class="gap-strat flex items-center break-words pl-6">
+        <div class="gap-strat flex items-center pl-6 break-words">
           <ListDot />
           <Span variant="red">横向</Span>
           沿着场边放置追踪AoE
         </div>
-        <div class="gap-strat flex items-center break-words pl-6">
+        <div class="gap-strat flex items-center pl-6 break-words">
           <ListDot />放置完前三个追踪AoE后，拐向场中放置第四个
         </div>
       </div>
@@ -370,24 +370,24 @@ const { base = 0 }: Props = Astro.props
           <RoleIcon role="melee" tag="D1" />
           <RoleIcon role="melee" tag="D2" />
         </div>
-        <div class="gap-strat flex items-center break-words pl-6">
+        <div class="gap-strat flex items-center pl-6 break-words">
           <ListDot />
           沿着
           <Span variant="red">初始安全区->上->中->下</Span>
           的顺序放置追踪AoE
         </div>
-        <div class="mt-8 gap-strat flex items-center break-words">
+        <div class="gap-strat mt-8 flex items-center break-words">
           <Span variant="green">远程组</Span>
           <RoleIcon role="ranged" tag="D3" />
           <RoleIcon role="magic" tag="D4" />
           <RoleIcon role="healer" tag="H1" />
           <RoleIcon role="healer" tag="H2" />
         </div>
-        <div class="gap-strat flex items-center break-words pl-6">
+        <div class="gap-strat flex items-center pl-6 break-words">
           <ListDot />
           在自己的点位旁等候
         </div>
-        <div class="gap-strat flex items-center break-words pl-6">
+        <div class="gap-strat flex items-center pl-6 break-words">
           <ListDot />
           等待黄圈消失后，进入数字标点放置<Span variant="pink">冰花</Span>
         </div>
@@ -495,7 +495,7 @@ const { base = 0 }: Props = Astro.props
       <BloomingAbominationSimplified />
       以自身为中心释放
       <Span variant="green">可被打断的</Span>
-      月环/十字型AoE
+      月环/十字形AoE
     </div>
     <div class="gap-strat flex flex-wrap items-center">
       其中，必定有两只<BloomingAbominationSimplified />读条
@@ -505,7 +505,7 @@ const { base = 0 }: Props = Astro.props
     <div class="gap-strat flex flex-wrap items-center">
       另外两只<BloomingAbominationSimplified />读条
       <Span variant="yellow">Crossing Crosswinds</Span>
-      ，释放十字型AoE
+      ，释放十字形AoE
     </div>
     <div class="gap-strat flex flex-wrap items-center">
       小怪在AoE读条完毕不久后，会读条狂暴技能
@@ -513,7 +513,7 @@ const { base = 0 }: Props = Astro.props
       <DamageInfo damage="9999999" type="special" />
     </div>
   </div>
-  <div class="grid mt-4 grid-cols-3 gap-x-2 gap-y-4">
+  <div class="mt-4 grid grid-cols-3 gap-x-2 gap-y-4">
     <div class="flex flex-col items-center gap-1">
       <Image src={winding_wildwinds} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       <div>Winding Wildwinds</div>
@@ -536,7 +536,7 @@ const { base = 0 }: Props = Astro.props
       但玩家可以躲在
       <BloomingAbominationSimplified />
       的尸体后（无需背对）来躲避石化
-      <span class="line-through decoration-zinc-500 dark:decoration-zinc-700 decoration-20 hover:no-underline pl-2">
+      <span class="pl-2 line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700">
         谢谢你，大王花
       </span>
     </div>

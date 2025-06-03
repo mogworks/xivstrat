@@ -18,6 +18,7 @@ import CastSection from '@/components/section/CastSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import LimitBreak from '@/components/action/LimitBreak.astro'
 
 import Wavelength from '../_components/Wavelength.astro'
 import WavelengthEffect from '../_components/WavelengthEffect.astro'
@@ -152,7 +153,7 @@ const wavelengthTimes = [
     </h4>
     <div class="gap-strat flex items-center">
       <Span variant="yellow">Arcady Night Fever</Span>
-      机制开始时会出现一个计量槽，累积满时会奖励一段LB
+      机制开始时会出现一个计量槽，累积满时会奖励<LimitBreak stage={1} />
     </div>
     <div class="gap-strat flex items-center">
       错误处理会导致计量值积攒变慢，若本阶段完全正确处理则会累积
