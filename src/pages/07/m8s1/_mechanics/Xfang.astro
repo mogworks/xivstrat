@@ -21,6 +21,7 @@ import stonefang_2 from '@/assets/07/m8s1/xfang/stonefang_2.png'
 import stonefang_3 from '@/assets/07/m8s1/xfang/stonefang_3.png'
 import stonefang_4 from '@/assets/07/m8s1/xfang/stonefang_4.png'
 import stonefang_5 from '@/assets/07/m8s1/xfang/stonefang_5.png'
+import stonefang_6 from '@/assets/07/m8s1/xfang/stonefang_6.png'
 import windfang_1 from '@/assets/07/m8s1/xfang/windfang_1.png'
 import windfang_2 from '@/assets/07/m8s1/xfang/windfang_2.png'
 import windfang_3 from '@/assets/07/m8s1/xfang/windfang_3.png'
@@ -55,7 +56,7 @@ const { time, base = 0 }: Props = Astro.props
       或
       <Span variant="green">月环</Span>
       +
-      <Span variant="pink">四方二二分摊</Span>
+      <Span variant="purple">四方二二分摊</Span>
       的组合技：
     </div>
     <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
@@ -79,11 +80,11 @@ const { time, base = 0 }: Props = Astro.props
         <Span variant="default">4</Span><RoleIcon role="dps" />
         的
         <Span variant="cyan">25°</Span>
-        <Span variant="pink">扇形分摊</Span>
+        <Span variant="purple">扇形分摊</Span>
       </div>
     </div>
     <div class="gap-strat flex items-center">
-      <Span variant="pink">扇形分摊</Span>
+      <Span variant="purple">扇形分摊</Span>
       会比
       <Span variant="yellow">扇形分散</Span>
       略疼一些
@@ -124,7 +125,7 @@ const { time, base = 0 }: Props = Astro.props
       <div class="flex items-center gap-1">
         <Span variant="yellow">预兆</Span>
         <label class="relative inline-flex cursor-pointer items-center">
-          <input type="checkbox" id="xfang-toggle" class="peer sr-only" />
+          <input type="checkbox" id="xfang-mechanic-toggle" class="peer sr-only" />
           <div
             class="peer h-6 w-11 rounded-full bg-yellow-600 peer-checked:bg-pink-600 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"
           >
@@ -134,7 +135,8 @@ const { time, base = 0 }: Props = Astro.props
       </div>
     </div>
     <div
-      class="relative grid grid-cols-[min-content_min-content_minmax(0,25rem)_min-content_minmax(0,25rem)] grid-rows-[min-content_min-content_1fr_min-content_1fr]"
+      id="xfang-mechanic-grid"
+      class="grid grid-cols-[min-content_1px_minmax(0,23.5rem)_1px_minmax(0,23.5rem)] grid-rows-[min-content_1px_1fr_1px_1fr]"
     >
       <Separator class="col-start-2" orientation="vertical" />
       <div class="flex justify-center pb-2 text-lg font-bold">正点方向浮游炮</div>
@@ -147,7 +149,7 @@ const { time, base = 0 }: Props = Astro.props
         <Span variant="orange">{stonefang}</Span>
       </div>
       <Separator orientation="vertical" />
-      <div class="px-4 py-2">
+      <div class="px-3 py-2">
         <Image
           src={stonefang_1}
           alt="Stonefang: 1"
@@ -160,7 +162,7 @@ const { time, base = 0 }: Props = Astro.props
         />
       </div>
       <Separator orientation="vertical" />
-      <div class="px-4 py-2">
+      <div class="px-3 py-2">
         <Image
           src={stonefang_2}
           alt="Stonefang: 2"
@@ -179,7 +181,7 @@ const { time, base = 0 }: Props = Astro.props
         <Span variant="green">{windfang}</Span>
       </div>
       <Separator orientation="vertical" />
-      <div class="px-4 py-2">
+      <div class="px-3 py-2">
         <Image
           src={windfang_1}
           alt="Windfang: 1"
@@ -192,7 +194,7 @@ const { time, base = 0 }: Props = Astro.props
         />
       </div>
       <Separator orientation="vertical" />
-      <div class="px-4 py-2">
+      <div class="px-3 py-2">
         <Image
           src={windfang_2}
           alt="Windfang: 2"
@@ -207,148 +209,190 @@ const { time, base = 0 }: Props = Astro.props
     </div>
   </div>
 </MechanicSection>
-
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">不难看出，安全区在四个正点或者四个斜点。</div>
-
+    <div class="gap-strat flex items-center border-l-2 border-lime-500 pl-2 opacity-80">
+      本解法采用类似中国服【光暗未来绝境战】的八方站位，而非日服的标准八方站位
+    </div>
+    <div class="gap-strat mt-8 flex items-center">
+      根据
+      <HowlingBlade />
+      读条和
+      <GleamingFang />
+      方位，按下表站位：
+      <div class="flex items-center gap-1">
+        <Span variant="yellow">预兆</Span>
+        <label class="relative inline-flex cursor-pointer items-center">
+          <input type="checkbox" id="xfang-solution-toggle" class="peer sr-only" />
+          <div
+            class="peer h-6 w-11 rounded-full bg-yellow-600 peer-checked:bg-pink-600 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"
+          >
+          </div>
+        </label>
+        <Span variant="pink">判定</Span>
+      </div>
+    </div>
+    <div class="gap-strat flex items-center opacity-80">
+      注：下表
+      <Span variant="orange">{stonefang}</Span>
+      站位图中已将浮游炮的两种情况叠加
+    </div>
+    <div
+      id="xfang-solution-grid"
+      class="grid grid-cols-[min-content_1px_minmax(0,23.5rem)_1px_minmax(0,23.5rem)] grid-rows-[min-content_1px_1fr_1px_1fr]"
+    >
+      <Separator class="col-start-2" orientation="vertical" />
+      <div class="flex justify-center pb-2 text-lg font-bold">正点方向浮游炮</div>
+      <Separator orientation="vertical" />
+      <div class="flex justify-center pb-2 text-lg font-bold">斜点方向浮游炮</div>
+      <Separator class="col-span-full" />
+      <div
+        class="flex justify-center pr-2 text-lg font-bold tracking-wider [text-orientation:mixed] [writing-mode:vertical-lr]"
+      >
+        <Span variant="orange">{stonefang}</Span>
+      </div>
+      <Separator orientation="vertical" />
+      <div class="translate-x-[calc(50%)] px-3 py-2">
+        <Image
+          src={stonefang_5}
+          alt="Stonefang: 5"
+          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+        <Image
+          src={stonefang_6}
+          alt="Stonefang: 6"
+          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+      </div>
+      <Separator class="col-span-full" />
+      <div
+        class="flex justify-center pr-2 text-lg font-bold tracking-wider [text-orientation:mixed] [writing-mode:vertical-lr]"
+      >
+        <Span variant="green">{windfang}</Span>
+      </div>
+      <Separator orientation="vertical" />
+      <div class="px-3 py-2">
+        <Image
+          src={windfang_1}
+          alt="Windfang: 1"
+          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+        <Image
+          src={windfang_3}
+          alt="Windfang: 3"
+          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+      </div>
+      <Separator orientation="vertical" />
+      <div class="px-3 py-2">
+        <Image
+          src={windfang_2}
+          alt="Windfang: 2"
+          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+        <Image
+          src={windfang_4}
+          alt="Windfang: 4"
+          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+      </div>
+    </div>
+    <div class="gap-strat mt-8 flex items-center">
+      若是
+      <Span variant="orange">{stonefang}</Span>
+      ，可无视浮游炮方位，按图示固定站位（图示已将浮游炮的两种情况叠加，显然无影响）
+    </div>
     <div class="gap-strat flex items-center">
-      如果是
-      <Span variant="yellow">{windfang}</Span>
-      ，我们就按图示分组：
+      若是
+      <Span variant="green">{windfang}</Span>
+      ，则两两分组找
+      <Span variant="pink">同色标点</Span>
+      ：
     </div>
-
-    <div class="gap-strat flex items-center">
-      <RoleIcon role="tank" tag="MT" />
-      和
-      <RoleIcon role="ranged" tag="D3" />
-      去
-      <Span variant="red">红色</Span>
-      标点，也就是
-      <Span variant="red">A</Span>
-      或者
-      <Span variant="red">1</Span>
-      。
-      <RoleIcon role="tank" tag="ST" />
-      和
-      <RoleIcon role="magic" tag="D4" />
-      去
-      <Span variant="yellow">黄色</Span>
-      标点，也就是
-      <Span variant="yellow">B</Span>
-      或者
-      <Span variant="yellow">2</Span>
-      。
-    </div>
-
-    <div class="gap-strat flex items-center">
-      <RoleIcon role="healer" tag="H2" />
-      和
-      <RoleIcon role="melee" tag="D2" />
-      去
-      <Span variant="sky">蓝色</Span>
-      标点，也就是
-      <Span variant="sky">C</Span>
-      或者
-      <Span variant="sky">3</Span>
-      。
-      <RoleIcon role="healer" tag="H1" />
-      和
-      <RoleIcon role="melee" tag="D1" />
-      去
-      <Span variant="purple">紫色</Span>
-      标点，也就是
-      <Span variant="purple">D</Span>
-      或者
-      <Span variant="purple">4</Span>
-      。
-    </div>
-
-    <div class="gap-strat flex items-center">
-      如果是
-      <Span variant="yellow">{stonefang}</Span>
-      ，我们就按图示固定八方站位，此时可以无视十字激光。
-    </div>
-
-    <div class="gap-strat flex items-center"></div>
-  </div>
-  <div class="grid grid-cols-4 gap-x-2 gap-y-4">
-    <div class="flex flex-col items-center gap-1">
-      <Image
-        src={windfang_1}
-        alt="Cardinal + Windfang"
-        class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-      />
-      <div>正点激光 + {windfang}</div>
-    </div>
-    <div class="flex flex-col items-center gap-1">
-      <Image
-        src={windfang_2}
-        alt="Intercardinal + Windfang"
-        class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-      />
-      <div>斜点激光 + {windfang}</div>
-    </div>
-    <div class="flex flex-col items-center gap-1">
-      <Image
-        src={stonefang_1}
-        alt="Cardinal + Stonefang"
-        class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-      />
-      <div>正点激光 + {stonefang}</div>
-    </div>
-    <div class="flex flex-col items-center gap-1">
-      <Image
-        src={stonefang_2}
-        alt="Intercardinal + Stonefang"
-        class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-      />
-      <div>斜点激光 + {stonefang}</div>
+    <div class="flex flex-col gap-4 border-l-2 border-lime-500 pl-2">
+      <div class="gap-strat flex items-center">
+        <RoleIcon role="tank" tag="MT" />
+        <RoleIcon role="ranged" tag="D3" />
+        去
+        <Span variant="red">红色</Span>
+        标点，也就是
+        <Span variant="red">A</Span>
+        或
+        <Span variant="red">1</Span>
+        ，
+        <RoleIcon role="tank" tag="ST" />
+        <RoleIcon role="magic" tag="D4" />
+        去
+        <Span variant="yellow">黄色</Span>
+        标点，也就是
+        <Span variant="yellow">B</Span>
+        或
+        <Span variant="yellow">2</Span>
+      </div>
+      <div class="gap-strat flex items-center">
+        <RoleIcon role="healer" tag="H2" />
+        <RoleIcon role="melee" tag="D2" />
+        去
+        <Span variant="sky">蓝色</Span>
+        标点，也就是
+        <Span variant="sky">C</Span>
+        或
+        <Span variant="sky">3</Span>
+        ，
+        <RoleIcon role="healer" tag="H1" />
+        <RoleIcon role="melee" tag="D1" />
+        去
+        <Span variant="purple">紫色</Span>
+        标点，也就是
+        <Span variant="purple">D</Span>
+        或
+        <Span variant="purple">4</Span>
+      </div>
     </div>
   </div>
 </SolutionSection>
-
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="gap-strat flex items-center">
-      如果是
-      <Span variant="yellow">{stonefang}</Span>
-      ，挤一挤一个角落可以站三个人，不推荐，但是紧急情况可以灵性。
-    </div>
-    <div class="gap-strat flex items-center">
-      如果是
-      <Span variant="yellow">{windfang}</Span>
-      并且有减员，优先保证有人和奶一起分摊。
+      若是
+      <Span variant="orange">{stonefang}</Span>
+      ，一个角落是可以站下三个人的，紧急情况时可以站到
+      <Span variant="pink">标点位置</Span>
+      ，这样不会影响他人
     </div>
   </div>
 </NoteSection>
 
 <script>
-  const toggle = document.getElementById('xfang-toggle') as HTMLInputElement
+  const mechanicToggle = document.getElementById('xfang-mechanic-toggle') as HTMLInputElement
+  const solutionToggle = document.getElementById('xfang-solution-toggle') as HTMLInputElement
 
-  if (toggle) {
-    toggle.addEventListener('change', function () {
-      const activate = this.checked
+  function toggleImages(id: string, activate: boolean) {
+    const section = document.getElementById(id)
+
+    if (section) {
+      const omenImgs = section.querySelectorAll('.omen-img')
+      const activateImgs = section.querySelectorAll('.activate-img')
 
       if (activate) {
-        const omenImgs = document.getElementsByClassName('omen-img')
-        for (const img of omenImgs) {
-          img.classList.add('hidden')
-        }
-        const activateImgs = document.getElementsByClassName('activate-img')
-        for (const img of activateImgs) {
-          img.classList.remove('hidden')
-        }
+        omenImgs.forEach((img) => img.classList.add('hidden'))
+        activateImgs.forEach((img) => img.classList.remove('hidden'))
       } else {
-        const omenImgs = document.getElementsByClassName('omen-img')
-        for (const img of omenImgs) {
-          img.classList.remove('hidden')
-        }
-        const activateImgs = document.getElementsByClassName('activate-img')
-        for (const img of activateImgs) {
-          img.classList.add('hidden')
-        }
+        activateImgs.forEach((img) => img.classList.add('hidden'))
+        omenImgs.forEach((img) => img.classList.remove('hidden'))
       }
+    }
+  }
+
+  if (mechanicToggle) {
+    mechanicToggle.addEventListener('change', function () {
+      toggleImages('xfang-mechanic-grid', this.checked)
+    })
+  }
+
+  if (solutionToggle) {
+    solutionToggle.addEventListener('change', function () {
+      toggleImages('xfang-solution-grid', this.checked)
     })
   }
 </script>

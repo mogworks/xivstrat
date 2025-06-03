@@ -1,32 +1,9 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
 
-import { cn } from '@/lib/utils'
+import type { VariantType } from '@/lib/variant'
 
-export type VariantType =
-  | 'default'
-  | 'red'
-  | 'orange'
-  | 'amber'
-  | 'yellow'
-  | 'lime'
-  | 'green'
-  | 'emerald'
-  | 'teal'
-  | 'cyan'
-  | 'sky'
-  | 'blue'
-  | 'indigo'
-  | 'violet'
-  | 'purple'
-  | 'fuchsia'
-  | 'pink'
-  | 'rose'
-  | 'slate'
-  | 'gray'
-  | 'zinc'
-  | 'neutral'
-  | 'stone'
+import { cn } from '@/lib/utils'
 
 const props = defineProps<{
   variant: VariantType
