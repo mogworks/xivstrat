@@ -1,0 +1,65 @@
+---
+import Action from '@/components/Action.astro'
+import JobIcon from '@/components/JobIcon.astro'
+
+import icon from '@/assets/action/31399.png'
+
+import { cn } from '@/lib/utils'
+
+interface Props {
+  class?: string
+  actionClass?: string
+  job?:
+    | 'PLD'
+    | 'WAR'
+    | 'DRK'
+    | 'GNB'
+    | 'WHM'
+    | 'SCH'
+    | 'AST'
+    | 'SGE'
+    | 'MNK'
+    | 'DRG'
+    | 'NIN'
+    | 'SAM'
+    | 'RPR'
+    | 'VPR'
+    | 'BRD'
+    | 'MCH'
+    | 'DNC'
+    | 'BLM'
+    | 'SMN'
+    | 'RDM'
+    | 'PCT'
+    | 'tank'
+    | 'healer'
+    | 'dps'
+    | 'melee'
+    | 'ranged'
+    | 'magic'
+  stage?: 0 | 1 | 2 | 3
+  tag?: string
+}
+
+const { actionClass = '', class: className = '', job, stage, tag }: Props = Astro.props
+---
+
+<div class={cn('relative inline-flex', className)}>
+  {job && <JobIcon job={job} class="relative -bottom-2 left-2.5 z-10 -ml-3" />}
+  <Action icon={icon} name="极限技" class={actionClass} />
+  {
+    (tag || stage !== void 0) && (
+      <div class="flex items-center justify-center rounded-2xl rounded-l-none border-1 border-l-0 border-[#E4C78B] bg-gradient-to-r from-amber-400/80 to-amber-500 px-2 dark:border-[#6E2913] dark:from-amber-400 dark:to-amber-600">
+        <p class="text-sm text-white">
+          {tag ? (
+            tag
+          ) : stage ? (
+            <span>LB</span><span class="mx-0.5">×</span><span>{stage}</span>
+          ) : (
+            ''
+          )}
+        </p>
+      </div>
+    )
+  }
+</div>
