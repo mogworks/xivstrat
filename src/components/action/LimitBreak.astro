@@ -49,8 +49,17 @@ const { actionClass = '', class: className = '', job, stage, tag }: Props = Astr
   <Action icon={icon} name="极限技" description="极限技" class={actionClass} />
   {
     (tag || stage !== void 0) && (
-      <div class="flex items-center justify-center rounded-2xl rounded-l-none border-1 border-l-0 border-[#E4C78B] bg-[#ED9734] px-2">
-        <p class="text-sm text-white">{tag ? tag : stage ? `${stage}段` : ''}</p>
+      <div class="flex items-center justify-center rounded-2xl rounded-l-none border-1 border-l-0 border-[#E4C78B] bg-gradient-to-r from-amber-400/80 to-amber-500 px-2 dark:border-[#6E2913] dark:from-amber-400 dark:to-amber-600">
+        <p class="text-sm text-white">
+          {tag ? (
+            tag
+          ) : stage ? (
+            <span>LB</span><span class="mx-0.5">×</span><span>{stage}</span>
+          ) : (
+            ''
+          )}
+        </p>
+        {/* <p class="absolute -z-10 text-transparent">LB</p> */}
       </div>
     )
   }
