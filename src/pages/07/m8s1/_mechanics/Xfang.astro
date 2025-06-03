@@ -14,7 +14,8 @@ import XfangCast from '../_components/XfangCast.astro'
 import GleamingFang from '../_components/GleamingFang.astro'
 import HowlingBlade from '../_components/HowlingBlade.astro'
 
-import tmp from '@/assets/07/m8s1/tmp.png'
+import xfang_1 from '@/assets/07/m8s1/xfang/1.png'
+import xfang_2 from '@/assets/07/m8s1/xfang/2.png'
 import stonefang_1 from '@/assets/07/m8s1/xfang/stonefang_1.png'
 import stonefang_2 from '@/assets/07/m8s1/xfang/stonefang_2.png'
 import stonefang_3 from '@/assets/07/m8s1/xfang/stonefang_3.png'
@@ -104,13 +105,13 @@ const { time, base = 0 }: Props = Astro.props
       的展开位置来判断：
     </div>
     <div class="flex gap-4">
-      <div class="flex max-w-90 flex-col items-center gap-1">
-        <Image src={tmp} alt="Cardinal + Windfang" class="border-2 border-cyan-700 dark:border-cyan-100" />
-        <div>正向浮游炮</div>
+      <div class="flex max-w-100 flex-col items-center gap-2">
+        <Image src={xfang_1} alt="Gleaming Fang: 十" class="border-2 border-cyan-700 dark:border-cyan-100" />
+        <div>正点方向浮游炮</div>
       </div>
-      <div class="flex max-w-90 flex-col items-center gap-1">
-        <Image src={tmp} alt="Intercardinal + Windfang" class="border-2 border-cyan-700 dark:border-cyan-100" />
-        <div>斜向浮游炮</div>
+      <div class="flex max-w-100 flex-col items-center gap-2">
+        <Image src={xfang_2} alt="Gleaming Fang: X" class="border-2 border-cyan-700 dark:border-cyan-100" />
+        <div>斜点方向浮游炮</div>
       </div>
     </div>
     <div class="gap-strat mt-8 flex items-center">
