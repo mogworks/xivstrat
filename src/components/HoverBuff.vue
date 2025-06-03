@@ -2,7 +2,7 @@
 import type { ImageMetadata } from 'astro'
 import type { HTMLAttributes } from 'vue'
 
-import type { VariantType } from '@/components/Span.vue'
+import type { VariantType } from '@/lib/variant'
 
 import Buff from '@/components/Buff.vue'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/shadcn-vue/hover-card'
