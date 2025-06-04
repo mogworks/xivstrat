@@ -4,6 +4,7 @@ import { Image } from 'astro:assets'
 import type { Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
@@ -122,17 +123,7 @@ const { start, base = 0 }: Props = Astro.props
       +
       <GleamingFang />
       最终形成如下的组合攻击：
-      <div class="flex items-center gap-1">
-        <Span variant="yellow">预兆</Span>
-        <label class="relative inline-flex cursor-pointer items-center">
-          <input type="checkbox" id="xfang-mechanic-toggle" class="peer sr-only" />
-          <div
-            class="peer h-6 w-11 rounded-full bg-yellow-600 peer-checked:bg-pink-600 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"
-          >
-          </div>
-        </label>
-        <Span variant="pink">判定</Span>
-      </div>
+      <ToggleSwitch id="xfang-mechanic-toggle" lVariant="yellow" rVariant="pink" lLabel="预兆" rLabel="判定" />
     </div>
     <div
       id="xfang-mechanic-grid"
@@ -220,17 +211,7 @@ const { start, base = 0 }: Props = Astro.props
       读条和
       <GleamingFang />
       方位，按下表站位：
-      <div class="flex items-center gap-1">
-        <Span variant="yellow">预兆</Span>
-        <label class="relative inline-flex cursor-pointer items-center">
-          <input type="checkbox" id="xfang-solution-toggle" class="peer sr-only" />
-          <div
-            class="peer h-6 w-11 rounded-full bg-yellow-600 peer-checked:bg-pink-600 after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white"
-          >
-          </div>
-        </label>
-        <Span variant="pink">判定</Span>
-      </div>
+      <ToggleSwitch id="xfang-solution-toggle" lVariant="yellow" rVariant="pink" lLabel="预兆" rLabel="判定" />
     </div>
     <div class="gap-strat flex items-center opacity-80">
       注：下表
