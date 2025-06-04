@@ -1,4 +1,5 @@
 ---
+import { cn } from '@/lib/utils'
 import type { RoleType } from '@/pixi/role'
 
 import EntityIcon from '@/components/EntityIcon.astro'
@@ -20,6 +21,12 @@ interface Props {
   class?: string
 }
 
+const tagHandler = (tag: string): string => {
+  // 添加文本使攻略行文通顺
+  if (['最近', '最远'].includes(tag)) return `${tag}目标`
+  else return tag
+}
+
 const { role = 'any', tag = '', class: className = '' }: Props = Astro.props
 const img = {
   any,
@@ -33,8 +40,40 @@ const img = {
   boss,
   enemy_level1,
 }[role]
+const text =
+  tagHandler(tag) ||
+  {
+    any: '全员',
+    all: '任一角色',
+    tank: 'T',
+    healer: 'H',
+    dps: 'D',
+    melee: '近战',
+    ranged: '远敏',
+    magic: '法系',
+    boss: '', // 敌对生物slot都包含名称，直接隐藏图标
+    enemy_level1: '',
+  }[role]
 ---
 
-<EntityIcon icon={img} tag={tag} alt={tag ?? role} class={className}>
+<EntityIcon icon={img} tag={tag} alt={tag ?? role} class={cn(className, 'standard-role-icon')}>
   <slot />
 </EntityIcon>
+<div class={cn(className, 'minimal-role-icon')}>{text}<slot /></div>
+
+<script>
+  import { subscribeKeys } from 'nanostores'
+
+  import { $stratSettings } from '@/stores/stratSettings'
+
+  subscribeKeys($stratSettings, ['readModeSetting'], (stratSettings) => {
+    // 切换阅读模式
+    const isMinimal = stratSettings.readModeSetting === 'minimal'
+    document.querySelectorAll<HTMLElement>('.standard-role-icon').forEach((e) => {
+      e.style.display = isMinimal ? 'none' : ''
+    })
+    document.querySelectorAll<HTMLElement>('.minimal-role-icon').forEach((e) => {
+      e.style.display = isMinimal ? '' : 'none'
+    })
+  })
+</script>
