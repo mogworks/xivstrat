@@ -91,7 +91,7 @@ const duty = (await getEntry('duties', dutyId))!.data
       // 对于高亮词条
       document
         .querySelectorAll<HTMLElement>(
-          'section.strat-section:not(.separator-section) span:not(.strat-time):not(.damage-info)',
+          'section.strat-section:not(.separator-section) span:not(.strat-time):not(.damage-info):not(.strat-title)',
         )
         .forEach((e) => {
           // 跳过buff等vue组件
