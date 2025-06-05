@@ -1,0 +1,34 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Bind from '@/components/buff/Bind.astro'
+
+import PatienceOfStoneDebuff from '../_components/PatienceOfStoneDebuff.astro'
+import PatienceOfWindDebuff from '../_components/PatienceOfWindDebuff.astro'
+
+import HowlingBlade from '../_components/HowlingBlade.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+
+const elementalPurge = '風震の魔印'
+---
+
+<CastSection start={start} base={base} duration={4.7} ability={elementalPurge}>
+  <HowlingBlade slot="source" />
+  给予 1 <RoleIcon role="tank" />
+  <PatienceOfWindDebuff tag="5" />
+  和 1 <RoleIcon role="healerdps" />
+  <PatienceOfStoneDebuff tag="5" />
+  ，以及
+  <RoleIcon role="all" tag="一仇" />
+  <Bind tag="6" />
+  <Badge variant="green">点名</Badge>
+</CastSection>

@@ -13,8 +13,10 @@ import StratInterval from '@/components/StratInterval.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import Stun from '@/components/buff/Stun.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
+import LimitBreak from '@/components/action/LimitBreak.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
 import ExplosionActivate from '../_components/ExplosionActivate.astro'
@@ -523,3 +525,14 @@ const end = timeToSeconds(start) + adjustedDuration
     />
   </div>
 </SolutionSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      请<RoleIcon role="tank" />
+      看到减员的情况下，在屏幕闪过站在自己的塔上就位后，使用
+      <LimitBreak job="tank" stage={3} />
+    </div>
+
+    <div class="gap-strat flex items-center">此处可以覆盖炸塔的伤害和之后的AoE。</div>
+  </div>
+</NoteSection>
