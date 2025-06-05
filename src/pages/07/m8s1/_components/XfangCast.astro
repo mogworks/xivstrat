@@ -11,6 +11,7 @@ import EventSection from '@/components/section/EventSection.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
 import HowlingBlade from '../_components/HowlingBlade.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -19,6 +20,9 @@ interface Props {
 
 const { start, base = 0 }: Props = Astro.props
 
+const stonefang = translations.stonefang
+const windfang = translations.windfang
+
 // 修正延迟
 const duration = 5.7
 const adjustedDuration = duration + 0.3
@@ -26,7 +30,7 @@ const adjustedDuration = duration + 0.3
 
 <EventSection>
   <StratInterval slot="time" start={start} duration={adjustedDuration} base={base} />
-  <span class="text-foreground/75 text-sm">或</span>
+  <span class="text-sm opacity-80">或</span>
   <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
   <ul class="list-none space-y-4">
     <li class="flex items-center gap-1 text-lg">
@@ -34,7 +38,7 @@ const adjustedDuration = duration + 0.3
       对
       <RoleIcon role="all" tag="全员" />
       读条
-      <Span variant="orange">土の魔技</Span>
+      <Span variant="orange">{stonefang}</Span>
       <DamageInfo damage="160000" type="magical" />
       <MagicVulnerabilityUp tag="1" hover />
       <Badge variant="emerald">25°扇形</Badge>
@@ -48,7 +52,7 @@ const adjustedDuration = duration + 0.3
       或
       <Span variant="default">4</Span><RoleIcon role="dps" />
       读条
-      <Span variant="green">风の魔技</Span>
+      <Span variant="green">{windfang}</Span>
       <DamageInfo damage="190000" type="magical" />
       <MagicVulnerabilityUp tag="1" hover />
       <Badge variant="emerald">25°扇形</Badge>

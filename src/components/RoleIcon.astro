@@ -1,8 +1,9 @@
 ---
 import { cn } from '@/lib/utils'
-import type { RoleType } from '@/pixi/role'
+import type { RoleType, CombinedRoleType } from '@/lib/role'
 
 import EntityIcon from '@/components/EntityIcon.astro'
+import CombinedIcon from '@/components/CombinedIcon.astro'
 
 import any from '/pixi/role/any.png?url'
 import all from '/pixi/role/all.png?url'
@@ -12,11 +13,12 @@ import dps from '/pixi/role/dps.png?url'
 import melee from '/pixi/role/melee.png?url'
 import ranged from '/pixi/role/ranged.png?url'
 import magic from '/pixi/role/magic.png?url'
+import ranged_magic from '/pixi/role/ranged_magic.png?url'
 import boss from '/pixi/enemy/061712.png?url'
 import enemy_level1 from '/pixi/enemy/061707.png?url'
 
 interface Props {
-  role: RoleType
+  role: RoleType | CombinedRoleType
   tag?: 'MT' | 'ST' | 'OT' | 'H1' | 'H2' | 'D1' | 'D2' | 'D3' | 'D4' | 'BOSS' | string
   class?: string
 }
@@ -37,8 +39,15 @@ const img = {
   melee,
   ranged,
   magic,
+  ranged_magic,
   boss,
   enemy_level1,
+  'tank|healer': [tank, healer],
+  'healer|tank': [healer, tank],
+  'tank|dps': [tank, dps],
+  'dps|tank': [dps, tank],
+  'healer|dps': [healer, dps],
+  'dps|healer': [dps, healer],
 }[role]
 const text =
   tagHandler(tag) ||
@@ -51,12 +60,34 @@ const text =
     melee: '近战',
     ranged: '远敏',
     magic: '法系',
+    ranged_magic: '远程',
     boss: '', // 敌对生物slot都包含名称，直接隐藏图标
     enemy_level1: '',
+    'tank|healer': 'T或H',
+    'healer|tank': 'H或T',
+    'tank|dps': 'T或D',
+    'dps|tank': 'D或T',
+    'healer|dps': 'H或D',
+    'dps|healer': 'D或H',
   }[role]
 ---
 
-<EntityIcon icon={img} tag={tag} alt={tag ?? role} class={className} data-icon="standard-icon">
-  <slot />
-</EntityIcon>
+{
+  role.includes('|') ? (
+    <EntityIcon icon="" tag={tag} alt={tag ?? role} class={className} data-icon="standard-icon">
+      <CombinedIcon slot="icon" img1={img[0]} img2={img[1]} tag={tag} alt={tag ?? role} />
+      <slot />
+    </EntityIcon>
+  ) : (
+    <EntityIcon
+      icon={img as string | ImageMetadata}
+      tag={tag}
+      alt={tag ?? role}
+      class={className}
+      data-icon="standard-icon"
+    >
+      <slot />
+    </EntityIcon>
+  )
+}
 <div class={cn(className, 'font-bold')} data-icon="minimal-icon">{text}<slot /></div>

@@ -1,64 +1,39 @@
 ---
-import Action from '@/components/Action.astro'
-import JobIcon from '@/components/JobIcon.astro'
-
-import icon from '@/assets/action/31399.png'
+import type { CombinedRoleType, RoleType } from '@/lib/role'
 
 import { cn } from '@/lib/utils'
+
+import Action from '@/components/Action.astro'
+
+import icon from '@/assets/action/31399.png'
+import RoleIcon from '@/components/RoleIcon.astro'
 
 interface Props {
   class?: string
   actionClass?: string
-  job?:
-    | 'PLD'
-    | 'WAR'
-    | 'DRK'
-    | 'GNB'
-    | 'WHM'
-    | 'SCH'
-    | 'AST'
-    | 'SGE'
-    | 'MNK'
-    | 'DRG'
-    | 'NIN'
-    | 'SAM'
-    | 'RPR'
-    | 'VPR'
-    | 'BRD'
-    | 'MCH'
-    | 'DNC'
-    | 'BLM'
-    | 'SMN'
-    | 'RDM'
-    | 'PCT'
-    | 'tank'
-    | 'healer'
-    | 'dps'
-    | 'melee'
-    | 'ranged'
-    | 'magic'
+  role?: RoleType | CombinedRoleType
   stage?: 0 | 1 | 2 | 3
   tag?: string
 }
 
-const { actionClass = '', class: className = '', job, stage, tag }: Props = Astro.props
+const { actionClass = '', class: className = '', role, stage, tag }: Props = Astro.props
 ---
 
 <div class={cn('relative inline-flex', className)}>
-  {job && <JobIcon job={job} class="relative -bottom-2 left-2.5 z-10 -ml-3" />}
+  {role && <RoleIcon role={role} class="relative -bottom-2 left-2.5 z-10 -ml-3" />}
   <Action icon={icon} name="极限技" class={actionClass} />
   {
     (tag || stage !== void 0) && (
-      <div class="-ml-0.5 flex items-center justify-center rounded-sm rounded-l-none border-1 border-l-0 border-[#E4C78B] bg-gradient-to-r from-amber-400/80 to-amber-500 px-2.5 pr-2 dark:border-[#6E2913] dark:from-amber-400 dark:to-amber-600">
-        <p class="text-sm text-white">
-          {tag ? (
-            tag
-          ) : stage ? (
-            <span>LB</span><span class="mx-0.5">×</span><span>{stage}</span>
-          ) : (
-            ''
-          )}
-        </p>
+      <div class="text-decimal -ml-0.5 inline-flex items-center rounded-sm rounded-l-none border-1 border-l-0 border-[#E4C78B] bg-gradient-to-r from-amber-400 to-amber-600 pr-1.5 pl-2.5 font-semibold text-white dark:border-[#6E2913] dark:from-amber-500 dark:to-amber-700">
+        {tag ? (
+          tag
+        ) : stage ? (
+          <>
+            <span class="mr-px">LB</span>×<span class="ml-px">{stage}</span>
+          </>
+        ) : (
+          ''
+        )}
       </div>
     )
   }

@@ -1,6 +1,6 @@
 ---
 import type { Time } from '@/lib/utils'
-import type { RoleType } from '@/pixi/role'
+import type { CombinedRoleType, RoleType } from '@/lib/role'
 
 import { timeToSeconds } from '@/lib/utils'
 import Boss from '@/components/Boss.astro'
@@ -16,7 +16,7 @@ interface Props {
   end?: Time
   base?: Time
   ability?: string
-  target?: boolean | RoleType
+  target?: boolean | RoleType | CombinedRoleType
   targetTag?: string
   damage?: string
   damageType?: 'physical' | 'magical' | 'special'

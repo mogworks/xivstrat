@@ -13,6 +13,7 @@ import StratInterval from '@/components/StratInterval.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import Stun from '@/components/buff/Stun.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
+import LimitBreak from '@/components/action/LimitBreak.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
@@ -521,5 +522,22 @@ const end = timeToSeconds(start) + adjustedDuration
       alt="Layer #4 Explosion: 4"
       class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
     />
+    <h4 class="mt-12 text-2xl">
+      <Span variant="lime">减员时的补救措施</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      若塔判定前已有减员，则请
+      <RoleIcon role="tank" />
+      在塔判定前开启
+      <LimitBreak role="tank" stage={3} />
+      ，可覆盖炸塔伤害和之后的AoE伤害
+    </div>
+    <div class="gap-strat flex items-center">
+      但请注意：
+      <LimitBreak role="tank" />
+      对炸塔的DoT伤害无效，因此炸塔后
+      <RoleIcon role="healer" />
+      要及时抬血
+    </div>
   </div>
 </SolutionSection>

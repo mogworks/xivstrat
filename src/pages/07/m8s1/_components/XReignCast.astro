@@ -1,32 +1,74 @@
 ---
-import type { Time } from '@/lib/utils'
+import { timeToSeconds, type Time } from '@/lib/utils'
 
-import CastSection from '@/components/section/CastSection.astro'
 import Badge from '@/components/Badge.astro'
 
+import Span from '@/components/Span.vue'
+
 import HowlingBlade from '../_components/HowlingBlade.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import WolvesReignCast from './WolvesReignCast.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
+
+import { translations } from '../_translations'
 
 interface Props {
-  time?: Time
+  start: Time
   base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { start, base = 0 }: Props = Astro.props
+
+const revolutionaryReign = translations.revolutionaryReign
+const eminentReign = translations.eminentReign
 
 const duration = 4.8
 
-// const damageApplyTime =
-// time !== undefined ?
-//   timeToSeconds(time) + duration + 0.3 // 修正延迟，计算伤害生效时间
-// : undefined
+const startSeconds = timeToSeconds(start)
+const reign1Time = startSeconds + 8
+const reign2Time = startSeconds + 11
 
-// const revolutionaryReign = "Revolutionary Reign"
-// const eminentReign = "Eminent Reign"
+const reignsEnd = "Reign's End"
+const sovereignScar = 'Sovereign Scar'
 
-const abilityName = '廻の郡狼剣 | 薙の郡狼剣'
+const damageApplyTime = reign2Time + 1.2 + 0.3 // 1.2s读条，0.3s延迟补正
 ---
 
-<CastSection start={time} base={base} duration={duration} ability={abilityName}>
+<CastSection start={start} base={base} duration={duration}>
   <HowlingBlade slot="source" />
-  <Badge variant="emerald">延迟生效</Badge>
+  <Fragment slot="ability">
+    <Span variant="yellow">{revolutionaryReign}</Span>
+    |
+    <Span variant="yellow">{eminentReign}</Span>
+  </Fragment>
+  <Badge variant="yellow">复合机制</Badge>
 </CastSection>
+<WolvesReignCast start={reign1Time} type="line" base={base} />
+<WolvesReignCast start={reign2Time} type="circle_or_fan" base={base} />
+<EventSection time={damageApplyTime}>
+  <HowlingBlade />
+  对
+  <RoleIcon role="tank" tag="一仇" />
+  <RoleIcon role="tank" tag="二仇" />
+  释放
+  <Span variant="yellow">{reignsEnd}</Span>
+  <DamageInfo damage="360000" type="physical" />
+  <PhysicalVulnerabilityUp tag="1" hover />
+  <Badge variant="emerald">60°扇形</Badge>
+  <Badge variant="red">死刑</Badge>
+</EventSection>
+<EventSection time={damageApplyTime}>
+  <HowlingBlade />
+  对
+  <RoleIcon role="healer" tag="H1" />
+  <RoleIcon role="healer" tag="H2" />
+  释放
+  <Span variant="yellow">{sovereignScar}</Span>
+  <DamageInfo damage="170000" type="physical" />
+  <PhysicalVulnerabilityUp tag="1" hover />
+  <Badge variant="emerald">30°扇形</Badge>
+  <Badge variant="purple">三三分摊</Badge>
+</EventSection>

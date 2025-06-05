@@ -1,0 +1,33 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import TDeathI from '@/assets/buff/07/m7s/214260.png'
+import TDeathII from '@/assets/buff/07/m7s/214261.png'
+import TDeathIII from '@/assets/buff/07/m7s/214262.png'
+import TDeathIV from '@/assets/buff/07/m7s/214263.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+  level?: 1 | 2 | 3 | 4
+}
+
+const { tag = '', hover = false, class: className = '', level = 1 }: Props = Astro.props
+
+const icons = [TDeathI, TDeathII, TDeathIII, TDeathIV]
+const icon = icons[level - 1] ?? TDeathI
+
+const name = `Thorns of Death ${['I', 'II', 'III', 'IV'][level - 1] ?? 'I'}`
+const description = ''
+---
+
+<Buff
+  icon={icon}
+  name={name}
+  nameVariant="yellow"
+  description={description}
+  tag={tag}
+  hover={hover}
+  class={className}
+/>
