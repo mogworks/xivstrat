@@ -28,6 +28,7 @@ import DPS from '/pixi/job/DPS.png?url'
 import MELEE from '/pixi/job/MELEE.png?url'
 import RANGED from '/pixi/job/RANGED.png?url'
 import MAGIC from '/pixi/job/MAGIC.png?url'
+import { cn } from '@/lib/utils'
 
 interface Props {
   job:
@@ -92,8 +93,38 @@ const icon = {
   ranged: RANGED,
   magic: MAGIC,
 }[job]
+const text = {
+  PLD: '骑士',
+  WAR: '战士',
+  DRK: '黑骑',
+  GNB: '枪刃',
+  WHM: '白魔',
+  SCH: '学者',
+  AST: '占星',
+  SGE: '贤者',
+  MNK: '武僧',
+  DRG: '龙骑',
+  NIN: '忍者',
+  SAM: '武士',
+  RPR: '镰刀',
+  VPR: '蝰蛇',
+  BRD: '诗人',
+  MCH: '机工',
+  DNC: '舞者',
+  BLM: '黑魔',
+  SMN: '召唤',
+  RDM: '赤魔',
+  PCT: '画家',
+  tank: 'T',
+  healer: 'H',
+  dps: 'D',
+  melee: '近战',
+  ranged: '远敏',
+  magic: '法系',
+}[job]
 ---
 
-<EntityIcon icon={icon} tag={tag} alt={tag ?? job} class={className}>
+<EntityIcon icon={icon} tag={tag} alt={tag ?? job} class={className} data-icon="standard-icon">
   <slot />
 </EntityIcon>
+<div class={cn(className, 'font-bold')} data-icon="minimal-icon">{text}<slot /></div>

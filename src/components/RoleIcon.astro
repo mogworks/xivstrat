@@ -59,4 +59,4 @@ const text =
 <EntityIcon icon={img} tag={tag} alt={tag ?? role} class={className} data-icon="standard-icon">
   <slot />
 </EntityIcon>
-<div class={className} data-icon="minimal-icon">{text}<slot /></div>
+<div class={cn(className, 'font-bold')} data-icon="minimal-icon">{text}<slot /></div>

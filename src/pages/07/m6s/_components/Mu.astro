@@ -20,7 +20,7 @@ const variant =
   }[wave] ?? 'zinc'
 ---
 
-<EntityIcon icon={icon} iconClass="drop-shadow-xs drop-shadow-black">
+<EntityIcon icon={icon} iconClass="drop-shadow-xs drop-shadow-black" data-icon="standard-icon">
   <slot>
     {
       wave !== 0 && (
@@ -32,3 +32,16 @@ const variant =
     }
   </slot>
 </EntityIcon>
+<div class="font-bold" data-icon="minimal-icon">
+  {
+    wave !== 0 ? (
+      <>
+        <Span variant="default">松鼠×2</Span>
+        <Span variant="default">#{wave}</Span>
+      </>
+    ) : (
+      <Span variant="default">松鼠</Span>
+    )
+  }
+  <slot />
+</div>
