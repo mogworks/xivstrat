@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets'
+import { type Time } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import RoleIcon from '@/components/RoleIcon.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import HowlingBlade from '../_components/HowlingBlade.astro'
+import HerosBlowCast from '../_components/HerosBlowCast.astro'
+import GleamingFang from '../_components/GleamingFang.astro'
+
+import img from '@/assets/07/m8s2/tmp.png'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+
+const herosBlow = '鎧袖一触'
+---
+
+<HerosBlowCast start={start} base={base} />
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="text-2xl">
+      <Span variant="yellow">{herosBlow}</Span>
+    </div>
+
+    <div class="gap-strat flex items-center">
+      <HowlingBlade />会举起剑，对随机左/右半场释放半场刀。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      与此同时，会有一圈
+      <GleamingFang />向内圈或者外圈发光，释放钢铁或者月环。
+    </div>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">在该机制之前，所有人应该在南边平台，也就是初始平台待机。</div>
+
+    <div class="gap-strat flex items-center">
+      随后<HowlingBlade />举起刀，观察安全半场，然后确认
+      <GleamingFang />是钢铁还是月环，进行躲避。
+    </div>
+
+    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+      <Image src={img} alt="quake1" class="border-2 border-amber-800/75 dark:border-amber-100" />
+      <div>双T死刑，人群在南边</div>
+    </div>
+  </div>
+</SolutionSection>

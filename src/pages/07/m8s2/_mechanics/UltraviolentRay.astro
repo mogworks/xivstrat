@@ -1,0 +1,91 @@
+---
+import { Image } from 'astro:assets'
+
+import { type Time } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import RoleIcon from '@/components/RoleIcon.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import HowlingBlade from '../_components/HowlingBlade.astro'
+import UltraviolentRayCast from '../_components/UltraviolentRayCast.astro'
+import GleamingFang from '../_components/GleamingFang.astro'
+
+import img from '@/assets/07/m8s2/tmp.png'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+
+const ultraviolentRay = '魔光'
+---
+
+<UltraviolentRayCast start={start} base={base} />
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="text-2xl">
+      <Span variant="yellow">{ultraviolentRay}</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      <HowlingBlade />
+      点名随机
+      <RoleIcon role="any" tag="5人" />
+      分散，范围是一个平台。 需要判定时五个人在不同的平台上。
+    </div>
+    <div class="gap-strat flex items-center">
+      与此同时，每个平台后方会出现一个
+      <GleamingFang />
+      随机覆盖左半或右半平台。需要分散的同时躲开。
+    </div>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      该机制有五人获得点名，刚好场上有五个平台，因此需要五个点名各自去一个平台，其他人可以自由行动。
+    </div>
+    <div class="gap-strat flex items-center">我们将所有人分为MT组和ST组，MT组去左下平台，ST组去右下平台。</div>
+    <div class="gap-strat flex items-center">
+      然后按照
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      <RoleIcon role="melee" />
+      (
+      <RoleIcon role="ranged" />
+      /
+      <RoleIcon role="magic" />
+      ) 的顺序排队，从北至南，
+    </div>
+
+    <div class="gap-strat flex items-center">
+      每组的第一个点名标记向北传送一个平台，第二个点名标记不动，第三个点名标记向南传送一个平台。
+    </div>
+
+    <div class="gap-strat flex items-center">
+      随后所有人看平台后面的
+      <GleamingFang />
+      去安全的半场，这里注意每个平台的安全半场是不一样的。
+    </div>
+
+    <div class="gap-strat flex items-center">会有一组有三个点名，另一组只有两个点名。</div>
+
+    <div class="flex gap-4">
+      <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+        <Image src={img} alt="ur1" class="border-2 border-amber-800/75 dark:border-amber-100" />
+        <div>排队+点名出现</div>
+      </div>
+
+      <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
+        <Image src={img} alt="ur2" class="border-2 border-amber-800/75 dark:border-amber-100" />
+        <div>分散后</div>
+      </div>
+      <div class="flex gap-4"></div>
+    </div>
+  </div></SolutionSection
+>

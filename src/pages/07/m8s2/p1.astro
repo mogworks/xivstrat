@@ -1,8 +1,18 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
 import DownForTheCount from '../../../components/buff/DownForTheCount.astro'
 import EventSection from '../../../components/section/EventSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import NoteSection from '../../../components/section/NoteSection.astro'
 import RoleIcon from '../../../components/RoleIcon.astro'
+
+import QuakeIII from './_mechanics/QuakeIII.astro'
+import UltraviolentRay from './_mechanics/UltraviolentRay.astro'
+import Twinbite from './_mechanics/Twinbite.astro'
+import HerosBlow from './_mechanics/HerosBlow.astro'
+
+import MooncleaverCast from './_components/MooncleaverCast.astro'
 
 const dutyId = '07/m8s2'
 const base = '07:33.729'
@@ -12,6 +22,24 @@ const base = '07:33.729'
   <EventSection time={base} base={base}>
     <RoleIcon role="all" tag="全员" />
     身上的
-    <DownForTheCount hover />消失，进入战斗的后半阶段
+    <DownForTheCount hover />消失，场地变为五个平台，进入战斗的后半阶段
   </EventSection>
+
+  <NoteSection>
+    后半全程双T平A，请
+    <RoleIcon role="tank" tag="ST" />
+    保持二仇。
+  </NoteSection>
+
+  <QuakeIII start="07:40.930" base={base} />
+  <UltraviolentRay start="07:55.096" base={base} />
+  <Twinbite start="08:02.234" base={base} />
+  <HerosBlow start="08:14.462" base={base} />
+
+  <NoteSection> 以上四个机制会在整场战斗重复多次。 </NoteSection>
+
+  <UltraviolentRay start="08:25.583" base={base} />
+  <QuakeIII start="08:37.727" base={base} />
+
+  <MooncleaverCast start="08:50.987" base={base} />
 </DutyStratLayout>
