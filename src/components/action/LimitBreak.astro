@@ -1,5 +1,5 @@
 ---
-import type { RoleType } from '@/lib/role'
+import type { CombinedRoleType, RoleType } from '@/lib/role'
 
 import { cn } from '@/lib/utils'
 
@@ -11,7 +11,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 interface Props {
   class?: string
   actionClass?: string
-  role?: RoleType
+  role?: RoleType | CombinedRoleType
   stage?: 0 | 1 | 2 | 3
   tag?: string
 }

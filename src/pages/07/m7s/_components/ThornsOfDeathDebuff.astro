@@ -13,12 +13,7 @@ interface Props {
   level?: 1 | 2 | 3 | 4
 }
 
-const { 
-  tag = '', 
-  hover = false, 
-  class: className = '',
-  level = 1
-}: Props = Astro.props
+const { tag = '', hover = false, class: className = '', level = 1 }: Props = Astro.props
 
 const icons = [TDeathI, TDeathII, TDeathIII, TDeathIV]
 const icon = icons[level - 1] ?? TDeathI
