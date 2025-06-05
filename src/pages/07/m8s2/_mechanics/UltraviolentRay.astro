@@ -5,6 +5,7 @@ import { type Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
+import Separator from '@/components/Separator.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
@@ -53,14 +54,23 @@ const ultraviolentRay = '魔光'
     <div class="gap-strat flex items-center">我们将所有人分为MT组和ST组，MT组去左下平台，ST组去右下平台。</div>
     <div class="gap-strat flex items-center">
       然后按照
-      <RoleIcon role="tank" />
-      <RoleIcon role="healer" />
-      <RoleIcon role="melee" />
-      (
-      <RoleIcon role="ranged" />
-      /
-      <RoleIcon role="magic" />
-      ) 的顺序排队，从北至南，
+      <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
+      <ul class="list-none space-y-4">
+        <li class="flex items-center gap-1 text-lg">
+          <RoleIcon role="tank" tag="ST" />
+          <RoleIcon role="melee" tag="D2" />
+          <RoleIcon role="magic" tag="D4" />
+          <RoleIcon role="healer" tag="H2" />
+        </li>
+
+        <li class="flex items-center gap-1 text-lg">
+          <RoleIcon role="tank" tag="MT" />
+          <RoleIcon role="melee" tag="D1" />
+          <RoleIcon role="ranged" tag="D3" />
+          <RoleIcon role="healer" tag="H1" />
+        </li>
+      </ul>
+      的顺序从北至南排队，
     </div>
 
     <div class="gap-strat flex items-center">
@@ -87,5 +97,5 @@ const ultraviolentRay = '魔光'
       </div>
       <div class="flex gap-4"></div>
     </div>
-  </div></SolutionSection
->
+  </div>
+</SolutionSection>

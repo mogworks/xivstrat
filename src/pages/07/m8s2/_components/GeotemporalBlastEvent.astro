@@ -1,0 +1,25 @@
+---
+import type { Time } from '@/lib/utils'
+
+import EventSection from '@/components/section/EventSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Badge from '@/components/Badge.astro'
+import VulnerabilityUp from '@/components/buff/VulnerabilityUp.astro'
+
+import PatienceOfStoneDebuff from '../_components/PatienceOfStoneDebuff.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<EventSection time={start} base={base}>
+  <PatienceOfStoneDebuff />
+  判定
+  <DamageInfo damage="200000" type="magical" />
+  <VulnerabilityUp tag="2" />
+  <Badge variant="pink">6人分摊</Badge>
+</EventSection>

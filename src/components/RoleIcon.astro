@@ -5,6 +5,8 @@ import EntityIcon from '@/components/EntityIcon.astro'
 
 import any from '/pixi/role/any.png?url'
 import all from '/pixi/role/all.png?url'
+import tankdps from '/pixi/role/tankdps.png?url'
+import healerdps from '/pixi/role/healerdps.png?url'
 import tank from '/pixi/role/tank.png?url'
 import healer from '/pixi/role/healer.png?url'
 import dps from '/pixi/role/dps.png?url'
@@ -24,6 +26,8 @@ const { role = 'any', tag = '', class: className = '' }: Props = Astro.props
 const img = {
   any,
   all,
+  tankdps,
+  healerdps,
   tank,
   healer,
   dps,

@@ -1,6 +1,8 @@
 export type RoleType =
   | 'any'
   | 'all'
+  | 'tankdps'
+  | 'healerdps'
   | 'tank'
   | 'healer'
   | 'dps'
