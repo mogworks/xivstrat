@@ -13,6 +13,8 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
 
+import { translations } from '../_translations'
+
 interface Props {
   start: Time
   base?: Time
@@ -20,8 +22,8 @@ interface Props {
 
 const { start, base = 0 }: Props = Astro.props
 
-const revolutionaryReign = '廻の郡狼剣'
-const eminentReign = '薙の郡狼剣'
+const revolutionaryReign = translations.revolutionaryReign
+const eminentReign = translations.eminentReign
 
 const duration = 4.8
 
