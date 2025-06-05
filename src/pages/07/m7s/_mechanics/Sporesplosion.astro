@@ -17,12 +17,15 @@ import GlowerPowerCast from '../_components/GlowerPowerCast.astro'
 import ElectrogeneticForceActivate from '../_components/ElectrogeneticForceActivate.astro'
 import RevengeOfTheVinesCast from '../_components/RevengeOfTheVinesCast.astro'
 import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
   base?: Time
 }
 const { start, base = 0 }: Props = Astro.props
+const brutishSwing = translations.brutishSwing
+const glowerPower = translations.glowerPower
 ---
 
 <SporesplosionCast start={start} base={base} />
@@ -65,9 +68,9 @@ const { start, base = 0 }: Props = Astro.props
   <div class="flex flex-col gap-4">
     <div class="gap-strat flex items-center">
       同时观察Boss手中的武器和连线墙，注意站位，紧接着需要躲避
-      <Span variant="yellow">Brutish Swing</Span>
+      <Span variant="yellow">{brutishSwing}</Span>
       ，
-      <Span variant="yellow">Glower Power</Span>
+      <Span variant="yellow">{glowerPower}</Span>
       和
       <Span variant="yellow">Electrogenetic Force</Span>
       的组合技

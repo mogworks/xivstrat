@@ -2,11 +2,12 @@
 import type { Time } from '@/lib/utils'
 
 import CastSection from '@/components/section/CastSection.astro'
-
-import BruteAbombinator from './BruteAbombinator.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import StratInterval from '@/components/StratInterval.astro'
 import Span from '@/components/Span.vue'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -14,6 +15,7 @@ interface Props {
 }
 
 const { start, base = 0 }: Props = Astro.props
+const sinisterSeeds = translations.sinisterSeeds
 ---
 
 <EventSection>
@@ -21,6 +23,6 @@ const { start, base = 0 }: Props = Astro.props
   <Fragment>
     <BruteAbombinator />
     读条
-    <Span variant="yellow">Sinister Seeds</Span>
+    <Span variant="yellow">{sinisterSeeds}</Span>
   </Fragment>
 </EventSection>

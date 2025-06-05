@@ -1,10 +1,14 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import EventSection from '@/components/section/EventSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
 import BrutalImpactActivate from './_components/BrutalImpactActivate.astro'
 import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
+import SpecialBombarianSpecial from './_mechanics/SpecialBombarianSpecial.astro'
+import ArtisticAnarchy from '../m6s/_mechanics/ArtisticAnarchy.astro'
 
 const dutyId = '07/m7s'
 const base = '06:16.310'
@@ -79,4 +83,6 @@ const base = '06:16.310'
   <AttackSection time="10:48.792" base={base} damage="57000" damageType="physical" />
   <AttackSection time="10:51.819" base={base} damage="57000" damageType="physical" />
   <AttackSection time="10:54.850" base={base} damage="57000" damageType="physical" />
+  <SeparatorSection id="special-bombarian-special" title="Special Bombarian Special" />
+  <SpecialBombarianSpecial base={base} />
 </DutyStratLayout>
