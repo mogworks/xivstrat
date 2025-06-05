@@ -3,6 +3,7 @@ import type { Time } from '@/lib/utils'
 
 import { Image } from 'astro:assets'
 
+import DamageDown from '@/components/buff/DamageDown.astro'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
@@ -29,7 +30,8 @@ import xreign_8 from '@/assets/07/m8s1/xreign/8.png'
 import xreign_9 from '@/assets/07/m8s1/xreign/9.png'
 import xreign_10 from '@/assets/07/m8s1/xreign/10.png'
 import xreign_11 from '@/assets/07/m8s1/xreign/11.png'
-import DamageDown from '@/components/buff/DamageDown.astro'
+import xreign_12 from '@/assets/07/m8s1/xreign/12.png'
+import xreign_13 from '@/assets/07/m8s1/xreign/13.png'
 
 interface Props {
   start: Time
@@ -187,14 +189,14 @@ const { start, base = 0 }: Props = Astro.props
       <div class="max-w-90">
         <Image
           src={xreign_9}
-          alt="群狼剑：正三角 BOSS移动至左下"
+          alt="群狼剑：BOSS冲锋至右上读条释放钢铁"
           class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
         />
       </div>
       <div class="max-w-90">
         <Image
           src={xreign_10}
-          alt="群狼剑：倒三角 BOSS移动至正下"
+          alt="群狼剑：BOSS冲锋至正上读条释放扇形"
           class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
         />
       </div>
@@ -237,6 +239,22 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="pink">30°</Span>
       的扇形分摊：
     </div>
+    <div class="flex gap-4">
+      <div class="max-w-90">
+        <Image
+          src={xreign_11}
+          alt="群狼剑：BOSS冲锋至右上读条释放钢铁，并对玩家释放死刑和分摊"
+          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+      </div>
+      <div class="max-w-90">
+        <Image
+          src={xreign_12}
+          alt="群狼剑：BOSS冲锋至正上读条释放扇形，并对玩家释放死刑和分摊"
+          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+      </div>
+    </div>
     <div class="gap-strat flex items-center">
       死刑对
       <Span variant="blue">防护职业</Span>
@@ -251,6 +269,56 @@ const { start, base = 0 }: Props = Astro.props
       <DamageInfo damage="170000" type="physical" />
       <PhysicalVulnerabilityUp tag="1" hover />
       （三人分摊时人均）
+    </div>
+    <div class="mt-12 text-2xl">
+      <Span variant="yellow">Bug</Span>
+    </div>
+    <div class="gap-strat flex items-center">
+      眼尖的同学可能已经发现，以下两张图，
+      <HowlingBlade />
+      与场地中心的距离有细微差别：
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-90">
+        <Image
+          src={xreign_9}
+          alt="群狼剑：BOSS冲锋至右上读条释放钢铁"
+          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+      </div>
+      <div class="max-w-90">
+        <Image
+          src={xreign_10}
+          alt="群狼剑：BOSS冲锋至正上读条释放扇形"
+          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">
+      从目标环的缺口与电网的距离可以较容易看出：左图
+      <HowlingBlade />
+      与场地中心的距离更近，右图更远
+    </div>
+    <div class="gap-strat flex items-center">这并非我们作图错误，而是该机制的bug，具体来说：</div>
+    <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
+      <div class="gap-strat flex items-center">
+        <HowlingBlade />
+        在东北、东南两个方向释放圆形/扇形时，距离场中约
+        <Span variant="pink">7m</Span>
+      </div>
+      <div class="gap-strat flex items-center">
+        <HowlingBlade />
+        在西北、正北、西南、正南四个方向释放圆形/扇形时，距离场中约
+        <Span variant="pink">7.5m</Span>
+      </div>
+    </div>
+    <div class="gap-strat flex items-center">前者会让我们更难躲避圆形范围伤害，但影响不是很大，如下图：</div>
+    <div class="max-w-90">
+      <Image
+        src={xreign_13}
+        alt="群狼剑：西北和东北方向的圆形范围对比"
+        class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+      />
     </div>
   </div>
 </MechanicSection>
