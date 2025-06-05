@@ -56,24 +56,7 @@ const text =
   }[role]
 ---
 
-<EntityIcon icon={img} tag={tag} alt={tag ?? role} class={cn(className, 'standard-role-icon')}>
+<EntityIcon icon={img} tag={tag} alt={tag ?? role} class={className} data-icon="standard-icon">
   <slot />
 </EntityIcon>
-<div class={cn(className, 'minimal-role-icon')}>{text}<slot /></div>
-
-<script>
-  import { subscribeKeys } from 'nanostores'
-
-  import { $stratSettings } from '@/stores/stratSettings'
-
-  subscribeKeys($stratSettings, ['readModeSetting'], (stratSettings) => {
-    // 切换阅读模式
-    const isMinimal = stratSettings.readModeSetting === 'minimal'
-    document.querySelectorAll<HTMLElement>('.standard-role-icon').forEach((e) => {
-      e.style.display = isMinimal ? 'none' : ''
-    })
-    document.querySelectorAll<HTMLElement>('.minimal-role-icon').forEach((e) => {
-      e.style.display = isMinimal ? '' : 'none'
-    })
-  })
-</script>
+<div class={className} data-icon="minimal-icon">{text}<slot /></div>

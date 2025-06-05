@@ -109,7 +109,15 @@ const duty = (await getEntry('duties', dutyId))!.data
           )
           e.classList.add('text-foreground', '[text-shadow:_0_0_1px_var(--color-background)]')
         })
+      // 对于角色、目标等图标
+      document.querySelectorAll<HTMLElement>('[data-icon="standard-icon"]').forEach((e) => {
+        e.style.display = 'none'
+      })
+      document.querySelectorAll<HTMLElement>('[data-icon="minimal-icon"]').forEach((e) => {
+        e.style.display = ''
+      })
     } else {
+      // 对于高亮词条
       document
         .querySelectorAll<HTMLElement>(
           'section.strat-section:not(.separator-section) span:not(.strat-time):not(.damage-info)',
@@ -120,6 +128,13 @@ const duty = (await getEntry('duties', dutyId))!.data
             delete e.dataset.originalClass
           }
         })
+      // 对于角色、目标等图标
+      document.querySelectorAll<HTMLElement>('[data-icon="standard-icon"]').forEach((e) => {
+        e.style.display = ''
+      })
+      document.querySelectorAll<HTMLElement>('[data-icon="minimal-icon"]').forEach((e) => {
+        e.style.display = 'none'
+      })
     }
   })
 </script>

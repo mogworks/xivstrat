@@ -11,10 +11,10 @@ interface Props {
   iconClass?: string
 }
 
-const { icon, tag = '', alt = '', class: className = '', iconClass = '' }: Props = Astro.props
+const { icon, tag = '', alt = '', class: className = '', iconClass = '', ...props }: Props = Astro.props
 ---
 
-<div class={cn('relative h-full inline-flex items-center gap-px', className)}>
+<div class={cn('relative h-full inline-flex items-center gap-px', className)} {...props}>
   <Icon img={icon} alt={alt ?? tag} tag={tag} iconClass={iconClass} />
   <div class="text-decimal">
     <slot />
