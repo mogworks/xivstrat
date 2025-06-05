@@ -1,26 +1,26 @@
 ---
-import type { JobType } from '@/lib/job'
+import type { CombinedRoleType, RoleType } from '@/lib/role'
 
 import { cn } from '@/lib/utils'
 
 import Action from '@/components/Action.astro'
-import JobIcon from '@/components/JobIcon.astro'
 
 import icon from '@/assets/action/31399.png'
+import RoleIcon from '@/components/RoleIcon.astro'
 
 interface Props {
   class?: string
   actionClass?: string
-  job?: JobType
+  role?: RoleType | CombinedRoleType
   stage?: 0 | 1 | 2 | 3
   tag?: string
 }
 
-const { actionClass = '', class: className = '', job, stage, tag }: Props = Astro.props
+const { actionClass = '', class: className = '', role, stage, tag }: Props = Astro.props
 ---
 
 <div class={cn('relative inline-flex', className)}>
-  {job && <JobIcon job={job} class="relative -bottom-2 left-2.5 z-10 -ml-3" />}
+  {role && <RoleIcon role={role} class="relative -bottom-2 left-2.5 z-10 -ml-3" />}
   <Action icon={icon} name="极限技" class={actionClass} />
   {
     (tag || stage !== void 0) && (

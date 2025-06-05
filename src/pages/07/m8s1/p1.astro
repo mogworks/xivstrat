@@ -18,8 +18,15 @@ import TerrestrialTitans from './_mechanics/TerrestrialTitans.astro'
 import Xfang from './_mechanics/Xfang.astro'
 import XReign from './_mechanics/XReign.astro'
 
+import { translations } from './_translations'
+
 const dutyId = '07/m8s1'
 const base = 0
+
+const stonefang = translations.stonefang
+const windfang = translations.windfang
+const revolutionaryReign = translations.revolutionaryReign
+const eminentReign = translations.eminentReign
 ---
 
 <DutyStratLayout dutyId={dutyId}>
@@ -31,9 +38,9 @@ const base = 0
   </EventSection>
   <ExtraplanarPursuitCast start="00:10.195" base={base} />
   <MoveToCenterEvent time="00:20.019" base={base} />
-  <SeparatorSection id="stonefang-or-windfang" title="土の魔技 | 风の魔技" />
+  <SeparatorSection id="stonefang-or-windfang" title={`${stonefang} | ${windfang}`} />
   <Xfang start="00:23.131" base={base} />
-  <SeparatorSection id="revolutionary-reign-or-eminent-reign" title="廻の郡狼剣 | 薙の郡狼剣" />
+  <SeparatorSection id="revolutionary-reign-or-eminent-reign" title={`${revolutionaryReign} | ${eminentReign}`} />
   <XReign start="00:34.289" base={base} />
   <SeparatorSection />
   <ExtraplanarPursuitCast start="00:49.014" base={base} />

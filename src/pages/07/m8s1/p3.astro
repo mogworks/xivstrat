@@ -5,6 +5,7 @@ import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import Span from '@/components/Span.vue'
+import LimitBreak from '@/components/action/LimitBreak.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
@@ -102,4 +103,11 @@ const base = '04:19.898'
     <DamageInfo damage="9999999" type="special" />
     <Badge variant="fuchsia">狂暴</Badge>
   </EventSection>
+  <NoteSection>
+    如果此时
+    <HowlingBlade />
+    剩余血量过多，请酌情使用
+    <LimitBreak role="melee" stage={3} />
+    。 输出充足的情况下可以留到转场后减轻dps压力。
+  </NoteSection>
 </DutyStratLayout>

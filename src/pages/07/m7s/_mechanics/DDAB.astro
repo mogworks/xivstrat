@@ -4,7 +4,9 @@ import { Image } from 'astro:assets'
 
 import Boss from '@/components/Boss.astro'
 import img from '@/assets/07/m7s/Tmp.png'
+import LimitBreak from '@/components/action/LimitBreak.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import SolutionSection from '@/components/section/SolutionSection.astro'
@@ -24,7 +26,6 @@ interface Props {
 }
 
 const { start, base = 0 }: Props = Astro.props
-
 ---
 
 <DDMCast start={start} base={base} />
@@ -35,17 +36,17 @@ const { start, base = 0 }: Props = Astro.props
       荆棘墙生成连线，连接
       <RoleIcon role="tank" tag="MT" />
       和两名离墙体最近的
-      <RoleIcon role="any"/> 
+      <RoleIcon role="any" />
     </div>
     <div class="gap-strat flex items-center">
       被连线者
-      <RoleIcon role="any"/> 
+      <RoleIcon role="any" />
       受到的DoT伤害与连线墙的
       <Span variant="pink">距离成正比</Span>
       <ThornsOfDeathDebuff />
-      <ThornsOfDeathDebuff level={2}/>
-      <ThornsOfDeathDebuff level={3}/>
-      <ThornsOfDeathDebuff level={4}/>
+      <ThornsOfDeathDebuff level={2} />
+      <ThornsOfDeathDebuff level={3} />
+      <ThornsOfDeathDebuff level={4} />
     </div>
     <div class="gap-strat flex items-center">
       同时，
@@ -57,12 +58,11 @@ const { start, base = 0 }: Props = Astro.props
     </div>
   </div>
 </MechanicSection>
-<SolutionSection title='解法：萨利式'>
+<SolutionSection title="解法：萨利式">
   <div class="flex flex-col gap-4">
     <div class="gap-strat flex items-center">
       <RoleIcon role="dps" tag="D3" />
-      接短边的DoT线，
-      D4<RoleIcon role="dps" tag="D4" />
+      接短边的DoT线， D4<RoleIcon role="dps" tag="D4" />
       接长边的DoT线
     </div>
     <div class="gap-strat flex items-center">
@@ -94,3 +94,11 @@ const { start, base = 0 }: Props = Astro.props
     </div>
   </div>
 </SolutionSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      在不需要奶救场的前提下可以考虑在核爆出去的时候使用
+      <LimitBreak role="melee" stage={2} />
+    </div>
+  </div>
+</NoteSection>
