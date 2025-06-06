@@ -13,6 +13,8 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
 
+import { translations } from '../_translations'
+
 interface Props {
   start: Time
   base?: Time
@@ -20,8 +22,8 @@ interface Props {
 
 const { start, base = 0 }: Props = Astro.props
 
-const revolutionaryReign = '廻の郡狼剣'
-const eminentReign = '薙の郡狼剣'
+const revolutionaryReign = translations.revolutionaryReign
+const eminentReign = translations.eminentReign
 
 const duration = 4.8
 
@@ -58,7 +60,6 @@ const damageApplyTime = reign2Time + 1.2 + 0.3 // 1.2s读条，0.3s延迟补正
   <Badge variant="emerald">60°扇形</Badge>
   <Badge variant="red">死刑</Badge>
 </EventSection>
-
 <EventSection time={damageApplyTime}>
   <HowlingBlade />
   对

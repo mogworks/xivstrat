@@ -1,0 +1,32 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import ThornsOfDeathDebuff from './ThornsOfDeathDebuff.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+// 连线dot伤害参考：
+// https://www.fflogs.com/reports/1wmf3zgKVaFyGJ2X?fight=6
+// https://www.fflogs.com/reports/yftNGbrFxadJQkH8?fight=7
+---
+
+<CastSection
+  start={start}
+  base={base}
+  duration={2.7}
+  ability="Demolition Deathmatch"
+  damage="8000~160000"
+  damageType="special"
+>
+  <BruteAbombinator slot="source" />
+  <ThornsOfDeathDebuff />
+  <Badge variant="pink">DoT</Badge>
+</CastSection>

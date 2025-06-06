@@ -11,14 +11,22 @@ import HowlingBlade from './_components/HowlingBlade.astro'
 import MoveToNorthEvent from './_components/MoveToNorthEvent.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 import TrackingTremorsCast from './_components/TrackingTremorsCast.astro'
+import XReignCast from './_components/XReignCast.astro'
 
 import MillennialDecay from './_mechanics/MillennialDecay.astro'
 import TerrestrialTitans from './_mechanics/TerrestrialTitans.astro'
 import Xfang from './_mechanics/Xfang.astro'
 import XReign from './_mechanics/XReign.astro'
 
+import { translations } from './_translations'
+
 const dutyId = '07/m8s1'
 const base = 0
+
+const stonefang = translations.stonefang
+const windfang = translations.windfang
+const revolutionaryReign = translations.revolutionaryReign
+const eminentReign = translations.eminentReign
 ---
 
 <DutyStratLayout dutyId={dutyId}>
@@ -30,9 +38,9 @@ const base = 0
   </EventSection>
   <ExtraplanarPursuitCast start="00:10.195" base={base} />
   <MoveToCenterEvent time="00:20.019" base={base} />
-  <SeparatorSection id="stonefang-or-windfang" title="土の魔技 | 风の魔技" />
+  <SeparatorSection id="stonefang-or-windfang" title={`${stonefang} | ${windfang}`} />
   <Xfang start="00:23.131" base={base} />
-  <SeparatorSection id="xregin" title="廻の郡狼剣 | 薙の郡狼剣" />
+  <SeparatorSection id="revolutionary-reign-or-eminent-reign" title={`${revolutionaryReign} | ${eminentReign}`} />
   <XReign start="00:34.289" base={base} />
   <SeparatorSection />
   <ExtraplanarPursuitCast start="00:49.014" base={base} />
@@ -46,6 +54,6 @@ const base = 0
   <MoveToCenterEvent time="02:12.198" base={base} />
   <SeparatorSection id="terrestrial-titans" title="大地の呼び声" />
   <TerrestrialTitans time="02:14.825" base={base} />
-  <XReign start="02:34.000" base={base} />
+  <XReignCast start="02:34.300" base={base} />
   <MoveToNorthEvent time="02:53.751" base={base} />
 </DutyStratLayout>
