@@ -35,9 +35,7 @@ const {
   {
     imgs.map((img: Img) => (
       <ImgWrapper
-        src={img.src}
-        alt={img.alt}
-        title={img.title}
+        {...img}
         bordered={img.bordered ?? bordered}
         borderVariant={img.borderVariant ?? borderVariant}
         rounded={img.rounded ?? rounded}
