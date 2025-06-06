@@ -15,7 +15,7 @@ const props = defineProps<{
 
 <template>
   <span :class="cn('relative -mx-[calc(1em*2/18)] inline-block h-[calc(1em*27/18)] w-[calc(1em*27/18)]', props.class)">
-    <div class="relative inline-block w-full translate-y-[-12.5%]">
+    <div class="relative inline-block w-full translate-y-[-12.5%] align-middle">
       <slot>
         <img :src="icon.src" :alt="description">
       </slot>

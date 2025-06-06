@@ -14,7 +14,7 @@ interface Props {
 const { icon, tag = '', alt = '', class: className = '', iconClass = '' }: Props = Astro.props
 ---
 
-<div class={cn('relative h-full inline-flex items-center gap-px', className)}>
+<div class={cn('relative h-full inline-flex items-center gap-px align-middle', className)}>
   <slot name="icon">
     <Icon img={icon} alt={alt ?? tag} tag={tag} iconClass={iconClass} />
   </slot>
