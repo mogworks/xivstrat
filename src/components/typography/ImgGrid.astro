@@ -8,7 +8,7 @@ import ImgWrapper from '@/components/typography/ImgWrapper.astro'
 import { cn } from '@/lib/utils'
 
 interface Props {
-  columnTitles: [string, string]
+  columnTitles: string[]
   rows: {
     title: string
     titleVariant?: VariantType
@@ -17,6 +17,7 @@ interface Props {
       class?: string
     }[]
   }[]
+  columnWidth?: string
   class?: string
   defaultImgWrapperStyle?: {
     bordered?: boolean
@@ -29,103 +30,77 @@ interface Props {
   [key: string]: any
 }
 
-const { columnTitles, rows, class: className = '', defaultImgWrapperStyle = {}, ...rest }: Props = Astro.props
+const {
+  columnTitles,
+  rows,
+  columnWidth = '24rem',
+  class: className = '',
+  defaultImgWrapperStyle = {},
+  ...rest
+}: Props = Astro.props
+
 const defaultTitleClass = 'flex justify-center text-lg font-bold tracking-wider'
+const colCount = columnTitles.length
+const rowCount = rows.length
 ---
 
 <div
-  class={cn(
-    'grid grid-cols-[min-content_1px_minmax(0,24rem)_1px_minmax(0,24rem)] grid-rows-[min-content_1px_1fr_1px_1fr]',
-    className,
-  )}
+  class={cn('grid', className)}
+  style={{
+    '--col-count': colCount,
+    '--row-count': rowCount,
+    '--col-width': columnWidth,
+    'grid-template-columns': `min-content repeat(${colCount}, 1px minmax(0, ${columnWidth}))`,
+    'grid-template-rows': `min-content repeat(${rowCount}, 1px 1fr)`,
+  }}
   {...rest}
 >
+  <!-- 第一列垂直分隔线 -->
   <Separator class="col-start-2" orientation="vertical" />
-  <div class={cn(defaultTitleClass, 'pb-2')}>{columnTitles[0]}</div>
-  <Separator orientation="vertical" />
-  <div class={cn(defaultTitleClass, 'pb-2')}>{columnTitles[1]}</div>
 
+  <!-- 列标题 -->
+  {
+    columnTitles.map((title, index) => (
+      <>
+        <div class={cn(defaultTitleClass, 'pb-2')}>{title}</div>
+        {index < columnTitles.length - 1 && <Separator orientation="vertical" />}
+      </>
+    ))
+  }
+
+  <!-- 标题行下的水平分隔线 -->
   <Separator class="col-span-full" />
 
-  <div class={cn(defaultTitleClass, 'pr-2 [text-orientation:mixed] [writing-mode:vertical-lr]')}>
-    <Span variant={rows[0].titleVariant || 'default'}>{rows[0].title}</Span>
-  </div>
-  <Separator orientation="vertical" />
-  <div class={`px-3 py-2 ${rows[0].cells[0].class || ''}`}>
-    {
-      rows[0].cells[0].img && (
-        <ImgWrapper
-          {...rows[0].cells[0].img}
-          bordered={rows[0].cells[0].img.bordered ?? defaultImgWrapperStyle.bordered}
-          borderVariant={rows[0].cells[0].img.borderVariant ?? defaultImgWrapperStyle.borderVariant}
-          rounded={rows[0].cells[0].img.rounded ?? defaultImgWrapperStyle.rounded}
-          class={rows[0].cells[0].img.class ?? defaultImgWrapperStyle.class}
-          imgClass={rows[0].cells[0].img.imgClass ?? defaultImgWrapperStyle.imgClass}
-          titleClass={rows[0].cells[0].img.titleClass ?? defaultImgWrapperStyle.titleClass}
-        />
-      )
-    }
-  </div>
-
-  <Separator orientation="vertical" />
-
-  <div class={`px-3 py-2 ${rows[0].cells[1].class || ''}`}>
-    {
-      rows[0].cells[1].img && (
-        <ImgWrapper
-          {...rows[0].cells[1].img}
-          bordered={rows[0].cells[1].img.bordered ?? defaultImgWrapperStyle.bordered}
-          borderVariant={rows[0].cells[1].img.borderVariant ?? defaultImgWrapperStyle.borderVariant}
-          rounded={rows[0].cells[1].img.rounded ?? defaultImgWrapperStyle.rounded}
-          class={rows[0].cells[1].img.class ?? defaultImgWrapperStyle.class}
-          imgClass={rows[0].cells[1].img.imgClass ?? defaultImgWrapperStyle.imgClass}
-          titleClass={rows[0].cells[1].img.titleClass ?? defaultImgWrapperStyle.titleClass}
-        />
-      )
-    }
-  </div>
-
-  <!-- 第二行（如果存在） -->
+  <!-- 数据行 -->
   {
-    rows.length > 1 && (
+    rows.map((row, rowIndex) => (
       <>
-        <Separator class="col-span-full" />
-
-        <div class="flex justify-center pr-2 text-lg font-bold tracking-wider [text-orientation:mixed] [writing-mode:vertical-lr]">
-          <Span variant={rows[1].titleVariant || 'default'}>{rows[1].title}</Span>
+        <div class={cn(defaultTitleClass, 'pr-2 [text-orientation:mixed] [writing-mode:vertical-lr]')}>
+          <Span variant={row.titleVariant || 'default'}>{row.title}</Span>
         </div>
         <Separator orientation="vertical" />
 
-        <div class={`px-3 py-2 ${rows[1].cells[0].class || ''}`}>
-          {rows[1].cells[0].img && (
-            <ImgWrapper
-              {...rows[1].cells[0].img}
-              bordered={rows[1].cells[0].img.bordered ?? defaultImgWrapperStyle.bordered}
-              borderVariant={rows[1].cells[0].img.borderVariant ?? defaultImgWrapperStyle.borderVariant}
-              rounded={rows[1].cells[0].img.rounded ?? defaultImgWrapperStyle.rounded}
-              class={rows[1].cells[0].img.class ?? defaultImgWrapperStyle.class}
-              imgClass={rows[1].cells[0].img.imgClass ?? defaultImgWrapperStyle.imgClass}
-              titleClass={rows[1].cells[0].img.titleClass ?? defaultImgWrapperStyle.titleClass}
-            />
-          )}
-        </div>
+        {row.cells.map((cell, cellIndex) => (
+          <>
+            <div class={`px-3 py-2 ${cell.class || ''}`}>
+              {cell.img && (
+                <ImgWrapper
+                  {...cell.img}
+                  bordered={cell.img.bordered ?? defaultImgWrapperStyle.bordered}
+                  borderVariant={cell.img.borderVariant ?? defaultImgWrapperStyle.borderVariant}
+                  rounded={cell.img.rounded ?? defaultImgWrapperStyle.rounded}
+                  class={cell.img.class ?? defaultImgWrapperStyle.class}
+                  imgClass={cell.img.imgClass ?? defaultImgWrapperStyle.imgClass}
+                  titleClass={cell.img.titleClass ?? defaultImgWrapperStyle.titleClass}
+                />
+              )}
+            </div>
+            {cellIndex < row.cells.length - 1 && <Separator orientation="vertical" />}
+          </>
+        ))}
 
-        <Separator orientation="vertical" />
-
-        <div class={`px-3 py-2 ${rows[1].cells[1].class || ''}`}>
-          {rows[1].cells[1].img && (
-            <ImgWrapper
-              {...rows[1].cells[1].img}
-              bordered={rows[1].cells[1].img.bordered ?? defaultImgWrapperStyle.bordered}
-              borderVariant={rows[1].cells[1].img.borderVariant ?? defaultImgWrapperStyle.borderVariant}
-              rounded={rows[1].cells[1].img.rounded ?? defaultImgWrapperStyle.rounded}
-              class={rows[1].cells[1].img.class ?? defaultImgWrapperStyle.class}
-              imgClass={rows[1].cells[1].img.imgClass ?? defaultImgWrapperStyle.imgClass}
-              titleClass={rows[1].cells[1].img.titleClass ?? defaultImgWrapperStyle.titleClass}
-            />
-          )}
-        </div>
+        {rowIndex < rows.length - 1 && <Separator class="col-span-full" />}
       </>
-    )
+    ))
   }
 </div>
