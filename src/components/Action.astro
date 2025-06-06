@@ -9,6 +9,7 @@ interface Props {
   icon: ImageMetadata
   name: string
   class?: string
+  [key: string]: any
 }
 
 const { icon, name, class: className = '', ...props }: Props = Astro.props

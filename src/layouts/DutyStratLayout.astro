@@ -33,7 +33,7 @@ const duty = (await getEntry('duties', dutyId))!.data
 
   import { $stratSettings } from '@/stores/stratSettings'
 
-  subscribeKeys($stratSettings, ['viewMode', 'readModeSetting', 'attackEvent'], (stratSettings) => {
+  subscribeKeys($stratSettings, ['viewMode', 'readMode', 'attackEvent'], (stratSettings) => {
     if (stratSettings.attackEvent === 'only') {
       // 只显示普通攻击
       document.querySelectorAll('section.strat-section:not(.attack-section)').forEach((e) => {
@@ -84,7 +84,7 @@ const duty = (await getEntry('duties', dutyId))!.data
       }
     }
     // 对于阅读模式
-    if (stratSettings.readModeSetting === 'minimal') {
+    if (stratSettings.readMode === 'minimal') {
       const colorClassReg = /^text-[a-z]+-\d{3}(?:\/\d+)?$/
       const darkColorClassReg = /^dark:text-[a-z]+-\d{3}(?:\/\d+)?$/
       const textShadowReg = /^\[text-shadow.*\]$/

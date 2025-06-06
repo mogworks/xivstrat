@@ -45,7 +45,7 @@ const viewModeSetting = {
   },
 }
 
-const readModeSetting = {
+const readMode = {
   name: '阅读模式',
   options: [
     {
@@ -60,7 +60,7 @@ const readModeSetting = {
     },
   ],
   onChange: (value: string) => {
-    $stratSettings.setKey('readModeSetting', value as 'standard' | 'minimal')
+    $stratSettings.setKey('readMode', value as 'standard' | 'minimal')
   },
 }
 
@@ -151,10 +151,10 @@ const timeFormatSetting = {
           :on-value-change="viewModeSetting.onChange"
         />
         <RadioGroup
-          :name="readModeSetting.name"
-          :default-value="stratSettings.readModeSetting"
-          :options="readModeSetting.options"
-          :on-value-change="readModeSetting.onChange"
+          :name="readMode.name"
+          :default-value="stratSettings.readMode"
+          :options="readMode.options"
+          :on-value-change="readMode.onChange"
         />
         <RadioGroup
           :name="attackEventSetting.name"

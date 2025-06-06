@@ -2,7 +2,7 @@ import { persistentMap } from '@nanostores/persistent'
 
 export interface StratSettings {
   viewMode: 'default' | 'solution' | 'timeline' | 'damage'
-  readModeSetting: 'standard' | 'minimal'
+  readMode: 'standard' | 'minimal'
   attackEvent: 'hide' | 'show' | 'only'
   timelineOrigin: 'global' | 'phase'
   timeFormat: 'mm:ss' | 's'
@@ -14,7 +14,7 @@ export const $stratSettings = persistentMap<StratSettings>(
   'stratSettings:',
   {
     viewMode: 'default',
-    readModeSetting: 'standard',
+    readMode: 'standard',
     attackEvent: 'hide',
     timelineOrigin: 'global',
     timeFormat: 'mm:ss',
