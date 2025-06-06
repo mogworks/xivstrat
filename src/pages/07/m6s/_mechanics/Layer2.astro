@@ -69,12 +69,12 @@ const heatingUpTime = '02:52.408'
       {' '}
       <Span variant="zinc">#2</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <SugarRiot />
       连线场外北侧画卷，添加流沙图层
     </div>
     <Image src={paint_3} alt="Layer Paint #2" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <SugarRiot />
       读条结束后，图层具现化，场地出现大量仙人掌和流沙，仅有三个角落安全，如下图
     </div>
@@ -82,7 +82,7 @@ const heatingUpTime = '02:52.408'
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Spray Pain</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       半径
       <Span variant="pink">10m</Span>
       的圆形AoE，对范围内的玩家造成
@@ -93,7 +93,7 @@ const heatingUpTime = '02:52.408'
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">流沙</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       流沙
       <Span variant="pink">开始下沉</Span>
       后，站入其中会被赋予
@@ -104,11 +104,11 @@ const heatingUpTime = '02:52.408'
 </MechanicSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       随机一个角落会被仙人掌覆盖，剩下三个角落安全
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="healer" tag="H1" />
       <RoleIcon role="healer" tag="H2" />
@@ -127,8 +127,8 @@ const heatingUpTime = '02:52.408'
 </NoteSection>
 <SolutionSection title="解法：日野主流（场地基准）">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">三个安全角落分配如下：</div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">三个安全角落分配如下：</div>
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="healer" tag="H1" />
       优先去
@@ -136,7 +136,7 @@ const heatingUpTime = '02:52.408'
       ，若西北角危险则去
       <Span variant="purple">西南角</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="healer" tag="H2" />
       优先去
@@ -144,7 +144,7 @@ const heatingUpTime = '02:52.408'
       ，若东南角危险则去
       <Span variant="purple">西南角</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="tank" />
       <RoleIcon role="dps" />
@@ -153,17 +153,17 @@ const heatingUpTime = '02:52.408'
       ，若东北角危险则去
       <Span variant="purple">西南角</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       即，每个人都有一个自己优先的角落和一个共有的备选角落，若自己的角落危险就去备选的
       <Span variant="purple">西南角</Span>
     </div>
-    <div class="gap-strat mt-8 flex items-center">以西北角危险为例：</div>
+    <div class="paragraph mt-8">以西北角危险为例：</div>
     <Image
       src={solution_jp}
       alt="Layer #2 Solution JP"
       class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
     />
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <RoleIcon role="healer" tag="H1" />
       因
       <Span variant="red">西北角</Span>
@@ -179,10 +179,10 @@ const heatingUpTime = '02:52.408'
       去
       <Span variant="yellow">东北角</Span>
     </div>
-    <div class="gap-strat mt-8 flex items-center">
+    <div class="paragraph mt-8">
       该解法的优点是判断简单，每个人只需关注自己的角落，若安全就直接前往，若危险则改去西南角
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       缺点是当东北角安全时，由于
       <RoleIcon role="tank" />
       <RoleIcon role="dps" />
@@ -196,26 +196,26 @@ const heatingUpTime = '02:52.408'
 </SolutionSection>
 <SolutionSection title="解法：危险角基准">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       首先找到危险角落，接着
       <Span variant="pink">以危险角落为12点</Span>
       ：
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="healer" tag="H1" />
       去
       <Span variant="pink">左侧（9点）</Span>
       角落
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="healer" tag="H2" />
       去
       <Span variant="pink">右侧（3点）</Span>
       角落
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="tank" />
       <RoleIcon role="dps" />
@@ -223,13 +223,13 @@ const heatingUpTime = '02:52.408'
       <Span variant="pink">对侧（6点）</Span>
       角落
     </div>
-    <div class="gap-strat mt-8 flex items-center">以西北角危险为例：</div>
+    <div class="paragraph mt-8">以西北角危险为例：</div>
     <Image
       src={solution_op}
       alt="Layer #2 Solution Optimize"
       class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
     />
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       以西北角为12点，
       <RoleIcon role="healer" tag="H1" />
       去左，
@@ -239,7 +239,7 @@ const heatingUpTime = '02:52.408'
       <RoleIcon role="dps" />
       去对侧
     </div>
-    <div class="gap-strat mt-8 flex items-center">
+    <div class="paragraph mt-8">
       该解法的优点是不会出现
       <RoleIcon role="healer" />
       罚站的情况，缺点是多了【找危险角落】的步骤

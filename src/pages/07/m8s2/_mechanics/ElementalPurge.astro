@@ -41,7 +41,7 @@ const huntersHarvestTime = '09:08.204'
     <div class="text-2xl">
       <Span variant="yellow">{elementalPurge}</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <HowlingBlade />开始读条
       <Span variant="yellow">{elementalPurge}</Span>
       ，随机 1 <RoleIcon role="tank" />
@@ -49,7 +49,7 @@ const huntersHarvestTime = '09:08.204'
       头顶会出现点名标志。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       读条结束后， 被点名的
       <RoleIcon role="tank" />
       会获得
@@ -57,14 +57,14 @@ const huntersHarvestTime = '09:08.204'
       ：倒计时结束后对当前平台产生AoE伤害并赋予易伤，重叠即死。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <RoleIcon role="healer|dps" />
       则会获得
       <PatienceOfStoneDebuff tag="5" />
       ：倒计时结束后对当前平台所有人造成分摊伤害并赋予易伤，重叠即死。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       并且，
       <HowlingBlade />会锁定当前一仇，在稍后释放覆盖两个平台的顺劈死刑。
     </div>
@@ -73,20 +73,20 @@ const huntersHarvestTime = '09:08.204'
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       此时南边分平台，也就是初始平台已经被摧毁。在读条前，
       <RoleIcon role="tank" tag="双T" /> 请分别在左下和右下平台待机。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       人群在左上或右上平台待机。可以看出，点名的<RoleIcon role="tank" /> 不能吃顺劈，
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       因此需要在点名标记出现的时候，无标记的<RoleIcon role="tank" />确保自己是一仇。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       标记出现后，
       <RoleIcon role="healer|dps" />
       寻找有标记的<RoleIcon role="tank" />并且传送到旁边的平台等待分摊判定。

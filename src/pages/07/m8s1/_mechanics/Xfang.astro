@@ -49,7 +49,7 @@ const { start, base = 0 }: Props = Astro.props
       |
       <Span variant="green">{windfang}</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       根据读条不同，
       <HowlingBlade />
       会释放
@@ -63,7 +63,7 @@ const { start, base = 0 }: Props = Astro.props
       的组合技：
     </div>
     <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         <Span variant="orange">{stonefang}</Span>
         对应半径
         <Span variant="cyan">9m</Span>
@@ -73,7 +73,7 @@ const { start, base = 0 }: Props = Astro.props
         <Span variant="cyan">25°</Span>
         <Span variant="yellow">扇形分散</Span>
       </div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         <Span variant="green">{windfang}</Span>
         对应内径
         <Span variant="cyan">8m</Span>
@@ -86,13 +86,13 @@ const { start, base = 0 }: Props = Astro.props
         <Span variant="purple">扇形分摊</Span>
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <Span variant="purple">扇形分摊</Span>
       会比
       <Span variant="yellow">扇形分散</Span>
       略疼一些
     </div>
-    <div class="gap-strat mt-8 flex items-center">
+    <div class="paragraph mt-8">
       除了
       <Span variant="orange">钢铁</Span>
       和
@@ -103,7 +103,7 @@ const { start, base = 0 }: Props = Astro.props
       <GleamingFang />
       也会进入攻击姿态，在正点/斜点方向形成十字/X字形AoE
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       需要根据
       <GleamingFang />
       的展开位置来判断：
@@ -118,7 +118,7 @@ const { start, base = 0 }: Props = Astro.props
         <div>斜点方向光牙</div>
       </div>
     </div>
-    <div class="gap-strat mt-8 flex items-center">
+    <div class="paragraph mt-8">
       <Span variant="orange">{stonefang}</Span>
       |
       <Span variant="green">{windfang}</Span>
@@ -204,10 +204,10 @@ const { start, base = 0 }: Props = Astro.props
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center border-l-2 border-lime-500 pl-2 opacity-80">
+    <div class="paragraph border-l-2 border-lime-500 pl-2 opacity-80">
       本解法采用类似中国服【光暗未来绝境战】的八方站位，而非日服的标准八方站位
     </div>
-    <div class="gap-strat mt-8 flex items-center">
+    <div class="paragraph mt-8">
       根据
       <HowlingBlade />
       读条和
@@ -215,7 +215,7 @@ const { start, base = 0 }: Props = Astro.props
       方位，按下表站位：
       <ToggleSwitch id="xfang-solution-toggle" lVariant="lime" rVariant="pink" lLabel="预兆" rLabel="判定" />
     </div>
-    <div class="gap-strat flex items-center opacity-80">
+    <div class="paragraph opacity-80">
       注：下表
       <Span variant="orange">{stonefang}</Span>
       站位图中已将光牙的两种情况叠加
@@ -280,12 +280,12 @@ const { start, base = 0 }: Props = Astro.props
         />
       </div>
     </div>
-    <div class="gap-strat mt-8 flex items-center">
+    <div class="paragraph mt-8">
       若是
       <Span variant="orange">{stonefang}</Span>
       ，可无视光牙方位，按图示固定站位（图示已将光牙的两种情况叠加，显然无影响）
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       若是
       <Span variant="green">{windfang}</Span>
       ，则两两分组找
@@ -293,7 +293,7 @@ const { start, base = 0 }: Props = Astro.props
       ：
     </div>
     <div class="flex flex-col gap-4 border-l-2 border-lime-500 pl-2">
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         <RoleIcon role="tank" tag="MT" />
         <RoleIcon role="ranged" tag="D3" />
         去
@@ -312,7 +312,7 @@ const { start, base = 0 }: Props = Astro.props
         或
         <Span variant="yellow">2</Span>
       </div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         <RoleIcon role="healer" tag="H2" />
         <RoleIcon role="melee" tag="D2" />
         去
@@ -336,7 +336,7 @@ const { start, base = 0 }: Props = Astro.props
 </SolutionSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       若是
       <Span variant="orange">{stonefang}</Span>
       ，一个角落是可以站下三个人的，紧急情况时可以站到

@@ -31,13 +31,13 @@ const { start, base = 0 }: Props = Astro.props
 <AbBlinkCast start="04:39.719" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       荆棘墙生成连线，连接
       <RoleIcon role="tank" tag="MT" />
       和两名离墙体最近的
       <RoleIcon role="any" />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       被连线者
       <RoleIcon role="any" />
       受到的DoT伤害与连线墙的
@@ -47,7 +47,7 @@ const { start, base = 0 }: Props = Astro.props
       <ThornsOfDeathDebuff level={3} />
       <ThornsOfDeathDebuff level={4} />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       同时，
       <Boss />
       对
@@ -59,12 +59,12 @@ const { start, base = 0 }: Props = Astro.props
 </MechanicSection>
 <SolutionSection title="解法：萨利式">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <RoleIcon role="dps" tag="D3" />
       接短边的DoT线， D4<RoleIcon role="dps" tag="D4" />
       接长边的DoT线
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       被点名核爆的
       <RoleIcon role="tank" tag="其一" />
       尽可能远离人群
@@ -95,7 +95,7 @@ const { start, base = 0 }: Props = Astro.props
 </SolutionSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       在不需要奶救场的前提下可以考虑在核爆出去的时候使用
       <LimitBreak role="melee" stage={2} />
     </div>

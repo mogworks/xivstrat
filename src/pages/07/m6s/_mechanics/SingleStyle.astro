@@ -32,11 +32,11 @@ const { base = 0 }: Props = Astro.props
 </CastSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <SugarRiot />
       绘制箭矢图案并连线场外，连线末端会生成箭矢实体
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       箭矢出现后，读条
       <Span variant="yellow">Rush</Span>
       <DamageInfo damage="170000" type="physical" />
@@ -57,5 +57,5 @@ const { base = 0 }: Props = Astro.props
   </div>
 </MechanicSection>
 <SolutionSection>
-  <div class="gap-strat flex items-center">根据场边连线提示，躲开即可</div>
+  <div class="paragraph">根据场边连线提示，躲开即可</div>
 </SolutionSection>

@@ -146,6 +146,10 @@
   gap: calc(1em * 4 / 18);
 }
 
+@utility paragraph {
+  @apply gap-strat flex items-center;
+}
+
 @utility text-decimal {
   font-size: calc(1em * 16 / 18);
 }
