@@ -11,7 +11,9 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
-import P from '@/components/P.astro'
+
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
 
 import XReignCast from '../_components/XReignCast.astro'
 import HowlingBlade from '../_components/HowlingBlade.astro'
@@ -49,11 +51,11 @@ const { start, base = 0 }: Props = Astro.props
 <XReignCast start={start} base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
+    <T>
       <Span variant="yellow">{revolutionaryReign}</Span>
       |
       <Span variant="yellow">{eminentReign}</Span>
-    </div>
+    </T>
     <P>
       <HowlingBlade />
       读条期间，场地中心出现一个半径
@@ -271,9 +273,7 @@ const { start, base = 0 }: Props = Astro.props
       <PhysicalVulnerabilityUp tag="1" hover />
       （三人分摊时人均）
     </P>
-    <div class="mt-12 text-2xl">
-      <Span variant="yellow">Bug</Span>
-    </div>
+    <T text="Bug" variant="yellow" class="mt-12" />
     <P>
       眼尖的同学可能已经发现，以下两张图，
       <HowlingBlade />
@@ -326,9 +326,18 @@ const { start, base = 0 }: Props = Astro.props
 <SolutionSection>
   <div class="flex flex-col gap-4">
     <P>
-      如图所示，我们永远以面向
+      首先躲避初始黄圈，近战注意不要场中黄圈一消失就立刻突进，否则有概率吃到
       <HowlingBlade />
-      为基准，MT组在左侧，ST组在右侧。
+      脚下黄圈
+    </P>
+    <P>
+      接着在两侧躲避
+      <HowlingBlade />
+      的直线冲锋，以
+      <HowlingBlade />
+      冲锋的
+      <Span variant="pink">终点方向</Span>
+      为基准准备引导扇形
     </P>
     <P>
       如果是{revolutionaryReign}，就是1331的站位，T在两侧开好减伤吃死刑，双奶在中间分摊。
