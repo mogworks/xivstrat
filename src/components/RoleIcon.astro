@@ -16,6 +16,7 @@ import magic from '/pixi/role/magic.png?url'
 import ranged_magic from '/pixi/role/ranged_magic.png?url'
 import boss from '/pixi/enemy/061712.png?url'
 import enemy_level1 from '/pixi/enemy/061707.png?url'
+import EntityText from './EntityText.astro'
 
 interface Props {
   role: RoleType | CombinedRoleType
@@ -90,4 +91,4 @@ const text =
     </EntityIcon>
   )
 }
-<div class={cn(className, 'font-bold')} data-icon="minimal-icon">{text}<slot /></div>
+<EntityText class={className} data-icon="minimal-icon">{text}<slot /></EntityText>
