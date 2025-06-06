@@ -14,7 +14,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
-import ImageRow from '@/components/typography/ImageRow.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import XReignCast from '../_components/XReignCast.astro'
 import HowlingBlade from '../_components/HowlingBlade.astro'
@@ -76,7 +76,7 @@ const { start, base = 0 }: Props = Astro.props
       />
     </P>
     <div id="xreign-game-strat-toggle-div">
-      <ImageRow
+      <ImgRow
         class="game-img"
         wrapperClass="max-w-100"
         borderVariant="cyan"
@@ -93,7 +93,7 @@ const { start, base = 0 }: Props = Astro.props
           },
         ]}
       />
-      <ImageRow
+      <ImgRow
         class="strat-img hidden"
         wrapperClass="max-w-90"
         borderVariant="cyan"
@@ -119,7 +119,7 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="pink">6m</Span>
       的圆形范围伤害预兆：
     </P>
-    <ImageRow
+    <ImgRow
       borderVariant="cyan"
       rounded
       imgs={[
@@ -158,7 +158,7 @@ const { start, base = 0 }: Props = Astro.props
       />
     </P>
     <div id="xreign-wolves-reign-omen-activate-toggle-div">
-      <ImageRow
+      <ImgRow
         class="omen-img"
         borderVariant="cyan"
         rounded
@@ -173,7 +173,7 @@ const { start, base = 0 }: Props = Astro.props
           },
         ]}
       />
-      <ImageRow
+      <ImgRow
         class="activate-img hidden"
         borderVariant="cyan"
         rounded
@@ -196,7 +196,7 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="yellow">{wolvesReign}</Span>
       ，释放大范围的圆形或扇形伤害：
     </P>
-    <ImageRow
+    <ImgRow
       borderVariant="cyan"
       rounded
       imgs={[
@@ -248,7 +248,7 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="pink">30°</Span>
       的扇形分摊：
     </P>
-    <ImageRow
+    <ImgRow
       borderVariant="cyan"
       rounded
       imgs={[
@@ -283,7 +283,7 @@ const { start, base = 0 }: Props = Astro.props
       <HowlingBlade />
       与场地中心的距离有细微差别：
     </P>
-    <ImageRow
+    <ImgRow
       borderVariant="cyan"
       rounded
       imgs={[
@@ -316,7 +316,7 @@ const { start, base = 0 }: Props = Astro.props
       </P>
     </div>
     <P>前者会让我们更难躲避圆形范围伤害，但影响不是很大，如下图：</P>
-    <ImageRow
+    <ImgRow
       wrapperClass="max-w-90"
       borderVariant="cyan"
       rounded

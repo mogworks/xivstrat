@@ -13,12 +13,12 @@ import Separator from '@/components/Separator.astro'
 
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
-import ImageRow from '@/components/typography/ImageRow.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import XfangCast from '../_components/XfangCast.astro'
 import GleamingFang from '../_components/GleamingFang.astro'
 import HowlingBlade from '../_components/HowlingBlade.astro'
-import ImageGrid from '@/components/typography/ImageGrid.astro'
+import ImgGrid from '@/components/typography/ImgGrid.astro'
 
 import xfang_1 from '@/assets/07/m8s1/xfang/1.png'
 import xfang_2 from '@/assets/07/m8s1/xfang/2.png'
@@ -113,7 +113,7 @@ const { start, base = 0 }: Props = Astro.props
       <GleamingFang />
       的展开位置来判断：
     </P>
-    <ImageRow
+    <ImgRow
       wrapperClass="max-w-100"
       borderVariant="cyan"
       imgs={[
@@ -139,7 +139,7 @@ const { start, base = 0 }: Props = Astro.props
       <ToggleSwitch id="xfang-mechanic-toggle" lVariant="yellow" rVariant="pink" lLabel="预兆" rLabel="判定" />
     </P>
     <!-- 预兆表 -->
-    <ImageGrid
+    <ImgGrid
       id="xfang-mechanic-omen"
       columnTitles={['正点方向光牙', '斜点方向光牙']}
       rows={[
@@ -182,7 +182,7 @@ const { start, base = 0 }: Props = Astro.props
       ]}
     />
     <!-- 判定表 -->
-    <ImageGrid
+    <ImgGrid
       id="xfang-mechanic-activate"
       columnTitles={['正点方向光牙', '斜点方向光牙']}
       wrapperClass="hidden"
@@ -246,7 +246,7 @@ const { start, base = 0 }: Props = Astro.props
       站位图中已将光牙的两种情况叠加
     </P>
     <!-- 预兆表 -->
-    <ImageGrid
+    <ImgGrid
       id="xfang-solution-omen"
       columnTitles={['正点方向光牙', '斜点方向光牙']}
       rows={[
@@ -287,7 +287,7 @@ const { start, base = 0 }: Props = Astro.props
       ]}
     />
     <!-- 判定表 -->
-    <ImageGrid
+    <ImgGrid
       id="xfang-solution-activate"
       columnTitles={['正点方向光牙', '斜点方向光牙']}
       wrapperClass="hidden"

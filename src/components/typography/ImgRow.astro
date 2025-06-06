@@ -4,7 +4,7 @@ import type { Img } from '@/components/typography/img'
 
 import { cn } from '@/lib/utils'
 
-import ImageWrapper from '@/components/typography/ImageWrapper.astro'
+import ImgWrapper from '@/components/typography/ImgWrapper.astro'
 
 interface Props {
   imgs: Img[]
@@ -34,7 +34,7 @@ const {
 <div class={cn('flex gap-4', className)} {...rest}>
   {
     imgs.map((img: Img) => (
-      <ImageWrapper
+      <ImgWrapper
         src={img.src}
         alt={img.alt}
         title={img.title}
