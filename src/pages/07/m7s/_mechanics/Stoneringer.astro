@@ -4,6 +4,7 @@ import type { Time } from '@/lib/utils'
 import { Image } from 'astro:assets'
 
 import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
@@ -29,8 +30,8 @@ const { base = 0 }: Props = Astro.props
 <StoneringerCast start="00:20.89" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">观察Boss武器判断接下来Aoe类型，后续会和别的机制形成组合机制</div>
-
+    <div class="gap-strat flex items-center">BOSS掏出武器，此处是一把，P3会变成两把</div>
+    <div>稍后一把武器发光，发动对应钢铁/月环</div>
     <div class="flex gap-4">
       <div class="max-w-88 flex-1">
         <Image src={stoneringer_1} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
@@ -40,8 +41,14 @@ const { base = 0 }: Props = Astro.props
           <Span variant="yellow">情形1</Span>
         </h4>
         <div class="gap-strat flex items-center">
-          武器如图所示，稍后释放
-          <Span variant="yellow">钢铁</Span>， 吃到后会被赋予 <DamageDown tag="30" />
+          boss掏出一个棒槌，发光后释放半径<Span variant="pink">12m</Span>的<Span variant="yellow">钢铁</Span>
+        </div>
+        <div>范围大于最大近战攻击距离</div>
+        <div>
+          吃到后会被赋予
+          <DamageInfo damage="132000" type="physical" />
+          <DamageDown tag="30" hover />
+          <Span variant="rose" class="text-decimal">35%↓</Span>
         </div>
       </div>
     </div>
@@ -54,16 +61,23 @@ const { base = 0 }: Props = Astro.props
           <Span variant="yellow">情形2</Span>
         </h4>
         <div class="gap-strat flex items-center">
-          武器如图所示，稍后释放
-          <Span variant="yellow">月环</Span>， 吃到后会被赋予 <DamageDown tag="30" />
+          boss掏出一把长刀，发光后释放<Span variant="yellow">月环</Span>
+        </div>
+        <div>中间安全场地半径 <Span variant="pink">9m</Span></div>
+        <div>
+          吃到后会被赋予
+          <DamageInfo damage="132000" type="physical" />
+          <DamageDown tag="30" hover />
+          <Span variant="rose" class="text-decimal">35%↓</Span>
         </div>
       </div>
     </div>
   </div>
 </MechanicSection>
+
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">武器发光时根据武器类型追加钢铁月环Aoe，钢铁范围大于最大近战攻击距离</div>
+    <div class="gap-strat flex items-center">武器发光时根据武器类型追加钢铁月环Aoe</div>
     <h4 class="mt-4 text-2xl">
       <Span variant="yellow">范围参考</Span>
     </h4>
