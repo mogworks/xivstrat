@@ -13,6 +13,7 @@ import Separator from '@/components/Separator.astro'
 
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
+import ImageRow from '@/components/typography/ImageRow.astro'
 
 import XfangCast from '../_components/XfangCast.astro'
 import GleamingFang from '../_components/GleamingFang.astro'
@@ -111,16 +112,22 @@ const { start, base = 0 }: Props = Astro.props
       <GleamingFang />
       的展开位置来判断：
     </P>
-    <div class="flex gap-4">
-      <div class="flex max-w-100 flex-col items-center gap-2">
-        <Image src={xfang_1} alt="Gleaming Fang: 十" class="border-2 border-cyan-700 dark:border-cyan-100" />
-        <div>正点方向光牙</div>
-      </div>
-      <div class="flex max-w-100 flex-col items-center gap-2">
-        <Image src={xfang_2} alt="Gleaming Fang: X" class="border-2 border-cyan-700 dark:border-cyan-100" />
-        <div>斜点方向光牙</div>
-      </div>
-    </div>
+    <ImageRow
+      wrapperClass="max-w-100"
+      borderVariant="cyan"
+      imgs={[
+        {
+          src: xfang_1,
+          alt: '光牙: 十字形分布',
+          title: '正点方向光牙',
+        },
+        {
+          src: xfang_2,
+          alt: '光牙：X字形分布',
+          title: '斜点方向光牙',
+        },
+      ]}
+    />
     <P class="mt-8">
       <Span variant="orange">{stonefang}</Span>
       |
