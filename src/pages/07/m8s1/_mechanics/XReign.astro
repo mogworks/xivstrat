@@ -14,6 +14,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
+import ImageRow from '@/components/typography/ImageRow.astro'
 
 import XReignCast from '../_components/XReignCast.astro'
 import HowlingBlade from '../_components/HowlingBlade.astro'
@@ -74,39 +75,42 @@ const { start, base = 0 }: Props = Astro.props
         rLabel="战术视图"
       />
     </P>
-    <div id="xreign-game-strat-div" class="flex gap-4">
-      <div class="game-img flex max-w-100 flex-col items-center gap-2">
-        <Image
-          src={xreign_game_1}
-          alt="群狼剑：正三角 游戏截图"
-          class="border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <div>正三角</div>
-      </div>
-      <div class="game-img flex max-w-100 flex-col items-center gap-2">
-        <Image
-          src={xreign_game_2}
-          alt="群狼剑：倒三角 游戏截图"
-          class="border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <div>倒三角</div>
-      </div>
-      <div class="strat-img hidden max-w-90 flex-col items-center gap-2">
-        <Image
-          src={xreign_1}
-          alt="群狼剑：正三角 战术视图"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <div>正三角</div>
-      </div>
-      <div class="strat-img hidden max-w-90 flex-col items-center gap-2">
-        <Image
-          src={xreign_2}
-          alt="群狼剑：倒三角 战术视图"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <div>倒三角</div>
-      </div>
+    <div id="xreign-game-strat-toggle-div">
+      <ImageRow
+        class="game-img"
+        wrapperClass="max-w-100"
+        borderVariant="cyan"
+        imgs={[
+          {
+            src: xreign_game_1,
+            alt: '群狼剑：正三角 游戏截图',
+            title: '正三角',
+          },
+          {
+            src: xreign_game_2,
+            alt: '群狼剑：倒三角 游戏截图',
+            title: '倒三角',
+          },
+        ]}
+      />
+      <ImageRow
+        class="strat-img hidden"
+        wrapperClass="max-w-90"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: xreign_1,
+            alt: '群狼剑：正三角 战术视图',
+            title: '正三角',
+          },
+          {
+            src: xreign_2,
+            alt: '群狼剑：倒三角 战术视图',
+            title: '倒三角',
+          },
+        ]}
+      />
     </div>
     <P>
       读条结束后，
@@ -115,22 +119,20 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="pink">6m</Span>
       的圆形范围伤害预兆：
     </P>
-    <div class="flex gap-4">
-      <div class="max-w-90">
-        <Image
-          src={xreign_3}
-          alt="群狼剑：正三角 BOSS移动至左下"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <div class="max-w-90">
-        <Image
-          src={xreign_4}
-          alt="群狼剑：倒三角 BOSS移动至正下"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-    </div>
+    <ImageRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: xreign_3,
+          alt: '群狼剑：正三角 BOSS移动至左下',
+        },
+        {
+          src: xreign_4,
+          alt: '群狼剑：倒三角 BOSS移动至正下',
+        },
+      ]}
+    />
     <P>
       接着，四个圆形预兆间隔
       <Span variant="pink">0.1s</Span>
@@ -148,38 +150,44 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="pink">10m</Span>
       （恰为目标圈直径）的直线冲锋：
       <ToggleSwitch
-        id="xreign-wolves-reign-line-toggle"
+        id="xreign-wolves-reign-omen-activate-toggle"
         lVariant="yellow"
         rVariant="pink"
         lLabel="预兆"
         rLabel="判定"
       />
     </P>
-    <div id="xreign-wolves-reign-line" class="flex gap-4">
-      <div class="max-w-90">
-        <Image
-          src={xreign_5}
-          alt="群狼剑：正三角 预兆 BOSS读条从左下往右上冲锋"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={xreign_7}
-          alt="群狼剑：正三角 判定 BOSS读条从左下往右上冲锋"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <div class="max-w-90">
-        <Image
-          src={xreign_6}
-          alt="群狼剑：倒三角 预兆 BOSS读条从正下往正上冲锋"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={xreign_8}
-          alt="群狼剑：倒三角 判定 BOSS读条从正下往正上冲锋"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
+    <div id="xreign-wolves-reign-omen-activate-toggle-div">
+      <ImageRow
+        class="omen-img"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: xreign_5,
+            alt: '群狼剑：正三角 预兆 BOSS读条从左下往右上冲锋',
+          },
+          {
+            src: xreign_6,
+            alt: '群狼剑：倒三角 预兆 BOSS读条从正下往正上冲锋',
+          },
+        ]}
+      />
+      <ImageRow
+        class="activate-img hidden"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: xreign_7,
+            alt: '群狼剑：正三角 判定 BOSS读条从左下往右上冲锋',
+          },
+          {
+            src: xreign_8,
+            alt: '群狼剑：倒三角 判定 BOSS读条从正下往正上冲锋',
+          },
+        ]}
+      />
     </div>
     <P>
       冲锋到场地对侧后，
@@ -188,22 +196,20 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="yellow">{wolvesReign}</Span>
       ，释放大范围的圆形或扇形伤害：
     </P>
-    <div class="flex gap-4">
-      <div class="max-w-90">
-        <Image
-          src={xreign_9}
-          alt="群狼剑：BOSS冲锋至右上读条释放钢铁"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <div class="max-w-90">
-        <Image
-          src={xreign_10}
-          alt="群狼剑：BOSS冲锋至正上读条释放扇形"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-    </div>
+    <ImageRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: xreign_9,
+          alt: '群狼剑：BOSS冲锋至右上读条释放钢铁',
+        },
+        {
+          src: xreign_10,
+          alt: '群狼剑：BOSS冲锋至正上读条释放扇形',
+        },
+      ]}
+    />
     <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
       <P>
         若先前读条为
@@ -242,22 +248,20 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="pink">30°</Span>
       的扇形分摊：
     </P>
-    <div class="flex gap-4">
-      <div class="max-w-90">
-        <Image
-          src={xreign_11}
-          alt="群狼剑：BOSS冲锋至右上读条释放钢铁，并对玩家释放死刑和分摊"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <div class="max-w-90">
-        <Image
-          src={xreign_12}
-          alt="群狼剑：BOSS冲锋至正上读条释放扇形，并对玩家释放死刑和分摊"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-    </div>
+    <ImageRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: xreign_11,
+          alt: '群狼剑：BOSS冲锋至右上读条释放钢铁，并对玩家释放死刑和分摊',
+        },
+        {
+          src: xreign_12,
+          alt: '群狼剑：BOSS冲锋至正上读条释放扇形，并对玩家释放死刑和分摊',
+        },
+      ]}
+    />
     <P>
       死刑对
       <Span variant="blue">防护职业</Span>
@@ -279,22 +283,20 @@ const { start, base = 0 }: Props = Astro.props
       <HowlingBlade />
       与场地中心的距离有细微差别：
     </P>
-    <div class="flex gap-4">
-      <div class="max-w-90">
-        <Image
-          src={xreign_9}
-          alt="群狼剑：BOSS冲锋至右上读条释放钢铁"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <div class="max-w-90">
-        <Image
-          src={xreign_10}
-          alt="群狼剑：BOSS冲锋至正上读条释放扇形"
-          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-    </div>
+    <ImageRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: xreign_9,
+          alt: '群狼剑：BOSS冲锋至右上读条释放钢铁',
+        },
+        {
+          src: xreign_10,
+          alt: '群狼剑：BOSS冲锋至正上读条释放扇形',
+        },
+      ]}
+    />
     <P>
       从目标环的缺口与电网的距离可以较容易看出：左图
       <HowlingBlade />
@@ -314,13 +316,17 @@ const { start, base = 0 }: Props = Astro.props
       </P>
     </div>
     <P>前者会让我们更难躲避圆形范围伤害，但影响不是很大，如下图：</P>
-    <div class="max-w-90">
-      <Image
-        src={xreign_13}
-        alt="群狼剑：西北和东北方向的圆形范围对比"
-        class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-      />
-    </div>
+    <ImageRow
+      wrapperClass="max-w-90"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: xreign_13,
+          alt: '群狼剑：西北和东北方向的圆形范围对比',
+        },
+      ]}
+    />
   </div>
 </MechanicSection>
 <SolutionSection>
@@ -385,14 +391,14 @@ const { start, base = 0 }: Props = Astro.props
   const gameStratToggle = document.getElementById('xreign-game-strat-toggle') as HTMLInputElement
   if (gameStratToggle) {
     gameStratToggle.addEventListener('change', function () {
-      toggleImages('xreign-game-strat-div', this.checked, '.game-img', '.strat-img')
+      toggleImages('xreign-game-strat-toggle-div', this.checked, '.game-img', '.strat-img')
     })
   }
 
-  const wolvesReignLineToggle = document.getElementById('xreign-wolves-reign-line-toggle') as HTMLInputElement
+  const wolvesReignLineToggle = document.getElementById('xreign-wolves-reign-omen-activate-toggle') as HTMLInputElement
   if (wolvesReignLineToggle) {
     wolvesReignLineToggle.addEventListener('change', function () {
-      toggleImages('xreign-wolves-reign-line', this.checked, '.omen-img', '.activate-img')
+      toggleImages('xreign-wolves-reign-omen-activate-toggle-div', this.checked, '.omen-img', '.activate-img')
     })
   }
 </script>
