@@ -44,49 +44,49 @@ const { time, base = 0 }: Props = Astro.props
       <Span variant="yellow">{tracticalPack} </Span>
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <HowlingBlade />上天，预示着小怪阶段开始。 此时场地东西侧会出现
       <WindWolfheadIcon />
       <StoneWolfheadIcon />
       并连线玩家。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       会有 1<RoleIcon role="tank" />
       1<RoleIcon role="healer" />
       2<RoleIcon role="dps" />
       获得绿色连线，其余人获得黄色连线。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       在
       <Span variant="yellow">{howlingHoavoc}</Span>
       伤害判定之后，场地南北侧会出现{greenBall}和{yellowCude}。 玩家获得debuff如下：
     </div>
 
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <WindpackDebuff hover />：无法对<WindWolfheadIcon />造成伤害。
     </div>
 
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <StonepackDebuff hover />：无法对<StoneWolfheadIcon />造成伤害。
     </div>
 
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <WindborneEndDebuff hover tag="21" />
       <WindborneEndDebuff hover tag="37" />
       <WindborneEndDebuff hover tag="54" />
       ：倒计时结束前需要穿过场上{greenBall}以消除该debuff，否则团灭。
     </div>
 
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <EarthborneEndDebuff hover tag="21" />
       <EarthborneEndDebuff hover tag="37" />
       <EarthborneEndDebuff hover tag="54" />
       ：倒计时结束前需要穿过场上{yellowCude}以消除该debuff，否则团灭。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <EarthborneEndDebuff hover />
       <WindborneEndDebuff hover />
       被消除会对全团造成一个微量的魔法伤害，并且赋予
@@ -96,7 +96,7 @@ const { time, base = 0 }: Props = Astro.props
       时消除debuff会导致团灭。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       消除debuff还会对
       <EarthborneEndDebuff hover />
       <WindborneEndDebuff hover />
@@ -104,9 +104,9 @@ const { time, base = 0 }: Props = Astro.props
       <DamageInfo damage="2100000" type="special" />的伤害，15%。
     </div>
 
-    <div class="gap-strat flex items-center">绿色的球和黄色正方体开始顺时针或逆时针绕场地旋转。</div>
+    <div class="paragraph">绿色的球和黄色正方体开始顺时针或逆时针绕场地旋转。</div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       随后，<WindWolfheadIcon /><StoneWolfheadIcon />开始读条
       <Span variant="yellow">{packPredation}</Span>
       分别对当前
@@ -115,12 +115,12 @@ const { time, base = 0 }: Props = Astro.props
       <MagicVulnerabilityUp tag="1" hover />
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       同时会各点名一个拥有<WindpackDebuff /><StonepackDebuff />的玩家释放直线AoE，并且附加
       <MagicVulnerabilityUp tag="1" hover />
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <Span variant="yellow">{packPredation}</Span>
       总计会有三次，每次间隔约14s。
     </div>
@@ -129,7 +129,7 @@ const { time, base = 0 }: Props = Astro.props
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       连线出现，我们首先把连线拉长，去对面的
       <WindWolfheadIcon />
       <StoneWolfheadIcon />
@@ -145,7 +145,7 @@ const { time, base = 0 }: Props = Astro.props
       <div>应该是狼头+线的图片</div>
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       之后，
       <RoleIcon role="tank" />将
       <WindWolfheadIcon />
@@ -162,9 +162,9 @@ const { time, base = 0 }: Props = Astro.props
       <div>狼头+两个球+所有人的图片</div>
     </div>
 
-    <div class="gap-strat flex items-center">注意此处可以在不撞到他们的前提下尽量靠近。</div>
+    <div class="paragraph">注意此处可以在不撞到他们的前提下尽量靠近。</div>
 
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       因为
       <WindWolfheadIcon />
       <StoneWolfheadIcon />
@@ -177,7 +177,7 @@ const { time, base = 0 }: Props = Astro.props
       还会继续移动。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       人群站在
       <WindWolfheadIcon />
       <StoneWolfheadIcon />
@@ -186,7 +186,7 @@ const { time, base = 0 }: Props = Astro.props
       消失，
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <EarthborneEndDebuff hover tag="21" />
       向后走穿过
       <Span variant="yellow">{yellowCude}</Span>
@@ -195,7 +195,7 @@ const { time, base = 0 }: Props = Astro.props
       。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <WindborneEndDebuff hover tag="21" />
       等
       <MagicVulnerabilityUp tag="4" hover />
@@ -206,7 +206,7 @@ const { time, base = 0 }: Props = Astro.props
       。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       此时应该距离下一次
       <Span variant="yellow">{packPredation}</Span>
       伤害判定应该还有至少4s，
@@ -214,7 +214,7 @@ const { time, base = 0 }: Props = Astro.props
       在伤害之前消失。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       再重复两次，分别消除
       <WindborneEndDebuff hover tag="37" />
       <WindborneEndDebuff hover tag="54" />
@@ -223,7 +223,7 @@ const { time, base = 0 }: Props = Astro.props
       。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       所有debuff消除后，
       <WindWolfheadIcon />
       <StoneWolfheadIcon />
@@ -234,17 +234,15 @@ const { time, base = 0 }: Props = Astro.props
 
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <EarthborneEndDebuff hover />
       在AoE判定后应该尽快去消除，给
       <WindborneEndDebuff hover />
       留出充足的时间 。1s的易伤走过去差不多基本消失了。
     </div>
 
-    <div class="gap-strat flex items-center">场中不能踩，但是因为场地大小的缘故，请离场中尽可能近一些方便奶。</div>
+    <div class="paragraph">场中不能踩，但是因为场地大小的缘故，请离场中尽可能近一些方便奶。</div>
 
-    <div class="gap-strat flex items-center">
-      虽然消除buff的伤害很低，但是如果减伤/血量不足还是有可能会出事，请注意。
-    </div>
+    <div class="paragraph">虽然消除buff的伤害很低，但是如果减伤/血量不足还是有可能会出事，请注意。</div>
   </div>
 </NoteSection>

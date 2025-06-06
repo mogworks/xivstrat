@@ -14,7 +14,12 @@ interface Props {
 const { icon, name, class: className = '' }: Props = Astro.props
 ---
 
-<span class={cn('relative -mx-[calc(1em*2/18)] inline-block h-[calc(1em*30/18)] w-[calc(1em*30/18)]', className)}>
+<span
+  class={cn(
+    'relative -mx-[calc(1em*2/18)] inline-block h-[calc(1em*30/18)] w-[calc(1em*30/18)] align-middle',
+    className,
+  )}
+>
   <div class="relative inline-block w-full">
     <Image src={icon} alt={name} />
   </div>

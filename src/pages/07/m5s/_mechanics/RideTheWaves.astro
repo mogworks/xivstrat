@@ -47,7 +47,7 @@ const { base = 0 }: Props = Astro.props
 </CastSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <RoleIcon role="tank" tag="双T" />
       注意：若采用
       <StratLink variant="lime" href="#ride-the-waves-solution-jp">解法：日野主流</StratLink>
@@ -57,7 +57,7 @@ const { base = 0 }: Props = Astro.props
       <Boss />
       位置
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <RoleIcon role="tank" tag="MT" />
       尽快拉到两列安全列之间，以免近战罚站，
       <RoleIcon role="tank" tag="ST" />
@@ -75,7 +75,7 @@ const { base = 0 }: Props = Astro.props
     <h4 class="text-2xl">
       <Span variant="yellow">Ride the Waves</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       场地
       <Span variant="pink">北边</Span>
       出现步进式地火预兆，地火行进方向固定由北向南，只有如下两种情况
@@ -87,7 +87,7 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves Omen (2nd & 5th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">情形1：初始第2、5列安全</div>
+        <div class="paragraph">情形1：初始第2、5列安全</div>
       </div>
       <div class="flex flex-col items-center gap-2">
         <Image
@@ -95,12 +95,10 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves Omen (4th & 7th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">情形2：初始第4、7列安全</div>
+        <div class="paragraph">情形2：初始第4、7列安全</div>
       </div>
     </div>
-    <div class="gap-strat mt-4 flex items-center">
-      在地火行进至南半场时，安全区会固定向第3、6列拐一下，最终形成如下的图形
-    </div>
+    <div class="paragraph mt-4">在地火行进至南半场时，安全区会固定向第3、6列拐一下，最终形成如下的图形</div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
         <Image
@@ -108,7 +106,7 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves Final (Initial 2nd & 5th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">情形1：初始第2、5列安全</div>
+        <div class="paragraph">情形1：初始第2、5列安全</div>
       </div>
       <div class="flex flex-col items-center gap-2">
         <Image
@@ -116,13 +114,13 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves Final (Initial 4th & 7th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">情形2：初始第4、7列安全</div>
+        <div class="paragraph">情形2：初始第4、7列安全</div>
       </div>
     </div>
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Quarter Beats</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       点名
       <Span variant="default">4</Span>
       <RoleIcon role="tank" />
@@ -139,7 +137,7 @@ const { base = 0 }: Props = Astro.props
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Eighth Beats</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       点名
       <RoleIcon role="all" tag="全员" />
       的半径
@@ -152,12 +150,12 @@ const { base = 0 }: Props = Astro.props
 </MechanicSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <Span variant="yellow">Ride the Waves</Span>
       期间会有两次不同的
       <QuarterOrEighthBeatsAbility />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       第1次
       <QuarterOrEighthBeatsAbility />
       判定时，地火刚好跑完北半场
@@ -169,7 +167,7 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves Half (Initial 2nd & 5th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">情形1：初始第2、5列安全</div>
+        <div class="paragraph">情形1：初始第2、5列安全</div>
       </div>
       <div class="flex flex-col items-center gap-2">
         <Image
@@ -177,10 +175,10 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves Half (Initial 4th & 7th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">情形2：初始第4、7列安全</div>
+        <div class="paragraph">情形2：初始第4、7列安全</div>
       </div>
     </div>
-    <div class="gap-strat mt-4 flex items-center">
+    <div class="paragraph mt-4">
       第2次
       <QuarterOrEighthBeatsAbility />
       判定时，地火刚好跑完整个场地
@@ -192,7 +190,7 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves Final (Initial 2nd & 5th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">情形1：初始第2、5列安全</div>
+        <div class="paragraph">情形1：初始第2、5列安全</div>
       </div>
       <div class="flex flex-col items-center gap-2">
         <Image
@@ -200,15 +198,15 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves Final (Initial 4th & 7th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">情形2：初始第4、7列安全</div>
+        <div class="paragraph">情形2：初始第4、7列安全</div>
       </div>
     </div>
   </div>
 </NoteSection>
 <SolutionSection title="解法：日野主流" id="ride-the-waves-solution-jp">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center border-l-2 border-lime-500 pl-2 opacity-80">以初始第2、5列安全为例</div>
-    <div class="gap-strat mt-4 flex items-center">
+    <div class="paragraph border-l-2 border-lime-500 pl-2 opacity-80">以初始第2、5列安全为例</div>
+    <div class="paragraph mt-4">
       地火预兆出现后，
       <RoleIcon role="tank" tag="MT" />
       迅速将
@@ -224,7 +222,7 @@ const { base = 0 }: Props = Astro.props
         class="border-2 border-amber-800/75 dark:border-amber-100"
       />
     </div>
-    <div class="gap-strat mt-4 flex items-center">
+    <div class="paragraph mt-4">
       第1次
       <QuarterOrEighthBeatsAbility />
       站位如下
@@ -236,7 +234,7 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves JP Solution 2/5"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           情形1：
           <Span variant="yellow">Quarter Beats</Span>
         </div>
@@ -247,13 +245,13 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves JP Solution 3/5"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           情形2：
           <Span variant="yellow">Eighth Beats</Span>
         </div>
       </div>
     </div>
-    <div class="gap-strat mt-4 flex items-center">
+    <div class="paragraph mt-4">
       第2次
       <QuarterOrEighthBeatsAbility />
       站位如下
@@ -265,7 +263,7 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves JP Solution 4/5"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           情形1：
           <Span variant="yellow">Quarter Beats</Span>
         </div>
@@ -276,13 +274,13 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves JP Solution 5/5"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           情形2：
           <Span variant="yellow">Eighth Beats</Span>
         </div>
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       此时由于
       <Boss />
       位置很难调整，近战有可能会罚站
@@ -291,8 +289,8 @@ const { base = 0 }: Props = Astro.props
 </SolutionSection>
 <SolutionSection title="解法：近战优化" id="ride-the-waves-solution-optimize">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center border-l-2 border-lime-500 pl-2 opacity-80">以初始第2、5列安全为例</div>
-    <div class="gap-strat mt-4 flex items-center">
+    <div class="paragraph border-l-2 border-lime-500 pl-2 opacity-80">以初始第2、5列安全为例</div>
+    <div class="paragraph mt-4">
       <RoleIcon role="tank" tag="MT" />
       注意：在
       <Boss />
@@ -302,14 +300,12 @@ const { base = 0 }: Props = Astro.props
       <Boss />
       拉到南半场
     </div>
-    <div class="gap-strat mt-4 flex items-center">
+    <div class="paragraph mt-4">
       由于第1次
       <QuarterOrEighthBeatsAbility />
       判定时，南半场没有地火，近战组大可不必去北半场没苦硬吃
     </div>
-    <div class="gap-strat flex items-center">
-      且远程组去北半场也不会增加处理难度，因此，可以将近战组和远程组整体换位，如下
-    </div>
+    <div class="paragraph">且远程组去北半场也不会增加处理难度，因此，可以将近战组和远程组整体换位，如下</div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
         <Image
@@ -317,7 +313,7 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves Optimize Solution 1/4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           情形1：
           <Span variant="yellow">Quarter Beats</Span>
         </div>
@@ -328,18 +324,18 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves Optimize Solution 2/4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           情形2：
           <Span variant="yellow">Eighth Beats</Span>
         </div>
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       这样一来，第1次
       <QuarterOrEighthBeatsAbility />
       判定时，近战组在南半场的站位就会非常宽松
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       且第2次
       <QuarterOrEighthBeatsAbility />
       判定前，
@@ -348,7 +344,7 @@ const { base = 0 }: Props = Astro.props
       <Boss />
       拉到两列安全列之间
     </div>
-    <div class="gap-strat mt-4 flex items-center">
+    <div class="paragraph mt-4">
       相应的，第2次
       <QuarterOrEighthBeatsAbility />
       判定时，站位如下
@@ -360,7 +356,7 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves Optimize Solution 3/4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           情形1：
           <Span variant="yellow">Quarter Beats</Span>
         </div>
@@ -371,13 +367,13 @@ const { base = 0 }: Props = Astro.props
           alt="Ride the Waves Optimize Solution 4/4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           情形2：
           <Span variant="yellow">Eighth Beats</Span>
         </div>
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       对比
       <StratLink variant="lime" href="#ride-the-waves-solution-jp">解法：日野主流</StratLink>
       ，由于安全区的拐点尚未到来，无需调整

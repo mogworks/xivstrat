@@ -1,0 +1,35 @@
+---
+import { borderColorMap, type Img } from '@/components/typography/img'
+
+import { Image } from 'astro:assets'
+
+import { cn } from '@/lib/utils'
+
+interface Props extends Img {
+  [key: string]: any
+}
+
+const {
+  src,
+  alt,
+  title = '',
+  bordered = true,
+  borderVariant = 'default',
+  rounded = false,
+  class: className = '',
+  imgClass = '',
+  titleClass = '',
+  ...rest
+} = Astro.props
+
+const borderColorClass = borderColorMap[borderVariant]
+---
+
+<div class={cn(title && 'flex flex-col items-center gap-2', 'max-w-90', className)} {...rest}>
+  <Image
+    src={src}
+    alt={alt}
+    class={cn(bordered && 'border-2', bordered && rounded && 'rounded-full', bordered && borderColorClass, imgClass)}
+  />
+  {title && <div class={titleClass}>{title}</div>}
+</div>
