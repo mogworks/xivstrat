@@ -1,0 +1,114 @@
+---
+import type { VariantType } from '@/lib/variant'
+
+import { Image } from 'astro:assets'
+
+import Separator from '@/components/Separator.astro'
+import Span from '@/components/Span.vue'
+import { cn } from '@/lib/utils'
+
+interface ImageItem {
+  src: ImageMetadata
+  alt: string
+  title?: string
+  class?: string
+}
+
+interface Props {
+  columnTitles: [string, string]
+  rows: {
+    title: string
+    titleVariant?: VariantType
+    cells: {
+      img?: ImageItem
+      class?: string
+    }[]
+  }[]
+  class?: string
+  [key: string]: any
+}
+
+const { columnTitles, rows, class: className = '', ...rest }: Props = Astro.props
+const defaultTitleClass = 'flex justify-center text-lg font-bold tracking-wider'
+---
+
+<div
+  class={cn(
+    'grid grid-cols-[min-content_1px_minmax(0,24rem)_1px_minmax(0,24rem)] grid-rows-[min-content_1px_1fr_1px_1fr]',
+    className,
+  )}
+  {...rest}
+>
+  <Separator class="col-start-2" orientation="vertical" />
+  <div class={cn(defaultTitleClass, 'pb-2')}>{columnTitles[0]}</div>
+  <Separator orientation="vertical" />
+  <div class={cn(defaultTitleClass, 'pb-2')}>{columnTitles[1]}</div>
+
+  <Separator class="col-span-full" />
+
+  <div class={cn(defaultTitleClass, 'pr-2 [text-orientation:mixed] [writing-mode:vertical-lr]')}>
+    <Span variant={rows[0].titleVariant || 'default'}>{rows[0].title}</Span>
+  </div>
+  <Separator orientation="vertical" />
+  <div class={`px-3 py-2 ${rows[0].cells[0].class || ''}`}>
+    {
+      rows[0].cells[0].img && (
+        <Image
+          src={rows[0].cells[0].img.src}
+          alt={rows[0].cells[0].img.alt}
+          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+      )
+    }
+  </div>
+
+  <Separator orientation="vertical" />
+
+  <div class={`px-3 py-2 ${rows[0].cells[1].class || ''}`}>
+    {
+      rows[0].cells[1].img && (
+        <Image
+          src={rows[0].cells[1].img.src}
+          alt={rows[0].cells[1].img.alt}
+          class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+        />
+      )
+    }
+  </div>
+
+  <!-- 第二行（如果存在） -->
+  {
+    rows.length > 1 && (
+      <>
+        <Separator class="col-span-full" />
+
+        <div class="flex justify-center pr-2 text-lg font-bold tracking-wider [text-orientation:mixed] [writing-mode:vertical-lr]">
+          <Span variant={rows[1].titleVariant || 'default'}>{rows[1].title}</Span>
+        </div>
+        <Separator orientation="vertical" />
+
+        <div class={`px-3 py-2 ${rows[1].cells[0].class || ''}`}>
+          {rows[1].cells[0].img && (
+            <Image
+              src={rows[1].cells[0].img.src}
+              alt={rows[1].cells[0].img.alt}
+              class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+            />
+          )}
+        </div>
+
+        <Separator orientation="vertical" />
+
+        <div class={`px-3 py-2 ${rows[1].cells[1].class || ''}`}>
+          {rows[1].cells[1].img && (
+            <Image
+              src={rows[1].cells[1].img.src}
+              alt={rows[1].cells[1].img.alt}
+              class="rounded-full border-2 border-cyan-700 dark:border-cyan-100"
+            />
+          )}
+        </div>
+      </>
+    )
+  }
+</div>

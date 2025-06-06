@@ -18,6 +18,7 @@ import ImageRow from '@/components/typography/ImageRow.astro'
 import XfangCast from '../_components/XfangCast.astro'
 import GleamingFang from '../_components/GleamingFang.astro'
 import HowlingBlade from '../_components/HowlingBlade.astro'
+import ImageGrid from '@/components/typography/ImageGrid.astro'
 
 import xfang_1 from '@/assets/07/m8s1/xfang/1.png'
 import xfang_2 from '@/assets/07/m8s1/xfang/2.png'
@@ -137,79 +138,93 @@ const { start, base = 0 }: Props = Astro.props
       最终形成如下的组合攻击：
       <ToggleSwitch id="xfang-mechanic-toggle" lVariant="yellow" rVariant="pink" lLabel="预兆" rLabel="判定" />
     </P>
-    <div
-      id="xfang-mechanic-grid"
-      class="grid grid-cols-[min-content_1px_minmax(0,24rem)_1px_minmax(0,24rem)] grid-rows-[min-content_1px_1fr_1px_1fr]"
-    >
-      <Separator class="col-start-2" orientation="vertical" />
-      <div class="flex justify-center pb-2 text-lg font-bold">正点方向光牙</div>
-      <Separator orientation="vertical" />
-      <div class="flex justify-center pb-2 text-lg font-bold">斜点方向光牙</div>
-      <Separator class="col-span-full" />
-      <div
-        class="flex justify-center pr-2 text-lg font-bold tracking-wider [text-orientation:mixed] [writing-mode:vertical-lr]"
-      >
-        <Span variant="orange">{stonefang}</Span>
-      </div>
-      <Separator orientation="vertical" />
-      <div class="px-3 py-2">
-        <Image
-          src={stonefang_1}
-          alt="Stonefang: 1"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={stonefang_3}
-          alt="Stonefang: 3"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <Separator orientation="vertical" />
-      <div class="px-3 py-2">
-        <Image
-          src={stonefang_2}
-          alt="Stonefang: 2"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={stonefang_4}
-          alt="Stonefang: 4"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <Separator class="col-span-full" />
-      <div
-        class="flex justify-center pr-2 text-lg font-bold tracking-wider [text-orientation:mixed] [writing-mode:vertical-lr]"
-      >
-        <Span variant="green">{windfang}</Span>
-      </div>
-      <Separator orientation="vertical" />
-      <div class="px-3 py-2">
-        <Image
-          src={windfang_1}
-          alt="Windfang: 1"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={windfang_3}
-          alt="Windfang: 3"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <Separator orientation="vertical" />
-      <div class="px-3 py-2">
-        <Image
-          src={windfang_2}
-          alt="Windfang: 2"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={windfang_4}
-          alt="Windfang: 4"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-    </div>
+    <!-- 预兆表 -->
+    <ImageGrid
+      id="xfang-mechanic-omen"
+      columnTitles={['正点方向光牙', '斜点方向光牙']}
+      rows={[
+        {
+          title: stonefang,
+          titleVariant: 'orange',
+          cells: [
+            {
+              img: {
+                src: stonefang_1,
+                alt: 'Stonefang: 1',
+              },
+            },
+            {
+              img: {
+                src: stonefang_2,
+                alt: 'Stonefang: 2',
+              },
+            },
+          ],
+        },
+        {
+          title: windfang,
+          titleVariant: 'green',
+          cells: [
+            {
+              img: {
+                src: windfang_1,
+                alt: 'Windfang: 1',
+              },
+            },
+            {
+              img: {
+                src: windfang_2,
+                alt: 'Windfang: 2',
+              },
+            },
+          ],
+        },
+      ]}
+    />
+    <!-- 判定表 -->
+    <ImageGrid
+      id="xfang-mechanic-activate"
+      columnTitles={['正点方向光牙', '斜点方向光牙']}
+      wrapperClass="hidden"
+      rows={[
+        {
+          title: stonefang,
+          titleVariant: 'orange',
+          cells: [
+            {
+              img: {
+                src: stonefang_3,
+                alt: 'Stonefang: 3',
+              },
+            },
+            {
+              img: {
+                src: stonefang_4,
+                alt: 'Stonefang: 4',
+              },
+            },
+          ],
+        },
+        {
+          title: windfang,
+          titleVariant: 'green',
+          cells: [
+            {
+              img: {
+                src: windfang_3,
+                alt: 'Windfang: 3',
+              },
+            },
+            {
+              img: {
+                src: windfang_4,
+                alt: 'Windfang: 4',
+              },
+            },
+          ],
+        },
+      ]}
+    />
   </div>
 </MechanicSection>
 <SolutionSection>
@@ -230,66 +245,89 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="orange">{stonefang}</Span>
       站位图中已将光牙的两种情况叠加
     </P>
-    <div
-      id="xfang-solution-grid"
-      class="grid grid-cols-[min-content_1px_minmax(0,24rem)_1px_minmax(0,24rem)] grid-rows-[min-content_1px_1fr_1px_1fr]"
-    >
-      <Separator class="col-start-2" orientation="vertical" />
-      <div class="flex justify-center pb-2 text-lg font-bold">正点方向光牙</div>
-      <Separator orientation="vertical" />
-      <div class="flex justify-center pb-2 text-lg font-bold">斜点方向光牙</div>
-      <Separator class="col-span-full" />
-      <div
-        class="flex justify-center pr-2 text-lg font-bold tracking-wider [text-orientation:mixed] [writing-mode:vertical-lr]"
-      >
-        <Span variant="orange">{stonefang}</Span>
-      </div>
-      <Separator orientation="vertical" />
-      <div class="translate-x-[calc(50%)] px-3 py-2">
-        <Image
-          src={stonefang_5}
-          alt="Stonefang: 5"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={stonefang_6}
-          alt="Stonefang: 6"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <Separator class="col-span-full" />
-      <div
-        class="flex justify-center pr-2 text-lg font-bold tracking-wider [text-orientation:mixed] [writing-mode:vertical-lr]"
-      >
-        <Span variant="green">{windfang}</Span>
-      </div>
-      <Separator orientation="vertical" />
-      <div class="px-3 py-2">
-        <Image
-          src={windfang_1}
-          alt="Windfang: 1"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={windfang_3}
-          alt="Windfang: 3"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <Separator orientation="vertical" />
-      <div class="px-3 py-2">
-        <Image
-          src={windfang_2}
-          alt="Windfang: 2"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={windfang_4}
-          alt="Windfang: 4"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-    </div>
+    <!-- 预兆表 -->
+    <ImageGrid
+      id="xfang-solution-omen"
+      columnTitles={['正点方向光牙', '斜点方向光牙']}
+      rows={[
+        {
+          title: stonefang,
+          titleVariant: 'orange',
+          cells: [
+            {
+              img: {
+                src: stonefang_5,
+                alt: 'Stonefang: 5',
+              },
+              class: 'translate-x-[calc(50%)]',
+            },
+            {
+              class: '',
+            },
+          ],
+        },
+        {
+          title: windfang,
+          titleVariant: 'green',
+          cells: [
+            {
+              img: {
+                src: windfang_1,
+                alt: 'Windfang: 1',
+              },
+            },
+            {
+              img: {
+                src: windfang_2,
+                alt: 'Windfang: 2',
+              },
+            },
+          ],
+        },
+      ]}
+    />
+    <!-- 判定表 -->
+    <ImageGrid
+      id="xfang-solution-activate"
+      columnTitles={['正点方向光牙', '斜点方向光牙']}
+      wrapperClass="hidden"
+      rows={[
+        {
+          title: stonefang,
+          titleVariant: 'orange',
+          cells: [
+            {
+              img: {
+                src: stonefang_6,
+                alt: 'Stonefang: 6',
+              },
+              class: 'translate-x-[calc(50%)]',
+            },
+            {
+              class: '',
+            },
+          ],
+        },
+        {
+          title: windfang,
+          titleVariant: 'green',
+          cells: [
+            {
+              img: {
+                src: windfang_3,
+                alt: 'Windfang: 3',
+              },
+            },
+            {
+              img: {
+                src: windfang_4,
+                alt: 'Windfang: 4',
+              },
+            },
+          ],
+        },
+      ]}
+    />
     <P class="mt-8">
       若是
       <Span variant="orange">{stonefang}</Span>
@@ -360,32 +398,30 @@ const { start, base = 0 }: Props = Astro.props
   const mechanicToggle = document.getElementById('xfang-mechanic-toggle') as HTMLInputElement
   const solutionToggle = document.getElementById('xfang-solution-toggle') as HTMLInputElement
 
-  function toggleImages(id: string, activate: boolean) {
-    const section = document.getElementById(id)
+  function toggleTables(omenId: string, activateId: string, showActivate: boolean) {
+    const omenTable = document.getElementById(omenId)
+    const activateTable = document.getElementById(activateId)
 
-    if (section) {
-      const omenImgs = section.querySelectorAll('.omen-img')
-      const activateImgs = section.querySelectorAll('.activate-img')
-
-      if (activate) {
-        omenImgs.forEach((img) => img.classList.add('hidden'))
-        activateImgs.forEach((img) => img.classList.remove('hidden'))
+    if (omenTable && activateTable) {
+      if (showActivate) {
+        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', true))
+        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', false))
       } else {
-        activateImgs.forEach((img) => img.classList.add('hidden'))
-        omenImgs.forEach((img) => img.classList.remove('hidden'))
+        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', true))
+        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', false))
       }
     }
   }
 
   if (mechanicToggle) {
     mechanicToggle.addEventListener('change', function () {
-      toggleImages('xfang-mechanic-grid', this.checked)
+      toggleTables('xfang-mechanic-omen', 'xfang-mechanic-activate', this.checked)
     })
   }
 
   if (solutionToggle) {
     solutionToggle.addEventListener('change', function () {
-      toggleImages('xfang-solution-grid', this.checked)
+      toggleTables('xfang-solution-omen', 'xfang-solution-activate', this.checked)
     })
   }
 </script>
