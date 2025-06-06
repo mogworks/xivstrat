@@ -111,10 +111,12 @@ const duty = (await getEntry('duties', dutyId))!.data
         })
       // 对于角色、目标等图标
       document.querySelectorAll<HTMLElement>('[data-icon="standard-icon"]').forEach((e) => {
-        e.style.display = 'none'
+        e.classList.remove('inline-flex')
+        e.classList.add('hidden')
       })
       document.querySelectorAll<HTMLElement>('[data-icon="minimal-icon"]').forEach((e) => {
-        e.style.display = ''
+        e.classList.add('inline-flex')
+        e.classList.remove('hidden')
       })
     } else {
       // 对于高亮词条
@@ -130,10 +132,12 @@ const duty = (await getEntry('duties', dutyId))!.data
         })
       // 对于角色、目标等图标
       document.querySelectorAll<HTMLElement>('[data-icon="standard-icon"]').forEach((e) => {
-        e.style.display = ''
+        e.classList.add('inline-flex')
+        e.classList.remove('hidden')
       })
       document.querySelectorAll<HTMLElement>('[data-icon="minimal-icon"]').forEach((e) => {
-        e.style.display = 'none'
+        e.classList.remove('inline-flex')
+        e.classList.add('hidden')
       })
     }
   })
