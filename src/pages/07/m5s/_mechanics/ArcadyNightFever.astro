@@ -87,14 +87,14 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
     <h4 class="text-2xl">
       <Span variant="yellow">Arcady Night Fever</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       读条后，
       <Boss />
       会每隔约
       <Span variant="pink">2.5s</Span>
       交替释放钢铁/月环，首次固定为钢铁且有范围提示
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       钢铁/月环的范围与
       <Span variant="yellow">Inside Out</Span>
       /
@@ -104,7 +104,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
       和
       <Span variant="pink">5m</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       每次钢铁/月环的同时，对随机不重复玩家发动一次名为
       <Span variant="yellow">Get Down!</Span>
       的
@@ -114,7 +114,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Get Down!</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <Span variant="pink">45°扇形</Span>
       攻击，对玩家造成
       <DamageInfo damage="95000" type="magical" />
@@ -124,7 +124,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
       或
       <Wavelength type="β" hover />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       若已持有
       <Wavelength type="α" hover />
       或
@@ -136,7 +136,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
       或
       <Wavelength type="β" hover />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       共计
       <Span variant="pink">8</Span>
       次，每次点名随机不重复玩家，且不会连续点名
@@ -145,7 +145,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
       ，亦不会连续点名
       <RoleIcon role="dps" />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       换言之，全员都会被点名1次，且这一轮点了
       <RoleIcon role="tank" />
       <RoleIcon role="healer" />
@@ -153,7 +153,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
       <RoleIcon role="dps" />
       ，反之亦然
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <Span variant="pink">每轮攻击都会被记录位置，并在下一轮的同位置再复读1次</Span>
       （类似 M1S 的扇形引导）
     </div>
@@ -163,13 +163,13 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
         ></Span
       >
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       被扇形攻击的人会被依次赋予时长不等的
       <Wavelength type="α" hover />
       和
       <Wavelength type="β" hover />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       第1、3、5、7次扇形赋予
       <Wavelength type="α" hover tag={wavelengthDurations[0]} />
       、
@@ -187,7 +187,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
       、
       <Wavelength type="α" hover tag="28" />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       第2、4、6、8次扇形赋予
       <Wavelength type="β" hover tag={wavelengthDurations[1]} />
       、
@@ -209,8 +209,8 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Grooviness</Span>
     </h4>
-    <div class="gap-strat flex items-center">机制开始时会出现一个计量槽，累积满时会奖励<LimitBreak stage={1} /></div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">机制开始时会出现一个计量槽，累积满时会奖励<LimitBreak stage={1} /></div>
+    <div class="paragraph">
       错误处理会导致计量值积攒变慢，若本阶段完全正确处理则会累积
       <Span variant="pink">66</Span>
       点计量值
@@ -220,12 +220,10 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
 </MechanicSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">钢铁/月环共计8轮，首轮固定钢铁</div>
-    <div class="gap-strat flex items-center">
-      第1轮时场上只有1个扇形，第2~8轮场上同时会有2个扇形（1个本轮次，1个上一轮复读）
-    </div>
-    <div class="gap-strat flex items-center">最后第9轮时，没有钢铁/月环，但还有第8轮的扇形复读</div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">钢铁/月环共计8轮，首轮固定钢铁</div>
+    <div class="paragraph">第1轮时场上只有1个扇形，第2~8轮场上同时会有2个扇形（1个本轮次，1个上一轮复读）</div>
+    <div class="paragraph">最后第9轮时，没有钢铁/月环，但还有第8轮的扇形复读</div>
+    <div class="paragraph">
       扇形总是交替点名
       <RoleIcon role="tank" />
       <RoleIcon role="healer" />
@@ -243,7 +241,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
           alt="Arcady Night Fever 1"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">第1轮</div>
+        <div class="paragraph">第1轮</div>
       </div>
       <div class="flex flex-col items-center gap-2">
         <Image
@@ -251,7 +249,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
           alt="Arcady Night Fever 2"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">第2n轮，1≤n≤4</div>
+        <div class="paragraph">第2n轮，1≤n≤4</div>
       </div>
       <div class="flex flex-col items-center gap-2">
         <Image
@@ -259,7 +257,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
           alt="Arcady Night Fever 3"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">第2n+1轮，1≤n≤3</div>
+        <div class="paragraph">第2n+1轮，1≤n≤3</div>
       </div>
       <div class="flex flex-col items-center gap-2">
         <Image
@@ -267,21 +265,21 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
           alt="Arcady Night Fever 4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">第9轮</div>
+        <div class="paragraph">第9轮</div>
       </div>
     </div>
   </div>
 </NoteSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center border-l-2 border-teal-500 pl-2 opacity-80">
+    <div class="paragraph border-l-2 border-teal-500 pl-2 opacity-80">
       这里只阐述钢铁/月环+扇形的处理，至于debuff则会在下个机制
       <StratLink variant="yellow" href="#lets-dance">Let's Dance!</StratLink>
       中一并处理
     </div>
-    <div class="gap-strat mt-8 flex items-center">由于每人都会被点名1次扇形，显然应该按八方分散处理</div>
-    <div class="gap-strat flex items-center">而扇形还会在原地复读1次，被点名后需要临时去其他人处躲避</div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph mt-8">由于每人都会被点名1次扇形，显然应该按八方分散处理</div>
+    <div class="paragraph">而扇形还会在原地复读1次，被点名后需要临时去其他人处躲避</div>
+    <div class="paragraph">
       又因为扇形会交替点名
       <RoleIcon role="tank" />
       <RoleIcon role="healer" />
@@ -291,14 +289,14 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
       <Span variant="pink">同职能</Span>
       位置处躲避，否则可能会再吃1次扇形
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       因此应该采用
       <Span variant="pink">同职能相邻分布</Span>
       的八方站位，而非
       <Span variant="pink">同职能间隔分布</Span>
       的标准八方站位
     </div>
-    <div class="gap-strat mt-8 flex items-center">
+    <div class="paragraph mt-8">
       这里我们规定，
       <RoleIcon role="tank" />
       <RoleIcon role="healer" />
@@ -318,9 +316,9 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
         <h4 class="text-xl">
           <Span variant="lime">初始站位</Span>
         </h4>
-        <div class="gap-strat flex items-center">初始按斜八方站位</div>
-        <div class="gap-strat flex items-center">由于扇形仅有45°，这里站位不需要非常精确</div>
-        <div class="gap-strat flex items-center">只要相邻的人相互不要靠太近即可</div>
+        <div class="paragraph">初始按斜八方站位</div>
+        <div class="paragraph">由于扇形仅有45°，这里站位不需要非常精确</div>
+        <div class="paragraph">只要相邻的人相互不要靠太近即可</div>
       </div>
     </div>
     <div class="flex gap-4">
@@ -335,8 +333,8 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
         <h4 class="text-xl">
           <Span variant="lime">第1轮</Span>
         </h4>
-        <div class="gap-strat flex items-center">躲避钢铁</div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">躲避钢铁</div>
+        <div class="paragraph">
           假设扇形点名
           <RoleIcon role="healer" tag="H1" />
           ，则
@@ -357,18 +355,18 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
         <h4 class="text-xl">
           <Span variant="lime">第2n轮，1≤n≤3</Span>
         </h4>
-        <div class="gap-strat flex items-center">躲避月环</div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">躲避月环</div>
+        <div class="paragraph">
           上一轮被点扇形的人注意在
           <Span variant="pink">同职能的半场</Span>
           躲避
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           如图中的
           <RoleIcon role="healer" tag="H1" />
           只能在上半场躲避，不应去下半场
         </div>
-        <div class="gap-strat flex items-center">躲避完复读的扇形后，注意返回原位置</div>
+        <div class="paragraph">躲避完复读的扇形后，注意返回原位置</div>
       </div>
     </div>
     <div class="flex gap-4">
@@ -383,18 +381,18 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
         <h4 class="text-xl">
           <Span variant="lime">第2n+1轮，1≤n≤3</Span>
         </h4>
-        <div class="gap-strat flex items-center">躲避钢铁</div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">躲避钢铁</div>
+        <div class="paragraph">
           上一轮被点扇形的人注意在
           <Span variant="pink">同职能的半场</Span>
           躲避
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           如图中的
           <RoleIcon role="melee" tag="D1" />
           只能在下半场躲避，不应去上半场
         </div>
-        <div class="gap-strat flex items-center">躲避完复读的扇形后，注意返回原位置</div>
+        <div class="paragraph">躲避完复读的扇形后，注意返回原位置</div>
       </div>
     </div>
     <div class="flex gap-4">
@@ -409,20 +407,20 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
         <h4 class="text-xl">
           <Span variant="lime">第8轮</Span>
         </h4>
-        <div class="gap-strat flex items-center">躲避月环</div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">躲避月环</div>
+        <div class="paragraph">
           假设上一轮
           <RoleIcon role="tank" tag="ST" />
           被点扇形，本轮
           <RoleIcon role="magic" tag="D4" />
           被点扇形
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           上一轮被点扇形的人注意在
           <Span variant="pink">同职能的半场</Span>
           躲避
         </div>
-        <div class="gap-strat flex items-center">躲避完复读的扇形后，注意返回原位置</div>
+        <div class="paragraph">躲避完复读的扇形后，注意返回原位置</div>
       </div>
     </div>
     <div class="flex gap-4">
@@ -437,7 +435,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
         <h4 class="text-xl">
           <Span variant="lime">第9轮</Span>
         </h4>
-        <div class="gap-strat flex items-center">本轮没有钢铁/月环，但还有第8轮的扇形复读</div>
+        <div class="paragraph">本轮没有钢铁/月环，但还有第8轮的扇形复读</div>
       </div>
     </div>
     <h4 class="mt-8 text-2xl">
@@ -514,8 +512,8 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
         </div>
       </div>
       <div class="shrink-0 grow space-y-4">
-        <div class="gap-strat flex items-center">当前点名顺序：</div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">当前点名顺序：</div>
+        <div class="paragraph">
           <RoleOrder client:only="vue">
             <RoleIcon slot="MT" role="tank" tag="MT" />
             <RoleIcon slot="ST" role="tank" tag="ST" />

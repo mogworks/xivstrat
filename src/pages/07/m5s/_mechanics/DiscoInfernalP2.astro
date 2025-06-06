@@ -44,7 +44,7 @@ const { base = 0 }: Props = Astro.props
     <h4 class="text-2xl">
       <Span variant="yellow">Disco Infernal</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       对
       <RoleIcon role="all" tag="全员" />
       造成
@@ -60,14 +60,14 @@ const { base = 0 }: Props = Astro.props
       <RoleIcon role="dps" />
       必定是另一种
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       同时，场地外围会刷新
       <Span variant="pink">4</Span>盏<Span variant="cyan">聚光灯</Span>
       ，按顺时针或逆时针移动，每
       <Span variant="pink">10</Span>
       秒移动到下一个正/斜点
     </div>
-    <div class="gap-strat flex items-center border-l-2 border-teal-500 pl-2 opacity-80">下图以顺时针移动为例</div>
+    <div class="paragraph border-l-2 border-teal-500 pl-2 opacity-80">下图以顺时针移动为例</div>
     <StratBoard
       width={400}
       height={400}
@@ -75,7 +75,7 @@ const { base = 0 }: Props = Astro.props
       class="max-h-90 max-w-90 shrink"
       canvasClass="h-full w-full border-2 border-amber-800/75 dark:border-amber-100"
     />
-    <div class="gap-strat mt-4 flex items-center">
+    <div class="paragraph mt-4">
       <BurnBabyBurn hover />和<Span variant="cyan">聚光灯</Span>
       的效果如
       <Span variant="yellow" class="underline underline-offset-2">
@@ -89,7 +89,7 @@ const { base = 0 }: Props = Astro.props
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Back-up Dance</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <Boss />
       目标圈附近正/斜点方向刷新4只
       <Span variant="rose">青蛙</Span>
@@ -102,7 +102,7 @@ const { base = 0 }: Props = Astro.props
           alt="Frogtourage Frog Position 1/2"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">情形1：斜点方向</div>
+        <div class="paragraph">情形1：斜点方向</div>
       </div>
       <div class="flex flex-col items-center gap-2">
         <Image
@@ -110,10 +110,10 @@ const { base = 0 }: Props = Astro.props
           alt="Frogtourage Frog Position 2/2"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">情形2：正点方向</div>
+        <div class="paragraph">情形2：正点方向</div>
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       它们一出现就会对最近的人读条可引导的
       <Span variant="pink">45°</Span>
       扇形
@@ -122,7 +122,7 @@ const { base = 0 }: Props = Astro.props
       <FrogtourageFan tag="18" hover />
       ，共两轮（8只）
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       注意这里
       <Span variant="rose">青蛙</Span>
       只是
@@ -131,12 +131,12 @@ const { base = 0 }: Props = Astro.props
       <Boss />
       ，目标减有效
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       引导过1次扇形的人会被赋予
       <FrogtourageFan tag="18" hover />
       ，若再次引导则会暴毙
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       此外，扇形判定的时机与
       <BurnBabyBurn hover />
       一致，而持有
@@ -149,7 +149,7 @@ const { base = 0 }: Props = Astro.props
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       由于
       <RoleIcon role="tank" />
       <RoleIcon role="healer" />
@@ -159,14 +159,14 @@ const { base = 0 }: Props = Astro.props
       <BurnBabyBurn hover />
       时长不同，可分为TH组和DPS组
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       第1轮时，倒计时短的组先去找
       <Span variant="cyan">聚光灯</Span>
       ，倒计时长的组先去找
       <Span variant="rose">青蛙</Span>
       引导扇形，第2轮时则反过来
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       无论是找
       <Span variant="cyan">聚光灯</Span>
       还是找
@@ -175,7 +175,7 @@ const { base = 0 }: Props = Astro.props
       <Span variant="pink">同色标点</Span>
       原则
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       例如
       <RoleIcon role="tank" tag="ST" />
       和
@@ -195,7 +195,7 @@ const { base = 0 }: Props = Astro.props
         class="border-2 border-amber-800/75 dark:border-amber-100"
       />
     </div>
-    <div class="gap-strat mt-4 flex items-center">
+    <div class="paragraph mt-4">
       引导扇形时注意避开
       <Span variant="cyan">聚光灯</Span>
       ，如下图（注：并未展示所有情况，请举一反三）

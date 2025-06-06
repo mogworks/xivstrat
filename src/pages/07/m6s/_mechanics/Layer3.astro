@@ -102,12 +102,12 @@ const end = timeToSeconds(start) + adjustedDuration
       {' '}
       <Span variant="zinc">#3</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <SugarRiot />
       连线场外北侧画卷，添加雷雨图层
     </div>
     <Image src={paint_5} alt="Layer Paint #3" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-    <div class="gap-strat flex items-center">同时溪流区域出现AoE提示，读条结束后，场地变化如下</div>
+    <div class="paragraph">同时溪流区域出现AoE提示，读条结束后，场地变化如下</div>
     <div class="flex gap-3">
       <div class="max-w-96">
         <Image
@@ -120,13 +120,13 @@ const end = timeToSeconds(start) + adjustedDuration
         <Image src={floor_p4_2} alt="Layer #3 Floor" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       此后若站在溪流区域中，会被赋予
       <LightningResistanceDownII hover />
       <Dropsy tag="15" hover />
       <DotInfo damage="48000" />
     </div>
-    <h4 id="taste-of-thunder" class="mt-8 text-2xl scroll-mt-[calc(5rem+1px)]">
+    <h4 id="taste-of-thunder" class="mt-8 scroll-mt-[calc(5rem+1px)] text-2xl">
       <Span variant="yellow">Taste of Thunder</Span>
     </h4>
     <StratBoard
@@ -137,8 +137,8 @@ const end = timeToSeconds(start) + adjustedDuration
       class="pointer-events-none fixed top-0 left-0 z-50 h-full w-full"
       canvasClass="h-full w-full object-cover"
     />
-    <div class="gap-strat flex items-center">类似巴哈姆特绝境战里的双塔尼亚旋风</div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">类似巴哈姆特绝境战里的双塔尼亚旋风</div>
+    <div class="paragraph">
       当提示特效出现时，判定
       <RoleIcon role="all" tag="全员" />
       位置，
@@ -150,11 +150,11 @@ const end = timeToSeconds(start) + adjustedDuration
       <DamageDown tag="30" hover />
       <Span variant="rose" class="text-decimal">30%↓</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       提示特效：
       <TasteOfThunderPlayButton />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       跟
       <StratLink variant="yellow" href="#double-style">Double Style</StratLink>
       里的雷分散同名，但不是一个效果
@@ -162,8 +162,8 @@ const end = timeToSeconds(start) + adjustedDuration
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Highlightning</Span>
     </h4>
-    <div class="gap-strat flex items-center">图层具现化后，随机小岛上空会生成一朵雷云</div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">图层具现化后，随机小岛上空会生成一朵雷云</div>
+    <div class="paragraph">
       雷云出现后会读条
       <Span variant="yellow">Highlightning</Span>
       ，半径
@@ -188,7 +188,7 @@ const end = timeToSeconds(start) + adjustedDuration
         />
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       之后雷云每隔约
       <Span variant="pink">10.6s</Span>
       随机移动到其它小岛并读条
@@ -200,7 +200,7 @@ const end = timeToSeconds(start) + adjustedDuration
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Lightning Bolt</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       每隔一段时间场地上会随机生成半径
       <Span variant="pink">4m</Span>
       的圆形AoE
@@ -217,7 +217,7 @@ const end = timeToSeconds(start) + adjustedDuration
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Lightning Storm</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <SugarRiot />
       每隔约
       <Span variant="pink">10.6s</Span>
@@ -232,7 +232,7 @@ const end = timeToSeconds(start) + adjustedDuration
       <Span variant="yellow">Lightning Storm</Span>
       <DamageInfo damage="150000" type="magical" />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       总共4轮，即每个人都会被点名
       <Span variant="default">1</Span>
       次，每次判定与雷云
@@ -255,7 +255,7 @@ const end = timeToSeconds(start) + adjustedDuration
         />
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <Span variant="yellow">Lightning Storm</Span>
       是半径
       <Span variant="pink">8m</Span>
@@ -264,7 +264,7 @@ const end = timeToSeconds(start) + adjustedDuration
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Pudding Party</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       点名随机
       <RoleIcon role="healer" />
       、半径
@@ -279,7 +279,7 @@ const end = timeToSeconds(start) + adjustedDuration
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       初始
       <RoleIcon role="any" tag="全员" />
       先在
@@ -287,7 +287,7 @@ const end = timeToSeconds(start) + adjustedDuration
       集合，看到雷云出现后
       <Span variant="pink">先别着急走</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       等
       <Span variant="yellow">Taste of Thunder</Span>
       的提示特效（
@@ -311,7 +311,7 @@ const end = timeToSeconds(start) + adjustedDuration
         />
       </div>
     </div>
-    <div class="gap-strat mt-8 flex items-center">
+    <div class="paragraph mt-8">
       接着雷云开始随机朝其它岛移动，同时
       <Span variant="yellow">Lightning Storm</Span>
       点名出现
@@ -321,7 +321,7 @@ const end = timeToSeconds(start) + adjustedDuration
       alt="Lightning Bolt 2"
       class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
     />
-    <div class="gap-strat mt-8 flex items-center">
+    <div class="paragraph mt-8">
       我们先调整视角，
       <Span variant="pink">以雷云的终点小岛为12点</Span>
       ：
@@ -342,7 +342,7 @@ const end = timeToSeconds(start) + adjustedDuration
         />
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       人群在
       <Span variant="pink">对侧的桥上</Span>
       躲避；
@@ -356,7 +356,7 @@ const end = timeToSeconds(start) + adjustedDuration
       <Span variant="pink">右下岛</Span>
       放置点名
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       当
       <RoleIcon role="tank" tag="MT" />
       被点名时，
@@ -365,14 +365,14 @@ const end = timeToSeconds(start) + adjustedDuration
       <RoleIcon role="tank" tag="MT" />
       处理完点名后再换回来
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       注意
       <Span variant="yellow">Lightning Storm</Span>
       点名本身也是个半径
       <Span variant="pink">8m</Span>
       的圆形AoE，近战不要为了贪输出靠近桥
     </div>
-    <div class="gap-strat mt-8 flex items-center">
+    <div class="paragraph mt-8">
       如此重复
       <Span variant="pink">4</Span>
       轮后，雷云消失，
@@ -384,28 +384,26 @@ const end = timeToSeconds(start) + adjustedDuration
     <h4 class="mt-8 text-2xl">
       <Span variant="lime">关于团辅</Span>
     </h4>
-    <div class="gap-strat flex items-center">
-      由于8分钟团辅会在雷云期间转好，而此时玩家在频繁移动，因此可以考虑延后团辅，我们建议：
-    </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">由于8分钟团辅会在雷云期间转好，而此时玩家在频繁移动，因此可以考虑延后团辅，我们建议：</div>
+    <div class="paragraph">
       <ListDot />
       零式开启后的
       <Span variant="pink">首月，即1~4周</Span>
       期间，将团辅
       <Span variant="pink">延后至连续分摊时</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       零式开启后的
       <Span variant="pink">次月，即5~8周</Span>
       期间，
       <Span variant="pink">不延后团辅</Span>
     </div>
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <ListDot />
       由于装等提升，延后会导致原本10分钟的那次团辅打不完，因此不延后
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       零式开启后的
       <Span variant="pink">第3个月始，即&gt;8周</Span>
@@ -414,11 +412,11 @@ const end = timeToSeconds(start) + adjustedDuration
       ，将团辅
       <Span variant="pink">延后至连续分摊时</Span>
     </div>
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <ListDot />
       由于装等进一步提升，原本10分钟的那次团辅怎么样都打不完（10分钟时已经过本），索性延后
     </div>
-    <div class="gap-strat flex items-center">以上建议仅供参考，请根据实际情况灵活调整</div>
+    <div class="paragraph">以上建议仅供参考，请根据实际情况灵活调整</div>
   </div>
 </SolutionSection>
 <AttackSection time="08:44.714" base={base} damage="57000" damageType="magical" />

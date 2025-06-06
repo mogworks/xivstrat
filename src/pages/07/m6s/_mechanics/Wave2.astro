@@ -47,7 +47,7 @@ const { base = 0 }: Props = Astro.props
 </LivePaintingCast>
 <SolutionSection title="解法：Wave #2">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       目标优先级：
       <Yan>
         <Span variant="red">#1</Span>
@@ -61,7 +61,7 @@ const { base = 0 }: Props = Astro.props
       &gt;
       <Mu />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       一般来说，第2轮开始时，
       <Yan>
         <Span variant="red">#1</Span>
@@ -72,7 +72,7 @@ const { base = 0 }: Props = Astro.props
       </GimmeCat>
       最多剩余半血
     </div>
-    <div class="gap-strat mt-12 flex items-center">
+    <div class="paragraph mt-12">
       1. 初始站位如下（以
       <RoleIcon role="ranged" tag="D3" />
       <RoleIcon role="healer" tag="H2" />
@@ -94,7 +94,7 @@ const { base = 0 }: Props = Astro.props
         />
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       若
       <GimmeCat>
@@ -102,7 +102,7 @@ const { base = 0 }: Props = Astro.props
       </GimmeCat>
       还未击杀，远程职业抓紧时间输出
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="tank" tag="MT" />
       拉好
@@ -116,7 +116,7 @@ const { base = 0 }: Props = Astro.props
       <RoleIcon role="tank" tag="ST" />
       注意关闭盾姿
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="ranged" tag="D3" />
       引导
@@ -131,12 +131,12 @@ const { base = 0 }: Props = Astro.props
       <FeatherRay />
       会连线第1个攻击它的人
     </div>
-    <div class="gap-strat flex items-center opacity-80">
+    <div class="paragraph opacity-80">
       <ListDot />
       <Span variant="pink">如果是固定队</Span>
       ，可尝试此优先级：
     </div>
-    <div class="gap-strat flex items-center pl-6 opacity-80">
+    <div class="paragraph pl-6 opacity-80">
       <ListDot />
       <Span variant="pink">左</Span>
       <FeatherRay />
@@ -152,7 +152,7 @@ const { base = 0 }: Props = Astro.props
       &gt;
       <JobIcon job="DNC" />
     </div>
-    <div class="gap-strat flex items-center pl-6 opacity-80">
+    <div class="paragraph pl-6 opacity-80">
       <ListDot />
       <Span variant="pink">右</Span>
       <FeatherRay />
@@ -175,14 +175,14 @@ const { base = 0 }: Props = Astro.props
       &gt;
       <JobIcon job="DNC" />
     </div>
-    <div class="gap-strat flex items-center pl-6 opacity-80">
+    <div class="paragraph pl-6 opacity-80">
       <ListDot />
       这是因为
       <Span variant="pink">右</Span>
       <FeatherRay />
       会先被击杀，一般只会放出1个水圈，让腿更短的引导
     </div>
-    <div class="gap-strat flex items-center pl-6 opacity-80">
+    <div class="paragraph pl-6 opacity-80">
       <ListDot />
       而
       <Span variant="pink">左</Span>
@@ -198,12 +198,12 @@ const { base = 0 }: Props = Astro.props
       <FeatherRay />
       会来不及远离
     </div>
-    <div class="gap-strat flex items-center pl-6 opacity-80">
+    <div class="paragraph pl-6 opacity-80">
       <ListDot />
       <JobIcon job="DNC" />
       引导水圈会损失很多AoE输出，所以优先级最低
     </div>
-    <div class="gap-strat mt-12 flex items-center">
+    <div class="paragraph mt-12">
       2.
       <RoleIcon role="tank" tag="MT" />
       拉好
@@ -235,21 +235,21 @@ const { base = 0 }: Props = Astro.props
         />
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       使用AoE技能时请务必选择
       <Span variant="pink">右</Span>
       <FeatherRay />
       为主目标
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="tank" tag="MT" />
       注意不要被水圈喷到，否则会因为
       <VulnerabilityUp hover />
       被普通攻击杀死
     </div>
-    <div class="gap-strat mt-12 flex items-center">
+    <div class="paragraph mt-12">
       3. 击杀
       <Span variant="pink">右</Span>
       <FeatherRay />
@@ -280,7 +280,7 @@ const { base = 0 }: Props = Astro.props
         />
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       注意选择
       <Span variant="pink">左</Span>
@@ -296,7 +296,7 @@ const { base = 0 }: Props = Astro.props
         <Span variant="orange">#2</Span>
       </Mu>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="tank" tag="MT" />
       注意把
@@ -309,7 +309,7 @@ const { base = 0 }: Props = Astro.props
       </Yan>
       （<Span variant="red">A</Span>点刷新）太近
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="ranged" tag="D3" />
       注意贴边，以免水圈砸到人群；
@@ -320,7 +320,7 @@ const { base = 0 }: Props = Astro.props
       <VulnerabilityUp hover />
       被普通攻击杀死
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="healer" />
       可以在
@@ -334,7 +334,7 @@ const { base = 0 }: Props = Astro.props
     <h4 class="mt-12 text-xl">
       <Span variant="lime">连线玩家放水圈的细节</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       如前文所述，
       <FeatherRay />
       读条结束时判定半径
@@ -345,7 +345,7 @@ const { base = 0 }: Props = Astro.props
       <VulnerabilityUp tag="8" hover />
       <Span variant="rose" class="text-decimal">3100%↑</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       要小心别蹭到拉怪的
       <RoleIcon role="tank" />
       ，之后再过约
@@ -356,7 +356,7 @@ const { base = 0 }: Props = Astro.props
       <Span variant="pink">6s</Span>
       时在脚下留下水圈
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       之后直到下一次
       <FeatherRay />
       读条，是有一小段空档可以回场中打AoE的，可以根据

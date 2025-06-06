@@ -20,25 +20,23 @@ const { class: className }: Props = Astro.props
 ---
 
 <ContentSection class={className}>
-  <div class="gap-strat flex items-center">
-    由于本阶段小怪事件过多，为保证时间轴简明，后续时间轴仅保留重要事件，以下事件将被略去：
-  </div>
+  <div class="paragraph">由于本阶段小怪事件过多，为保证时间轴简明，后续时间轴仅保留重要事件，以下事件将被略去：</div>
   <div class="mt-4 flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <Mu />
       每3秒1次对
       <RoleIcon role="tank" />
       的普通攻击
       <DamageInfo damage="9500" type="physical" />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <Yan />
       每3秒1次对
       <RoleIcon role="tank" />
       的普通攻击
       <DamageInfo damage="65000" type="physical" />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <GimmeCat />
       每14.5秒1次跳向随机玩家读条
       <Span variant="yellow">I Crave Violence</Span>
@@ -48,7 +46,7 @@ const { class: className }: Props = Astro.props
       <HPPenalty tag="30" hover />
       <Span variant="rose" class="text-decimal">70%↓</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <FeatherRay />
       每9秒1次对连线玩家读条
       <Span variant="yellow">Water III</Span>
