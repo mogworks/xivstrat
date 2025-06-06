@@ -33,24 +33,21 @@ interface Props {
 const { name = '', variant = 'yellow', separatorVariant = 'fuchsia' } = Astro.props
 ---
 
-<!-- class skill-name may be used for future's identification  -->
-<div class={`skill-name align-middle`}>
-  {
-    !Array.isArray(name) ? (
-      // if name is a string
-      <Span variant={variant}>{name}</Span>
-    ) : (
-      // or an Array
-      name.map((item, index) => (
-        <>
-          <Span variant={variant}>{item}</Span>
-          {index < name.length - 1 && (
-            <slot name="separator">
-              <Span variant={separatorVariant}>|</Span>
-            </slot>
-          )}
-        </>
-      ))
-    )
-  }
-</div>
+{
+  !Array.isArray(name) ? (
+    // if name is a string
+    <Span variant={variant}>{name}</Span>
+  ) : (
+    // or an Array
+    name.map((item, index) => (
+      <>
+        <Span variant={variant}>{item}</Span>
+        {index < name.length - 1 && (
+          <slot name="separator">
+            <Span variant={separatorVariant}>|</Span>
+          </slot>
+        )}
+      </>
+    ))
+  )
+}
