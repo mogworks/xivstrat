@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets'
-
 import type { Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
@@ -9,7 +7,6 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
-import Separator from '@/components/Separator.astro'
 
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
@@ -138,10 +135,9 @@ const { start, base = 0 }: Props = Astro.props
       最终形成如下的组合攻击：
       <ToggleSwitch id="xfang-mechanic-toggle" lVariant="yellow" rVariant="pink" lLabel="预兆" rLabel="判定" />
     </P>
-    <!-- 预兆表 -->
     <ImgGrid
       id="xfang-mechanic-omen"
-      columnTitles={['正点方向光牙', '斜点方向光牙']}
+      cols={[{ title: '正点方向光牙' }, { title: '斜点方向光牙' }]}
       defaultImgWrapperStyle={{
         bordered: true,
         rounded: true,
@@ -186,10 +182,9 @@ const { start, base = 0 }: Props = Astro.props
         },
       ]}
     />
-    <!-- 判定表 -->
     <ImgGrid
       id="xfang-mechanic-activate"
-      columnTitles={['正点方向光牙', '斜点方向光牙']}
+      cols={[{ title: '正点方向光牙' }, { title: '斜点方向光牙' }]}
       class="hidden"
       defaultImgWrapperStyle={{
         bordered: true,
@@ -255,10 +250,9 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="orange">{stonefang}</Span>
       站位图中已将光牙的两种情况叠加
     </P>
-    <!-- 预兆表 -->
     <ImgGrid
       id="xfang-solution-omen"
-      columnTitles={['正点方向光牙', '斜点方向光牙']}
+      cols={[{ title: '正点方向光牙' }, { title: '斜点方向光牙' }]}
       defaultImgWrapperStyle={{
         bordered: true,
         rounded: true,
@@ -301,10 +295,9 @@ const { start, base = 0 }: Props = Astro.props
         },
       ]}
     />
-    <!-- 判定表 -->
     <ImgGrid
       id="xfang-solution-activate"
-      columnTitles={['正点方向光牙', '斜点方向光牙']}
+      cols={[{ title: '正点方向光牙' }, { title: '斜点方向光牙' }]}
       class="hidden"
       defaultImgWrapperStyle={{
         bordered: true,

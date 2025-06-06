@@ -2,13 +2,18 @@
 import type { VariantType } from '@/lib/variant'
 import type { Img } from '@/components/typography/img'
 
-import Separator from '@/components/Separator.astro'
-import Span from '@/components/Span.vue'
-import ImgWrapper from '@/components/typography/ImgWrapper.astro'
 import { cn } from '@/lib/utils'
 
+import ImgWrapper from '@/components/typography/ImgWrapper.astro'
+import Separator from '@/components/Separator.astro'
+import Span from '@/components/Span.vue'
+
 interface Props {
-  columnTitles: string[]
+  cols: {
+    title: string
+    titleVariant?: VariantType
+    width?: string
+  }[]
   rows: {
     title: string
     titleVariant?: VariantType
@@ -17,7 +22,6 @@ interface Props {
       class?: string
     }[]
   }[]
-  columnWidth?: string
   class?: string
   defaultImgWrapperStyle?: {
     bordered?: boolean
@@ -30,18 +34,12 @@ interface Props {
   [key: string]: any
 }
 
-const {
-  columnTitles,
-  rows,
-  columnWidth = '24rem',
-  class: className = '',
-  defaultImgWrapperStyle = {},
-  ...rest
-}: Props = Astro.props
+const { cols, rows, class: className = '', defaultImgWrapperStyle = {}, ...rest }: Props = Astro.props
 
 const defaultTitleClass = 'flex justify-center text-lg font-bold tracking-wider'
-const colCount = columnTitles.length
+const colCount = cols.length
 const rowCount = rows.length
+const gridCols = cols.map((col) => `1px minmax(0, ${col.width || '24rem'})`).join(' ')
 ---
 
 <div
@@ -49,29 +47,26 @@ const rowCount = rows.length
   style={{
     '--col-count': colCount,
     '--row-count': rowCount,
-    '--col-width': columnWidth,
-    'grid-template-columns': `min-content repeat(${colCount}, 1px minmax(0, ${columnWidth}))`,
+    'grid-template-columns': `min-content ${gridCols}`,
     'grid-template-rows': `min-content repeat(${rowCount}, 1px 1fr)`,
   }}
   {...rest}
 >
-  <!-- 第一列垂直分隔线 -->
   <Separator class="col-start-2" orientation="vertical" />
 
-  <!-- 列标题 -->
   {
-    columnTitles.map((title, index) => (
+    cols.map((col, index) => (
       <>
-        <div class={cn(defaultTitleClass, 'pb-2')}>{title}</div>
-        {index < columnTitles.length - 1 && <Separator orientation="vertical" />}
+        <div class={cn(defaultTitleClass, 'pb-2')}>
+          <Span variant={col.titleVariant || 'default'}>{col.title}</Span>
+        </div>
+        {index < cols.length - 1 && <Separator orientation="vertical" />}
       </>
     ))
   }
 
-  <!-- 标题行下的水平分隔线 -->
   <Separator class="col-span-full" />
 
-  <!-- 数据行 -->
   {
     rows.map((row, rowIndex) => (
       <>
