@@ -2,6 +2,7 @@
 import type { VariantType } from '@/lib/variant'
 
 import EntityIcon from '@/components/EntityIcon.astro'
+import EntityText from '@/components/EntityText.astro'
 import Span from '@/components/Span.vue'
 
 import icon from '@/assets/07/m6s/entity_icons/mu.png'
@@ -20,7 +21,7 @@ const variant =
   }[wave] ?? 'zinc'
 ---
 
-<EntityIcon icon={icon} iconClass="drop-shadow-xs drop-shadow-black">
+<EntityIcon icon={icon} iconClass="drop-shadow-xs drop-shadow-black" data-icon="standard-icon">
   <slot>
     {
       wave !== 0 && (
@@ -32,3 +33,16 @@ const variant =
     }
   </slot>
 </EntityIcon>
+<EntityText data-icon="minimal-icon">
+  {
+    wave !== 0 ? (
+      <>
+        <Span variant="default">松鼠×2</Span>
+        <Span variant="default">#{wave}</Span>
+      </>
+    ) : (
+      <Span variant="default">松鼠</Span>
+    )
+  }
+  <slot />
+</EntityText>

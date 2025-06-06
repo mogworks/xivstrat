@@ -7,6 +7,7 @@ import Action from '@/components/Action.astro'
 
 import icon from '@/assets/action/31399.png'
 import RoleIcon from '@/components/RoleIcon.astro'
+import EntityText from '@/components/EntityText.astro'
 
 interface Props {
   class?: string
@@ -19,7 +20,7 @@ interface Props {
 const { actionClass = '', class: className = '', role, stage, tag }: Props = Astro.props
 ---
 
-<div class={cn('relative inline-flex', className)}>
+<div class={cn('relative inline-flex', className)} data-icon="standard-icon">
   {role && <RoleIcon role={role} class="relative -bottom-2 left-2.5 z-10 -ml-3" />}
   <Action icon={icon} name="极限技" class={actionClass} />
   {
@@ -38,3 +39,22 @@ const { actionClass = '', class: className = '', role, stage, tag }: Props = Ast
     )
   }
 </div>
+<EntityText class={cn('relative inline-flex font-bold', className)} data-icon="minimal-icon">
+  {role && <RoleIcon role={role} />}
+  <span>LB</span>
+  {
+    (tag || stage !== void 0) && (
+      <div class="font-bold" data-icon="minimal-icon">
+        {tag ? (
+          tag
+        ) : stage ? (
+          <>
+            <span>×{stage}</span>
+          </>
+        ) : (
+          ''
+        )}
+      </div>
+    )
+  }
+</EntityText>

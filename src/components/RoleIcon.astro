@@ -1,4 +1,5 @@
 ---
+import { cn } from '@/lib/utils'
 import type { RoleType, CombinedRoleType } from '@/lib/role'
 
 import EntityIcon from '@/components/EntityIcon.astro'
@@ -15,11 +16,18 @@ import magic from '/pixi/role/magic.png?url'
 import ranged_magic from '/pixi/role/ranged_magic.png?url'
 import boss from '/pixi/enemy/061712.png?url'
 import enemy_level1 from '/pixi/enemy/061707.png?url'
+import EntityText from './EntityText.astro'
 
 interface Props {
   role: RoleType | CombinedRoleType
   tag?: 'MT' | 'ST' | 'OT' | 'H1' | 'H2' | 'D1' | 'D2' | 'D3' | 'D4' | 'BOSS' | string
   class?: string
+}
+
+const tagHandler = (tag: string): string => {
+  // 添加文本使攻略行文通顺
+  if (['最近', '最远'].includes(tag)) return `${tag}目标`
+  else return tag
 }
 
 const { role = 'any', tag = '', class: className = '' }: Props = Astro.props
@@ -42,17 +50,45 @@ const img = {
   'healer|dps': [healer, dps],
   'dps|healer': [dps, healer],
 }[role]
+const text =
+  tagHandler(tag) ||
+  {
+    any: '任一角色',
+    all: '全员',
+    tank: 'T',
+    healer: 'H',
+    dps: 'D',
+    melee: '近战',
+    ranged: '远敏',
+    magic: '法系',
+    ranged_magic: '远程',
+    boss: '', // 敌对生物slot都包含名称，直接隐藏图标
+    enemy_level1: '',
+    'tank|healer': 'T或H',
+    'healer|tank': 'H或T',
+    'tank|dps': 'T或D',
+    'dps|tank': 'D或T',
+    'healer|dps': 'H或D',
+    'dps|healer': 'D或H',
+  }[role]
 ---
 
 {
   role.includes('|') ? (
-    <EntityIcon icon="" tag={tag} alt={tag ?? role} class={className}>
+    <EntityIcon icon="" tag={tag} alt={tag ?? role} class={className} data-icon="standard-icon">
       <CombinedIcon slot="icon" img1={img[0]} img2={img[1]} tag={tag} alt={tag ?? role} />
       <slot />
     </EntityIcon>
   ) : (
-    <EntityIcon icon={img as string | ImageMetadata} tag={tag} alt={tag ?? role} class={className}>
+    <EntityIcon
+      icon={img as string | ImageMetadata}
+      tag={tag}
+      alt={tag ?? role}
+      class={className}
+      data-icon="standard-icon"
+    >
       <slot />
     </EntityIcon>
   )
 }
+<EntityText class={className} data-icon="minimal-icon">{text}<slot /></EntityText>

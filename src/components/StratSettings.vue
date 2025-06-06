@@ -45,6 +45,25 @@ const viewModeSetting = {
   },
 }
 
+const readMode = {
+  name: '阅读模式',
+  options: [
+    {
+      id: 'standard',
+      name: '标准模式',
+      description: '显示全部图标',
+    },
+    {
+      id: 'minimal',
+      name: '简洁模式',
+      description: '角色、BOSS等图标以文字显示',
+    },
+  ],
+  onChange: (value: string) => {
+    $stratSettings.setKey('readMode', value as 'standard' | 'minimal')
+  },
+}
+
 const attackEventSetting = {
   name: '普通攻击',
   options: [
@@ -113,7 +132,9 @@ const timeFormatSetting = {
     <DialogTrigger as-child>
       <TriggerButton />
     </DialogTrigger>
-    <DialogContent class="mx-auto flex w-[90vw] max-w-xs flex-col gap-0 p-0 sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl">
+    <DialogContent
+      class="mx-auto flex w-[90vw] max-w-xs flex-col gap-0 p-0 sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl"
+    >
       <DialogHeader class="contents space-y-0 text-left">
         <DialogTitle class="p-4 text-xl">
           页面设置
@@ -128,6 +149,12 @@ const timeFormatSetting = {
           :options="viewModeSetting.options"
           :disabled="stratSettings.attackEvent === 'only'"
           :on-value-change="viewModeSetting.onChange"
+        />
+        <RadioGroup
+          :name="readMode.name"
+          :default-value="stratSettings.readMode"
+          :options="readMode.options"
+          :on-value-change="readMode.onChange"
         />
         <RadioGroup
           :name="attackEventSetting.name"
