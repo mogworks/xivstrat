@@ -1,0 +1,57 @@
+---
+/*
+
+Skill.astro
+Author: Fish Fly
+
+Use to show skills' name when boss cast randomly from multiple options
+
+Param:
+  - name           : string/array of skills' name
+  - variant?       : variant of the internal <Span> elements
+  - isHeader?      : pass true when in a MechanicSection/SolutionSection context
+  - slot separator : replace the default separator '|'
+
+Example:  <Skill
+              skill={['crychic', 'mygo', 'avemujica']}
+              isHeader={true}
+          >
+              <Span slot="separator" variant="lime">&</span>    // uses custom separator
+          </Skill>
+
+*/
+
+import type { VariantType } from '@/lib/variant'
+
+import Span from '@/components/Span.vue'
+
+interface Props {
+  name: string | string[]
+  variant?: VariantType
+  separatorVariant?: VariantType
+}
+
+const { name = '', variant = 'yellow', separatorVariant = 'fuchsia' } = Astro.props
+---
+
+<!-- class skill-name may be used for future's identification  -->
+<div class={`skill-name align-middle`}>
+  {
+    !Array.isArray(name) ? (
+      // if name is a string
+      <Span variant={variant}>{name}</Span>
+    ) : (
+      // or an Array
+      name.map((item, index) => (
+        <>
+          <Span variant={variant}>{item}</Span>
+          {index < name.length - 1 && (
+            <slot name="separator">
+              <Span variant={separatorVariant}>|</Span>
+            </slot>
+          )}
+        </>
+      ))
+    )
+  }
+</div>
