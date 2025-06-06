@@ -29,7 +29,7 @@ const { base = 0 }: Props = Astro.props
 <ColorRiotCast start="00:17.322" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       需要
       <RoleIcon role="tank" tag="双T" />
       <Span variant="pink">引导</Span>
@@ -51,7 +51,7 @@ const { base = 0 }: Props = Astro.props
         <h4 class="text-xl">
           <Span variant="yellow">情形1</Span>
         </h4>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           对最远的人释放
           <ColorRiotBomb type="cool" />
           ，对最近的人释放
@@ -71,7 +71,7 @@ const { base = 0 }: Props = Astro.props
         <h4 class="text-xl">
           <Span variant="yellow">情形2</Span>
         </h4>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           对最远的人释放
           <ColorRiotBomb type="warm" />
           ，对最近的人释放
@@ -95,7 +95,7 @@ const { base = 0 }: Props = Astro.props
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       首次固定由
       <RoleIcon role="tank" tag="MT" />
       进入目标圈
@@ -104,17 +104,17 @@ const { base = 0 }: Props = Astro.props
       远离目标圈
       <Span variant="pink">引导远</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       之后
       <RoleIcon role="tank" tag="双T" />
       <Span variant="pink">根据自身debuff情况，引导反色的炸弹</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       可观察
       <SugarRiot />
       双手颜色，高举的右手代表近引导的颜色，向下的左手则为远引导的颜色
     </div>
-    <div class="mt-8 gap-strat flex items-center">
+    <div class="paragraph mt-8">
       远引导
       <RoleIcon role="tank" />
       保持最大近战距离输出，近引导
@@ -125,7 +125,7 @@ const { base = 0 }: Props = Astro.props
       <RoleIcon role="tank" tag="双T" />
       左右分开一定距离
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <RoleIcon role="healer" />
       <RoleIcon role="dps" />
       在
@@ -143,7 +143,7 @@ const { base = 0 }: Props = Astro.props
       alt="Color Riot Solution"
       class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
     />
-    <div class="mt-8 gap-strat flex items-center">
+    <div class="paragraph mt-8">
       <RoleIcon role="healer" />
       <RoleIcon role="dps" />
       注意：
@@ -152,13 +152,13 @@ const { base = 0 }: Props = Astro.props
       <SugarRiot />
       <Span variant="pink">身后集合</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       后续会有其它机制紧跟死刑，彼时
       <SugarRiot />
       位置和面向可能都是乱的
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       彼时请
       <RoleIcon role="healer" />
@@ -170,7 +170,7 @@ const { base = 0 }: Props = Astro.props
   </div>
 </SolutionSection>
 <NoteSection>
-  <div class="gap-strat flex items-center">
+  <div class="paragraph">
     <SugarRiot />
     目标圈半径为
     <Span variant="pink">4m</Span>

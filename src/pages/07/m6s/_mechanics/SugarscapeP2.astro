@@ -67,17 +67,17 @@ const end = timeToSeconds(start) + adjustedDuration
     <h4 class="text-2xl">
       <Span variant="yellow">Sugarscape</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <SugarRiot />
       连线场外北侧画卷，绘制如下图案
     </div>
     <Image src={paint_1} alt="Sugarscape Paint P2" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-    <div class="gap-strat mt-8 flex items-center">
+    <div class="paragraph mt-8">
       <SugarRiot />
       读条结束后，画卷具现化，场地变换为沙漠，如下图
     </div>
     <Image src={floor_p2} alt="P2 Floor" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       同时，全员被赋予永续
       <SwelteringDebuff hover /><DotInfo damage="15000" />
       ，该
@@ -91,7 +91,7 @@ const end = timeToSeconds(start) + adjustedDuration
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Heating Up</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <RoleIcon role="healer" tag="H1" />
       <RoleIcon role="healer" tag="H2" />
       被赋予
@@ -104,20 +104,20 @@ const end = timeToSeconds(start) + adjustedDuration
       被赋予
       <HeatingUpDebuff tag="43" hover />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <HeatingUpDebuff hover />
       倒计时结束后会爆炸，产生半径
       <Span variant="pink">15m</Span>
       的圆形AoE：
     </div>
-    <div class="gap-strat flex items-center pl-4">
+    <div class="paragraph pl-4">
       <ListDot />
       对持有者造成
       <Span variant="yellow">Brûlée</Span>
       <DamageInfo damage="100000" type="magical" />
       <FireResistanceDownII tag="3" hover />
     </div>
-    <div class="gap-strat flex items-center pl-4">
+    <div class="paragraph pl-4">
       <ListDot />
       对范围内其他人造成
       <Span variant="yellow">Brûlée</Span>
@@ -129,7 +129,7 @@ const end = timeToSeconds(start) + adjustedDuration
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">Burning Up</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       随机
       <Span variant="default">1</Span>
       无
@@ -139,13 +139,13 @@ const end = timeToSeconds(start) + adjustedDuration
       被赋予
       <BurningUpDebuff tag="43" hover />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <BurningUpDebuff hover />
       倒计时结束后会爆炸，产生可分摊的半径
       <Span variant="pink">5m</Span>
       的圆形AoE
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       6人分摊时每人受到
       <Span variant="yellow">Crowd Brûlée</Span>
       <DamageInfo damage="100000" type="magical" />

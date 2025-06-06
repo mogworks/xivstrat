@@ -44,19 +44,19 @@ const { time, base = 0 }: Props = Astro.props
 藏一段待编辑美服打法
 <SolutionSection title="解法：美服野队">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       首先第一个<WindWolfheadIcon />必定是刷新在北侧或者南侧，将场地分割为左半场和右半场。
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       此时全员需要观察<WindWolfheadIcon />是顺时针还是逆时针。
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       以场地正北为基准，我们让MT组(MT, H1, D1, D3)去左半场，ST组(ST, H2, D2, D4)去右半场。
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       初始站位如图所示，然后所有人根据狼头顺时针或者逆时针一起选传，
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       其中远程组如果吃完了点名可以跑到和直线AoE垂直的位置，会有更大的安全区。
     </div>
   </div>
@@ -83,7 +83,7 @@ const { time, base = 0 }: Props = Astro.props
       <Span variant="yellow">{millennialDecay} </Span>
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       这是本层第一个难点机制，随着
       <HowlingBlade />
       读条
@@ -93,7 +93,7 @@ const { time, base = 0 }: Props = Astro.props
       刷新，
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       随后顺时针或者逆时针每过36°刷新一只。
 
       <WindWolfheadIcon />
@@ -113,7 +113,7 @@ const { time, base = 0 }: Props = Astro.props
       </div>
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       在这之前，
       <HowlingBlade />会在场中释放
       <Span variant="yellow">{aero}</Span>
@@ -121,7 +121,7 @@ const { time, base = 0 }: Props = Astro.props
       <RoleIcon role="all" tag="全员" />造成伤害并击退玩家，防击退有效。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       击退判定后，
       <HowlingBlade />
       会对随机4
@@ -134,7 +134,7 @@ const { time, base = 0 }: Props = Astro.props
       并且附加魔法易伤，重叠即死。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       随后第一只<WindWolfheadIcon />的直线AoE伤害判定， 第一轮点名伤害判定，
       <HowlingBlade />
       会对另外4
@@ -147,11 +147,11 @@ const { time, base = 0 }: Props = Astro.props
       。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       之后第二、三只<WindWolfheadIcon />判定，然后第二轮点名伤害判定，剩余<WindWolfheadIcon />伤害判定。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       场边<WindWolfheadIcon />消失后， 在随机四个正点或者斜点会出现新的四只<WindWolfheadIcon />
       连线随机4
       <RoleIcon role="dps" />
@@ -160,11 +160,9 @@ const { time, base = 0 }: Props = Astro.props
       <RoleIcon role="healer" />
     </div>
 
-    <div class="gap-strat flex items-center">
-      释放扇形AoE并且附加魔法易伤，在没有龙头的其余四个斜点或正点会刷新四座塔。
-    </div>
+    <div class="paragraph">释放扇形AoE并且附加魔法易伤，在没有龙头的其余四个斜点或正点会刷新四座塔。</div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       与此同时，
       <HowlingBlade />
       在场中开始读条
@@ -191,24 +189,22 @@ const { time, base = 0 }: Props = Astro.props
 
 <SolutionSection title="解法：IQ6000">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       首先第一个<WindWolfheadIcon />必定是刷新在北侧或者南侧，将场地分割为左半场和右半场。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       此时全员需要观察<WindWolfheadIcon />是顺时针还是逆时针。
     </div>
 
-    <div class="gap-strat flex items-center">
-      以场地正北为基准，我们让MT组(MT, H1, D1, D3)去左半场，ST组(ST, H2, D2, D4)去右半场。
-    </div>
+    <div class="paragraph">以场地正北为基准，我们让MT组(MT, H1, D1, D3)去左半场，ST组(ST, H2, D2, D4)去右半场。</div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       第一轮点名出现，我们让四个点名去数字点，MT/D3去<Span variant="red">1</Span>， ST/D4去
       <Span variant="yellow">2</Span>，
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       H1/D1去
       <Span variant="purple">4</Span>， H2/D2去
       <Span variant="sky">3</Span>。近战可以稍微靠近<HowlingBlade />在最远近战距离输出。无点名的安全区在<HowlingBlade
@@ -226,27 +222,23 @@ const { time, base = 0 }: Props = Astro.props
       </div>
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       场地击退效果出现，全员防击退。等待第一轮点名判定后，<WindWolfheadIcon />开始旋转。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       这里第一轮没有被点到的可以根据<WindWolfheadIcon />是顺时针还是逆时针确定放圈的位置。
     </div>
 
-    <div class="gap-strat flex items-center">
-      如果是顺时针，MT组的远程就会在A点，近战在2点，ST组的远程在C点，近战在4点。
-    </div>
+    <div class="paragraph">如果是顺时针，MT组的远程就会在A点，近战在2点，ST组的远程在C点，近战在4点。</div>
 
-    <div class="gap-strat flex items-center">
-      如果是逆时针，MT组的远程就会在C点，近战在3点，ST组的远程在A点，近战在1点。
-    </div>
+    <div class="paragraph">如果是逆时针，MT组的远程就会在C点，近战在3点，ST组的远程在A点，近战在1点。</div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       这里也可以直接看第二只<WindWolfheadIcon />出现的位置，如果出现在2/4点就是顺时针的规则，否则就是逆时针。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       以H1为例，观察<WindWolfheadIcon />是顺时针，第一轮没有被点名，那就可以在第一次AoE判定之后去A点等待自己的点名。
     </div>
 
@@ -262,17 +254,17 @@ const { time, base = 0 }: Props = Astro.props
       </div>
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       两次点名结束后，继续躲避直到<WindWolfheadIcon />消失。 随后场上出现四个<WindWolfheadIcon />，观察自己是否有连线。
     </div>
 
-    <div class="gap-strat flex items-center">如果有连线，去连线龙头相反的地方等待被击退将连线拉长。</div>
+    <div class="paragraph">如果有连线，去连线龙头相反的地方等待被击退将连线拉长。</div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       如果没有连线，则去自己的塔准备踩塔。由于塔会刷新在正点或者斜点，这里我们还是根据颜色分组。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <RoleIcon role="tank" tag="MT" />
       或
       <RoleIcon role="ranged" tag="D3" />
@@ -295,7 +287,7 @@ const { time, base = 0 }: Props = Astro.props
       。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <RoleIcon role="healer" tag="H2" />
       和
       <RoleIcon role="melee" tag="D2" />
@@ -318,7 +310,7 @@ const { time, base = 0 }: Props = Astro.props
       。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       塔判定，<WindWolfheadIcon />伤害判定，该机制结束。
     </div>
   </div>
@@ -326,14 +318,14 @@ const { time, base = 0 }: Props = Astro.props
 
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <WindWolfheadIcon />释放的直线AoE伤害约为
       <DamageInfo damage="90000" type="magical" />
       <DamageDown tag="30" />
       如果有人不小心吃到了能稍微抢救一下。
     </div>
 
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       如果最后的塔没有踩到，每个会对全团造成
       <Span variant="yellow">{greatWhirlwind}</Span>
       <DamageInfo damage="100000" type="magical" />
@@ -343,6 +335,6 @@ const { time, base = 0 }: Props = Astro.props
       <DamageInfo damage="30000" type="special" />
     </div>
 
-    <div class="gap-strat flex items-center">紧接着后面会有多段分摊AoE，一层DoT勉强可以奶得起来，两层基本团灭。</div>
+    <div class="paragraph">紧接着后面会有多段分摊AoE，一层DoT勉强可以奶得起来，两层基本团灭。</div>
   </div>
 </NoteSection>

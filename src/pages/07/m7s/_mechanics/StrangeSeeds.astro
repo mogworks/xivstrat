@@ -6,6 +6,7 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
+import Badge from '@/components/Badge.astro'
 
 import floor_p2_3 from '@/assets/07/m7s/floor_p2_3.png'
 import strange_seeds_safe_point from '@/assets/07/m7s/strange_seeds/strange_seeds_safe_point.png'
@@ -15,13 +16,15 @@ import strange_seeds_killer_seeds_point from '@/assets/07/m7s/strange_seeds/stra
 
 import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
-import Badge from '@/components/Badge.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
   base?: Time
 }
 const { start, base = 0 }: Props = Astro.props
+const strangeSeeds = translations.strangeSeeds
+const stoneringer = translations.stoneringer
 ---
 
 <StrangeSeedsCast start={start} base={base} />
@@ -36,31 +39,31 @@ const { start, base = 0 }: Props = Astro.props
               <RoleIcon role="tank" />
               <RoleIcon role="healer" />组或
               <RoleIcon role="dps" />组,个一人被点名
-              <Span variant="yellow"> Strange Seeds </Span>
+              <Span variant="yellow"> {strangeSeeds} </Span>
               <Span variant="yellow">(圆形AOE)</Span>
             </span>
           </div>
 
-          <div class="gap-strat mt-6 flex items-center">
+          <div class="paragraph mt-6">
             随后在<Span variant="yellow">圆形AOE</Span>处会释放<Span variant="yellow">8方直线AOE</Span>
           </div>
 
-          <div class="gap-strat mt-6 flex items-center border border-dashed p-4">
+          <div class="paragraph mt-6 border border-dashed p-4">
             <span class="inline-flex items-center gap-px">
-              其间<BruteAbombinator /> 还会读条<Span variant="yellow">StoneringerCast</Span><Badge variant="green"
+              其间<BruteAbombinator /> 还会读条<Span variant="yellow">{stoneringer}</Span><Badge variant="green"
                 >延迟生效</Badge
               >到分摊后进行处理
             </span>
           </div>
 
-          <div class="gap-strat mt-6 flex items-center">
+          <div class="paragraph mt-6">
             <span class="inline-flex items-center gap-px">
               <RoleIcon role="tank" />
               <RoleIcon role="healer" />组和<RoleIcon role="dps" />组个被点名一次一共4轮
             </span>
           </div>
 
-          <div class="gap-strat mt-6 flex items-center">
+          <div class="paragraph mt-6">
             <span class="inline-flex items-center gap-px">
               第四轮结束后,各点名
               <RoleIcon role="tank" />
@@ -81,7 +84,7 @@ const { start, base = 0 }: Props = Astro.props
       <div class="flex flex-row gap-4">
         <div class="flex w-4/6 flex-col items-center gap-2">
           <Image src={strange_seeds_safe_point} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-          <div class="gap-strat flex items-center">未被点名时待在安全区内</div>
+          <div class="paragraph">未被点名时待在安全区内</div>
         </div>
       </div>
       <div class="gap-strat flex-col">
@@ -96,7 +99,7 @@ const { start, base = 0 }: Props = Astro.props
       <div class="flex flex-row gap-4">
         <div class="flex w-4/6 flex-col items-center gap-2">
           <Image src={strange_seeds_13_point} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-          <div class="gap-strat flex items-center">奇数 1/3轮,放角落或中央点</div>
+          <div class="paragraph">奇数 1/3轮,放角落或中央点</div>
         </div>
       </div>
       <div class="gap-strat flex-col">
@@ -124,7 +127,7 @@ const { start, base = 0 }: Props = Astro.props
           alt=""
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           第4轮种子落下后,<RoleIcon role="tank" /><RoleIcon role="healer" />组或<RoleIcon role="dps" />组分摊站位
         </div>
       </div>
@@ -140,7 +143,7 @@ const { start, base = 0 }: Props = Astro.props
         </div>
       </Span>
       <div class="gap-strat flex">
-        这里建议,如果在前几轮已经放完<Span variant="yellow"> Strange Seeds </Span>的情况下去
+        这里建议,如果在前几轮已经放完<Span variant="yellow"> {strangeSeeds} </Span>的情况下去
       </div>
       <div class="gap-strat flex"><Span variant="pink">左侧安全位</Span>进行躲避.缩短下次跑去分摊的距离</div>
     </div>

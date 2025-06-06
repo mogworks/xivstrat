@@ -12,6 +12,7 @@ import DamageDown from '@/components/buff/DamageDown.astro'
 
 import StoneringerCast from '../_components/StoneringerCast.astro'
 import SmashHereCast from '../_components/SmashHereCast.astro'
+import { translations } from '../_translations'
 
 import stoneringer_1 from '@/assets/07/m7s/stoneringer_1.png'
 import stoneringer_2 from '@/assets/07/m7s/stoneringer_2.png'
@@ -29,6 +30,8 @@ interface Props {
 }
 
 const { base = 0 }: Props = Astro.props
+const smashHere = translations.smashHere
+const smashThere = translations.smashThere
 ---
 
 <StoneringerCast start="00:20.89" base={base} />
@@ -40,7 +43,7 @@ const { base = 0 }: Props = Astro.props
     <h4 class="text-2xl">
       <Span variant="yellow">Stoneringer</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <Span variant="yellow">Stoneringer</Span> 读条期间，<BruteAbombinator />掏出武器，P1 P2是一把，P3会变成两把
     </div>
     <div>
@@ -56,7 +59,7 @@ const { base = 0 }: Props = Astro.props
         <h4 class="text-xl">
           <Span variant="yellow">情形1</Span>
         </h4>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           <BruteAbombinator />掏出一个<Span variant="pink">棒槌</Span>，<Span variant="pink">发光</Span>后释放半径<Span
             variant="pink">12m</Span
           >的<Span variant="yellow">钢铁</Span>
@@ -77,7 +80,7 @@ const { base = 0 }: Props = Astro.props
         <h4 class="text-xl">
           <Span variant="yellow">情形2</Span>
         </h4>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           <BruteAbombinator />掏出一把<Span variant="pink">长刀</Span>，<Span variant="pink">发光</Span>后释放<Span
             variant="yellow">月环</Span
           >
@@ -111,7 +114,7 @@ const { base = 0 }: Props = Astro.props
     <h4 class="text-2xl">
       <Span variant="yellow">Smash Here/There</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <Span variant="yellow">Stoneringer</Span>判定后<Span variant="pink">约1秒</Span>，<BruteAbombinator />释放<Span
         variant="pink">距离诱导</Span
       >的<Span variant="pink">6m</Span>圆形AOE物理<Span variant="red">死刑</Span>，需要
@@ -124,9 +127,9 @@ const { base = 0 }: Props = Astro.props
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
-          <Span variant="yellow">情形1：Smash Here</Span>
+          <Span variant="yellow">情形1：{smashHere}</Span>
         </h4>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           读条 Smash <Span variant="pink">Here</Span>，对距离<Span variant="pink">最近</Span>的玩家释放<Span
             variant="pink">范围</Span
           >死刑
@@ -139,9 +142,9 @@ const { base = 0 }: Props = Astro.props
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
-          <Span variant="yellow">情形2：Smash There</Span>
+          <Span variant="yellow">情形2：{smashThere}e</Span>
         </h4>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           读条 Smash <Span variant="pink">There</Span>，对距离<Span variant="pink">最远</Span>的玩家释放<Span
             variant="pink">范围</Span
           >死刑

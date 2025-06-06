@@ -1,0 +1,22 @@
+---
+import type { VariantType } from '@/lib/variant'
+
+import { cn } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+
+interface Props {
+  text?: string
+  variant?: VariantType
+  class?: string
+  [key: string]: any
+}
+
+const { text = '', variant = 'default', class: className, ...rest } = Astro.props
+---
+
+<h4 class={cn('text-2xl', className)} {...rest}>
+  <slot>
+    <Span variant={variant}>{text}</Span>
+  </slot>
+</h4>

@@ -75,11 +75,11 @@ const { base = 0 }: Props = Astro.props
     <h4 class="text-2xl">
       <Span variant="yellow">Double Style</Span>
     </h4>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <SugarRiot />
       双手各画出一幅图案，预示接下来要发动的攻击
     </div>
-    <div class="gap-strat -my-4 flex items-center">
+    <div class="paragraph -my-4">
       左手有
       <Image src={bomb} alt="Paint Mark: Bomb" class="-mx-5 w-25 drop-shadow-sm drop-shadow-black" />
       <Image src={hanebomb} alt="Paint Mark: Hanebomb" class="-mr-6 -ml-4 w-25 drop-shadow-sm drop-shadow-black" />
@@ -87,15 +87,13 @@ const { base = 0 }: Props = Astro.props
       <Image src={succubus} alt="Paint Mark: Succubus" class="-mx-2 w-25 drop-shadow-sm drop-shadow-black" />
       四种可能
     </div>
-    <div class="gap-strat -my-4 flex items-center">
+    <div class="paragraph -my-4">
       右手则只有
       <Image src={morbol} alt="Paint Mark: Morbol" class="-mr-4 -ml-2 w-25 drop-shadow-sm drop-shadow-black" />
       <Image src={succubus} alt="Paint Mark: Succubus" class="-mx-2 w-25 drop-shadow-sm drop-shadow-black" />
       两种可能
     </div>
-    <div class="gap-strat flex items-center">
-      图案出现后会连线场地某处，表示读条结束后会在该位置处发动图案对应的效果
-    </div>
+    <div class="paragraph">图案出现后会连线场地某处，表示读条结束后会在该位置处发动图案对应的效果</div>
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">单图案效果拆解</Span>
     </h4>
@@ -109,8 +107,8 @@ const { base = 0 }: Props = Astro.props
         <h4 class="text-xl">
           <Span variant="yellow">爆弹</Span>
         </h4>
-        <div class="gap-strat flex items-center">只有这一种情况，固定连线如图所示位置</div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">只有这一种情况，固定连线如图所示位置</div>
+        <div class="paragraph">
           爆弹位于距离场地中轴线
           <Span variant="pink">8m</Span>
           处，间隔
@@ -128,8 +126,8 @@ const { base = 0 }: Props = Astro.props
         <h4 class="text-xl">
           <Span variant="yellow">烈羽爆弹</Span>
         </h4>
-        <div class="gap-strat flex items-center">只有这一种情况，固定连线如图所示位置（同爆弹）</div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">只有这一种情况，固定连线如图所示位置（同爆弹）</div>
+        <div class="paragraph">
           但最后爆弹会向右飞
           <Span variant="pink">16m</Span>
           到对称的位置再爆炸
@@ -144,9 +142,9 @@ const { base = 0 }: Props = Astro.props
         <h4 class="text-xl">
           <Span variant="yellow">魔界花</Span>
         </h4>
-        <div class="gap-strat flex items-center">连线任意场边中点（左手不会连东边，右手不会连西边）</div>
-        <div class="gap-strat flex items-center">图示以右手魔界花连线东边中点为例</div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">连线任意场边中点（左手不会连东边，右手不会连西边）</div>
+        <div class="paragraph">图示以右手魔界花连线东边中点为例</div>
+        <div class="paragraph">
           魔界花会面向场内释放角度
           <Span variant="pink">100°</Span>
           的扇形AoE
@@ -161,9 +159,9 @@ const { base = 0 }: Props = Astro.props
         <h4 class="text-xl">
           <Span variant="yellow">梦魔</Span>
         </h4>
-        <div class="gap-strat flex items-center">连线任意场边中点（左手不会连东边，右手不会连西边）</div>
-        <div class="gap-strat flex items-center">图示以右手梦魔连线北边中点为例</div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">连线任意场边中点（左手不会连东边，右手不会连西边）</div>
+        <div class="paragraph">图示以右手梦魔连线北边中点为例</div>
+        <div class="paragraph">
           梦魔会释放半径
           <Span variant="pink">30m</Span>
           的大范围圆形AoE
@@ -239,7 +237,7 @@ const { base = 0 }: Props = Astro.props
         <div>梦魔 + 梦魔</div>
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       注意：双手图案无论如何连线，都只会有
       <Span variant="pink">唯一</Span>
       一个安全角落，不会出现有多个安全角落的情况
@@ -248,19 +246,19 @@ const { base = 0 }: Props = Astro.props
 </MechanicSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       在
       <Span variant="yellow">Double Style</Span>
       图案效果判定前，
       <WingmarkDebuff hover />
       也会判定，强制让玩家飞行一段距离
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       由于
       <Span variant="yellow">Double Style</Span>
       会让场地只有一角安全，玩家需要预先调整位置，让自己飞到安全角落
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       接着
       <Span variant="yellow">Color Clash</Span>
       会和
@@ -271,8 +269,8 @@ const { base = 0 }: Props = Astro.props
 </NoteSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">首先要找到安全角落</div>
-    <div class="gap-strat -my-4 flex items-center">
+    <div class="paragraph">首先要找到安全角落</div>
+    <div class="paragraph -my-4">
       显然，远离
       <Image src={bomb} alt="Paint Mark: Bomb" class="-mx-5 w-25 drop-shadow-sm drop-shadow-black" />
       和
@@ -283,8 +281,8 @@ const { base = 0 }: Props = Astro.props
       <Image src={morbol} alt="Paint Mark: Morbol" class="-mr-3 -ml-2 w-25 drop-shadow-sm drop-shadow-black" />
       连线末端的角落是安全的
     </div>
-    <div class="gap-strat flex items-center">但由于玩家会先经历强制飞行，因此可以反过来记：</div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">但由于玩家会先经历强制飞行，因此可以反过来记：</div>
+    <div class="paragraph">
       <ListDot />
       先找到
       <Span variant="pink">靠近</Span>
@@ -298,25 +296,21 @@ const { base = 0 }: Props = Astro.props
       <Span variant="yellow">魔界花</Span>
       连线末端的数字点
     </div>
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <ListDot />
-      <span class="line-through decoration-zinc-500 dark:decoration-zinc-700 decoration-20 hover:no-underline">
+      <span class="line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700">
         梦魔涩涩的，我们要靠近；魔界花臭臭的，我们要远离
       </span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       在数字点内，
       <Span variant="pink">面朝对角</Span>
       ，等待飞行即可
     </div>
-    <div class="mt-8 gap-strat flex items-center">
-      若采用本站标点，站入数字标点刚好会飞行到对角的适中位置，方便后续分散
-    </div>
+    <div class="paragraph mt-8">若采用本站标点，站入数字标点刚好会飞行到对角的适中位置，方便后续分散</div>
     <Image src={wingmark} alt="Wingmark" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-    <div class="gap-strat mt-8 flex items-center">
-      接着在安全角落处理四四/二二分摊，以场中为12点，如下图站位（以东南角安全为例）
-    </div>
+    <div class="paragraph mt-8">接着在安全角落处理四四/二二分摊，以场中为12点，如下图站位（以东南角安全为例）</div>
     <div class="flex gap-4">
       <div class="flex max-w-80 shrink flex-col items-center gap-2">
         <Image src={color_clash_44} alt="Color Clash 44" />
@@ -327,17 +321,17 @@ const { base = 0 }: Props = Astro.props
         <div>情形2：二二分摊</div>
       </div>
     </div>
-    <div class="gap-strat mt-4 flex items-center">二二分摊时，中间靠上的人只要不站进数字标点就是绝对安全的</div>
-    <div class="gap-strat flex items-center opacity-80">
+    <div class="paragraph mt-4">二二分摊时，中间靠上的人只要不站进数字标点就是绝对安全的</div>
+    <div class="paragraph opacity-80">
       注：此处是把所有类型的AoE范围铺满来展示绝对安全区域，实战安全区域是会比上图要大的
     </div>
   </div>
 </SolutionSection>
 <SolutionSection title="解法：读条职业优化">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">四四分摊站位不变，二二分摊站位变更如下</div>
+    <div class="paragraph">四四分摊站位不变，二二分摊站位变更如下</div>
     <Image src={color_clash_22_optimize} alt="Color Clash 22 Optimize" class="w-80" />
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       缺点是
       <RoleIcon role="tank" tag="ST" />
       需要多跑几步才能突进回场中
