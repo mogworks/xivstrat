@@ -19,6 +19,10 @@ import stoneringer_steel from '@/assets/07/m7s/stoneringer_steel.png'
 import stoneringer_ring from '@/assets/07/m7s/stoneringer_ring.png'
 import smash_here from '@/assets/07/m7s/smash_here.png'
 import smash_there from '@/assets/07/m7s/smash_there.png'
+import StoneringerActivate from '../_components/StoneringerActivate.astro'
+import SmashActivate from '../_components/SmashActivate.astro'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import ListDot from '@/components/ListDot.astro'
 
 interface Props {
   base: Time
@@ -28,10 +32,22 @@ const { base = 0 }: Props = Astro.props
 ---
 
 <StoneringerCast start="00:20.89" base={base} />
+<SmashHereCast start="00:28.76" base={base} />
+<StoneringerActivate time="00:32.704" base={base} />
+<SmashActivate time="00:33.860" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">BOSS掏出武器，此处是一把，P3会变成两把</div>
-    <div>稍后一把武器发光，发动对应钢铁/月环</div>
+    <h4 class="text-2xl">
+      <Span variant="yellow">Stoneringer</Span>
+    </h4>
+    <div class="gap-strat flex items-center">
+      <Span variant="yellow">Stoneringer</Span> 读条期间，<BruteAbombinator />掏出武器，P1 P2是一把，P3会变成两把
+    </div>
+    <div>
+      <Span variant="yellow">Smash Here/There</Span> 读条同时<Span variant="pink">一把</Span>武器<Span variant="pink"
+        >发光</Span
+      >，读条结束后发动对应<Span variant="yellow">钢铁/月环</Span>
+    </div>
     <div class="flex gap-4">
       <div class="max-w-88 flex-1">
         <Image src={stoneringer_1} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
@@ -41,12 +57,13 @@ const { base = 0 }: Props = Astro.props
           <Span variant="yellow">情形1</Span>
         </h4>
         <div class="gap-strat flex items-center">
-          boss掏出一个棒槌，发光后释放半径<Span variant="pink">12m</Span>的<Span variant="yellow">钢铁</Span>
+          <BruteAbombinator />掏出一个<Span variant="pink">棒槌</Span>，<Span variant="pink">发光</Span>后释放半径<Span
+            variant="pink">12m</Span
+          >的<Span variant="yellow">钢铁</Span>
         </div>
-        <div>范围大于最大近战攻击距离</div>
+        <div>范围<Span variant="pink">大于</Span>最大近战攻击距离</div>
         <div>
           吃到后会被赋予
-          <DamageInfo damage="132000" type="physical" />
           <DamageDown tag="30" hover />
           <Span variant="rose" class="text-decimal">35%↓</Span>
         </div>
@@ -61,25 +78,20 @@ const { base = 0 }: Props = Astro.props
           <Span variant="yellow">情形2</Span>
         </h4>
         <div class="gap-strat flex items-center">
-          boss掏出一把长刀，发光后释放<Span variant="yellow">月环</Span>
+          <BruteAbombinator />掏出一把<Span variant="pink">长刀</Span>，<Span variant="pink">发光</Span>后释放<Span
+            variant="yellow">月环</Span
+          >
         </div>
         <div>中间安全场地半径 <Span variant="pink">9m</Span></div>
         <div>
           吃到后会被赋予
-          <DamageInfo damage="132000" type="physical" />
           <DamageDown tag="30" hover />
           <Span variant="rose" class="text-decimal">35%↓</Span>
         </div>
       </div>
     </div>
-  </div>
-</MechanicSection>
-
-<SolutionSection>
-  <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">武器发光时根据武器类型追加钢铁月环Aoe</div>
-    <h4 class="mt-4 text-2xl">
-      <Span variant="yellow">范围参考</Span>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">钢铁月环范围如图所示</Span>
     </h4>
     <div class="grid grid-cols-2 gap-x-2 gap-y-4">
       <div class="flex flex-col items-center gap-1">
@@ -92,14 +104,18 @@ const { base = 0 }: Props = Astro.props
       </div>
     </div>
   </div>
-</SolutionSection>
-<SmashHereCast start="00:28.76" base={base} />
+</MechanicSection>
+
 <MechanicSection>
   <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">Smash Here/There</Span>
+    </h4>
     <div class="gap-strat flex items-center">
-      钢铁月环判定的同时释放距离诱导的圆形AOE物理死刑，需要
-      <RoleIcon role="tank" />
-      分摊或单人无敌
+      <Span variant="yellow">Stoneringer</Span>判定后<Span variant="pink">约1秒</Span>，<BruteAbombinator />释放<Span
+        variant="pink">距离诱导</Span
+      >的<Span variant="pink">6m</Span>圆形AOE物理<Span variant="red">死刑</Span>，需要
+      <RoleIcon role="tank" tag="双T" />分摊或<RoleIcon role="tank" tag="单T" />无敌处理
     </div>
 
     <div class="flex gap-4">
@@ -108,10 +124,12 @@ const { base = 0 }: Props = Astro.props
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
-          <Span variant="yellow">情形1：Here</Span>
+          <Span variant="yellow">情形1：Smash Here</Span>
         </h4>
         <div class="gap-strat flex items-center">
-          读条Smash Here，对距离<Span variant="red">最近</Span>的玩家释放可分摊死刑
+          读条 Smash <Span variant="pink">Here</Span>，对距离<Span variant="pink">最近</Span>的玩家释放<Span
+            variant="pink">范围</Span
+          >死刑
         </div>
       </div>
     </div>
@@ -121,13 +139,33 @@ const { base = 0 }: Props = Astro.props
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
-          <Span variant="yellow">情形2：There</Span>
+          <Span variant="yellow">情形2：Smash There</Span>
         </h4>
         <div class="gap-strat flex items-center">
-          读条Smash There，对距离<Span variant="red">最远</Span>的玩家释放可分摊死刑
+          读条 Smash <Span variant="pink">There</Span>，对距离<Span variant="pink">最远</Span>的玩家释放<Span
+            variant="pink">范围</Span
+          >死刑
         </div>
       </div>
     </div>
   </div>
 </MechanicSection>
-<SolutionSection> P1的两次死刑由双T使用无敌处理，P3再将无敌用于分摊塔 </SolutionSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      <RoleIcon role="any" tag="全员" />
+      先根据<Span variant="pink">发光</Span>的武器，判断读条结束后躲钢铁还是躲月环
+    </div>
+    <div class="gap-strat mt-8 flex items-center">钢月黄色预兆<Span variant="pink">消失</Span>的瞬间，</div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="tank" tag="引导T" />
+      引导对应的<Span variant="pink">最近</Span>/<Span variant="pink">最远</Span>死刑，开好减伤分摊或无敌处理
+    </div>
+    <div class="gap-strat flex items-center">
+      <ListDot />
+      <RoleIcon role="all" tag="其他人" />
+      根据死刑读条<Span variant="pink">远离</Span>/<Span variant="pink">靠近</Span><RoleIcon role="boss" tag="boss" />
+    </div>
+  </div>
+</SolutionSection>

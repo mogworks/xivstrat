@@ -21,7 +21,7 @@ const { start, base = 0 }: Props = Astro.props
   duration={4.7}
   ability="Smash Here/There"
   target
-  damage="730000"
+  damage="756000"
   damageType="physical"
 >
   <BruteAbombinator slot="source" />
@@ -30,6 +30,7 @@ const { start, base = 0 }: Props = Astro.props
     或
     <RoleIcon role="all" tag="最远" />
   </Fragment>
+  <Badge variant="emerald">远/近引导</Badge>
+  <Badge variant="emerald">6m圆形</Badge>
   <Badge variant="red">死刑</Badge>
-  <Badge variant="emerald">分摊</Badge>
 </CastSection>
