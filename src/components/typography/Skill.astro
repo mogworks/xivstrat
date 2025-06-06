@@ -4,8 +4,6 @@
 Skill.astro
 Author: Fish Fly
 
-Use to show skills' name when boss cast randomly from multiple options
-
 Param:
   - name              : string/array of skills' name
   - variant?          : variant of the internal <Span> elements
@@ -14,7 +12,8 @@ Param:
 
 Example:  <Skill
               skill={['crychic', 'mygo', 'avemujica']}
-              isHeader={true}
+              variant='lime'
+              separatorVariant='white'
           >
               <Span slot="separator" variant="lime">&</span>    // uses custom separator
           </Skill>
