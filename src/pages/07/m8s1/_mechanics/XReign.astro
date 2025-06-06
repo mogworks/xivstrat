@@ -54,15 +54,15 @@ const { start, base = 0 }: Props = Astro.props
       |
       <Span variant="yellow">{eminentReign}</Span>
     </div>
-    <div class="paragraph">
+    <P>
       <HowlingBlade />
       读条期间，场地中心出现一个半径
       <Span variant="pink">6m</Span>
       的圆形范围伤害预兆，同时
       <HowlingBlade />
       周围浮现三个冲锋幻影
-    </div>
-    <div class="paragraph">
+    </P>
+    <P>
       幻影的冲锋方向呈等边三角形分布，有正三角和倒三角两种情况，如下图：
       <ToggleSwitch
         id="xreign-game-strat-toggle"
@@ -71,7 +71,7 @@ const { start, base = 0 }: Props = Astro.props
         lLabel="游戏截图"
         rLabel="战术视图"
       />
-    </div>
+    </P>
     <div id="xreign-game-strat-div" class="flex gap-4">
       <div class="game-img flex max-w-100 flex-col items-center gap-2">
         <Image
@@ -106,13 +106,13 @@ const { start, base = 0 }: Props = Astro.props
         <div>倒三角</div>
       </div>
     </div>
-    <div class="paragraph">
+    <P>
       读条结束后，
       <HowlingBlade />
       随机移动至某一幻象处，同时三个幻象的方位均出现半径
       <Span variant="pink">6m</Span>
       的圆形范围伤害预兆：
-    </div>
+    </P>
     <div class="flex gap-4">
       <div class="max-w-90">
         <Image
@@ -129,15 +129,15 @@ const { start, base = 0 }: Props = Astro.props
         />
       </div>
     </div>
-    <div class="paragraph">
+    <P>
       接着，四个圆形预兆间隔
       <Span variant="pink">0.1s</Span>
       依次判定，场中的最早判定，
       <HowlingBlade />
       所在方向的则最晚判定
-    </div>
-    <div class="paragraph">因此，若近战在场中黄圈消失时就立刻突进，是有概率吃到最后一个黄圈的</div>
-    <div class="paragraph">
+    </P>
+    <P>因此，若近战在场中黄圈消失时就立刻突进，是有概率吃到最后一个黄圈的</P>
+    <P>
       随后，
       <HowlingBlade />
       转身读条
@@ -152,7 +152,7 @@ const { start, base = 0 }: Props = Astro.props
         lLabel="预兆"
         rLabel="判定"
       />
-    </div>
+    </P>
     <div id="xreign-wolves-reign-line" class="flex gap-4">
       <div class="max-w-90">
         <Image
@@ -179,13 +179,13 @@ const { start, base = 0 }: Props = Astro.props
         />
       </div>
     </div>
-    <div class="paragraph">
+    <P>
       冲锋到场地对侧后，
       <HowlingBlade />
       再次转身读条
       <Span variant="yellow">{wolvesReign}</Span>
       ，释放大范围的圆形或扇形伤害：
-    </div>
+    </P>
     <div class="flex gap-4">
       <div class="max-w-90">
         <Image
@@ -203,7 +203,7 @@ const { start, base = 0 }: Props = Astro.props
       </div>
     </div>
     <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
-      <div class="paragraph">
+      <P>
         若先前读条为
         <Span variant="yellow">{revolutionaryReign}</Span>
         ，则释放半径
@@ -212,8 +212,8 @@ const { start, base = 0 }: Props = Astro.props
         <DamageInfo damage="150000" type="physical" />
         <DamageDown tag="30" hover />
         <Span variant="rose" class="text-decimal">30%↓</Span>
-      </div>
-      <div class="paragraph">
+      </P>
+      <P>
         若先前读条为
         <Span variant="yellow">{eminentReign}</Span>
         ，则释放角度
@@ -222,10 +222,10 @@ const { start, base = 0 }: Props = Astro.props
         <DamageInfo damage="150000" type="physical" />
         <DamageDown tag="30" hover />
         <Span variant="rose" class="text-decimal">30%↓</Span>
-      </div>
+      </P>
     </div>
-    <div class="paragraph">无论是圆形还是扇形，都附带击退效果，防击退有效</div>
-    <div class="paragraph">
+    <P>无论是圆形还是扇形，都附带击退效果，防击退有效</P>
+    <P>
       圆形和扇形判定的同时，
       <HowlingBlade />
       还会对
@@ -239,7 +239,7 @@ const { start, base = 0 }: Props = Astro.props
       释放
       <Span variant="pink">30°</Span>
       的扇形分摊：
-    </div>
+    </P>
     <div class="flex gap-4">
       <div class="max-w-90">
         <Image
@@ -256,7 +256,7 @@ const { start, base = 0 }: Props = Astro.props
         />
       </div>
     </div>
-    <div class="paragraph">
+    <P>
       死刑对
       <Span variant="blue">防护职业</Span>
       造成
@@ -270,15 +270,15 @@ const { start, base = 0 }: Props = Astro.props
       <DamageInfo damage="170000" type="physical" />
       <PhysicalVulnerabilityUp tag="1" hover />
       （三人分摊时人均）
-    </div>
+    </P>
     <div class="mt-12 text-2xl">
       <Span variant="yellow">Bug</Span>
     </div>
-    <div class="paragraph">
+    <P>
       眼尖的同学可能已经发现，以下两张图，
       <HowlingBlade />
       与场地中心的距离有细微差别：
-    </div>
+    </P>
     <div class="flex gap-4">
       <div class="max-w-90">
         <Image
@@ -295,25 +295,25 @@ const { start, base = 0 }: Props = Astro.props
         />
       </div>
     </div>
-    <div class="paragraph">
+    <P>
       从目标环的缺口与电网的距离可以较容易看出：左图
       <HowlingBlade />
       与场地中心的距离更近，右图更远
-    </div>
-    <div class="paragraph">这并非我们作图错误，而是该机制的bug，具体来说：</div>
+    </P>
+    <P>这并非我们作图错误，而是该机制的bug，具体来说：</P>
     <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
-      <div class="paragraph">
+      <P>
         <HowlingBlade />
         在东北、东南两个方向释放圆形/扇形时，距离场中约
         <Span variant="pink">7m</Span>
-      </div>
-      <div class="paragraph">
+      </P>
+      <P>
         <HowlingBlade />
         在西北、正北、西南、正南四个方向释放圆形/扇形时，距离场中约
         <Span variant="pink">7.5m</Span>
-      </div>
+      </P>
     </div>
-    <div class="paragraph">前者会让我们更难躲避圆形范围伤害，但影响不是很大，如下图：</div>
+    <P>前者会让我们更难躲避圆形范围伤害，但影响不是很大，如下图：</P>
     <div class="max-w-90">
       <Image
         src={xreign_13}
