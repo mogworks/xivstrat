@@ -4,15 +4,12 @@ import type { Time } from '@/lib/utils'
 import Badge from '@/components/Badge.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import Span from '@/components/Span.vue'
-import DamageDown from '@/components/buff/DamageDown.astro'
 
 import EventSection from '@/components/section/EventSection.astro'
 
 interface Props {
   time: Time
   base?: Time
-  num: number
-  toln: number
 }
 
 const { time, base = 0 }: Props = Astro.props
