@@ -99,7 +99,7 @@ const text = {
 }[job]
 ---
 
-<EntityIcon icon={icon} tag={tag} alt={tag ?? job} class={className} data-icon="standard-icon">
+<EntityIcon icon={icon} tag={tag} alt={tag ?? job} class={className}>
   <slot />
 </EntityIcon>
-<EntityText class={className} data-icon="minimal-icon">{text}<slot /></EntityText>
+<EntityText class={className}>{text}<slot /></EntityText>

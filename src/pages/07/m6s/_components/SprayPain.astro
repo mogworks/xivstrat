@@ -12,7 +12,7 @@ interface Props {
 const { num }: Props = Astro.props
 ---
 
-<EntityIcon icon={icon} alt="仙人掌" iconClass="drop-shadow-xs drop-shadow-black" data-icon="standard-icon">
+<EntityIcon icon={icon} alt="仙人掌" iconClass="drop-shadow-xs drop-shadow-black">
   <Span variant="rose">仙人掌×{num}</Span>
 </EntityIcon>
-<EntityText data-icon="minimal-icon">仙人掌×{num}</EntityText>
+<EntityText>仙人掌×{num}</EntityText>
