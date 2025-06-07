@@ -147,7 +147,7 @@
 }
 
 @utility paragraph {
-  @apply gap-strat flex items-center;
+  @apply gap-strat flex flex-wrap items-center;
 }
 
 @utility text-decimal {
