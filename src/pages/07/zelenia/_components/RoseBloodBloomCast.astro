@@ -1,0 +1,26 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import Zelenia from './Zelenia.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+  num: number
+  [key: string]: any
+}
+
+const { start, base = 0, num, ...rest }: Props = Astro.props
+---
+
+<CastSection
+  start={start}
+  base={base}
+  duration={2.3}
+  ability={`魔法阵展开：第${num ? ' ' + num : ''} 式`}
+>
+  <Zelenia slot="source" />
+</CastSection>
