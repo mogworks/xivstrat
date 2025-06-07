@@ -9,8 +9,10 @@ import Span from '@/components/Span.vue'
 import StratInterval from '@/components/StratInterval.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import Skill from '@/components/typography/Skill.astro'
 
 import HowlingBlade from '../_components/HowlingBlade.astro'
+
 import { translations } from '../_translations'
 
 interface Props {
@@ -38,7 +40,7 @@ const adjustedDuration = duration + 0.3
       对
       <RoleIcon role="all" tag="全员" />
       读条
-      <Span variant="orange">{stonefang}</Span>
+      <Skill name={stonefang} variant="orange" />
       <DamageInfo damage="160000" type="magical" />
       <MagicVulnerabilityUp tag="1" hover />
       <Badge variant="emerald">25°扇形</Badge>
@@ -52,7 +54,7 @@ const adjustedDuration = duration + 0.3
       或
       <Span variant="default">4</Span><RoleIcon role="dps" />
       读条
-      <Span variant="green">{windfang}</Span>
+      <Skill name={windfang} variant="green" />
       <DamageInfo damage="190000" type="magical" />
       <MagicVulnerabilityUp tag="1" hover />
       <Badge variant="emerald">25°扇形</Badge>

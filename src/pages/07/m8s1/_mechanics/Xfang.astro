@@ -8,14 +8,16 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 
-import P from '@/components/typography/P.astro'
-import T from '@/components/typography/T.astro'
+import ImgGrid from '@/components/typography/ImgGrid.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
 
 import XfangCast from '../_components/XfangCast.astro'
 import GleamingFang from '../_components/GleamingFang.astro'
 import HowlingBlade from '../_components/HowlingBlade.astro'
-import ImgGrid from '@/components/typography/ImgGrid.astro'
 
 import xfang_1 from '@/assets/07/m8s1/xfang/1.png'
 import xfang_2 from '@/assets/07/m8s1/xfang/2.png'
@@ -46,10 +48,10 @@ const { start, base = 0 }: Props = Astro.props
 <XfangCast start={start} base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <T>
-      <Span variant="orange">{stonefang}</Span>
+    <T class="gap-strat inline-flex">
+      <Skill name={stonefang} variant="orange" />
       |
-      <Span variant="green">{windfang}</Span>
+      <Skill name={windfang} variant="green" />
     </T>
     <P>
       根据读条不同，
@@ -64,9 +66,9 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="purple">四方二二分摊</Span>
       的组合技：
     </P>
-    <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
+    <Quote variant="yellow">
       <P>
-        <Span variant="orange">{stonefang}</Span>
+        <Skill name={stonefang} variant="orange" />
         对应半径
         <Span variant="cyan">9m</Span>
         的圆形AoE + 点名
@@ -76,7 +78,7 @@ const { start, base = 0 }: Props = Astro.props
         <Span variant="yellow">扇形分散</Span>
       </P>
       <P>
-        <Span variant="green">{windfang}</Span>
+        <Skill name={windfang} variant="green" />
         对应内径
         <Span variant="cyan">8m</Span>
         的环形AoE + 点名
@@ -87,7 +89,7 @@ const { start, base = 0 }: Props = Astro.props
         <Span variant="cyan">25°</Span>
         <Span variant="purple">扇形分摊</Span>
       </P>
-    </div>
+    </Quote>
     <P>
       <Span variant="purple">扇形分摊</Span>
       会比
@@ -127,9 +129,9 @@ const { start, base = 0 }: Props = Astro.props
       ]}
     />
     <P class="mt-8">
-      <Span variant="orange">{stonefang}</Span>
+      <Skill name={stonefang} variant="orange" />
       |
-      <Span variant="green">{windfang}</Span>
+      <Skill name={windfang} variant="green" />
       +
       <GleamingFang />
       最终形成如下的组合攻击：
@@ -234,9 +236,9 @@ const { start, base = 0 }: Props = Astro.props
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <P class="border-l-2 border-lime-500 pl-2 opacity-80">
+    <Quote variant="lime" class="opacity-80">
       本解法采用类似中国服【光暗未来绝境战】的八方站位，而非日服的标准八方站位
-    </P>
+    </Quote>
     <P class="mt-8">
       根据
       <HowlingBlade />
@@ -247,7 +249,7 @@ const { start, base = 0 }: Props = Astro.props
     </P>
     <P class="opacity-80">
       注：下表
-      <Span variant="orange">{stonefang}</Span>
+      <Skill name={stonefang} variant="orange" />
       站位图中已将光牙的两种情况叠加
     </P>
     <ImgGrid
@@ -337,17 +339,17 @@ const { start, base = 0 }: Props = Astro.props
     />
     <P class="mt-8">
       若是
-      <Span variant="orange">{stonefang}</Span>
+      <Skill name={stonefang} variant="orange" />
       ，可无视光牙方位，按图示固定站位（图示已将光牙的两种情况叠加，显然无影响）
     </P>
     <P>
       若是
-      <Span variant="green">{windfang}</Span>
+      <Skill name={windfang} variant="green" />
       ，则两两分组找
       <Span variant="pink">同色标点</Span>
       ：
     </P>
-    <div class="flex flex-col gap-4 border-l-2 border-lime-500 pl-2">
+    <Quote variant="lime">
       <P>
         <RoleIcon role="tank" tag="MT" />
         <RoleIcon role="ranged" tag="D3" />
@@ -386,14 +388,14 @@ const { start, base = 0 }: Props = Astro.props
         或
         <Span variant="purple">4</Span>
       </P>
-    </div>
+    </Quote>
   </div>
 </SolutionSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
     <P>
       若是
-      <Span variant="orange">{stonefang}</Span>
+      <Skill name={stonefang} variant="orange" />
       ，一个角落是可以站下三个人的，紧急情况时可以站到
       <Span variant="pink">标点位置</Span>
       ，这样不会影响他人

@@ -30,7 +30,7 @@ interface Props {
   separatorVariant?: VariantType
 }
 
-const { name = '', variant = 'yellow', separatorVariant = 'fuchsia' } = Astro.props
+const { name = '', variant = 'yellow', separatorVariant = 'default' } = Astro.props
 ---
 
 {
@@ -38,16 +38,20 @@ const { name = '', variant = 'yellow', separatorVariant = 'fuchsia' } = Astro.pr
     // if name is a string
     <Span variant={variant}>{name}</Span>
   ) : (
-    // or an Array
-    name.map((item, index) => (
-      <>
-        <Span variant={variant}>{item}</Span>
-        {index < name.length - 1 && (
-          <slot name="separator">
-            <Span variant={separatorVariant}>|</Span>
-          </slot>
-        )}
-      </>
-    ))
+    <div class="gap-strat inline-flex items-center">
+      {
+        // or an Array
+        name.map((item, index) => (
+          <>
+            <Span variant={variant}>{item}</Span>
+            {index < name.length - 1 && (
+              <slot name="separator">
+                <Span variant={separatorVariant}>|</Span>
+              </slot>
+            )}
+          </>
+        ))
+      }
+    </div>
   )
 }

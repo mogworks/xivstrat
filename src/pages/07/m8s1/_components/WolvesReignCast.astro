@@ -3,11 +3,11 @@ import type { Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
-
 import Separator from '@/components/Separator.astro'
-import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
 
 import HowlingBlade from '../_components/HowlingBlade.astro'
+
 import { translations } from '../_translations'
 
 interface Props {
@@ -40,7 +40,7 @@ const eminentReign = translations.eminentReign
         <li class="flex items-center gap-1 text-lg">
           <span class="text-sm opacity-80">
             若先前为
-            <Span variant="yellow">{revolutionaryReign}</Span>：
+            <Skill name={revolutionaryReign} />：
           </span>
           圆形范围伤害
           <Badge variant="emerald">14m圆形</Badge>
@@ -49,7 +49,7 @@ const eminentReign = translations.eminentReign
         <li class="flex items-center gap-1 text-lg">
           <span class="text-sm opacity-80">
             若先前为
-            <Span variant="yellow">{eminentReign}</Span>：
+            <Skill name={eminentReign} />：
           </span>
           扇形范围伤害
           <Badge variant="emerald">120°扇形</Badge>

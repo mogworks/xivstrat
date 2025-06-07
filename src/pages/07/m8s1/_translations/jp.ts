@@ -5,4 +5,6 @@ export const translations = {
   revolutionaryReign: '廻の郡狼剣',
   eminentReign: '薙の郡狼剣',
   wolvesReign: '郡狼剣',
+  reignsEnd: '群狼斬波',
+  sovereignScar: '重衝波',
 }
