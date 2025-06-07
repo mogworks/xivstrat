@@ -85,17 +85,13 @@ const duty = (await getEntry('duties', dutyId))!.data
     }
     // 对于阅读模式
     const highlightTextQuery =
-      'section.strat-section:not(.separator-section) span:not(.strat-time):not(.damage-info):not(.strat-title)'
+      'section.strat-section:not(.separator-section) span:not(.strat-time):not(.damage-info):not(.strat-title):not([data-icon="buff-icon"])'
     if (stratSettings.readMode === 'minimal') {
       const colorClassReg = /^text-[a-z]+-\d{3}(?:\/\d+)?$/
       const darkColorClassReg = /^dark:text-[a-z]+-\d{3}(?:\/\d+)?$/
       const textShadowReg = /^\[text-shadow.*\]$/
       // 对于高亮词条
       document.querySelectorAll<HTMLElement>(highlightTextQuery).forEach((e) => {
-        // 跳过buff等vue组件
-        // if (e.closest('astro-island')) {
-        //   return
-        // }
         if (!e.dataset.originalClass) {
           e.dataset.originalClass = e.className
         }
