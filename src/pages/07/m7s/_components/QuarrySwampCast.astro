@@ -4,6 +4,7 @@ import type { Time } from '@/lib/utils'
 import CastSection from '@/components/section/CastSection.astro'
 
 import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -11,8 +12,9 @@ interface Props {
 }
 
 const { start, base = 0 }: Props = Astro.props
+const quarrySwamp = translations.quarrySwamp
 ---
 
-<CastSection start={start} base={base} duration={3.7} ability="Quarry Swamp">
+<CastSection start={start} base={base} duration={3.7} ability={quarrySwamp}>
   <BruteAbombinator slot="source" />
 </CastSection>

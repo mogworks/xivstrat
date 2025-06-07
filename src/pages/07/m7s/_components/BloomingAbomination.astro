@@ -1,18 +1,20 @@
 ---
 import EntityIcon from '@/components/EntityIcon.astro'
-
 import Span from '@/components/Span.vue'
 
-import bloomingAbomination from '@/assets/07/m7s/entity_icons/blooming_abomination.png'
+import bloomingAbominationIcon from '@/assets/07/m7s/entity_icons/blooming_abomination.png'
+
+import { translations } from '../_translations'
 
 interface Props {
   num: number
 }
 
 const { num }: Props = Astro.props
+const bloomingAbomination = translations.bloomingAbomination
 ---
 
-<EntityIcon icon={bloomingAbomination} alt="BOSS" iconClass="scale-125 drop-shadow-xs drop-shadow-black">
-  <Span variant="rose" class="ml-1">大王花</Span>
+<EntityIcon icon={bloomingAbominationIcon} alt="BOSS" iconClass="scale-125 drop-shadow-xs drop-shadow-black">
+  <Span variant="rose" class="ml-1">{bloomingAbomination}</Span>
   <Span variant="rose">×{num}</Span>
 </EntityIcon>

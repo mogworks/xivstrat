@@ -33,7 +33,7 @@ const duty = (await getEntry('duties', dutyId))!.data
 
   import { $stratSettings } from '@/stores/stratSettings'
 
-  subscribeKeys($stratSettings, ['viewMode', 'attackEvent'], (stratSettings) => {
+  subscribeKeys($stratSettings, ['viewMode', 'readMode', 'attackEvent'], (stratSettings) => {
     if (stratSettings.attackEvent === 'only') {
       // 只显示普通攻击
       document.querySelectorAll('section.strat-section:not(.attack-section)').forEach((e) => {
@@ -82,6 +82,57 @@ const duty = (await getEntry('duties', dutyId))!.data
           e.classList.toggle('grid', !e.classList.toggle('hidden', true))
         })
       }
+    }
+    // 对于阅读模式
+    const highlightTextQuery =
+      'section.strat-section:not(.separator-section) span:not(.strat-time):not(.damage-info):not(.strat-title)'
+    if (stratSettings.readMode === 'minimal') {
+      const colorClassReg = /^text-[a-z]+-\d{3}(?:\/\d+)?$/
+      const darkColorClassReg = /^dark:text-[a-z]+-\d{3}(?:\/\d+)?$/
+      const textShadowReg = /^\[text-shadow.*\]$/
+      // 对于高亮词条
+      document.querySelectorAll<HTMLElement>(highlightTextQuery).forEach((e) => {
+        // 跳过buff等vue组件
+        // if (e.closest('astro-island')) {
+        //   return
+        // }
+        if (!e.dataset.originalClass) {
+          e.dataset.originalClass = e.className
+        }
+        e.classList.remove(
+          // 移除字体颜色、字体阴影样式
+          ...Array.from(e.classList).filter(
+            (cls) => colorClassReg.test(cls) || darkColorClassReg.test(cls) || textShadowReg.test(cls),
+          ),
+        )
+        e.classList.add('text-foreground', '[text-shadow:_0_0_1px_var(--color-background)]')
+      })
+      // 对于角色、目标等图标
+      document.querySelectorAll<HTMLElement>('[data-icon="standard-icon"]').forEach((e) => {
+        e.classList.remove('inline-flex')
+        e.classList.add('hidden')
+      })
+      document.querySelectorAll<HTMLElement>('[data-icon="minimal-icon"]').forEach((e) => {
+        e.classList.add('inline-flex')
+        e.classList.remove('hidden')
+      })
+    } else {
+      // 对于高亮词条
+      document.querySelectorAll<HTMLElement>(highlightTextQuery).forEach((e) => {
+        if (e.dataset.originalClass) {
+          e.className = e.dataset.originalClass
+          delete e.dataset.originalClass
+        }
+      })
+      // 对于角色、目标等图标
+      document.querySelectorAll<HTMLElement>('[data-icon="standard-icon"]').forEach((e) => {
+        e.classList.add('inline-flex')
+        e.classList.remove('hidden')
+      })
+      document.querySelectorAll<HTMLElement>('[data-icon="minimal-icon"]').forEach((e) => {
+        e.classList.remove('inline-flex')
+        e.classList.add('hidden')
+      })
     }
   })
 </script>

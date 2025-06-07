@@ -6,13 +6,13 @@ import InTheSpotlight from './InTheSpotlight.astro'
 import Spotlightless from './Spotlightless.astro'
 ---
 
-<div class="gap-strat flex items-center">
+<div class="paragraph">
   <BurnBabyBurn hover />
   <Span variant="pink">倒计时结束</Span>
   时
   <Separator orientation="vertical" class="mx-1 h-14 w-0.5 bg-teal-500" />
   <ul class="list-none space-y-4">
-    <li class="gap-strat flex items-center">
+    <li class="paragraph">
       若站在
       <Span variant="cyan">聚光灯</Span>
       下，且该
@@ -24,7 +24,7 @@ import Spotlightless from './Spotlightless.astro'
       转变为
       <InTheSpotlight hover />
     </li>
-    <li class="gap-strat flex items-center">
+    <li class="paragraph">
       若<Span variant="pink">未</Span>
       站在
       <Span variant="cyan">聚光灯</Span>
@@ -39,20 +39,20 @@ import Spotlightless from './Spotlightless.astro'
     </li>
   </ul>
 </div>
-<div class="gap-strat flex items-center">
+<div class="paragraph">
   <InTheSpotlight hover />
   表示机制处理成功，但此时会有
   <Span variant="pink">魔法受伤加重</Span>
   的副作用，需要注意避开
   <Span variant="rose">地面AoE</Span>
 </div>
-<div class="gap-strat flex items-center">
+<div class="paragraph">
   <Spotlightless hover />
   表示机制处理失败，玩家会被一个名为
   <Span variant="yellow">Shame</Span>
   的超高伤害击飞上天秒杀
 </div>
-<div class="gap-strat flex items-center">
+<div class="paragraph">
   倒计时结束后的一段时间内，玩家
   <Span variant="pink">无法做出任何行动</Span>
   ，因此要预先规划站位

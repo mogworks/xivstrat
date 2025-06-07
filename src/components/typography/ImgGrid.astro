@@ -1,0 +1,101 @@
+---
+import type { VariantType } from '@/lib/variant'
+import type { Img } from '@/components/typography/img'
+
+import { cn } from '@/lib/utils'
+
+import ImgWrapper from '@/components/typography/ImgWrapper.astro'
+import Separator from '@/components/Separator.astro'
+import Span from '@/components/Span.vue'
+
+interface Props {
+  cols: {
+    title: string
+    titleVariant?: VariantType
+    width?: string
+  }[]
+  rows: {
+    title: string
+    titleVariant?: VariantType
+    cells: {
+      img?: Img
+      class?: string
+    }[]
+  }[]
+  class?: string
+  defaultImgWrapperStyle?: {
+    bordered?: boolean
+    borderVariant?: VariantType
+    rounded?: boolean
+    class?: string
+    imgClass?: string
+    titleClass?: string
+  }
+  [key: string]: any
+}
+
+const { cols, rows, class: className = '', defaultImgWrapperStyle = {}, ...rest }: Props = Astro.props
+
+const defaultTitleClass = 'flex justify-center text-lg font-bold tracking-wider'
+const colCount = cols.length
+const rowCount = rows.length
+const gridCols = cols.map((col) => `1px minmax(0, ${col.width || '24rem'})`).join(' ')
+---
+
+<div
+  class={cn('grid', className)}
+  style={{
+    '--col-count': colCount,
+    '--row-count': rowCount,
+    'grid-template-columns': `min-content ${gridCols}`,
+    'grid-template-rows': `min-content repeat(${rowCount}, 1px 1fr)`,
+  }}
+  {...rest}
+>
+  <Separator class="col-start-2" orientation="vertical" />
+
+  {
+    cols.map((col, index) => (
+      <>
+        <div class={cn(defaultTitleClass, 'pb-2')}>
+          <Span variant={col.titleVariant || 'default'}>{col.title}</Span>
+        </div>
+        {index < cols.length - 1 && <Separator orientation="vertical" />}
+      </>
+    ))
+  }
+
+  <Separator class="col-span-full" />
+
+  {
+    rows.map((row, rowIndex) => (
+      <>
+        <div class={cn(defaultTitleClass, 'pr-2 [text-orientation:mixed] [writing-mode:vertical-lr]')}>
+          <Span variant={row.titleVariant || 'default'}>{row.title}</Span>
+        </div>
+        <Separator orientation="vertical" />
+
+        {row.cells.map((cell, cellIndex) => (
+          <>
+            <div class={`px-3 py-2 ${cell.class || ''}`}>
+              {cell.img && (
+                <ImgWrapper
+                  {...cell.img}
+                  bordered={cell.img.bordered ?? defaultImgWrapperStyle.bordered}
+                  borderVariant={cell.img.borderVariant ?? defaultImgWrapperStyle.borderVariant}
+                  rounded={cell.img.rounded ?? defaultImgWrapperStyle.rounded}
+                  class={cell.img.class ?? defaultImgWrapperStyle.class}
+                  imgClass={cell.img.imgClass ?? defaultImgWrapperStyle.imgClass}
+                  titleClass={cell.img.titleClass ?? defaultImgWrapperStyle.titleClass}
+                />
+              )}
+            </div>
+            {cellIndex < row.cells.length - 1 && <Separator orientation="vertical" />}
+          </>
+        ))}
+
+        {rowIndex < rows.length - 1 && <Separator class="col-span-full" />}
+      </>
+    ))
+  }
+</div>

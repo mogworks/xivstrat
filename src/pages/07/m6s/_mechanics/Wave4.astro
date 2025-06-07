@@ -97,7 +97,7 @@ const { base = 0 }: Props = Astro.props
 </OreRigatoCast>
 <SolutionSection title="解法：Wave #4">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       目标优先级：
       <GimmeCat>
         <Span variant="blue">#3</Span>
@@ -119,14 +119,14 @@ const { base = 0 }: Props = Astro.props
       &gt;
       <Yan />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       一般来说，第4轮开始时，
       <GimmeCat>
         <Span variant="blue">#3</Span>
       </GimmeCat>
       应当仅剩余一丝血，可在第4轮小怪可选中前击杀
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       如果
       <GimmeCat>
         <Span variant="blue">#3</Span>
@@ -138,7 +138,7 @@ const { base = 0 }: Props = Astro.props
         <Span variant="blue">#3</Span>
       </GimmeCat>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       以下图示均以
       <GimmeCat>
         <Span variant="blue">#3</Span>
@@ -154,7 +154,7 @@ const { base = 0 }: Props = Astro.props
         <Span variant="blue">#3</Span>
       </GimmeCat>
     </div>
-    <div class="gap-strat mt-12 flex items-center">1. 初始站位如下：</div>
+    <div class="paragraph mt-12">1. 初始站位如下：</div>
     <div class="flex gap-3">
       <div class="max-w-96">
         <Image
@@ -171,7 +171,7 @@ const { base = 0 }: Props = Astro.props
         />
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="tank" tag="MT" />
       拉好
@@ -185,7 +185,7 @@ const { base = 0 }: Props = Astro.props
       <FeatherRay />
       处
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="tank" tag="ST" />
       拉
@@ -194,7 +194,7 @@ const { base = 0 }: Props = Astro.props
       <Jabberwock />
       经过
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       被
       <Jabberwock />
@@ -210,7 +210,7 @@ const { base = 0 }: Props = Astro.props
       <Bind hover />
       ，无法移动
     </div>
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <ListDot />
       开荒初期装等不高，
       <Jabberwock />
@@ -218,7 +218,7 @@ const { base = 0 }: Props = Astro.props
       <RoleIcon role="healer" />
       可以多往右下跑，增加距离
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="melee" />
       跟着
@@ -229,7 +229,7 @@ const { base = 0 }: Props = Astro.props
       <Jabberwock />
       经过
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="ranged" tag="D3" />
       引导
@@ -244,7 +244,7 @@ const { base = 0 }: Props = Astro.props
       <FeatherRay />
       会连线第1个攻击它的人
     </div>
-    <div class="gap-strat mt-12 flex items-center">
+    <div class="paragraph mt-12">
       2. <Jabberwock />
       可选中，开始朝被点名
       <RoleIcon role="healer" />
@@ -270,13 +270,13 @@ const { base = 0 }: Props = Astro.props
         />
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <Jabberwock />
       可选中后，全员优先集火，AoE技能主目标务必调整为
       <Jabberwock />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <Jabberwock />
       经过
@@ -290,7 +290,7 @@ const { base = 0 }: Props = Astro.props
       会组成3目标的小集团，可以顺便溅射
       <Yan />
     </div>
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <ListDot />
       <RoleIcon role="tank" tag="ST" />
       可以打约
@@ -302,7 +302,7 @@ const { base = 0 }: Props = Astro.props
       <FeatherRay />
       处
     </div>
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <ListDot />
       <RoleIcon role="melee" />
       则跟着
@@ -310,7 +310,7 @@ const { base = 0 }: Props = Astro.props
       同步移动，继续攻击
       <Jabberwock />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <Jabberwock />
       经过
@@ -321,7 +321,7 @@ const { base = 0 }: Props = Astro.props
       下踢眩晕，并将主目标调整为
       <Jabberwock />
     </div>
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <ListDot />
       <RoleIcon role="melee" />
       继续攻击
@@ -335,13 +335,13 @@ const { base = 0 }: Props = Astro.props
       &gt;
       <RoleIcon role="melee" tag="D2" />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       若
       <GimmeCat />
       跳入怪堆，可顺便溅射
     </div>
-    <div class="gap-strat mt-12 flex items-center">
+    <div class="paragraph mt-12">
       3. 击杀<Jabberwock />后，被点名的
       <RoleIcon role="healer" />
       解除止步，全员优先集火
@@ -367,7 +367,7 @@ const { base = 0 }: Props = Astro.props
         />
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       在
       <GimmeCat />
@@ -379,7 +379,7 @@ const { base = 0 }: Props = Astro.props
       跳入怪堆，临时切主目标为
       <GimmeCat />
     </div>
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <ListDot />
       若
       <GimmeCat />
@@ -390,7 +390,7 @@ const { base = 0 }: Props = Astro.props
       ，则优先集火
       <GimmeCat />
     </div>
-    <div class="gap-strat flex items-center pl-12">
+    <div class="paragraph pl-12">
       <ListDot />
       <GimmeCat />
       每释放1次
@@ -398,7 +398,7 @@ const { base = 0 }: Props = Astro.props
       就会叠一层
       <HuffyCatBuff hover />
     </div>
-    <div class="gap-strat flex items-center pl-12">
+    <div class="paragraph pl-12">
       <ListDot />
       如果
       <GimmeCat />
@@ -408,7 +408,7 @@ const { base = 0 }: Props = Astro.props
       <HuffyCatBuff hover />
       ，说明这是第3次读条
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       这里
       <RoleIcon role="tank" tag="ST" />
@@ -416,7 +416,7 @@ const { base = 0 }: Props = Astro.props
       <RoleIcon role="healer" />
       注意抬血
     </div>
-    <div class="gap-strat mt-12 flex items-center">
+    <div class="paragraph mt-12">
       4. 击杀<Span variant="pink">右</Span>
       <FeatherRay />和
       <GimmeCat />后，依次处理
@@ -443,7 +443,7 @@ const { base = 0 }: Props = Astro.props
         />
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <SugarRiot />
       释放
@@ -459,7 +459,7 @@ const { base = 0 }: Props = Astro.props
       <SustainedDamage layer={1} tag="15" hover />
       <DotInfo damage="30000" />
     </div>
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <ListDot />
       最多只能留1只
       <Mu />
@@ -469,7 +469,7 @@ const { base = 0 }: Props = Astro.props
       <Span variant="yellow">Ore-rigato</Span>
       基本等于团灭
     </div>
-    <div class="gap-strat mt-12 flex items-center">
+    <div class="paragraph mt-12">
       5. 击杀<Mu />后，
       <RoleIcon role="tank" />
       把
@@ -482,7 +482,7 @@ const { base = 0 }: Props = Astro.props
       alt="Wave #4: Solution 9"
       class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
     />
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       必须在
       <Span variant="pink">6:55</Span>

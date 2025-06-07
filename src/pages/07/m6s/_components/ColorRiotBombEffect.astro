@@ -15,7 +15,7 @@ interface Props {
 const { type, hover = false }: Props = Astro.props
 ---
 
-<div class="flex items-center gap-strat">
+<div class="paragraph">
   半径
   <Span variant="pink">4m</Span>
   的圆形死刑，消除
@@ -24,7 +24,7 @@ const { type, hover = false }: Props = Astro.props
   {type === 'cool' ? <CoolTint hover={hover} /> : <WarmTint hover={hover} />}
   ，持续时间永久
 </div>
-<div class="flex items-center gap-strat">
+<div class="paragraph">
   可对
   <RoleIcon role="tank" />
   造成

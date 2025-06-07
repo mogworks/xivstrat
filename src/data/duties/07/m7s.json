@@ -21,14 +21,14 @@
           "name": "Stoneringer",
           "name_en": "Stoneringer",
           "name_ja": "",
-          "name_ch": "石环咏唱"
+          "name_ch": "石制武器"
         },
         {
           "href": "#sinister-seeds",
           "name": "Sinister Seeds",
           "name_en": "Sinister Seeds",
           "name_ja": "",
-          "name_ch": "邪种播撒"
+          "name_ch": "种弹播撒"
         },
         {
           "href": "#explosion",
@@ -42,14 +42,14 @@
           "name": "Pulp Smash",
           "name_en": "Pulp Smash",
           "name_ja": "",
-          "name_ch": "果浆碎击"
+          "name_ch": "荆棘挥打"
         },
         {
           "href": "#neo-bombarian-special",
           "name": "Neo Bombarian Special",
           "name_en": "Neo Bombarian Special",
           "name_ja": "",
-          "name_ch": "新式爆弹人特调"
+          "name_ch": "新式超豪华野蛮大乱击"
         }
       ]
     },
@@ -61,15 +61,24 @@
       "mechanics": [
         {
           "href": "#SBGR",
-          "name": "SBGR"
+          "name": "SBGR",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
         },
         {
           "href": "#sporesplosion",
-          "name": "Sporesplosion"
+          "name": "Sporesplosion",
+          "name_en": "Sporesplosion",
+          "name_ja": "",
+          "name_ch": "孢子云"
         },
         {
           "href": "#strange-seeds",
-          "name": "StrangeSeeds"
+          "name": "Strange Seeds",
+          "name_en": "Strange Seeds",
+          "name_ja": "",
+          "name_ch": "种弹炸裂"
         }
       ]
     },
@@ -78,7 +87,36 @@
       "title": "Part 3",
       "subtitle": "终极狂潮",
       "name": "P3 - 终极狂潮",
-      "mechanics": []
+      "mechanics": [
+        {
+          "href": "#stoneringer-2-Stoneringers",
+          "name": "Stoneringer 2: Stoneringers",
+          "name_en": "Stoneringer 2: Stoneringers",
+          "name_ja": "",
+          "name_ch": "双持石制武器"
+        },
+        {
+          "href": "#debris-deathmatch",
+          "name": "Debris Deathmatch",
+          "name_en": "Debris Deathmatch",
+          "name_ja": "",
+          "name_ch": "荆棘生死战：墙面"
+        },
+        {
+          "href": "#sinister-seeds",
+          "name": "Sinister Seeds",
+          "name_en": "Sinister Seeds",
+          "name_ja": "",
+          "name_ch": "种弹播撒"
+        },
+        {
+          "href": "#special-bombarian-special",
+          "name": "Special Bombarian Special",
+          "name_en": "Special Bombarian Special",
+          "name_ja": "",
+          "name_ch": "究极超豪华野蛮大乱击"
+        }
+      ]
     }
   ],
   "locales": {}

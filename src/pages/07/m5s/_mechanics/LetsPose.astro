@@ -41,7 +41,7 @@ const { phase, start, base = 0 }: Props = Astro.props
 </CastSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       奖/惩判定，从
       {
         phase === 'p1' ? (
@@ -69,19 +69,19 @@ const { phase, start, base = 0 }: Props = Astro.props
         )
       }
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       若全程正确处理：奖励
       <PerfectGroove tag="20" hover />
       <Span variant="lime" class="text-decimal">3%↑</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       否则：惩罚
       <Span variant="yellow">Let's Pose!</Span>
       <DamageInfo damage="150000" type="magical" />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       {
         phase === 'p1' ? (
           <>
@@ -97,7 +97,7 @@ const { phase, start, base = 0 }: Props = Astro.props
     </div>
     {
       phase === 'p1' && (
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           奖/惩判定是每个人独立计算的，但若
           <Wavelength type="α" hover />
           <Wavelength type="β" hover />
@@ -105,7 +105,7 @@ const { phase, start, base = 0 }: Props = Astro.props
         </div>
       )
     }
-    <div class="gap-strat flex items-center">获得奖励会有如下提示：</div>
+    <div class="paragraph">获得奖励会有如下提示：</div>
     <Image src={perfect_groove} alt="Perfect Groove" class="max-w-100" />
   </div>
 </MechanicSection>
