@@ -12,9 +12,10 @@ import DamageInfo from '@/components/DamageInfo.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 
-import P from '@/components/typography/P.astro'
-import T from '@/components/typography/T.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import T from '@/components/typography/T.astro'
 
 import XReignCast from '../_components/XReignCast.astro'
 import HowlingBlade from '../_components/HowlingBlade.astro'
@@ -210,7 +211,7 @@ const { start, base = 0 }: Props = Astro.props
         },
       ]}
     />
-    <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
+    <Quote variant="yellow">
       <P>
         若先前读条为
         <Span variant="yellow">{revolutionaryReign}</Span>
@@ -231,7 +232,7 @@ const { start, base = 0 }: Props = Astro.props
         <DamageDown tag="30" hover />
         <Span variant="rose" class="text-decimal">30%↓</Span>
       </P>
-    </div>
+    </Quote>
     <P>无论是圆形还是扇形，都附带击退效果，防击退有效</P>
     <P>
       圆形和扇形判定的同时，
@@ -303,7 +304,7 @@ const { start, base = 0 }: Props = Astro.props
       与场地中心的距离更近，右图更远
     </P>
     <P>这并非我们作图错误，而是该机制的bug，具体来说：</P>
-    <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
+    <Quote variant="yellow">
       <P>
         <HowlingBlade />
         在东北、东南两个方向释放圆形/扇形时，距离场中约
@@ -314,7 +315,7 @@ const { start, base = 0 }: Props = Astro.props
         在西北、正北、西南、正南四个方向释放圆形/扇形时，距离场中约
         <Span variant="pink">7.5m</Span>
       </P>
-    </div>
+    </Quote>
     <P>前者会让我们更难躲避圆形范围伤害，但影响不是很大，如下图：</P>
     <ImgRow
       wrapperClass="max-w-90"
