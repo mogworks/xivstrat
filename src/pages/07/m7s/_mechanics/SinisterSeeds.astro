@@ -404,7 +404,7 @@ const bloomingAbomination = translations.bloomingAbomination
       在放置冰花或追踪Aoe的过程中，<BloomingAbomination num={4} />
       会生成在<Span variant="green">种子</Span>落下的地方
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       我们规定，让
       <RoleIcon role="tank" tag="MT" />拉
       <Span variant="cyan">左半场</Span>两只<BloomingAbominationSimplified />，
@@ -479,7 +479,7 @@ const bloomingAbomination = translations.bloomingAbomination
     <h4 class="text-2xl">
       <Span variant="yellow">Roots of Evil</Span>
     </h4>
-    <div class="paragraph flex-wrap">之前判定的四连追踪AoE扩大范围后，统一再判定一次，如下图所示：</div>
+    <div class="paragraph">之前判定的四连追踪AoE扩大范围后，统一再判定一次，如下图所示：</div>
     <div class="grid grid-cols-3 gap-x-2 gap-y-4">
       <div class="flex flex-col items-center gap-1">
         <Image src={roots_of_evil_1} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
@@ -496,23 +496,23 @@ const bloomingAbomination = translations.bloomingAbomination
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">{windingWildwinds} / {crossingCrosswinds}</Span>
     </h4>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       <BloomingAbominationSimplified />
       以自身为中心释放
       <Span variant="green">可被打断的</Span>
       月环/十字形AoE
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       其中，必定有两只<BloomingAbominationSimplified />读条
       <Span variant="yellow">{windingWildwinds}</Span>
       ，释放月环
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       另外两只<BloomingAbominationSimplified />读条
       <Span variant="yellow">{crossingCrosswinds}</Span>
       ，释放十字形AoE
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       小怪在AoE读条完毕不久后，会读条狂暴技能
       <Span variant="yellow">{hurricaneForce}</Span>
       <DamageInfo damage="9999999" type="special" />
@@ -533,11 +533,11 @@ const bloomingAbomination = translations.bloomingAbomination
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">{quarrySwamp}</Span>
     </h4>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       <BruteAbombinator />
       释放全屏石化，石化全体玩家
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       但玩家可以躲在
       <BloomingAbominationSimplified />
       的尸体后（无需背对）来躲避石化
@@ -550,37 +550,37 @@ const bloomingAbomination = translations.bloomingAbomination
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       在躲避<Span variant="yellow">Roots of Evil</Span>时，
       <RoleIcon role="tank" />将小怪拉到场地<Span variant="cyan">西侧或北侧</Span>的安全区
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       当小怪读条<Span variant="yellow">{windingWildwinds} / {crossingCrosswinds}</Span>时，
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       我们让<RoleIcon role="tank" />使用<Span variant="pink">插言</Span>
       优先打断正在读条<Span variant="yellow">{windingWildwinds}</Span>（即正在释放月环）的
       <BloomingAbominationSimplified />
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       为了防止重复打断，这里我们规定，按照仇恨列表的顺序，
       <RoleIcon role="tank" tag="MT" /><Span variant="cyan">从上往下</Span>打断，
       <RoleIcon role="tank" tag="ST" /><Span variant="cyan">从下往上</Span>打断
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       此外，<RoleIcon role="ranged" tag="D3" />也可以使用<Span variant="pink">伤头</Span>
       帮助队友进行打断
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       例如，当仇恨列表如下图所示时，
       <RoleIcon role="tank" tag="MT" />应当打断第二只<BloomingAbominationSimplified />，
       <RoleIcon role="tank" tag="ST" />应当打断第四只<BloomingAbominationSimplified />
     </div>
     <Image src={bloomings} alt="" class="w-62 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       同时，<RoleIcon role="all" tag="所有人" />集火， 在<BloomingAbominationSimplified />狂暴之前将其全部击杀
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       击杀<BloomingAbominationSimplified />后，
       <RoleIcon role="tank" tag="MT" />将<BruteAbombinator />
       拉到<BloomingAbominationSimplified />的尸体附近，利用小怪尸体阻挡石化
