@@ -12,12 +12,15 @@ import DamageInfo from '@/components/DamageInfo.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 
-import P from '@/components/typography/P.astro'
-import T from '@/components/typography/T.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
 
 import XReignCast from '../_components/XReignCast.astro'
 import HowlingBlade from '../_components/HowlingBlade.astro'
+
 import { translations } from '../_translations'
 
 import tmp from '@/assets/07/m8s1/Tmp.png'
@@ -53,9 +56,7 @@ const { start, base = 0 }: Props = Astro.props
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T>
-      <Span variant="yellow">{revolutionaryReign}</Span>
-      |
-      <Span variant="yellow">{eminentReign}</Span>
+      <Skill name={[revolutionaryReign, eminentReign]} />
     </T>
     <P>
       <HowlingBlade />
@@ -145,7 +146,7 @@ const { start, base = 0 }: Props = Astro.props
       随后，
       <HowlingBlade />
       转身读条
-      <Span variant="yellow">{wolvesReign}</Span>
+      <Skill name={wolvesReign} />
       ，释放宽度
       <Span variant="pink">10m</Span>
       （恰为目标圈直径）的直线冲锋：
@@ -193,7 +194,7 @@ const { start, base = 0 }: Props = Astro.props
       冲锋到场地对侧后，
       <HowlingBlade />
       再次转身读条
-      <Span variant="yellow">{wolvesReign}</Span>
+      <Skill name={wolvesReign} />
       ，释放大范围的圆形或扇形伤害：
     </P>
     <ImgRow
@@ -210,10 +211,10 @@ const { start, base = 0 }: Props = Astro.props
         },
       ]}
     />
-    <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
+    <Quote variant="yellow">
       <P>
         若先前读条为
-        <Span variant="yellow">{revolutionaryReign}</Span>
+        <Skill name={revolutionaryReign} />
         ，则释放半径
         <Span variant="pink">14m</Span>
         的圆形范围伤害
@@ -223,7 +224,7 @@ const { start, base = 0 }: Props = Astro.props
       </P>
       <P>
         若先前读条为
-        <Span variant="yellow">{eminentReign}</Span>
+        <Skill name={eminentReign} />
         ，则释放角度
         <Span variant="pink">120°</Span>
         的扇形范围伤害
@@ -231,7 +232,7 @@ const { start, base = 0 }: Props = Astro.props
         <DamageDown tag="30" hover />
         <Span variant="rose" class="text-decimal">30%↓</Span>
       </P>
-    </div>
+    </Quote>
     <P>无论是圆形还是扇形，都附带击退效果，防击退有效</P>
     <P>
       圆形和扇形判定的同时，
@@ -303,7 +304,7 @@ const { start, base = 0 }: Props = Astro.props
       与场地中心的距离更近，右图更远
     </P>
     <P>这并非我们作图错误，而是该机制的bug，具体来说：</P>
-    <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
+    <Quote variant="yellow">
       <P>
         <HowlingBlade />
         在东北、东南两个方向释放圆形/扇形时，距离场中约
@@ -314,7 +315,7 @@ const { start, base = 0 }: Props = Astro.props
         在西北、正北、西南、正南四个方向释放圆形/扇形时，距离场中约
         <Span variant="pink">7.5m</Span>
       </P>
-    </div>
+    </Quote>
     <P>前者会让我们更难躲避圆形范围伤害，但影响不是很大，如下图：</P>
     <ImgRow
       wrapperClass="max-w-90"
@@ -343,22 +344,46 @@ const { start, base = 0 }: Props = Astro.props
       <HowlingBlade />
       冲锋的
       <Span variant="pink">终点方向</Span>
-      为基准准备引导扇形
+      为12点准备引导扇形
     </P>
+    <T text={eminentReign} variant="lime" class="mt-12" />
     <P>
-      如果是{revolutionaryReign}，就是1331的站位，T在两侧开好减伤吃死刑，双奶在中间分摊。
+      首先是比较简单的<Skill name={eminentReign} />，按下图“1331”站位：
     </P>
     <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
       <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
     </div>
+    <Quote variant="lime">
+      <P>
+        <RoleIcon role="tank" />
+        一左一右站目标圈的两个缺口处并开好个人减伤，
+        <RoleIcon role="tank" tag="MT" />左，<RoleIcon role="tank" tag="ST" />右
+      </P>
+      <P>
+        <RoleIcon role="healer" />
+        一左一右站目标圈的身位指示器和扇形预兆之间，
+        <RoleIcon role="healer" tag="H1" />左，<RoleIcon role="healer" tag="H2" />右
+      </P>
+      <P>
+        <RoleIcon role="melee" tag="D1" /><RoleIcon role="ranged" tag="D3" />
+        找<RoleIcon role="healer" tag="H1" />分摊，
+        <RoleIcon role="dps" tag="D2" /><RoleIcon role="magic" tag="D4" />
+        找<RoleIcon role="healer" tag="H2" />分摊
+      </P>
+    </Quote>
     <P>
-      如果是{eminentReign}，就是3113的站位，T在靠近
-      <HowlingBlade />
-      的内测开好减伤吃死刑，双奶在两侧分摊。
+      由于<RoleIcon role="tank" /><RoleIcon role="healer" />的最小安全夹角是45°，
+      <RoleIcon role="healer" />注意不要超过目标圈的身位指示器
+    </P>
+    <T text={revolutionaryReign} variant="lime" class="mt-12" />
+    <P>
+      其次是比较复杂的<Skill name={revolutionaryReign} />，按下图“1331”站位：
     </P>
     <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
       <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
     </div>
+    <T text="1. 防护职业找安全点的方法" variant="lime" class="mt-4 text-xl" />
+    <T text="2. 治疗和输出职业找安全点的方法" variant="lime" class="mt-4 text-xl" />
   </div>
 </SolutionSection>
 
