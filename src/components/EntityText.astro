@@ -8,6 +8,6 @@ interface Props {
 const { class: className, ...props }: Props = Astro.props
 ---
 
-<span class={cn('font-bold', className)} {...props}>
+<span class={cn('font-bold', className, 'hidden')} {...props}>
   <slot />
 </span>

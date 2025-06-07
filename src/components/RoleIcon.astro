@@ -1,9 +1,9 @@
 ---
-import { cn } from '@/lib/utils'
 import type { RoleType, CombinedRoleType } from '@/lib/role'
 
-import EntityIcon from '@/components/EntityIcon.astro'
 import CombinedIcon from '@/components/CombinedIcon.astro'
+import EntityIcon from '@/components/EntityIcon.astro'
+import EntityText from '@/components/EntityText.astro'
 
 import any from '/pixi/role/any.png?url'
 import all from '/pixi/role/all.png?url'
@@ -16,7 +16,6 @@ import magic from '/pixi/role/magic.png?url'
 import ranged_magic from '/pixi/role/ranged_magic.png?url'
 import boss from '/pixi/enemy/061712.png?url'
 import enemy_level1 from '/pixi/enemy/061707.png?url'
-import EntityText from './EntityText.astro'
 
 interface Props {
   role: RoleType | CombinedRoleType
@@ -64,12 +63,12 @@ const text =
     ranged_magic: '远程',
     boss: '', // 敌对生物slot都包含名称，直接隐藏图标
     enemy_level1: '',
-    'tank|healer': 'T或H',
-    'healer|tank': 'H或T',
-    'tank|dps': 'T或D',
-    'dps|tank': 'D或T',
-    'healer|dps': 'H或D',
-    'dps|healer': 'D或H',
+    'tank|healer': 'T/H',
+    'healer|tank': 'H/T',
+    'tank|dps': 'T/D',
+    'dps|tank': 'D/T',
+    'healer|dps': 'H/D',
+    'dps|healer': 'D/H',
   }[role]
 ---
 
