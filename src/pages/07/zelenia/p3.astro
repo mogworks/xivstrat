@@ -8,6 +8,12 @@ import SpecterOfTheLostCast from './_components/SpecterOfTheLostCast.astro'
 import StockBreakCast from './_components/StockBreakCast.astro'
 
 import RoseBloodBloom from './_mechanics/RoseBloodBloom.astro'
+import RoseBloodBloom1 from './_mechanics/RoseBloodBloom_1.astro'
+import RoseBloodBloom2 from './_mechanics/RoseBloodBloom_2.astro'
+import AlexandrianThunder2 from './_components/AlexandrianThunder2Cast.astro'
+import AlexandrianThunder3 from './_components/AlexandrianThunder3Cast.astro'
+
+import RoseFloor from './_mechanics/RoseFloor.astro'
 
 const dutyId = '07/zelenia'
 const base = 0
@@ -19,21 +25,23 @@ const base = 0
   </EventSection>
   <SeparatorSection id="roseblood-bloom-1" title="魔法阵展开·一式" />
   <RoseBloodBloom start="02:48.767" base={base} num = {1}/>
+  <AlexandrianThunder2 start="02:54.915" base={base}/>
+  <RoseBloodBloom1 />
 
-  <SeparatorSection id="alexandrian-thunder-III" title="Alexandrian Thunder III" />
-
-  <SeparatorSection id="thorned-catharsis" title="Thorned Catharsis" />
-  
+  <AlexandrianThunder3 start="03:15.416" base={base}/>
+  <RoseFloor/>
   <ThornedCatharsis start="03:22.861" base={base} />
 
   <SeparatorSection id="roseblood-bloom-2" title="魔法阵展开·二式" />
   <RoseBloodBloom start="03:35.299" base={base} num = {2}/>
+  <!-- <RoseBloodBloom2/> -->
   <SeparatorSection id="specter-of-the-lost" title="Specter of the Lost" />
   
   <SpecterOfTheLostCast start="03:55.571" base={base} />
   
   <SeparatorSection id="roseblood-bloom-3" title="魔法阵展开·三式" />
   <RoseBloodBloom start="04:10.005" base={base} num = {3}/>
+  
   <SeparatorSection id="emblazon" title="Emblazon" />
   
   <SeparatorSection id="explosion" title="Explosion" />

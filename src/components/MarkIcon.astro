@@ -1,0 +1,27 @@
+---
+interface Props {
+  tag: 'z1' | 'z2' | 'z3' | 'z4' | 'za' | 'zb' | 'zc' | 'zd'
+  class?: string
+  alt?: string
+}
+
+// props解构，有默认值
+const { tag = 'z1', class: className = '', alt = tag }: Props = Astro.props
+
+// 导入图片资源
+import z1 from '/pixi/mark/z1.png?url'
+import z2 from '/pixi/mark/z2.png?url'
+import z3 from '/pixi/mark/z3.png?url'
+import z4 from '/pixi/mark/z4.png?url'
+import za from '/pixi/mark/za.png?url'
+import zb from '/pixi/mark/zb.png?url'
+import zc from '/pixi/mark/zc.png?url'
+import zd from '/pixi/mark/zd.png?url'
+
+// tag到图片的映射
+const img = {
+  z1, z2, z3, z4, za, zb, zc, zd,
+}[tag]
+---
+
+<img src={img} alt={alt} class={className} width="30" height="30" />
