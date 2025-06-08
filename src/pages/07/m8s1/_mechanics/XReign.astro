@@ -39,6 +39,7 @@ import xreign_10 from '@/assets/07/m8s1/xreign/10.png'
 import xreign_11 from '@/assets/07/m8s1/xreign/11.png'
 import xreign_12 from '@/assets/07/m8s1/xreign/12.png'
 import xreign_13 from '@/assets/07/m8s1/xreign/13.png'
+import solution_1 from '@/assets/07/m8s1/xreign/solution/1.png'
 
 interface Props {
   start: Time
@@ -350,18 +351,16 @@ const { start, base = 0 }: Props = Astro.props
     <P>
       首先是比较简单的<Skill name={eminentReign} />，按下图“1331”站位：
     </P>
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-    </div>
+    <ImgRow borderVariant="cyan" rounded imgs={[{ src: solution_1, alt: '扫击群狼剑：站位图' }]} />
     <Quote variant="lime">
       <P>
         <RoleIcon role="tank" />
-        一左一右站目标圈的两个缺口处并开好个人减伤，
+        一左一右站目标圈的<Span variant="pink">两个缺口处</Span>并开好个人减伤，
         <RoleIcon role="tank" tag="MT" />左，<RoleIcon role="tank" tag="ST" />右
       </P>
       <P>
         <RoleIcon role="healer" />
-        一左一右站目标圈的身位指示器和扇形预兆之间，
+        一左一右站目标圈的<Span variant="pink">身位指示器和扇形预兆之间</Span>，
         <RoleIcon role="healer" tag="H1" />左，<RoleIcon role="healer" tag="H2" />右
       </P>
       <P>
@@ -374,6 +373,9 @@ const { start, base = 0 }: Props = Astro.props
     <P>
       由于<RoleIcon role="tank" /><RoleIcon role="healer" />的最小安全夹角是45°，
       <RoleIcon role="healer" />注意不要超过目标圈的身位指示器
+    </P>
+    <P>
+      并且由于分摊扇形的角度较窄，<RoleIcon role="dps" />注意不要偏离<RoleIcon role="healer" />太多
     </P>
     <T text={revolutionaryReign} variant="lime" class="mt-12" />
     <P>

@@ -1,10 +1,10 @@
 export const translations = {
   extraplanarPursuit: '空間斬り',
   stonefang: '土の魔技',
-  windfang: '风の魔技',
-  revolutionaryReign: '廻の郡狼剣',
-  eminentReign: '薙の郡狼剣',
-  wolvesReign: '郡狼剣',
+  windfang: '風の魔技',
+  revolutionaryReign: '廻の群狼剣',
+  eminentReign: '薙の群狼剣',
+  wolvesReign: '群狼剣',
   reignsEnd: '群狼斬波',
   sovereignScar: '重衝波',
 }
