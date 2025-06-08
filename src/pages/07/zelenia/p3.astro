@@ -10,6 +10,8 @@ import StockBreakCast from './_components/StockBreakCast.astro'
 import RoseBloodBloom from './_mechanics/RoseBloodBloom.astro'
 import RoseBloodBloom1 from './_mechanics/RoseBloodBloom_1.astro'
 import RoseBloodBloom2 from './_mechanics/RoseBloodBloom_2.astro'
+import RoseBloodBloom3 from './_mechanics/RoseBloodBloom_3.astro'
+
 import AlexandrianThunder2 from './_components/AlexandrianThunder2Cast.astro'
 import AlexandrianThunder3 from './_components/AlexandrianThunder3Cast.astro'
 
@@ -20,9 +22,9 @@ const base = 0
 ---
 
 <DutyStratLayout dutyId={dutyId}>
-  <EventSection>
+  <!-- <EventSection>
     这里写P3阶段起手、走位、机制要点等文字内容。
-  </EventSection>
+  </EventSection> -->
   <SeparatorSection id="roseblood-bloom-1" title="魔法阵展开·一式" />
   <RoseBloodBloom start="02:48.767" base={base} num = {1}/>
   <AlexandrianThunder2 start="02:54.915" base={base}/>
@@ -34,13 +36,14 @@ const base = 0
 
   <SeparatorSection id="roseblood-bloom-2" title="魔法阵展开·二式" />
   <RoseBloodBloom start="03:35.299" base={base} num = {2}/>
-  <!-- <RoseBloodBloom2/> -->
+  <RoseBloodBloom2/>
   <SeparatorSection id="specter-of-the-lost" title="Specter of the Lost" />
   
   <SpecterOfTheLostCast start="03:55.571" base={base} />
   
   <SeparatorSection id="roseblood-bloom-3" title="魔法阵展开·三式" />
   <RoseBloodBloom start="04:10.005" base={base} num = {3}/>
+  <RoseBloodBloom3/>
   
   <SeparatorSection id="emblazon" title="Emblazon" />
   

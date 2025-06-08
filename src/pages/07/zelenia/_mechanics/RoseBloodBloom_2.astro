@@ -13,6 +13,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
+import ImageRow from '@/components/typography/ImageRow.astro'
 
 import RoseBloodBloomCast from '../_components/RoseBloodBloomCast.astro'
 
@@ -35,7 +36,9 @@ import j from '@/assets/07/zelenia/P3-2/P3-2-j.png'
     </div>
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <div class="paragraph">
-          <Zelenia/>读条钢铁+月环或月环＋钢铁，会引爆<Span variant="pink">红色地板</Span>
+          <Zelenia/>读条<Span variant="blue">钢铁</Span>+<Span variant="yellow">月环</Span>
+          或
+          <Span variant="yellow">月环</Span>+<Span variant="blue">钢铁</Span>，会引爆<Span variant="pink">红色地板</Span>
         </div>
         <div class="paragraph">
           <Zelenia/>同时按顺序施放扇形刀，不会引爆红色地板
@@ -43,20 +46,37 @@ import j from '@/assets/07/zelenia/P3-2/P3-2-j.png'
     </div>
   </div>
 </MechanicSection>
-<!-- <SolutionSection>
+<SolutionSection>
   <div class="flex flex-col gap-6"> 
     <div class="flex gap-4">
-      <div class="max-w-88 flex-1">
+      <ImageRow
+        class="game-img"
+        wrapperClass="max-w-60"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: ga,
+            alt: 'Zelenia：P3-2 先钢铁',
+            title: '先钢铁',
+          },
+          {
+            src: ya,
+            alt: 'Zelenia：P3-2 先月环',
+            title: '先月环',
+          },
+        ]}
+      />
+      <!-- <div class="max-w-88 flex-1">
         <Image src={ga} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
       <div class="max-w-88 flex-1">
         <Image src={ya} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      </div>
+      </div> -->
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
           <div class="paragraph">
             <Span variant="yellow">Step 1</Span>
             观察先钢铁/先月环
-            
           </div>
           <div class="paragraph">
             <RoleIcon role="all" tag="全员" />在只有一块暗色地板处集合
@@ -64,12 +84,30 @@ import j from '@/assets/07/zelenia/P3-2/P3-2-j.png'
       </div>
     </div>
     <div class="flex gap-4">
-      <div class="max-w-88 flex-1">
+      <ImageRow
+        class="game-img"
+        wrapperClass="max-w-60"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: ga2,
+            alt: 'Zelenia：P3-2 先钢铁',
+            title: '先钢铁',
+          },
+          {
+            src: ya2,
+            alt: 'Zelenia：P3-2 先月环',
+            title: '先月环',
+          },
+        ]}
+      />
+      <!-- <div class="max-w-88 flex-1">
         <Image src={ga2} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
       <div class="max-w-88 flex-1">
         <Image src={ya2} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      </div>
+      </div> -->
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
           <div class="paragraph">
             <Span variant="orange">Step 2</Span>
@@ -82,7 +120,7 @@ import j from '@/assets/07/zelenia/P3-2/P3-2-j.png'
       </div>
     </div>
   </div>
-</SolutionSection> -->
+</SolutionSection>
 <NoteSection>
   <div class="flex gap-4">
     <div class="max-w-88 flex-1">
