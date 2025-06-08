@@ -1,8 +1,6 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
-
 import DamageDown from '@/components/buff/DamageDown.astro'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
@@ -11,6 +9,7 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
+import StratLink from '@/components/StratLink.astro'
 
 import ImgRow from '@/components/typography/ImgRow.astro'
 import P from '@/components/typography/P.astro'
@@ -23,7 +22,6 @@ import HowlingBlade from '../_components/HowlingBlade.astro'
 
 import { translations } from '../_translations'
 
-import tmp from '@/assets/07/m8s1/Tmp.png'
 import xreign_game_1 from '@/assets/07/m8s1/xreign/game_1.png'
 import xreign_game_2 from '@/assets/07/m8s1/xreign/game_2.png'
 import xreign_1 from '@/assets/07/m8s1/xreign/1.png'
@@ -39,6 +37,14 @@ import xreign_10 from '@/assets/07/m8s1/xreign/10.png'
 import xreign_11 from '@/assets/07/m8s1/xreign/11.png'
 import xreign_12 from '@/assets/07/m8s1/xreign/12.png'
 import xreign_13 from '@/assets/07/m8s1/xreign/13.png'
+import solution_1 from '@/assets/07/m8s1/xreign/solution/1.png'
+import solution_2 from '@/assets/07/m8s1/xreign/solution/2.png'
+import solution_3 from '@/assets/07/m8s1/xreign/solution/3.png'
+import solution_4 from '@/assets/07/m8s1/xreign/solution/4.png'
+import solution_5 from '@/assets/07/m8s1/xreign/solution/5.png'
+import solution_6 from '@/assets/07/m8s1/xreign/solution/6.png'
+import solution_7 from '@/assets/07/m8s1/xreign/solution/7.png'
+import solution_8 from '@/assets/07/m8s1/xreign/solution/8.png'
 
 interface Props {
   start: Time
@@ -278,7 +284,7 @@ const { start, base = 0 }: Props = Astro.props
       <PhysicalVulnerabilityUp tag="1" hover />
       （三人分摊时人均）
     </P>
-    <T text="Bug" variant="yellow" class="mt-12" />
+    <T id="xreign-bug" text="Bug" variant="yellow" class="mt-12 scroll-mt-[calc(5rem+1px)]" />
     <P>
       眼尖的同学可能已经发现，以下两张图，
       <HowlingBlade />
@@ -350,18 +356,16 @@ const { start, base = 0 }: Props = Astro.props
     <P>
       首先是比较简单的<Skill name={eminentReign} />，按下图“1331”站位：
     </P>
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-    </div>
+    <ImgRow borderVariant="cyan" rounded imgs={[{ src: solution_1, alt: '扫击群狼剑：站位图' }]} />
     <Quote variant="lime">
       <P>
         <RoleIcon role="tank" />
-        一左一右站目标圈的两个缺口处并开好个人减伤，
+        一左一右站目标圈的<Span variant="pink">两个缺口处</Span>并开好个人减伤，
         <RoleIcon role="tank" tag="MT" />左，<RoleIcon role="tank" tag="ST" />右
       </P>
       <P>
         <RoleIcon role="healer" />
-        一左一右站目标圈的身位指示器和扇形预兆之间，
+        一左一右站目标圈的<Span variant="pink">身位指示器和扇形预兆之间</Span>，
         <RoleIcon role="healer" tag="H1" />左，<RoleIcon role="healer" tag="H2" />右
       </P>
       <P>
@@ -375,15 +379,89 @@ const { start, base = 0 }: Props = Astro.props
       由于<RoleIcon role="tank" /><RoleIcon role="healer" />的最小安全夹角是45°，
       <RoleIcon role="healer" />注意不要超过目标圈的身位指示器
     </P>
+    <P>
+      并且由于分摊扇形的角度较窄，<RoleIcon role="dps" />注意不要偏离<RoleIcon role="healer" />太多
+    </P>
     <T text={revolutionaryReign} variant="lime" class="mt-12" />
     <P>
       其次是比较复杂的<Skill name={revolutionaryReign} />，按下图“1331”站位：
     </P>
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-    </div>
-    <T text="1. 防护职业找安全点的方法" variant="lime" class="mt-4 text-xl" />
-    <T text="2. 治疗和输出职业找安全点的方法" variant="lime" class="mt-4 text-xl" />
+    <ImgRow borderVariant="cyan" rounded imgs={[{ src: solution_2, alt: '旋击群狼剑：站位图' }]} />
+    <T text="1. 治疗和输出职业找安全点的方法" variant="lime" class="mt-4 text-xl" />
+    <P>这里我们把前一轮冲锋的范围和扇形引导点一并画出来，如下图：</P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        { src: solution_3, alt: '旋击群狼剑：治疗/输出安全点找法1' },
+        { src: solution_4, alt: '旋击群狼剑：治疗/输出安全点找法2' },
+      ]}
+    />
+    <P>
+      由此可见，
+      <RoleIcon role="healer" />
+      <RoleIcon role="dps" />
+      只需要在躲完直线冲锋后，往冲锋范围内挪一步即可
+    </P>
+    <T text="2. 防护职业找安全点的方法" variant="lime" class="mt-4 text-xl" />
+    <T text="2.1 情形一：A/C冲锋" variant="lime" class="text-lg" />
+    <P>
+      以
+      <Span variant="sky">C</Span>往<Span variant="red">A</Span>
+      冲为例，沿
+      <Span variant="yellow">B</Span>/<Span variant="purple">D</Span>
+      点的上下边缘作两条水平参考线，如下图：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        { src: solution_5, alt: '旋击群狼剑：A/C冲锋 防护职业找安全点的方法1' },
+        { src: solution_6, alt: '旋击群狼剑：A/C冲锋 防护职业找安全点的方法2' },
+      ]}
+    />
+    <P>由此可见，先找水平参考线与电网的交点，沿着参考线往场内挪一步，即是备选的极限安全点</P>
+    <P>
+      <RoleIcon role="tank" />
+      只需要在备选安全点里，选择离
+      <HowlingBlade />
+      更远的那组（图示<Span variant="blue">蓝色圆点</Span>）即可
+    </P>
+    <T text="2.2 情形二：斜向冲锋" variant="lime" class="text-lg" />
+    <P>原本斜向冲锋的4种情况（左上->右下、右上->左下、左下->右上、右下->左上）应该是对称的</P>
+    <P>
+      但由于前文提及的
+      <StratLink variant="yellow" href="#xreign-bug">Bug</StratLink>
+      ，【左上->右下】【左下->右上】这两种情况会更危险
+    </P>
+    <P>
+      以【左下->右上】为例，找到
+      <Span variant="pink">冲锋两侧</Span>
+      的数字标点，沿标点的左右边缘作两条
+      <Span variant="pink">竖直</Span>
+      参考线，如下图：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        { src: solution_7, alt: '旋击群狼剑：斜向冲锋 防护职业找安全点的方法1' },
+        { src: solution_8, alt: '旋击群狼剑：斜向冲锋 防护职业找安全点的方法2' },
+      ]}
+    />
+    <P>由此可见，先找竖直参考线与电网的交点，沿着参考线往场内挪一步，即是备选的极限安全点</P>
+    <P>
+      <RoleIcon role="tank" />
+      只需要在备选安全点里，选择离
+      <HowlingBlade />
+      更远的那组（图示<Span variant="blue">蓝色圆点</Span>）即可
+    </P>
+    <P>实战里可以这样记：</P>
+    <Quote variant="lime">
+      <P>1. 找冲锋两侧的数字标点</P>
+      <P>2. 沿数字标点离BOSS更远的<Span variant="pink">竖直边</Span>走到场边</P>
+    </Quote>
+    <P>总之，极限安全点的通用找法已经告诉大家，如何记忆可以自行思考</P>
   </div>
 </SolutionSection>
 
