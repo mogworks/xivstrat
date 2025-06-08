@@ -40,6 +40,9 @@ import xreign_11 from '@/assets/07/m8s1/xreign/11.png'
 import xreign_12 from '@/assets/07/m8s1/xreign/12.png'
 import xreign_13 from '@/assets/07/m8s1/xreign/13.png'
 import solution_1 from '@/assets/07/m8s1/xreign/solution/1.png'
+import solution_2 from '@/assets/07/m8s1/xreign/solution/2.png'
+import solution_3 from '@/assets/07/m8s1/xreign/solution/3.png'
+import solution_4 from '@/assets/07/m8s1/xreign/solution/4.png'
 
 interface Props {
   start: Time
@@ -381,11 +384,24 @@ const { start, base = 0 }: Props = Astro.props
     <P>
       其次是比较复杂的<Skill name={revolutionaryReign} />，按下图“1331”站位：
     </P>
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-    </div>
-    <T text="1. 防护职业找安全点的方法" variant="lime" class="mt-4 text-xl" />
-    <T text="2. 治疗和输出职业找安全点的方法" variant="lime" class="mt-4 text-xl" />
+    <ImgRow borderVariant="cyan" rounded imgs={[{ src: solution_2, alt: '旋击群狼剑：站位图' }]} />
+    <T text="1. 治疗和输出职业找安全点的方法" variant="lime" class="mt-4 text-xl" />
+    <P>这里我们把前一轮冲锋的范围一并画出来，如下图：</P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        { src: solution_3, alt: '旋击群狼剑：治疗/输出安全点找法1' },
+        { src: solution_4, alt: '旋击群狼剑：治疗/输出安全点找法2' },
+      ]}
+    />
+    <P>
+      由此可见，
+      <RoleIcon role="healer" />
+      <RoleIcon role="dps" />
+      只需要往前一轮直线冲锋的范围内挪一步即可
+    </P>
+    <T text="2. 防护职业找安全点的方法" variant="lime" class="mt-4 text-xl" />
   </div>
 </SolutionSection>
 
