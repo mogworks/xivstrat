@@ -11,8 +11,8 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
-import HowlingBlade from '../_components/HowlingBlade.astro'
-import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 
 import shadowchase_case1_img from '@/assets/07/m8s1/Tmp.png'
 import shadowchase_case2_img from '@/assets/07/m8s1/Tmp.png'
@@ -73,7 +73,7 @@ const { start, base = 0 }: Props = Astro.props
       </div>
       <div class="paragraph">
         分摊/分散判定后，分身夹缝中出现5个
-        <WindWolfheadIcon />
+        <WolfOfWind />
         风狼头，读条向前方释放
         <Span variant="yellow">風狼豪波</Span>
         <Badge variant="yellow">直线AoE</Badge>
@@ -110,7 +110,7 @@ const { start, base = 0 }: Props = Astro.props
       <div class="paragraph"></div>
       <div class="paragraph">
         分摊分散判定，去
-        <WindWolfheadIcon />
+        <WolfOfWind />
         后方躲避直线AoE。
       </div>
     </div>

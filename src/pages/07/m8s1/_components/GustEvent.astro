@@ -5,50 +5,42 @@ import Badge from '@/components/Badge.astro'
 import Span from '@/components/Span.vue'
 import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
-import HowlingBlade from '../_components/HowlingBlade.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import GustEffect from '../_components/GustEffect.astro'
+
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
   base?: Time
-  [key: string]: any
+  reverse?: boolean
 }
 
-const ability = 'Gust'
-const damage = '110000'
-const damageType = 'magical'
+const ability = translations.gust
 
-const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
+const { time, base = 0, reverse = false }: Props = Astro.props
 ---
 
 <EventSection time={time} base={base}>
   <HowlingBlade />
   {
-    reverse === 0 ? (
+    reverse ? (
       <>
-        对随机4
-        <RoleIcon role="dps" />
-        或4
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
+        点名<Span variant="pink">4</Span>
+        <RoleIcon role="dps" />或<Span variant="pink">4</Span>
+        <RoleIcon role="tank|healer" />
       </>
     ) : (
       <>
-        对另外4
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
-        或4
+        点名<Span variant="pink">4</Span>
+        <RoleIcon role="tank|healer" />或<Span variant="pink">4</Span>
         <RoleIcon role="dps" />
       </>
     )
   }
-  <!-- 释放半径5m的AoE -->
   <Span variant="yellow">{ability}</Span>
-  <DamageInfo damage={damage} type={damageType} />
-  <MagicVulnerabilityUp tag="7" hover />
-
-  <Badge variant="green">5m</Badge>
-  <Badge variant="yellow">AoE</Badge>
+  <GustEffect />
+  <Badge variant="emerald">5m圆形</Badge>
+  <Badge variant="yellow">分散</Badge>
 </EventSection>

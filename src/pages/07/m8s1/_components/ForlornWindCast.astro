@@ -4,7 +4,7 @@ import type { Time } from '@/lib/utils'
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
-import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 
 interface Props {
   start: Time
@@ -27,7 +27,7 @@ const { start, base = 0, ...rest }: Props = Astro.props
   damageType="special"
   {...rest}
 >
-  <WindWolfheadIcon slot="source" />
+  <WolfOfWind slot="source" />
   <Badge variant="fuchsia">狂暴</Badge>
   <Badge variant="red">团灭</Badge>
 </CastSection>

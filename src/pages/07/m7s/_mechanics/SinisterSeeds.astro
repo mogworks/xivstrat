@@ -499,9 +499,9 @@ const bloomingAbomination = translations.bloomingAbomination
       <Span variant="pink">远离</Span><RoleIcon role="boss" tag="boss" />处集合
     </div>
     <div class="paragraph">站位示意图如下：</div>
-    <div class="grid grid-cols-3 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={Tmp} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <div class="flex gap-4">
+      <div class="max-w-90 shrink">
+        <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
     </div>
   </div>
@@ -529,9 +529,9 @@ const bloomingAbomination = translations.bloomingAbomination
       >
     </div>
     <div class="paragraph">四轮黄圈与放冰花示意图如下：</div>
-    <div class="grid grid-cols-3 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={Tmp} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <div class="flex gap-4">
+      <div class="max-w-90 shrink">
+        <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
     </div>
   </div>
@@ -694,11 +694,17 @@ const bloomingAbomination = translations.bloomingAbomination
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       基于黄圈放置的位置，
-      <RoleIcon role="tank" />将小怪拉到场地<Span variant="pink">西北或东北</Span>的安全区
+      <RoleIcon role="tank" />将小怪拉到场地<Span variant="pink">西北</Span>的安全区
     </div>
     <div class="paragraph">
       <RoleIcon role="healer|dps" tag="其他人" />跟随T的位置，一起躲避
       <Span variant="yellow">Roots of Evil</Span>
+    </div>
+    <div class="paragraph">扩大的黄圈范围及人群位置示意图如下：</div>
+    <div class="flex gap-4">
+      <div class="max-w-90 shrink">
+        <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      </div>
     </div>
     <div class="paragraph">后续处理同game8原版</div>
   </div>

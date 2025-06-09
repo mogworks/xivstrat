@@ -12,6 +12,11 @@ import DamageInfo from '@/components/DamageInfo.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import Quote from '@/components/typography/Quote.astro'
+
 import MillennialDecayCast from '../_components/MillennialDecayCast.astro'
 import BreathOfDecayCast from '../_components/BreathOfDecayCast.astro'
 import AeroIIICast from '../_components/AeroIIICast.astro'
@@ -19,182 +24,124 @@ import GustEvent from '../_components/GustEvent.astro'
 import PowerlingGaleEvent from '../_components/ProwlingGaleEvent.astro'
 import WindsOfDecayEvent from '../_components/WindsOfDecayEvent.astro'
 
-import HowlingBlade from '../_components/HowlingBlade.astro'
-import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
+import GustEffect from '../_components/GustEffect.astro'
+import BreathOfDecayEffect from '../_components/BreathOfDecayEffect.astro'
+
+import { translations } from '../_translations'
 
 import img from '@/assets/07/m8s1/tmp.png'
-
-import WolfheadsCW from '@/assets/07/m8s1/WolfheadsCW.png'
-import WolfheadsCCW from '@/assets/07/m8s1/WolfheadsCCW.png'
 
 interface Props {
   time: Time
   base?: Time
 }
 
-const millennialDecay = '千年の風化'
-const gust = '旋風'
-const breathOfDecay = '千年の風声'
-const aero = 'エアロが'
-const greatWhirlwind = 'Great Whirlwind' //炸塔的伤害名称
+const millennialDecay = translations.millennialDecay
+const aeroIII = translations.aeroIII
+const breathOfDecay = translations.breathOfDecay
+const gust = translations.gust
+const prowlingGale = translations.prowlingGale
+const windsOfDecay = translations.windsOfDecay
+const greatWhirlwind = translations.greatWhirlwind
 
 const { time, base = 0 }: Props = Astro.props
-
-/*
-藏一段待编辑美服打法
-<SolutionSection title="解法：美服野队">
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      首先第一个<WindWolfheadIcon />必定是刷新在北侧或者南侧，将场地分割为左半场和右半场。
-    </div>
-    <div class="paragraph">
-      此时全员需要观察<WindWolfheadIcon />是顺时针还是逆时针。
-    </div>
-    <div class="paragraph">
-      以场地正北为基准，我们让MT组(MT, H1, D1, D3)去左半场，ST组(ST, H2, D2, D4)去右半场。
-    </div>
-    <div class="paragraph">
-      初始站位如图所示，然后所有人根据狼头顺时针或者逆时针一起选传，
-    </div>
-    <div class="paragraph">
-      其中远程组如果吃完了点名可以跑到和直线AoE垂直的位置，会有更大的安全区。
-    </div>
-  </div>
-</SolutionSection>
-*/
 ---
 
-<MillennialDecayCast time={time} />
-<AeroIIICast start="01:12.135" />
-<BreathOfDecayCast start="01:10.623" />
-<GustEvent time="01:19.081" />
-<BreathOfDecayCast start="01:12.625" />
-<BreathOfDecayCast start="01:14.628" />
-<GustEvent time="01:24.065" reverse="1" />
-<BreathOfDecayCast start="01:16.630" />
-<BreathOfDecayCast start="01:18.635" />
-<AeroIIICast start="01:27.802" />
-<PowerlingGaleEvent time="01:35.055" />
-<WindsOfDecayEvent time="01:35.233" />
+<MillennialDecayCast start={time} base={base} />
+<AeroIIICast start="01:12.135" base={base} />
+<BreathOfDecayCast start="01:10.623" base={base} order={1} />
+<GustEvent time="01:19.081" base={base} />
+<BreathOfDecayCast start="01:12.625" base={base} order={2} />
+<BreathOfDecayCast start="01:14.628" base={base} order={3} />
+<GustEvent time="01:24.065" reverse base={base} />
+<BreathOfDecayCast start="01:16.630" base={base} order={4} />
+<BreathOfDecayCast start="01:18.635" base={base} order={5} />
+<AeroIIICast start="01:27.802" base={base} />
+<PowerlingGaleEvent time="01:35.055" base={base} />
+<WindsOfDecayEvent time="01:35.233" base={base} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
-      <Span variant="yellow">{millennialDecay} </Span>
-    </div>
+    <T>
+      <Skill name={aeroIII} />
+    </T>
+    <P>源自场地中心的全屏径向击退，防击退有效</P>
 
-    <div class="paragraph">
-      这是本层第一个难点机制，随着
+    <T class="mt-12">
+      <Skill name={breathOfDecay} />
+    </T>
+    <P>
       <HowlingBlade />
       读条
-      <Span variant="yellow">{millennialDecay}</Span>
-      结束，场地北边或者南边会有狼头
-      <WindWolfheadIcon />
-      刷新，
-    </div>
-
-    <div class="paragraph">
-      随后顺时针或者逆时针每过36°刷新一只。
-
-      <WindWolfheadIcon />
-      开始读条
+      <Skill name={millennialDecay} />
+      后，会从场地北侧或南侧开始，按顺时针或逆时针先后刷新
+      <Span variant="pink">5</Span>
+      只
+      <WolfOfWind />
+    </P>
+    <P>
+      <WolfOfWind />
+      间隔
+      <Span variant="pink">36°</Span>
+      ，刷新后会读条
       <Span variant="yellow">{breathOfDecay}</Span>
-      并且 会在不久之后释放直线AoE。
-    </div>
+      ，宽度
+      <Span variant="pink">8m</Span>
+      的直线AoE，可造成
+      <BreathOfDecayEffect />
+    </P>
 
-    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={WolfheadsCW} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>北侧狼头，顺时针出现</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={WolfheadsCCW} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>北侧狼头，逆时针出现</div>
-      </div>
-    </div>
-
-    <div class="paragraph">
-      在这之前，
-      <HowlingBlade />会在场中释放
-      <Span variant="yellow">{aero}</Span>
-      ，对
-      <RoleIcon role="all" tag="全员" />造成伤害并击退玩家，防击退有效。
-    </div>
-
-    <div class="paragraph">
-      击退判定后，
-      <HowlingBlade />
-      会对随机4
+    <T class="mt-12">
+      <Skill name={gust} />
+    </T>
+    <P>
+      点名<Span variant="pink">4</Span>
+      <RoleIcon role="tank|healer" />或<Span variant="pink">4</Span>
       <RoleIcon role="dps" />
-      或4
-      <RoleIcon role="tank" />
-      <RoleIcon role="healer" />
-      点名释放半径5m的
-      <Span variant="yellow">{gust}</Span>
-      并且附加魔法易伤，重叠即死。
-    </div>
+      的半径
+      <Span variant="pink">5m</Span>
+      的圆形分散，可造成
+      <GustEffect />
+    </P>
+    <P>
+      共有
+      <Span variant="pink">2</Span>
+      轮，每轮点名不同的职能组
+    </P>
 
-    <div class="paragraph">
-      随后第一只<WindWolfheadIcon />的直线AoE伤害判定， 第一轮点名伤害判定，
-      <HowlingBlade />
-      会对另外4
-      <RoleIcon role="tank" />
-      <RoleIcon role="healer" />
-      或4
-      <RoleIcon role="dps" />
-      点名
-      <Span variant="yellow"> {gust} </Span>
-      。
-    </div>
+    <T class="mt-12">
+      <Skill name={prowlingGale} />
+    </T>
+    <P> TODO </P>
 
-    <div class="paragraph">
-      之后第二、三只<WindWolfheadIcon />判定，然后第二轮点名伤害判定，剩余<WindWolfheadIcon />伤害判定。
-    </div>
-
-    <div class="paragraph">
-      场边<WindWolfheadIcon />消失后， 在随机四个正点或者斜点会出现新的四只<WindWolfheadIcon />
-      连线随机4
-      <RoleIcon role="dps" />
-      或4
-      <RoleIcon role="tank" />
-      <RoleIcon role="healer" />
-    </div>
-
-    <div class="paragraph">释放扇形AoE并且附加魔法易伤，在没有龙头的其余四个斜点或正点会刷新四座塔。</div>
-
-    <div class="paragraph">
-      与此同时，
-      <HowlingBlade />
-      在场中开始读条
-      <Span variant="yellow">{aero}</Span>
-      准备对
-      <RoleIcon role="all" tag="全员" />
-      造成击退。击退后
-      <WindWolfheadIcon />
-      和塔同时判定，该机制结束。
-    </div>
-
-    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>这应该是一个四个正点有塔，中间四个斜点有龙头，地板有击退的图片</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>这应该是一个四个斜点有塔，中间四个正点有龙头，地板有击退的图片</div>
-      </div>
-    </div>
+    <T class="mt-12">
+      <Skill name={windsOfDecay} />
+    </T>
+    <P> TODO </P>
   </div>
 </MechanicSection>
 
-<SolutionSection title="解法：IQ6000">
+<SolutionSection title="解法：IQ6000【改】">
   <div class="flex flex-col gap-4">
+    <Quote variant="lime" class="opacity-80">
+      <P>
+        注意：本解法互换了原版解法中，
+        <RoleIcon role="tank|healer" />
+        先风圈时，初始
+        <RoleIcon role="tank" tag="ST" />
+        和
+        <RoleIcon role="healer" tag="H2" />
+        的站位，以适配开场的八方站位
+      </P>
+    </Quote>
     <div class="paragraph">
-      首先第一个<WindWolfheadIcon />必定是刷新在北侧或者南侧，将场地分割为左半场和右半场。
+      首先第一个<WolfOfWind />必定是刷新在北侧或者南侧，将场地分割为左半场和右半场。
     </div>
 
     <div class="paragraph">
-      此时全员需要观察<WindWolfheadIcon />是顺时针还是逆时针。
+      此时全员需要观察<WolfOfWind />是顺时针还是逆时针。
     </div>
 
     <div class="paragraph">以场地正北为基准，我们让MT组(MT, H1, D1, D3)去左半场，ST组(ST, H2, D2, D4)去右半场。</div>
@@ -223,11 +170,11 @@ const { time, base = 0 }: Props = Astro.props
     </div>
 
     <div class="paragraph">
-      场地击退效果出现，全员防击退。等待第一轮点名判定后，<WindWolfheadIcon />开始旋转。
+      场地击退效果出现，全员防击退。等待第一轮点名判定后，<WolfOfWind />开始旋转。
     </div>
 
     <div class="paragraph">
-      这里第一轮没有被点到的可以根据<WindWolfheadIcon />是顺时针还是逆时针确定放圈的位置。
+      这里第一轮没有被点到的可以根据<WolfOfWind />是顺时针还是逆时针确定放圈的位置。
     </div>
 
     <div class="paragraph">如果是顺时针，MT组的远程就会在A点，近战在2点，ST组的远程在C点，近战在4点。</div>
@@ -235,11 +182,11 @@ const { time, base = 0 }: Props = Astro.props
     <div class="paragraph">如果是逆时针，MT组的远程就会在C点，近战在3点，ST组的远程在A点，近战在1点。</div>
 
     <div class="paragraph">
-      这里也可以直接看第二只<WindWolfheadIcon />出现的位置，如果出现在2/4点就是顺时针的规则，否则就是逆时针。
+      这里也可以直接看第二只<WolfOfWind />出现的位置，如果出现在2/4点就是顺时针的规则，否则就是逆时针。
     </div>
 
     <div class="paragraph">
-      以H1为例，观察<WindWolfheadIcon />是顺时针，第一轮没有被点名，那就可以在第一次AoE判定之后去A点等待自己的点名。
+      以H1为例，观察<WolfOfWind />是顺时针，第一轮没有被点名，那就可以在第一次AoE判定之后去A点等待自己的点名。
     </div>
 
     <div class="grid grid-cols-4 gap-x-2 gap-y-4">
@@ -255,7 +202,7 @@ const { time, base = 0 }: Props = Astro.props
     </div>
 
     <div class="paragraph">
-      两次点名结束后，继续躲避直到<WindWolfheadIcon />消失。 随后场上出现四个<WindWolfheadIcon />，观察自己是否有连线。
+      两次点名结束后，继续躲避直到<WolfOfWind />消失。 随后场上出现四个<WolfOfWind />，观察自己是否有连线。
     </div>
 
     <div class="paragraph">如果有连线，去连线龙头相反的地方等待被击退将连线拉长。</div>
@@ -311,7 +258,7 @@ const { time, base = 0 }: Props = Astro.props
     </div>
 
     <div class="paragraph">
-      塔判定，<WindWolfheadIcon />伤害判定，该机制结束。
+      塔判定，<WolfOfWind />伤害判定，该机制结束。
     </div>
   </div>
 </SolutionSection>
@@ -319,7 +266,7 @@ const { time, base = 0 }: Props = Astro.props
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
-      <WindWolfheadIcon />释放的直线AoE伤害约为
+      <WolfOfWind />释放的直线AoE伤害约为
       <DamageInfo damage="90000" type="magical" />
       <DamageDown tag="30" />
       如果有人不小心吃到了能稍微抢救一下。
