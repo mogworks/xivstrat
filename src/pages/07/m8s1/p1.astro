@@ -10,7 +10,7 @@ import GreatDivide from './_components/GreatDivide.astro'
 import HowlingBlade from './_components/entities/HowlingBlade.astro'
 import MoveToNorthEvent from './_components/MoveToNorthEvent.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
-import TrackingTremorsCast from './_components/TrackingTremorsCast.astro'
+import TrackingTremors from './_mechanics/TrackingTremors.astro'
 import XReignCast from './_components/XReignCast.astro'
 
 import MillennialDecay from './_mechanics/MillennialDecay.astro'
@@ -47,8 +47,8 @@ const eminentReign = translations.eminentReign
   <MoveToCenterEvent time="00:58.834" base={base} />
   <SeparatorSection id="millennial-decay" title="千年の風化" />
   <MillennialDecay time="01:01.456" base={base} />
-  <SeparatorSection />
-  <TrackingTremorsCast start="01:35.945" base={base} />
+  <SeparatorSection id="tracking-tremors" title="连震擊" />
+  <TrackingTremors start="01:35.945" base={base} />
   <ExtraplanarPursuitCast start="01:51.126" base={base} />
   <SeparatorSection id="great-divide" title="一刀両断" />
   <GreatDivide start="01:58.873" base={base} />
