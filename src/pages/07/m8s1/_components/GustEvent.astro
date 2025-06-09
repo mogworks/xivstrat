@@ -5,10 +5,9 @@ import Badge from '@/components/Badge.astro'
 import Span from '@/components/Span.vue'
 import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import GustEffect from '../_components/GustEffect.astro'
 
 import { translations } from '../_translations'
 
@@ -19,8 +18,6 @@ interface Props {
 }
 
 const ability = translations.gust
-const damage = '105000'
-const damageType = 'magical'
 
 const { time, base = 0, reverse = false }: Props = Astro.props
 ---
@@ -43,8 +40,7 @@ const { time, base = 0, reverse = false }: Props = Astro.props
     )
   }
   <Span variant="yellow">{ability}</Span>
-  <DamageInfo damage={damage} type={damageType} />
-  <MagicVulnerabilityUp tag="7" hover />
+  <GustEffect />
   <Badge variant="emerald">5m圆形</Badge>
   <Badge variant="yellow">分散</Badge>
 </EventSection>
