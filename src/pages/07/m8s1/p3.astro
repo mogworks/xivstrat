@@ -14,7 +14,7 @@ import Attack from './_components/Attack.astro'
 import BeckonMoonlight from './_mechanics/BeckonMoonlight.astro'
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
 import GreatDivide from './_components/GreatDivide.astro'
-import HowlingBlade from './_components/HowlingBlade.astro'
+import HowlingBlade from './_components/entities/HowlingBlade.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 import RetargetableEvent from './_components/RetargetableEvent.astro'
@@ -23,7 +23,7 @@ import TerrestrialRage from './_mechanics/TerrestrialRage.astro'
 import TrackingTremorsCast from './_components/TrackingTremorsCast.astro'
 import WealOfStone from './_mechanics/WealOfStone.astro'
 import XReignCast from './_components/XReignCast.astro'
-import WindWolfheadIcon from './_components/WindWolfheadIcon.astro'
+import WolfOfWind from './_components/entities/WolfOfWind.astro'
 import Xfang from './_mechanics/Xfang.astro'
 
 const dutyId = '07/m8s1'
@@ -55,7 +55,7 @@ const base = '04:19.898'
   </EventSection>
   <RetargetableEvent time="04:55.0" base={base} />
   <CastSection start="04:55.0" base={base} duration={2.2}>
-    <WindWolfheadIcon slot="source" />
+    <WolfOfWind slot="source" />
     <Span variant="yellow">風狼豪波</Span>
     <Badge variant="yellow">直线AoE</Badge>
   </CastSection>

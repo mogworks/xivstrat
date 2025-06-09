@@ -7,4 +7,10 @@ export const translations = {
   wolvesReign: '群狼剣',
   reignsEnd: '群狼斬波',
   sovereignScar: '重衝波',
+  millennialDecay: '千年の風化',
+  breathOfDecay: '千年の風声',
+  aeroIII: 'エアロガ',
+  gust: '旋風',
+  prowlingGale: '風狼陣',
+  windsOfDecay: '千年の大風',
 }

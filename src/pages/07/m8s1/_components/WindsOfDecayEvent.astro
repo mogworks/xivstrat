@@ -7,7 +7,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
-import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 
 interface Props {
   time: Time
@@ -25,7 +25,7 @@ const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
 ---
 
 <EventSection time={time} base={base}>
-  <WindWolfheadIcon />
+  <WolfOfWind />
   连线随机4
   <RoleIcon role="dps" />
   或4
