@@ -12,6 +12,11 @@ import DamageInfo from '@/components/DamageInfo.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import Quote from '@/components/typography/Quote.astro'
+
 import MillennialDecayCast from '../_components/MillennialDecayCast.astro'
 import BreathOfDecayCast from '../_components/BreathOfDecayCast.astro'
 import AeroIIICast from '../_components/AeroIIICast.astro'
@@ -35,9 +40,11 @@ interface Props {
 }
 
 const millennialDecay = translations.millennialDecay
-const gust = translations.gust
+const aeroIII = translations.aeroIII
 const breathOfDecay = translations.breathOfDecay
-const aero = translations.aeroIII
+const gust = translations.gust
+const prowlingGale = translations.prowlingGale
+const windsOfDecay = translations.windsOfDecay
 const greatWhirlwind = translations.greatWhirlwind
 
 const { time, base = 0 }: Props = Astro.props
@@ -58,29 +65,36 @@ const { time, base = 0 }: Props = Astro.props
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
-      <Span variant="yellow">{millennialDecay} </Span>
-    </div>
+    <T>
+      <Skill name={aeroIII} />
+    </T>
+    <P>源自场地中心的全屏径向击退，防击退有效</P>
 
-    <div class="paragraph">
-      这是本层第一个难点机制，随着
+    <T class="mt-12">
+      <Skill name={breathOfDecay} />
+    </T>
+    <P>
       <HowlingBlade />
       读条
-      <Span variant="yellow">{millennialDecay}</Span>
-      结束，场地北边或者南边会有狼头
+      <Skill name={millennialDecay} />
+      后，场地北侧或南侧会开始按顺时针或者逆时针先后刷新
+      <Span variant="pink">5</Span>
+      只
       <WolfOfWind />
-      刷新，
-    </div>
-
-    <div class="paragraph">
-      随后顺时针或者逆时针每过36°刷新一只。
-
+    </P>
+    <P>
       <WolfOfWind />
-      开始读条
+      间隔
+      <Span variant="pink">36°</Span>
+      ，刷新后开始读条
       <Span variant="yellow">{breathOfDecay}</Span>
-      并且 会在不久之后释放直线AoE。
-    </div>
-
+      ，宽度
+      <Span variant="pink">8m</Span>
+      的直线AoE，可造成
+      <DamageInfo damage="160000" type="magical" />
+      <DamageDown tag="30" hover />
+      <Span variant="rose" class="text-decimal">50%↓</Span>
+    </P>
     <div class="grid grid-cols-4 gap-x-2 gap-y-4">
       <div class="flex flex-col items-center gap-1">
         <Image src={WolfheadsCW} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
@@ -92,82 +106,36 @@ const { time, base = 0 }: Props = Astro.props
       </div>
     </div>
 
-    <div class="paragraph">
-      在这之前，
-      <HowlingBlade />会在场中释放
-      <Span variant="yellow">{aero}</Span>
-      ，对
-      <RoleIcon role="all" tag="全员" />造成伤害并击退玩家，防击退有效。
-    </div>
+    <T class="mt-12">
+      <Skill name={gust} />
+    </T>
+    <P> TODO </P>
 
-    <div class="paragraph">
-      击退判定后，
-      <HowlingBlade />
-      会对随机4
-      <RoleIcon role="dps" />
-      或4
-      <RoleIcon role="tank" />
-      <RoleIcon role="healer" />
-      点名释放半径5m的
-      <Span variant="yellow">{gust}</Span>
-      并且附加魔法易伤，重叠即死。
-    </div>
+    <T class="mt-12">
+      <Skill name={prowlingGale} />
+    </T>
+    <P> TODO </P>
 
-    <div class="paragraph">
-      随后第一只<WolfOfWind />的直线AoE伤害判定， 第一轮点名伤害判定，
-      <HowlingBlade />
-      会对另外4
-      <RoleIcon role="tank" />
-      <RoleIcon role="healer" />
-      或4
-      <RoleIcon role="dps" />
-      点名
-      <Span variant="yellow"> {gust} </Span>
-      。
-    </div>
-
-    <div class="paragraph">
-      之后第二、三只<WolfOfWind />判定，然后第二轮点名伤害判定，剩余<WolfOfWind />伤害判定。
-    </div>
-
-    <div class="paragraph">
-      场边<WolfOfWind />消失后， 在随机四个正点或者斜点会出现新的四只<WolfOfWind />
-      连线随机4
-      <RoleIcon role="dps" />
-      或4
-      <RoleIcon role="tank" />
-      <RoleIcon role="healer" />
-    </div>
-
-    <div class="paragraph">释放扇形AoE并且附加魔法易伤，在没有龙头的其余四个斜点或正点会刷新四座塔。</div>
-
-    <div class="paragraph">
-      与此同时，
-      <HowlingBlade />
-      在场中开始读条
-      <Span variant="yellow">{aero}</Span>
-      准备对
-      <RoleIcon role="all" tag="全员" />
-      造成击退。击退后
-      <WolfOfWind />
-      和塔同时判定，该机制结束。
-    </div>
-
-    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>这应该是一个四个正点有塔，中间四个斜点有龙头，地板有击退的图片</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>这应该是一个四个斜点有塔，中间四个正点有龙头，地板有击退的图片</div>
-      </div>
-    </div>
+    <T class="mt-12">
+      <Skill name={windsOfDecay} />
+    </T>
+    <P> TODO </P>
   </div>
 </MechanicSection>
 
-<SolutionSection title="解法：IQ6000">
+<SolutionSection title="解法：IQ6000【改】">
   <div class="flex flex-col gap-4">
+    <Quote variant="lime" class="opacity-80">
+      <P>
+        注意：本解法互换了原版解法中，
+        <RoleIcon role="tank|healer" />
+        先风圈时，初始
+        <RoleIcon role="tank" tag="ST" />
+        和
+        <RoleIcon role="healer" tag="H2" />
+        的站位，以适配开场的八方站位
+      </P>
+    </Quote>
     <div class="paragraph">
       首先第一个<WolfOfWind />必定是刷新在北侧或者南侧，将场地分割为左半场和右半场。
     </div>
