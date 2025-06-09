@@ -35,23 +35,23 @@ interface Props {
 }
 
 const millennialDecay = translations.millennialDecay
-const gust = '旋風'
-const breathOfDecay = '千年の風声'
-const aero = 'エアロが'
-const greatWhirlwind = 'Great Whirlwind' //炸塔的伤害名称
+const gust = translations.gust
+const breathOfDecay = translations.breathOfDecay
+const aero = translations.aeroIII
+const greatWhirlwind = translations.greatWhirlwind
 
 const { time, base = 0 }: Props = Astro.props
 ---
 
 <MillennialDecayCast start={time} base={base} />
 <AeroIIICast start="01:12.135" base={base} />
-<BreathOfDecayCast start="01:10.623" base={base} />
+<BreathOfDecayCast start="01:10.623" base={base} order={1} />
 <GustEvent time="01:19.081" base={base} />
-<BreathOfDecayCast start="01:12.625" base={base} />
-<BreathOfDecayCast start="01:14.628" base={base} />
-<GustEvent time="01:24.065" reverse="1" />
-<BreathOfDecayCast start="01:16.630" base={base} />
-<BreathOfDecayCast start="01:18.635" base={base} />
+<BreathOfDecayCast start="01:12.625" base={base} order={2} />
+<BreathOfDecayCast start="01:14.628" base={base} order={3} />
+<GustEvent time="01:24.065" reverse="1" base={base} />
+<BreathOfDecayCast start="01:16.630" base={base} order={4} />
+<BreathOfDecayCast start="01:18.635" base={base} order={5} />
 <AeroIIICast start="01:27.802" base={base} />
 <PowerlingGaleEvent time="01:35.055" base={base} />
 <WindsOfDecayEvent time="01:35.233" base={base} />

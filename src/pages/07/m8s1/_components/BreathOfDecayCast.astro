@@ -5,19 +5,23 @@ import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
+
 import { translations } from '../_translations'
 
 interface Props {
   start: Time
+  order: number
   base?: Time
 }
 
+// 160000 8m宽直线 带易伤 可躲避
+
 const ability = translations.breathOfDecay
 
-const { start, base = 0 }: Props = Astro.props
+const { start, order, base = 0 }: Props = Astro.props
 ---
 
 <CastSection start={start} base={base} duration={7.7} ability={ability}>
-  <WolfOfWind slot="source" />
-  <Badge variant="purple">AoE</Badge>
+  <WolfOfWind slot="source" order={order} />
+  <Badge variant="emerald">8m宽直线</Badge>
 </CastSection>

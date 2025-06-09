@@ -4,11 +4,28 @@ import EntityText from '@/components/EntityText.astro'
 
 import icon from '@/assets/07/m8s1/entity_icons/wolf_of_wind_1.png'
 import Span from '@/components/Span.vue'
+
+interface Props {
+  order?: number
+}
+
+const { order = 0 }: Props = Astro.props
 ---
 
-<EntityIcon icon={icon} alt="风狼首" class="-mx-px" iconClass="scale-120 drop-shadow-xs drop-shadow-black">
+<EntityIcon icon={icon} class="-mx-px" iconClass="scale-120 drop-shadow-xs drop-shadow-black">
   <slot>
     <Span variant="rose">风狼首</Span>
+    {
+      order !== 0 && (
+        <Span variant="rose" class="-ml-0.5">
+          #{order}
+        </Span>
+      )
+    }
   </slot>
 </EntityIcon>
-<EntityText>风狼首</EntityText>
+<EntityText>
+  <Span variant="default">风狼首</Span>
+  {order !== 0 && <Span variant="default">#{order}</Span>}
+  <slot />
+</EntityText>

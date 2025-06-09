@@ -13,4 +13,5 @@ export const translations = {
   gust: '旋风',
   prowlingGale: '风狼阵',
   windsOfDecay: '千年狂风',
+  greatWhirlwind: '大旋风',
 }
