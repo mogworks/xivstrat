@@ -6,36 +6,41 @@ import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import Span from '@/components/Span.vue'
 
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
+
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
   base?: Time
-  [key: string]: any
 }
 
-const ability = 'Winds of Decay'
+const ability = translations.windsOfDecay
 const damage = '70000'
 const damageType = 'magical'
 
-const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
+const { time, base = 0 }: Props = Astro.props
 
 // 狼头连线扇形，魔法易伤
 ---
 
 <EventSection time={time} base={base}>
-  <WolfOfWind />
-  连线随机4
+  <WolfOfWind>
+    <Span variant="rose">风狼首</Span>
+    <Span variant="rose" class="-ml-1">×4</Span>
+  </WolfOfWind>
+  连线
+  <Span variant="pink">4</Span>
   <RoleIcon role="dps" />
-  或4
-  <RoleIcon role="tank" />
-  <RoleIcon role="healer" />
-  扇形AoE
-
+  或
+  <Span variant="pink">4</Span>
+  <RoleIcon role="tank|healer" />
+  ，造成
+  <Span variant="yellow">{ability}</Span>
   <DamageInfo damage={damage} type={damageType} />
   <MagicVulnerabilityUp tag="1" />
-
-  <Badge variant="green">扇形</Badge>
-  <Badge variant="yellow">AoE</Badge>
+  <Badge variant="emerald">30°扇形</Badge>
+  <Badge variant="yellow">分散</Badge>
 </EventSection>
