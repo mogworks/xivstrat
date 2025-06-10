@@ -12,6 +12,8 @@ import img from '@/assets/07/m7s/Tmp.png'
 import ListDot from '@/components/ListDot.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
 
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
@@ -22,7 +24,6 @@ import LashingLariatCast from '../_components/LashingLariatCast.astro'
 import RevengeOfTheVinesCast from '../_components/RevengeOfTheVinesCast.astro'
 import SlaminatorCast from '../_components/SlaminatorCast.astro'
 import StoneringerActivate from '../_components/StoneringerActivate.astro'
-import Skill from '@/components/typography/Skill.astro'
 
 interface Props {
   time: Time
@@ -101,9 +102,7 @@ const slaminator = translations.slaminator
       <Skill name={slaminator} />
       在场中生成塔
     </div>
-    <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">钢铁月环范围参考</Span>
-    </h4>
+    <T class="mt-8" variant="yellow" text="钢铁月环范围参考" />
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="fuchsia"
@@ -120,9 +119,7 @@ const slaminator = translations.slaminator
         },
       ]}
     />
-    <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">{lashingLariat}范围参考</Span>
-    </h4>
+    <T class="mt-8" variant="yellow" text=`${lashingLariat}范围参考` />
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="fuchsia"

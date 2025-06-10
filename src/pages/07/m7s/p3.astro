@@ -10,10 +10,15 @@ import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
 import SpecialBombarianSpecial from './_mechanics/SpecialBombarianSpecial.astro'
 import { translations } from './_translations'
 import Stoneringer2 from './_mechanics/Stoneringer2.astro'
+import SinisterSeedsCast from './_components/SinisterSeedsCast.astro'
+import PulpSmashCast from './_components/PulpSmashCast.astro'
+import TheUnpottedActivate from './_components/TheUnpottedActivate.astro'
+import SinisterSeedsP3 from './_mechanics/SinisterSeedsP3.astro'
 
 const dutyId = '07/m7s'
 const base = '06:16.310'
 const specialBombarianSpecial = translations.specialBombarianSpecial
+const sinisterSeeds = translations.sinisterSeeds
 ---
 
 <DutyStratLayout dutyId={dutyId}>
@@ -57,10 +62,17 @@ const specialBombarianSpecial = translations.specialBombarianSpecial
   <AttackSection time="08:21.516" base={base} damage="57000" damageType="physical" />
   <AttackSection time="08:24.549" base={base} damage="57000" damageType="physical" />
   <AttackSection time="08:27.580" base={base} damage="57000" damageType="physical" />
+
+  <SeparatorSection title={sinisterSeeds} />
+  <SinisterSeedsP3 time="08:39.830" base={base} />
+
   <AttackSection time="08:46.643" base={base} damage="57000" damageType="physical" />
   <AttackSection time="08:49.674" base={base} damage="57000" damageType="physical" />
   <AttackSection time="08:52.703" base={base} damage="57000" damageType="physical" />
   <AttackSection time="08:55.732" base={base} damage="57000" damageType="physical" />
+
+  <PulpSmashCast start="08:56.980" base={base} />
+  <TheUnpottedActivate time="09:04.019" base={base} />
 
   <BrutalImpactCast start="09:05.357" base={base} toln={8} />
   <BrutalImpactActivate time="09:10.574" base={base} num={1} />
