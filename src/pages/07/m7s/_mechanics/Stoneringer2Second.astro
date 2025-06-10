@@ -20,10 +20,15 @@ import ElectrogeneticForceActivate from '../_components/ElectrogeneticForceActiv
 import GlowerPowerActivate from '../_components/GlowerPowerActivate.astro'
 import GlowerPowerCast from '../_components/GlowerPowerCast.astro'
 import LashingLariatCast from '../_components/LashingLariatCast.astro'
-import RevengeOfTheVinesCast from '../_components/RevengeOfTheVinesCast.astro'
+
 import SlaminatorCast from '../_components/SlaminatorCast.astro'
 import BrutishSwingEvent from '../_components/BrutishSwingEvent.astro'
 import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
+import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
+import Quote from '@/components/typography/Quote.astro'
+import P from '@/components/typography/P.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
 
 interface Props {
   time: Time
@@ -31,111 +36,108 @@ interface Props {
 }
 
 const { time, base = 0 }: Props = Astro.props
-const brutishSwing = translations.brutishSwing
-const electrogeneticForce = translations.electrogeneticForce
-const glowerPower = translations.glowerPower
 const lashingLariat = translations.lashingLariat
-const revengeOfTheVines = translations.revengeOfTheVines
 const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
 const slaminator = translations.slaminator
 ---
 
 <Stoneringer2Cast start={time} base={base} />
-<BrutishSwingCast start="06:41.085" base={base} />
-<BrutishSwingEvent time="06:46.790" base={base} />
-<BrutishSwingActivate time="06:47.813" base={base} />
+<StrangeSeedsCast start="09:36.193" base={base} />
+<BrutishSwingCast start="09:44.261" base={base} />
+<BrutishSwingEvent time="09:49.923" base={base} />
+<BrutishSwingActivate time="09:50.949" base={base} />
+<LashingLariatCast start="09:52.017" base={base} />
+<SlaminatorCast start="10:06.990" base={base} />
 
-<RevengeOfTheVinesCast start="06:48.882" base={base} duration={0} />
-<LashingLariatCast start="06:50.973" base={base} />
-<BrutishSwingCast start="06:56.589" base={base} />
-<BrutishSwingEvent time="07:02.289" base={base} />
-<BrutishSwingActivate time="07:03.268" base={base} />
-
-<GlowerPowerCast start="07:04.383" base={base} duartion={0.4} />
-<ElectrogeneticForceActivate time="07:06.209" base={base} />
-<GlowerPowerActivate time="07:06.345" base={base} />
-<SlaminatorCast start="07:07.188" base={base} />
-<MechanicSection title=`机制：${stoneringer2Stoneringers}`>
+<MechanicSection title=`第二次 ${stoneringer2Stoneringers}`>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
-      读条期间
-      <Skill name={stoneringer2Stoneringers} />
       <BruteAbombinator />
-      两把掏出武器，后续连续机制为：
+      掏出两把武器并释放下列组合技：
     </div>
     <div class="paragraph">
       <ListDot />
-      <Skill name={brutishSwing} />
-      读条同时
       <Span variant="pink">一把</Span>
       武器
       <Span variant="pink">发光</Span>
-      ，移动至连线墙后释放对应
+      ，同时点名四人
+      <RoleIcon role="tank|healer" />
+      组或
+      <RoleIcon role="dps" />
+      组放置第一次
+      <Span variant="cyan">冰花</Span>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      <BruteAbombinator />
+      跳至连线墙，
+      <Span variant="cyan">冰花</Span>
+      与
       <Span variant="yellow">钢铁/月环</Span>
+      同时判定
     </div>
     <div class="paragraph">
       <ListDot />
-      全场AoE
-      <Skill name={revengeOfTheVines} />
-      释放后，使用武器的一侧释放宽于半场的
+      释放宽于半场的
       <Skill name={lashingLariat} />
+      ，同时点名不同的四人
+      <RoleIcon role="dps" />
+      组或
+      <RoleIcon role="tank|healer" />
+      组放置第二次
+      <Span variant="cyan">冰花</Span>
     </div>
     <div class="paragraph">
       <ListDot />
-      使用
-      <Span variant="pink">另一把</Span>
-      武器再次重复：武器发光 → 连线墙体 → 移动 → 释放钢铁/月环
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      释放组合技直线AoE + 全员点名伤害， 即
-      <Skill name={[glowerPower, electrogeneticForce]}>
-        <div slot="separator">和</div>
-      </Skill>
+      <BruteAbombinator />
+      跳至连线墙，判定第二次
+      <Span variant="cyan">冰花</Span>
+      与另一种
+      <Span variant="yellow">钢铁/月环</Span>
     </div>
     <div class="paragraph">
       <ListDot />
       <Skill name={slaminator} />
       在场中生成塔
     </div>
-    <T class="mt-8" variant="yellow" text="钢铁月环范围参考" />
-    <ImgRow
-      wrapperClass="max-w-100"
-      borderVariant="fuchsia"
-      imgs={[
-        {
-          src: img,
-          alt: 'm7sp3: 钢铁',
-          title: '钢铁',
-        },
-        {
-          src: img,
-          alt: 'm7sp3: 月环',
-          title: '月环',
-        },
-      ]}
-    />
-    <T class="mt-8" variant="yellow" text=`${lashingLariat}范围参考` />
-    <ImgRow
-      wrapperClass="max-w-100"
-      borderVariant="fuchsia"
-      imgs={[
-        {
-          src: img,
-          alt: 'm7sp3: 左半场刀',
-          title: '左半场',
-        },
-        {
-          src: img,
-          alt: 'm7sp3: 右半场刀',
-          title: '右半场',
-        },
-      ]}
-    />
   </div>
 </MechanicSection>
-<SolutionSection>
-  <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">待补充</div>
-  </div>
+<SolutionSection title="解法：Game8">
+  <T class="mt-8" variant="lime" text=`两次冰花放置` />
+  <ImgRow
+    wrapperClass="max-w-100"
+    borderVariant="fuchsia"
+    imgs={[
+      {
+        src: img,
+        alt: 'm7sp3: 结尾冰花',
+        title: '第一次位置',
+      },
+      {
+        src: img,
+        alt: 'm7sp3: 结尾冰花',
+        title: '第二次位置',
+      },
+    ]}
+  />
+  <T class="mt-8" variant="lime" text=`冰花组合技` />
+  <ImgRow
+    wrapperClass="max-w-100"
+    borderVariant="fuchsia"
+    imgs={[
+      {
+        src: img,
+        alt: 'm7sp3: 结尾冰花',
+        title: '冰花与钢铁',
+      },
+      {
+        src: img,
+        alt: 'm7sp3: 结尾冰花',
+        title: '冰花与月环',
+      },
+    ]}
+  />
 </SolutionSection>
+<NoteSection>
+  <div class="paragraph">由T开无敌单独踩塔</div>
+</NoteSection>
