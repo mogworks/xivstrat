@@ -30,4 +30,6 @@ export const translations = {
   crossingCrosswinds: 'Crossing Crosswinds',
   windingWildwinds: 'Winding Wildwinds',
   hurricaneForce: 'Hurricane Force',
+  electrogeneticForce: 'Electrogenetic Force',
+  theUnpotted: 'The Unpotted'
 }
