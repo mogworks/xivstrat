@@ -9,16 +9,17 @@ import BrutalImpactActivate from './_components/BrutalImpactActivate.astro'
 import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
 import SpecialBombarianSpecial from './_mechanics/SpecialBombarianSpecial.astro'
 import { translations } from './_translations'
-import Stoneringer2 from './_mechanics/Stoneringer2.astro'
-import SinisterSeedsCast from './_components/SinisterSeedsCast.astro'
+import Stoneringer2First from './_mechanics/Stoneringer2First.astro'
+import Stoneringer2Second from './_mechanics/Stoneringer2Second.astro'
 import PulpSmashCast from './_components/PulpSmashCast.astro'
 import TheUnpottedActivate from './_components/TheUnpottedActivate.astro'
 import SinisterSeedsP3 from './_mechanics/SinisterSeedsP3.astro'
 
 const dutyId = '07/m7s'
 const base = '06:16.310'
-const specialBombarianSpecial = translations.specialBombarianSpecial
 const sinisterSeeds = translations.sinisterSeeds
+const specialBombarianSpecial = translations.specialBombarianSpecial
+const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
 ---
 
 <DutyStratLayout dutyId={dutyId}>
@@ -39,8 +40,8 @@ const sinisterSeeds = translations.sinisterSeeds
   <BrutalImpactActivate time="06:27.935" base={base} num={7} />
   <AttackSection time="06:30.789" base={base} damage="57000" damageType="physical" />
 
-  <SeparatorSection id={translations.stoneringer2Stoneringers} title={translations.stoneringer2Stoneringers} />
-  <Stoneringer2 time="06:33.194" base={base} />
+  <SeparatorSection id={stoneringer2Stoneringers} title={stoneringer2Stoneringers} />
+  <Stoneringer2First time="06:33.194" base={base} />
 
   <AttackSection time="07:15.515" base={base} damage="57000" damageType="physical" />
   <BrutalImpactCast start="07:16.318" base={base} toln={8} />
@@ -85,9 +86,12 @@ const sinisterSeeds = translations.sinisterSeeds
   <BrutalImpactActivate time="09:18.056" base={base} num={8} />
   <AttackSection time="09:20.907" base={base} damage="57000" damageType="physical" />
   <AttackSection time="09:23.935" base={base} damage="57000" damageType="physical" />
+
+  <SeparatorSection title={stoneringer2Stoneringers} />
+  <Stoneringer2Second time="09:26.252" base={base} />
+
   <AttackSection time="10:14.526" base={base} damage="57000" damageType="physical" />
   <AttackSection time="10:31.948" base={base} damage="57000" damageType="physical" />
-
   <BrutalImpactCast start="10:33.242" base={base} toln={8} />
   <BrutalImpactActivate time="10:38.459" base={base} num={1} />
   <BrutalImpactActivate time="10:39.528" base={base} num={2} />

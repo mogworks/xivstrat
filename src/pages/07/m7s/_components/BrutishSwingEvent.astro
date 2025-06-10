@@ -1,0 +1,20 @@
+---
+import type { Time } from '@/lib/utils'
+import EventSection from '@/components/section/EventSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+const brutishSwing = translations.brutishSwing
+---
+
+<EventSection time={time} base={base} />
+<BruteAbombinator slot="source" />
+连线场地墙壁，随后移动至连线墙壁
+
