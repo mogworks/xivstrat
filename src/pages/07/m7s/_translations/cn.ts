@@ -31,3 +31,4 @@ export const translations = {
   windingWildwinds: '环形突风',
   hurricaneForce: '飓风',
 }
+// ElectrogeneticForce

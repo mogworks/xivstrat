@@ -9,6 +9,7 @@ import BrutalImpactActivate from './_components/BrutalImpactActivate.astro'
 import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
 import SpecialBombarianSpecial from './_mechanics/SpecialBombarianSpecial.astro'
 import { translations } from './_translations'
+import Stoneringer2 from './_mechanics/Stoneringer2.astro'
 
 const dutyId = '07/m7s'
 const base = '06:16.310'
@@ -32,8 +33,11 @@ const specialBombarianSpecial = translations.specialBombarianSpecial
   <BrutalImpactActivate time="06:26.867" base={base} num={6} />
   <BrutalImpactActivate time="06:27.935" base={base} num={7} />
   <AttackSection time="06:30.789" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="07:15.515" base={base} damage="57000" damageType="physical" />
 
+  <SeparatorSection id={translations.stoneringer2Stoneringers} title={translations.stoneringer2Stoneringers} />
+  <Stoneringer2 time="06:33.194" base={base} />
+
+  <AttackSection time="07:15.515" base={base} damage="57000" damageType="physical" />
   <BrutalImpactCast start="07:16.318" base={base} toln={8} />
   <BrutalImpactActivate time="07:21.535" base={base} num={1} />
   <BrutalImpactActivate time="07:22.606" base={base} num={2} />

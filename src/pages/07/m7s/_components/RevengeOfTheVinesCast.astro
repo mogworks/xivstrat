@@ -1,9 +1,11 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import DamageInfo from '@/components/DamageInfo.astro'
-import CastSection from '@/components/section/CastSection.astro'
 import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Span from '@/components/Span.vue'
 
 import BruteAbombinator from './BruteAbombinator.astro'
 import { translations } from '../_translations'
@@ -11,14 +13,28 @@ import { translations } from '../_translations'
 interface Props {
   start: Time
   base?: Time
+  duration?: number
 }
 
 const { start, base = 0 }: Props = Astro.props
+const { duration = 4.7 }: Props = Astro.props
 const revengeOfTheVines = translations.revengeOfTheVines
 ---
 
-<CastSection start={start} base={base} duration={4.7} ability={revengeOfTheVines}>
-  <BruteAbombinator slot="source" />
-  <DamageInfo damage="120000" type="magical" />
-  <Badge variant="purple">AoE</Badge>
-</CastSection>
+{
+  duration === 0 ? (
+    <EventSection time={start} base={base}>
+      <BruteAbombinator />
+      无读条释放
+      <Span variant="yellow">{translations.revengeOfTheVines}</Span>
+      <DamageInfo damage="120000" type="magical" />
+      <Badge variant="purple">AoE</Badge>
+    </EventSection>
+  ) : (
+    <CastSection start={start} base={base} duration={duration} ability={revengeOfTheVines}>
+      <BruteAbombinator slot="source" />
+      <DamageInfo damage="120000" type="magical" />
+      <Badge variant="purple">AoE</Badge>
+    </CastSection>
+  )
+}
