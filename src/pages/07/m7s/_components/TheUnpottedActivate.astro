@@ -6,6 +6,7 @@ import Icon from '@/components/Icon.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import EventSection from '@/components/section/EventSection.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
 import BruteAbombinator from './BruteAbombinator.astro'
 
@@ -26,5 +27,5 @@ const { time, base = 0 }: Props = Astro.props
   发动
   <Span variant="yellow">The Unpotted</Span>
   <DamageInfo damage="78000" type="magical" />
-  <Icon img={icon} tag="2" alt="" />
+  <MagicVulnerabilityUp tag="2" hover />
 </EventSection>
