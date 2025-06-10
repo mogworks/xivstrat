@@ -34,6 +34,7 @@ const {
   import manifestJson from '@/pixi/manifest.json'
   import { resolutions } from '@/pixi/resolutions'
   import { $stratBoards } from '@/stores/stratBoards'
+  import { $stratSettings } from '@/stores/stratSettings'
 
   class StratBoard extends HTMLElement {
     static assetsInitPromise: Promise<void>
@@ -82,7 +83,7 @@ const {
             ? window.devicePixelRatio || 1
             : Number.parseInt(this.dataset.resolution ?? '1'),
         backgroundAlpha: 0,
-        preference: 'webgl',
+        preference: $stratSettings.get().pixijsApiPreference,
         antialias: true,
       })
       // add the app to the store
