@@ -4,7 +4,6 @@ import type { Time } from '@/lib/utils'
 import { Image } from 'astro:assets'
 
 import RoleIcon from '@/components/RoleIcon.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
@@ -14,13 +13,13 @@ import StoneringerCast from '../_components/StoneringerCast.astro'
 import SmashHereCast from '../_components/SmashHereCast.astro'
 import { translations } from '../_translations'
 
-import stoneringer_1 from '@/assets/07/m7s/stoneringer_1.png'
-import stoneringer_2 from '@/assets/07/m7s/stoneringer_2.png'
-import stoneringer_steel from '@/assets/07/m7s/stoneringer_steel.png'
-import stoneringer_ring from '@/assets/07/m7s/stoneringer_ring.png'
+import stoneringer_1 from '@/assets/07/m7s/stoneringer/stoneringer_1.png'
+import stoneringer_2 from '@/assets/07/m7s/stoneringer/stoneringer_2.png'
+import stoneringer_circle from '@/assets/07/m7s/stoneringer/stoneringer_circle.png'
+import stoneringer_ring from '@/assets/07/m7s/stoneringer/stoneringer_ring.png'
 import smash_here from '@/assets/07/m7s/smash_here.png'
 import smash_there from '@/assets/07/m7s/smash_there.png'
-import StoneringerActivate from '../_components/StoneringerActivate.astro'
+import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
 import SmashActivate from '../_components/SmashActivate.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import ListDot from '@/components/ListDot.astro'
@@ -34,11 +33,12 @@ const smashHere = translations.smashHere
 const smashThere = translations.smashThere
 const stoneringer = translations.stoneringer
 const smashHereThere = translations.smashHereThere
+const brutishswing = translations.brutishSwing
 ---
 
 <StoneringerCast start="00:20.89" base={base} />
 <SmashHereCast start="00:28.76" base={base} />
-<StoneringerActivate time="00:32.704" base={base} />
+<BrutishSwingActivate time="00:32.704" base={base} />
 <SmashActivate time="00:33.860" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
@@ -46,12 +46,12 @@ const smashHereThere = translations.smashHereThere
       <Span variant="yellow">{stoneringer}</Span>
     </h4>
     <div class="paragraph">
-      <Span variant="yellow">{stoneringer}</Span> 读条期间，<BruteAbombinator />掏出武器，P1 P2是一把，P3会变成两把
+      <Span variant="yellow">{stoneringer}</Span> 读条期间，<BruteAbombinator />掏出<Span variant="pink">一把</Span>武器
     </div>
     <div>
-      <Span variant="yellow">{smashHereThere}</Span> 读条同时<Span variant="pink">一把</Span>武器<Span variant="pink"
-        >发光</Span
-      >，读条结束后发动对应<Span variant="yellow">钢铁/月环</Span>
+      <Span variant="yellow">{smashHereThere}</Span> 读条同时武器<Span variant="pink">发光</Span>，读条结束后发动对应 <Span
+        variant="yellow">{brutishswing}（钢铁/月环）</Span
+      >
     </div>
     <div class="flex gap-4">
       <div class="max-w-88 flex-1">
@@ -100,7 +100,7 @@ const smashHereThere = translations.smashHereThere
     </h4>
     <div class="grid grid-cols-2 gap-x-2 gap-y-4">
       <div class="flex flex-col items-center gap-1">
-        <Image src={stoneringer_steel} alt="" class="min-w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <Image src={stoneringer_circle} alt="" class="min-w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
         <div>钢铁</div>
       </div>
       <div class="flex flex-col items-center gap-1">

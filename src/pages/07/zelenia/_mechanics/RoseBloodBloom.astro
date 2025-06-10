@@ -23,12 +23,10 @@ import floor2 from '@/assets/07/zelenia/RoseBloodFloor/RoseBlood_floor_2.png'
 import floor3 from '@/assets/07/zelenia/RoseBloodFloor/RoseBlood_floor_3.png'
 import floor5 from '@/assets/07/zelenia/RoseBloodFloor/RoseBlood_floor_5.png'
 
-
 interface Props {
   start: Time
   base?: Time
   num: number
-
 }
 
 const floorMap: Record<number, typeof floor1> = {
@@ -38,10 +36,10 @@ const floorMap: Record<number, typeof floor1> = {
   5: floor5,
 }
 
-const { start, base = 0 ,num}: Props = Astro.props
+const { start, base = 0, num }: Props = Astro.props
 ---
 
-<RoseBloodBloomCast start={start} base={base} num={num}/>
+<RoseBloodBloomCast start={start} base={base} num={num} />
 
 <MechanicSection>
   <div class="flex gap-4">
@@ -49,26 +47,23 @@ const { start, base = 0 ,num}: Props = Astro.props
       <Image src={floorMap[num] ?? img} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     </div>
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
-        <div class="paragraph">
-          <h4 class="text-xl">
-            <Span variant="yellow">场地变换</Span>
-          </h4>
-        </div>
-        <div class="paragraph">
-          <Span variant="pink">红色玫瑰花纹地板</Span>会被
-          <Zelenia/>
-          的某些技能引爆
-        </div>
-        <div class="paragraph">
-          相连的<Span variant="pink">红色地板</Span>也会被同时引爆
-        </div>
-        <div class="paragraph"></div>
-        <div class="paragraph">
-          <Span variant="yellow">注意：</Span>场中会出现一小块<Span variant="purple">即死区域（电网）</Span>
-        </div>
-        
+      <div class="paragraph">
+        <h4 class="text-xl">
+          <Span variant="yellow">场地变换</Span>
+        </h4>
+      </div>
+      <div class="paragraph">
+        <Span variant="pink">红色玫瑰花纹地板</Span>会被
+        <Zelenia />
+        的某些技能引爆
+      </div>
+      <div class="paragraph">
+        相连的<Span variant="pink">红色地板</Span>也会被同时引爆
+      </div>
+      <div class="paragraph"></div>
+      <div class="paragraph">
+        <Span variant="yellow">注意：</Span>场中会出现一小块<Span variant="purple">即死区域（电网）</Span>
+      </div>
     </div>
   </div>
-
-
 </MechanicSection>

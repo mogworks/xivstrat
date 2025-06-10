@@ -16,6 +16,7 @@ import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
 import Quote from '@/components/typography/Quote.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import MillennialDecayCast from '../_components/MillennialDecayCast.astro'
 import BreathOfDecayCast from '../_components/BreathOfDecayCast.astro'
@@ -26,13 +27,13 @@ import WindsOfDecayEvent from '../_components/WindsOfDecayEvent.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
+import GustEffect from '../_components/GustEffect.astro'
+import BreathOfDecayEffect from '../_components/BreathOfDecayEffect.astro'
 
 import { translations } from '../_translations'
 
 import img from '@/assets/07/m8s1/tmp.png'
-
-import WolfheadsCW from '@/assets/07/m8s1/WolfheadsCW.png'
-import WolfheadsCCW from '@/assets/07/m8s1/WolfheadsCCW.png'
+import breath_of_decay from '@/assets/07/m8s1/millennial_decay/breath_of_decay.png'
 
 interface Props {
   time: Time
@@ -77,7 +78,7 @@ const { time, base = 0 }: Props = Astro.props
       <HowlingBlade />
       读条
       <Skill name={millennialDecay} />
-      后，场地北侧或南侧会开始按顺时针或者逆时针先后刷新
+      后，会从场地北侧或南侧开始，按顺时针或逆时针先后刷新
       <Span variant="pink">5</Span>
       只
       <WolfOfWind />
@@ -86,30 +87,41 @@ const { time, base = 0 }: Props = Astro.props
       <WolfOfWind />
       间隔
       <Span variant="pink">36°</Span>
-      ，刷新后开始读条
+      ，刷新后会读条
       <Span variant="yellow">{breathOfDecay}</Span>
       ，宽度
       <Span variant="pink">8m</Span>
       的直线AoE，可造成
-      <DamageInfo damage="160000" type="magical" />
-      <DamageDown tag="30" hover />
-      <Span variant="rose" class="text-decimal">50%↓</Span>
+      <BreathOfDecayEffect />
     </P>
-    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={WolfheadsCW} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>北侧狼头，顺时针出现</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={WolfheadsCCW} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>北侧狼头，逆时针出现</div>
-      </div>
-    </div>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: breath_of_decay,
+          alt: '千年风啸',
+        },
+      ]}
+    />
 
     <T class="mt-12">
       <Skill name={gust} />
     </T>
-    <P> TODO </P>
+    <P>
+      点名<Span variant="pink">4</Span>
+      <RoleIcon role="tank|healer" />或<Span variant="pink">4</Span>
+      <RoleIcon role="dps" />
+      的半径
+      <Span variant="pink">5m</Span>
+      的圆形分散，可造成
+      <GustEffect />
+    </P>
+    <P>
+      共有
+      <Span variant="pink">2</Span>
+      轮，每轮点名不同的职能组
+    </P>
 
     <T class="mt-12">
       <Skill name={prowlingGale} />

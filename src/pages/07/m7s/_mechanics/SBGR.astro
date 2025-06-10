@@ -20,11 +20,18 @@ import BrutishSwingMoveActivate from '../_components/BrutishSwingMoveActivate.as
 import RevengeOfTheVinesCast from '../_components/RevengeOfTheVinesCast.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import DamageDown from '@/components/buff/DamageDown.astro'
 import StratLink from '@/components/StratLink.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import Skill from '@/components/typography/Skill.astro'
+import GlowerPowerActivate from '../_components/GlowerPowerActivate.astro'
 
 import { translations } from '../_translations'
+import DamageInfo from '@/components/DamageInfo.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import RevengeOfTheVinesActivate from '../_components/RevengeOfTheVinesActivate.astro'
 
 interface Props {
   base: Time
@@ -33,58 +40,114 @@ interface Props {
 const { base = 0 }: Props = Astro.props
 const stoneringer = translations.stoneringer
 const brutishswing = translations.brutishSwing
+const glowerPower = translations.glowerPower
+const RvOftVines = translations.revengeOfTheVines
 ---
 
 <StoneringerCast start="02:48.01" base={base} />
 <BrutishSwingCast start="02:55.84" base={base} />
 <BrutishSwingMoveActivate time="02:59.81" base={base} />
-<BrutishSwingActivate time="03:02.71" base={base} />
+<BrutishSwingActivate time="03:03.909" base={base} />
 <GlowerPowerCast start="03:04.80" base={base} />
-<ElectrogeneticForceActivate time="03:08.64" base={base} />
+<ElectrogeneticForceActivate time="03:08.635" base={base} />
+<GlowerPowerActivate time="03:08.767" base={base} />
 <RevengeOfTheVinesCast start="03:09.61" base={base} />
+<RevengeOfTheVinesActivate time="03:14.611" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      <BruteAbombinator />落地后伸出藤蔓，吸附在落点对面的墙上，读条<Span variant="yellow">{stoneringer}</Span>拔出武器
-    </div>
-    <div class="paragraph">
-      之后读条<Span variant="yellow">{brutishswing}</Span>,同时一把武器发光，读条结束后发动对应钢铁/月环
-    </div>
-    <div class="paragraph">
+    <P>P2 场地共有三面墙，除了击飞过来的方向（也就是P1场地方向），每侧各有一面</P>
+    <P>场地长边的两面墙位置中心对称</P>
+    <T class="mt-8 scroll-mt-[calc(5rem+1px)]">
+      <Skill name={stoneringer} />
+    </T>
+    <P>
+      <BruteAbombinator />落地后伸出藤蔓，吸附在P1 场地对面的墙上，读条<Span variant="yellow">{stoneringer}</Span
+      >拔出武器
+    </P>
+    <P>
+      然后读条<Span variant="yellow">{brutishswing}</Span>，连线其他墙壁，同时武器<Span variant="pink">发光</Span>
+    </P>
+    <P>随后<Span variant="pink">移动至连线墙壁</Span>，读条结束后发动对应<Span variant="yellow">钢铁/月环</Span></P>
+    <P>
       武器的情况与<StratLink variant="yellow" href="./p1#stoneringer">P1 {stoneringer}</StratLink
       >相同，但钢铁月环的<Span variant="pink">攻击范围</Span>不同，如下所示：
+    </P>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-150"
+      borderVariant="rose"
+      imgs={[
+        {
+          src: circle,
+          alt: '连线墙钢铁',
+          title: '钢铁，范围依旧大于最大攻击距离',
+        },
+        {
+          src: ring,
+          alt: '连线墙月环',
+          title: '月环',
+        },
+      ]}
+    />
+
+    <div class="flex flex-col gap-4">
+      <T class="mt-8 scroll-mt-[calc(5rem+1px)]">
+        <Skill name={glowerPower} />
+      </T>
+      <P>
+        读条结束后，<BruteAbombinator />对正前方发动宽<Span variant="pink">14m</Span>的直线AOE
+      </P>
     </div>
     <div class="flex flex-col gap-4">
-      <h4 class="mt-4 text-2xl">
-        <Span variant="yellow">范围参考</Span>
-      </h4>
-      <div class="grid grid-cols-2 gap-x-2 gap-y-4">
-        <div class="flex flex-col items-center gap-1">
-          <Image src={circle} alt="" class="min-w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-          <div>钢铁，范围依旧大于最大攻击距离</div>
-        </div>
-        <div class="flex flex-col items-center gap-1">
-          <Image src={ring} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-          <div>月环</div>
-        </div>
-      </div>
+      <T id="electrogenetic-force" text="Electrogenetic Force" variant="yellow" />
+      <P>
+        <BruteAbombinator />点名8人释放半径为<Span variant="pink">6m</Span>的圆形AOE，造成<DamageInfo
+          damage="125000"
+          type="magical"
+        /><MagicVulnerabilityUp tag="2" hover />
+      </P>
+    </div>
+    <div class="flex flex-col gap-4">
+      <P>
+        由于<Skill name={glowerPower} />的判定时间略晚于分散点名，所以如果分散点名扣血再吃到直线AOE<Span variant="pink"
+          >必定死亡</Span
+        >
+      </P>
     </div>
   </div>
 </MechanicSection>
-<SolutionSection title="解法：G8">
+<SolutionSection title="解法：Game8">
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      直线范围与<RoleIcon role="all" tag="所有人" />站位如下
-    </div>
-    <div class="grid grid-cols-2 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={glowerPower1} alt="" class="min-w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>情形1</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={glowerPower2} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>情形2</div>
-      </div>
-    </div>
+    <P>
+      先观察<RoleIcon role="boss" tag="boss" />掏出的<Span variant="pink">武器</Span>，判断接下来是躲钢铁还是月环
+    </P>
+    <P>
+      再观察<RoleIcon role="boss" tag="boss" />连线的<Span variant="pink">墙壁</Span>，<RoleIcon
+        role="all"
+        tag="所有人"
+      />在<Span variant="pink">读条结束前</Span>前往对应安全区
+    </P>
+    <P>之后全员按照图示站位，躲避直线AOE并分散</P>
+    <P><Skill name={RvOftVines} />读条时<Span variant="pink">集合</Span>刷血</P>
+    <P>
+      直线AOE范围与<RoleIcon role="all" tag="全员" />站位如下所示：
+    </P>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-150"
+      borderVariant="rose"
+      imgs={[
+        {
+          src: glowerPower1,
+          alt: 'boss跳长边',
+          title: 'boss跳长边',
+        },
+        {
+          src: glowerPower2,
+          alt: 'boss跳短边',
+          title: 'boss跳短边',
+        },
+      ]}
+    />
   </div>
 </SolutionSection>

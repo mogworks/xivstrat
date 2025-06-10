@@ -6,6 +6,7 @@ export interface StratSettings {
   attackEvent: 'hide' | 'show' | 'only'
   timelineOrigin: 'global' | 'phase'
   timeFormat: 'mm:ss' | 's'
+  pixijsApiPreference: 'webgpu' | 'webgl'
 }
 
 type StratSettingsValue = StratSettings[keyof StratSettings]
@@ -18,6 +19,7 @@ export const $stratSettings = persistentMap<StratSettings>(
     attackEvent: 'hide',
     timelineOrigin: 'global',
     timeFormat: 'mm:ss',
+    pixijsApiPreference: 'webgpu',
   },
   {
     encode: (value: StratSettingsValue) => value,

@@ -125,6 +125,25 @@ const timeFormatSetting = {
     $stratSettings.setKey('timeFormat', value as 'mm:ss' | 's')
   },
 }
+
+const pixijsApiPreferenceSetting = {
+  name: '动态演示优先使用的图形API（修改后需要刷新页面）',
+  options: [
+    {
+      id: 'webgpu',
+      name: 'WebGPU',
+      description: '默认选项，性能更好，但部分较旧的浏览器可能有兼容性问题，若遇到动态演示不动，请尝试切换到 WebGL',
+    },
+    {
+      id: 'webgl',
+      name: 'WebGL',
+      description: '性能稍差一些，但兼容性更好',
+    },
+  ],
+  onChange: (value: string) => {
+    $stratSettings.setKey('pixijsApiPreference', value as 'webgpu' | 'webgl')
+  },
+}
 </script>
 
 <template>
@@ -173,6 +192,12 @@ const timeFormatSetting = {
           :default-value="stratSettings.timeFormat"
           :options="timeFormatSetting.options"
           :on-value-change="timeFormatSetting.onChange"
+        />
+        <RadioGroup
+          :name="pixijsApiPreferenceSetting.name"
+          :default-value="stratSettings.pixijsApiPreference"
+          :options="pixijsApiPreferenceSetting.options"
+          :on-value-change="pixijsApiPreferenceSetting.onChange"
         />
       </div>
     </DialogContent>

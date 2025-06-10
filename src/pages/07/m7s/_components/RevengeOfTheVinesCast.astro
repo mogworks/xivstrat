@@ -1,7 +1,6 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import DamageInfo from '@/components/DamageInfo.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import Badge from '@/components/Badge.astro'
 
@@ -19,6 +18,5 @@ const revengeOfTheVines = translations.revengeOfTheVines
 
 <CastSection start={start} base={base} duration={4.7} ability={revengeOfTheVines}>
   <BruteAbombinator slot="source" />
-  <DamageInfo damage="181000" type="magical" />
   <Badge variant="purple">AoE</Badge>
 </CastSection>
