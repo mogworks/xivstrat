@@ -8,12 +8,14 @@ import DDAB from './_mechanics/DDAB.astro'
 import StrangeSeeds from './_mechanics/StrangeSeeds.astro'
 import PowerSlam from './_components/PowerSlam.astro'
 import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
+import GrapplingIvy from './_components/GrapplingIvy.astro'
 
 const dutyId = '07/m7s'
 const base = '02:38.206'
 ---
 
 <DutyStratLayout dutyId={dutyId}>
+  <GrapplingIvy time="02:38.206" base={base} />
   <AttackSection time="02:43.372" base={base} damage="57000" damageType="physical" />
   <AttackSection time="02:46.402" base={base} damage="57000" damageType="physical" />
 
