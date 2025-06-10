@@ -32,6 +32,8 @@ interface Props {
 const { base = 0 }: Props = Astro.props
 const smashHere = translations.smashHere
 const smashThere = translations.smashThere
+const stoneringer = translations.stoneringer
+const smashHereThere = translations.smashHereThere
 ---
 
 <StoneringerCast start="00:20.89" base={base} />
@@ -41,13 +43,13 @@ const smashThere = translations.smashThere
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Stoneringer</Span>
+      <Span variant="yellow">{stoneringer}</Span>
     </h4>
     <div class="paragraph">
-      <Span variant="yellow">Stoneringer</Span> 读条期间，<BruteAbombinator />掏出武器，P1 P2是一把，P3会变成两把
+      <Span variant="yellow">{stoneringer}</Span> 读条期间，<BruteAbombinator />掏出武器，P1 P2是一把，P3会变成两把
     </div>
     <div>
-      <Span variant="yellow">Smash Here/There</Span> 读条同时<Span variant="pink">一把</Span>武器<Span variant="pink"
+      <Span variant="yellow">{smashHereThere}</Span> 读条同时<Span variant="pink">一把</Span>武器<Span variant="pink"
         >发光</Span
       >，读条结束后发动对应<Span variant="yellow">钢铁/月环</Span>
     </div>
@@ -109,10 +111,10 @@ const smashThere = translations.smashThere
   </div>
   <div class="flex flex-col gap-4">
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Smash Here/There</Span>
+      <Span variant="yellow">{smashHereThere}</Span>
     </h4>
     <div class="paragraph">
-      <Span variant="yellow">Stoneringer</Span>判定后<Span variant="pink">约1秒</Span>，<BruteAbombinator />释放<Span
+      <Span variant="yellow">{stoneringer}</Span>判定后<Span variant="pink">约1秒</Span>，<BruteAbombinator />释放<Span
         variant="pink">距离诱导</Span
       >的<Span variant="pink">6m</Span>圆形AOE物理<Span variant="red">死刑</Span>，需要
       <RoleIcon role="tank" tag="双T" />分摊或<RoleIcon role="tank" tag="单T" />无敌处理
@@ -139,7 +141,7 @@ const smashThere = translations.smashThere
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
-          <Span variant="yellow">情形2：{smashThere}e</Span>
+          <Span variant="yellow">情形2：{smashThere}</Span>
         </h4>
         <div class="paragraph">
           读条 Smash <Span variant="pink">There</Span>，对距离<Span variant="pink">最远</Span>的玩家释放<Span

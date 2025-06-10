@@ -21,72 +21,56 @@ import RevengeOfTheVinesCast from '../_components/RevengeOfTheVinesCast.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
+import StratLink from '@/components/StratLink.astro'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+
+import { translations } from '../_translations'
 
 interface Props {
   base: Time
 }
 
 const { base = 0 }: Props = Astro.props
+const stoneringer = translations.stoneringer
+const brutishswing = translations.brutishSwing
 ---
 
 <StoneringerCast start="02:48.01" base={base} />
-<MechanicSection>
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">观察Boss武器判断接下来Aoe类型，后续会和别的机制形成组合机制</div>
-
-    <div class="flex gap-4">
-      <div class="max-w-88 flex-1">
-        <Image src={img} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      </div>
-      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
-        <h4 class="text-xl">
-          <Span variant="yellow">情形1</Span>
-        </h4>
-        <div class="paragraph">
-          武器如图所示，稍后释放
-          <Span variant="yellow">钢铁</Span>， 吃到后会被赋予 <DamageDown tag="30" />
-        </div>
-      </div>
-    </div>
-    <div class="flex gap-4">
-      <div class="max-w-88 flex-1">
-        <Image src={img} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      </div>
-      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
-        <h4 class="text-xl">
-          <Span variant="yellow">情形2</Span>
-        </h4>
-        <div class="paragraph">
-          武器如图所示，稍后释放
-          <Span variant="yellow">月环</Span>， 吃到后会被赋予 <DamageDown tag="30" />
-        </div>
-      </div>
-    </div>
-  </div>
-</MechanicSection>
-<SolutionSection>
-  <div class="flex flex-col gap-4">
-    钢铁范围大于最大近战攻击距离
-    <h4 class="mt-4 text-2xl">
-      <Span variant="yellow">范围参考</Span>
-    </h4>
-    <div class="grid grid-cols-2 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={circle} alt="" class="min-w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>钢铁</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={ring} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>月环</div>
-      </div>
-    </div>
-  </div>
-</SolutionSection>
 <BrutishSwingCast start="02:55.84" base={base} />
 <BrutishSwingMoveActivate time="02:59.81" base={base} />
 <BrutishSwingActivate time="03:02.71" base={base} />
 <GlowerPowerCast start="03:04.80" base={base} />
 <ElectrogeneticForceActivate time="03:08.64" base={base} />
+<RevengeOfTheVinesCast start="03:09.61" base={base} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <BruteAbombinator />落地后伸出藤蔓，吸附在落点对面的墙上，读条<Span variant="yellow">{stoneringer}</Span>拔出武器
+    </div>
+    <div class="paragraph">
+      之后读条<Span variant="yellow">{brutishswing}</Span>,同时一把武器发光，读条结束后发动对应钢铁/月环
+    </div>
+    <div class="paragraph">
+      武器的情况与<StratLink variant="yellow" href="./p1#stoneringer">P1 {stoneringer}</StratLink
+      >相同，但钢铁月环的<Span variant="pink">攻击范围</Span>不同，如下所示：
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="mt-4 text-2xl">
+        <Span variant="yellow">范围参考</Span>
+      </h4>
+      <div class="grid grid-cols-2 gap-x-2 gap-y-4">
+        <div class="flex flex-col items-center gap-1">
+          <Image src={circle} alt="" class="min-w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+          <div>钢铁，范围依旧大于最大攻击距离</div>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <Image src={ring} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+          <div>月环</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</MechanicSection>
 <SolutionSection title="解法：G8">
   <div class="flex flex-col gap-4">
     <div class="paragraph">
@@ -104,4 +88,3 @@ const { base = 0 }: Props = Astro.props
     </div>
   </div>
 </SolutionSection>
-<RevengeOfTheVinesCast start="03:09.61" base={base} />
