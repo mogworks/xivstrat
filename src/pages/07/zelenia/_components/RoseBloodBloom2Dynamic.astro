@@ -126,14 +126,14 @@ import Zelenia from './Zelenia.astro'
     { id: 2, angles: [ {start:0, end:60}] },
   ];
   // 动画释放顺序，动态可变
-  let fanOrder = [0,1,2]; // 可根据实际场次顺序指定
+  let fanOrder = [0,1,2,3,4,5]; // 可根据实际场次顺序指定
 
   // 场地圆环半径
   const innerR = 5 * YmToPx * ratio;
   const outerR = 10 * YmToPx * ratio;
 
-  const innerA = innerR/2
-  const outerA = outerR/2
+  const innerA = innerR*0.75
+  const outerA = outerR*0.75
 
   // ==================== 新增：绘制圆环和扇形的函数 =======================
 
@@ -214,6 +214,7 @@ import Zelenia from './Zelenia.astro'
   let bossFanGs: Graphics[] = []; // [Graphics, Graphics, Graphics]
   let steelG: Graphics;
   let moonG: Graphics;
+  let roleSprite: Sprite;
   
 
   // ==================== 新增：初始化技能扇形图层函数 ===============
@@ -279,7 +280,35 @@ import Zelenia from './Zelenia.astro'
 
   // 6. 初始化角色
   async function initPlayerContainer(container: Container) {
-    // 生成Role小人，设置初始位置
+    // 如果之前有角色，先删除
+    if (roleSprite) {
+      roleSprite.destroy();
+      // roleSprite = Sprite;
+    }
+
+    // 1. 加载角色图片
+    const roleTexture = await Assets.load('role/all.png');
+    const role = Sprite.from(roleTexture);
+    role.anchor.set(0.5, 0.5);
+
+    // 2. 设置初始位置，例如居中
+    role.position.set(innerA * Math.cos(deg2rad(90)), innerA * Math.sin(deg2rad(90)));
+
+    // 3. 缩放至合适大小（如1米高）
+    const roleSize = YmToPx; // 或你自己的角色像素大小
+    const scale =2* roleSize / Math.max(roleTexture.width, roleTexture.height);
+    role.scale.set(scale);
+
+    // 4. 始终在最顶层（比如地板与技能特效之上）
+    role.zIndex = 10;
+
+    // 5. 加入Container
+    container.addChild(role);
+
+    // 6. 暴露到全局
+    roleSprite = role;
+
+    console.log('角色Role已加载');
   }
 
   // 7. 定义主播放动画过程
@@ -331,23 +360,46 @@ import Zelenia from './Zelenia.astro'
     // 初始化技能图层，确保在地板之上
     initSkillGraphics(floorContainer)
 
+    initPlayerContainer(floorContainer)
+
     // 最后加到舞台
     app.stage.addChild(floorContainer)
     console.log(floorContainer.children)
-
-
-
   })
 
+  function moveSpriteTo(
+    sprite: Sprite, 
+    targetX: number, 
+    targetY: number, 
+    duration = 1500, 
+    onComplete?: () => void
+  ) {  
+    const startX = sprite.x, startY = sprite.y;
+    const dx = targetX - startX, dy = targetY - startY;
+    const startTime = performance.now();
+
+    function animate(now: number) {
+      const t = Math.min((now - startTime) / duration, 1);
+      sprite.x = startX + dx * t;
+      sprite.y = startY + dy * t;
+      if (t < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        sprite.x = targetX; sprite.y = targetY;
+        if (onComplete) onComplete();
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  
   // ==================== 新增：播放boss技能的流程动画 =======================
 
   // 用于当前播放序号
   let currentAnimIdx = 0;
   let removeSkillAnim = null;
 
-
   function showBossSkills(){
-    
+
     console.log("showBossSkills: start")
     // 必须有 bossFanGs/steelG/moonG
     bossFanGs.forEach(g=>{g.visible=false; g.clear()});
@@ -356,70 +408,114 @@ import Zelenia from './Zelenia.astro'
 
     currentAnimIdx = 0;
 
-    // 动态顺序，fanOrder 可自定义
-    function playFanStep(i: number){
-      if(i>=fanOrder.length) {
+    // -- 新增状态变量 --
+    const N = fanOrder.length;   // 通常这里应该是6或更多，但需求只说前三组
+    let fanVisible = Array(N).fill(false);
+
+    // 记录钢铁/月环的两阶段显示（均只显示一回）
+    let steelFirstVisible=false, steelSecondVisible=false;
+    let moonFirstVisible=false, moonSecondVisible=false;
+
+    function playFanStep(i: number) {
+      if(i>=N) {
         // 结束时清理
         setTimeout(()=> {
-          bossFanGs.forEach(g=>g.visible=false);
-          steelG.visible=false; moonG.visible=false;
+          bossFanGs.forEach(g=>{g.visible=false; g.clear()});
+          steelG.visible=false; steelG.clear();
+          moonG.visible=false; moonG.clear();
         }, 1000);
         return;
       }
-      let idx = fanOrder[i];
-      bossFanGs.forEach(g=>{g.visible=false; g.clear()}); // 只显示当前
-      const conf = fanConfigs[idx];
-      let g = bossFanGs[idx];
-      g.position.set(0,0);
-      // 橙黄色扇形（技能1）
-      conf.angles.forEach(a=>drawPie(g, a.start, a.end, innerR, outerR, 0xffcc00, 0.8));
-      g.visible = true;
 
-      console.log(skillOrder)
+      // 可见性逻辑
+      if(i <= 2) {
+        // 前三次，累加显示
+        fanVisible[fanOrder[i]] = true;
 
-      // 钢铁（第一次释放才有内圆）：蓝色
-      if(i===0){
-        if(skillOrder === "steelFirst") {
-          steelG.visible = true;
-          drawRing(steelG, 0, innerR, 0x3388ff, 0.5);
-          moonG.visible = false; moonG.clear();
-        }
-        else
-        {
-          moonG.visible = true;
-          drawRing2(moonG, innerR, outerR, 0x3388ff, 0.6, 0, 360);
-          steelG.visible = false; steelG.clear();
-        } 
-      } 
-      // 月环（第二次释放出现环）
-      if(i===1){
-        if(skillOrder === "steelFirst") {
-          moonG.visible = true;
-          drawRing2(moonG, innerR, outerR, 0x3388ff, 0.6, 0, 360);
-          steelG.visible = false; steelG.clear();
-        }
-        else
-        {
-          steelG.visible = true;
-          drawRing(steelG, 0, innerR, 0x3388ff, 0.5);
-          moonG.visible = false; moonG.clear();
+        if(i === 0) {
+          if(skillOrder === "steelFirst") {
+            steelFirstVisible = true;
+            moonFirstVisible = false;
+            moveSpriteTo(roleSprite, outerA * Math.sin(deg2rad(-70)),outerA* Math.cos(deg2rad(-70)));
+          }else{
+            steelFirstVisible = false;
+            moonFirstVisible = true;
+            moveSpriteTo(roleSprite, innerA * Math.sin(deg2rad(70)),innerA* Math.cos(deg2rad(70)));
+          }
+          steelSecondVisible = false;
+          moonSecondVisible = false;
         }
       }
-      if(i===2)
-      {
-        steelG.visible = false; steelG.clear();
-        moonG.visible = false; moonG.clear();
+      if(i === 3) {
+        // 第四轮（第二次钢铁/月环出现）
+        fanVisible[fanOrder[0]] = false;    // 第一个扇形消失
+        steelFirstVisible = false;
+        moonFirstVisible = false;
+        // === 现在显示第二次钢铁/月环 ===
+        if(skillOrder === "steelFirst") {
+          steelSecondVisible = false;
+          moonSecondVisible = true;
+          moveSpriteTo(roleSprite, innerA * Math.sin(deg2rad(-110)),innerA* Math.cos(deg2rad(-110)));
+        }else{
+          steelSecondVisible = true;
+          moonSecondVisible = false;
+          moveSpriteTo(roleSprite, outerA * Math.sin(deg2rad(70)),outerA* Math.cos(deg2rad(70)));
+        }
+      }
+      if(i === 4) {
+        // 第五次，把第二组扇形和第二次钢铁/月环都隐藏
+        fanVisible[fanOrder[1]] = false;
+        steelSecondVisible = false;
+        moonSecondVisible = false;
+        if(skillOrder === "steelFirst") {
+          moveSpriteTo(roleSprite, innerA * Math.sin(deg2rad(-70)),innerA* Math.cos(deg2rad(-70)));
+        }else{
+          moveSpriteTo(roleSprite, outerA * Math.sin(deg2rad(110)),outerA* Math.cos(deg2rad(110)));
+        }
+      }
+      if(i === 5) {
+        // 第六次，第三组扇形消失
+        fanVisible[fanOrder[2]] = false;
       }
 
-      // 2秒后消失并到下一个
+      // 2. redraw所有技能扇形
+      bossFanGs.forEach((g, idx) => {
+        g.clear();
+        g.visible = fanVisible[idx];
+        if(fanVisible[idx]){
+          const conf = fanConfigs[idx];
+          g.position.set(0,0);
+          conf.angles.forEach(a=>drawPie(g, a.start, a.end, innerR, outerR, 0xffcc00, 0.8));
+        }
+      });
+
+      // 3. 控制钢铁/月环两阶段的可见
+      // steelG: 只有第一轮/第二轮轮到才显示
+      steelG.clear();
+      if(steelFirstVisible || steelSecondVisible){
+        steelG.visible = true;
+        drawRing(steelG, 0, innerR, 0x3388ff, 0.5);
+      }else{
+        steelG.visible = false;
+      }
+      // moonG
+      moonG.clear();
+      if(moonFirstVisible || moonSecondVisible){
+        moonG.visible = true;
+        drawRing2(moonG, innerR, outerR, 0x3388ff, 0.6, 0, 360);
+      }else{
+        moonG.visible = false;
+      }
+
+      // 4. 下一步
       removeSkillAnim = setTimeout(() => {
-        g.visible = false; g.clear();
         playFanStep(i+1);
-      }, 2000);
+      }, 3000);
     }
 
     playFanStep(0);
   }
+
 
   // ==================== 新增：监控舞台和重置动画 ====================
 
