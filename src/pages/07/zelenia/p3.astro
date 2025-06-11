@@ -11,11 +11,15 @@ import RoseBloodBloom from './_mechanics/RoseBloodBloom.astro'
 import RoseBloodBloom1 from './_mechanics/RoseBloodBloom_1.astro'
 import RoseBloodBloom2 from './_mechanics/RoseBloodBloom_2.astro'
 import RoseBloodBloom3 from './_mechanics/RoseBloodBloom_3.astro'
+import RoseBloodBloom4 from './_mechanics/RoseBloodBloom_4.astro'
+import RoseBloodBloom5 from './_mechanics/RoseBloodBloom_5.astro'
+import RoseBloodBloom6 from './_mechanics/RoseBloodBloom_6.astro'
 
 import RoseBloodBloom2Dynamic from './_components/RoseBloodBloom2Dynamic.astro'
 
 import AlexandrianThunder2 from './_components/AlexandrianThunder2Cast.astro'
 import AlexandrianThunder3 from './_components/AlexandrianThunder3Cast.astro'
+import AlexandrianBanish3 from './_mechanics/AlexandrianBanish3.astro'
 
 import RoseFloor from './_mechanics/RoseFloor.astro'
 
@@ -61,26 +65,27 @@ const base = 0
   <SeparatorSection id="escelons-fall " title="Escelons' Fall" />
 
   <SeparatorSection id="stock-break" title="Stock Break 拍地板" />
+  <StockBreakCast start = "05:33.532" base={base} />
 
   <SeparatorSection id="roseblood-bloom-4" title="魔法阵展开·四式" />
   <RoseBloodBloom start="05:49.927" base={base} num = {4}/>
+  <RoseBloodBloom4/>
+  <AlexandrianBanish3 start="06:15.411" base={base}/>
+  <ThornedCatharsis start="06:26.547" base={base} />
 
-  <SeparatorSection id="emblazon" title="Emblazon" />
+  <SeparatorSection id="fenshen-four" title="分身左右刀&本体四连刀" />
 
-  <SeparatorSection id="alexandrian-thunder-III" title="Alexandrian Thunder III" />
-  
-  <SeparatorSection id="alexandrian-banish-III" title="Alexandrian Banish III" />
-  
-  <StockBreakCast start = "05:33.532" base={base} />
 
   <SeparatorSection id="thorned-catharsis" title="Thorned Catharsis" />
-  <ThornedCatharsis start="06:26.547" base={base} />
+  
 
   <SeparatorSection id="roseblood-bloom-5" title="魔法阵展开·五式" />
   <RoseBloodBloom start="07:29.945" base={base} num = {5}/>
+  <RoseBloodBloom5/>
 
   <SeparatorSection id="roseblood-bloom-6" title="魔法阵展开·六式" />
   <RoseBloodBloom start="08:14.821" base={base} num = {6}/>
+  <RoseBloodBloom6/>
 
   <SpecterOfTheLostCast start="07:58.374" base={base} />
   

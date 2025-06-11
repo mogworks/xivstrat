@@ -1,0 +1,216 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import Bleeding from '@/components/buff/Bleeding.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import ImageRow from '@/components/typography/ImageRow.astro'
+
+import RoseBloodBloomCast from '../_components/RoseBloodBloomCast.astro'
+
+import img from '@/assets/07/zelenia/Tmp.png'
+import Zelenia from '../_components/Zelenia.astro'
+
+import a1g from '@/assets/07/zelenia/P3-5/P3-5-1a-g.png'
+import a1 from '@/assets/07/zelenia/P3-5/P3-5-1a.png'
+import a2 from '@/assets/07/zelenia/P3-5/P3-5-2a.png'
+import a3 from '@/assets/07/zelenia/P3-5/P3-5-3a.png'
+import a4 from '@/assets/07/zelenia/P3-5/P3-5-4a.png'
+import a4g from '@/assets/07/zelenia/P3-5/P3-5-4a-g.png'
+import a5 from '@/assets/07/zelenia/P3-5/P3-5-5a.png'
+import a6 from '@/assets/07/zelenia/P3-5/P3-5-6a.png'
+
+
+
+
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
+
+
+---
+
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        <Zelenia/>
+        同时召唤以下aoe预兆：
+      </div>
+      
+      <div class="paragraph">
+        <Span variant="yellow">场外刀：</Span>在对应半场释放直线aoe
+      </div>
+      <div class="paragraph">
+        <Span variant="orange">六连劈：</Span>六组扇形aoe
+      </div>
+      <div class="paragraph">
+        <Span variant="blue">钢铁/月环：</Span>圆形/月环aoe，会引爆<Span variant="red">红色地板</Span>
+      </div>
+  </div>
+  
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-6"> 
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <div class="paragraph">
+        <Span variant="yellow">释放顺序说明</Span>
+        
+      </div>
+      <table class="min-w-full border mt-4">
+        <thead>
+          <tr>
+              <th class="border px-3 py-2">次序</th>
+              <th class="border px-3 py-2">六连劈</th>
+              <th class="border px-3 py-2">钢铁/月环</th>
+              <th class="border px-3 py-2">场外刀</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-3 py-2 text-center">1</td>
+            <td class="border px-3 py-2 text-center">一劈</td>
+            <td class="border px-3 py-2 text-center">第一次钢铁/月环</td>
+            <td class="border px-3 py-2 text-center">第一轮场外刀</td>
+          </tr>
+          <tr>
+            <td class="border px-3 py-2 text-center">2</td>
+            <td class="border px-3 py-2 text-center">二劈</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+          </tr><tr>
+            <td class="border px-3 py-2 text-center">3</td>
+            <td class="border px-3 py-2 text-center">三劈</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+          </tr><tr>
+            <td class="border px-3 py-2 text-center">4</td>
+            <td class="border px-3 py-2 text-center">四劈</td>
+            <td class="border px-3 py-2 text-center">第二次钢铁/月环</td>
+            <td class="border px-3 py-2 text-center">第二轮场外刀</td>
+          </tr><tr>
+            <td class="border px-3 py-2 text-center">5</td>
+            <td class="border px-3 py-2 text-center">五劈</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+          </tr><tr>
+            <td class="border px-3 py-2 text-center">6</td>
+            <td class="border px-3 py-2 text-center">六劈</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="paragraph">
+      每轮伤害判定示意图<ToggleSwitch id="xfang-mechanic-toggle" lVariant="blue" rVariant="yellow" lLabel="先钢铁" rLabel="先月环" />
+    </div>
+    <div
+      id="xfang-mechanic-grid"
+      class="grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-2"
+    >
+      {/* 第一行第一列 */}
+      <div class="px-3 py-2 flex justify-center">
+        <Image
+          src={a1g}
+          alt="Stonefang: 1"
+          class="omen-img border-cyan-700 dark:border-cyan-100"
+        />
+        <Image
+          src={a1}
+          alt="Stonefang: 3"
+          class="activate-img hidden border-cyan-700 dark:border-cyan-100"
+        />
+      </div>
+
+      {/* 第一行第二列 */}
+      <div class="px-3 py-2 flex justify-center">
+        <Image
+          src={a2}
+          alt="Stonefang: 2"
+          class="border-cyan-700 dark:border-cyan-100"
+        />
+        
+      </div>
+
+      {/* 第一行第三列 */}
+      <div class="px-3 py-2 flex justify-center">
+        <Image
+          src={a3}
+          alt="Stonefang: 2"
+          class="border-cyan-700 dark:border-cyan-100"
+        />
+      </div>
+
+      {/* 第二行第一列 */}
+      <div class="px-3 py-2 flex justify-center">
+        <Image
+          src={a4g}
+          alt="Windfang: 1"
+          class="omen-img border-cyan-700 dark:border-cyan-100"
+        />
+        <Image
+          src={a4}
+          alt="Windfang: 3"
+          class="activate-img hidden border-cyan-700 dark:border-cyan-100"
+        />
+      </div>
+
+      {/* 第二行第二列 */}
+      <div class="px-3 py-2 flex justify-center">
+        <Image
+          src={a5}
+          alt="Stonefang: 2"
+          class="border-cyan-700 dark:border-cyan-100"
+        />
+      </div>
+
+      {/* 第二行第三列 */}
+      <div class="px-3 py-2 flex justify-center">
+        <Image
+          src={a6}
+          alt="Stonefang: 2"
+          class="border-cyan-700 dark:border-cyan-100"
+        />
+      </div>
+    </div>
+  </div>
+</SolutionSection>
+
+
+<script>
+
+  const mechanicToggle = document.getElementById('xfang-mechanic-toggle') as HTMLInputElement;
+
+  function toggleImages(id: string, activate: boolean) {
+    const section = document.getElementById(id)
+
+    if (section) {
+      const omenImgs = section.querySelectorAll('.omen-img')
+      const activateImgs = section.querySelectorAll('.activate-img')
+
+      if (activate) {
+        omenImgs.forEach((img) => img.classList.add('hidden'))
+        activateImgs.forEach((img) => img.classList.remove('hidden'))
+      } else {
+        activateImgs.forEach((img) => img.classList.add('hidden'))
+        omenImgs.forEach((img) => img.classList.remove('hidden'))
+      }
+    }
+  }
+
+  
+  if (mechanicToggle) {
+    mechanicToggle.addEventListener('change', function () {
+      toggleImages('xfang-mechanic-grid', this.checked);
+    });
+  }
+
+</script>
