@@ -20,15 +20,12 @@ import DemolitionDeathmatchCast from '../_components/DemolitionDeathmatchCast.as
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 
 interface Props {
-  start: Time
   base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { base = 0 }: Props = Astro.props
 ---
 
-<DemolitionDeathmatchCast start={start} base={base} />
-<AbominableBlinkCast start="04:34.422" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
