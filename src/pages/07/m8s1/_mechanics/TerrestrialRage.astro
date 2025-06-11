@@ -12,8 +12,8 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
-import HowlingBlade from '../_components/HowlingBlade.astro'
-import GleamingFang from '../_components/GleamingFang.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import GleamingFang from '../_components/entities/GleamingFang.astro'
 
 import terrestrial_rage_img from '@/assets/07/m8s1/Tmp.png'
 
@@ -42,7 +42,7 @@ const { start, base = 0 }: Props = Astro.props
         />
       </div>
       <div class="shrink-0 grow space-y-4">
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           随机点名
           <RoleIcon role="tank" />
           <RoleIcon role="healer" />
@@ -53,37 +53,37 @@ const { start, base = 0 }: Props = Astro.props
           <Badge variant="yellow">分散</Badge>
           。
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           其余4人中点名一人
           <Span variant="yellow">大震撃</Span>
           <Badge variant="yellow">分摊</Badge>
           。
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           分散和分摊造成
           <DamageInfo damage="110000" type="magical" />
           <MagicVulnerabilityUp tag="2" hover />
           。
         </div>
-        <div class="gap-strat flex items-center"></div>
-        <div class="gap-strat flex items-center">后续会再进行一轮点名相反的分散分摊。</div>
-        <div class="gap-strat flex items-center"></div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph"></div>
+        <div class="paragraph">后续会再进行一轮点名相反的分散分摊。</div>
+        <div class="paragraph"></div>
+        <div class="paragraph">
           场上先后出现四个斜向的
           <GleamingFang />
-          浮游炮。
+          光牙。
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           短暂延迟后按出现顺序释放
           <Span variant="yellow">突進光牙</Span>
           <Badge variant="yellow">直线AoE</Badge>
           。
         </div>
-        <div class="gap-strat flex items-center"></div>
-        <div class="gap-strat flex items-center">
-          判定顺序：1轮<GleamingFang />浮游炮 - 分摊分散 - 2轮<GleamingFang />浮游炮。
+        <div class="paragraph"></div>
+        <div class="paragraph">
+          判定顺序：1轮<GleamingFang />光牙 - 分摊分散 - 2轮<GleamingFang />光牙。
         </div>
-        <div class="gap-strat flex items-center"></div>
+        <div class="paragraph"></div>
       </div>
     </div>
   </div>
@@ -98,22 +98,22 @@ const { start, base = 0 }: Props = Astro.props
       />
     </div>
     <div class="shrink-0 grow space-y-4">
-      <div class="gap-strat flex items-center">浮游炮方向一定与标点 13/24 连线平行。</div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">光牙方向一定与标点 13/24 连线平行。</div>
+      <div class="paragraph">
         不难发现
         <Span variant="lime">4个正点</Span>
         附近一定有安全点。
       </div>
-      <div class="gap-strat flex items-center"></div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph"></div>
+      <div class="paragraph">
         <Span variant="yellow">分摊点名</Span>
         和无点名玩家前往场中附近调整位置；
       </div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         <Span variant="yellow">分散点名</Span>
-        按图中所示前往自己的正点并调整位置躲避浮游炮。
+        按图中所示前往自己的正点并调整位置躲避光牙。
       </div>
-      <div class="gap-strat flex items-center">二穿一躲避AoE的同时处理分摊/分散。</div>
+      <div class="paragraph">二穿一躲避AoE的同时处理分摊/分散。</div>
     </div>
   </div>
 </SolutionSection>

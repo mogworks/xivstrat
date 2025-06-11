@@ -3,10 +3,12 @@ import type { Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
-
-import HowlingBlade from '../_components/HowlingBlade.astro'
 import Separator from '@/components/Separator.astro'
-import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -17,9 +19,9 @@ interface Props {
 const { start, type, base = 0 }: Props = Astro.props
 
 const duration = 1.2
-const abilityName = '群狼劍'
-const revolutionaryReign = '廻の郡狼剣'
-const eminentReign = '薙の郡狼剣'
+const abilityName = translations.wolvesReign
+const revolutionaryReign = translations.revolutionaryReign
+const eminentReign = translations.eminentReign
 ---
 
 {
@@ -27,7 +29,7 @@ const eminentReign = '薙の郡狼剣'
     <CastSection start={start} base={base} duration={duration} ability={abilityName}>
       <HowlingBlade slot="source" />
       ，释放直线冲锋，冲至场地对侧
-      <Badge variant="emerald">5m宽直线</Badge>
+      <Badge variant="emerald">10m宽直线</Badge>
     </CastSection>
   ) : (
     <CastSection start={start} base={base} duration={duration} ability={abilityName}>
@@ -38,7 +40,7 @@ const eminentReign = '薙の郡狼剣'
         <li class="flex items-center gap-1 text-lg">
           <span class="text-sm opacity-80">
             若先前为
-            <Span variant="yellow">{revolutionaryReign}</Span>：
+            <Skill name={revolutionaryReign} />：
           </span>
           圆形范围伤害
           <Badge variant="emerald">14m圆形</Badge>
@@ -47,7 +49,7 @@ const eminentReign = '薙の郡狼剣'
         <li class="flex items-center gap-1 text-lg">
           <span class="text-sm opacity-80">
             若先前为
-            <Span variant="yellow">{eminentReign}</Span>：
+            <Skill name={eminentReign} />：
           </span>
           扇形范围伤害
           <Badge variant="emerald">120°扇形</Badge>

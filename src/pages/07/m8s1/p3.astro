@@ -5,6 +5,7 @@ import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import Span from '@/components/Span.vue'
+import LimitBreak from '@/components/action/LimitBreak.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
@@ -13,16 +14,16 @@ import Attack from './_components/Attack.astro'
 import BeckonMoonlight from './_mechanics/BeckonMoonlight.astro'
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
 import GreatDivide from './_components/GreatDivide.astro'
-import HowlingBlade from './_components/HowlingBlade.astro'
+import HowlingBlade from './_components/entities/HowlingBlade.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 import RetargetableEvent from './_components/RetargetableEvent.astro'
 import ShadowChase from './_mechanics/ShadowChase.astro'
 import TerrestrialRage from './_mechanics/TerrestrialRage.astro'
-import TrackingTremorsCast from './_components/TrackingTremorsCast.astro'
+import TrackingTremors from './_mechanics/TrackingTremors.astro'
 import WealOfStone from './_mechanics/WealOfStone.astro'
-import XReginCast from './_components/XReignCast.astro'
-import WindWolfheadIcon from './_components/WindWolfheadIcon.astro'
+import XReignCast from './_components/XReignCast.astro'
+import WolfOfWind from './_components/entities/WolfOfWind.astro'
 import Xfang from './_mechanics/Xfang.astro'
 
 const dutyId = '07/m8s1'
@@ -54,14 +55,14 @@ const base = '04:19.898'
   </EventSection>
   <RetargetableEvent time="04:55.0" base={base} />
   <CastSection start="04:55.0" base={base} duration={2.2}>
-    <WindWolfheadIcon slot="source" />
+    <WolfOfWind slot="source" />
     <Span variant="yellow">風狼豪波</Span>
     <Badge variant="yellow">直线AoE</Badge>
   </CastSection>
 
   <!-- 群狼剑+土龙头 -->
   <SeparatorSection id="weal-of-stone" title="地烈波" />
-  <XReginCast start="04:58.712" base={base} />
+  <XReignCast start="04:58.712" base={base} />
   <WealOfStone start="05:10.290" base={base} />
   <Attack time="05:16.0" base={base} />
   <Attack time="05:19.0" base={base} />
@@ -77,7 +78,7 @@ const base = '04:19.898'
   <!-- TODO: 随机两个相邻斜点出土狼头 四个正点固定安全 这里我没写来个好哥哥补一下 -->
   <Xfang start="06:02.102" base={base} />
   <Attack time="06:14.0" base={base} />
-  <TrackingTremorsCast start="6:13.522" base={base} />
+  <TrackingTremors start="6:13.522" base={base} />
   <Attack time="06:22.0" base={base} />
   <Attack time="06:25.0" base={base} />
   <Attack time="06:28.0" base={base} />
@@ -86,7 +87,7 @@ const base = '04:19.898'
   <!-- 打的慢的话这个aoe会跳过 -->
   <ExtraplanarPursuitCast start="06:28.725" base={base} />
   <NoteSection>
-    <div class="gap-strat flex items-center">如果小怪阶段打太慢，会跳过这个AoE。</div>
+    <div class="paragraph">如果小怪阶段打太慢，会跳过这个AoE。</div>
   </NoteSection>
   <Attack time="06:34.0" base={base} />
   <Attack time="06:37.0" base={base} />
@@ -102,4 +103,11 @@ const base = '04:19.898'
     <DamageInfo damage="9999999" type="special" />
     <Badge variant="fuchsia">狂暴</Badge>
   </EventSection>
+  <NoteSection>
+    如果此时
+    <HowlingBlade />
+    剩余血量过多，请酌情使用
+    <LimitBreak role="melee" stage={3} />
+    。 输出充足的情况下可以留到转场后减轻dps压力。
+  </NoteSection>
 </DutyStratLayout>

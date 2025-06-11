@@ -11,8 +11,8 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
-import HowlingBlade from '../_components/HowlingBlade.astro'
-import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 
 import shadowchase_case1_img from '@/assets/07/m8s1/Tmp.png'
 import shadowchase_case2_img from '@/assets/07/m8s1/Tmp.png'
@@ -43,7 +43,7 @@ const { start, base = 0 }: Props = Astro.props
             alt="shadowchase_case1"
             class="border-2 border-amber-800/75 dark:border-amber-100"
           />
-          <div class="gap-strat flex items-center">可能情况1</div>
+          <div class="paragraph">可能情况1</div>
         </div>
         <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
           <Image
@@ -51,17 +51,17 @@ const { start, base = 0 }: Props = Astro.props
             alt="shadowchase_case2"
             class="border-2 border-amber-800/75 dark:border-amber-100"
           />
-          <div class="gap-strat flex items-center">可能情况2</div>
+          <div class="paragraph">可能情况2</div>
         </div>
       </div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         <HowlingBlade />
         在场上召唤出5个分身，读条向前方释放
         <Span variant="yellow">残影剣</Span>
         <Badge variant="yellow">直线AoE</Badge>
         。
       </div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         <Span variant="yellow">大地の怒り</Span>
         点名与先前相反的分摊/分散
         <Span variant="yellow">大震撃</Span>
@@ -71,9 +71,9 @@ const { start, base = 0 }: Props = Astro.props
         <MagicVulnerabilityUp tag="2" hover />
         。
       </div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         分摊/分散判定后，分身夹缝中出现5个
-        <WindWolfheadIcon />
+        <WolfOfWind />
         风狼头，读条向前方释放
         <Span variant="yellow">風狼豪波</Span>
         <Badge variant="yellow">直线AoE</Badge>
@@ -92,25 +92,25 @@ const { start, base = 0 }: Props = Astro.props
       />
     </div>
     <div class="shrink-0 grow space-y-4">
-      <div class="gap-strat flex items-center">分身与风狼头的AoE安全点都在后方。</div>
-      <div class="gap-strat flex items-center"></div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">分身与风狼头的AoE安全点都在后方。</div>
+      <div class="paragraph"></div>
+      <div class="paragraph">
         将视角转向
         <Span variant="lime">A点开始顺时针第一个分身</Span>
         作为12点处理该机制。
       </div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         <Span variant="yellow">分摊点名</Span>
         和无点名前往12点集合分摊；
       </div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         <Span variant="yellow">分散点名</Span>
         按图示前往自己的分散位置。
       </div>
-      <div class="gap-strat flex items-center"></div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph"></div>
+      <div class="paragraph">
         分摊分散判定，去
-        <WindWolfheadIcon />
+        <WolfOfWind />
         后方躲避直线AoE。
       </div>
     </div>

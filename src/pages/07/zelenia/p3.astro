@@ -1,0 +1,69 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import ThornedCatharsis from './_components/ThornedCatharsisCast.astro'
+import SpecterOfTheLostCast from './_components/SpecterOfTheLostCast.astro'
+import StockBreakCast from './_components/StockBreakCast.astro'
+
+import RoseBloodBloom from './_mechanics/RoseBloodBloom.astro'
+
+const dutyId = '07/zelenia'
+const base = 0
+---
+
+<DutyStratLayout dutyId={dutyId}>
+  <EventSection> 这里写P3阶段起手、走位、机制要点等文字内容。 </EventSection>
+  <SeparatorSection id="roseblood-bloom-1" title="魔法阵展开·一式" />
+  <RoseBloodBloom start="02:48.767" base={base} num={1} />
+
+  <SeparatorSection id="alexandrian-thunder-III" title="Alexandrian Thunder III" />
+
+  <SeparatorSection id="thorned-catharsis" title="Thorned Catharsis" />
+
+  <ThornedCatharsis start="03:22.861" base={base} />
+
+  <SeparatorSection id="roseblood-bloom-2" title="魔法阵展开·二式" />
+  <RoseBloodBloom start="03:35.299" base={base} num={2} />
+  <SeparatorSection id="specter-of-the-lost" title="Specter of the Lost" />
+
+  <SpecterOfTheLostCast start="03:55.571" base={base} />
+
+  <SeparatorSection id="roseblood-bloom-3" title="魔法阵展开·三式" />
+  <RoseBloodBloom start="04:10.005" base={base} num={3} />
+  <SeparatorSection id="emblazon" title="Emblazon" />
+
+  <SeparatorSection id="explosion" title="Explosion" />
+
+  <SeparatorSection id="thorned-catharsis" title="Thorned Catharsis" />
+  <ThornedCatharsis start="04:42.488" base={base} />
+
+  <SeparatorSection id="alexandrian-banish-II" title="Alexandrian Banish II" />
+
+  <SeparatorSection id="escelons-fall " title="Escelons' Fall" />
+
+  <SeparatorSection id="stock-break" title="Stock Break 拍地板" />
+
+  <SeparatorSection id="roseblood-bloom-4" title="魔法阵展开·四式" />
+  <RoseBloodBloom start="05:49.927" base={base} num={4} />
+
+  <SeparatorSection id="emblazon" title="Emblazon" />
+
+  <SeparatorSection id="alexandrian-thunder-III" title="Alexandrian Thunder III" />
+
+  <SeparatorSection id="alexandrian-banish-III" title="Alexandrian Banish III" />
+
+  <StockBreakCast start="05:33.532" base={base} />
+
+  <SeparatorSection id="thorned-catharsis" title="Thorned Catharsis" />
+  <ThornedCatharsis start="06:26.547" base={base} />
+
+  <SeparatorSection id="roseblood-bloom-5" title="魔法阵展开·五式" />
+  <RoseBloodBloom start="07:29.945" base={base} num={5} />
+
+  <SeparatorSection id="roseblood-bloom-6" title="魔法阵展开·六式" />
+  <RoseBloodBloom start="08:14.821" base={base} num={6} />
+
+  <SpecterOfTheLostCast start="07:58.374" base={base} />
+</DutyStratLayout>

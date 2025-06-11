@@ -11,7 +11,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
-import HowlingBlade from '../_components/HowlingBlade.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import WealOfStoneCast from '../_components/WealOfStoneCast.astro'
 
 import weal_of_stone_case1_img from '@/assets/07/m8s1/Tmp.png'
@@ -39,7 +39,7 @@ const { start, base = 0 }: Props = Astro.props
             alt="shadowchase_case1"
             class="border-2 border-amber-800/75 dark:border-amber-100"
           />
-          <div class="gap-strat flex items-center">可能情况1</div>
+          <div class="paragraph">可能情况1</div>
         </div>
         <div class="flex max-w-70 shrink grow flex-col items-center gap-2">
           <Image
@@ -47,10 +47,10 @@ const { start, base = 0 }: Props = Astro.props
             alt="shadowchase_case2"
             class="border-2 border-amber-800/75 dark:border-amber-100"
           />
-          <div class="gap-strat flex items-center">可能情况2</div>
+          <div class="paragraph">可能情况2</div>
         </div>
       </div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         场地上出现2个土狼头，短暂读条后释放
         <Span variant="yellow">地烈波</Span>
         <Badge variant="yellow">直线AoE</Badge>
@@ -60,7 +60,7 @@ const { start, base = 0 }: Props = Astro.props
   </div>
 </MechanicSection>
 <SolutionSection>
-  <div class="gap-strat flex items-center">
+  <div class="paragraph">
     正常处理<Span variant="yellow">廻の郡狼剣 | 薙の郡狼剣</Span>后观察狼头位置，并躲避直线AoE即可。
   </div>
 </SolutionSection>

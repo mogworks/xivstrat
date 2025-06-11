@@ -1,0 +1,69 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import Bleeding from '@/components/buff/Bleeding.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import RoseBloodBloomCast from '../_components/RoseBloodBloomCast.astro'
+
+import img from '@/assets/07/zelenia/Tmp.png'
+import Zelenia from '../_components/Zelenia.astro'
+
+import floor1 from '@/assets/07/zelenia/RoseBloodFloor/RoseBlood_floor_1.png'
+import floor2 from '@/assets/07/zelenia/RoseBloodFloor/RoseBlood_floor_2.png'
+import floor3 from '@/assets/07/zelenia/RoseBloodFloor/RoseBlood_floor_3.png'
+import floor5 from '@/assets/07/zelenia/RoseBloodFloor/RoseBlood_floor_5.png'
+
+interface Props {
+  start: Time
+  base?: Time
+  num: number
+}
+
+const floorMap: Record<number, typeof floor1> = {
+  1: floor1,
+  2: floor2,
+  3: floor3,
+  5: floor5,
+}
+
+const { start, base = 0, num }: Props = Astro.props
+---
+
+<RoseBloodBloomCast start={start} base={base} num={num} />
+
+<MechanicSection>
+  <div class="flex gap-4">
+    <div class="max-w-88 flex-1">
+      <Image src={floorMap[num] ?? img} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    </div>
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <div class="paragraph">
+        <h4 class="text-xl">
+          <Span variant="yellow">场地变换</Span>
+        </h4>
+      </div>
+      <div class="paragraph">
+        <Span variant="pink">红色玫瑰花纹地板</Span>会被
+        <Zelenia />
+        的某些技能引爆
+      </div>
+      <div class="paragraph">
+        相连的<Span variant="pink">红色地板</Span>也会被同时引爆
+      </div>
+      <div class="paragraph"></div>
+      <div class="paragraph">
+        <Span variant="yellow">注意：</Span>场中会出现一小块<Span variant="purple">即死区域（电网）</Span>
+      </div>
+    </div>
+  </div>
+</MechanicSection>

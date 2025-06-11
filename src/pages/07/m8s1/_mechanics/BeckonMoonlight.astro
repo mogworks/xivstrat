@@ -13,7 +13,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
-import HowlingBlade from '../_components/HowlingBlade.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import MoonbeamsBiteCast from '../_components/MoonbeamsBiteCast.astro'
 
 import beckon_moonlight_solution_img from '@/assets/07/m8s1/Tmp.png'
@@ -43,7 +43,7 @@ const terrestrial_rage_2 = terrestrial_rage_1 + 7
       <Span variant="yellow">幻狼招来</Span>
     </div>
     <div class="flex flex-col gap-4">
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         四个分身按顺/逆时针从
         <HowlingBlade />
         身上飞向正点场边。按出现顺序读条
@@ -51,7 +51,7 @@ const terrestrial_rage_2 = terrestrial_rage_1 + 7
         <Badge variant="yellow">半场AoE</Badge>
         ，向拿剑一侧冲锋。
       </div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         同时
         <Span variant="yellow">大地の怒り</Span>
         进行两轮按职能点名的分摊/分散
@@ -59,9 +59,7 @@ const terrestrial_rage_2 = terrestrial_rage_1 + 7
         <MagicVulnerabilityUp tag="2" hover />
         。
       </div>
-      <div class="gap-strat flex items-center">
-        第一轮分摊分散与第一次冲锋同时判定；第二轮分摊分散略晚于第四次冲锋判定。
-      </div>
+      <div class="paragraph">第一轮分摊分散与第一次冲锋同时判定；第二轮分摊分散略晚于第四次冲锋判定。</div>
     </div>
   </div>
 </MechanicSection>
@@ -75,17 +73,17 @@ const terrestrial_rage_2 = terrestrial_rage_1 + 7
       />
     </div>
     <div class="shrink-0 grow space-y-4">
-      <div class="gap-strat flex items-center">由于机制速度非常快，请提前看好冲锋的安全区。</div>
-      <div class="gap-strat flex items-center">以危险半场为12点，基础分摊分散站位如图。</div>
-      <div class="gap-strat flex items-center"></div>
-      <div class="gap-strat flex items-center">首先前往第一次冲锋安全区，按图站位等待分摊分散判定。</div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">由于机制速度非常快，请提前看好冲锋的安全区。</div>
+      <div class="paragraph">以危险半场为12点，基础分摊分散站位如图。</div>
+      <div class="paragraph"></div>
+      <div class="paragraph">首先前往第一次冲锋安全区，按图站位等待分摊分散判定。</div>
+      <div class="paragraph">
         判定后
         <Span variant="lime">开启冲刺</Span>
         ，快速前往
         <Span variant="lime">二、三次冲锋的公共安全区</Span>。
       </div>
-      <div class="gap-strat flex items-center">最后前往第四次冲锋安全区，按图站位处理第二次分摊分散。</div>
+      <div class="paragraph">最后前往第四次冲锋安全区，按图站位处理第二次分摊分散。</div>
     </div>
   </div>
 </SolutionSection>

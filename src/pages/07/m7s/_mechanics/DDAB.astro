@@ -1,0 +1,103 @@
+---
+import type { Time } from '@/lib/utils'
+import { Image } from 'astro:assets'
+
+import Boss from '@/components/Boss.astro'
+import LimitBreak from '@/components/action/LimitBreak.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import chn1 from '@/assets/07/m7s/sporesplosion/DemoDM_chn1.png'
+import chn2 from '@/assets/07/m7s/sporesplosion/DemoDM_chn2.png'
+import flare1 from '@/assets/07/m7s/sporesplosion/AbBlink_flare1.png'
+import flare2 from '@/assets/07/m7s/sporesplosion/AbBlink_flare2.png'
+
+import AbBlinkCast from '../_components/AbBlinkCast.astro'
+import DDMCast from '../_components/DDMCast.astro'
+import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<DDMCast start={start} base={base} />
+<AbBlinkCast start="04:39.719" base={base} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      荆棘墙生成连线，连接
+      <RoleIcon role="tank" tag="MT" />
+      和两名离墙体最近的
+      <RoleIcon role="any" />
+    </div>
+    <div class="paragraph">
+      被连线者
+      <RoleIcon role="any" />
+      受到的DoT伤害与连线墙的
+      <Span variant="pink">距离成正比</Span>
+      <ThornsOfDeathDebuff />
+      <ThornsOfDeathDebuff level={2} />
+      <ThornsOfDeathDebuff level={3} />
+      <ThornsOfDeathDebuff level={4} />
+    </div>
+    <div class="paragraph">
+      同时，
+      <Boss />
+      对任一
+      <RoleIcon role="tank" />
+      点名
+      <Span variant="pink">核爆</Span>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection title="解法：萨利式">
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <RoleIcon role="dps" tag="D3" />
+      接短边的DoT线， <RoleIcon role="dps" tag="D4" />
+      接长边的DoT线
+    </div>
+    <div class="paragraph">
+      被点名核爆的
+      <RoleIcon role="tank" />
+      尽可能远离人群
+    </div>
+    <h4 class="mt-4 text-2xl">
+      <Span variant="yellow">接线参考</Span>
+    </h4>
+    <div class="grid grid-cols-2 gap-x-2 gap-y-4">
+      <div class="flex flex-col items-center gap-1">
+        <Image src={chn1} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      </div>
+      <div class="flex flex-col items-center gap-1">
+        <Image src={chn2} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      </div>
+    </div>
+    <h4 class="mt-4 text-2xl">
+      <Span variant="yellow">核爆参考</Span>
+    </h4>
+    <div class="grid grid-cols-2 gap-x-2 gap-y-4">
+      <div class="flex flex-col items-center gap-1">
+        <Image src={flare1} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      </div>
+      <div class="flex flex-col items-center gap-1">
+        <Image src={flare2} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      </div>
+    </div>
+  </div>
+</SolutionSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      在不需要奶救场的前提下可以考虑在核爆出去的时候使用
+      <LimitBreak role="melee" stage={2} />
+    </div>
+  </div>
+</NoteSection>

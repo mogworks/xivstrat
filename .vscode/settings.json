@@ -18,5 +18,10 @@
     }
   },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // 新增：针对 .astro 文件缩进
+  "[astro]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  }
 }

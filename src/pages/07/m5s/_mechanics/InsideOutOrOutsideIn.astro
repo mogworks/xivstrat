@@ -30,7 +30,7 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="yellow">Inside Out</Span>
     </h4>
     <div class="flex flex-col gap-4">
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         <Boss />
         以自身为中心，先释放半径
         <Span variant="pink">7m</Span>
@@ -43,7 +43,7 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="yellow">Outside In</Span>
     </h4>
     <div class="flex flex-col gap-4">
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         <Boss />
         以自身为中心，先释放半径
         <Span variant="pink">5m</Span>
@@ -59,7 +59,7 @@ const { start, base = 0 }: Props = Astro.props
           alt="Inside Out | Outside In: Circle"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">圆形AoE</div>
+        <div class="paragraph">圆形AoE</div>
       </div>
       <div class="flex max-w-112.5 shrink flex-col items-center gap-2">
         <Image
@@ -67,21 +67,21 @@ const { start, base = 0 }: Props = Astro.props
           alt="Inside Out | Outside In: Ring"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">环形AoE</div>
+        <div class="paragraph">环形AoE</div>
       </div>
     </div>
   </div>
 </MechanicSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <Boss />
       目标圈外环半径也是
       <Span variant="pink">5m</Span>
       ，站进目标圈即可躲避环形AoE
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       此时
       <StratLink variant="yellow" href="#funky-floor">Funky Floor</StratLink>

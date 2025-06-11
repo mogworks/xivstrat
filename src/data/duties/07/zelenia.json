@@ -7,7 +7,7 @@
   "banner": "@/assets/banners/07/zelenia.png",
   "date": "",
   "href": "/07/zelenia",
-  "status": "upcoming",
+  "status": "live",
   "indexAvailable": false,
   "phases": [
     {
@@ -15,7 +15,16 @@
       "title": "Part 1",
       "subtitle": "前半",
       "name": "P1 - 前半",
-      "mechanics": []
+      "mechanics": [
+        {
+          "href": "#shock",
+          "name": "Shock"
+        },
+        {
+          "href": "#escelons-fall",
+          "name": "四连远近刀"
+        }
+      ]
     },
     {
       "href": "/07/zelenia/p2",
@@ -29,7 +38,32 @@
       "title": "Part 3",
       "subtitle": "后半",
       "name": "P3 - 后半",
-      "mechanics": []
+      "mechanics": [
+        {
+          "href": "#roseblood-bloom-1",
+          "name": "魔法阵展开·一式"
+        },
+        {
+          "href": "#roseblood-bloom-2",
+          "name": "魔法阵展开·二式"
+        },
+        {
+          "href": "#roseblood-bloom-3",
+          "name": "魔法阵展开·三式"
+        },
+        {
+          "href": "#roseblood-bloom-4",
+          "name": "魔法阵展开·四式"
+        },
+        {
+          "href": "#roseblood-bloom-5",
+          "name": "魔法阵展开·五式"
+        },
+        {
+          "href": "#roseblood-bloom-6",
+          "name": "魔法阵展开·六式"
+        }
+      ]
     }
   ],
   "locales": {

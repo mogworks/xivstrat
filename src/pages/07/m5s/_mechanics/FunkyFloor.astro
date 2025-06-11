@@ -33,7 +33,7 @@ const { start, base = 0 }: Props = Astro.props
 <CastSection start={start} base={base} duration={2.2} ability="Funky Floor" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       地面出现间隔的
       <Span variant="rose">AoE区域</Span>
       和8盏
@@ -53,45 +53,45 @@ const { start, base = 0 }: Props = Astro.props
         canvasClass="h-full w-full border-2 border-amber-800/75 dark:border-amber-100"
       />
       <div class="shrink-0 grow space-y-4">
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           <Span variant="rose">地面AoE</Span>
           每4秒交替变化，完整周期为
           <Span variant="pink">8</Span>
           秒
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           <Span variant="cyan">聚光灯</Span>
           则按移动4秒、停止4秒的节奏循环
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           外围4盏
           <Span variant="cyan">聚光灯</Span>
           的运动周期为
           <Span variant="pink">8</Span>
           秒
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           内部4盏
           <Span variant="cyan">聚光灯</Span>
           由于会再折返1次，运动周期为
           <Span variant="pink">16</Span>
           秒
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           <Span variant="cyan">聚光灯</Span>
           的作用是处理
           <StratLink variant="yellow" href="#disco-infernal">Disco Infernal</StratLink>
           赋予的
           <BurnBabyBurn hover />
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           场上同时只会有
           <Span variant="pink">4</Span>
           盏
           <Span variant="cyan">聚光灯</Span>
           停在安全格子上
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           玩家需要在
           <BurnBabyBurn hover />
           倒计时结束时站进安全格子的
@@ -104,7 +104,7 @@ const { start, base = 0 }: Props = Astro.props
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">仅需关注场中4块方格的初始状态，共2种模式</div>
+    <div class="paragraph">仅需关注场中4块方格的初始状态，共2种模式</div>
     <div class="flex gap-4">
       <div class="flex max-w-112.5 shrink grow flex-col items-center gap-2">
         <Image
@@ -112,7 +112,7 @@ const { start, base = 0 }: Props = Astro.props
           alt="Funky Floor Solution A"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">模式1</div>
+        <div class="paragraph">模式1</div>
       </div>
       <div class="flex max-w-112.5 shrink grow flex-col items-center gap-2">
         <Image
@@ -120,14 +120,14 @@ const { start, base = 0 }: Props = Astro.props
           alt="Funky Floor Solution B"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">模式2</div>
+        <div class="paragraph">模式2</div>
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       远程组：
       <Separator orientation="vertical" class="mx-1 h-14 w-0.5 bg-teal-500" />
       <ul class="list-none space-y-4">
-        <li class="gap-strat flex items-center">
+        <li class="paragraph">
           模式1：最终安全格为
           <Span variant="red">标点1</Span>
           和
@@ -135,7 +135,7 @@ const { start, base = 0 }: Props = Astro.props
           所在
           <Span variant="green">方格</Span>
         </li>
-        <li class="gap-strat flex items-center">
+        <li class="paragraph">
           模式2：最终安全格为
           <Span variant="yellow">标点2</Span>
           和
@@ -145,7 +145,7 @@ const { start, base = 0 }: Props = Astro.props
         </li>
       </ul>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       近战组：先在
       <Span variant="pink">粉色点</Span>
       待机，等
@@ -160,17 +160,17 @@ const { start, base = 0 }: Props = Astro.props
 </SolutionSection>
 <NoteSection title="说明：解法底层原理详解">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       如前文所述：
       <Separator orientation="vertical" class="mx-1 h-14 w-0.5 bg-teal-500" />
       <ul class="list-disc space-y-4">
-        <li class="gap-strat flex items-center">
+        <li class="paragraph">
           <Span variant="rose">地面AoE</Span>
           的变化周期为
           <Span variant="pink">8</Span>
           秒
         </li>
-        <li class="gap-strat flex items-center">
+        <li class="paragraph">
           外围4盏
           <Span variant="cyan">聚光灯</Span>
           的变化周期为
@@ -183,21 +183,21 @@ const { start, base = 0 }: Props = Astro.props
         </li>
       </ul>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       由于
       <Span variant="cyan">聚光灯</Span>
       周期是
       <Span variant="rose">地面AoE</Span>
       周期的整数倍
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       因此
       <Span variant="cyan">聚光灯</Span>
       和
       <Span variant="rose">地面AoE</Span>
       的初始状态就决定了后续的所有变化
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       而
       <Span variant="cyan">聚光灯</Span>
       和
@@ -226,7 +226,7 @@ const { start, base = 0 }: Props = Astro.props
         class="border-2 border-amber-800/75 dark:border-amber-100"
       />
     </div>
-    <div class="mt-8 gap-strat flex items-center">
+    <div class="paragraph mt-8">
       以玩家被赋予
       <BurnBabyBurn hover tag="24" />
       和
@@ -239,12 +239,12 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="rose">地面AoE</Span>
       开始变化
     </div>
-    <div class="mt-8 gap-strat flex items-center">
+    <div class="paragraph mt-8">
       因此，对于
       <Span variant="rose">地面AoE</Span>
       ：
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <BurnBabyBurn hover tag="24" />
       和
@@ -257,24 +257,22 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="pink">28s</Span>
       的变化时间
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       亦即若干个完整周期 + 半个周期，这半个周期刚好会把危险地板和安全地板再交换1次
     </div>
-    <div
-      class="gap-strat flex items-center text-green-600 [text-shadow:_0_0_1px_var(--color-green-600)] dark:text-green-400"
-    >
+    <div class="paragraph text-green-600 [text-shadow:_0_0_1px_var(--color-green-600)] dark:text-green-400">
       <ListDot />
       故初始危险地板即为
       <BurnBabyBurn hover />
       倒计时结束时的安全地板
     </div>
-    <div class="mt-8 gap-strat flex items-center">
+    <div class="paragraph mt-8">
       对于外围
       <Span variant="cyan">聚光灯</Span>
       ：
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       1周期包含
       <Span variant="pink">4s</Span>
@@ -288,18 +286,18 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="pink">4s</Span>
       的阶段
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       因此，若要找外围安全地板的
       <Span variant="cyan">聚光灯</Span>
       ，只需要去找四角的初始危险地板即可
     </div>
-    <div class="mt-8 gap-strat flex items-center">
+    <div class="paragraph mt-8">
       对于内场
       <Span variant="cyan">聚光灯</Span>
       ：
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       1周期包含
       <Span variant="pink">4s</Span>
@@ -311,7 +309,7 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="pink">4s</Span>
       停止在初始位置
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       因此，
       <BurnBabyBurn hover tag="24" />
@@ -323,7 +321,7 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="pink">4s</Span>
       的阶段
     </div>
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <ListDot />
       故
       <BurnBabyBurn hover tag="24" />
@@ -333,7 +331,7 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="lime">①</Span>
       ）
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       同理，
       <BurnBabyBurn hover tag="32" />
@@ -345,7 +343,7 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="pink">4s</Span>
       的阶段
     </div>
-    <div class="gap-strat flex items-center pl-6">
+    <div class="paragraph pl-6">
       <ListDot />
       故
       <BurnBabyBurn hover tag="32" />
@@ -355,7 +353,7 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="lime">②</Span>
       ）
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       而解法示意图中的
       <Span variant="pink">粉色点</Span>
       斜向相邻的两个

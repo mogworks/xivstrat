@@ -1,0 +1,61 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import Bleeding from '@/components/buff/Bleeding.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import ShockCast from '../_components/ShockCast.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+  type: 'all' | 'half'
+}
+
+const { start, base = 0, type }: Props = Astro.props
+---
+
+<ShockCast start={start} base={base} />
+{
+  type === 'all' && (
+    <MechanicSection>
+      <div class="paragraph">
+        对
+        <RoleIcon role="all" tag="全员" />
+        附加
+        <Span variant="pink">钢铁</Span>或<Span variant="blue">月环</Span>
+        ，
+        <RoleIcon role="tank" />
+        <RoleIcon role="healer" />
+        必定是同一种，
+        <RoleIcon role="dps" />
+        必定是另一种
+      </div>
+    </MechanicSection>
+  )
+}
+
+{
+  type === 'half' && (
+    <MechanicSection>
+      <div class="paragraph">
+        对
+        <RoleIcon role="tank" />
+        <RoleIcon role="healer" />
+        或
+        <RoleIcon role="dps" />
+        附加
+        <Span variant="pink">月环</Span>
+      </div>
+    </MechanicSection>
+  )
+}

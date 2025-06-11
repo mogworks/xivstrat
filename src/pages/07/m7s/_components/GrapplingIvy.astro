@@ -1,0 +1,18 @@
+---
+import type { Time } from '@/lib/utils'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import EventSection from '@/components/section/EventSection.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+---
+
+<EventSection time={time} base={base}>
+  <BruteAbombinator />
+  移动至墙面，进入挂墙阶段
+</EventSection>

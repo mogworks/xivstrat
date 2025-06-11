@@ -1,0 +1,77 @@
+---
+import type { Time } from '@/lib/utils'
+import { timeToSeconds } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+const index = [...Array(8).keys()]
+const duration = 4.7
+const ability = '连震擊'
+
+const damageApplyTime =
+  start !== undefined
+    ? timeToSeconds(start) + duration + 0.3 // 修正延迟，计算伤害生效时间
+    : undefined
+
+//理论上是aoe一秒判定一次，锚定时间轴的logs里面有一个偏差，
+//如果需要可以更改为5s连续钢铁月环的写法
+---
+
+<CastSection
+  start={start}
+  base={base}
+  duration={duration}
+  ability={ability}
+  target="any"
+  targetTag="1人"
+  damage="800000"
+  damageType="magical"
+>
+  <HowlingBlade slot="source" />
+  <Badge variant="green">6m圆形</Badge>
+  <Badge variant="purple">8次连续分摊</Badge>
+</CastSection>
+
+{
+  index.map(
+    (i) =>
+      damageApplyTime !== undefined && (
+        <>
+          <EventSection time={damageApplyTime + i + 1}>
+            <RoleIcon role="all" tag="全员" />第<Span variant="pink"> {i + 1} </Span>次分摊
+            <Span variant="yellow"> {ability} </Span>
+            <DamageInfo damage="100000" type="magical" />
+            <Badge variant="emerald">6m圆形</Badge>
+            <Badge variant="yellow">分摊</Badge>
+          </EventSection>
+        </>
+      ),
+  )
+}
+
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">很痛，建议合理安排减伤和资源。</div>
+    <div class="paragraph">
+      8人分摊时伤害为
+      <DamageInfo damage="100000" type="magical" />
+      每人，7人分摊则是
+      <DamageInfo damage="115000" type="magical" />
+      每人。
+    </div>
+  </div>
+</NoteSection>

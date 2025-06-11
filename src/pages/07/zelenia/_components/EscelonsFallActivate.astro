@@ -1,0 +1,31 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Span from '@/components/Span.vue'
+
+import EventSection from '@/components/section/EventSection.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+  num: number
+  // toln: number
+}
+
+const { time, base = 0, num }: Props = Astro.props
+---
+
+<EventSection time={time} base={base}>
+  <Span variant="yellow">Escelons' Fall</Span>
+  第
+  <Span variant="pink">{num}</Span>
+  段伤害判定
+  <DamageInfo damage="40000" type="physical" />
+  <!-- 易伤图标需要替换 -->
+  <MagicVulnerabilityUp tag="5" hover />
+  <Badge variant="purple">远近引导</Badge>
+  <!-- <Badge variant="purple">远近引导 x{toln}</Badge> -->
+</EventSection>

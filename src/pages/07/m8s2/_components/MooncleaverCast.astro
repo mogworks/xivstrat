@@ -1,0 +1,34 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import GleamingFang from '../_components/entities/GleamingFang.astro'
+
+interface Props {
+  start: Time
+  target?: boolean
+  base?: Time
+}
+
+const { start, target = true, base = 0 }: Props = Astro.props
+
+const mooncleaver = '剛刃一閃'
+//预留target，软狂暴是同一个读条但是不对人
+---
+
+{
+  target ? (
+    <CastSection start={start} base={base} duration={4.7} ability={mooncleaver} target="any" targetTag="随机">
+      <HowlingBlade slot="source" />
+      <Badge variant="green">摧毁平台</Badge>
+    </CastSection>
+  ) : (
+    <CastSection start={start} base={base} duration={4.7} ability={mooncleaver}>
+      <HowlingBlade slot="source" />
+      <Badge variant="green">摧毁平台</Badge>
+    </CastSection>
+  )
+}

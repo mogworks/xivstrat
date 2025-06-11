@@ -4,15 +4,18 @@ import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
 import SBGR from './_mechanics/SBGR.astro'
 import Sporesplosion from './_mechanics/Sporesplosion.astro'
+import DDAB from './_mechanics/DDAB.astro'
 import StrangeSeeds from './_mechanics/StrangeSeeds.astro'
 import PowerSlam from './_components/PowerSlam.astro'
 import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
+import GrapplingIvy from './_components/GrapplingIvy.astro'
 
 const dutyId = '07/m7s'
 const base = '02:38.206'
 ---
 
 <DutyStratLayout dutyId={dutyId}>
+  <GrapplingIvy time="02:38.206" base={base} />
   <AttackSection time="02:43.372" base={base} damage="57000" damageType="physical" />
   <AttackSection time="02:46.402" base={base} damage="57000" damageType="physical" />
 
@@ -25,6 +28,8 @@ const base = '02:38.206'
 
   <SeparatorSection id="sporesplosion" title="Sporesplosion" />
   <Sporesplosion start="03:51.154" base={base} />
+  <SeparatorSection id="DDAB" title="Demolition Deathmatch + Abominable Blink" />
+  <DDAB start="04:26.262" base={base} />
 
   <SeparatorSection id="strange-seeds" title="StrangeSeeds" />
   <StrangeSeeds start="04:48.21" base={base} />

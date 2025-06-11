@@ -1,6 +1,6 @@
 ---
 import type { Time } from '@/lib/utils'
-import type { RoleType } from '@/lib/role'
+import type { CombinedRoleType, RoleType } from '@/lib/role'
 
 import { timeToSeconds } from '@/lib/utils'
 import Boss from '@/components/Boss.astro'
@@ -16,7 +16,7 @@ interface Props {
   end?: Time
   base?: Time
   ability?: string
-  target?: boolean | RoleType
+  target?: boolean | RoleType | CombinedRoleType
   targetTag?: string
   damage?: string
   damageType?: 'physical' | 'magical' | 'special'
@@ -50,7 +50,7 @@ const adjustedDuration = adjustDuration
   <div class="self-center justify-self-end px-4">
     <StratInterval start={start} duration={adjustedDuration} end={end} base={base} />
   </div>
-  <div class="flex items-center gap-1 px-4 text-lg">
+  <div class="flex flex-wrap items-center gap-1 px-4 text-lg">
     <slot name="source">
       <Boss />
     </slot>

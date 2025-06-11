@@ -1,0 +1,84 @@
+---
+import type { VariantType } from '@/lib/variant'
+
+import Span from '@/components/Span.vue'
+
+interface Props {
+  id: string
+  lVariant?: VariantType
+  rVariant?: VariantType
+  lLabel: string
+  rLabel: string
+}
+
+const { id, lVariant = 'default', rVariant = 'default', lLabel, rLabel } = Astro.props
+
+// unchecked 状态的颜色映射（动态使用tailwind时，类名必须完整，不能拼接）
+const uncheckedColorMap: Record<VariantType, string> = {
+  default: '',
+  red: 'bg-red-600',
+  orange: 'bg-orange-600',
+  amber: 'bg-amber-600',
+  yellow: 'bg-yellow-600',
+  lime: 'bg-lime-600',
+  green: 'bg-green-600',
+  emerald: 'bg-emerald-600',
+  teal: 'bg-teal-600',
+  cyan: 'bg-cyan-600',
+  sky: 'bg-sky-600',
+  blue: 'bg-blue-600',
+  indigo: 'bg-indigo-600',
+  violet: 'bg-violet-600',
+  purple: 'bg-purple-600',
+  fuchsia: 'bg-fuchsia-600',
+  pink: 'bg-pink-600',
+  rose: 'bg-rose-600',
+  slate: 'bg-slate-600',
+  gray: 'bg-gray-600',
+  zinc: 'bg-zinc-600',
+  neutral: 'bg-neutral-600',
+  stone: 'bg-stone-600',
+}
+
+// checked 状态的颜色映射（动态使用tailwind时，类名必须完整，不能拼接）
+const checkedColorMap: Record<VariantType, string> = {
+  default: 'peer-checked:bg-background',
+  red: 'peer-checked:bg-red-600',
+  orange: 'peer-checked:bg-orange-600',
+  amber: 'peer-checked:bg-amber-600',
+  yellow: 'peer-checked:bg-yellow-600',
+  lime: 'peer-checked:bg-lime-600',
+  green: 'peer-checked:bg-green-600',
+  emerald: 'peer-checked:bg-emerald-600',
+  teal: 'peer-checked:bg-teal-600',
+  cyan: 'peer-checked:bg-cyan-600',
+  sky: 'peer-checked:bg-sky-600',
+  blue: 'peer-checked:bg-blue-600',
+  indigo: 'peer-checked:bg-indigo-600',
+  violet: 'peer-checked:bg-violet-600',
+  purple: 'peer-checked:bg-purple-600',
+  fuchsia: 'peer-checked:bg-fuchsia-600',
+  pink: 'peer-checked:bg-pink-600',
+  rose: 'peer-checked:bg-rose-600',
+  slate: 'peer-checked:bg-slate-600',
+  gray: 'peer-checked:bg-gray-600',
+  zinc: 'peer-checked:bg-zinc-600',
+  neutral: 'peer-checked:bg-neutral-600',
+  stone: 'peer-checked:bg-stone-600',
+}
+
+const uncheckedClass = uncheckedColorMap[lVariant]
+const checkedClass = checkedColorMap[rVariant]
+---
+
+<div class="flex items-center gap-1">
+  <Span variant={lVariant}>{lLabel}</Span>
+  <label class="relative inline-flex cursor-pointer items-center">
+    <input type="checkbox" id={id} class="peer sr-only" />
+    <div
+      class={`peer h-6 w-11 rounded-full ${uncheckedClass} ${checkedClass} after:absolute after:top-[2px] after:left-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-full peer-checked:after:border-white`}
+    >
+    </div>
+  </label>
+  <Span variant={rVariant}>{rLabel}</Span>
+</div>

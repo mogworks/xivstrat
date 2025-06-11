@@ -47,7 +47,7 @@ const { base = 0 }: Props = Astro.props
     <div class="text-2xl">
       <FlipToXSideAbility />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       根据读条不同，
       <Span variant="pink">在下次</Span>
       <XSnapTwistAndDropTheNeedleAbility />
@@ -59,11 +59,11 @@ const { base = 0 }: Props = Astro.props
     </div>
     <div class="grid grid-cols-[minmax(0,22.5rem)_minmax(26rem,1fr)] gap-4">
       <Image src={flip_to_a_side_img} alt="Flip to A-side" class="border-2 border-amber-800/75 dark:border-amber-100" />
-      <div class="flex flex-col gap-4 relative rounded-md border border-dashed p-4">
+      <div class="relative flex flex-col gap-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
           <Span variant="yellow">Flip to A-side</Span>
         </h4>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           点名随机
           <span class="inline-flex items-center gap-px">
             1<RoleIcon role="tank" />1<RoleIcon role="healer" />1<RoleIcon role="dps" />
@@ -74,7 +74,7 @@ const { base = 0 }: Props = Astro.props
         </div>
         <div class="absolute right-4 bottom-4 flex flex-col items-center">
           <Image src={a_side_mark_img} alt="A-side Mark" class="w-60 drop-shadow-sm drop-shadow-black" />
-          <div class="gap-strat flex items-center">
+          <div class="paragraph">
             <Boss />
             头上会出现此标记
           </div>
@@ -82,11 +82,11 @@ const { base = 0 }: Props = Astro.props
       </div>
 
       <Image src={flip_to_b_side_img} alt="Flip to B-side" class="border-2 border-amber-800/75 dark:border-amber-100" />
-      <div class="flex flex-col gap-4 relative rounded-md border border-dashed p-4">
+      <div class="relative flex flex-col gap-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
           <Span variant="yellow">Flip to B-side</Span>
         </h4>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           点名
           <span class="inline-flex items-center gap-px">
             2<RoleIcon role="healer" />
@@ -95,14 +95,14 @@ const { base = 0 }: Props = Astro.props
           <DamageInfo damage="500000" type="magical" />
           <MagicVulnerabilityUp tag="2" hover />
         </div>
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           4人分摊时每人
           <DamageInfo damage="125000" type="magical" />
           <MagicVulnerabilityUp tag="2" hover />
         </div>
         <div class="absolute right-4 bottom-4 flex flex-col items-center">
           <Image src={b_side_mark_img} alt="B-side Mark" class="w-60 drop-shadow-sm drop-shadow-black" />
-          <div class="gap-strat flex items-center">
+          <div class="paragraph">
             <Boss />
             头上会出现此标记
           </div>
@@ -113,7 +113,7 @@ const { base = 0 }: Props = Astro.props
       <XSnapTwistAndDropTheNeedleAbility />
     </div>
     <div class="flex flex-col gap-4">
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         根据读条和特效不同，先攻击一侧半场
         <Span variant="yellow"
           ><Span variant="violet">(</Span>2<Span variant="violet">|</Span>3<Span variant="violet">|</Span>4<Span
@@ -131,7 +131,7 @@ const { base = 0 }: Props = Astro.props
             alt="(2|3|4)-snap Twist & Drop the Needle (Left First)"
             class="border-2 border-amber-800/75 dark:border-amber-100"
           />
-          <div class="gap-strat flex items-center">
+          <div class="paragraph">
             先攻击左侧半场
             <Span variant="yellow"
               ><Span variant="violet">(</Span>2<Span variant="violet">|</Span>3<Span variant="violet">|</Span>4<Span
@@ -149,7 +149,7 @@ const { base = 0 }: Props = Astro.props
             alt="(2|3|4)-snap Twist & Drop the Needle (Right First)"
             class="border-2 border-amber-800/75 dark:border-amber-100"
           />
-          <div class="gap-strat flex items-center">
+          <div class="paragraph">
             先攻击右侧半场
             <Span variant="yellow"
               ><Span variant="violet">(</Span>2<Span variant="violet">|</Span>3<Span variant="violet">|</Span>4<Span
@@ -162,7 +162,7 @@ const { base = 0 }: Props = Astro.props
           </div>
         </div>
       </div>
-      <div class="gap-strat flex items-center">
+      <div class="paragraph">
         <Span variant="pink">之后会紧接</Span>
         <FlipToXSideAbility />
         <Span variant="pink">的追加攻击</Span>
@@ -172,14 +172,14 @@ const { base = 0 }: Props = Astro.props
 </MechanicSection>
 <SolutionSection id="flip-to-x-side-jp" title="解法：日野主流">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       先根据读条和特效躲避
       <XSnapTwistAndDropTheNeedleAbility />
       ，最后
       <Span variant="pink">统一</Span>
       如下站位：
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <RoleIcon role="tank" />
       <RoleIcon role="dps" />
       站在
@@ -197,7 +197,7 @@ const { base = 0 }: Props = Astro.props
           alt="Flip to (A|B)-side Solution"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">站位参考</div>
+        <div class="paragraph">站位参考</div>
       </div>
       <div class="flex flex-col items-center gap-2">
         <Image
@@ -205,7 +205,7 @@ const { base = 0 }: Props = Astro.props
           alt="Flip to (A|B)-side Solution: Flip to A-side"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           情形1：
           <Span variant="yellow">Flip to A-side</Span>
         </div>
@@ -216,14 +216,14 @@ const { base = 0 }: Props = Astro.props
           alt="Flip to (A|B)-side Solution: Flip to B-side"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           情形2：
           <Span variant="yellow">Flip to B-side</Span>
         </div>
       </div>
     </div>
-    <div class="gap-strat flex items-center">由于扇形分散的角度较窄，而直线分摊的宽度较宽</div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">由于扇形分散的角度较窄，而直线分摊的宽度较宽</div>
+    <div class="paragraph">
       因此，只要按上图站位，无论之前读条是
       <Span variant="yellow">Flip to A-side</Span>
       还是
@@ -235,21 +235,21 @@ const { base = 0 }: Props = Astro.props
 </SolutionSection>
 <SolutionSection title="解法：三五分摊">
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       先根据读条和特效躲避
       <XSnapTwistAndDropTheNeedleAbility />
       ，
       <Span variant="pink">躲完最后一刀后</Span>
       如下站位：
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="healer" />
       站在
       <Span variant="pink">场地中轴线</Span>
       上
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <ListDot />
       <RoleIcon role="tank" />
       <RoleIcon role="dps" />
@@ -265,7 +265,7 @@ const { base = 0 }: Props = Astro.props
           alt="Flip to (A|B)-side Solution (35)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">站位参考</div>
+        <div class="paragraph">站位参考</div>
       </div>
       <div class="flex flex-col items-center gap-2">
         <Image
@@ -273,7 +273,7 @@ const { base = 0 }: Props = Astro.props
           alt="Flip to (A|B)-side Solution: Flip to A-side (35)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           情形1：
           <Span variant="yellow">Flip to A-side</Span>
         </div>
@@ -284,19 +284,19 @@ const { base = 0 }: Props = Astro.props
           alt="Flip to (A|B)-side Solution: Flip to B-side (35)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
-        <div class="gap-strat flex items-center">
+        <div class="paragraph">
           情形2：
           <Span variant="yellow">Flip to B-side</Span>
         </div>
       </div>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       <Span variant="pink">注意上图是以左右刀最后一刀打右半场为例，若最后一刀打左半场，则</Span>
       <RoleIcon role="tank" />
       <RoleIcon role="dps" />
       <Span variant="pink">的站位是镜像对称的</Span>
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       与
       <StratLink variant="lime" href="#flip-to-x-side-jp">解法：日野主流</StratLink>
       相比，同样可以无视
@@ -304,7 +304,7 @@ const { base = 0 }: Props = Astro.props
       ，并且不需要再穿回之前的危险半场，利好
       <RoleIcon role="magic" />
     </div>
-    <div class="gap-strat flex items-center">
+    <div class="paragraph">
       代价是
       <RoleIcon role="healer" tag="H1" />
       要注意给自己单减，否则三人分摊可能会暴毙
