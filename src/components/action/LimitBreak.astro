@@ -7,34 +7,31 @@ import Action from '@/components/Action.astro'
 
 import icon from '@/assets/action/31399.png'
 import RoleIcon from '@/components/RoleIcon.astro'
+import EntityText from '@/components/EntityText.astro'
 
 interface Props {
   class?: string
   actionClass?: string
   role?: RoleType | CombinedRoleType
   stage?: 0 | 1 | 2 | 3
-  tag?: string
 }
 
-const { actionClass = '', class: className = '', role, stage, tag }: Props = Astro.props
+const { actionClass = '', class: className = '', role, stage }: Props = Astro.props
 ---
 
-<div class={cn('relative inline-flex', className)}>
+<div class={cn('relative inline-flex', className)} data-icon="standard-icon">
   {role && <RoleIcon role={role} class="relative -bottom-2 left-2.5 z-10 -ml-3" />}
   <Action icon={icon} name="极限技" class={actionClass} />
   {
-    (tag || stage !== void 0) && (
+    stage && (
       <div class="text-decimal -ml-0.5 inline-flex items-center rounded-sm rounded-l-none border-1 border-l-0 border-[#E4C78B] bg-gradient-to-r from-amber-400 to-amber-600 pr-1.5 pl-2.5 font-semibold text-white dark:border-[#6E2913] dark:from-amber-500 dark:to-amber-700">
-        {tag ? (
-          tag
-        ) : stage ? (
-          <>
-            <span class="mr-px">LB</span>×<span class="ml-px">{stage}</span>
-          </>
-        ) : (
-          ''
-        )}
+        <span class="mr-px">LB</span>×<span class="ml-px">{stage}</span>
       </div>
     )
   }
 </div>
+<EntityText class={cn('relative inline-flex font-bold', className)}>
+  {role && <RoleIcon role={role} />}
+  <span>LB</span>
+  {stage && <span>×{stage}</span>}
+</EntityText>

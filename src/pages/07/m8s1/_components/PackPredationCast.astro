@@ -15,7 +15,7 @@ import StonepackDebuff from '../_components/StonepackDebuff.astro'
 import WindborneEndDebuff from '../_components/WindborneEndDebuff.astro'
 import EarthborneEndDebuff from '../_components/EarthborneEndDebuff.astro'
 
-import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 import StoneWolfheadIcon from '../_components/StoneWolfheadIcon.astro'
 
 interface Props {
@@ -41,13 +41,13 @@ const damageApplyTime =
 ---
 
 <CastSection start={start} base={base} duration={duration} ability={ability} {...rest}>
-  <WindWolfheadIcon slot="source" />
+  <WolfOfWind slot="source" />
   <StoneWolfheadIcon slot="source" />
   <Badge variant="green">点名</Badge>
 </CastSection>
 
 <EventSection time={damageApplyTime}>
-  <WindWolfheadIcon />
+  <WolfOfWind />
   对 1<RoleIcon role="tank" />
   使用
   <Span variant="yellow"> {alphaWind} </Span>
@@ -69,7 +69,7 @@ const damageApplyTime =
 </EventSection>
 
 <EventSection time={damageApplyTime}>
-  <WindWolfheadIcon />
+  <WolfOfWind />
   对 1<RoleIcon role="healer" />
   2<RoleIcon role="dps" />
   使用

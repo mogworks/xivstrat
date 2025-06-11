@@ -11,8 +11,8 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 
-import HowlingBlade from '../_components/HowlingBlade.astro'
-import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 import StoneWolfheadIcon from '../_components/StoneWolfheadIcon.astro'
 
 import WindpackDebuff from '../_components/WindpackDebuff.astro'
@@ -46,7 +46,7 @@ const { time, base = 0 }: Props = Astro.props
 
     <div class="paragraph">
       <HowlingBlade />上天，预示着小怪阶段开始。 此时场地东西侧会出现
-      <WindWolfheadIcon />
+      <WolfOfWind />
       <StoneWolfheadIcon />
       并连线玩家。
     </div>
@@ -65,7 +65,7 @@ const { time, base = 0 }: Props = Astro.props
     </div>
 
     <div class="paragraph pl-6">
-      <WindpackDebuff hover />：无法对<WindWolfheadIcon />造成伤害。
+      <WindpackDebuff hover />：无法对<WolfOfWind />造成伤害。
     </div>
 
     <div class="paragraph pl-6">
@@ -107,7 +107,7 @@ const { time, base = 0 }: Props = Astro.props
     <div class="paragraph">绿色的球和黄色正方体开始顺时针或逆时针绕场地旋转。</div>
 
     <div class="paragraph">
-      随后，<WindWolfheadIcon /><StoneWolfheadIcon />开始读条
+      随后，<WolfOfWind /><StoneWolfheadIcon />开始读条
       <Span variant="yellow">{packPredation}</Span>
       分别对当前
       <RoleIcon role="tank" />
@@ -131,7 +131,7 @@ const { time, base = 0 }: Props = Astro.props
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       连线出现，我们首先把连线拉长，去对面的
-      <WindWolfheadIcon />
+      <WolfOfWind />
       <StoneWolfheadIcon />
       等待
       <Span variant="green">{greenBall}</Span>
@@ -148,7 +148,7 @@ const { time, base = 0 }: Props = Astro.props
     <div class="paragraph">
       之后，
       <RoleIcon role="tank" />将
-      <WindWolfheadIcon />
+      <WolfOfWind />
       <StoneWolfheadIcon />
       面向同色的方向，跟随
       <Span variant="green">{greenBall}</Span>
@@ -166,7 +166,7 @@ const { time, base = 0 }: Props = Astro.props
 
     <div class="paragraph pl-6">
       因为
-      <WindWolfheadIcon />
+      <WolfOfWind />
       <StoneWolfheadIcon />
       开始读条
       <Span variant="yellow">{packPredation}</Span>
@@ -179,7 +179,7 @@ const { time, base = 0 }: Props = Astro.props
 
     <div class="paragraph">
       人群站在
-      <WindWolfheadIcon />
+      <WolfOfWind />
       <StoneWolfheadIcon />
       后面，等待点名出现。伤害判定后，等
       <MagicVulnerabilityUp tag="1" hover />
@@ -225,7 +225,7 @@ const { time, base = 0 }: Props = Astro.props
 
     <div class="paragraph">
       所有debuff消除后，
-      <WindWolfheadIcon />
+      <WolfOfWind />
       <StoneWolfheadIcon />
       开始读条狂暴，请尽快击杀。
     </div>

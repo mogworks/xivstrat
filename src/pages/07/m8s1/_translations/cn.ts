@@ -5,4 +5,13 @@ export const translations = {
   revolutionaryReign: '旋击群狼剑',
   eminentReign: '扫击群狼剑',
   wolvesReign: '群狼剑',
+  reignsEnd: '群狼斩波',
+  sovereignScar: '重冲波',
+  millennialDecay: '千年风化',
+  breathOfDecay: '千年风啸',
+  aeroIII: '暴风',
+  gust: '旋风',
+  prowlingGale: '风狼阵',
+  windsOfDecay: '千年狂风',
+  greatWhirlwind: '大旋风',
 }

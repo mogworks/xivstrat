@@ -16,6 +16,25 @@ import { $stratSettings } from '@/stores/stratSettings'
 
 const stratSettings = useStore($stratSettings)
 
+const readModeSetting = {
+  name: '阅读模式',
+  options: [
+    {
+      id: 'standard',
+      name: '标准模式',
+      description: '职能图标、敌人图标等正常显示，文本高亮色正常显示',
+    },
+    {
+      id: 'minimal',
+      name: '简洁模式',
+      description: '职能图标、敌人图标等以文字显示，文本不显示高亮色',
+    },
+  ],
+  onChange: (value: string) => {
+    $stratSettings.setKey('readMode', value as 'standard' | 'minimal')
+  },
+}
+
 const viewModeSetting = {
   name: '视图模式',
   options: [
@@ -106,6 +125,25 @@ const timeFormatSetting = {
     $stratSettings.setKey('timeFormat', value as 'mm:ss' | 's')
   },
 }
+
+const pixijsApiPreferenceSetting = {
+  name: '动态演示优先使用的图形API（修改后需要刷新页面）',
+  options: [
+    {
+      id: 'webgpu',
+      name: 'WebGPU',
+      description: '默认选项，性能更好，但部分较旧的浏览器可能有兼容性问题，若遇到动态演示不动，请尝试切换到 WebGL',
+    },
+    {
+      id: 'webgl',
+      name: 'WebGL',
+      description: '性能稍差一些，但兼容性更好',
+    },
+  ],
+  onChange: (value: string) => {
+    $stratSettings.setKey('pixijsApiPreference', value as 'webgpu' | 'webgl')
+  },
+}
 </script>
 
 <template>
@@ -113,7 +151,9 @@ const timeFormatSetting = {
     <DialogTrigger as-child>
       <TriggerButton />
     </DialogTrigger>
-    <DialogContent class="mx-auto flex w-[90vw] max-w-xs flex-col gap-0 p-0 sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl">
+    <DialogContent
+      class="mx-auto flex w-[90vw] max-w-xs flex-col gap-0 p-0 sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-3xl"
+    >
       <DialogHeader class="contents space-y-0 text-left">
         <DialogTitle class="p-4 text-xl">
           页面设置
@@ -122,6 +162,12 @@ const timeFormatSetting = {
       </DialogHeader>
       <Separator />
       <div class="flex max-h-[65vh] flex-col gap-4 overflow-y-auto p-4">
+        <RadioGroup
+          :name="readModeSetting.name"
+          :default-value="stratSettings.readMode"
+          :options="readModeSetting.options"
+          :on-value-change="readModeSetting.onChange"
+        />
         <RadioGroup
           :name="viewModeSetting.name"
           :default-value="stratSettings.viewMode"
@@ -146,6 +192,12 @@ const timeFormatSetting = {
           :default-value="stratSettings.timeFormat"
           :options="timeFormatSetting.options"
           :on-value-change="timeFormatSetting.onChange"
+        />
+        <RadioGroup
+          :name="pixijsApiPreferenceSetting.name"
+          :default-value="stratSettings.pixijsApiPreference"
+          :options="pixijsApiPreferenceSetting.options"
+          :on-value-change="pixijsApiPreferenceSetting.onChange"
         />
       </div>
     </DialogContent>

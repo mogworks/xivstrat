@@ -12,7 +12,7 @@ import StonepackDebuff from '../_components/StonepackDebuff.astro'
 import WindborneEndDebuff from '../_components/WindborneEndDebuff.astro'
 import EarthborneEndDebuff from '../_components/EarthborneEndDebuff.astro'
 
-import WindWolfheadIcon from '../_components/WindWolfheadIcon.astro'
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 import StoneWolfheadIcon from '../_components/StoneWolfheadIcon.astro'
 
 interface Props {
@@ -42,7 +42,7 @@ const damageApplyTime =
   damageType="magical"
   {...rest}
 >
-  <WindWolfheadIcon slot="source" />
+  <WolfOfWind slot="source" />
   <StoneWolfheadIcon slot="source" />
   <Badge variant="yellow">AoE</Badge>
 </CastSection>

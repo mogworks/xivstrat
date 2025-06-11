@@ -10,7 +10,7 @@ import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 
-import HowlingBlade from '../_components/HowlingBlade.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
 interface Props {
   start: Time
@@ -37,12 +37,12 @@ const damageApplyTime =
   duration={duration}
   ability={ability}
   target="any"
-  targetTag="1"
+  targetTag="1人"
   damage="800000"
   damageType="magical"
 >
   <HowlingBlade slot="source" />
-  <Badge variant="green">6m</Badge>
+  <Badge variant="green">6m圆形</Badge>
   <Badge variant="purple">8次连续分摊</Badge>
 </CastSection>
 
@@ -52,10 +52,10 @@ const damageApplyTime =
       damageApplyTime !== undefined && (
         <>
           <EventSection time={damageApplyTime + i + 1}>
-            <RoleIcon role="all" />
-            分摊
+            <RoleIcon role="all" tag="全员" />第<Span variant="pink"> {i + 1} </Span>次分摊
             <Span variant="yellow"> {ability} </Span>
-            <DamageInfo damage="800000" type="magical" />
+            <DamageInfo damage="100000" type="magical" />
+            <Badge variant="emerald">6m圆形</Badge>
             <Badge variant="yellow">分摊</Badge>
           </EventSection>
         </>

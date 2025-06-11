@@ -2,6 +2,7 @@
 import type { Time } from '@/lib/utils'
 
 import { Image } from 'astro:assets'
+import Tmp from '@/assets/07/m7s/Tmp.png'
 
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
@@ -43,17 +44,25 @@ import WindingWildwindsCast from '../_components/WindingWildwindsCast.astro'
 import PollenCast from '../_components/PollenCast.astro'
 import QuarrySwampCast from '../_components/QuarrySwampCast.astro'
 import HurricaneForceCast from '../_components/HurricaneForceCast.astro'
-
 import BloomingAbomination from '../_components/BloomingAbomination.astro'
 import BloomingAbominationSimplified from '../_components/BloomingAbominationSimplified.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
+import { translations } from '../_translations'
+import { TvMinimalPlay } from 'lucide-vue-next'
 
 interface Props {
   base: Time
 }
 
 const { base = 0 }: Props = Astro.props
+const impact = translations.impact
+const sinisterSeeds = translations.sinisterSeeds
+const windingWildwinds = translations.windingWildwinds
+const crossingCrosswinds = translations.crossingCrosswinds
+const hurricaneForce = translations.hurricaneForce
+const quarrySwamp = translations.quarrySwamp
+const bloomingAbomination = translations.bloomingAbomination
 ---
 
 <SporeSacCast start="00:40.052" end="00:43.039" base={base} />
@@ -64,13 +73,13 @@ const { base = 0 }: Props = Astro.props
 </EventSection>
 <EventSection time="01:01.133">
   分散点名伤害判定
-  <DamageInfo damage="120000" type="magical" />
+  <DamageInfo damage="130000" type="magical" />
   <MagicVulnerabilityUp tag="2" hover />
   ，随后在判定位置生成米字形AoE提示
 </EventSection>
 <EventSection time="01:05.678">
   米字形AoE判定，同时
-  <Span variant="yellow">Impact</Span>
+  <Span variant="yellow">{impact}</Span>
   判定
   <DamageInfo damage="150000" type="magical" />
   <MagicVulnerabilityUp tag="2" hover />
@@ -162,7 +171,7 @@ const { base = 0 }: Props = Astro.props
     </div>
     <div class="paragraph">
       随后以<Span variant="green">种子</Span>和藤蔓的终点为中心释放圆形AoE，造成
-      <DamageInfo damage="120000" type="magical" />
+      <DamageInfo damage="130000" type="magical" />
       <DamageDown tag="30" hover />
       <Badge variant="emerald">8m圆形</Badge>
     </div>
@@ -201,12 +210,12 @@ const { base = 0 }: Props = Astro.props
       <RoleIcon role="all" tag="一仇" />的普通攻击， 对<RoleIcon role="tank" />造成<DamageInfo
         damage="28000"
         type="physical"
-      />， 对<RoleIcon role="all" tag="非T" />造成<DamageInfo damage="45000" type="physical" />
+      />， 对<RoleIcon role="healer|dps" />造成<DamageInfo damage="45000" type="physical" />
     </div>
   </div>
   <div class="flex flex-col gap-4">
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Impact</Span>
+      <Span variant="yellow">{impact}</Span>
     </h4>
     <div class="paragraph">
       点名 2<RoleIcon role="healer" />
@@ -291,7 +300,7 @@ const { base = 0 }: Props = Astro.props
       <Span variant="lime">放置冰花与追踪AoE</Span>
     </h4>
     <div class="paragraph">
-      由于 <Span variant="yellow">Sinister Seeds</Span>
+      由于 <Span variant="yellow">{sinisterSeeds}</Span>
       的机制效果为选择最远或最近的四人释放放置<Span variant="pink">冰花</Span>的分散点名，并点其余四人追踪式AoE
     </div>
     <div class="paragraph">
@@ -397,12 +406,12 @@ const { base = 0 }: Props = Astro.props
       在放置冰花或追踪Aoe的过程中，<BloomingAbomination num={4} />
       会生成在<Span variant="green">种子</Span>落下的地方
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       我们规定，让
       <RoleIcon role="tank" tag="MT" />拉
-      <Span variant="cyan">左半场</Span>两只大王花，
+      <Span variant="cyan">左半场</Span>两只<BloomingAbominationSimplified />，
       <RoleIcon role="tank" tag="ST" />拉
-      <Span variant="cyan">右半场</Span>两只大王花，方便处理后续机制
+      <Span variant="cyan">右半场</Span>两只<BloomingAbominationSimplified />， 方便处理后续机制
     </div>
     <div class="paragraph">
       由于此时角色处于跑位过程中，
@@ -441,9 +450,109 @@ const { base = 0 }: Props = Astro.props
       <Span variant="pink">冰花</Span>
       的同时参与点名 2
       <RoleIcon role="healer" />的分摊
-      <Span variant="yellow">Impact</Span>
+      <Span variant="yellow">{impact}</Span>
     </div>
     <Image src={impact_solution} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+  </div>
+</SolutionSection>
+
+<SolutionSection title="解法：nO2魔改">
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="lime">初始站位</Span>
+    </h4>
+    <div class="shrink-0 grow space-y-4">
+      <div class="paragraph">
+        在<Span variant="green">种子</Span>落下后，
+        <RoleIcon role="all" tag="所有人" />初始站位如图：
+      </div>
+      <div class="flex gap-4">
+        <div class="max-w-90 shrink">
+          <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col gap-4">
+    <h4 class="mt-8 text-2xl">
+      <Span variant="lime">躲避藤蔓</Span>
+    </h4>
+    <div class="paragraph">
+      观察<Span variant="pink">最南边一个</Span>藤蔓的生长方向，如果<Span variant="pink">没有向北</Span
+      >生长，则全员在其<Span variant="pink">正北</Span>的内场安全区集合
+    </div>
+    <div class="paragraph">
+      如果<Span variant="pink">向北</Span>生长，则全员在其北侧的<Span variant="pink">另一个</Span>内场安全区集合
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      近战组（即
+      <RoleIcon role="tank" tag="MT" /><RoleIcon role="tank" tag="ST" />
+      <RoleIcon role="melee" tag="D1" /><RoleIcon role="melee" tag="D2" />） 在内场安全区
+      <Span variant="pink">靠近</Span><RoleIcon role="boss" tag="boss" />处集合
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      远程组（即
+      <RoleIcon role="healer" tag="H1" /><RoleIcon role="healer" tag="H2" />
+      <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />）在内场安全区
+      <Span variant="pink">远离</Span><RoleIcon role="boss" tag="boss" />处集合
+    </div>
+    <div class="paragraph">站位示意图如下：</div>
+    <div class="flex gap-4">
+      <div class="max-w-90 shrink">
+        <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col gap-4">
+    <h4 class="mt-8 text-2xl">
+      <Span variant="lime">放置冰花与追踪AOE</Span>
+    </h4>
+    <div class="paragraph">
+      <RoleIcon role="all" tag="所有人" />观察自身点名情况：
+    </div>
+    <div class="paragraph">
+      <ListDot />如果被点<Span variant="yellow">黄圈</Span>，则以<Span variant="pink">A点方向</Span>为起点，<Span
+        variant="pink">顺时针</Span
+      ><Span variant="emerald">正点方向</Span><Span variant="cyan">尽量靠近内场</Span>放置剩下三个黄圈
+    </div>
+    <div class="paragraph">
+      <ListDot />如果被点<Span variant="yellow">冰花</Span>，则前往自己放花位置所在的<Span variant="emerald">斜点</Span
+      >附近待机，准时放花
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">冰花AOE伤害</Span>与<Span variant="yellow">第三轮黄圈伤害</Span><Span variant="pink"
+        >同时</Span
+      >，<Span variant="red">吃重会死</Span>，所以请无论如何不要让<Span variant="pink">第三轮黄圈</Span>覆盖到<Span
+        variant="emerald">斜点</Span
+      >
+    </div>
+    <div class="paragraph">四轮黄圈与放冰花示意图如下：</div>
+    <div class="flex gap-4">
+      <div class="max-w-90 shrink">
+        <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col gap-4">
+    <h4 class="mt-8 text-2xl">
+      <Span variant="lime">躲避冰花并分摊</Span>
+    </h4>
+    <div class="paragraph">
+      在<Span variant="pink">第四轮</Span>黄圈<Span variant="pink">消失</Span>后，前往分摊，解法与game8原版相同
+    </div>
+  </div>
+  <div class="mt-8 flex flex-col gap-4">
+    <div class="paragraph">
+      与原版相比，魔改后 <RoleIcon role="melee" tag="近战" />不再需要远离boss放置黄圈，uptime提高
+    </div>
+    <div class="paragraph">与game8原版相比，初始时全员站位集中，便于 <RoleIcon role="healer" tag="治疗" />预铺</div>
+    <div class="paragraph">
+      <span class="line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700"
+        >此解法魔改自欧服野队raidplan，其链接最后三个字符为nO2，在招募版上被如此称呼</span
+      >
+    </div>
   </div>
 </SolutionSection>
 
@@ -472,7 +581,7 @@ const { base = 0 }: Props = Astro.props
     <h4 class="text-2xl">
       <Span variant="yellow">Roots of Evil</Span>
     </h4>
-    <div class="paragraph flex-wrap">之前判定的四连追踪AoE扩大范围后，统一再判定一次，如下图所示：</div>
+    <div class="paragraph">之前判定的四连追踪AoE扩大范围后，统一再判定一次，如下图所示：</div>
     <div class="grid grid-cols-3 gap-x-2 gap-y-4">
       <div class="flex flex-col items-center gap-1">
         <Image src={roots_of_evil_1} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
@@ -487,97 +596,116 @@ const { base = 0 }: Props = Astro.props
 
   <div class="flex flex-col gap-4">
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Winding Wildwinds / Crossing Crosswinds</Span>
+      <Span variant="yellow">{windingWildwinds} / {crossingCrosswinds}</Span>
     </h4>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       <BloomingAbominationSimplified />
       以自身为中心释放
       <Span variant="green">可被打断的</Span>
       月环/十字形AoE
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       其中，必定有两只<BloomingAbominationSimplified />读条
-      <Span variant="yellow">Winding Wildwinds</Span>
+      <Span variant="yellow">{windingWildwinds}</Span>
       ，释放月环
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       另外两只<BloomingAbominationSimplified />读条
-      <Span variant="yellow">Crossing Crosswinds</Span>
+      <Span variant="yellow">{crossingCrosswinds}</Span>
       ，释放十字形AoE
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       小怪在AoE读条完毕不久后，会读条狂暴技能
-      <Span variant="yellow">Hurricane Force</Span>
+      <Span variant="yellow">{hurricaneForce}</Span>
       <DamageInfo damage="9999999" type="special" />
     </div>
   </div>
   <div class="mt-4 grid grid-cols-3 gap-x-2 gap-y-4">
     <div class="flex flex-col items-center gap-1">
       <Image src={winding_wildwinds} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      <div>Winding Wildwinds</div>
+      <div>{windingWildwinds}</div>
     </div>
     <div class="flex flex-col items-center gap-1">
       <Image src={crossing_crosswinds} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      <div>Crossing Crosswinds</div>
+      <div>{crossingCrosswinds}</div>
     </div>
   </div>
 
   <div class="flex flex-col gap-4">
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Quarry Swamp</Span>
+      <Span variant="yellow">{quarrySwamp}</Span>
     </h4>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       <BruteAbombinator />
       释放全屏石化，石化全体玩家
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       但玩家可以躲在
       <BloomingAbominationSimplified />
       的尸体后（无需背对）来躲避石化
       <span class="pl-2 line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700">
-        谢谢你，大王花
+        谢谢你，{bloomingAbomination}
       </span>
     </div>
   </div>
 </MechanicSection>
 
-<SolutionSection>
+<SolutionSection title="解法：Game8原版">
   <div class="flex flex-col gap-4">
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       在躲避<Span variant="yellow">Roots of Evil</Span>时，
       <RoleIcon role="tank" />将小怪拉到场地<Span variant="cyan">西侧或北侧</Span>的安全区
     </div>
-    <div class="paragraph flex-wrap">
-      当小怪读条<Span variant="yellow">Winding Wildwinds / Crossing Crosswinds</Span>时，
+    <div class="paragraph">
+      当小怪读条<Span variant="yellow">{windingWildwinds} / {crossingCrosswinds}</Span>时，
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       我们让<RoleIcon role="tank" />使用<Span variant="pink">插言</Span>
-      优先打断正在读条<Span variant="yellow">Winding Wildwinds</Span>（即正在释放月环）的
+      优先打断正在读条<Span variant="yellow">{windingWildwinds}</Span>（即正在释放月环）的
       <BloomingAbominationSimplified />
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       为了防止重复打断，这里我们规定，按照仇恨列表的顺序，
       <RoleIcon role="tank" tag="MT" /><Span variant="cyan">从上往下</Span>打断，
       <RoleIcon role="tank" tag="ST" /><Span variant="cyan">从下往上</Span>打断
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       此外，<RoleIcon role="ranged" tag="D3" />也可以使用<Span variant="pink">伤头</Span>
       帮助队友进行打断
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       例如，当仇恨列表如下图所示时，
       <RoleIcon role="tank" tag="MT" />应当打断第二只<BloomingAbominationSimplified />，
       <RoleIcon role="tank" tag="ST" />应当打断第四只<BloomingAbominationSimplified />
     </div>
     <Image src={bloomings} alt="" class="w-62 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       同时，<RoleIcon role="all" tag="所有人" />集火， 在<BloomingAbominationSimplified />狂暴之前将其全部击杀
     </div>
-    <div class="paragraph flex-wrap">
+    <div class="paragraph">
       击杀<BloomingAbominationSimplified />后，
       <RoleIcon role="tank" tag="MT" />将<BruteAbombinator />
       拉到<BloomingAbominationSimplified />的尸体附近，利用小怪尸体阻挡石化
     </div>
     <Image src={quarry_swamp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+  </div>
+</SolutionSection>
+<SolutionSection title="解法：nO2魔改">
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      基于黄圈放置的位置，
+      <RoleIcon role="tank" />将小怪拉到场地<Span variant="pink">西北</Span>的安全区
+    </div>
+    <div class="paragraph">
+      <RoleIcon role="healer|dps" tag="其他人" />跟随T的位置，一起躲避
+      <Span variant="yellow">Roots of Evil</Span>
+    </div>
+    <div class="paragraph">扩大的黄圈范围及人群位置示意图如下：</div>
+    <div class="flex gap-4">
+      <div class="max-w-90 shrink">
+        <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      </div>
+    </div>
+    <div class="paragraph">后续处理同game8原版</div>
   </div>
 </SolutionSection>

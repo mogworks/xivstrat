@@ -4,27 +4,33 @@ import type { Time } from '@/lib/utils'
 import Badge from '@/components/Badge.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
+import Span from '@/components/Span.vue'
+import RoleIcon from '@/components/RoleIcon.astro'
+
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
   base?: Time
-  [key: string]: any
 }
 
-const ability = 'Prowling Gale'
+const ability = translations.prowlingGale
 const damage = '75000'
 const damageType = 'magical'
 
-const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
-
-// 踩塔，无易伤
-// TODO:这里塔可以换成icon
+const { time, base = 0 }: Props = Astro.props
 ---
 
 <EventSection time={time} base={base}>
-  塔
+  <Span variant="rose">塔×4</Span>
+  判定，对
+  <Span variant="pink">4</Span>
+  <RoleIcon role="tank|healer" />
+  或
+  <Span variant="pink">4</Span>
+  <RoleIcon role="dps" />
+  造成
+  <Span variant="yellow">{ability}</Span>
   <DamageInfo damage={damage} type={damageType} />
-
-  <Badge variant="green">踩塔</Badge>
-  <Badge variant="yellow">AoE</Badge>
+  <Badge variant="yellow">踩塔</Badge>
 </EventSection>
