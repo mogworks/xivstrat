@@ -5,23 +5,20 @@ interface Props {
   alt?: string
 }
 
-// props解构，有默认值
 const { tag = 'z1', class: className = '', alt = tag }: Props = Astro.props
 
-// 导入图片资源
-import z1 from '/pixi/mark/z1.png?url'
-import z2 from '/pixi/mark/z2.png?url'
-import z3 from '/pixi/mark/z3.png?url'
-import z4 from '/pixi/mark/z4.png?url'
-import za from '/pixi/mark/za.png?url'
-import zb from '/pixi/mark/zb.png?url'
-import zc from '/pixi/mark/zc.png?url'
-import zd from '/pixi/mark/zd.png?url'
+import z1 from '@/assets/mark/z1.png'
+import z2 from '@/assets/mark/z2.png'
+import z3 from '@/assets/mark/z3.png'
+import z4 from '@/assets/mark/z4.png'
+import za from '@/assets/mark/za.png'
+import zb from '@/assets/mark/zb.png'
+import zc from '@/assets/mark/zc.png'
+import zd from '@/assets/mark/zd.png'
 
-// tag到图片的映射
 const img = {
   z1, z2, z3, z4, za, zb, zc, zd,
 }[tag]
 ---
 
-<img src={img} alt={alt} class={className} width="30" height="30" />
+<img src={img.src} alt={alt} class={className} width="30" height="30" />
