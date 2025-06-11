@@ -1,15 +1,30 @@
 ---
 import type { ImageMetadata } from 'astro'
+import type { Role } from './role'
 import { Image } from 'astro:assets'
 
 interface Props {
   icon?: ImageMetadata
+  role: Role
+  recast: number
+  duration: number
+  physical: number
+  magical: number
+  special: number
 }
 
-const { icon = undefined }: Props = Astro.props
+const { icon = undefined, role, recast, duration, physical, magical, special }: Props = Astro.props
 ---
 
-<div class="flex w-16 flex-col items-center -space-y-1">
+<ff14-action
+  class="flex w-16 flex-col items-center -space-y-1"
+  data-role={role}
+  data-recast={recast}
+  data-duration={duration}
+  data-physical={physical}
+  data-magical={magical}
+  data-special={special}
+>
   <div class="relative">
     <slot>
       {icon && <Image src={icon} alt="" />}
@@ -21,4 +36,20 @@ const { icon = undefined }: Props = Astro.props
     </span>
   </div>
   <span class="text-3xl text-[#68FC64] opacity-0 text-shadow-[#3C8E3E] text-shadow-xs">00</span>
-</div>
+</ff14-action>
+
+<script>
+  class FF14Action extends HTMLElement {
+    connectedCallback() {
+      const role = this.dataset.role
+      const recast = this.dataset.recast
+      const duration = this.dataset.duration
+      const physical = this.dataset.physical
+      const magical = this.dataset.magical
+      const special = this.dataset.special
+      console.log(role, recast, duration, physical, magical, special)
+    }
+  }
+
+  customElements.define('ff14-action', FF14Action)
+</script>

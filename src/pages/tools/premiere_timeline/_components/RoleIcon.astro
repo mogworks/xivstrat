@@ -1,4 +1,6 @@
 ---
+import type { Role } from './role'
+
 import { Image } from 'astro:assets'
 
 import D1 from '../_assets/D1.png'
@@ -7,8 +9,6 @@ import D3 from '../_assets/D3.png'
 import D4 from '../_assets/D4.png'
 import MT from '../_assets/MT.png'
 import ST from '../_assets/ST.png'
-
-export type Role = 'MT' | 'ST' | 'D1' | 'D2' | 'D3' | 'D4'
 
 interface Props {
   role: Role
