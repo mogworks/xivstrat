@@ -2,13 +2,19 @@
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
+import EventSection from '@/components/section/EventSection.astro'
 import SBGR from './_mechanics/SBGR.astro'
 import Sporesplosion from './_mechanics/Sporesplosion.astro'
 import DDAB from './_mechanics/DDAB.astro'
 import StrangeSeeds from './_mechanics/StrangeSeeds.astro'
 import PowerSlam from './_components/PowerSlam.astro'
 import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
+import BruteAbombinator from './_components/BruteAbombinator.astro'
 import GrapplingIvy from './_components/GrapplingIvy.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
 import DemolitionDeathmatchCast from './_components/DemolitionDeathmatchCast.astro'
 import AbominableBlinkCast from './_components/AbominableBlinkCast.astro'
 
@@ -18,6 +24,9 @@ const base = '02:38.206'
 
 <DutyStratLayout dutyId={dutyId}>
   <GrapplingIvy time="02:38.206" base={base} />
+  <EventSection time="02:42.841">
+    <BruteAbombinator />可选中
+  </EventSection>
   <AttackSection time="02:43.372" base={base} damage="57000" damageType="physical" />
   <AttackSection time="02:46.402" base={base} damage="57000" damageType="physical" />
 

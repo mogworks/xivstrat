@@ -13,10 +13,11 @@ interface Props {
 }
 
 const { time, base = 0 }: Props = Astro.props
+const glowerPower = translations.glowerPower
 ---
 
 <EventSection time={time} base={base}>
-  <Span variant="yellow">{translations.glowerPower}</Span>
+  <Span variant="yellow">{glowerPower}</Span>
   伤害判定
-  <Badge variant="yellow">直条AoE</Badge>
+  <Badge variant="emerald">14m宽直线</Badge>
 </EventSection>
