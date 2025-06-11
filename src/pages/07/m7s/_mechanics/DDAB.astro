@@ -15,8 +15,8 @@ import chn2 from '@/assets/07/m7s/sporesplosion/DemoDM_chn2.png'
 import flare1 from '@/assets/07/m7s/sporesplosion/AbBlink_flare1.png'
 import flare2 from '@/assets/07/m7s/sporesplosion/AbBlink_flare2.png'
 
-import AbBlinkCast from '../_components/AbBlinkCast.astro'
-import DDMCast from '../_components/DDMCast.astro'
+import AbominableBlinkCast from '../_components/AbominableBlinkCast.astro'
+import DemolitionDeathmatchCast from '../_components/DemolitionDeathmatchCast.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 
 interface Props {
@@ -27,8 +27,8 @@ interface Props {
 const { start, base = 0 }: Props = Astro.props
 ---
 
-<DDMCast start={start} base={base} />
-<AbBlinkCast start="04:39.719" base={base} />
+<DemolitionDeathmatchCast start={start} base={base} />
+<AbominableBlinkCast start="04:34.422" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
