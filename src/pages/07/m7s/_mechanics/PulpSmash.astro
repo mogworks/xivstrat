@@ -18,6 +18,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import ListDot from '@/components/ListDot.astro'
 import Tmp from '@/assets/07/m7s/Tmp.png'
 import ICftDActivate from '../_components/ICftDActivate.astro'
+import { translations } from '../_translations'
 
 import Span from '@/components/Span.vue'
 
@@ -40,7 +41,7 @@ const { base = 0 }: Props = Astro.props
     </div>
     <div class="paragraph">
       全员伤害生效<Span variant="pink">1.5秒</Span>后，<BruteAbombinator />脚底释放半径<Span variant="pink">6m</Span
-      >钢铁AOE，造成<DamageInfo damage="123000" type="magical" />
+      >的钢铁AOE<Span variant="yellow">It Came from the Dirt</Span>，造成<DamageInfo damage="123000" type="magical" />
     </div>
     <div class="paragraph">
       几乎同时，释放以8人为目标的扇形AOE，造成
