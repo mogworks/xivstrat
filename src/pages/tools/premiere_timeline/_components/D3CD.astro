@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets'
+
+import Action from './Action.astro'
+
+import action_002612 from '../_assets/002612.png'
+import action_003469 from '../_assets/003469.png'
+import action_003040 from '../_assets/003040.png'
+---
+
+<Action>
+  <div class="relative aspect-[88/91] w-16">
+    <Image
+      src={action_002612}
+      alt=""
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      style="clip-path: polygon(0 0, 100% 0, 100% 25%, 50% 50%, 0 25%, 0 0)"
+    />
+    <Image
+      src={action_003469}
+      alt=""
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      style="clip-path: polygon(0 25%, 50% 50%, 50% 100%, 0 100%)"
+    />
+    <Image
+      src={action_003040}
+      alt=""
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+      style="clip-path: polygon(100% 25%, 50% 50%, 50% 100%, 100% 100%)"
+    />
+  </div>
+</Action>

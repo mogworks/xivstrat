@@ -1,0 +1,27 @@
+---
+import Layout from '@/layouts/Layout.astro'
+
+import RoleIcon, { type Role } from './_components/RoleIcon.astro'
+import MTCD from './_components/MTCD.astro'
+import STCD from './_components/STCD.astro'
+import D1CD from './_components/D1CD.astro'
+import D2CD from './_components/D2CD.astro'
+import D3CD from './_components/D3CD.astro'
+import D4CD from './_components/D4CD.astro'
+---
+
+<Layout lang="zh-CN" title="M5S PR 时间轴" description="M5S PR 时间轴">
+  <div class="relative min-h-screen w-960">
+    <div class="flex h-72 items-center justify-center">
+      <div class="grid grid-cols-6 place-items-center gap-x-1 gap-y-1.5">
+        {['MT', 'ST', 'D1', 'D2', 'D3', 'D4'].map((role) => <RoleIcon role={role as Role} />)}
+        <MTCD />
+        <STCD />
+        <D1CD />
+        <D2CD />
+        <D3CD />
+        <D4CD />
+      </div>
+    </div>
+  </div>
+</Layout>
