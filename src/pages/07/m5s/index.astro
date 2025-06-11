@@ -1,7 +1,78 @@
 ---
+import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
 
 const dutyId = '07/m5s'
+const navList = [
+  { label: '场地标点', id: 'waymark' },
+  { label: '宏', id: 'macro' },
+  { label: '简易时间轴', id: 'timeline' },
+  { label: '参考资料', id: 'reference' },
+  { label: '鸣谢', id: 'thanks' },
+]
 ---
 
-<DutyHomeLayout dutyId={dutyId} />
+<DutyHomeLayout dutyId={dutyId} navList={navList}>
+  <Fragment slot="operation">
+    <button
+      class="flex w-max min-w-33 cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide-icon lucide lucide-fullscreen"
+      >
+        <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+        <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+        <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+        <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+        <rect width="10" height="8" x="7" y="8" rx="1"></rect>
+      </svg>
+      小抄速览
+    </button>
+    <a href="/07/m5s/p1">
+      <button
+        class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
+      >
+        查看详情
+      </button>
+    </a>
+  </Fragment>
+  <CollapsibleBox client:only="vue" class="w-full">
+    content
+    <Fragment slot="header">
+      <span id="waymark">场地标点</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox client:only="vue" class="w-full">
+    content
+    <Fragment slot="header">
+      <span id="macro">宏</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox client:only="vue" class="w-full">
+    content
+    <Fragment slot="header">
+      <span id="timeline">简易时间轴</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox client:only="vue" class="w-full">
+    content
+    <Fragment slot="header">
+      <span id="reference">参考资料</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox client:only="vue" class="w-full">
+    content
+    <Fragment slot="header">
+      <span id="thanks">鸣谢</span>
+    </Fragment>
+  </CollapsibleBox>
+</DutyHomeLayout>
