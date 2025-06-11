@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets'
-
 import type { Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
@@ -9,15 +7,17 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
-import Separator from '@/components/Separator.astro'
 
+import ImgGrid from '@/components/typography/ImgGrid.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
 import T from '@/components/typography/T.astro'
-import ImageRow from '@/components/typography/ImageRow.astro'
+import Skill from '@/components/typography/Skill.astro'
 
 import XfangCast from '../_components/XfangCast.astro'
-import GleamingFang from '../_components/GleamingFang.astro'
-import HowlingBlade from '../_components/HowlingBlade.astro'
+import GleamingFang from '../_components/entities/GleamingFang.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
 import xfang_1 from '@/assets/07/m8s1/xfang/1.png'
 import xfang_2 from '@/assets/07/m8s1/xfang/2.png'
@@ -48,10 +48,10 @@ const { start, base = 0 }: Props = Astro.props
 <XfangCast start={start} base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <T>
-      <Span variant="orange">{stonefang}</Span>
+    <T class="gap-strat inline-flex">
+      <Skill name={stonefang} variant="orange" />
       |
-      <Span variant="green">{windfang}</Span>
+      <Skill name={windfang} variant="green" />
     </T>
     <P>
       根据读条不同，
@@ -66,9 +66,9 @@ const { start, base = 0 }: Props = Astro.props
       <Span variant="purple">四方二二分摊</Span>
       的组合技：
     </P>
-    <div class="flex flex-col gap-4 border-l-2 border-yellow-500 pl-2">
+    <Quote variant="yellow">
       <P>
-        <Span variant="orange">{stonefang}</Span>
+        <Skill name={stonefang} variant="orange" />
         对应半径
         <Span variant="cyan">9m</Span>
         的圆形AoE + 点名
@@ -78,7 +78,7 @@ const { start, base = 0 }: Props = Astro.props
         <Span variant="yellow">扇形分散</Span>
       </P>
       <P>
-        <Span variant="green">{windfang}</Span>
+        <Skill name={windfang} variant="green" />
         对应内径
         <Span variant="cyan">8m</Span>
         的环形AoE + 点名
@@ -89,7 +89,7 @@ const { start, base = 0 }: Props = Astro.props
         <Span variant="cyan">25°</Span>
         <Span variant="purple">扇形分摊</Span>
       </P>
-    </div>
+    </Quote>
     <P>
       <Span variant="purple">扇形分摊</Span>
       会比
@@ -112,7 +112,7 @@ const { start, base = 0 }: Props = Astro.props
       <GleamingFang />
       的展开位置来判断：
     </P>
-    <ImageRow
+    <ImgRow
       wrapperClass="max-w-100"
       borderVariant="cyan"
       imgs={[
@@ -129,94 +129,116 @@ const { start, base = 0 }: Props = Astro.props
       ]}
     />
     <P class="mt-8">
-      <Span variant="orange">{stonefang}</Span>
+      <Skill name={stonefang} variant="orange" />
       |
-      <Span variant="green">{windfang}</Span>
+      <Skill name={windfang} variant="green" />
       +
       <GleamingFang />
       最终形成如下的组合攻击：
       <ToggleSwitch id="xfang-mechanic-toggle" lVariant="yellow" rVariant="pink" lLabel="预兆" rLabel="判定" />
     </P>
-    <div
-      id="xfang-mechanic-grid"
-      class="grid grid-cols-[min-content_1px_minmax(0,24rem)_1px_minmax(0,24rem)] grid-rows-[min-content_1px_1fr_1px_1fr]"
-    >
-      <Separator class="col-start-2" orientation="vertical" />
-      <div class="flex justify-center pb-2 text-lg font-bold">正点方向光牙</div>
-      <Separator orientation="vertical" />
-      <div class="flex justify-center pb-2 text-lg font-bold">斜点方向光牙</div>
-      <Separator class="col-span-full" />
-      <div
-        class="flex justify-center pr-2 text-lg font-bold tracking-wider [text-orientation:mixed] [writing-mode:vertical-lr]"
-      >
-        <Span variant="orange">{stonefang}</Span>
-      </div>
-      <Separator orientation="vertical" />
-      <div class="px-3 py-2">
-        <Image
-          src={stonefang_1}
-          alt="Stonefang: 1"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={stonefang_3}
-          alt="Stonefang: 3"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <Separator orientation="vertical" />
-      <div class="px-3 py-2">
-        <Image
-          src={stonefang_2}
-          alt="Stonefang: 2"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={stonefang_4}
-          alt="Stonefang: 4"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <Separator class="col-span-full" />
-      <div
-        class="flex justify-center pr-2 text-lg font-bold tracking-wider [text-orientation:mixed] [writing-mode:vertical-lr]"
-      >
-        <Span variant="green">{windfang}</Span>
-      </div>
-      <Separator orientation="vertical" />
-      <div class="px-3 py-2">
-        <Image
-          src={windfang_1}
-          alt="Windfang: 1"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={windfang_3}
-          alt="Windfang: 3"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <Separator orientation="vertical" />
-      <div class="px-3 py-2">
-        <Image
-          src={windfang_2}
-          alt="Windfang: 2"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={windfang_4}
-          alt="Windfang: 4"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-    </div>
+    <ImgGrid
+      id="xfang-mechanic-omen"
+      cols={[{ title: '正点方向光牙' }, { title: '斜点方向光牙' }]}
+      defaultImgWrapperStyle={{
+        bordered: true,
+        rounded: true,
+        borderVariant: 'cyan',
+      }}
+      rows={[
+        {
+          title: stonefang,
+          titleVariant: 'orange',
+          cells: [
+            {
+              img: {
+                src: stonefang_1,
+                alt: 'Stonefang: 1',
+              },
+            },
+            {
+              img: {
+                src: stonefang_2,
+                alt: 'Stonefang: 2',
+              },
+            },
+          ],
+        },
+        {
+          title: windfang,
+          titleVariant: 'green',
+          cells: [
+            {
+              img: {
+                src: windfang_1,
+                alt: 'Windfang: 1',
+              },
+            },
+            {
+              img: {
+                src: windfang_2,
+                alt: 'Windfang: 2',
+              },
+            },
+          ],
+        },
+      ]}
+    />
+    <ImgGrid
+      id="xfang-mechanic-activate"
+      cols={[{ title: '正点方向光牙' }, { title: '斜点方向光牙' }]}
+      class="hidden"
+      defaultImgWrapperStyle={{
+        bordered: true,
+        rounded: true,
+        borderVariant: 'cyan',
+      }}
+      rows={[
+        {
+          title: stonefang,
+          titleVariant: 'orange',
+          cells: [
+            {
+              img: {
+                src: stonefang_3,
+                alt: 'Stonefang: 3',
+              },
+            },
+            {
+              img: {
+                src: stonefang_4,
+                alt: 'Stonefang: 4',
+              },
+            },
+          ],
+        },
+        {
+          title: windfang,
+          titleVariant: 'green',
+          cells: [
+            {
+              img: {
+                src: windfang_3,
+                alt: 'Windfang: 3',
+              },
+            },
+            {
+              img: {
+                src: windfang_4,
+                alt: 'Windfang: 4',
+              },
+            },
+          ],
+        },
+      ]}
+    />
   </div>
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <P class="border-l-2 border-lime-500 pl-2 opacity-80">
+    <Quote variant="lime" class="opacity-80">
       本解法采用类似中国服【光暗未来绝境战】的八方站位，而非日服的标准八方站位
-    </P>
+    </Quote>
     <P class="mt-8">
       根据
       <HowlingBlade />
@@ -227,82 +249,107 @@ const { start, base = 0 }: Props = Astro.props
     </P>
     <P class="opacity-80">
       注：下表
-      <Span variant="orange">{stonefang}</Span>
+      <Skill name={stonefang} variant="orange" />
       站位图中已将光牙的两种情况叠加
     </P>
-    <div
-      id="xfang-solution-grid"
-      class="grid grid-cols-[min-content_1px_minmax(0,24rem)_1px_minmax(0,24rem)] grid-rows-[min-content_1px_1fr_1px_1fr]"
-    >
-      <Separator class="col-start-2" orientation="vertical" />
-      <div class="flex justify-center pb-2 text-lg font-bold">正点方向光牙</div>
-      <Separator orientation="vertical" />
-      <div class="flex justify-center pb-2 text-lg font-bold">斜点方向光牙</div>
-      <Separator class="col-span-full" />
-      <div
-        class="flex justify-center pr-2 text-lg font-bold tracking-wider [text-orientation:mixed] [writing-mode:vertical-lr]"
-      >
-        <Span variant="orange">{stonefang}</Span>
-      </div>
-      <Separator orientation="vertical" />
-      <div class="translate-x-[calc(50%)] px-3 py-2">
-        <Image
-          src={stonefang_5}
-          alt="Stonefang: 5"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={stonefang_6}
-          alt="Stonefang: 6"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <Separator class="col-span-full" />
-      <div
-        class="flex justify-center pr-2 text-lg font-bold tracking-wider [text-orientation:mixed] [writing-mode:vertical-lr]"
-      >
-        <Span variant="green">{windfang}</Span>
-      </div>
-      <Separator orientation="vertical" />
-      <div class="px-3 py-2">
-        <Image
-          src={windfang_1}
-          alt="Windfang: 1"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={windfang_3}
-          alt="Windfang: 3"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-      <Separator orientation="vertical" />
-      <div class="px-3 py-2">
-        <Image
-          src={windfang_2}
-          alt="Windfang: 2"
-          class="omen-img rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={windfang_4}
-          alt="Windfang: 4"
-          class="activate-img hidden rounded-full border-2 border-cyan-700 dark:border-cyan-100"
-        />
-      </div>
-    </div>
+    <ImgGrid
+      id="xfang-solution-omen"
+      cols={[{ title: '正点方向光牙' }, { title: '斜点方向光牙' }]}
+      defaultImgWrapperStyle={{
+        bordered: true,
+        rounded: true,
+        borderVariant: 'cyan',
+      }}
+      rows={[
+        {
+          title: stonefang,
+          titleVariant: 'orange',
+          cells: [
+            {
+              img: {
+                src: stonefang_5,
+                alt: 'Stonefang: 5',
+              },
+              class: 'translate-x-[calc(50%)]',
+            },
+          ],
+        },
+        {
+          title: windfang,
+          titleVariant: 'green',
+          cells: [
+            {
+              img: {
+                src: windfang_1,
+                alt: 'Windfang: 1',
+              },
+            },
+            {
+              img: {
+                src: windfang_2,
+                alt: 'Windfang: 2',
+              },
+            },
+          ],
+        },
+      ]}
+    />
+    <ImgGrid
+      id="xfang-solution-activate"
+      cols={[{ title: '正点方向光牙' }, { title: '斜点方向光牙' }]}
+      class="hidden"
+      defaultImgWrapperStyle={{
+        bordered: true,
+        rounded: true,
+        borderVariant: 'cyan',
+      }}
+      rows={[
+        {
+          title: stonefang,
+          titleVariant: 'orange',
+          cells: [
+            {
+              img: {
+                src: stonefang_6,
+                alt: 'Stonefang: 6',
+              },
+              class: 'translate-x-[calc(50%)]',
+            },
+          ],
+        },
+        {
+          title: windfang,
+          titleVariant: 'green',
+          cells: [
+            {
+              img: {
+                src: windfang_3,
+                alt: 'Windfang: 3',
+              },
+            },
+            {
+              img: {
+                src: windfang_4,
+                alt: 'Windfang: 4',
+              },
+            },
+          ],
+        },
+      ]}
+    />
     <P class="mt-8">
       若是
-      <Span variant="orange">{stonefang}</Span>
+      <Skill name={stonefang} variant="orange" />
       ，可无视光牙方位，按图示固定站位（图示已将光牙的两种情况叠加，显然无影响）
     </P>
     <P>
       若是
-      <Span variant="green">{windfang}</Span>
+      <Skill name={windfang} variant="green" />
       ，则两两分组找
       <Span variant="pink">同色标点</Span>
       ：
     </P>
-    <div class="flex flex-col gap-4 border-l-2 border-lime-500 pl-2">
+    <Quote variant="lime">
       <P>
         <RoleIcon role="tank" tag="MT" />
         <RoleIcon role="ranged" tag="D3" />
@@ -341,14 +388,14 @@ const { start, base = 0 }: Props = Astro.props
         或
         <Span variant="purple">4</Span>
       </P>
-    </div>
+    </Quote>
   </div>
 </SolutionSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
     <P>
       若是
-      <Span variant="orange">{stonefang}</Span>
+      <Skill name={stonefang} variant="orange" />
       ，一个角落是可以站下三个人的，紧急情况时可以站到
       <Span variant="pink">标点位置</Span>
       ，这样不会影响他人
@@ -360,32 +407,30 @@ const { start, base = 0 }: Props = Astro.props
   const mechanicToggle = document.getElementById('xfang-mechanic-toggle') as HTMLInputElement
   const solutionToggle = document.getElementById('xfang-solution-toggle') as HTMLInputElement
 
-  function toggleImages(id: string, activate: boolean) {
-    const section = document.getElementById(id)
+  function toggleTables(omenId: string, activateId: string, showActivate: boolean) {
+    const omenTable = document.getElementById(omenId)
+    const activateTable = document.getElementById(activateId)
 
-    if (section) {
-      const omenImgs = section.querySelectorAll('.omen-img')
-      const activateImgs = section.querySelectorAll('.activate-img')
-
-      if (activate) {
-        omenImgs.forEach((img) => img.classList.add('hidden'))
-        activateImgs.forEach((img) => img.classList.remove('hidden'))
+    if (omenTable && activateTable) {
+      if (showActivate) {
+        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', true))
+        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', false))
       } else {
-        activateImgs.forEach((img) => img.classList.add('hidden'))
-        omenImgs.forEach((img) => img.classList.remove('hidden'))
+        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', true))
+        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', false))
       }
     }
   }
 
   if (mechanicToggle) {
     mechanicToggle.addEventListener('change', function () {
-      toggleImages('xfang-mechanic-grid', this.checked)
+      toggleTables('xfang-mechanic-omen', 'xfang-mechanic-activate', this.checked)
     })
   }
 
   if (solutionToggle) {
     solutionToggle.addEventListener('change', function () {
-      toggleImages('xfang-solution-grid', this.checked)
+      toggleTables('xfang-solution-omen', 'xfang-solution-activate', this.checked)
     })
   }
 </script>

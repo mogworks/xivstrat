@@ -1,0 +1,48 @@
+---
+import type { VariantType } from '@/lib/variant'
+import type { Img } from '@/components/typography/img'
+
+import { cn } from '@/lib/utils'
+
+import ImgWrapper from '@/components/typography/ImgWrapper.astro'
+
+interface Props {
+  imgs: Img[]
+  bordered?: boolean
+  borderVariant?: VariantType
+  rounded?: boolean
+  class?: string
+  wrapperClass?: string
+  imgClass?: string
+  titleClass?: string
+  [key: string]: any
+}
+
+const {
+  imgs,
+  bordered = true,
+  borderVariant = 'default',
+  rounded = false,
+  class: className = '',
+  wrapperClass = '',
+  imgClass = '',
+  titleClass = '',
+  ...rest
+} = Astro.props
+---
+
+<div class={cn('flex gap-4', className)} {...rest}>
+  {
+    imgs.map((img: Img) => (
+      <ImgWrapper
+        {...img}
+        bordered={img.bordered ?? bordered}
+        borderVariant={img.borderVariant ?? borderVariant}
+        rounded={img.rounded ?? rounded}
+        class={img.class ?? wrapperClass}
+        imgClass={img.imgClass ?? imgClass}
+        titleClass={img.titleClass ?? titleClass}
+      />
+    ))
+  }
+</div>

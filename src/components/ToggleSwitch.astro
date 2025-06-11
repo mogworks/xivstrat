@@ -15,7 +15,7 @@ const { id, lVariant = 'default', rVariant = 'default', lLabel, rLabel } = Astro
 
 // unchecked 状态的颜色映射（动态使用tailwind时，类名必须完整，不能拼接）
 const uncheckedColorMap: Record<VariantType, string> = {
-  default: 'bg-background',
+  default: '',
   red: 'bg-red-600',
   orange: 'bg-orange-600',
   amber: 'bg-amber-600',

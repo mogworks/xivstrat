@@ -1,0 +1,24 @@
+---
+import type { Time } from '@/lib/utils'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+const revengeoftheVines = translations.revengeOfTheVines
+---
+
+<EventSection time={time} base={base}>
+  <Span variant="yellow">{revengeoftheVines}</Span>
+  伤害判定
+  <DamageInfo damage="181000" type="magical" />
+  <Badge variant="purple">AOE</Badge>
+</EventSection>

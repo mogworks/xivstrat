@@ -1,0 +1,10 @@
+---
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+
+const damage = '105000'
+const damageType = 'magical'
+---
+
+<DamageInfo damage={damage} type={damageType} />
+<MagicVulnerabilityUp tag="7" hover />

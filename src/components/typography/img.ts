@@ -1,29 +1,19 @@
----
 import type { VariantType } from '@/lib/variant'
-import { cn } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
-
-interface ImageItem {
+export interface Img {
   src: ImageMetadata
   alt: string
   title?: string
-  class?: string
-}
-
-interface Props {
-  imgs: ImageItem[]
+  bordered?: boolean
   borderVariant?: VariantType
   rounded?: boolean
   class?: string
-  wrapperClass?: string
   imgClass?: string
   titleClass?: string
-  [key: string]: any
 }
 
 // 边框颜色映射（动态使用tailwind时，类名必须完整，不能拼接）
-const borderColorMap: Record<VariantType, string> = {
+export const borderColorMap: Record<VariantType, string> = {
   default: 'border-foreground/75',
   red: 'border-red-700 dark:border-red-100',
   orange: 'border-orange-700 dark:border-orange-100',
@@ -48,32 +38,3 @@ const borderColorMap: Record<VariantType, string> = {
   neutral: 'border-neutral-700 dark:border-neutral-100',
   stone: 'border-stone-700 dark:border-stone-100',
 }
-
-const {
-  imgs,
-  borderVariant = 'default',
-  rounded = false,
-  class: className,
-  wrapperClass = 'max-w-90',
-  imgClass = '',
-  titleClass = '',
-  ...rest
-} = Astro.props
-
-const borderColorClass = borderColorMap[borderVariant]
----
-
-<div class={cn('flex gap-4', className)} {...rest}>
-  {
-    imgs.map((image: ImageItem) => (
-      <div class={cn(image.title && 'flex flex-col items-center gap-2', wrapperClass)}>
-        <Image
-          src={image.src}
-          alt={image.alt}
-          class={cn('border-2', rounded && 'rounded-full', borderColorClass, imgClass, image.class)}
-        />
-        {image.title && <div class={titleClass}>{image.title}</div>}
-      </div>
-    ))
-  }
-</div>

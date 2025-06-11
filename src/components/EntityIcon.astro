@@ -9,12 +9,17 @@ interface Props {
   alt?: string
   class?: string
   iconClass?: string
+  [key: string]: any
 }
 
-const { icon, tag = '', alt = '', class: className = '', iconClass = '' }: Props = Astro.props
+const { icon, tag = '', alt = '', class: className = '', iconClass = '', ...rest }: Props = Astro.props
 ---
 
-<div class={cn('relative h-full inline-flex items-center gap-px align-middle', className)}>
+<div
+  class={cn('entity-icon relative h-full inline-flex items-center gap-px align-middle', className)}
+  data-icon="standard-icon"
+  {...rest}
+>
   <slot name="icon">
     <Icon img={icon} alt={alt ?? tag} tag={tag} iconClass={iconClass} />
   </slot>

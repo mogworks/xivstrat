@@ -10,6 +10,7 @@ import DamageDown from '@/components/buff/DamageDown.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 
 import MoveToCenterEvent from './MoveToCenterEvent.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -18,12 +19,12 @@ interface Props {
 }
 
 const { start, end, base = 0 }: Props = Astro.props
-const hintStart = timeToSeconds(end) + 1.16
 const moveToCenter = timeToSeconds(end) + 2
 const seedFallen = timeToSeconds(end) + 1.16 + 4.0
+const sporeSac = translations.sporeSac
 ---
 
-<CastSection start={start} end={end} base={base} duration={2.7} ability="Spore Sac">
+<CastSection start={start} end={end} base={base} duration={2.7} ability={sporeSac}>
   <BruteAbombinator slot="source" />
 </CastSection>
 <MoveToCenterEvent time={moveToCenter} base={base} />

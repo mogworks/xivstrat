@@ -5,6 +5,7 @@ import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
 import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -15,17 +16,10 @@ interface Props {
 }
 
 const { start, base = 0, toln }: Props = Astro.props
+const brutalImpact = translations.brutalImpact
 ---
 
-<CastSection
-  start={start}
-  base={base}
-  duration={4.7}
-  ability="Brutal Impact"
-  target
-  damage="60000"
-  damageType="physical"
->
+<CastSection start={start} base={base} duration={4.7} ability={brutalImpact} target>
   <BruteAbombinator slot="source" />
   <Badge variant="purple">AoE x{toln}</Badge>
 </CastSection>

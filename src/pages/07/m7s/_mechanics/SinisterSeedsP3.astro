@@ -1,0 +1,100 @@
+---
+import type { Time } from '@/lib/utils'
+
+import img from '@/assets/07/m7s/Tmp.png'
+
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import T from '@/components/typography/T.astro'
+
+import SinisterSeedsCast from '../_components/SinisterSeedsCast.astro'
+import { translations } from '../_translations'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import Skill from '@/components/typography/Skill.astro'
+
+interface Props {
+  time: Time
+  base: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+const sinisterSeeds = translations.sinisterSeeds
+const pulpSmash = translations.pulpSmash
+const theUnpotted = translations.theUnpotted
+---
+
+<SinisterSeedsCast start={time} base={base} />
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <Skill name={sinisterSeeds} />
+      与之前的机制相同
+    </div>
+    <div class="paragraph">
+      冰花结束后紧接着是集合分摊
+      <Skill name={pulpSmash} />
+      和 八方分散
+      <Skill name={theUnpotted} />
+    </div>
+  </div>
+</MechanicSection>
+
+<SolutionSection title="解法：Game8">
+  <div class="flex flex-col gap-4">
+    <T class="mt-8" variant="lime" text="近战组放冰花" />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="fuchsia"
+      imgs={[
+        {
+          src: img,
+          alt: 'm7sp3: 冰花站位',
+          title: '初始站位',
+        },
+        {
+          src: img,
+          alt: 'm7sp3: 冰花路线',
+          title: '步进路线',
+        },
+        {
+          src: img,
+          alt: 'm7sp3: 冰花生效',
+          title: '躲避冰花',
+        },
+        {
+          src: img,
+          alt: 'm7sp3: 冰花分摊',
+          title: '最后分摊',
+        },
+      ]}
+    />
+    <T class="mt-8" variant="lime" text="远程组放冰花" />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="fuchsia"
+      imgs={[
+        {
+          src: img,
+          alt: 'm7sp3: 冰花站位',
+          title: '初始站位',
+        },
+        {
+          src: img,
+          alt: 'm7sp3: 冰花路线',
+          title: '步进路线',
+        },
+        {
+          src: img,
+          alt: 'm7sp3: 冰花生效',
+          title: '躲避冰花',
+        },
+        {
+          src: img,
+          alt: 'm7sp3: 冰花分摊',
+          title: '最后分摊',
+        },
+      ]}
+    />
+  </div>
+</SolutionSection>

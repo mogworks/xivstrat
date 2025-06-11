@@ -6,6 +6,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
 import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -13,10 +14,12 @@ interface Props {
 }
 
 const { start, base = 0 }: Props = Astro.props
+const pulpSmash = translations.pulpSmash
 ---
 
-<CastSection start={start} base={base} duration={2.7} target ability="Pulp Smash" damage="800000" damageType="physical">
+<CastSection start={start} base={base} duration={4.7} target ability={pulpSmash}>
   <BruteAbombinator slot="source" />
   <RoleIcon role="healer" slot="target" />
-  <Badge variant="purple">分摊</Badge>
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="yellow">8人分摊</Badge>
 </CastSection>

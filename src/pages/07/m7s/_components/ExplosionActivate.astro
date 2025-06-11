@@ -1,0 +1,23 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Span from '@/components/Span.vue'
+
+interface Props {
+  time: Time
+  base?: Time
+  num?: Number
+}
+
+const { time, base = 0, num }: Props = Astro.props
+---
+
+<EventSection time={time} base={base} num={num} ability="Explosion">
+  第<Span variant="pink">{num}</Span>颗陨石伤害判定
+  <DamageInfo damage="220000~760000" type="magical" />
+  <Badge variant="amber">距离衰减</Badge>
+  <Badge variant="purple">AoE</Badge>
+</EventSection>

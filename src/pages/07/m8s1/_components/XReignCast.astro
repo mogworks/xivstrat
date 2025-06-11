@@ -3,15 +3,16 @@ import { timeToSeconds, type Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
 
-import Span from '@/components/Span.vue'
-
-import HowlingBlade from '../_components/HowlingBlade.astro'
 import CastSection from '@/components/section/CastSection.astro'
-import WolvesReignCast from './WolvesReignCast.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
+
+import Skill from '@/components/typography/Skill.astro'
+
+import WolvesReignCast from '../_components/WolvesReignCast.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
 import { translations } from '../_translations'
 
@@ -24,6 +25,8 @@ const { start, base = 0 }: Props = Astro.props
 
 const revolutionaryReign = translations.revolutionaryReign
 const eminentReign = translations.eminentReign
+const reignsEnd = translations.reignsEnd
+const sovereignScar = translations.sovereignScar
 
 const duration = 4.8
 
@@ -31,19 +34,12 @@ const startSeconds = timeToSeconds(start)
 const reign1Time = startSeconds + 8
 const reign2Time = startSeconds + 11
 
-const reignsEnd = "Reign's End"
-const sovereignScar = 'Sovereign Scar'
-
 const damageApplyTime = reign2Time + 1.2 + 0.3 // 1.2s读条，0.3s延迟补正
 ---
 
 <CastSection start={start} base={base} duration={duration}>
   <HowlingBlade slot="source" />
-  <Fragment slot="ability">
-    <Span variant="yellow">{revolutionaryReign}</Span>
-    |
-    <Span variant="yellow">{eminentReign}</Span>
-  </Fragment>
+  <Skill slot="ability" name={[revolutionaryReign, eminentReign]} />
   <Badge variant="yellow">复合机制</Badge>
 </CastSection>
 <WolvesReignCast start={reign1Time} type="line" base={base} />
@@ -54,7 +50,7 @@ const damageApplyTime = reign2Time + 1.2 + 0.3 // 1.2s读条，0.3s延迟补正
   <RoleIcon role="tank" tag="一仇" />
   <RoleIcon role="tank" tag="二仇" />
   释放
-  <Span variant="yellow">{reignsEnd}</Span>
+  <Skill name={reignsEnd} />
   <DamageInfo damage="360000" type="physical" />
   <PhysicalVulnerabilityUp tag="1" hover />
   <Badge variant="emerald">60°扇形</Badge>
@@ -66,7 +62,7 @@ const damageApplyTime = reign2Time + 1.2 + 0.3 // 1.2s读条，0.3s延迟补正
   <RoleIcon role="healer" tag="H1" />
   <RoleIcon role="healer" tag="H2" />
   释放
-  <Span variant="yellow">{sovereignScar}</Span>
+  <Skill name={sovereignScar} />
   <DamageInfo damage="170000" type="physical" />
   <PhysicalVulnerabilityUp tag="1" hover />
   <Badge variant="emerald">30°扇形</Badge>
