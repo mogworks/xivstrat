@@ -29,7 +29,18 @@ import D4CD from './_components/D4CD.astro'
 </Layout>
 
 <script>
+  import { $magical, $physical, $special } from './_stores/mitigation'
   import { startTimer } from './_stores/timer'
 
   startTimer()
+
+  $physical.listen((v) => {
+    console.log(v)
+  })
+  $magical.listen((v) => {
+    console.log(v)
+  })
+  $special.listen((v) => {
+    console.log(v)
+  })
 </script>

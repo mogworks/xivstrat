@@ -59,6 +59,7 @@ const { icon = undefined, role, recast, duration, physical, magical, special }: 
 
   import type { Role } from './role'
 
+  import { $mitigations } from '../_stores/mitigation'
   import { $timer } from '../_stores/timer'
   import { mitigations } from '../_timeline/m5s'
 
@@ -70,9 +71,9 @@ const { icon = undefined, role, recast, duration, physical, magical, special }: 
       const role = this.dataset.role as Role
       const recast = Number.parseInt(this.dataset.recast ?? '0')
       const duration = Number.parseInt(this.dataset.duration ?? '0')
-      // const physical = Number.parseInt(this.dataset.physical ?? '0')
-      // const magical = Number.parseInt(this.dataset.magical ?? '0')
-      // const special = Number.parseInt(this.dataset.special ?? '0')
+      const physical = Number.parseInt(this.dataset.physical ?? '100')
+      const magical = Number.parseInt(this.dataset.magical ?? '100')
+      const special = Number.parseInt(this.dataset.special ?? '100')
       const plan = mitigations[role].map((t) => timeToSeconds(t))
       $timer.subscribe((timer) => {
         const s = timer / 1000
@@ -102,9 +103,11 @@ const { icon = undefined, role, recast, duration, physical, magical, special }: 
             // durationSpan 展示
             animate(durationSpan, { opacity: 1 })
             durationSpan.textContent = `${Math.ceil(duration - (s - t))}`
+            $mitigations.setKey(role, [physical / 100, magical / 100, special / 100])
           } else {
             // durationSpan 隐藏
             animate(durationSpan, { opacity: 0 })
+            $mitigations.setKey(role, [1, 1, 1])
           }
         }
       })
