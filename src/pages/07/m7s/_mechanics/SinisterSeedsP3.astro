@@ -43,16 +43,22 @@ const theUnpotted = translations.theUnpotted
       或远程组
       <RoleIcon role="healer|dps" />
       <Span variant="red">红色标记</Span>
-      准备放置冰花，另一组则是连续四次的
+      准备放置
+      <Span variant="cyan">冰花</Span>
+      ，另一组则是连续四次的
       <Span variant="orange">步进式AoE</Span>
     </div>
     <div class="paragraph">
-      冰花判定的同时，之前所有的步进式AoE会
+      <Span variant="cyan">冰花</Span>
+      判定的同时，之前所有的
+      <Span variant="orange">步进式AoE</Span>
+      会
       <Span variant="purple">扩大范围</Span>
       再判定一次
     </div>
     <div class="paragraph">
-      冰花结束后，紧接着是集合分摊
+      <Span variant="cyan">冰花</Span>
+      结束后，紧接着是集合分摊
       <Skill name={pulpSmash} />
       和 八方分散
       <Skill name={theUnpotted} />
@@ -82,8 +88,15 @@ const theUnpotted = translations.theUnpotted
       远程组处理冰花
     </div>
     <T class="mt-8" variant="lime" text="近战组放冰花" />
-    <div class="paragraph">远程组需要贴场边引导步进式AoE</div>
-    <div class="paragraph">这种情况下，冰花判定的安全区较小，远程组可以先在安全区躲避冰花后再前往集合分摊</div>
+    <div class="paragraph">
+      远程组需要贴场边引导步
+      <Span variant="orange">步进式AoE</Span>
+    </div>
+    <div class="paragraph">
+      这种情况下，冰花判定的安全区较小，远程组可以先在安全区躲避
+      <Span variant="cyan">冰花</Span>
+      后再前往集合分摊
+    </div>
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="fuchsia"
@@ -111,8 +124,15 @@ const theUnpotted = translations.theUnpotted
       ]}
     />
     <T class="mt-8" variant="lime" text="远程组放冰花" />
-    <div class="paragraph">这种情况下，近战组在引导步进式AoE时请注意给远程组预留充足的位置</div>
-    <div class="paragraph">冰花判定结束后，请尽量靠近Boss进行分摊，这样便于后续迅速走到分散的位置</div>
+    <div class="paragraph">
+      这种情况下，近战组在引导
+      <Span variant="orange">步进式AoE</Span>
+      时请注意给远程组预留充足的位置
+    </div>
+    <div class="paragraph">
+      <Span variant="cyan">冰花</Span>
+      判定结束后，请尽量靠近Boss进行分摊，这样便于后续迅速走到分散的位置
+    </div>
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="fuchsia"
