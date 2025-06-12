@@ -17,6 +17,7 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
 
 import RoleOrder from '../_components/GetDownOrder.vue'
 import Wavelength from '../_components/Wavelength.astro'
@@ -44,44 +45,49 @@ const { start, base = 0, getDownTimes = [] }: Props = Astro.props
 const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '23']
 ---
 
-<CastSection start={start} base={base} duration={4.5} ability="Arcady Night Fever">
-  <Badge variant="yellow">连续钢铁月环</Badge>
-</CastSection>
-{
-  getDownTimes.map((time, index) => (
-    <EventSection time={time} base={base}>
-      <Boss />
-      对随机不重复
-      {index % 2 === 0 ? (
-        <>
-          <RoleIcon role="tank" />
-          <RoleIcon role="healer" />
-          或
-          <RoleIcon role="dps" />
-        </>
-      ) : (
-        <>
-          <RoleIcon role="dps" />
-          或
-          <RoleIcon role="tank" />
-          <RoleIcon role="healer" />
-        </>
-      )}
-      发动
-      <Span variant="yellow">Get Down!</Span>
-      <DamageInfo damage="95000" type="magical" />
-      <MagicVulnerabilityUp tag="9" hover />
-      {index % 2 === 0 ? (
-        <Wavelength type="α" tag={wavelengthDurations[index]} hover />
-      ) : (
-        <Wavelength type="β" tag={wavelengthDurations[index]} hover />
-      )}
-      <Badge variant="emerald">45°扇形</Badge>
-      <Badge variant="emerald">八方</Badge>
-      <Badge variant="yellow">分散</Badge>
-    </EventSection>
-  ))
-}
+<CollapseSection>
+  <CastSection start={start} base={base} duration={4.5} ability="Arcady Night Fever" slot="content">
+    <Badge variant="yellow">连续钢铁月环</Badge>
+  </CastSection>
+  <Fragment slot="summary"><Boss />释放连续8次钢铁/月环</Fragment>
+  <Fragment slot="details">
+    {
+      getDownTimes.map((time, index) => (
+        <EventSection time={time} base={base}>
+          <Boss />
+          对随机不重复
+          {index % 2 === 0 ? (
+            <>
+              <RoleIcon role="tank" />
+              <RoleIcon role="healer" />
+              或
+              <RoleIcon role="dps" />
+            </>
+          ) : (
+            <>
+              <RoleIcon role="dps" />
+              或
+              <RoleIcon role="tank" />
+              <RoleIcon role="healer" />
+            </>
+          )}
+          发动
+          <Span variant="yellow">Get Down!</Span>
+          <DamageInfo damage="95000" type="magical" />
+          <MagicVulnerabilityUp tag="9" hover />
+          {index % 2 === 0 ? (
+            <Wavelength type="α" tag={wavelengthDurations[index]} hover />
+          ) : (
+            <Wavelength type="β" tag={wavelengthDurations[index]} hover />
+          )}
+          <Badge variant="emerald">45°扇形</Badge>
+          <Badge variant="emerald">八方</Badge>
+          <Badge variant="yellow">分散</Badge>
+        </EventSection>
+      ))
+    }
+  </Fragment>
+</CollapseSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">

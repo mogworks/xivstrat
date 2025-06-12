@@ -1,0 +1,73 @@
+---
+
+---
+
+<div>
+  <slot name="content" />
+  <section
+    id="collapse-summary"
+    class="strat-section mt-(--article-row-gap) mb-0 grid grid-cols-[16rem_1fr] overflow-hidden"
+  >
+    <div class="self-center justify-self-end px-4">
+      <span
+        id="collapse-toggle"
+        class="text-decimal inline-flex cursor-pointer items-center opacity-80 hover:underline"
+      >
+        <svg
+          class="mr-1 rotate-270"
+          aria-hidden="true"
+          width="12"
+          height="8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1.4 1.6L6 6.2l4.6-4.6"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+        <span id="collapse-open">展开</span><span id="collapse-close" class="hidden">折叠</span>细节
+      </span>
+    </div>
+    <div class="flex flex-wrap items-center gap-1 px-4 text-lg">
+      <slot name="summary" />
+    </div>
+  </section>
+  <div id="collapse-details" class="relative flex h-0 flex-col gap-(--article-row-gap) opacity-0">
+    <div class="pointer-events-none absolute top-1/2 left-36 h-[calc(100%-1rem)] w-0.5 -translate-y-1/2 bg-teal-500">
+    </div>
+    <slot name="details" />
+  </div>
+</div>
+<script>
+  import { animate } from 'motion'
+
+  const toggleButton = document.getElementById('collapse-toggle') as HTMLSpanElement
+  const summarySection = document.getElementById('collapse-summary') as HTMLElement
+  const detailsSection = document.getElementById('collapse-details') as HTMLDivElement
+  const openText = document.getElementById('collapse-open') as HTMLSpanElement
+  const closeText = document.getElementById('collapse-close') as HTMLSpanElement
+
+  let isOpen = false
+  toggleButton.addEventListener('click', () => {
+    isOpen = !isOpen
+    openText.classList.toggle('hidden', isOpen)
+    closeText.classList.toggle('hidden', !isOpen)
+    animate('#collapse-summary svg', { rotate: isOpen ? 90 : 0 }, { duration: 0.3, ease: 'easeInOut' })
+    animate(
+      summarySection,
+      { marginBottom: isOpen ? 'var(--article-row-gap)' : 0 },
+      { duration: 0.3, ease: 'easeInOut' },
+    )
+    animate(
+      detailsSection,
+      {
+        height: isOpen ? `${detailsSection.scrollHeight}px` : '0px',
+        opacity: isOpen ? 0.8 : 0,
+      },
+      { duration: 0.3, ease: 'easeInOut' },
+    )
+  })
+</script>
