@@ -26,9 +26,11 @@ const { icon = undefined, role, recast, duration, physical, magical, special }: 
   data-special={special}
 >
   <div class="relative">
-    <slot>
-      {icon && <Image src={icon} alt="" />}
-    </slot>
+    <div class="relative aspect-[88/91] w-16">
+      <slot>
+        {icon && <Image src={icon} alt="" />}
+      </slot>
+    </div>
     <span
       class="absolute top-[calc(50%-2px)] left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-semibold opacity-0 text-shadow-lg/50"
       data-spantype="recast"
