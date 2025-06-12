@@ -1,9 +1,14 @@
-import { computed } from 'nanostores'
+import { atom } from 'nanostores'
 
-import { $ticker } from './ticker'
+export const $timer = atom(0)
 
-const start = Date.now()
-
-export const $timer = computed($ticker, (ticker) => {
-  return ticker - start
-})
+export const startTimer = () => {
+  const start = Date.now()
+  $timer.set(0)
+  const updating = setInterval(() => {
+    $timer.set(Date.now() - start)
+  }, 50)
+  return () => {
+    clearInterval(updating)
+  }
+}
