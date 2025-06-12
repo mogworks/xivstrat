@@ -1,0 +1,44 @@
+---
+interface Props {
+  class?: string
+}
+
+const { class: className }: Props = Astro.props
+---
+
+<duty-timer class={className}>
+  <div class="flex items-center gap-0.5 text-5xl font-semibold text-shadow-lg/50">
+    <span data-spantype="MM">0</span>
+    <span data-spantype="M">0</span>
+    :
+    <span data-spantype="SS">0</span>
+    <span data-spantype="S">0</span>
+  </div>
+</duty-timer>
+
+<script>
+  import { $timer } from '../_stores/timer'
+
+  class DutyTimer extends HTMLElement {
+    connectedCallback() {
+      const MMSpan = this.querySelector('[data-spantype="MM"]')!
+      const MSpan = this.querySelector('[data-spantype="M"]')!
+      const SSSpan = this.querySelector('[data-spantype="SS"]')!
+      const SSpan = this.querySelector('[data-spantype="S"]')!
+      $timer.subscribe((timer) => {
+        const s = timer / 1000
+        const S = Math.floor(s % 10)
+        const SS = (Math.floor(s % 60) - S) / 10
+        const m = s / 60
+        const M = Math.floor(m % 10)
+        const MM = (Math.floor(m % 60) - M) / 10
+        MMSpan.textContent = MM.toString()
+        MSpan.textContent = M.toString()
+        SSSpan.textContent = SS.toString()
+        SSpan.textContent = S.toString()
+      })
+    }
+  }
+
+  customElements.define('duty-timer', DutyTimer)
+</script>

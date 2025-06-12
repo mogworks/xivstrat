@@ -10,11 +10,13 @@ import D1CD from './_components/D1CD.astro'
 import D2CD from './_components/D2CD.astro'
 import D3CD from './_components/D3CD.astro'
 import D4CD from './_components/D4CD.astro'
+import DutyTimer from './_components/DutyTimer.astro'
 ---
 
 <Layout lang="zh-CN" title="M5S PR 时间轴" description="M5S PR 时间轴">
-  <div class="relative min-h-screen w-960">
-    <div class="flex h-72 items-center justify-center">
+  <div class="min-h-screen w-960">
+    <div class="relative flex h-72 items-center justify-center">
+      <DutyTimer class="absolute top-1/2 left-1/2 -translate-x-120 -translate-y-1/2" />
       <div class="grid grid-cols-6 place-items-center gap-x-1 gap-y-1.5">
         {['MT', 'ST', 'D1', 'D2', 'D3', 'D4'].map((role) => <RoleIcon role={role as Role} />)}
         <MTCD duty="m5s" />
@@ -32,7 +34,9 @@ import D4CD from './_components/D4CD.astro'
   import { $magical, $physical, $special } from './_stores/mitigation'
   import { startTimer } from './_stores/timer'
 
-  startTimer()
+  setTimeout(() => {
+    startTimer()
+  }, 20000)
 
   $physical.listen((v) => {
     console.log(v)
