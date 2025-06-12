@@ -34,14 +34,9 @@ import { timelineMap } from './timeline'
 </Layout>
 
 <script>
-  import { $mitigation } from './_stores/mitigation'
   import { startTimer } from './_stores/timer'
 
   setTimeout(() => {
     startTimer()
-  }, 5000)
-
-  $mitigation.listen((v) => {
-    console.log(v)
-  })
+  }, 20000)
 </script>
