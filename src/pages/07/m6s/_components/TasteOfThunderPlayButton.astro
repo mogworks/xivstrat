@@ -1,4 +1,6 @@
 ---
+import VideoPlaySVG from '@/assets/svg/video-play.svg'
+
 interface Props {
   variant?: 'yellow' | 'lime'
 }
@@ -30,18 +32,7 @@ const textColorClass = colorClasses[variant].text
   <div
     class={`flex h-6 w-6 items-center justify-center rounded-full ${buttonColorClass} shadow-inner transition-all group-hover:scale-110 group-hover:shadow group-active:scale-95 group-data-[playing=true]:bg-gray-400 group-data-[playing=true]:shadow-none group-data-[playing=true]:hover:scale-100 group-data-[playing=true]:hover:bg-gray-400 dark:group-data-[playing=true]:bg-gray-600 dark:group-data-[playing=true]:hover:bg-gray-600`}
   >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="ml-0.5 h-4 w-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-    </svg>
+    <VideoPlaySVG />
   </div>
   <span
     class={`text-sm font-medium ${textColorClass} transition-all group-hover:scale-110 group-active:scale-95 group-data-[playing=true]:text-gray-500 group-data-[playing=true]:hover:scale-100 group-data-[playing=true]:hover:text-gray-500 dark:group-data-[playing=true]:text-gray-400 dark:group-data-[playing=true]:hover:text-gray-400`}
