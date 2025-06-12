@@ -20,7 +20,7 @@ const isOpen = ref(props.defaultStatus)
 </script>
 
 <template>
-  <div :class="cn('bg-card w-min min-w-[350px] rounded-lg border p-4 shadow-md', props.class)">
+  <div :class="cn('bg-card w-min min-w-[350px] rounded-lg border p-4 shadow-md hover:shadow-lg', props.class)">
     <Collapsible v-model:open="isOpen">
       <div class="mb-0 flex items-center justify-between text-2xl font-bold capitalize">
         <slot name="header" />

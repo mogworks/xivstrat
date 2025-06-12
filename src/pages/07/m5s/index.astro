@@ -1,8 +1,13 @@
 ---
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
+import Macro from '@/components/Macro.astro'
 
-import ScannerSVG from '@/assets/svg/scanner.svg'
+import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
+
+import CheatsheetsImage from '@/assets/cheatsheets/07/m5s.png?url'
+
+import { macro } from './_data/macro'
 
 const dutyId = '07/m5s'
 const navList = [
@@ -16,30 +21,25 @@ const navList = [
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
   <Fragment slot="operation">
-    <button
-      class="flex w-max min-w-33 cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
-    >
-      <ScannerSVG />
-      小抄速览
-    </button>
+    <CheatsheetDialog client:only="vue" src={CheatsheetsImage} />
     <a href="/07/m5s/p1">
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
       >
-        查看详情
+        查看正文
       </button>
     </a>
   </Fragment>
   <CollapsibleBox client:only="vue" class="w-full">
-    content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br
-    />content<br />content<br />content<br />content<br />
+    <div class="w-sm">
+      <img src="/pixi/07/m5s/floor_1-hhYBkA@3x.webp" alt="场地标点" loading="lazy" class="h-full w-full" />
+    </div>
     <Fragment slot="header">
       <span id="waymark">场地标点</span>
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox client:only="vue" class="w-full">
-    content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br
-    />content<br />content<br />content<br />content<br />content<br />
+    <Macro text={macro} />
     <Fragment slot="header">
       <span id="macro">宏</span>
     </Fragment>
@@ -53,13 +53,19 @@ const navList = [
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox client:only="vue" class="w-full">
-    content
+    <ol>
+      <li>文本攻略</li>
+      <li>视频攻略</li>
+      <li>game8</li>
+      <li>整理宏</li>
+      <li>打法优化分析</li>
+    </ol>
     <Fragment slot="header">
       <span id="reference">参考资料</span>
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox client:only="vue" class="w-full">
-    content
+    谢谢你谢谢我谢谢他谢谢她谢谢它谢谢所有人
     <Fragment slot="header">
       <span id="thanks">鸣谢</span>
     </Fragment>
