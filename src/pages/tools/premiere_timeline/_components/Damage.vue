@@ -31,7 +31,6 @@ const mitigation = useStore($mitigation)
 const damageName = props.damageInfo.name
 const damageType = props.damageInfo.type as 'physical' | 'magical' | 'special'
 const damageValue = Number.parseInt(props.damageInfo.value)
-const variant = damageValue > 160000 ? 'red' : damageValue > 80000 ? 'yellow' : 'green'
 const diff = computed(() => {
   return time - timer.value / 1000
 })
@@ -43,6 +42,15 @@ const diffStr = computed(() => {
     return Math.ceil(diff.value).toString().padStart(2, '0')
   }
   return '00'
+})
+const variant = computed(() => {
+  if (diff.value > 10) {
+    return 'info'
+  }
+  if (diff.value > 5) {
+    return 'warn'
+  }
+  return 'danger'
 })
 const progress = computed(() => {
   if (diff.value > 15) {
@@ -80,7 +88,7 @@ const damageStr = computed(() => {
 
     <!-- 第三行：减伤百分比 + 伤害信息 -->
     <div class="mt-1 flex items-center justify-between gap-8">
-      <span class="text-3xl font-bold text-rose-400">{{ mitigationStr }}</span>
+      <span class="text-3xl font-bold text-teal-400">{{ mitigationStr }}</span>
       <DamageInfo :damage="damageStr" :type="damageType" />
     </div>
   </div>
