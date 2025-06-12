@@ -11,6 +11,7 @@ import D2CD from './_components/D2CD.astro'
 import D3CD from './_components/D3CD.astro'
 import D4CD from './_components/D4CD.astro'
 import DutyTimer from './_components/DutyTimer.astro'
+import Damage from './_components/Damage.vue'
 ---
 
 <Layout lang="zh-CN" title="M5S PR 时间轴" description="M5S PR 时间轴">
@@ -26,6 +27,16 @@ import DutyTimer from './_components/DutyTimer.astro'
         <D3CD duty="m5s" />
         <D4CD duty="m5s" />
       </div>
+      <Damage
+        countdown="10"
+        skillName="欢庆时刻"
+        progress={1000 / 15}
+        damage="120000"
+        damageType="physical"
+        mitigation={20}
+        class="absolute top-1/2 left-1/2 translate-x-80 -translate-y-1/2"
+        client:idle
+      />
     </div>
   </div>
 </Layout>
