@@ -24,7 +24,7 @@ const timer = useStore($timer)
 // 计算显示的 damage 队列
 const visibleDamages = computed(() => {
   const currentTime = timer.value / 1000
-  const maxCount = 4
+  const maxCount = 3 // 最多同时显示 maxCount 个
 
   return props.damages
     .map(damage => ({
@@ -38,7 +38,7 @@ const visibleDamages = computed(() => {
       return diff <= 15.4 && diff >= -1.6
     })
     .sort((a, b) => a.timeInSeconds - b.timeInSeconds) // 按时间排序
-    .slice(0, maxCount) // 最多显示4个
+    .slice(0, maxCount)
 })
 </script>
 
