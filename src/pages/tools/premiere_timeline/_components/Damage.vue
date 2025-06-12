@@ -78,7 +78,7 @@ const damageStr = computed(() => {
       <span class="text-3xl font-bold">
         {{ diffStr }}
       </span>
-      <span class="text-right text-3xl font-medium">
+      <span class="text-right text-3xl font-semibold">
         {{ damageName }}
       </span>
     </div>
@@ -87,9 +87,11 @@ const damageStr = computed(() => {
     <ProgressBar :progress="progress" :variant="variant" />
 
     <!-- 第三行：减伤百分比 + 伤害信息 -->
-    <div class="mt-1 flex items-center justify-between gap-8">
-      <span class="text-3xl font-bold text-teal-400">{{ mitigationStr }}</span>
-      <DamageInfo :damage="damageStr" :type="damageType" />
+    <div class="mt-1 flex items-center justify-between gap-8 font-semibold">
+      <span class="text-3xl text-teal-400">{{ mitigationStr }}</span>
+      <div class="bg-black">
+        <DamageInfo :damage="damageStr" :type="damageType" />
+      </div>
     </div>
   </div>
 </template>

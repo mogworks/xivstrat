@@ -11,7 +11,8 @@ import D2CD from './_components/D2CD.astro'
 import D3CD from './_components/D3CD.astro'
 import D4CD from './_components/D4CD.astro'
 import DutyTimer from './_components/DutyTimer.astro'
-import Damage from './_components/Damage.vue'
+import DamageRow from './_components/DamageRow.vue'
+import { timelineMap } from './timeline'
 ---
 
 <Layout lang="zh-CN" title="M5S PR 时间轴" description="M5S PR 时间轴">
@@ -27,26 +28,7 @@ import Damage from './_components/Damage.vue'
         <D3CD duty="m5s" />
         <D4CD duty="m5s" />
       </div>
-      <Damage
-        class="absolute bottom-22 left-1/2 translate-x-80"
-        client:idle
-        damageInfo={{
-          name: '四连指向、定格＆播放',
-          time: '00:08.045',
-          type: 'magical',
-          value: '200000',
-        }}
-      />
-      <Damage
-        class="absolute bottom-22 left-1/2 translate-x-180"
-        client:idle
-        damageInfo={{
-          name: '新式超豪华野蛮大乱击',
-          time: '00:12.045',
-          type: 'physical',
-          value: '40000',
-        }}
-      />
+      <DamageRow class="absolute bottom-22 left-1/2 translate-x-80" damages={timelineMap.m5s.damages} client:idle />
     </div>
   </div>
 </Layout>
