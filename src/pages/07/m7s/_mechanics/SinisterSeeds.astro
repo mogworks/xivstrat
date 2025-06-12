@@ -50,6 +50,7 @@ import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
 import { translations } from '../_translations'
 import { TvMinimalPlay } from 'lucide-vue-next'
+import StratLink from '@/components/StratLink.astro'
 
 interface Props {
   base: Time
@@ -237,7 +238,7 @@ const bloomingAbomination = translations.bloomingAbomination
   </div>
 </MechanicSection>
 
-<SolutionSection title="解法：Game8原版">
+<SolutionSection id="game8-0" title="解法：Game8原版">
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
       <Span variant="lime">初始站位</Span>
@@ -540,18 +541,26 @@ const bloomingAbomination = translations.bloomingAbomination
       <Span variant="lime">躲避冰花并分摊</Span>
     </h4>
     <div class="paragraph">
-      在<Span variant="pink">第四轮</Span>黄圈<Span variant="pink">消失</Span>后，前往分摊，解法与game8原版相同
+      在<Span variant="pink">第四轮</Span>黄圈<Span variant="pink">消失</Span>后，前往分摊，解法与<StratLink
+        variant="lime"
+        href="#game8-0">Game8原版</StratLink
+      >相同
     </div>
   </div>
   <div class="mt-8 flex flex-col gap-4">
     <div class="paragraph">
-      与原版相比，魔改后 <RoleIcon role="melee" tag="近战" />不再需要远离boss放置黄圈，uptime提高
-    </div>
-    <div class="paragraph">与game8原版相比，初始时全员站位集中，便于 <RoleIcon role="healer" tag="治疗" />预铺</div>
-    <div class="paragraph">
       <span class="line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700"
         >此解法魔改自欧服野队raidplan，其链接最后三个字符为nO2，在招募版上被如此称呼</span
       >
+    </div>
+    <div class="paragraph">
+      与<StratLink variant="orange" href="https://raidplan.io/plan/PWFgPfz0vL7runO2">原版</StratLink>相比，魔改后 <RoleIcon
+        role="melee"
+        tag="近战"
+      />不再需要远离boss放置黄圈，uptime提高
+    </div>
+    <div class="paragraph">
+      与Game8原版相比，初始时全员站位集中，便于 <RoleIcon role="healer" tag="治疗" />预铺
     </div>
   </div>
 </SolutionSection>
@@ -650,7 +659,7 @@ const bloomingAbomination = translations.bloomingAbomination
   </div>
 </MechanicSection>
 
-<SolutionSection title="解法：Game8原版">
+<SolutionSection id="game8-1" title="解法：Game8原版">
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       在躲避<Span variant="yellow">Roots of Evil</Span>时，
@@ -706,6 +715,6 @@ const bloomingAbomination = translations.bloomingAbomination
         <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
     </div>
-    <div class="paragraph">后续处理同game8原版</div>
+    <div class="paragraph">后续处理同<StratLink variant="lime" href="#game8-1">解法：Game8原版</StratLink></div>
   </div>
 </SolutionSection>
