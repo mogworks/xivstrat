@@ -4,20 +4,30 @@ import { getEntry } from 'astro:content'
 import DutyLayout from '@/layouts/DutyLayout.astro'
 
 import Separator from '@/components/Separator.astro'
+import StratHomeAside from '@/components/StratHomeAside.vue'
 
 interface Props {
   dutyId: string
+  navList: {
+    id: string
+    label: string
+  }[]
 }
 
-const { dutyId }: Props = Astro.props
+const { dutyId, navList }: Props = Astro.props
 const duty = (await getEntry('duties', dutyId))!.data
 ---
 
 <DutyLayout dutyId={dutyId}>
-  <main class="max-w-strat-max min-w-strat-min relative mx-auto mb-20 p-4">
-    <article class="flex flex-col gap-(--article-row-gap) px-68 tracking-wide">
+  <main class="max-w-strat-max min-w-strat-min relative mx-auto mb-20 grid grid-cols-[1fr_16rem] p-4">
+    <article class="flex flex-col gap-(--article-row-gap) px-68 pr-4 tracking-wide">
+      <slot name="header" />
+      <div class="flex gap-4">
+        <slot name="operation" />
+      </div>
       <slot />
     </article>
+    <StratHomeAside client:only="vue" navList={navList} />
     <Separator orientation="vertical" class="absolute top-4 left-68 h-[calc(100%-2rem)]" />
     <Separator orientation="vertical" class="absolute top-4 right-68 h-[calc(100%-2rem)]" />
   </main>
