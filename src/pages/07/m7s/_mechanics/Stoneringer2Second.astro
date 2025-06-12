@@ -52,24 +52,31 @@ const slaminator = translations.slaminator
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       <BruteAbombinator />
-      掏出两把武器并释放下列组合技：
+      掏出两把武器并进行下列组合技：
     </div>
     <div class="paragraph">
       <ListDot />
-      <Span variant="pink">一把</Span>
-      武器
-      <Span variant="pink">发光</Span>
-      ，同时点名四人
+      点名四人
       <RoleIcon role="tank|healer" />
       组或
       <RoleIcon role="dps" />
-      组放置第一次
+      组准备放置第一次
       <Span variant="cyan">冰花</Span>
     </div>
     <div class="paragraph">
       <ListDot />
+      一把武器
+      <Span variant="pink">发光</Span>
+      ，同时Boss连线一面墙
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      点名判定
+    </div>
+    <div class="paragraph">
+      <ListDot />
       <BruteAbombinator />
-      跳至连线墙，
+      跳至连线墙，随后
       <Span variant="cyan">冰花</Span>
       与
       <Span variant="yellow">钢铁/月环</Span>
@@ -83,8 +90,14 @@ const slaminator = translations.slaminator
       <RoleIcon role="dps" />
       组或
       <RoleIcon role="tank|healer" />
-      组放置第二次
+      组准备放置第二次
       <Span variant="cyan">冰花</Span>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      点名判定，同时另一把武器
+      <Span variant="pink">发光</Span>
+      且Boss连线一面墙
     </div>
     <div class="paragraph">
       <ListDot />
@@ -102,44 +115,50 @@ const slaminator = translations.slaminator
   </div>
 </MechanicSection>
 <SolutionSection title="解法：Game8">
-  <T class="mt-8" variant="lime" text=`冰花放置参考` />
-  <ImgRow
-    wrapperClass="max-w-100"
-    borderVariant="fuchsia"
-    imgs={[
-      {
-        src: pos1_img,
-        alt: 'm7sp3: 结尾冰花',
-        title: '第一次位置',
-      },
-      {
-        src: pos2_img,
-        alt: 'm7sp3: 结尾冰花',
-        title: '第二次位置',
-      },
-    ]}
-  />
-  <T class="mt-8" variant="lime" text=`冰花组合技` />
-  <ImgRow
-    wrapperClass="max-w-100"
-    borderVariant="fuchsia"
-    imgs={[
-      {
-        src: circle_img,
-        alt: 'm7sp3: 结尾冰花',
-        title: '冰花与钢铁',
-      },
-      {
-        src: ring_img,
-        alt: 'm7sp3: 结尾冰花',
-        title: '冰花与月环',
-      },
-    ]}
-  />
-</SolutionSection>
-<NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">由T开无敌单独踩塔</div>
-    <div class="paragraph">放置冰花时，把靠近Boss的位置留给近战职业可以增加输出</div>
+    <div class="paragraph">
+      放置
+      <Span variant="cyan">冰花</Span>
+      时，可以把靠近Boss的位置留给近战职业
+    </div>
+    <div class="paragraph">
+      最后的塔可以由
+      <RoleIcon role="tank" />
+      开无敌单独踩塔
+    </div>
+    <T class="mt-8" variant="lime" text=`冰花放置参考` />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="fuchsia"
+      imgs={[
+        {
+          src: pos1_img,
+          alt: 'm7sp3: 结尾冰花',
+          title: '第一次位置',
+        },
+        {
+          src: pos2_img,
+          alt: 'm7sp3: 结尾冰花',
+          title: '第二次位置',
+        },
+      ]}
+    />
+    <T class="mt-8" variant="lime" text=`冰花组合技` />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="fuchsia"
+      imgs={[
+        {
+          src: circle_img,
+          alt: 'm7sp3: 结尾冰花',
+          title: '冰花与钢铁',
+        },
+        {
+          src: ring_img,
+          alt: 'm7sp3: 结尾冰花',
+          title: '冰花与月环',
+        },
+      ]}
+    />
   </div>
-</NoteSection>
+</SolutionSection>
