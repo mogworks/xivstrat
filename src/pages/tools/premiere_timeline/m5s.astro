@@ -28,44 +28,38 @@ import Damage from './_components/Damage.vue'
         <D4CD duty="m5s" />
       </div>
       <Damage
-        countdown="10"
-        skillName="四连指向、定格＆播放"
-        progress={1000 / 15}
-        damage="120000"
-        damageType="physical"
-        mitigation={20}
         class="absolute bottom-22 left-1/2 translate-x-80"
         client:idle
+        damageInfo={{
+          name: '四连指向、定格＆播放',
+          time: '00:08.045',
+          type: 'magical',
+          value: '120000',
+        }}
       />
       <Damage
-        countdown="10"
-        skillName="新式超豪华野蛮大乱击"
-        progress={1000 / 15}
-        damage="120000"
-        damageType="physical"
-        mitigation={20}
         class="absolute bottom-22 left-1/2 translate-x-180"
         client:idle
+        damageInfo={{
+          name: '新式超豪华野蛮大乱击',
+          time: '00:12.045',
+          type: 'physical',
+          value: '120000',
+        }}
       />
     </div>
   </div>
 </Layout>
 
 <script>
-  import { $magical, $physical, $special } from './_stores/mitigation'
+  import { $mitigation } from './_stores/mitigation'
   import { startTimer } from './_stores/timer'
 
   setTimeout(() => {
     startTimer()
-  }, 20000)
+  }, 5000)
 
-  $physical.listen((v) => {
-    console.log(v)
-  })
-  $magical.listen((v) => {
-    console.log(v)
-  })
-  $special.listen((v) => {
+  $mitigation.listen((v) => {
     console.log(v)
   })
 </script>

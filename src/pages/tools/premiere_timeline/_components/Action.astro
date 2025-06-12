@@ -106,11 +106,26 @@ const { duty, icon = undefined, role, recast, duration, physical, magical, speci
             // durationSpan 展示
             animate(durationSpan, { opacity: 1 })
             durationSpan.textContent = `${Math.ceil(duration - (s - t))}`
-            $mitigations.setKey(role, [physical / 100, magical / 100, special / 100])
+            const mitigation = $mitigations.get()[role]
+            if (
+              Math.floor(mitigation[0] * 100) !== physical ||
+              Math.floor(mitigation[1] * 100) !== magical ||
+              Math.floor(mitigation[2] * 100) !== special
+            ) {
+              $mitigations.setKey(role, [physical / 100, magical / 100, special / 100])
+            }
           } else {
             // durationSpan 隐藏
             animate(durationSpan, { opacity: 0 })
-            $mitigations.setKey(role, [1, 1, 1])
+
+            const mitigation = $mitigations.get()[role]
+            if (
+              Math.floor(mitigation[0] * 100) !== 100 ||
+              Math.floor(mitigation[1] * 100) !== 100 ||
+              Math.floor(mitigation[2] * 100) !== 100
+            ) {
+              $mitigations.setKey(role, [1, 1, 1])
+            }
           }
         }
       })

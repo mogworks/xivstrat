@@ -9,32 +9,21 @@ export const $mitigations = map({
   D4: [1, 1, 1],
 })
 
-export const $physical = computed($mitigations, (mitigations) => {
-  const res = Object.values(mitigations).reduce((acc, mitigation) => {
-    return acc * mitigation[0]
-  }, 1)
-  if (mitigations.MT[0] !== 1 && mitigations.ST[0] !== 1) {
-    return res / 0.9
+export const $mitigation = computed($mitigations, (mitigations) => {
+  const res = {
+    physical: 1,
+    magical: 1,
+    special: 1,
   }
-  return res
-})
-
-export const $magical = computed($mitigations, (mitigations) => {
-  const res = Object.values(mitigations).reduce((acc, mitigation) => {
-    return acc * mitigation[1]
-  }, 1)
-  if (mitigations.MT[0] !== 1 && mitigations.ST[0] !== 1) {
-    return res / 0.9
-  }
-  return res
-})
-
-export const $special = computed($mitigations, (mitigations) => {
-  const res = Object.values(mitigations).reduce((acc, mitigation) => {
-    return acc * mitigation[2]
-  }, 1)
-  if (mitigations.MT[0] !== 1 && mitigations.ST[0] !== 1) {
-    return res / 0.9
+  const keys = ['physical', 'magical', 'special']
+  for (let i = 0; i < 3; i++) {
+    let m = Object.values(mitigations).reduce((acc, mitigation) => {
+      return acc * mitigation[i]
+    }, 1)
+    if (mitigations.MT[0] !== 1 && mitigations.ST[0] !== 1) {
+      m /= 0.9
+    }
+    res[keys[i] as keyof typeof res] = m
   }
   return res
 })
