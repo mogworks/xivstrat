@@ -7,10 +7,9 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import EventSection from '@/components/section/EventSection.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import Badge from '@/components/Badge.astro'
 
 import BruteAbombinator from './BruteAbombinator.astro'
-
-import icon from '@/assets/buff/215057.png'
 
 interface Props {
   time: Time
@@ -28,4 +27,5 @@ const { time, base = 0 }: Props = Astro.props
   <Span variant="yellow">The Unpotted</Span>
   <DamageInfo damage="78000" type="magical" />
   <MagicVulnerabilityUp tag="2" hover />
+  <Badge variant="emerald">25°扇形</Badge>
 </EventSection>

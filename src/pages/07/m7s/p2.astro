@@ -11,12 +11,12 @@ import PowerSlam from './_components/PowerSlam.astro'
 import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import GrapplingIvy from './_components/GrapplingIvy.astro'
-import ImgRow from '@/components/typography/ImgRow.astro'
-import P from '@/components/typography/P.astro'
-import T from '@/components/typography/T.astro'
-import Skill from '@/components/typography/Skill.astro'
 import DemolitionDeathmatchCast from './_components/DemolitionDeathmatchCast.astro'
 import AbominableBlinkCast from './_components/AbominableBlinkCast.astro'
+import AbominableBlinkActivate from './_components/AbominableBlinkActivate.astro'
+import ThornyDeathmatchCast from './_components/ThornyDeathmatchCast.astro'
+import TDAB from './_mechanics/TDAB.astro'
+import StoneringerCast from './_components/StoneringerCast.astro'
 
 const dutyId = '07/m7s'
 const base = '02:38.206'
@@ -30,12 +30,19 @@ const base = '02:38.206'
   <AttackSection time="02:43.372" base={base} damage="57000" damageType="physical" />
   <AttackSection time="02:46.402" base={base} damage="57000" damageType="physical" />
 
-  <SeparatorSection id="SBGR" title="SBGR" />
+  <SeparatorSection id="SBGR" title="Stoneringer + Brutish Swing + Glower Power + Revenge of the Vines" />
   <SBGR base={base} />
   <AttackSection time="03:17.190" base={base} damage="57000" damageType="physical" />
   <AttackSection time="03:20.219" base={base} damage="57000" damageType="physical" />
   <AttackSection time="03:43.624" base={base} damage="57000" damageType="physical" />
   <AttackSection time="03:46.656" base={base} damage="57000" damageType="physical" />
+
+  <SeparatorSection id="TDAB" title="Thorny Deathmatch + Abominable Blink" />
+  <ThornyDeathmatchCast start="03:22.806" base={base} />
+  <StoneringerCast start="03:27.928" base={base} />
+  <AbominableBlinkCast start="03:35.780" base={base} />
+  <AbominableBlinkActivate time="03:42.064" base={base} />
+  <TDAB base={base} />
 
   <SeparatorSection id="sporesplosion" title="Sporesplosion" />
   <Sporesplosion start="03:47.190" base={base} />
