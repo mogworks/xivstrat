@@ -1,9 +1,10 @@
 ---
 import type { ImageMetadata } from 'astro'
-import type { Role } from './role'
+import type { Role } from '../role'
 import { Image } from 'astro:assets'
 
 interface Props {
+  duty: string
   icon?: ImageMetadata
   role: Role
   recast: number
@@ -13,11 +14,12 @@ interface Props {
   special: number
 }
 
-const { icon = undefined, role, recast, duration, physical, magical, special }: Props = Astro.props
+const { duty, icon = undefined, role, recast, duration, physical, magical, special }: Props = Astro.props
 ---
 
 <ff14-action
   class="flex w-16 flex-col items-center -space-y-1"
+  data-duty={duty}
   data-role={role}
   data-recast={recast}
   data-duration={duration}
@@ -57,14 +59,15 @@ const { icon = undefined, role, recast, duration, physical, magical, special }: 
 
   import { timeToSeconds } from '@/lib/utils'
 
-  import type { Role } from './role'
+  import type { Role } from '../role'
 
   import { $mitigations } from '../_stores/mitigation'
   import { $timer } from '../_stores/timer'
-  import { mitigations } from '../_timeline/m5s'
+  import { timelineMap } from '../timeline'
 
   class FF14Action extends HTMLElement {
     connectedCallback() {
+      const duty = this.dataset.duty! as keyof typeof timelineMap
       const recastSpan = this.querySelector('[data-spantype="recast"]')!
       const durationSpan = this.querySelector('[data-spantype="duration"]')!
       const recastMask = this.querySelector('[data-masktype="recast"]')! as HTMLElement
@@ -74,7 +77,7 @@ const { icon = undefined, role, recast, duration, physical, magical, special }: 
       const physical = Number.parseInt(this.dataset.physical ?? '100')
       const magical = Number.parseInt(this.dataset.magical ?? '100')
       const special = Number.parseInt(this.dataset.special ?? '100')
-      const plan = mitigations[role].map((t) => timeToSeconds(t))
+      const plan = timelineMap[duty].mitigations[role].map((t) => timeToSeconds(t))
       $timer.subscribe((timer) => {
         const s = timer / 1000
         const t = plan.find((t) => s >= t)

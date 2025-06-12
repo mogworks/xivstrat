@@ -1,5 +1,5 @@
 ---
-import type { Role } from './_components/role'
+import type { Role } from './role'
 
 import Layout from '@/layouts/Layout.astro'
 
@@ -17,12 +17,12 @@ import D4CD from './_components/D4CD.astro'
     <div class="flex h-72 items-center justify-center">
       <div class="grid grid-cols-6 place-items-center gap-x-1 gap-y-1.5">
         {['MT', 'ST', 'D1', 'D2', 'D3', 'D4'].map((role) => <RoleIcon role={role as Role} />)}
-        <MTCD />
-        <STCD />
-        <D1CD />
-        <D2CD />
-        <D3CD />
-        <D4CD />
+        <MTCD duty="m5s" />
+        <STCD duty="m5s" />
+        <D1CD duty="m5s" />
+        <D2CD duty="m5s" />
+        <D3CD duty="m5s" />
+        <D4CD duty="m5s" />
       </div>
     </div>
   </div>
