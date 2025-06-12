@@ -30,6 +30,15 @@ const { icon = undefined, role, recast, duration, physical, magical, special }: 
       <slot>
         {icon && <Image src={icon} alt="" />}
       </slot>
+      <div
+        class="pointer-events-none absolute inset-0 opacity-0 brightness-0"
+        data-masktype="recast"
+        style="mask: conic-gradient(from 0deg at 50% 50%, transparent 0deg, black 0deg);"
+      >
+        <slot>
+          {icon && <Image src={icon} alt="" />}
+        </slot>
+      </div>
     </div>
     <span
       class="absolute top-[calc(50%-2px)] left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl font-semibold opacity-0 text-shadow-lg/50"
@@ -57,6 +66,7 @@ const { icon = undefined, role, recast, duration, physical, magical, special }: 
     connectedCallback() {
       const recastSpan = this.querySelector('[data-spantype="recast"]')!
       const durationSpan = this.querySelector('[data-spantype="duration"]')!
+      const recastMask = this.querySelector('[data-masktype="recast"]')! as HTMLElement
       const role = this.dataset.role as Role
       const recast = Number.parseInt(this.dataset.recast ?? '0')
       const duration = Number.parseInt(this.dataset.duration ?? '0')
@@ -71,11 +81,21 @@ const { icon = undefined, role, recast, duration, physical, magical, special }: 
           // 隐藏
         } else {
           if (s - t < recast) {
+            // 显示遮罩并更新径向裁剪
+            animate(recastMask, { opacity: 0.75 })
+            const progress = (s - t) / recast // 0到1的进度（已冷却的比例）
+            const completedAngle = progress * 360 // 已完成的角度
+
+            // 使用conic-gradient创建径向遮罩，从12点钟位置开始顺时针
+            // transparent部分是已冷却的（不遮罩），black部分是未冷却的（遮罩）
+            recastMask.style.mask = `conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent ${completedAngle}deg, black ${completedAngle}deg, black 360deg)`
+
             // recastSpan 展示
             animate(recastSpan, { opacity: 1 })
             recastSpan.textContent = `${Math.ceil(recast - (s - t))}`
           } else {
             // recastSpan 隐藏
+            animate(recastMask, { opacity: 0 })
             animate(recastSpan, { opacity: 0 })
           }
           if (s - t < duration) {
