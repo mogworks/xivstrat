@@ -9,6 +9,11 @@ import Stoneringer2Cast from '../_components/Stoneringer2Cast.astro'
 import { translations } from '../_translations'
 
 import img from '@/assets/07/m7s/Tmp.png'
+import circle_img from '@/assets/07/m7s/stoneringer2/p3_circle.png'
+import ring_img from '@/assets/07/m7s/stoneringer2/p3_ring.png'
+import left_img from '@/assets/07/m7s/stoneringer2/lashing_lariat_left.png'
+import right_img from '@/assets/07/m7s/stoneringer2/lashing_lariat_right.png'
+import glower_power_img from '@/assets/07/m7s/stoneringer2/p3_glower_power.png'
 import ListDot from '@/components/ListDot.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import Skill from '@/components/typography/Skill.astro'
@@ -107,12 +112,12 @@ const slaminator = translations.slaminator
       borderVariant="fuchsia"
       imgs={[
         {
-          src: img,
+          src: circle_img,
           alt: 'm7sp3: 钢铁',
           title: '钢铁',
         },
         {
-          src: img,
+          src: ring_img,
           alt: 'm7sp3: 月环',
           title: '月环',
         },
@@ -124,12 +129,12 @@ const slaminator = translations.slaminator
       borderVariant="fuchsia"
       imgs={[
         {
-          src: img,
+          src: left_img,
           alt: 'm7sp3: 左半场刀',
           title: '左半场',
         },
         {
-          src: img,
+          src: right_img,
           alt: 'm7sp3: 右半场刀',
           title: '右半场',
         },
@@ -140,6 +145,17 @@ const slaminator = translations.slaminator
 <SolutionSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">待补充</div>
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="fuchsia"
+      imgs={[
+        {
+          src: glower_power_img,
+          alt: 'm7sp3: 分散站位',
+          title: '分散站位',
+        },
+      ]}
+    />
   </div>
 </SolutionSection>
 <NoteSection>

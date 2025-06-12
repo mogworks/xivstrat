@@ -18,6 +18,9 @@ import ElectrogeneticForceActivate from '../_components/ElectrogeneticForceActiv
 import RevengeOfTheVinesCast from '../_components/RevengeOfTheVinesCast.astro'
 import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
 import { translations } from '../_translations'
+import GlowerPowerActivate from '../_components/GlowerPowerActivate.astro'
+import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
+import SporesplosionActivate from '../_components/SporesplosionActivate.astro'
 
 interface Props {
   start: Time
@@ -29,6 +32,15 @@ const glowerPower = translations.glowerPower
 ---
 
 <SporesplosionCast start={start} base={base} />
+<SporesplosionActivate time="03:57.297" base={base} num={1} />
+<BrutishSwingCast start="03:58.320" base={base} />
+<SporesplosionActivate time="03:59.303" base={base} num={2} />
+<SporesplosionActivate time="04:01.308" base={base} num={3} />
+<BrutishSwingActivate time="04:06.386" base={base} />
+<GlowerPowerCast start="04:07.275" base={base} />
+<GlowerPowerActivate time="04:09.948" base={base} />
+<ElectrogeneticForceActivate time="04:11.101" base={base} />
+<RevengeOfTheVinesCast start="04:12.084" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
@@ -77,16 +89,6 @@ const glowerPower = translations.glowerPower
     </div>
   </div>
 </NoteSection>
-
-<BrutishSwingCast start="04:02.287" base={base} />
-<GlowerPowerCast start="04:09.948" base={base} />
-<ElectrogeneticForceActivate time="04:11.101" base={base} />
-<RevengeOfTheVinesCast start="04:17.078" base={base} />
-<AttackSection time="04:19.661" base={base} damage="57000" damageType="physical" />
-<AttackSection time="04:22.696" base={base} damage="57000" damageType="physical" />
-<AttackSection time="04:28.850" base={base} damage="57000" damageType="physical" />
-<AttackSection time="04:31.880" base={base} damage="57000" damageType="physical" />
-<AttackSection time="04:42.302" base={base} damage="57000" damageType="physical" />
 
 <script>
   import { listenKeys } from 'nanostores'
