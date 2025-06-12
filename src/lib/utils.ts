@@ -30,3 +30,8 @@ export function shuffle<T>(array: T[]): T[] {
   }
   return result
 }
+
+export function omit<T extends object, K extends keyof T>(obj: T, keysToExclude: K | K[]): Omit<T, K> {
+  const excludeSet = new Set(Array.isArray(keysToExclude) ? keysToExclude : [keysToExclude])
+  return Object.fromEntries(Object.entries(obj).filter(([key]) => !excludeSet.has(key as K))) as Omit<T, K>
+}
