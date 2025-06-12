@@ -18,6 +18,7 @@ import StoneringerCast from './_components/StoneringerCast.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import SmashHereCast from './_components/SmashHereCast.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
+import SinisterSeedsCast from './_components/SinisterSeedsCast.astro'
 
 const dutyId = '07/m7s'
 const base = '06:16.310'
@@ -69,15 +70,14 @@ const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
   <AttackSection time="08:27.580" base={base} damage="57000" damageType="physical" />
 
   <SeparatorSection title={sinisterSeeds} />
-  <SinisterSeedsP3 time="08:39.830" base={base} />
-
+  <SinisterSeedsCast start="08:39.830" base={base} />
   <AttackSection time="08:46.643" base={base} damage="57000" damageType="physical" />
   <AttackSection time="08:49.674" base={base} damage="57000" damageType="physical" />
   <AttackSection time="08:52.703" base={base} damage="57000" damageType="physical" />
   <AttackSection time="08:55.732" base={base} damage="57000" damageType="physical" />
-
   <PulpSmashCast start="08:56.980" base={base} />
   <TheUnpottedActivate time="09:04.019" base={base} />
+  <SinisterSeedsP3 base={base} />
 
   <BrutalImpactCast start="09:05.357" base={base} toln={8} />
   <BrutalImpactActivate time="09:10.574" base={base} num={1} />
