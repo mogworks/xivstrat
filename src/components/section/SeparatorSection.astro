@@ -4,7 +4,6 @@ import type { VariantType } from '@/lib/variant'
 import Separator from '@/components/Separator.astro'
 import Span from '@/components/Span.vue'
 import ContentSection from '@/components/section/ContentSection.astro'
-import { omit } from '@/lib/utils'
 
 interface Props {
   title?: string
@@ -13,14 +12,12 @@ interface Props {
 }
 
 const { title = '', variant = 'zinc', ...rest }: Props = Astro.props
-
-const restWithoutId = omit(rest, 'id')
 ---
 
-<ContentSection class="separator-section" {...restWithoutId}>
+<ContentSection class="separator-section" {...rest}>
   {
     title ? (
-      <div class="flex items-center gap-4" id={rest.id}>
+      <div class="flex items-center gap-4">
         <Separator class="shrink" />
         <Span variant={variant} class="grow text-nowrap">
           {title}
@@ -28,9 +25,7 @@ const restWithoutId = omit(rest, 'id')
         <Separator class="shrink" />
       </div>
     ) : (
-      <div id={rest.id}>
-        <Separator />
-      </div>
+      <Separator />
     )
   }
 </ContentSection>
