@@ -58,15 +58,11 @@ export function useAnchorObserver(idList: string[]) {
       .map(([id, top]) => ({ id, top }))
       .sort((a, b) => a.top - b.top)
 
-    // 边界锚点
-    if (sortedPositions.length === 0) {
-      return ''
-    }
-    if (sortedPositions.length === 1) {
-      return sortedPositions[0].id
+    if (sortedPositions.length <= 1) {
+      return sortedPositions?.[0]?.id ?? ''
     }
 
-    // 遍历找到最适合的锚点
+    // 以 scrollY + 视口高的 40% 作为锚点判定的绝对位置，来算最佳锚点：在判定线以上则是上一个锚点，重合或者以下是下一个锚点（解决往上B->A滑动锚点还是在B的问题）
     for (let i = 0; i < sortedPositions.length; i++) {
       const current = sortedPositions[i]
       const next = sortedPositions[i + 1]
