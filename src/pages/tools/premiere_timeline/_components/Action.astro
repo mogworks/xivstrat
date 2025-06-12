@@ -83,52 +83,53 @@ const { duty, icon = undefined, role, recast, duration, physical, magical, speci
       const plan = timelineMap[duty].mitigations[role].map((t) => timeToSeconds(t))
       $timer.subscribe((timer) => {
         const s = timer / 1000
-        const t = plan.find((t) => s >= t)
-        if (t === undefined) {
-          // 隐藏
+        // 找到最大的不超过 s 的时间点
+        const t = plan.filter((t) => t <= s).reduce((max, t) => (t > max ? t : max), -Infinity)
+        if (t === -Infinity) {
+          return
+        }
+        // 分情况
+        if (s - t < recast) {
+          // 显示遮罩并更新径向裁剪
+          animate(recastMask, { opacity: 0.75 })
+          const progress = (s - t) / recast // 0到1的进度（已冷却的比例）
+          const completedAngle = progress * 360 // 已完成的角度
+
+          // 使用conic-gradient创建径向遮罩，从12点钟位置开始顺时针
+          // transparent部分是已冷却的（不遮罩），black部分是未冷却的（遮罩）
+          recastMask.style.mask = `conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent ${completedAngle}deg, black ${completedAngle}deg, black 360deg)`
+
+          // recastSpan 展示
+          animate(recastSpan, { opacity: 1 })
+          recastSpan.textContent = `${Math.ceil(recast - (s - t))}`
         } else {
-          if (s - t < recast) {
-            // 显示遮罩并更新径向裁剪
-            animate(recastMask, { opacity: 0.75 })
-            const progress = (s - t) / recast // 0到1的进度（已冷却的比例）
-            const completedAngle = progress * 360 // 已完成的角度
-
-            // 使用conic-gradient创建径向遮罩，从12点钟位置开始顺时针
-            // transparent部分是已冷却的（不遮罩），black部分是未冷却的（遮罩）
-            recastMask.style.mask = `conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent ${completedAngle}deg, black ${completedAngle}deg, black 360deg)`
-
-            // recastSpan 展示
-            animate(recastSpan, { opacity: 1 })
-            recastSpan.textContent = `${Math.ceil(recast - (s - t))}`
-          } else {
-            // recastSpan 隐藏
-            animate(recastMask, { opacity: 0 })
-            animate(recastSpan, { opacity: 0 })
+          // recastSpan 隐藏
+          animate(recastMask, { opacity: 0 })
+          animate(recastSpan, { opacity: 0 })
+        }
+        if (s - t < duration) {
+          // durationSpan 展示
+          animate(durationSpan, { opacity: 1 })
+          durationSpan.textContent = `${Math.ceil(duration - (s - t))}`
+          const mitigation = $mitigations.get()[role]
+          if (
+            Math.floor(mitigation[0] * 100) !== physical ||
+            Math.floor(mitigation[1] * 100) !== magical ||
+            Math.floor(mitigation[2] * 100) !== special
+          ) {
+            $mitigations.setKey(role, [physical / 100, magical / 100, special / 100])
           }
-          if (s - t < duration) {
-            // durationSpan 展示
-            animate(durationSpan, { opacity: 1 })
-            durationSpan.textContent = `${Math.ceil(duration - (s - t))}`
-            const mitigation = $mitigations.get()[role]
-            if (
-              Math.floor(mitigation[0] * 100) !== physical ||
-              Math.floor(mitigation[1] * 100) !== magical ||
-              Math.floor(mitigation[2] * 100) !== special
-            ) {
-              $mitigations.setKey(role, [physical / 100, magical / 100, special / 100])
-            }
-          } else {
-            // durationSpan 隐藏
-            animate(durationSpan, { opacity: 0 })
+        } else {
+          // durationSpan 隐藏
+          animate(durationSpan, { opacity: 0 })
 
-            const mitigation = $mitigations.get()[role]
-            if (
-              Math.floor(mitigation[0] * 100) !== 100 ||
-              Math.floor(mitigation[1] * 100) !== 100 ||
-              Math.floor(mitigation[2] * 100) !== 100
-            ) {
-              $mitigations.setKey(role, [1, 1, 1])
-            }
+          const mitigation = $mitigations.get()[role]
+          if (
+            Math.floor(mitigation[0] * 100) !== 100 ||
+            Math.floor(mitigation[1] * 100) !== 100 ||
+            Math.floor(mitigation[2] * 100) !== 100
+          ) {
+            $mitigations.setKey(role, [1, 1, 1])
           }
         }
       })
