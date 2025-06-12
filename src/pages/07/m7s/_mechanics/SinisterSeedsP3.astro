@@ -2,15 +2,23 @@
 import type { Time } from '@/lib/utils'
 
 import img from '@/assets/07/m7s/Tmp.png'
+import move_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_move_1.png'
+import move_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_move_2.png'
+import safezone_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_safezone_1.png'
+import safezone_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_safezone_2.png'
+import share_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_share_1.png'
+import share_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_share_2.png'
+import spread_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_spread_1.png'
+import spread_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_spread_2.png'
 
+import ImgRow from '@/components/typography/ImgRow.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
+import Skill from '@/components/typography/Skill.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import T from '@/components/typography/T.astro'
 
 import SinisterSeedsCast from '../_components/SinisterSeedsCast.astro'
 import { translations } from '../_translations'
-import ImgRow from '@/components/typography/ImgRow.astro'
-import Skill from '@/components/typography/Skill.astro'
 
 interface Props {
   time: Time
@@ -48,24 +56,24 @@ const theUnpotted = translations.theUnpotted
       borderVariant="fuchsia"
       imgs={[
         {
-          src: img,
-          alt: 'm7sp3: 冰花站位',
-          title: '初始站位',
+          src: move_1,
+          alt: 'm7sp3: 站位与路线',
+          title: '站位与路线',
         },
         {
-          src: img,
-          alt: 'm7sp3: 冰花路线',
-          title: '步进路线',
+          src: safezone_1,
+          alt: 'm7sp3: 安全区',
+          title: '安全区',
         },
         {
-          src: img,
-          alt: 'm7sp3: 冰花生效',
-          title: '躲避冰花',
+          src: share_1,
+          alt: 'm7sp3: 分摊',
+          title: '分摊',
         },
         {
-          src: img,
-          alt: 'm7sp3: 冰花分摊',
-          title: '最后分摊',
+          src: spread_1,
+          alt: 'm7sp3: 分散',
+          title: '分散',
         },
       ]}
     />
@@ -75,24 +83,24 @@ const theUnpotted = translations.theUnpotted
       borderVariant="fuchsia"
       imgs={[
         {
-          src: img,
-          alt: 'm7sp3: 冰花站位',
-          title: '初始站位',
+          src: move_2,
+          alt: 'm7sp3: 站位与路线',
+          title: '站位与路线',
         },
         {
-          src: img,
-          alt: 'm7sp3: 冰花路线',
-          title: '步进路线',
+          src: safezone_2,
+          alt: 'm7sp3: 安全区',
+          title: '安全区',
         },
         {
-          src: img,
-          alt: 'm7sp3: 冰花生效',
-          title: '躲避冰花',
+          src: share_2,
+          alt: 'm7sp3: 分摊',
+          title: '分摊',
         },
         {
-          src: img,
-          alt: 'm7sp3: 冰花分摊',
-          title: '最后分摊',
+          src: spread_2,
+          alt: 'm7sp3: 分散',
+          title: '分散',
         },
       ]}
     />
