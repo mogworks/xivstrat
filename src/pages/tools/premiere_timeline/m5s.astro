@@ -17,7 +17,7 @@ import Damage from './_components/Damage.vue'
 <Layout lang="zh-CN" title="M5S PR 时间轴" description="M5S PR 时间轴">
   <div class="min-h-screen w-960">
     <div class="relative flex h-72 items-center justify-center">
-      <DutyTimer class="absolute top-1/2 left-1/2 -translate-x-120 -translate-y-1/2" />
+      <DutyTimer class="absolute top-1/2 left-1/2 -translate-x-115 -translate-y-1/2" />
       <div class="grid grid-cols-6 place-items-center gap-x-1 gap-y-1.5">
         {['MT', 'ST', 'D1', 'D2', 'D3', 'D4'].map((role) => <RoleIcon role={role as Role} />)}
         <MTCD duty="m5s" />
@@ -29,12 +29,22 @@ import Damage from './_components/Damage.vue'
       </div>
       <Damage
         countdown="10"
-        skillName="欢庆时刻"
+        skillName="四连指向、定格＆播放"
         progress={1000 / 15}
         damage="120000"
         damageType="physical"
         mitigation={20}
-        class="absolute top-1/2 left-1/2 translate-x-80 -translate-y-1/2"
+        class="absolute bottom-22 left-1/2 translate-x-80"
+        client:idle
+      />
+      <Damage
+        countdown="10"
+        skillName="新式超豪华野蛮大乱击"
+        progress={1000 / 15}
+        damage="120000"
+        damageType="physical"
+        mitigation={20}
+        class="absolute bottom-22 left-1/2 translate-x-180"
         client:idle
       />
     </div>
