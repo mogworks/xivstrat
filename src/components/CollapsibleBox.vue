@@ -3,6 +3,7 @@ import { ChevronsUpDown } from 'lucide-vue-next'
 import { type HTMLAttributes, ref } from 'vue'
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/shadcn-vue/collapsible'
+import { Separator } from '@/components/shadcn-vue/separator'
 import { cn } from '@/lib/utils'
 
 const props = withDefaults(
@@ -33,6 +34,7 @@ const isOpen = ref(props.defaultStatus)
         </CollapsibleTrigger>
       </div>
       <CollapsibleContent>
+        <Separator class="my-4 mb-3" />
         <div>
           <slot />
         </div>
