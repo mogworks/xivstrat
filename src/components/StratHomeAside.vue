@@ -51,7 +51,7 @@ const handleNavClick = (id: string) => {
   }
   scrollTimeout.value = window.setTimeout(() => {
     scrollTimeout.value = null
-  }, 500)
+  }, 1000)
 }
 
 const setupIntersectionObserver = () => {
@@ -102,7 +102,7 @@ const setupIntersectionObserver = () => {
         if (elem) {
           observer.value?.observe(elem)
         }
-      }, 500)
+      }, 1000)
     }
   })
 }
