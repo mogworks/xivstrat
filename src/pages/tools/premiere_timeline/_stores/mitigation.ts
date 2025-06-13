@@ -25,5 +25,10 @@ export const $mitigation = computed($mitigations, (mitigations) => {
     }
     res[keys[i] as keyof typeof res] = m
   }
+  if (mitigations.D1[0] !== 1 && mitigations.D2[0] !== 1 && mitigations.D4[0] !== 1) {
+    // 牵制和昏乱同时在的话，D2无论是近战还是法系，减伤都等于无效了
+    res.physical /= 0.95
+    res.magical /= 0.95
+  }
   return res
 })
