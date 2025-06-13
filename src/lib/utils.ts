@@ -35,3 +35,31 @@ export function omit<T extends object, K extends keyof T>(obj: T, keysToExclude:
   const excludeSet = new Set(Array.isArray(keysToExclude) ? keysToExclude : [keysToExclude])
   return Object.fromEntries(Object.entries(obj).filter(([key]) => !excludeSet.has(key as K))) as Omit<T, K>
 }
+
+export function copyToClipboard(text?: string | null) {
+  if (!text) {
+    return false
+  }
+  // 老浏览器兼容方案
+  const textArea = document.createElement('textarea')
+  textArea.value = text
+  textArea.style.position = 'fixed'
+  document.body.appendChild(textArea)
+  textArea.focus()
+  textArea.select()
+
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text)
+    } else if (document.queryCommandSupported('copy')) {
+      // fallback
+      document.execCommand('copy')
+    }
+    return true
+  } catch (err) {
+    console.error(err)
+    return false
+  } finally {
+    document.body.removeChild(textArea)
+  }
+}
