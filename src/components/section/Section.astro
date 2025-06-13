@@ -11,6 +11,10 @@ const { id = undefined, class: className = '', ...rest }: Props = Astro.props
 ---
 
 {id && <div id={id} class="scroll-mt-[calc(5rem+1px)] h-0 -mb-(--article-row-gap)" />}
-<section class={cn('strat-section grid grid-cols-[16rem_1fr]', className)} {...rest}>
+<section
+  id={id ? id + '_section' : undefined}
+  class={cn('strat-section grid grid-cols-[16rem_1fr]', className)}
+  {...rest}
+>
   <slot />
 </section>

@@ -30,6 +30,7 @@ import lets_dance_solution_1 from '@/assets/07/m5s/lets_dance/solution_1.png'
 import lets_dance_solution_2 from '@/assets/07/m5s/lets_dance/solution_2.png'
 import Grooviness100 from '@/assets/07/m5s/Grooviness100.png'
 import NoteSection from '@/components/section/NoteSection.astro'
+import SolutionSwitcher from '../../../../components/section/SolutionSwitcher.astro'
 
 interface Props {
   start: Time
@@ -44,6 +45,17 @@ const wavelengthTimes = [
   wavelengthStartSeconds + 5,
   wavelengthStartSeconds + 10,
   wavelengthStartSeconds + 15,
+]
+
+const solutions = [
+  {
+    id: 'lets-dance-jp',
+    title: '解法：日野主流',
+  },
+  {
+    id: 'lets-dance-betterQueue',
+    title: '解法：排队优化',
+  },
 ]
 ---
 
@@ -170,76 +182,78 @@ const wavelengthTimes = [
     <Image src={Grooviness100} alt="Grooviness 100" class="w-75" />
   </div>
 </MechanicSection>
-<SolutionSection title="解法：日野主流">
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      <Span variant="yellow">Let's Dance!</Span>
-      读条开始时，
-      <Wavelength type="α" hover />
-      <Wavelength type="β" hover />
-      倒计时剩余
-      <Span variant="pink">8</Span>
-      、
-      <Span variant="pink">13</Span>
-      、
-      <Span variant="pink">18</Span>
-      、
-      <Span variant="pink">23</Span>
-      秒
+<SolutionSwitcher solutions={solutions}>
+  <SolutionSection id="lets-dance-jp" title="解法：日野主流">
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        <Span variant="yellow">Let's Dance!</Span>
+        读条开始时，
+        <Wavelength type="α" hover />
+        <Wavelength type="β" hover />
+        倒计时剩余
+        <Span variant="pink">8</Span>
+        、
+        <Span variant="pink">13</Span>
+        、
+        <Span variant="pink">18</Span>
+        、
+        <Span variant="pink">23</Span>
+        秒
+      </div>
+      <div class="paragraph">众人按自身倒计时长短，沿场地中轴线自北向南如下排队</div>
+      <div class="max-w-90">
+        <Image
+          src={lets_dance_solution_1}
+          alt="Let's Dance! Solution 1"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+      </div>
+      <div class="paragraph">
+        之后只需专注躲避左右刀，
+        <Wavelength type="α" hover />
+        <Wavelength type="β" hover />
+        倒计时结束时会自动配对处理
+      </div>
+      <div class="paragraph">
+        注意
+        <Wavelength type="α" hover />
+        <Wavelength type="β" hover />
+        的范围检定非常小，只有
+        <Span variant="pink">2m</Span>
+        ，因此躲避左右刀时不要离开中轴线太远，以免判定失败
+      </div>
     </div>
-    <div class="paragraph">众人按自身倒计时长短，沿场地中轴线自北向南如下排队</div>
-    <div class="max-w-90">
-      <Image
-        src={lets_dance_solution_1}
-        alt="Let's Dance! Solution 1"
-        class="border-2 border-amber-800/75 dark:border-amber-100"
-      />
+  </SolutionSection>
+  <SolutionSection id="lets-dance-betterQueue" title="解法：排队优化">
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        由于
+        <Wavelength type="α" hover />
+        <Wavelength type="β" hover />
+        配对处理后会赋予玩家
+        <MagicVulnerabilityUp tag="19" hover />
+        ，而左右刀是魔法伤害，处理完
+        <Wavelength type="α" hover />
+        <Wavelength type="β" hover />
+        的玩家一旦失误就会暴毙
+      </div>
+      <div class="paragraph">又因为视角限制，越靠近场地北边越不利于观察场外的青蛙</div>
+      <div class="paragraph">
+        因此将主流解法中的排队顺序倒转，让更先处理
+        <Wavelength type="α" hover />
+        <Wavelength type="β" hover />
+        的玩家离北边更远，增加后续躲避左右刀的容错
+      </div>
+      <div class="max-w-90">
+        <Image
+          src={lets_dance_solution_2}
+          alt="Let's Dance! Solution 2"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+      </div>
     </div>
-    <div class="paragraph">
-      之后只需专注躲避左右刀，
-      <Wavelength type="α" hover />
-      <Wavelength type="β" hover />
-      倒计时结束时会自动配对处理
-    </div>
-    <div class="paragraph">
-      注意
-      <Wavelength type="α" hover />
-      <Wavelength type="β" hover />
-      的范围检定非常小，只有
-      <Span variant="pink">2m</Span>
-      ，因此躲避左右刀时不要离开中轴线太远，以免判定失败
-    </div>
-  </div>
-</SolutionSection>
-<SolutionSection title="解法：排队优化">
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      由于
-      <Wavelength type="α" hover />
-      <Wavelength type="β" hover />
-      配对处理后会赋予玩家
-      <MagicVulnerabilityUp tag="19" hover />
-      ，而左右刀是魔法伤害，处理完
-      <Wavelength type="α" hover />
-      <Wavelength type="β" hover />
-      的玩家一旦失误就会暴毙
-    </div>
-    <div class="paragraph">又因为视角限制，越靠近场地北边越不利于观察场外的青蛙</div>
-    <div class="paragraph">
-      因此将主流解法中的排队顺序倒转，让更先处理
-      <Wavelength type="α" hover />
-      <Wavelength type="β" hover />
-      的玩家离北边更远，增加后续躲避左右刀的容错
-    </div>
-    <div class="max-w-90">
-      <Image
-        src={lets_dance_solution_2}
-        alt="Let's Dance! Solution 2"
-        class="border-2 border-amber-800/75 dark:border-amber-100"
-      />
-    </div>
-  </div>
-</SolutionSection>
+  </SolutionSection>
+</SolutionSwitcher>
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
