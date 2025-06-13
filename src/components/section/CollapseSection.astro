@@ -1,5 +1,5 @@
 ---
-
+import RightArrowSVG from '@/assets/svg/right-arrow.svg'
 ---
 
 <collapse-section>
@@ -13,22 +13,10 @@
         id="collapse-toggle"
         class="text-decimal inline-flex cursor-pointer items-center opacity-80 hover:underline"
       >
-        <svg
-          class="mr-1 rotate-270"
-          aria-hidden="true"
-          width="12"
-          height="8"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M1.4 1.6L6 6.2l4.6-4.6"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"></path>
-        </svg>
-        <span id="collapse-open">展开</span><span id="collapse-close" class="hidden">折叠</span>细节
+        <RightArrowSVG class="mr-1.5" />
+        <span id="collapse-open">展开</span>
+        <span id="collapse-close" class="hidden">折叠</span>
+        细节
       </span>
     </div>
     <div class="flex flex-wrap items-center gap-1 px-4 text-lg">
