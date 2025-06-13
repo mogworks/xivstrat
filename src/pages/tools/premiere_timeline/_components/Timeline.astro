@@ -1,0 +1,52 @@
+---
+import type { Role } from '../role'
+
+import Layout from '@/layouts/Layout.astro'
+
+import RoleIcon from '../_components/RoleIcon.astro'
+import MTCD from '../_components/MTCD.astro'
+import STCD from '../_components/STCD.astro'
+import D1CD from '../_components/D1CD.astro'
+import D2CD from '../_components/D2CD.astro'
+import D3CD from '../_components/D3CD.astro'
+import D4CD from '../_components/D4CD.astro'
+import DutyTimer from '../_components/DutyTimer.astro'
+import DamageRow from '../_components/DamageRow.vue'
+import { timelineMap } from '../timeline'
+
+interface Props {
+  duty: string
+}
+
+const { duty }: Props = Astro.props
+---
+
+<Layout lang="zh-CN" title={`${duty.toUpperCase()} PR 时间轴`} description={`${duty.toUpperCase()} PR 时间轴`}>
+  <div class="min-h-screen w-960">
+    <div class="relative flex h-72 items-center justify-center">
+      <DutyTimer class="absolute top-1/2 left-1/2 -translate-x-115 -translate-y-1/2" />
+      <div class="grid grid-cols-6 place-items-center gap-x-1 gap-y-1.5">
+        {['MT', 'ST', 'D1', 'D2', 'D3', 'D4'].map((role) => <RoleIcon role={role as Role} />)}
+        <MTCD duty={duty} />
+        <STCD duty={duty} />
+        <D1CD duty={duty} />
+        <D2CD duty={duty} />
+        <D3CD duty={duty} />
+        <D4CD duty={duty} />
+      </div>
+      <DamageRow
+        class="absolute bottom-22 left-1/2 translate-x-80"
+        damages={timelineMap[duty as keyof typeof timelineMap].damages}
+        client:only="vue"
+      />
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { startTimer } from '../_stores/timer'
+
+  setTimeout(() => {
+    startTimer()
+  }, 20000)
+</script>
