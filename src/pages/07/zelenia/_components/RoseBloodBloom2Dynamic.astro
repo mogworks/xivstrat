@@ -12,7 +12,7 @@ import Bleeding from '@/components/buff/Bleeding.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import ImageRow from '@/components/typography/ImageRow.astro'
+import ImageRow from '@/components/typography/ImgRow.astro'
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
 
 
@@ -22,6 +22,8 @@ import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
 import Zelenia from './Zelenia.astro'
+
+import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
 
 
 
@@ -101,6 +103,8 @@ import Zelenia from './Zelenia.astro'
   import { $stratBoards } from '@/stores/stratBoards'
   // import { waymarkData } from '../_data/waymark'
   // import { $roleOrders, shuffleRoleOrder } from '../_stores/getDownOrder'
+
+  import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
 
   // 3. 配置常量
   // const roleTypeMap = { ... }
@@ -252,7 +256,7 @@ import Zelenia from './Zelenia.astro'
     container.addChild(squareMask)
 
     // 加载图片
-    const floorTexture = await Assets.load('07/zelenia/RoseBlood_floor_2.png')
+    const floorTexture = await Assets.load(floorpic)
     const floor = Sprite.from(floorTexture)
     floor.anchor.set(0.5, 0.5)
     

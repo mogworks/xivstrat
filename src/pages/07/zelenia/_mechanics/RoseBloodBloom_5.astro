@@ -13,7 +13,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
-import ImageRow from '@/components/typography/ImageRow.astro'
+import ImageRow from '@/components/typography/ImgRow.astro'
 
 import RoseBloodBloomCast from '../_components/RoseBloodBloomCast.astro'
 
@@ -28,9 +28,6 @@ import a4 from '@/assets/07/zelenia/P3-5/P3-5-4a.png'
 import a4g from '@/assets/07/zelenia/P3-5/P3-5-4a-g.png'
 import a5 from '@/assets/07/zelenia/P3-5/P3-5-5a.png'
 import a6 from '@/assets/07/zelenia/P3-5/P3-5-6a.png'
-
-
-
 
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
 
@@ -110,22 +107,22 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
       </table>
     </div>
     <div class="paragraph">
-      每轮伤害判定示意图<ToggleSwitch id="xfang-mechanic-toggle" lVariant="blue" rVariant="yellow" lLabel="先钢铁" rLabel="先月环" />
+      每轮伤害判定示意图<ToggleSwitch id="damage-toggle" lVariant="blue" rVariant="yellow" lLabel="先钢铁" rLabel="先月环" />
     </div>
     <div
-      id="xfang-mechanic-grid"
+      id="six-damage-grid"
       class="grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-2"
     >
       {/* 第一行第一列 */}
       <div class="px-3 py-2 flex justify-center">
         <Image
           src={a1g}
-          alt="Stonefang: 1"
+          alt="sixdamage: 1"
           class="omen-img border-cyan-700 dark:border-cyan-100"
         />
         <Image
           src={a1}
-          alt="Stonefang: 3"
+          alt="sixdamage: 3"
           class="activate-img hidden border-cyan-700 dark:border-cyan-100"
         />
       </div>
@@ -134,7 +131,7 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
       <div class="px-3 py-2 flex justify-center">
         <Image
           src={a2}
-          alt="Stonefang: 2"
+          alt="sixdamage: 2"
           class="border-cyan-700 dark:border-cyan-100"
         />
         
@@ -144,7 +141,7 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
       <div class="px-3 py-2 flex justify-center">
         <Image
           src={a3}
-          alt="Stonefang: 2"
+          alt="sixdamage: 2"
           class="border-cyan-700 dark:border-cyan-100"
         />
       </div>
@@ -167,7 +164,7 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
       <div class="px-3 py-2 flex justify-center">
         <Image
           src={a5}
-          alt="Stonefang: 2"
+          alt="sixdamage: 2"
           class="border-cyan-700 dark:border-cyan-100"
         />
       </div>
@@ -176,7 +173,7 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
       <div class="px-3 py-2 flex justify-center">
         <Image
           src={a6}
-          alt="Stonefang: 2"
+          alt="sixdamage: 2"
           class="border-cyan-700 dark:border-cyan-100"
         />
       </div>
@@ -187,7 +184,7 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
 
 <script>
 
-  const mechanicToggle = document.getElementById('xfang-mechanic-toggle') as HTMLInputElement;
+  const mechanicToggle = document.getElementById('damage-toggle') as HTMLInputElement;
 
   function toggleImages(id: string, activate: boolean) {
     const section = document.getElementById(id)
@@ -209,7 +206,7 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
   
   if (mechanicToggle) {
     mechanicToggle.addEventListener('change', function () {
-      toggleImages('xfang-mechanic-grid', this.checked);
+      toggleImages('six-damage-grid', this.checked);
     });
   }
 
