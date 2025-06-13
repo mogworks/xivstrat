@@ -28,7 +28,11 @@ import { timelineMap } from './timeline'
         <D3CD duty="m5s" />
         <D4CD duty="m5s" />
       </div>
-      <DamageRow class="absolute bottom-22 left-1/2 translate-x-80" damages={timelineMap.m5s.damages} client:idle />
+      <DamageRow
+        class="absolute bottom-22 left-1/2 translate-x-80"
+        damages={timelineMap.m5s.damages}
+        client:only="vue"
+      />
     </div>
   </div>
 </Layout>

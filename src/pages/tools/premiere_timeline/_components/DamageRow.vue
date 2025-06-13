@@ -34,12 +34,13 @@ const visibleDamages = computed(() => {
     }))
     .filter((damage) => {
       const diff = damage.timeInSeconds - currentTime
-      // 在 15.4 秒以内显示，1.6 秒后消失
-      return diff <= 15.4 && diff >= -1.6
+      // 在 15.4 秒以内显示，1.4 秒后消失
+      return diff <= 15.4 && diff >= -1.4
     })
     .sort((a, b) => a.timeInSeconds - b.timeInSeconds) // 按时间排序
     .slice(0, maxCount)
   if (
+    res.length > 0 &&
     res[res.length - 1].type === 'special' &&
     res[res.length - 1].value === '9999999' &&
     res[res.length - 1].timeInSeconds <= currentTime

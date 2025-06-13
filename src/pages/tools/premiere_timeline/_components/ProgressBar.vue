@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils'
 
 interface Props {
-  progress: number // 0-100
+  progress?: number // 0-100
   variant?: 'danger' | 'warn' | 'info'
   class?: string
 }

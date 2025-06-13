@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useStore } from '@nanostores/vue'
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 import { cn, timeToSeconds } from '@/lib/utils'
 
@@ -43,6 +43,15 @@ const diffStr = computed(() => {
   }
   return '00'
 })
+const freezeMitigation = ref<number | null>(null)
+
+watch(diff, (newValue) => {
+  if (newValue <= 0 && freezeMitigation.value === null) {
+    // 定格在倒计时为 0 时的减伤率
+    freezeMitigation.value = mitigation.value[damageType]
+  }
+})
+
 const variant = computed(() => {
   if (diff.value > 10) {
     return 'info'
@@ -62,14 +71,14 @@ const progress = computed(() => {
   return 0
 })
 const mitigationStr = computed(() => {
-  const v = 100 - mitigation.value[damageType] * 100
+  const v = 100 - (freezeMitigation.value ?? mitigation.value[damageType]) * 100
   return v === 0 ? '' : `${v.toFixed(1)}%↓`
 })
 const damageStr = computed(() => {
   if (damageValue === 9999999) {
     return '9999999'
   }
-  const v = (damageValue * mitigation.value[damageType]) / 1000
+  const v = (damageValue * (freezeMitigation.value ?? mitigation.value[damageType])) / 1000
   return `${Number.parseInt(v.toFixed(0)) * 1000}`
 })
 </script>
