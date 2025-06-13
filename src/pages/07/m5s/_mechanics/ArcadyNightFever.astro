@@ -49,7 +49,11 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
   <CastSection start={start} base={base} duration={4.5} ability="Arcady Night Fever" slot="content">
     <Badge variant="yellow">连续钢铁月环</Badge>
   </CastSection>
-  <Fragment slot="summary"><Boss />释放连续8次钢铁/月环</Fragment>
+  <Fragment slot="summary"
+    ><Boss />按职能交替点名<RoleIcon role="tank" /><RoleIcon role="healer" />或<RoleIcon
+      role="dps"
+    />8轮扇形，并赋予玩家<Wavelength type="α" hover />或<Wavelength type="β" hover /></Fragment
+  >
   <Fragment slot="details">
     {
       getDownTimes.map((time, index) => (

@@ -2,7 +2,7 @@
 
 ---
 
-<div>
+<collapse-section>
   <slot name="content" />
   <section
     id="collapse-summary"
@@ -40,34 +40,40 @@
     </div>
     <slot name="details" />
   </div>
-</div>
+</collapse-section>
+
 <script>
   import { animate } from 'motion'
 
-  const toggleButton = document.getElementById('collapse-toggle') as HTMLSpanElement
-  const summarySection = document.getElementById('collapse-summary') as HTMLElement
-  const detailsSection = document.getElementById('collapse-details') as HTMLDivElement
-  const openText = document.getElementById('collapse-open') as HTMLSpanElement
-  const closeText = document.getElementById('collapse-close') as HTMLSpanElement
+  class CollapseSection extends HTMLElement {
+    connectedCallback() {
+      const toggleButton = this.querySelector('#collapse-toggle') as HTMLSpanElement
+      const summarySection = this.querySelector('#collapse-summary') as HTMLElement
+      const detailsSection = this.querySelector('#collapse-details') as HTMLDivElement
+      const openText = this.querySelector('#collapse-open') as HTMLSpanElement
+      const closeText = this.querySelector('#collapse-close') as HTMLSpanElement
 
-  let isOpen = false
-  toggleButton.addEventListener('click', () => {
-    isOpen = !isOpen
-    openText.classList.toggle('hidden', isOpen)
-    closeText.classList.toggle('hidden', !isOpen)
-    animate('#collapse-summary svg', { rotate: isOpen ? 90 : 0 }, { duration: 0.3, ease: 'easeInOut' })
-    animate(
-      summarySection,
-      { marginBottom: isOpen ? 'var(--article-row-gap)' : 0 },
-      { duration: 0.3, ease: 'easeInOut' },
-    )
-    animate(
-      detailsSection,
-      {
-        height: isOpen ? `${detailsSection.scrollHeight}px` : '0px',
-        opacity: isOpen ? 0.8 : 0,
-      },
-      { duration: 0.3, ease: 'easeInOut' },
-    )
-  })
+      let isOpen = false
+      toggleButton.addEventListener('click', () => {
+        isOpen = !isOpen
+        openText.classList.toggle('hidden', isOpen)
+        closeText.classList.toggle('hidden', !isOpen)
+        animate('#collapse-summary svg', { rotate: isOpen ? 90 : 0 }, { duration: 0.3, ease: 'easeInOut' })
+        animate(
+          summarySection,
+          { marginBottom: isOpen ? 'var(--article-row-gap)' : 0 },
+          { duration: 0.3, ease: 'easeInOut' },
+        )
+        animate(
+          detailsSection,
+          {
+            height: isOpen ? `${detailsSection.scrollHeight}px` : '0px',
+            opacity: isOpen ? 0.8 : 0,
+          },
+          { duration: 0.3, ease: 'easeInOut' },
+        )
+      })
+    }
+  }
+  customElements.define('collapse-section', CollapseSection)
 </script>
