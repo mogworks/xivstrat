@@ -7,6 +7,7 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import Badge from '@/components/Badge.astro'
+import SelectSolution from '@/components/SelectSoluation.vue'
 
 import floor_p2_3 from '@/assets/07/m7s/floor_p2_3.png'
 import strange_seeds_safe_point from '@/assets/07/m7s/strange_seeds/strange_seeds_safe_point.png'
@@ -25,6 +26,18 @@ interface Props {
 const { start, base = 0 }: Props = Astro.props
 const strangeSeeds = translations.strangeSeeds
 const stoneringer = translations.stoneringer
+
+//多种解法
+const soluationList = [
+  {
+    name: '萨利式解法',
+    href: '#solution_1_id',
+  },
+  {
+    name: '解法2',
+    href: '#solution_2_id',
+  }
+]
 ---
 
 <StrangeSeedsCast start={start} base={base} />
@@ -76,76 +89,77 @@ const stoneringer = translations.stoneringer
     </div>
   </div>
 </MechanicSection>
+<SelectSolution client:only="vue" soluationList={soluationList} defaultSoluation={'萨利式解法1'}>
+  <SolutionSection slot="萨利式解法1" title="解法：萨利式">
+    <div class="flex flex-col gap-4">
+      <!-- 安全区 -->
+      <div class="items-left flex flex-col gap-4">
+        <div class="flex flex-row gap-4">
+          <div class="flex w-4/6 flex-col items-center gap-2">
+            <Image src={strange_seeds_safe_point} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+            <div class="paragraph">未被点名时待在安全区内</div>
+          </div>
+        </div>
+        <div class="gap-strat flex-col">
+          <div>首先</div>
+          <div>短边dot线由<RoleIcon role="dps" tag="D3" />负责</div>
+          <div>长边dot线必定由<RoleIcon role="dps" tag="D4" />负责</div>
+        </div>
+      </div>
 
-<SolutionSection title="解法：萨利式">
-  <div class="flex flex-col gap-4">
-    <!-- 安全区 -->
-    <div class="items-left flex flex-col gap-4">
+      <!-- 1/3 -->
+      <div class="items-left flex flex-col gap-4">
+        <div class="flex flex-row gap-4">
+          <div class="flex w-4/6 flex-col items-center gap-2">
+            <Image src={strange_seeds_13_point} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+            <div class="paragraph">奇数 1/3轮,放角落或中央点</div>
+          </div>
+        </div>
+        <div class="gap-strat flex-col">
+          <div class="gap-strat flex">站位尽量分开,保证被点名时</div>
+          <div class="gap-strat mt-2 flex">可以直接判断是谁被点名</div>
+          <div class="gap-strat mt-2 flex">注意中央点位的放置需要相当准确</div>
+        </div>
+      </div>
+
+      <!-- 2/4 -->
+      <div class="items-left flex flex-row gap-2">
+        <div class="flex w-4/6 flex-col items-center gap-2">
+          <Image src={strange_seeds_24_point} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+          <div class="gap-strat flex flex-col items-center">
+            <div>偶数 2/4轮,放标点或标记位</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 分摊站位 -->
       <div class="flex flex-row gap-4">
         <div class="flex w-4/6 flex-col items-center gap-2">
-          <Image src={strange_seeds_safe_point} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-          <div class="paragraph">未被点名时待在安全区内</div>
+          <Image
+            src={strange_seeds_killer_seeds_point}
+            alt=""
+            class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+          />
+          <div class="paragraph">
+            第4轮种子落下后,<RoleIcon role="tank" /><RoleIcon role="healer" />组或<RoleIcon role="dps" />组分摊站位
+          </div>
         </div>
       </div>
       <div class="gap-strat flex-col">
-        <div>首先</div>
-        <div>短边dot线由<RoleIcon role="dps" tag="D3" />负责</div>
-        <div>长边dot线必定由<RoleIcon role="dps" tag="D4" />负责</div>
-      </div>
-    </div>
-
-    <!-- 1/3 -->
-    <div class="items-left flex flex-col gap-4">
-      <div class="flex flex-row gap-4">
-        <div class="flex w-4/6 flex-col items-center gap-2">
-          <Image src={strange_seeds_13_point} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-          <div class="paragraph">奇数 1/3轮,放角落或中央点</div>
-        </div>
-      </div>
-      <div class="gap-strat flex-col">
-        <div class="gap-strat flex">站位尽量分开,保证被点名时</div>
-        <div class="gap-strat mt-2 flex">可以直接判断是谁被点名</div>
-        <div class="gap-strat mt-2 flex">注意中央点位的放置需要相当准确</div>
-      </div>
-    </div>
-
-    <!-- 2/4 -->
-    <div class="items-left flex flex-row gap-2">
-      <div class="flex w-4/6 flex-col items-center gap-2">
-        <Image src={strange_seeds_24_point} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div class="gap-strat flex flex-col items-center">
-          <div>偶数 2/4轮,放标点或标记位</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 分摊站位 -->
-    <div class="flex flex-row gap-4">
-      <div class="flex w-4/6 flex-col items-center gap-2">
-        <Image
-          src={strange_seeds_killer_seeds_point}
-          alt=""
-          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
-        />
-        <div class="paragraph">
-          第4轮种子落下后,<RoleIcon role="tank" /><RoleIcon role="healer" />组或<RoleIcon role="dps" />组分摊站位
-        </div>
-      </div>
-    </div>
-    <div class="gap-strat flex-col">
-      <Span variant="pink">
-        <div class="gap-strat flex">注意:</div>
+        <Span variant="pink">
+          <div class="gap-strat flex">注意:</div>
+          <div class="gap-strat flex">
+            如果<RoleIcon role="dps" tag="D3" />处在左侧半场,则<RoleIcon role="healer" tag="H1" />跑到<RoleIcon
+              role="dps"
+              tag="D3"
+            />位置的距离会变长
+          </div>
+        </Span>
         <div class="gap-strat flex">
-          如果<RoleIcon role="dps" tag="D3" />处在左侧半场,则<RoleIcon role="healer" tag="H1" />跑到<RoleIcon
-            role="dps"
-            tag="D3"
-          />位置的距离会变长
+          这里建议,如果在前几轮已经放完<Span variant="yellow"> {strangeSeeds} </Span>的情况下去
         </div>
-      </Span>
-      <div class="gap-strat flex">
-        这里建议,如果在前几轮已经放完<Span variant="yellow"> {strangeSeeds} </Span>的情况下去
+        <div class="gap-strat flex"><Span variant="pink">左侧安全位</Span>进行躲避.缩短下次跑去分摊的距离</div>
       </div>
-      <div class="gap-strat flex"><Span variant="pink">左侧安全位</Span>进行躲避.缩短下次跑去分摊的距离</div>
     </div>
-  </div>
-</SolutionSection>
+  </SolutionSection>
+</SelectSolution>
