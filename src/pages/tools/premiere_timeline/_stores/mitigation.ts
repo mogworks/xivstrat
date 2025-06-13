@@ -32,3 +32,12 @@ export const $mitigation = computed($mitigations, (mitigations) => {
   }
   return res
 })
+
+// 场地减伤
+export const $areaMitigation = computed($mitigations, (mitigations) => {
+  return {
+    physical: mitigations.D3[0],
+    magical: mitigations.D3[1],
+    special: mitigations.D3[2],
+  }
+})

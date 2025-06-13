@@ -4,18 +4,15 @@ import { computed, ref, watch } from 'vue'
 
 import { cn, timeToSeconds } from '@/lib/utils'
 
-import { $mitigation } from '../_stores/mitigation'
+import type { DamageInfoData } from '../damage'
+
+import { $areaMitigation, $mitigation } from '../_stores/mitigation'
 import { $timer } from '../_stores/timer'
 import DamageInfo from './DamageInfo.vue'
 import ProgressBar from './ProgressBar.vue'
 
 interface Props {
-  damageInfo: {
-    name: string
-    time: string
-    type: 'physical' | 'magical' | 'special'
-    value: string
-  }
+  damageInfo: DamageInfoData
   class?: string
 }
 
@@ -24,12 +21,13 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const time = timeToSeconds(props.damageInfo.time)
+const areaOnly = props.damageInfo.areaOnly ?? false
 
 const timer = useStore($timer)
-const mitigation = useStore($mitigation)
+const mitigation = areaOnly ? useStore($areaMitigation) : useStore($mitigation)
 
 const damageName = props.damageInfo.name
-const damageType = props.damageInfo.type as 'physical' | 'magical' | 'special'
+const damageType = props.damageInfo.type
 const damageValue = Number.parseInt(props.damageInfo.value)
 const diff = computed(() => {
   return time - timer.value / 1000

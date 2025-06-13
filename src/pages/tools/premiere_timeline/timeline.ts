@@ -1,9 +1,4 @@
-export interface DamageInfo {
-  time: string
-  name: string
-  type: 'physical' | 'magical' | 'special'
-  value: string
-}
+import type { DamageInfoData } from './damage'
 
 export const timelineMap = {
   m5s: {
@@ -315,7 +310,7 @@ export const timelineMap = {
         type: 'special',
         value: '9999999',
       },
-    ] as DamageInfo[],
+    ] as DamageInfoData[],
   },
   m6s: {
     mitigations: {
@@ -410,6 +405,7 @@ export const timelineMap = {
         name: '定住人的意念',
         type: 'magical',
         value: '120000',
+        areaOnly: true,
       },
       {
         time: '05:06.2',
@@ -422,6 +418,7 @@ export const timelineMap = {
         name: '定住人的意念',
         type: 'magical',
         value: '120000',
+        areaOnly: true,
       },
       {
         time: '06:29.5',
@@ -579,6 +576,6 @@ export const timelineMap = {
         type: 'special',
         value: '9999999',
       },
-    ] as DamageInfo[],
+    ] as DamageInfoData[],
   },
 }
