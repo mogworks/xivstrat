@@ -34,8 +34,8 @@ const { solutions } = Astro.props
   .solution-tabs {
     display: flex;
     gap: 0.5rem;
-    margin-left: 16rem; /* 与ContentSection的ml-64对齐 */
-    padding-left: 1rem; /* 与ContentSection的px-4对齐 */
+    margin-left: 16rem;
+    padding-left: 1rem;
     padding-bottom: 2rem;
   }
 
@@ -129,9 +129,8 @@ const { solutions } = Astro.props
       const solutionIds = Array.from(tabs).map((tab) => tab.getAttribute('data-solution-id'))
       console.log(solutionIds)
 
-      // 如果hash存在且不属于当前switcher，就跳过
+      // 如果hash存在且不属于当前switcher，就显示第一个solution
       if (hash && !solutionIds.includes(hash)) {
-        // 显示第一个solution
         updateActiveSolution(firstSolutionId, false, tabs[0])
         return
       }
@@ -163,8 +162,6 @@ const { solutions } = Astro.props
 
         // 如果hash存在且不属于当前switcher，就跳过
         if (hash && !solutionIds.includes(hash)) {
-          // 显示第一个solution
-          // updateActiveSolution(firstSolutionId, false, tabs[0]);
           return
         }
 
