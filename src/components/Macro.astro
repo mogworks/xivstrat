@@ -1,0 +1,18 @@
+---
+import { cn } from '@/lib/utils'
+
+interface Props {
+  text: string
+  class?: string
+}
+
+const { text, class: className = '' }: Props = Astro.props
+
+const lineList = text?.split('\n') ?? []
+---
+
+<div class={cn('w-fit rounded-lg border bg-gray-200/30 p-4 text-sm dark:bg-white/10', className)}>
+  <code>
+    {lineList.map((line) => <p>{line}</p>)}
+  </code>
+</div>

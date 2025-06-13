@@ -1,0 +1,21 @@
+---
+import type { Time } from '@/lib/utils'
+
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import Skill from '@/components/typography/Skill.astro'
+import Span from '@/components/Span.vue'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  base: Time
+}
+
+const { base = 0 }: Props = Astro.props
+---

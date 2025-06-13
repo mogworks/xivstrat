@@ -1,0 +1,40 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Span from '@/components/Span.vue'
+import Quote from '@/components/typography/Quote.astro'
+import P from '@/components/typography/P.astro'
+import { Separator } from '@/components/shadcn-vue/separator'
+
+import { translations } from '../_translations'
+import RoleIcon from '@/components/RoleIcon.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+const abominableBlink = translations.abominableBlink
+---
+
+<EventSection time={time} base={base} ability="abominableBlink">
+  <P>
+    <Span variant="yellow">{abominableBlink}</Span>伤害判定 <Badge variant="yellow">AoE</Badge>
+    <Separator orientation="vertical" class="w-0.1 h-16 bg-teal-500" />
+  </P>
+  <Quote variant="rose">
+    <P>
+      对<RoleIcon role="tank" tag="点名" />
+      造成<DamageInfo damage="320000" type="magical" />
+    </P>
+    <P
+      >对<RoleIcon role="all" tag="其他人" />
+      造成<DamageInfo damage="110000~210000" type="magical" />
+      <Badge variant="amber">距离衰减</Badge>
+    </P>
+  </Quote>
+</EventSection>

@@ -2,19 +2,30 @@
 import type { Time } from '@/lib/utils'
 
 import img from '@/assets/07/m7s/Tmp.png'
+import move_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_move_1.png'
+import move_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_move_2.png'
+import safezone_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_safezone_1.png'
+import safezone_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_safezone_2.png'
+import share_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_share_1.png'
+import share_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_share_2.png'
+import spread_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_spread_1.png'
+import spread_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_spread_2.png'
 
+import ImgRow from '@/components/typography/ImgRow.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
+import Skill from '@/components/typography/Skill.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import T from '@/components/typography/T.astro'
 
 import SinisterSeedsCast from '../_components/SinisterSeedsCast.astro'
 import { translations } from '../_translations'
-import ImgRow from '@/components/typography/ImgRow.astro'
-import Skill from '@/components/typography/Skill.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import ListDot from '@/components/ListDot.astro'
 
 interface Props {
-  time: Time
-  base: Time
+  time?: Time
+  base?: Time
 }
 
 const { time, base = 0 }: Props = Astro.props
@@ -23,16 +34,31 @@ const pulpSmash = translations.pulpSmash
 const theUnpotted = translations.theUnpotted
 ---
 
-<SinisterSeedsCast start={time} base={base} />
-
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       <Skill name={sinisterSeeds} />
-      与之前的机制相同
+      与之前的机制类似，随机点名近战组
+      <RoleIcon role="tank|dps" />
+      或远程组
+      <RoleIcon role="healer|dps" />
+      <Span variant="red">红色标记</Span>
+      准备放置
+      <Span variant="cyan">冰花</Span>
+      ，另一组则是连续四次的
+      <Span variant="orange">步进式AoE</Span>
     </div>
     <div class="paragraph">
-      冰花结束后紧接着是集合分摊
+      <Span variant="cyan">冰花</Span>
+      判定的同时，之前所有的
+      <Span variant="orange">步进式AoE</Span>
+      会
+      <Span variant="purple">扩大范围</Span>
+      再判定一次
+    </div>
+    <div class="paragraph">
+      <Span variant="cyan">冰花</Span>
+      结束后，紧接着是集合分摊
       <Skill name={pulpSmash} />
       和 八方分散
       <Skill name={theUnpotted} />
@@ -42,57 +68,94 @@ const theUnpotted = translations.theUnpotted
 
 <SolutionSection title="解法：Game8">
   <div class="flex flex-col gap-4">
+    <div class="paragraph">在快节奏组合技下，这里的八方分散的站位都是以Boss的面向为基准</div>
+    <div class="paragraph">
+      请注意八方分散时，不要踩进
+      <Span variant="red">Boss脚下</Span>
+      的小型钢铁
+    </div>
+    <div class="paragraph">
+      为了保证近战组的输出，并且远程组能处理连线
+      <Span variant="red">DoT</Span>
+      ，这里分为两种情况：
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      近战组处理冰花
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      远程组处理冰花
+    </div>
     <T class="mt-8" variant="lime" text="近战组放冰花" />
+    <div class="paragraph">
+      远程组需要贴场边引导步
+      <Span variant="orange">步进式AoE</Span>
+    </div>
+    <div class="paragraph">
+      这种情况下，冰花判定的安全区较小，远程组可以先在安全区躲避
+      <Span variant="cyan">冰花</Span>
+      后再前往集合分摊
+    </div>
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="fuchsia"
       imgs={[
         {
-          src: img,
-          alt: 'm7sp3: 冰花站位',
-          title: '初始站位',
+          src: move_1,
+          alt: 'm7sp3: 站位与路线',
+          title: '站位与路线',
         },
         {
-          src: img,
-          alt: 'm7sp3: 冰花路线',
-          title: '步进路线',
+          src: safezone_1,
+          alt: 'm7sp3: 安全区',
+          title: '安全区',
         },
         {
-          src: img,
-          alt: 'm7sp3: 冰花生效',
-          title: '躲避冰花',
+          src: share_1,
+          alt: 'm7sp3: 分摊',
+          title: '分摊',
         },
         {
-          src: img,
-          alt: 'm7sp3: 冰花分摊',
-          title: '最后分摊',
+          src: spread_1,
+          alt: 'm7sp3: 分散',
+          title: '分散',
         },
       ]}
     />
     <T class="mt-8" variant="lime" text="远程组放冰花" />
+    <div class="paragraph">
+      这种情况下，近战组在引导
+      <Span variant="orange">步进式AoE</Span>
+      时请注意给远程组预留充足的位置
+    </div>
+    <div class="paragraph">
+      <Span variant="cyan">冰花</Span>
+      判定结束后，请尽量靠近Boss进行分摊，这样便于后续迅速走到分散的位置
+    </div>
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="fuchsia"
       imgs={[
         {
-          src: img,
-          alt: 'm7sp3: 冰花站位',
-          title: '初始站位',
+          src: move_2,
+          alt: 'm7sp3: 站位与路线',
+          title: '站位与路线',
         },
         {
-          src: img,
-          alt: 'm7sp3: 冰花路线',
-          title: '步进路线',
+          src: safezone_2,
+          alt: 'm7sp3: 安全区',
+          title: '安全区',
         },
         {
-          src: img,
-          alt: 'm7sp3: 冰花生效',
-          title: '躲避冰花',
+          src: share_2,
+          alt: 'm7sp3: 分摊',
+          title: '分摊',
         },
         {
-          src: img,
-          alt: 'm7sp3: 冰花分摊',
-          title: '最后分摊',
+          src: spread_2,
+          alt: 'm7sp3: 分散',
+          title: '分散',
         },
       ]}
     />
