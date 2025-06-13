@@ -66,6 +66,9 @@ const mitigationStr = computed(() => {
   return v === 0 ? '' : `${v.toFixed(1)}%↓`
 })
 const damageStr = computed(() => {
+  if (damageValue === 9999999) {
+    return '9999999'
+  }
   const v = (damageValue * mitigation.value[damageType]) / 1000
   return `${Number.parseInt(v.toFixed(0)) * 1000}`
 })

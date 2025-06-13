@@ -7,7 +7,7 @@ import { cn, timeToSeconds } from '@/lib/utils'
 
 import type { DamageInfo } from '../timeline'
 
-import { $timer } from '../_stores/timer'
+import { $timer, stopTimer } from '../_stores/timer'
 import Damage from './Damage.vue'
 
 interface Props {
@@ -26,7 +26,7 @@ const visibleDamages = computed(() => {
   const currentTime = timer.value / 1000
   const maxCount = 3 // 最多同时显示 maxCount 个
 
-  return props.damages
+  const res = props.damages
     .map(damage => ({
       ...damage,
       timeInSeconds: timeToSeconds(damage.time),
@@ -39,6 +39,14 @@ const visibleDamages = computed(() => {
     })
     .sort((a, b) => a.timeInSeconds - b.timeInSeconds) // 按时间排序
     .slice(0, maxCount)
+  if (
+    res[res.length - 1].type === 'special' &&
+    res[res.length - 1].value === '9999999' &&
+    res[res.length - 1].timeInSeconds <= currentTime
+  ) {
+    stopTimer?.()
+  }
+  return res
 })
 </script>
 
