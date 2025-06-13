@@ -1,0 +1,64 @@
+---
+import RightArrowSVG from '@/assets/svg/right-arrow.svg'
+---
+
+<collapse-section>
+  <slot name="content" />
+  <section id="collapse-summary" class="strat-section mt-(--article-row-gap) mb-0 grid grid-cols-[16rem_1fr]">
+    <div class="self-center justify-self-end px-4">
+      <span
+        id="collapse-toggle"
+        class="text-decimal inline-flex cursor-pointer items-center opacity-80 hover:underline"
+      >
+        <RightArrowSVG class="mr-1.5" />
+        <span id="collapse-open">展开</span>
+        <span id="collapse-close" class="hidden">折叠</span>
+        细节
+      </span>
+    </div>
+    <div class="flex flex-wrap items-center gap-1 px-4 text-lg">
+      <slot name="summary" />
+    </div>
+  </section>
+  <div id="collapse-details" class="relative flex h-0 flex-col gap-(--article-row-gap) opacity-0">
+    <div class="pointer-events-none absolute top-1/2 left-36 h-[calc(100%-1rem)] w-0.5 -translate-y-1/2 bg-teal-500">
+    </div>
+    <slot name="details" />
+  </div>
+</collapse-section>
+
+<script>
+  import { animate } from 'motion'
+
+  class CollapseSection extends HTMLElement {
+    connectedCallback() {
+      const toggleButton = this.querySelector('#collapse-toggle') as HTMLSpanElement
+      const summarySection = this.querySelector('#collapse-summary') as HTMLElement
+      const detailsSection = this.querySelector('#collapse-details') as HTMLDivElement
+      const openText = this.querySelector('#collapse-open') as HTMLSpanElement
+      const closeText = this.querySelector('#collapse-close') as HTMLSpanElement
+
+      let isOpen = false
+      toggleButton.addEventListener('click', () => {
+        isOpen = !isOpen
+        openText.classList.toggle('hidden', isOpen)
+        closeText.classList.toggle('hidden', !isOpen)
+        animate('#collapse-summary svg', { rotate: isOpen ? 90 : 0 }, { duration: 0.3, ease: 'easeInOut' })
+        animate(
+          summarySection,
+          { marginBottom: isOpen ? 'var(--article-row-gap)' : 0 },
+          { duration: 0.3, ease: 'easeInOut' },
+        )
+        animate(
+          detailsSection,
+          {
+            height: isOpen ? `${detailsSection.scrollHeight}px` : '0px',
+            opacity: isOpen ? 0.8 : 0,
+          },
+          { duration: 0.3, ease: 'easeInOut' },
+        )
+      })
+    }
+  }
+  customElements.define('collapse-section', CollapseSection)
+</script>
