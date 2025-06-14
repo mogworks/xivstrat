@@ -35,6 +35,7 @@ import { translations } from '../_translations'
 import img from '@/assets/07/m8s1/tmp.png'
 import aero_iii from '@/assets/07/m8s1/millennial_decay/aeroIII.png'
 import breath_of_decay from '@/assets/07/m8s1/millennial_decay/breath_of_decay.png'
+import gust_img from '@/assets/07/m8s1/millennial_decay/gust.png'
 
 interface Props {
   time: Time
@@ -137,6 +138,16 @@ const { time, base = 0 }: Props = Astro.props
       <Span variant="pink">2</Span>
       轮，每轮点名不同的职能组
     </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: gust_img,
+          alt: '旋风',
+        },
+      ]}
+    />
 
     <T class="mt-8">
       <Skill name={prowlingGale} />
