@@ -73,7 +73,7 @@ const lineList = text?.split('\n') ?? []
       const uniqueId = `bubble-${new Date().getTime()}-${Math.floor(Math.random() * 100)}` // 唯一标识
       bubble.className = this.#bubbleClassName
       bubble.id = uniqueId
-      bubble.textContent = `复制${res ? '成功' : '失败'}`
+      bubble.textContent = `复制${res ? '成功' : '失败'}！`
       document.body.appendChild(bubble)
 
       // 气泡样式

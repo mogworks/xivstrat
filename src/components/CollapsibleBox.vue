@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils'
 
 const props = withDefaults(
   defineProps<{
+    id?: string
     class?: HTMLAttributes['class']
     defaultStatus?: boolean
   }>(),
@@ -21,6 +22,7 @@ const isOpen = ref(props.defaultStatus)
 
 <template>
   <div :class="cn('bg-card w-min min-w-[350px] rounded-lg border p-4 shadow-md hover:shadow-lg', props.class)">
+    <div :id="id" class="h-0" />
     <Collapsible v-model:open="isOpen">
       <div class="mb-0 flex items-center justify-between text-2xl font-bold capitalize">
         <slot name="header" />
