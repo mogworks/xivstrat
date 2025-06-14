@@ -1,6 +1,7 @@
 ---
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
+import StratBoard from '@/components/StratBoard.astro'
 import Macro from '@/components/Macro.astro'
 
 import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
@@ -32,7 +33,13 @@ const navList = [
   </Fragment>
   <CollapsibleBox id="waymark" client:idle class="w-full">
     <div class="w-sm">
-      <img src="/pixi/07/m5s/floor_1-hhYBkA@3x.webp" alt="场地标点" class="h-full w-full" />
+      <StratBoard
+        width={500}
+        height={500}
+        key="waymark-m5s"
+        class="max-h-112.5 max-w-112.5 shrink"
+        canvasClass="h-full w-full border-2 border-amber-800/75 dark:border-amber-100"
+      />
     </div>
     <Fragment slot="header">
       <span>场地标点</span>
@@ -71,3 +78,12 @@ const navList = [
     </Fragment>
   </CollapsibleBox>
 </DutyHomeLayout>
+
+<script>
+  import { useWaymark } from '@/hooks/waymark'
+
+  import { waymarkData } from './_data/waymark'
+
+  const FloorImage = '07/m5s/floor_2.png'
+  useWaymark(waymarkData, FloorImage, 'waymark-m5s')
+</script>

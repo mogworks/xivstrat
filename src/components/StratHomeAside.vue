@@ -2,7 +2,7 @@
 import { motion } from 'motion-v'
 import { onMounted, onUnmounted } from 'vue'
 
-import { useAnchorObserver } from '@/lib/anchor'
+import { useAnchorObserver } from '@/hooks/anchor'
 
 const props = defineProps<{
   navList: {
