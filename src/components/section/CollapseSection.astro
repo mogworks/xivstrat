@@ -3,16 +3,15 @@ import RightArrowSVG from '@/assets/svg/right-arrow.svg'
 ---
 
 <collapse-section>
-  <slot name="content" />
-  <section id="collapse-summary" class="strat-section mt-(--article-row-gap) mb-0 grid grid-cols-[16rem_1fr]">
+  <div class="collapse-content mb-(--article-row-gap)">
+    <slot name="content" />
+  </div>
+  <section class="strat-section collapse-summary mb-0 grid grid-cols-[16rem_1fr]">
     <div class="self-center justify-self-end px-4">
-      <span
-        id="collapse-toggle"
-        class="text-decimal inline-flex cursor-pointer items-center opacity-80 hover:underline"
-      >
-        <RightArrowSVG class="mr-1.5" />
-        <span id="collapse-open">展开</span>
-        <span id="collapse-close" class="hidden">折叠</span>
+      <span class="collapse-toggle text-decimal inline-flex cursor-pointer items-center opacity-80 hover:underline">
+        <RightArrowSVG class="collapse-icon mr-1.5" />
+        <span class="collapse-open">展开</span>
+        <span class="collapse-close hidden">折叠</span>
         细节
       </span>
     </div>
@@ -20,7 +19,7 @@ import RightArrowSVG from '@/assets/svg/right-arrow.svg'
       <slot name="summary" />
     </div>
   </section>
-  <div id="collapse-details" class="relative flex h-0 flex-col gap-(--article-row-gap) opacity-0">
+  <div class="collapse-details relative flex max-h-0 flex-col gap-(--article-row-gap) opacity-0">
     <div class="pointer-events-none absolute top-1/2 left-36 h-[calc(100%-1rem)] w-0.5 -translate-y-1/2 bg-teal-500">
     </div>
     <slot name="details" />
@@ -31,34 +30,62 @@ import RightArrowSVG from '@/assets/svg/right-arrow.svg'
   import { animate } from 'motion'
 
   class CollapseSection extends HTMLElement {
-    connectedCallback() {
-      const toggleButton = this.querySelector('#collapse-toggle') as HTMLSpanElement
-      const summarySection = this.querySelector('#collapse-summary') as HTMLElement
-      const detailsSection = this.querySelector('#collapse-details') as HTMLDivElement
-      const openText = this.querySelector('#collapse-open') as HTMLSpanElement
-      const closeText = this.querySelector('#collapse-close') as HTMLSpanElement
+    private _isOpen: boolean
+    private _openOpacity: number
+    private _toggleButton!: HTMLSpanElement
+    private _icon!: SVGElement
+    private _summarySection!: HTMLElement
+    private _detailsSection!: HTMLDivElement
+    private _openText!: HTMLSpanElement
+    private _closeText!: HTMLSpanElement
+    private _updateUI = (isOpen: boolean) => {
+      this._openText.classList.toggle('hidden', isOpen)
+      this._closeText.classList.toggle('hidden', !isOpen)
+      animate(this._icon, { rotate: isOpen ? 90 : 0 }, { duration: 0.3, ease: 'easeInOut' })
+      animate(
+        this._summarySection,
+        { marginBottom: isOpen ? 'var(--article-row-gap)' : 0 },
+        { duration: 0.3, ease: 'easeInOut' },
+      )
+      animate(
+        this._detailsSection,
+        {
+          maxHeight: isOpen ? `${this._detailsSection.scrollHeight}px` : '0px',
+          opacity: isOpen ? this._openOpacity : 0,
+        },
+        { duration: 0.3, ease: 'easeInOut' },
+      )
+    }
 
-      let isOpen = false
-      toggleButton.addEventListener('click', () => {
-        isOpen = !isOpen
-        openText.classList.toggle('hidden', isOpen)
-        closeText.classList.toggle('hidden', !isOpen)
-        animate('#collapse-summary svg', { rotate: isOpen ? 90 : 0 }, { duration: 0.3, ease: 'easeInOut' })
-        animate(
-          summarySection,
-          { marginBottom: isOpen ? 'var(--article-row-gap)' : 0 },
-          { duration: 0.3, ease: 'easeInOut' },
-        )
-        animate(
-          detailsSection,
-          {
-            height: isOpen ? `${detailsSection.scrollHeight}px` : '0px',
-            opacity: isOpen ? 0.8 : 0,
-          },
-          { duration: 0.3, ease: 'easeInOut' },
-        )
+    public forceOpen() {
+      this._openOpacity = 1
+      this._updateUI(true)
+    }
+
+    public reset() {
+      this._openOpacity = 0.8
+      this._updateUI(this._isOpen)
+    }
+
+    constructor() {
+      super()
+      this._isOpen = false
+      this._openOpacity = 0.8
+    }
+
+    connectedCallback() {
+      this._toggleButton = this.querySelector('.collapse-toggle') as HTMLSpanElement
+      this._icon = this.querySelector('.collapse-icon') as SVGElement
+      this._summarySection = this.querySelector('.collapse-summary') as HTMLElement
+      this._detailsSection = this.querySelector('.collapse-details') as HTMLDivElement
+      this._openText = this.querySelector('.collapse-open') as HTMLSpanElement
+      this._closeText = this.querySelector('.collapse-close') as HTMLSpanElement
+
+      this._toggleButton.addEventListener('click', () => {
+        this._isOpen = !this._isOpen
+        this._updateUI(this._isOpen)
       })
     }
   }
-  customElements.define('collapse-section', CollapseSection)
+  customElements.get('collapse-section') || customElements.define('collapse-section', CollapseSection)
 </script>
