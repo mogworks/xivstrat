@@ -16,15 +16,15 @@ import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import { translations } from '../_translations'
 
 interface Props {
-  start: Time
   base?: Time
 }
-const { start, base = 0 }: Props = Astro.props
+const { base = 0 }: Props = Astro.props
 const strangeSeeds = translations.strangeSeeds
 const stoneringer = translations.stoneringer
 ---
 
-<StrangeSeedsCast start={start} base={base} />
+<StrangeSeedsCast start="04:48.21" base={base} />
+<StrangeSeedsActivate time="" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="flex w-4/6 flex-col gap-4">

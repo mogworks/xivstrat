@@ -21,6 +21,11 @@ import { translations } from '../_translations'
 import GlowerPowerActivate from '../_components/GlowerPowerActivate.astro'
 import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
 import SporesplosionActivate from '../_components/SporesplosionActivate.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
+import Badge from '@/components/Badge.astro'
+import RevengeOfTheVinesActivate from '../_components/RevengeOfTheVinesActivate.astro'
 
 interface Props {
   start: Time
@@ -31,16 +36,31 @@ const brutishSwing = translations.brutishSwing
 const glowerPower = translations.glowerPower
 ---
 
+<EventSection time="03:47.100">
+  墙与<RoleIcon role="any" tag="一仇" />
+  连线
+  <ThornsOfDeathDebuff hover />消失
+</EventSection>
 <SporesplosionCast start={start} base={base} />
+<EventSection time="03:52.311"
+  >第<Span variant="pink">1</Span>轮孢子黄圈预兆出现<Badge variant="emerald"> 8m圆形 </Badge></EventSection
+>
+<EventSection time="03:54.314"
+  >第<Span variant="pink">2</Span>轮孢子黄圈预兆出现<Badge variant="emerald"> 8m圆形 </Badge></EventSection
+>
+<EventSection time="03:56.317"
+  >第<Span variant="pink">3</Span>轮孢子黄圈预兆出现<Badge variant="emerald"> 8m圆形 </Badge></EventSection
+>
 <SporesplosionActivate time="03:57.297" base={base} num={1} />
 <BrutishSwingCast start="03:58.320" base={base} />
 <SporesplosionActivate time="03:59.303" base={base} num={2} />
 <SporesplosionActivate time="04:01.308" base={base} num={3} />
 <BrutishSwingActivate time="04:06.386" base={base} />
 <GlowerPowerCast start="04:07.275" base={base} />
-<GlowerPowerActivate time="04:09.948" base={base} />
 <ElectrogeneticForceActivate time="04:11.101" base={base} />
+<GlowerPowerActivate time="04:11.235" base={base} />
 <RevengeOfTheVinesCast start="04:12.084" base={base} />
+<RevengeOfTheVinesActivate time="04:17.078" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
