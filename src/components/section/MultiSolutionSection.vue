@@ -55,7 +55,15 @@ onUnmounted(() => {
           {{ l.title }}
         </TabsTrigger>
       </TabsList>
-      <Transition name="fade-slide" mode="out-in">
+      <Transition
+        enter-active-class="transition ease-out duration-100"
+        enter-from-class="opacity-0 translate-y-[12px]"
+        enter-to-class="opacity-100 translate-y-0"
+        leave-active-class="transition ease-in duration-100"
+        leave-from-class="opacity-100 translate-y-0"
+        leave-to-class="opacity-0 translate-y-[12px]"
+        mode="out-in"
+      >
         <div :key="defaultSolutionRef">
           <TabsContent
             v-for="l in solutions"
@@ -73,26 +81,3 @@ onUnmounted(() => {
     </Tabs>
   </section>
 </template>
-
-<style scoped>
-.fade-slide-enter-active,
-.fade-slide-leave-active {
-  transition: all 0.1s ease;
-}
-.fade-slide-enter-from {
-  opacity: 0;
-  transform: translateY(12px);
-}
-.fade-slide-enter-to {
-  opacity: 1;
-  transform: translateY(0);
-}
-.fade-slide-leave-from {
-  opacity: 1;
-  transform: translateY(0);
-}
-.fade-slide-leave-to {
-  opacity: 0;
-  transform: translateY(12px);
-}
-</style>
