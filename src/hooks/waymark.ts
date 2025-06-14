@@ -23,7 +23,7 @@ const defaultOptions: UseWaymarkOptions = {
 
 export function useWaymark(waymarkData: WaymarkData, floorImageSrc: string, key: string, options?: UseWaymarkOptions) {
   const combinedOptions = { ...defaultOptions, ...options }
-  listenKeys($stratBoards, [key], async (stratBoards) => {
+  const stopListen = listenKeys($stratBoards, [key], async (stratBoards) => {
     const app = stratBoards[key]
 
     const container = new Container()
@@ -38,4 +38,7 @@ export function useWaymark(waymarkData: WaymarkData, floorImageSrc: string, key:
 
     await setWaymark(container, waymarkData, combinedOptions.alpha)
   })
+  return {
+    stopListen,
+  }
 }
