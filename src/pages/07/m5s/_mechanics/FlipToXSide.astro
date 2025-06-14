@@ -12,7 +12,7 @@ import StratLink from '@/components/StratLink.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import SolutionSwitcher from '@/components/section/SolutionSwitcher.astro'
+import SelectSolution from '@/components/SelectSolution.vue'
 
 import a_side_mark_img from '@/assets/07/m5s/A-side_mark.png'
 import b_side_mark_img from '@/assets/07/m5s/B-side_mark.png'
@@ -183,8 +183,8 @@ const solutions = [
   </div>
 </MechanicSection>
 
-<SolutionSwitcher solutions={solutions}>
-  <SolutionSection id="flip-to-x-side-jp" title="解法：日野主流">
+<SelectSolution solutions={solutions} defaultSolution="解法：三五分摊" client:idle>
+  <SolutionSection slot="解法：日野主流" title="解法：日野主流">
     <div class="flex flex-col gap-4">
       <div class="paragraph">
         先根据读条和特效躲避
@@ -247,7 +247,7 @@ const solutions = [
       </div>
     </div>
   </SolutionSection>
-  <SolutionSection id="flip-to-x-side-35" title="解法：三五分摊">
+  <SolutionSection slot="解法：三五分摊" title="解法：三五分摊">
     <div class="flex flex-col gap-4">
       <div class="paragraph">
         先根据读条和特效躲避
@@ -325,4 +325,4 @@ const solutions = [
       </div>
     </div>
   </SolutionSection>
-</SolutionSwitcher>
+</SelectSolution>

@@ -5,11 +5,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './shadcn-vue/tabs'
 
 const prop = defineProps<{
   // 解法列表
-  solutionList: Array<{
-    // 解法
-    solution: string
+  solutions: Array<{
     // a标签跳转标志位
-    href: string
+    id: string
+    // 解法
+    title: string
   }>
   defaultSolution: string
   class?: HTMLAttributes['class']
@@ -19,30 +19,34 @@ const defaultSolutionRef = ref(prop.defaultSolution)
 
 // 监听链接a标签锚点标志位
 onMounted(() => {
-  window.addEventListener('hashchange', () => {
-    const hash = window.location.hash
-    for (const l of prop.solutionList) {
-      if (hash === l.href) {
-        defaultSolutionRef.value = l.solution
+  window.addEventListener(
+    'hashchange',
+    () => {
+      const hash = window.location.hash.slice(1)
+      for (const l of prop.solutions) {
+        if (hash === l.id) {
+          defaultSolutionRef.value = l.title
+        }
       }
-    }
-  }, false)
+    },
+    false
+  )
 })
 onUnmounted(() => {
-  window.removeEventListener('hashchange', () => { })
+  window.removeEventListener('hashchange', () => {})
 })
 </script>
 
 <template>
-  <section class="strat-section content-section">
+  <section class="strat-section content-section grid">
     <Tabs v-model:model-value="defaultSolutionRef" :default-value="defaultSolution">
-      <TabsList class="flex flex-row gap-4 ml-68">
-        <TabsTrigger v-for="l in solutionList" :key="l.solution" as="a" :href="l.href" :value="l.solution">
-          {{ l.solution }}
+      <TabsList class="ml-68 flex flex-row gap-4">
+        <TabsTrigger v-for="l in solutions" :key="l.title" as="a" :href="`#${l.id}`" :value="l.title">
+          {{ l.title }}
         </TabsTrigger>
       </TabsList>
-      <TabsContent v-for="l in solutionList" :key="l.solution" class="mt-2" :value="l.solution">
-        <slot :name="l.solution" />
+      <TabsContent v-for="l in solutions" :key="l.title" class="mt-4" :value="l.title">
+        <slot :name="l.title" />
       </TabsContent>
     </Tabs>
   </section>
