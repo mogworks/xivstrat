@@ -9,6 +9,11 @@ import Stoneringer2Cast from '../_components/Stoneringer2Cast.astro'
 import { translations } from '../_translations'
 
 import img from '@/assets/07/m7s/Tmp.png'
+import circle_img from '@/assets/07/m7s/stoneringer2/p3_circle.png'
+import ring_img from '@/assets/07/m7s/stoneringer2/p3_ring.png'
+import left_img from '@/assets/07/m7s/stoneringer2/lashing_lariat_left.png'
+import right_img from '@/assets/07/m7s/stoneringer2/lashing_lariat_right.png'
+import glower_power_img from '@/assets/07/m7s/stoneringer2/p3_glower_power.png'
 import ListDot from '@/components/ListDot.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import Skill from '@/components/typography/Skill.astro'
@@ -25,6 +30,7 @@ import SlaminatorCast from '../_components/SlaminatorCast.astro'
 import BrutishSwingEvent from '../_components/BrutishSwingEvent.astro'
 import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
 
 interface Props {
   time: Time
@@ -60,7 +66,6 @@ const slaminator = translations.slaminator
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       读条期间
-      <Skill name={stoneringer2Stoneringers} />
       <BruteAbombinator />
       掏出
       <Span variant="pink">两把</Span>
@@ -69,11 +74,11 @@ const slaminator = translations.slaminator
     <div class="paragraph">
       <ListDot />
       <Skill name={brutishSwing} />
-      读条同时
-      <Span variant="pink">一把</Span>
-      武器
+      读条同时一把武器
       <Span variant="pink">发光</Span>
-      ，移动至连线墙后释放对应
+      ，
+      <BruteAbombinator />
+      移动至连线墙后释放对应
       <Span variant="yellow">钢铁/月环</Span>
     </div>
     <div class="paragraph">
@@ -85,9 +90,10 @@ const slaminator = translations.slaminator
     </div>
     <div class="paragraph">
       <ListDot />
-      使用
-      <Span variant="pink">另一把</Span>
-      武器再次重复：武器发光 → 连线墙体 → 移动 → 释放钢铁/月环
+      使用另一把武器再次重复：武器
+      <Span variant="pink">发光</Span>
+      → 连线墙体 → 移动 → 释放
+      <Span variant="yellow">钢铁/月环</Span>
     </div>
     <div class="paragraph">
       <ListDot />
@@ -107,12 +113,12 @@ const slaminator = translations.slaminator
       borderVariant="fuchsia"
       imgs={[
         {
-          src: img,
+          src: circle_img,
           alt: 'm7sp3: 钢铁',
           title: '钢铁',
         },
         {
-          src: img,
+          src: ring_img,
           alt: 'm7sp3: 月环',
           title: '月环',
         },
@@ -124,12 +130,12 @@ const slaminator = translations.slaminator
       borderVariant="fuchsia"
       imgs={[
         {
-          src: img,
+          src: left_img,
           alt: 'm7sp3: 左半场刀',
           title: '左半场',
         },
         {
-          src: img,
+          src: right_img,
           alt: 'm7sp3: 右半场刀',
           title: '右半场',
         },
@@ -139,9 +145,22 @@ const slaminator = translations.slaminator
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">待补充</div>
+    <div class="paragraph">
+      最后的塔可以由
+      <RoleIcon role="tank" />
+      开无敌单独踩塔
+    </div>
+    <div class="paragraph">组合技直线AoE + 全员点名伤害参考站位如下</div>
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="fuchsia"
+      imgs={[
+        {
+          src: glower_power_img,
+          alt: 'm7sp3: 分散站位',
+          title: '分散站位',
+        },
+      ]}
+    />
   </div>
 </SolutionSection>
-<NoteSection>
-  <div class="paragraph">由T开无敌单独踩塔</div>
-</NoteSection>

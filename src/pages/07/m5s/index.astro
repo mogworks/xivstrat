@@ -1,0 +1,73 @@
+---
+import CollapsibleBox from '@/components/CollapsibleBox.vue'
+import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
+import Macro from '@/components/Macro.astro'
+
+import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
+
+import CheatsheetsImage from '@/assets/cheatsheets/07/m5s.png?url'
+
+import { macro } from './_data/macro'
+
+const dutyId = '07/m5s'
+const navList = [
+  { label: '场地标点', id: 'waymark' },
+  { label: '宏', id: 'macro' },
+  { label: '简易时间轴', id: 'timeline' },
+  { label: '参考资料', id: 'reference' },
+  { label: '鸣谢', id: 'thanks' },
+]
+---
+
+<DutyHomeLayout dutyId={dutyId} navList={navList}>
+  <Fragment slot="operation">
+    <CheatsheetDialog client:idle src={CheatsheetsImage} />
+    <a href="/07/m5s/p1">
+      <button
+        class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
+      >
+        查看正文
+      </button>
+    </a>
+  </Fragment>
+  <CollapsibleBox client:idle class="w-full">
+    <div class="w-sm">
+      <img src="/pixi/07/m5s/floor_1-hhYBkA@3x.webp" alt="场地标点" class="h-full w-full" />
+    </div>
+    <Fragment slot="header">
+      <span id="waymark">场地标点</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox client:idle class="w-full">
+    <Macro text={macro} />
+    <Fragment slot="header">
+      <span id="macro">宏</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox client:idle class="w-full">
+    content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br
+    />content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br
+    />content<br />content<br />content<br />content<br />content<br />
+    <Fragment slot="header">
+      <span id="timeline">简易时间轴</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox client:idle class="w-full">
+    <ol>
+      <li>文本攻略</li>
+      <li>视频攻略</li>
+      <li>game8</li>
+      <li>整理宏</li>
+      <li>打法优化分析</li>
+    </ol>
+    <Fragment slot="header">
+      <span id="reference">参考资料</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox client:idle class="w-full">
+    谢谢你谢谢我谢谢他谢谢她谢谢它谢谢所有人
+    <Fragment slot="header">
+      <span id="thanks">鸣谢</span>
+    </Fragment>
+  </CollapsibleBox>
+</DutyHomeLayout>

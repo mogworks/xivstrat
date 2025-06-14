@@ -1,19 +1,16 @@
 ---
 import type { Time } from '@/lib/utils'
 import { Image } from 'astro:assets'
-
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import Badge from '@/components/Badge.astro'
-
 import floor_p2_3 from '@/assets/07/m7s/floor_p2_3.png'
 import strange_seeds_safe_point from '@/assets/07/m7s/strange_seeds/strange_seeds_safe_point.png'
 import strange_seeds_13_point from '@/assets/07/m7s/strange_seeds/strange_seeds_13_point.png'
 import strange_seeds_24_point from '@/assets/07/m7s/strange_seeds/strange_seeds_24_point.png'
 import strange_seeds_killer_seeds_point from '@/assets/07/m7s/strange_seeds/strange_seeds_killer_seeds_point.png'
-
 import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import { translations } from '../_translations'
@@ -43,11 +40,9 @@ const stoneringer = translations.stoneringer
               <Span variant="yellow">(圆形AOE)</Span>
             </span>
           </div>
-
           <div class="paragraph mt-6">
             随后在<Span variant="yellow">圆形AOE</Span>处会释放<Span variant="yellow">8方直线AOE</Span>
           </div>
-
           <div class="paragraph mt-6 border border-dashed p-4">
             <span class="inline-flex items-center gap-px">
               其间<BruteAbombinator /> 还会读条<Span variant="yellow">{stoneringer}</Span><Badge variant="green"
@@ -55,14 +50,12 @@ const stoneringer = translations.stoneringer
               >到分摊后进行处理
             </span>
           </div>
-
           <div class="paragraph mt-6">
             <span class="inline-flex items-center gap-px">
               <RoleIcon role="tank" />
               <RoleIcon role="healer" />组和<RoleIcon role="dps" />组个被点名一次一共4轮
             </span>
           </div>
-
           <div class="paragraph mt-6">
             <span class="inline-flex items-center gap-px">
               第四轮结束后,各点名
