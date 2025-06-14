@@ -303,10 +303,10 @@ export const timelineMap = {
         value: '90000',
       },
 
-      // 舞团终演
+      // 高能量夜狂热
       {
         time: '10:05.7',
-        name: '舞团终演',
+        name: '高能量夜狂热',
         type: 'special',
         value: '9999999',
       },
