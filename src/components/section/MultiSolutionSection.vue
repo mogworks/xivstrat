@@ -55,13 +55,44 @@ onUnmounted(() => {
           {{ l.title }}
         </TabsTrigger>
       </TabsList>
-      <TabsContent v-for="l in solutions" :key="l.id" :value="l.title">
-        <div
-          class="bg-card/95 text-card-foreground relative h-full w-full rounded-lg border border-dashed border-lime-700/25 px-4 py-6 dark:border-lime-700/50"
-        >
-          <slot :name="l.title" />
+      <Transition name="fade-slide" mode="out-in">
+        <div :key="defaultSolutionRef">
+          <TabsContent
+            v-for="l in solutions"
+            :key="l.id"
+            :value="l.title"
+          >
+            <div
+              class="bg-card/95 text-card-foreground relative h-full w-full rounded-lg border border-dashed border-lime-700/25 px-4 py-6 dark:border-lime-700/50"
+            >
+              <slot :name="l.title" />
+            </div>
+          </TabsContent>
         </div>
-      </TabsContent>
+      </Transition>
     </Tabs>
   </section>
 </template>
+
+<style scoped>
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all 0.1s ease;
+}
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.fade-slide-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-slide-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(12px);
+}
+</style>
