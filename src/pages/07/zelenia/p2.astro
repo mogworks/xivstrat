@@ -4,16 +4,20 @@ import EventSection from '@/components/section/EventSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
 import PerfumedQuietus from './_components/PerfumedQuietusCast.astro'
+import BlessedBarricade from './_mechanics/BlessedBarricade.astro'
 
 const dutyId = '07/zelenia'
 const base = 0
 ---
 
 <DutyStratLayout dutyId={dutyId}>
-  <EventSection> 这里写P2阶段起手、走位、机制要点等文字内容。 </EventSection>
 
+  
+  <BlessedBarricade start="01:31.034" base = {base}/>
   <SeparatorSection id="explosion" title="Explosion" />
 
   <SeparatorSection id="perfumed-quietus" title="Perfumed Quietus" />
-  <PerfumedQuietus start="02:27.331" base={0} />
+  <PerfumedQuietus start="02:27.331" base={base} />
+  
+
 </DutyStratLayout>

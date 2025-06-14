@@ -1,8 +1,6 @@
 ---
 import type { Time } from '@/lib/utils'
-
 import { Image } from 'astro:assets'
-
 import Badge from '@/components/Badge.astro'
 import Boss from '@/components/Boss.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
@@ -17,12 +15,9 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
-import CollapseSection from '@/components/section/CollapseSection.astro'
-
 import RoleOrder from '../_components/GetDownOrder.vue'
 import Wavelength from '../_components/Wavelength.astro'
 import WavelengthEffect from '../_components/WavelengthEffect.astro'
-
 import Grooviness66 from '@/assets/07/m5s/Grooviness66.png'
 import arcady_night_fever_1 from '@/assets/07/m5s/arcady_night_fever/1.png'
 import arcady_night_fever_2 from '@/assets/07/m5s/arcady_night_fever/2.png'
@@ -34,67 +29,55 @@ import arcady_night_fever_solution_3 from '@/assets/07/m5s/arcady_night_fever/so
 import arcady_night_fever_solution_4 from '@/assets/07/m5s/arcady_night_fever/solution_4.png'
 import arcady_night_fever_solution_5 from '@/assets/07/m5s/arcady_night_fever/solution_5.png'
 import arcady_night_fever_solution_6 from '@/assets/07/m5s/arcady_night_fever/solution_6.png'
-
 import VideoPlaySVG from '@/assets/svg/video-play.svg'
 import ResetSVG from '@/assets/svg/reset.svg'
-
 interface Props {
   start: Time
   base?: Time
   getDownTimes: Time[]
 }
-
 const { start, base = 0, getDownTimes = [] }: Props = Astro.props
 const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '23']
 ---
 
-<CollapseSection>
-  <CastSection start={start} base={base} duration={4.5} ability="Arcady Night Fever" slot="content">
-    <Badge variant="yellow">连续钢铁月环</Badge>
-  </CastSection>
-  <Fragment slot="summary"
-    ><Boss />按职能交替点名<RoleIcon role="tank" /><RoleIcon role="healer" />或<RoleIcon
-      role="dps"
-    />8轮扇形，并赋予玩家<Wavelength type="α" hover />或<Wavelength type="β" hover /></Fragment
-  >
-  <Fragment slot="details">
-    {
-      getDownTimes.map((time, index) => (
-        <EventSection time={time} base={base}>
-          <Boss />
-          对随机不重复
-          {index % 2 === 0 ? (
-            <>
-              <RoleIcon role="tank" />
-              <RoleIcon role="healer" />
-              或
-              <RoleIcon role="dps" />
-            </>
-          ) : (
-            <>
-              <RoleIcon role="dps" />
-              或
-              <RoleIcon role="tank" />
-              <RoleIcon role="healer" />
-            </>
-          )}
-          发动
-          <Span variant="yellow">Get Down!</Span>
-          <DamageInfo damage="95000" type="magical" />
-          <MagicVulnerabilityUp tag="9" hover />
-          {index % 2 === 0 ? (
-            <Wavelength type="α" tag={wavelengthDurations[index]} hover />
-          ) : (
-            <Wavelength type="β" tag={wavelengthDurations[index]} hover />
-          )}
-          <Badge variant="emerald">45°扇形</Badge>
-          <Badge variant="emerald">八方</Badge>
-          <Badge variant="yellow">分散</Badge>
-        </EventSection>
-      ))
-    }
-  </Fragment>
-</CollapseSection>
+<CastSection start={start} base={base} duration={4.5} ability="Arcady Night Fever">
+  <Badge variant="yellow">连续钢铁月环</Badge>
+</CastSection>
+{
+  getDownTimes.map((time, index) => (
+    <EventSection time={time} base={base}>
+      <Boss />
+      对随机不重复
+      {index % 2 === 0 ? (
+        <>
+          <RoleIcon role="tank" />
+          <RoleIcon role="healer" />
+          或
+          <RoleIcon role="dps" />
+        </>
+      ) : (
+        <>
+          <RoleIcon role="dps" />
+          或
+          <RoleIcon role="tank" />
+          <RoleIcon role="healer" />
+        </>
+      )}
+      发动
+      <Span variant="yellow">Get Down!</Span>
+      <DamageInfo damage="95000" type="magical" />
+      <MagicVulnerabilityUp tag="9" hover />
+      {index % 2 === 0 ? (
+        <Wavelength type="α" tag={wavelengthDurations[index]} hover />
+      ) : (
+        <Wavelength type="β" tag={wavelengthDurations[index]} hover />
+      )}
+      <Badge variant="emerald">45°扇形</Badge>
+      <Badge variant="emerald">八方</Badge>
+      <Badge variant="yellow">分散</Badge>
+    </EventSection>
+  ))
+}
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">

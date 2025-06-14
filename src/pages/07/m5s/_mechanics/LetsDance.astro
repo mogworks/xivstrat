@@ -17,8 +17,9 @@ import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 import Wavelength from '../_components/Wavelength.astro'
 import WavelengthEffect from '../_components/WavelengthEffect.astro'
@@ -29,7 +30,6 @@ import lets_dance_right from '@/assets/07/m5s/lets_dance/right.png'
 import lets_dance_solution_1 from '@/assets/07/m5s/lets_dance/solution_1.png'
 import lets_dance_solution_2 from '@/assets/07/m5s/lets_dance/solution_2.png'
 import Grooviness100 from '@/assets/07/m5s/Grooviness100.png'
-import NoteSection from '@/components/section/NoteSection.astro'
 
 interface Props {
   start: Time
@@ -45,6 +45,18 @@ const wavelengthTimes = [
   wavelengthStartSeconds + 10,
   wavelengthStartSeconds + 15,
 ]
+
+const solutions = [
+  {
+    id: 'lets-dance-jp',
+    title: '解法：日野主流',
+  },
+  {
+    id: 'lets-dance-better-queue',
+    title: '解法：排队优化',
+  },
+]
+const defaultSolution = '解法：日野主流'
 ---
 
 <CastSection start={start} base={base} duration={5.5} ability="Let's Dance!">
@@ -170,8 +182,8 @@ const wavelengthTimes = [
     <Image src={Grooviness100} alt="Grooviness 100" class="w-75" />
   </div>
 </MechanicSection>
-<SolutionSection title="解法：日野主流">
-  <div class="flex flex-col gap-4">
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：日野主流" class="flex flex-col gap-4">
     <div class="paragraph">
       <Span variant="yellow">Let's Dance!</Span>
       读条开始时，
@@ -210,9 +222,7 @@ const wavelengthTimes = [
       ，因此躲避左右刀时不要离开中轴线太远，以免判定失败
     </div>
   </div>
-</SolutionSection>
-<SolutionSection title="解法：排队优化">
-  <div class="flex flex-col gap-4">
+  <div slot="解法：排队优化" class="flex flex-col gap-4">
     <div class="paragraph">
       由于
       <Wavelength type="α" hover />
@@ -239,7 +249,7 @@ const wavelengthTimes = [
       />
     </div>
   </div>
-</SolutionSection>
+</MultiSolutionSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">

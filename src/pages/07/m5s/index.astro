@@ -21,7 +21,7 @@ const navList = [
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
   <Fragment slot="operation">
-    <CheatsheetDialog client:only="vue" src={CheatsheetsImage} />
+    <CheatsheetDialog client:idle src={CheatsheetsImage} />
     <a href="/07/m5s/p1">
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
@@ -30,21 +30,21 @@ const navList = [
       </button>
     </a>
   </Fragment>
-  <CollapsibleBox client:only="vue" class="w-full">
+  <CollapsibleBox client:idle class="w-full">
     <div class="w-sm">
-      <img src="/pixi/07/m5s/floor_1-hhYBkA@3x.webp" alt="场地标点" loading="lazy" class="h-full w-full" />
+      <img src="/pixi/07/m5s/floor_1-hhYBkA@3x.webp" alt="场地标点" class="h-full w-full" />
     </div>
     <Fragment slot="header">
       <span id="waymark">场地标点</span>
     </Fragment>
   </CollapsibleBox>
-  <CollapsibleBox client:only="vue" class="w-full">
+  <CollapsibleBox client:idle class="w-full">
     <Macro text={macro} />
     <Fragment slot="header">
       <span id="macro">宏</span>
     </Fragment>
   </CollapsibleBox>
-  <CollapsibleBox client:only="vue" class="w-full">
+  <CollapsibleBox client:idle class="w-full">
     content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br
     />content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br
     />content<br />content<br />content<br />content<br />content<br />
@@ -52,7 +52,7 @@ const navList = [
       <span id="timeline">简易时间轴</span>
     </Fragment>
   </CollapsibleBox>
-  <CollapsibleBox client:only="vue" class="w-full">
+  <CollapsibleBox client:idle class="w-full">
     <ol>
       <li>文本攻略</li>
       <li>视频攻略</li>
@@ -64,7 +64,7 @@ const navList = [
       <span id="reference">参考资料</span>
     </Fragment>
   </CollapsibleBox>
-  <CollapsibleBox client:only="vue" class="w-full">
+  <CollapsibleBox client:idle class="w-full">
     谢谢你谢谢我谢谢他谢谢她谢谢它谢谢所有人
     <Fragment slot="header">
       <span id="thanks">鸣谢</span>
