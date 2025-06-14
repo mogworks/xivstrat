@@ -40,14 +40,15 @@ const { base = 0 }: Props = Astro.props
 
 const solutions = [
   {
-    id: 'flip-to-x-side-jp',
+    id: 'flip-to-x-side-solution-jp',
     title: '解法：日野主流',
   },
   {
-    id: 'flip-to-x-side-35',
+    id: 'flip-to-x-side-solution-35',
     title: '解法：三五分摊',
   },
 ]
+const defaultSolution = '解法：日野主流'
 ---
 
 <FlipToXSideCast start="00:22.543" base={base} />
@@ -182,7 +183,7 @@ const solutions = [
   </div>
 </MechanicSection>
 
-<MultiSolutionSection solutions={solutions} defaultSolution="解法：日野主流" client:idle>
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
   <div slot="解法：日野主流" class="flex flex-col gap-4">
     <div class="paragraph">
       先根据读条和特效躲避
@@ -308,7 +309,7 @@ const solutions = [
     </div>
     <div class="paragraph">
       与
-      <StratLink variant="lime" href="#flip-to-x-side-jp">解法：日野主流</StratLink>
+      <StratLink variant="lime" href="#flip-to-x-side-solution-jp">解法：日野主流</StratLink>
       相比，同样可以无视
       <Span variant="yellow">A</Span>/<Span variant="yellow">B</Span>
       ，并且不需要再穿回之前的危险半场，利好
