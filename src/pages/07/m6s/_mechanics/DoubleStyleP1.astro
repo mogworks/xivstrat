@@ -10,7 +10,7 @@ import StratInterval from '@/components/StratInterval.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 import ColorClashActivate from '../_components/ColorClashActivate.astro'
 import DoubleStyleCast from '../_components/DoubleStyleCast.astro'
@@ -43,6 +43,18 @@ interface Props {
 }
 
 const { base = 0 }: Props = Astro.props
+
+const solutions = [
+  {
+    id: 'double-style-p1-solution-common',
+    title: '解法：常规站位',
+  },
+  {
+    id: 'double-style-p1-solution-caster-optimize',
+    title: '解法：读条职业优化',
+  },
+]
+const defaultSolution = '解法：常规站位'
 ---
 
 <DoubleStyleCast start="00:45.493" base={base} duration={12.6} />
@@ -267,8 +279,8 @@ const { base = 0 }: Props = Astro.props
     </div>
   </div>
 </NoteSection>
-<SolutionSection>
-  <div class="flex flex-col gap-4">
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：常规站位" class="flex flex-col gap-4">
     <div class="paragraph">首先要找到安全角落</div>
     <div class="paragraph -my-4">
       显然，远离
@@ -326,9 +338,7 @@ const { base = 0 }: Props = Astro.props
       注：此处是把所有类型的AoE范围铺满来展示绝对安全区域，实战安全区域是会比上图要大的
     </div>
   </div>
-</SolutionSection>
-<SolutionSection title="解法：读条职业优化">
-  <div class="flex flex-col gap-4">
+  <div slot="解法：读条职业优化" class="flex flex-col gap-4">
     <div class="paragraph">四四分摊站位不变，二二分摊站位变更如下</div>
     <Image src={color_clash_22_optimize} alt="Color Clash 22 Optimize" class="w-80" />
     <div class="paragraph">
@@ -337,4 +347,4 @@ const { base = 0 }: Props = Astro.props
       需要多跑几步才能突进回场中
     </div>
   </div>
-</SolutionSection>
+</MultiSolutionSection>
