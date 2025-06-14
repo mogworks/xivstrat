@@ -14,7 +14,7 @@ import SixFulmsUnder from '@/components/buff/SixFulmsUnder.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 import HeatingUpDebuff from '../_components/HeatingUpDebuff.astro'
 import LayerCast from '../_components/LayerCast.astro'
@@ -41,6 +41,18 @@ const sprayPainStart = '02:44.622'
 const quicksandStart = sprayPainStart
 const quicksandActivate = timeToSeconds(sprayPainStart) + 8.8
 const heatingUpTime = '02:52.408'
+
+const solutions = [
+  {
+    id: 'flip-to-x-side-solution-jp',
+    title: '解法：日野主流（场地基准）',
+  },
+  {
+    id: 'flip-to-x-side-solution-35',
+    title: '解法：仙人掌基准（危险角基准）',
+  },
+]
+const defaultSolution = '解法：仙人掌基准（危险角基准）'
 ---
 
 <LayerCast start={start} end={end} base={base} />
@@ -125,8 +137,8 @@ const heatingUpTime = '02:52.408'
     </div>
   </div>
 </NoteSection>
-<SolutionSection title="解法：日野主流（场地基准）">
-  <div class="flex flex-col gap-4">
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：日野主流（场地基准）" class="flex flex-col gap-4">
     <div class="paragraph">三个安全角落分配如下：</div>
     <div class="paragraph">
       <ListDot />
@@ -193,9 +205,7 @@ const heatingUpTime = '02:52.408'
       会罚站
     </div>
   </div>
-</SolutionSection>
-<SolutionSection title="解法：危险角基准">
-  <div class="flex flex-col gap-4">
+  <div slot="解法：仙人掌基准（危险角基准）" class="flex flex-col gap-4">
     <div class="paragraph">
       首先找到危险角落，接着
       <Span variant="pink">以危险角落为12点</Span>
@@ -245,4 +255,4 @@ const heatingUpTime = '02:52.408'
       罚站的情况，缺点是多了【找危险角落】的步骤
     </div>
   </div>
-</SolutionSection>
+</MultiSolutionSection>
