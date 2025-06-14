@@ -11,6 +11,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import { translations } from '../_translations'
 
 interface Props {
@@ -18,4 +19,28 @@ interface Props {
 }
 
 const { base = 0 }: Props = Astro.props
+const thornyDeathmatch = translations.thornyDeathmatch
+const ThornsOfDeath = 'Thorns Of Death'
 ---
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <T>
+      <Skill name={thornyDeathmatch} />
+    </T>
+    <P>
+      <BruteAbombinator />读条完毕后，所在的墙壁连线当前<RoleIcon role="any" tag="一仇" />，并附加<ThornsOfDeathDebuff
+        hover
+      />
+    </P>
+    <T class="mt-8 scroll-mt-[calc(5rem+1px)]">
+      <Skill name={ThornsOfDeath} />
+    </T>
+    <P>
+      每<Span variant="pink">3</Span>秒一跳的<Span variant="orange">持续伤害（DoT）</Span>，随着<Span variant="pink"
+        >连线长度</Span
+      >的增加，伤害量共有<Span variant="pink">4</Span>档：
+    </P>
+    <P class="pl-4" />
+  </div>
+</MechanicSection>
