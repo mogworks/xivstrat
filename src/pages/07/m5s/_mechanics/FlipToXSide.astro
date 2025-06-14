@@ -12,6 +12,7 @@ import StratLink from '@/components/StratLink.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import SolutionSwitcher from '@/components/section/SolutionSwitcher.astro'
 
 import a_side_mark_img from '@/assets/07/m5s/A-side_mark.png'
 import b_side_mark_img from '@/assets/07/m5s/B-side_mark.png'
@@ -37,6 +38,17 @@ interface Props {
 }
 
 const { base = 0 }: Props = Astro.props
+
+const solutions = [
+  {
+    id: 'flip-to-x-side-jp',
+    title: '解法：日野主流',
+  },
+  {
+    id: 'flip-to-x-side-35',
+    title: '解法：三五分摊',
+  },
+]
 ---
 
 <FlipToXSideCast start="00:22.543" base={base} />
@@ -170,144 +182,147 @@ const { base = 0 }: Props = Astro.props
     </div>
   </div>
 </MechanicSection>
-<SolutionSection id="flip-to-x-side-jp" title="解法：日野主流">
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      先根据读条和特效躲避
-      <XSnapTwistAndDropTheNeedleAbility />
-      ，最后
-      <Span variant="pink">统一</Span>
-      如下站位：
-    </div>
-    <div class="paragraph">
-      <RoleIcon role="tank" />
-      <RoleIcon role="dps" />
-      站在
-      <Span variant="pink">目标圈内环和场地对角线</Span>
-      上，
-      <RoleIcon role="healer" />
-      则站在
-      <Span variant="pink">场地中轴线</Span>
-      上
-    </div>
-    <div class="flex gap-2">
-      <div class="flex flex-col items-center gap-2">
-        <Image
-          src={flip_to_x_side_1_img}
-          alt="Flip to (A|B)-side Solution"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
-        <div class="paragraph">站位参考</div>
+
+<SolutionSwitcher solutions={solutions}>
+  <SolutionSection id="flip-to-x-side-jp" title="解法：日野主流">
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        先根据读条和特效躲避
+        <XSnapTwistAndDropTheNeedleAbility />
+        ，最后
+        <Span variant="pink">统一</Span>
+        如下站位：
       </div>
-      <div class="flex flex-col items-center gap-2">
-        <Image
-          src={flip_to_x_side_2_img}
-          alt="Flip to (A|B)-side Solution: Flip to A-side"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
-        <div class="paragraph">
-          情形1：
-          <Span variant="yellow">Flip to A-side</Span>
+      <div class="paragraph">
+        <RoleIcon role="tank" />
+        <RoleIcon role="dps" />
+        站在
+        <Span variant="pink">目标圈内环和场地对角线</Span>
+        上，
+        <RoleIcon role="healer" />
+        则站在
+        <Span variant="pink">场地中轴线</Span>
+        上
+      </div>
+      <div class="flex gap-2">
+        <div class="flex flex-col items-center gap-2">
+          <Image
+            src={flip_to_x_side_1_img}
+            alt="Flip to (A|B)-side Solution"
+            class="border-2 border-amber-800/75 dark:border-amber-100"
+          />
+          <div class="paragraph">站位参考</div>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <Image
+            src={flip_to_x_side_2_img}
+            alt="Flip to (A|B)-side Solution: Flip to A-side"
+            class="border-2 border-amber-800/75 dark:border-amber-100"
+          />
+          <div class="paragraph">
+            情形1：
+            <Span variant="yellow">Flip to A-side</Span>
+          </div>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <Image
+            src={flip_to_x_side_3_img}
+            alt="Flip to (A|B)-side Solution: Flip to B-side"
+            class="border-2 border-amber-800/75 dark:border-amber-100"
+          />
+          <div class="paragraph">
+            情形2：
+            <Span variant="yellow">Flip to B-side</Span>
+          </div>
         </div>
       </div>
-      <div class="flex flex-col items-center gap-2">
-        <Image
-          src={flip_to_x_side_3_img}
-          alt="Flip to (A|B)-side Solution: Flip to B-side"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
-        <div class="paragraph">
-          情形2：
-          <Span variant="yellow">Flip to B-side</Span>
+      <div class="paragraph">由于扇形分散的角度较窄，而直线分摊的宽度较宽</div>
+      <div class="paragraph">
+        因此，只要按上图站位，无论之前读条是
+        <Span variant="yellow">Flip to A-side</Span>
+        还是
+        <Span variant="yellow">Flip to B-side</Span>
+        ，都可
+        <Span variant="pink">直接无视</Span>
+      </div>
+    </div>
+  </SolutionSection>
+  <SolutionSection id="flip-to-x-side-35" title="解法：三五分摊">
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        先根据读条和特效躲避
+        <XSnapTwistAndDropTheNeedleAbility />
+        ，
+        <Span variant="pink">躲完最后一刀后</Span>
+        如下站位：
+      </div>
+      <div class="paragraph">
+        <ListDot />
+        <RoleIcon role="healer" />
+        站在
+        <Span variant="pink">场地中轴线</Span>
+        上
+      </div>
+      <div class="paragraph">
+        <ListDot />
+        <RoleIcon role="tank" />
+        <RoleIcon role="dps" />
+        则站在
+        <Span variant="pink">第二轮安全半场的场地对角线</Span>
+        上，并且
+        <Span variant="pink">不要超过目标圈内环</Span>
+      </div>
+      <div class="flex gap-2">
+        <div class="flex flex-col items-center gap-2">
+          <Image
+            src={flip_to_x_side_35_1_img}
+            alt="Flip to (A|B)-side Solution (35)"
+            class="border-2 border-amber-800/75 dark:border-amber-100"
+          />
+          <div class="paragraph">站位参考</div>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <Image
+            src={flip_to_x_side_35_2_img}
+            alt="Flip to (A|B)-side Solution: Flip to A-side (35)"
+            class="border-2 border-amber-800/75 dark:border-amber-100"
+          />
+          <div class="paragraph">
+            情形1：
+            <Span variant="yellow">Flip to A-side</Span>
+          </div>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <Image
+            src={flip_to_x_side_35_3_img}
+            alt="Flip to (A|B)-side Solution: Flip to B-side (35)"
+            class="border-2 border-amber-800/75 dark:border-amber-100"
+          />
+          <div class="paragraph">
+            情形2：
+            <Span variant="yellow">Flip to B-side</Span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="paragraph">由于扇形分散的角度较窄，而直线分摊的宽度较宽</div>
-    <div class="paragraph">
-      因此，只要按上图站位，无论之前读条是
-      <Span variant="yellow">Flip to A-side</Span>
-      还是
-      <Span variant="yellow">Flip to B-side</Span>
-      ，都可
-      <Span variant="pink">直接无视</Span>
-    </div>
-  </div>
-</SolutionSection>
-<SolutionSection title="解法：三五分摊">
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      先根据读条和特效躲避
-      <XSnapTwistAndDropTheNeedleAbility />
-      ，
-      <Span variant="pink">躲完最后一刀后</Span>
-      如下站位：
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      <RoleIcon role="healer" />
-      站在
-      <Span variant="pink">场地中轴线</Span>
-      上
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      <RoleIcon role="tank" />
-      <RoleIcon role="dps" />
-      则站在
-      <Span variant="pink">第二轮安全半场的场地对角线</Span>
-      上，并且
-      <Span variant="pink">不要超过目标圈内环</Span>
-    </div>
-    <div class="flex gap-2">
-      <div class="flex flex-col items-center gap-2">
-        <Image
-          src={flip_to_x_side_35_1_img}
-          alt="Flip to (A|B)-side Solution (35)"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
-        <div class="paragraph">站位参考</div>
+      <div class="paragraph">
+        <Span variant="pink">注意上图是以左右刀最后一刀打右半场为例，若最后一刀打左半场，则</Span>
+        <RoleIcon role="tank" />
+        <RoleIcon role="dps" />
+        <Span variant="pink">的站位是镜像对称的</Span>
       </div>
-      <div class="flex flex-col items-center gap-2">
-        <Image
-          src={flip_to_x_side_35_2_img}
-          alt="Flip to (A|B)-side Solution: Flip to A-side (35)"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
-        <div class="paragraph">
-          情形1：
-          <Span variant="yellow">Flip to A-side</Span>
-        </div>
+      <div class="paragraph">
+        与
+        <StratLink variant="lime" href="#flip-to-x-side-jp">解法：日野主流</StratLink>
+        相比，同样可以无视
+        <Span variant="yellow">A</Span>/<Span variant="yellow">B</Span>
+        ，并且不需要再穿回之前的危险半场，利好
+        <RoleIcon role="magic" />
       </div>
-      <div class="flex flex-col items-center gap-2">
-        <Image
-          src={flip_to_x_side_35_3_img}
-          alt="Flip to (A|B)-side Solution: Flip to B-side (35)"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
-        <div class="paragraph">
-          情形2：
-          <Span variant="yellow">Flip to B-side</Span>
-        </div>
+      <div class="paragraph">
+        代价是
+        <RoleIcon role="healer" tag="H1" />
+        要注意给自己单减，否则三人分摊可能会暴毙
       </div>
     </div>
-    <div class="paragraph">
-      <Span variant="pink">注意上图是以左右刀最后一刀打右半场为例，若最后一刀打左半场，则</Span>
-      <RoleIcon role="tank" />
-      <RoleIcon role="dps" />
-      <Span variant="pink">的站位是镜像对称的</Span>
-    </div>
-    <div class="paragraph">
-      与
-      <StratLink variant="lime" href="#flip-to-x-side-jp">解法：日野主流</StratLink>
-      相比，同样可以无视
-      <Span variant="yellow">A</Span>/<Span variant="yellow">B</Span>
-      ，并且不需要再穿回之前的危险半场，利好
-      <RoleIcon role="magic" />
-    </div>
-    <div class="paragraph">
-      代价是
-      <RoleIcon role="healer" tag="H1" />
-      要注意给自己单减，否则三人分摊可能会暴毙
-    </div>
-  </div>
-</SolutionSection>
+  </SolutionSection>
+</SolutionSwitcher>
