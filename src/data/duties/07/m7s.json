@@ -67,11 +67,25 @@
           "name_ch": ""
         },
         {
+          "href": "#TDAB",
+          "name": "TDAB",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
+        },
+        {
           "href": "#sporesplosion",
           "name": "Sporesplosion",
           "name_en": "Sporesplosion",
           "name_ja": "",
           "name_ch": "孢子云"
+        },
+        {
+          "href": "#DDAB",
+          "name": "DDAB",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
         },
         {
           "href": "#strange-seeds",
