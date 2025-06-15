@@ -42,10 +42,10 @@ const { start, base = 0, getDownTimes = [] }: Props = Astro.props
 const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '23']
 ---
 
+<CastSection start={start} base={base} duration={4.5} ability="Arcady Night Fever">
+  <Badge variant="yellow">连续钢铁月环</Badge>
+</CastSection>
 <CollapseSection>
-  <CastSection start={start} base={base} duration={4.5} ability="Arcady Night Fever" slot="content">
-    <Badge variant="yellow">连续钢铁月环</Badge>
-  </CastSection>
   <Fragment slot="summary">
     <Boss />按职能交替点名
     <RoleIcon role="tank" />
