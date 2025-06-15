@@ -11,6 +11,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
+import DotInfo from '@/components/DotInfo.astro'
 
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
@@ -36,6 +37,8 @@ import img from '@/assets/07/m8s1/tmp.png'
 import aero_iii from '@/assets/07/m8s1/millennial_decay/aeroIII.png'
 import breath_of_decay from '@/assets/07/m8s1/millennial_decay/breath_of_decay.png'
 import gust_img from '@/assets/07/m8s1/millennial_decay/gust.png'
+import prowling_gale_1 from '@/assets/07/m8s1/millennial_decay/prowling_gale_1.png'
+import prowling_gale_2 from '@/assets/07/m8s1/millennial_decay/prowling_gale_2.png'
 
 interface Props {
   time: Time
@@ -69,7 +72,7 @@ const { time, base = 0 }: Props = Astro.props
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <Quote variant="yellow" class="opacity-80">
-      <P>注意：以下图示为各个机制单独拆解，实际战斗中机制会组合出现</P>
+      <P>注意：以下图示为各个机制单独拆解，实际战斗中机制会组合出现，发动顺序可参考上方时间轴</P>
     </Quote>
 
     <T class="mt-8">
@@ -152,7 +155,35 @@ const { time, base = 0 }: Props = Astro.props
     <T class="mt-8">
       <Skill name={prowlingGale} />
     </T>
-    <P> TODO </P>
+    <P>
+      场地正点或斜点方向生成
+      <Span variant="pink">4</Span>
+      座塔
+    </P>
+    <P>
+      正常踩塔会受到
+      <Skill name={prowlingGale} />
+      <DamageInfo damage="75000" type="magical" />
+      ，每炸一座塔则全员受到
+      <Skill name={greatWhirlwind} />
+      <DamageInfo damage="100000" type="magical" />
+      <SustainedDamage layer={1} tag="15" hover />
+      <DotInfo damage="30000" />
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: prowling_gale_1,
+          alt: '风狼阵：正点塔',
+        },
+        {
+          src: prowling_gale_2,
+          alt: '风狼阵：斜点塔',
+        },
+      ]}
+    />
 
     <T class="mt-8">
       <Skill name={windsOfDecay} />
