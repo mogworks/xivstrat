@@ -36,7 +36,7 @@ const duty = (await getEntry('duties', dutyId))!.data
   subscribeKeys($stratSettings, ['viewMode', 'readMode', 'attackEvent'], (stratSettings) => {
     if (stratSettings.attackEvent === 'only') {
       // 只显示普通攻击
-      document.querySelectorAll('section.strat-section:not(.attack-section)').forEach((e) => {
+      document.querySelectorAll('section.strat-section:not(.attack-section),collapse-section').forEach((e) => {
         e.classList.toggle('grid', !e.classList.toggle('hidden', true))
       })
       document.querySelectorAll('section.strat-section.attack-section').forEach((e) => {
@@ -49,16 +49,18 @@ const duty = (await getEntry('duties', dutyId))!.data
         e.classList.toggle('grid', !e.classList.toggle('hidden', stratSettings.attackEvent === 'hide'))
       })
       // 对于非普通攻击和非内容
-      document.querySelectorAll('section.strat-section:not(.content-section):not(.attack-section)').forEach((e) => {
-        // 若仅保留伤害，则隐藏不含伤害信息的元素，否则都要显示
-        e.classList.toggle(
-          'grid',
-          !e.classList.toggle(
-            'hidden',
-            stratSettings.viewMode === 'damage' && e.querySelector('.damage-info') === null,
-          ),
-        )
-      })
+      document
+        .querySelectorAll('section.strat-section:not(.content-section):not(.attack-section),collapse-section')
+        .forEach((e) => {
+          // 若仅保留伤害，则隐藏不含伤害信息的元素，否则都要显示
+          e.classList.toggle(
+            'grid',
+            !e.classList.toggle(
+              'hidden',
+              stratSettings.viewMode === 'damage' && e.querySelector('.damage-info') === null,
+            ),
+          )
+        })
       // 对于内容
       if (stratSettings.viewMode === 'default') {
         // 正常显示所有信息
@@ -82,7 +84,31 @@ const duty = (await getEntry('duties', dutyId))!.data
           e.classList.toggle('grid', !e.classList.toggle('hidden', true))
         })
       }
+      if (stratSettings.viewMode === 'damage') {
+        // 视图模式为仅伤害时，隐藏collapse-summary，展开collapse-details
+        document.querySelectorAll('collapse-section').forEach((e) => {
+          e.querySelector('.collapse-summary')?.classList.toggle('hidden', true)
+          ;(e as any).forceOpen()
+          // 检测collapse-details，无子元素则隐藏本身
+          const detailsSection = e.querySelector('.collapse-details') as HTMLElement
+          const allChildrenHidden = Array.from(detailsSection.children)
+            .filter(
+              (e) => e instanceof HTMLElement && !e.classList.contains('pointer-events-none'), // 排除装饰元素
+            )
+            .every((child) => child instanceof HTMLElement && getComputedStyle(child).display === 'none')
+          if (allChildrenHidden) {
+            e.classList.toggle('hidden', true)
+          }
+        })
+      } else {
+        document.querySelectorAll('collapse-section').forEach((e) => {
+          e.classList.toggle('hidden', false)
+          e.querySelector('.collapse-summary')?.classList.toggle('hidden', false)
+          ;(e as any).reset()
+        })
+      }
     }
+
     // 对于阅读模式
     const highlightTextQuery =
       'section.strat-section:not(.separator-section) span:not(.strat-time):not(.damage-info):not(.strat-title):not([data-icon="buff-icon"])'
