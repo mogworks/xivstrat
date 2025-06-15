@@ -39,6 +39,11 @@ import breath_of_decay from '@/assets/07/m8s1/millennial_decay/breath_of_decay.p
 import gust_img from '@/assets/07/m8s1/millennial_decay/gust.png'
 import prowling_gale_1 from '@/assets/07/m8s1/millennial_decay/prowling_gale_1.png'
 import prowling_gale_2 from '@/assets/07/m8s1/millennial_decay/prowling_gale_2.png'
+import winds_of_decay_1 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_1.png'
+import winds_of_decay_2 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_2.png'
+import winds_of_decay_3 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_3.png'
+import winds_of_decay_4 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_4.png'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
 interface Props {
   time: Time
@@ -188,7 +193,67 @@ const { time, base = 0 }: Props = Astro.props
     <T class="mt-8">
       <Skill name={windsOfDecay} />
     </T>
-    <P> TODO </P>
+    <P>
+      场地正点或斜点方向刷新
+      <Span variant="pink">4</Span>
+      只
+      <WolfOfWind />
+      ，必定与塔交错分布，随机连线
+      <Span variant="pink">4</Span>
+      <RoleIcon role="tank|healer" />
+      或
+      <Span variant="pink">4</Span>
+      <RoleIcon role="dps" />
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: winds_of_decay_1,
+          alt: '正点千年狂风：粗线',
+        },
+        {
+          src: winds_of_decay_2,
+          alt: '斜点千年狂风：粗线',
+        },
+      ]}
+    />
+    <P>
+      连线判定时，
+      <WolfOfWind />
+      会对连线玩家释放
+      <Span variant="pink">30°</Span>
+      扇形：
+    </P>
+    <Quote variant="lime">
+      <P>
+        距离不足时，对玩家造成
+        <DamageInfo damage="700000" type="magical" />
+        <MagicVulnerabilityUp tag="1" hover />
+        <DamageDown tag="30" />
+        <Span variant="rose" class="text-decimal">50%↓</Span>
+      </P>
+      <P>
+        距离足够时（连线会变为紫色），对玩家造成
+        <DamageInfo damage="70000" type="magical" />
+        <MagicVulnerabilityUp tag="1" hover />
+      </P>
+    </Quote>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: winds_of_decay_3,
+          alt: '正点千年狂风：细线',
+        },
+        {
+          src: winds_of_decay_4,
+          alt: '正点千年狂风：判定',
+        },
+      ]}
+    />
   </div>
 </MechanicSection>
 
