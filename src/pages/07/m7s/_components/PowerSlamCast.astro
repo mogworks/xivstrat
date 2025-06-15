@@ -3,6 +3,7 @@ import type { Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
+import BruteAbombinator from './BruteAbombinator.astro'
 
 import { translations } from '../_translations'
 
@@ -16,5 +17,7 @@ const powerslam = translations.powerslam
 ---
 
 <CastSection start={time} base={base} duration={5.7} ability={powerslam}>
-  <Badge variant="purple">全屏AoE</Badge>
+  <BruteAbombinator slot="source" />
+  <Badge variant="emerald">场地切换</Badge>
+  <Badge variant="purple">AoE</Badge>
 </CastSection>

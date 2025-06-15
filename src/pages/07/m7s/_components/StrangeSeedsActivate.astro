@@ -1,0 +1,38 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Span from '@/components/Span.vue'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Skill from '@/components/typography/Skill.astro'
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+  num: number
+}
+
+const { time, base = 0, num }: Props = Astro.props
+const strangeseeds = translations.strangeSeeds
+
+let colr = {
+  1: 'pink',
+  2: 'orange',
+  3: 'cyan',
+  4: 'indigo',
+}
+---
+
+<EventSection time={time} base={base}>
+  第<Span variant={colr[num]}>{num}</Span>轮
+  <Skill name={strangeseeds} />
+  伤害判定
+  <DamageInfo damage="90500" type="magical" />
+  <MagicVulnerabilityUp tag="7" hover />
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="yellow">分散</Badge>
+</EventSection>
