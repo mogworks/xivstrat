@@ -27,7 +27,7 @@ const duty = (await getEntry('duties', dutyId))!.data
       </div>
       <slot />
     </article>
-    <StratHomeAside client:only="vue" navList={navList} />
+    <StratHomeAside client:idle navList={navList} />
     <Separator orientation="vertical" class="absolute top-4 left-68 h-[calc(100%-2rem)]" />
     <Separator orientation="vertical" class="absolute top-4 right-68 h-[calc(100%-2rem)]" />
   </main>
