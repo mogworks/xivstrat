@@ -51,6 +51,8 @@ import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
 import { translations } from '../_translations'
 import { TvMinimalPlay } from 'lucide-vue-next'
 import StratLink from '@/components/StratLink.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import NoteSection from '@/components/section/NoteSection.astro'
 
 interface Props {
   base: Time
@@ -64,6 +66,30 @@ const crossingCrosswinds = translations.crossingCrosswinds
 const hurricaneForce = translations.hurricaneForce
 const quarrySwamp = translations.quarrySwamp
 const bloomingAbomination = translations.bloomingAbomination
+
+const solutions = [
+  {
+    id: 'sinister-seeds-game8',
+    title: '解法：Game8原版',
+  },
+  {
+    id: 'sinister-seeds-nO2m',
+    title: '解法：nO2魔改',
+  },
+]
+const defaultSolution = '解法：Game8原版'
+
+const solutions1 = [
+  {
+    id: 'sinister-seeds-game8-1',
+    title: '解法：Game8原版',
+  },
+  {
+    id: 'sinister-seeds-nO2m-1',
+    title: '解法：nO2魔改',
+  },
+]
+const defaultSolution1 = '解法：Game8原版'
 ---
 
 <SporeSacCast start="00:40.052" end="00:43.039" base={base} />
@@ -238,332 +264,338 @@ const bloomingAbomination = translations.bloomingAbomination
   </div>
 </MechanicSection>
 
-<SolutionSection id="game8-0" title="解法：Game8原版">
-  <div class="flex flex-col gap-4">
-    <h4 class="text-2xl">
-      <Span variant="lime">初始站位</Span>
-    </h4>
-    <div class="shrink-0 grow space-y-4">
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：Game8原版">
+    <div class="flex flex-col gap-4">
+      <h4 class="text-2xl">
+        <Span variant="lime">初始站位</Span>
+      </h4>
+      <div class="shrink-0 grow space-y-4">
+        <div class="paragraph">
+          在<Span variant="green">种子</Span>落下后，
+          <RoleIcon role="all" tag="所有人" />根据职能与位置，如下图所示进行预站位：
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="max-w-90 shrink">
+          <Image
+            src={sinister_solution_preparation}
+            alt=""
+            class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+          />
+        </div>
+      </div>
       <div class="paragraph">
-        在<Span variant="green">种子</Span>落下后，
-        <RoleIcon role="all" tag="所有人" />根据职能与位置，如下图所示进行预站位：
+        此处的数字标点为稍后放置<Span variant="pink">冰花</Span>的位置
       </div>
     </div>
-    <div class="flex gap-4">
-      <div class="max-w-90 shrink">
-        <Image
-          src={sinister_solution_preparation}
-          alt=""
-          class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
-        />
-      </div>
-    </div>
-    <div class="paragraph">
-      此处的数字标点为稍后放置<Span variant="pink">冰花</Span>的位置
-    </div>
-  </div>
 
-  <div class="flex flex-col gap-4">
-    <h4 class="mt-8 text-2xl">
-      <Span variant="lime">躲避藤蔓</Span>
-    </h4>
-    <div class="paragraph">藤蔓开始生长后，我们规定：</div>
-    <div class="paragraph">
-      <ListDot />
-      近战组（即
-      <RoleIcon role="tank" tag="MT" /><RoleIcon role="tank" tag="ST" />
-      <RoleIcon role="melee" tag="D1" /><RoleIcon role="melee" tag="D2" />） 在
-      <Span variant="cyan">内场南边</Span>的安全区集合
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      远程组前往指定角落躲避，其中
-      <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />在
-      <Span variant="cyan">北半场</Span>的安全角落，
-      <RoleIcon role="healer" tag="H1" /><RoleIcon role="healer" tag="H2" />在
-      <Span variant="cyan">南半场</Span>的安全角落
-    </div>
-    <div class="paragraph">根据安全区的两种情况，站位分别如下所示：</div>
-    <div class="grid grid-cols-3 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={pollen_solution_case_1} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>情况1</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={pollen_solution_case_2} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>情况2</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="flex flex-col gap-4">
-    <h4 class="mt-8 text-2xl">
-      <Span variant="lime">放置冰花与追踪AoE</Span>
-    </h4>
-    <div class="paragraph">
-      由于 <Span variant="yellow">{sinisterSeeds}</Span>
-      的机制效果为选择最远或最近的四人释放放置<Span variant="pink">冰花</Span>的分散点名，并点其余四人追踪式AoE
-    </div>
-    <div class="paragraph">
-      且我们在<Span variant="lime">躲避藤蔓</Span>
-      时，就确保了：
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      近战组四人一定是距离<BruteAbombinator />最近的四人
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      远程组四人一定是距离<BruteAbombinator />最远的四人
-    </div>
-    <div class="paragraph">
-      因此，放置<Span variant="pink">冰花</Span>点名必定会同时点近战组或者远程组四人
-    </div>
-    <div class="paragraph">根据点名的不同，我们将其分为两种情况分别讲解：</div>
-    <div class="flex gap-4">
-      <div class="max-w-84 flex-1">
-        <Image
-          src={sinister_solution_place_1}
-          alt=""
-          class="w-84 rounded border-2 border-fuchsia-400 dark:border-fuchsia-100"
-        />
-      </div>
-      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
-        <h4 class="text-xl">
-          <Span variant="yellow">情形1：近战组放冰花</Span>
-        </h4>
-        <div class="paragraph break-words">
-          <Span variant="green">近战组</Span>
-          <RoleIcon role="tank" tag="MT" />
-          <RoleIcon role="tank" tag="ST" />
-          <RoleIcon role="melee" tag="D1" />
-          <RoleIcon role="melee" tag="D2" />
-        </div>
-        <div class="paragraph pl-6 break-words">
-          <ListDot />
-          直接前往自己应去的数字标点，等待放置
-          <Span variant="pink">冰花</Span>
-        </div>
-        <div class="paragraph mt-8 break-words">
-          <Span variant="green">远程组</Span>
-          <RoleIcon role="ranged" tag="D3" />
-          <RoleIcon role="magic" tag="D4" />
-          <RoleIcon role="healer" tag="H1" />
-          <RoleIcon role="healer" tag="H2" />
-        </div>
-        <div class="paragraph pl-6 break-words">
-          <ListDot />
-          <Span variant="red">横向</Span>
-          沿着场边放置追踪AoE
-        </div>
-        <div class="paragraph pl-6 break-words">
-          <ListDot />放置完前三个追踪AoE后，拐向场中放置第四个
-        </div>
-      </div>
-    </div>
-    <div class="flex gap-4">
-      <div class="max-w-84 flex-1">
-        <Image
-          src={sinister_solution_place_2}
-          alt=""
-          class="w-full rounded border-2 border-fuchsia-400 dark:border-fuchsia-100"
-        />
-      </div>
-      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
-        <h4 class="text-xl">
-          <Span variant="yellow">情形2：远程组放冰花</Span>
-        </h4>
-        <div class="paragraph break-words">
-          <Span variant="green">近战组</Span>
-          <RoleIcon role="tank" tag="MT" />
-          <RoleIcon role="tank" tag="ST" />
-          <RoleIcon role="melee" tag="D1" />
-          <RoleIcon role="melee" tag="D2" />
-        </div>
-        <div class="paragraph pl-6 break-words">
-          <ListDot />
-          沿着
-          <Span variant="red">初始安全区->上->中->下</Span>
-          的顺序放置追踪AoE
-        </div>
-        <div class="paragraph mt-8 break-words">
-          <Span variant="green">远程组</Span>
-          <RoleIcon role="ranged" tag="D3" />
-          <RoleIcon role="magic" tag="D4" />
-          <RoleIcon role="healer" tag="H1" />
-          <RoleIcon role="healer" tag="H2" />
-        </div>
-        <div class="paragraph pl-6 break-words">
-          <ListDot />
-          在自己的点位旁等候
-        </div>
-        <div class="paragraph pl-6 break-words">
-          <ListDot />
-          等待黄圈消失后，进入数字标点放置<Span variant="pink">冰花</Span>
-        </div>
-      </div>
-    </div>
-    <div class="paragraph">
-      在放置冰花或追踪Aoe的过程中，<BloomingAbomination num={4} />
-      会生成在<Span variant="green">种子</Span>落下的地方
-    </div>
-    <div class="paragraph">
-      我们规定，让
-      <RoleIcon role="tank" tag="MT" />拉
-      <Span variant="cyan">左半场</Span>两只<BloomingAbominationSimplified />，
-      <RoleIcon role="tank" tag="ST" />拉
-      <Span variant="cyan">右半场</Span>两只<BloomingAbominationSimplified />， 方便处理后续机制
-    </div>
-    <div class="paragraph">
-      由于此时角色处于跑位过程中，
-      <RoleIcon role="tank" tag="MT" />和<RoleIcon role="tank" tag="ST" />
-      可以酌情使用挑衅、飞斧等远程技能来获取仇恨
-    </div>
-  </div>
-
-  <div class="flex flex-col gap-4">
-    <h4 class="mt-8 text-2xl">
-      <Span variant="lime">躲避冰花并分摊</Span>
-    </h4>
-    <div class="paragraph">
-      由于<Span variant="pink">冰花</Span>的位置是固定的，在放置完
-      <Span variant="pink">冰花</Span>
-      和追踪AoE后，我们分为H1组和H2组：
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      H1组：
-      <RoleIcon role="tank" tag="MT" />
-      <RoleIcon role="healer" tag="H1" />
-      <RoleIcon role="melee" tag="D1" />
-      <RoleIcon role="ranged" tag="D3" />
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      H2组：
-      <RoleIcon role="tank" tag="ST" />
-      <RoleIcon role="healer" tag="H2" />
-      <RoleIcon role="melee" tag="D2" />
-      <RoleIcon role="magic" tag="D4" />
-    </div>
-    <div class="paragraph">
-      分别前往场中的指定位置，躲避
-      <Span variant="pink">冰花</Span>
-      的同时参与点名 2
-      <RoleIcon role="healer" />的分摊
-      <Span variant="yellow">{impact}</Span>
-    </div>
-    <Image src={impact_solution} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-  </div>
-</SolutionSection>
-
-<SolutionSection title="解法：nO2魔改">
-  <div class="flex flex-col gap-4">
-    <h4 class="text-2xl">
-      <Span variant="lime">初始站位</Span>
-    </h4>
-    <div class="shrink-0 grow space-y-4">
+    <div class="flex flex-col gap-4">
+      <h4 class="mt-8 text-2xl">
+        <Span variant="lime">躲避藤蔓</Span>
+      </h4>
+      <div class="paragraph">藤蔓开始生长后，我们规定：</div>
       <div class="paragraph">
-        在<Span variant="green">种子</Span>落下后，
-        <RoleIcon role="all" tag="所有人" />初始站位如图：
+        <ListDot />
+        近战组（即
+        <RoleIcon role="tank" tag="MT" /><RoleIcon role="tank" tag="ST" />
+        <RoleIcon role="melee" tag="D1" /><RoleIcon role="melee" tag="D2" />） 在
+        <Span variant="cyan">内场南边</Span>的安全区集合
       </div>
+      <div class="paragraph">
+        <ListDot />
+        远程组前往指定角落躲避，其中
+        <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />在
+        <Span variant="cyan">北半场</Span>的安全角落，
+        <RoleIcon role="healer" tag="H1" /><RoleIcon role="healer" tag="H2" />在
+        <Span variant="cyan">南半场</Span>的安全角落
+      </div>
+      <div class="paragraph">根据安全区的两种情况，站位分别如下所示：</div>
+      <div class="grid grid-cols-3 gap-x-2 gap-y-4">
+        <div class="flex flex-col items-center gap-1">
+          <Image src={pollen_solution_case_1} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+          <div>情况1</div>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <Image src={pollen_solution_case_2} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+          <div>情况2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <h4 class="mt-8 text-2xl">
+        <Span variant="lime">放置冰花与追踪AoE</Span>
+      </h4>
+      <div class="paragraph">
+        由于 <Span variant="yellow">{sinisterSeeds}</Span>
+        的机制效果为选择最远或最近的四人释放放置<Span variant="pink">冰花</Span>的分散点名，并点其余四人追踪式AoE
+      </div>
+      <div class="paragraph">
+        且我们在<Span variant="lime">躲避藤蔓</Span>
+        时，就确保了：
+      </div>
+      <div class="paragraph">
+        <ListDot />
+        近战组四人一定是距离<BruteAbombinator />最近的四人
+      </div>
+      <div class="paragraph">
+        <ListDot />
+        远程组四人一定是距离<BruteAbombinator />最远的四人
+      </div>
+      <div class="paragraph">
+        因此，放置<Span variant="pink">冰花</Span>点名必定会同时点近战组或者远程组四人
+      </div>
+      <div class="paragraph">根据点名的不同，我们将其分为两种情况分别讲解：</div>
+      <div class="flex gap-4">
+        <div class="max-w-84 flex-1">
+          <Image
+            src={sinister_solution_place_1}
+            alt=""
+            class="w-84 rounded border-2 border-fuchsia-400 dark:border-fuchsia-100"
+          />
+        </div>
+        <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+          <h4 class="text-xl">
+            <Span variant="yellow">情形1：近战组放冰花</Span>
+          </h4>
+          <div class="paragraph break-words">
+            <Span variant="green">近战组</Span>
+            <RoleIcon role="tank" tag="MT" />
+            <RoleIcon role="tank" tag="ST" />
+            <RoleIcon role="melee" tag="D1" />
+            <RoleIcon role="melee" tag="D2" />
+          </div>
+          <div class="paragraph pl-6 break-words">
+            <ListDot />
+            直接前往自己应去的数字标点，等待放置
+            <Span variant="pink">冰花</Span>
+          </div>
+          <div class="paragraph mt-8 break-words">
+            <Span variant="green">远程组</Span>
+            <RoleIcon role="ranged" tag="D3" />
+            <RoleIcon role="magic" tag="D4" />
+            <RoleIcon role="healer" tag="H1" />
+            <RoleIcon role="healer" tag="H2" />
+          </div>
+          <div class="paragraph pl-6 break-words">
+            <ListDot />
+            <Span variant="red">横向</Span>
+            沿着场边放置追踪AoE
+          </div>
+          <div class="paragraph pl-6 break-words">
+            <ListDot />放置完前三个追踪AoE后，拐向场中放置第四个
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-4">
+        <div class="max-w-84 flex-1">
+          <Image
+            src={sinister_solution_place_2}
+            alt=""
+            class="w-full rounded border-2 border-fuchsia-400 dark:border-fuchsia-100"
+          />
+        </div>
+        <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+          <h4 class="text-xl">
+            <Span variant="yellow">情形2：远程组放冰花</Span>
+          </h4>
+          <div class="paragraph break-words">
+            <Span variant="green">近战组</Span>
+            <RoleIcon role="tank" tag="MT" />
+            <RoleIcon role="tank" tag="ST" />
+            <RoleIcon role="melee" tag="D1" />
+            <RoleIcon role="melee" tag="D2" />
+          </div>
+          <div class="paragraph pl-6 break-words">
+            <ListDot />
+            沿着
+            <Span variant="red">初始安全区->上->中->下</Span>
+            的顺序放置追踪AoE
+          </div>
+          <div class="paragraph mt-8 break-words">
+            <Span variant="green">远程组</Span>
+            <RoleIcon role="ranged" tag="D3" />
+            <RoleIcon role="magic" tag="D4" />
+            <RoleIcon role="healer" tag="H1" />
+            <RoleIcon role="healer" tag="H2" />
+          </div>
+          <div class="paragraph pl-6 break-words">
+            <ListDot />
+            在自己的点位旁等候
+          </div>
+          <div class="paragraph pl-6 break-words">
+            <ListDot />
+            等待黄圈消失后，进入数字标点放置<Span variant="pink">冰花</Span>
+          </div>
+        </div>
+      </div>
+      <div class="paragraph">
+        在放置冰花或追踪Aoe的过程中，<BloomingAbomination num={4} />
+        会生成在<Span variant="green">种子</Span>落下的地方
+      </div>
+      <div class="paragraph">
+        我们规定，让
+        <RoleIcon role="tank" tag="MT" />拉
+        <Span variant="cyan">左半场</Span>两只<BloomingAbominationSimplified />，
+        <RoleIcon role="tank" tag="ST" />拉
+        <Span variant="cyan">右半场</Span>两只<BloomingAbominationSimplified />， 方便处理后续机制
+      </div>
+      <div class="paragraph">
+        由于此时角色处于跑位过程中，
+        <RoleIcon role="tank" tag="MT" />和<RoleIcon role="tank" tag="ST" />
+        可以酌情使用挑衅、飞斧等远程技能来获取仇恨
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <h4 class="mt-8 text-2xl">
+        <Span variant="lime">躲避冰花并分摊</Span>
+      </h4>
+      <div class="paragraph">
+        由于<Span variant="pink">冰花</Span>的位置是固定的，在放置完
+        <Span variant="pink">冰花</Span>
+        和追踪AoE后，我们分为H1组和H2组：
+      </div>
+      <div class="paragraph">
+        <ListDot />
+        H1组：
+        <RoleIcon role="tank" tag="MT" />
+        <RoleIcon role="healer" tag="H1" />
+        <RoleIcon role="melee" tag="D1" />
+        <RoleIcon role="ranged" tag="D3" />
+      </div>
+      <div class="paragraph">
+        <ListDot />
+        H2组：
+        <RoleIcon role="tank" tag="ST" />
+        <RoleIcon role="healer" tag="H2" />
+        <RoleIcon role="melee" tag="D2" />
+        <RoleIcon role="magic" tag="D4" />
+      </div>
+      <div class="paragraph">
+        分别前往场中的指定位置，躲避
+        <Span variant="pink">冰花</Span>
+        的同时参与点名 2
+        <RoleIcon role="healer" />的分摊
+        <Span variant="yellow">{impact}</Span>
+      </div>
+      <Image src={impact_solution} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    </div>
+  </div>
+  <div slot="解法：nO2魔改">
+    <div class="flex flex-col gap-4">
+      <h4 class="text-2xl">
+        <Span variant="lime">初始站位</Span>
+      </h4>
+      <div class="shrink-0 grow space-y-4">
+        <div class="paragraph">
+          在<Span variant="green">种子</Span>落下后，
+          <RoleIcon role="all" tag="所有人" />初始站位如图：
+        </div>
+        <div class="flex gap-4">
+          <div class="max-w-90 shrink">
+            <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h4 class="mt-8 text-2xl">
+        <Span variant="lime">躲避藤蔓</Span>
+      </h4>
+      <div class="paragraph">
+        观察<Span variant="pink">最南边一个</Span>藤蔓的生长方向，如果<Span variant="pink">没有向北</Span
+        >生长，则全员在其<Span variant="pink">正北</Span>的内场安全区集合
+      </div>
+      <div class="paragraph">
+        如果<Span variant="pink">向北</Span>生长，则全员在其北侧的<Span variant="pink">另一个</Span>内场安全区集合
+      </div>
+      <div class="paragraph">
+        <ListDot />
+        近战组（即
+        <RoleIcon role="tank" tag="MT" /><RoleIcon role="tank" tag="ST" />
+        <RoleIcon role="melee" tag="D1" /><RoleIcon role="melee" tag="D2" />） 在内场安全区
+        <Span variant="pink">靠近</Span><RoleIcon role="boss" tag="boss" />处集合
+      </div>
+      <div class="paragraph">
+        <ListDot />
+        远程组（即
+        <RoleIcon role="healer" tag="H1" /><RoleIcon role="healer" tag="H2" />
+        <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />）在内场安全区
+        <Span variant="pink">远离</Span><RoleIcon role="boss" tag="boss" />处集合
+      </div>
+      <div class="paragraph">站位示意图如下：</div>
       <div class="flex gap-4">
         <div class="max-w-90 shrink">
           <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
         </div>
       </div>
     </div>
-  </div>
-  <div class="flex flex-col gap-4">
-    <h4 class="mt-8 text-2xl">
-      <Span variant="lime">躲避藤蔓</Span>
-    </h4>
-    <div class="paragraph">
-      观察<Span variant="pink">最南边一个</Span>藤蔓的生长方向，如果<Span variant="pink">没有向北</Span
-      >生长，则全员在其<Span variant="pink">正北</Span>的内场安全区集合
+    <div class="flex flex-col gap-4">
+      <h4 class="mt-8 text-2xl">
+        <Span variant="lime">放置冰花与追踪AOE</Span>
+      </h4>
+      <div class="paragraph">
+        <RoleIcon role="all" tag="所有人" />观察自身点名情况：
+      </div>
+      <div class="paragraph">
+        <ListDot />如果被点<Span variant="yellow">黄圈</Span>，则以<Span variant="pink">A点方向</Span>为起点，<Span
+          variant="pink">顺时针/逆时针</Span
+        ><Span variant="emerald">正点方向</Span><Span variant="cyan">尽量靠近内场</Span>放置剩下三个黄圈
+      </div>
+      <div class="paragraph">
+        <ListDot />如果被点<Span variant="yellow">冰花</Span>，则前往自己放花位置所在的<Span variant="emerald"
+          >斜点</Span
+        >附近待机，准时放花
+      </div>
+      <div class="paragraph">
+        <Span variant="yellow">冰花AOE伤害</Span>与<Span variant="yellow">第三轮黄圈伤害</Span><Span variant="pink"
+          >同时</Span
+        >，<Span variant="red">吃重会死</Span>，所以请无论如何不要让<Span variant="pink">第三轮黄圈</Span>覆盖到<Span
+          variant="emerald">斜点</Span
+        >
+      </div>
+      <div class="paragraph">四轮黄圈与放冰花示意图如下：</div>
+      <div class="flex gap-4">
+        <div class="max-w-90 shrink">
+          <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        </div>
+        <div class="max-w-90 shrink">
+          <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        </div>
+      </div>
     </div>
-    <div class="paragraph">
-      如果<Span variant="pink">向北</Span>生长，则全员在其北侧的<Span variant="pink">另一个</Span>内场安全区集合
+    <div class="flex flex-col gap-4">
+      <h4 class="mt-8 text-2xl">
+        <Span variant="lime">躲避冰花并分摊</Span>
+      </h4>
+      <div class="paragraph">
+        在<Span variant="pink">第四轮</Span>黄圈<Span variant="pink">消失</Span>后，前往分摊，解法与<StratLink
+          variant="lime"
+          href="#sinister-seeds-game8">Game8原版</StratLink
+        >相同
+      </div>
     </div>
-    <div class="paragraph">
-      <ListDot />
-      近战组（即
-      <RoleIcon role="tank" tag="MT" /><RoleIcon role="tank" tag="ST" />
-      <RoleIcon role="melee" tag="D1" /><RoleIcon role="melee" tag="D2" />） 在内场安全区
-      <Span variant="pink">靠近</Span><RoleIcon role="boss" tag="boss" />处集合
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      远程组（即
-      <RoleIcon role="healer" tag="H1" /><RoleIcon role="healer" tag="H2" />
-      <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />）在内场安全区
-      <Span variant="pink">远离</Span><RoleIcon role="boss" tag="boss" />处集合
-    </div>
-    <div class="paragraph">站位示意图如下：</div>
-    <div class="flex gap-4">
-      <div class="max-w-90 shrink">
-        <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <div class="mt-8 flex flex-col gap-4">
+      <div class="paragraph">
+        <span class="line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700"
+          >此解法魔改自欧服野队raidplan，其链接最后三个字符为nO2，在招募版上被如此称呼</span
+        >
+      </div>
+      <div class="paragraph">
+        与<StratLink variant="orange" href="https://raidplan.io/plan/PWFgPfz0vL7runO2">原版</StratLink>相比，魔改后 <RoleIcon
+          role="melee"
+          tag="近战"
+        />不再需要远离boss放置黄圈，uptime提高
+      </div>
+      <div class="paragraph">
+        与Game8原版相比，初始时全员站位集中，便于 <RoleIcon role="healer" tag="治疗" />预铺
       </div>
     </div>
   </div>
-  <div class="flex flex-col gap-4">
-    <h4 class="mt-8 text-2xl">
-      <Span variant="lime">放置冰花与追踪AOE</Span>
-    </h4>
-    <div class="paragraph">
-      <RoleIcon role="all" tag="所有人" />观察自身点名情况：
-    </div>
-    <div class="paragraph">
-      <ListDot />如果被点<Span variant="yellow">黄圈</Span>，则以<Span variant="pink">A点方向</Span>为起点，<Span
-        variant="pink">顺时针</Span
-      ><Span variant="emerald">正点方向</Span><Span variant="cyan">尽量靠近内场</Span>放置剩下三个黄圈
-    </div>
-    <div class="paragraph">
-      <ListDot />如果被点<Span variant="yellow">冰花</Span>，则前往自己放花位置所在的<Span variant="emerald">斜点</Span
-      >附近待机，准时放花
-    </div>
-    <div class="paragraph">
-      <Span variant="yellow">冰花AOE伤害</Span>与<Span variant="yellow">第三轮黄圈伤害</Span><Span variant="pink"
-        >同时</Span
-      >，<Span variant="red">吃重会死</Span>，所以请无论如何不要让<Span variant="pink">第三轮黄圈</Span>覆盖到<Span
-        variant="emerald">斜点</Span
-      >
-    </div>
-    <div class="paragraph">四轮黄圈与放冰花示意图如下：</div>
-    <div class="flex gap-4">
-      <div class="max-w-90 shrink">
-        <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      </div>
-    </div>
-  </div>
-  <div class="flex flex-col gap-4">
-    <h4 class="mt-8 text-2xl">
-      <Span variant="lime">躲避冰花并分摊</Span>
-    </h4>
-    <div class="paragraph">
-      在<Span variant="pink">第四轮</Span>黄圈<Span variant="pink">消失</Span>后，前往分摊，解法与<StratLink
-        variant="lime"
-        href="#game8-0">Game8原版</StratLink
-      >相同
-    </div>
-  </div>
-  <div class="mt-8 flex flex-col gap-4">
-    <div class="paragraph">
-      <span class="line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700"
-        >此解法魔改自欧服野队raidplan，其链接最后三个字符为nO2，在招募版上被如此称呼</span
-      >
-    </div>
-    <div class="paragraph">
-      与<StratLink variant="orange" href="https://raidplan.io/plan/PWFgPfz0vL7runO2">原版</StratLink>相比，魔改后 <RoleIcon
-        role="melee"
-        tag="近战"
-      />不再需要远离boss放置黄圈，uptime提高
-    </div>
-    <div class="paragraph">
-      与Game8原版相比，初始时全员站位集中，便于 <RoleIcon role="healer" tag="治疗" />预铺
-    </div>
-  </div>
-</SolutionSection>
+</MultiSolutionSection>
+<NoteSection />
 
 <EventSection time="01:10.533">
   <Span variant="yellow">Roots of Evil</Span>伤害判定
@@ -659,62 +691,66 @@ const bloomingAbomination = translations.bloomingAbomination
   </div>
 </MechanicSection>
 
-<SolutionSection id="game8-1" title="解法：Game8原版">
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      在躲避<Span variant="yellow">Roots of Evil</Span>时，
-      <RoleIcon role="tank" />将小怪拉到场地<Span variant="cyan">西侧或北侧</Span>的安全区
+<MultiSolutionSection solutions={solutions1} defaultSolution={defaultSolution1} client:idle>
+  <div slot="解法：Game8原版" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        在躲避<Span variant="yellow">Roots of Evil</Span>时，
+        <RoleIcon role="tank" />将小怪拉到场地<Span variant="cyan">西侧或北侧</Span>的安全区
+      </div>
+      <div class="paragraph">
+        当小怪读条<Span variant="yellow">{windingWildwinds} / {crossingCrosswinds}</Span>时，
+      </div>
+      <div class="paragraph">
+        我们让<RoleIcon role="tank" />使用<Span variant="pink">插言</Span>
+        优先打断正在读条<Span variant="yellow">{windingWildwinds}</Span>（即正在释放月环）的
+        <BloomingAbominationSimplified />
+      </div>
+      <div class="paragraph">
+        为了防止重复打断，这里我们规定，按照仇恨列表的顺序，
+        <RoleIcon role="tank" tag="MT" /><Span variant="cyan">从上往下</Span>打断，
+        <RoleIcon role="tank" tag="ST" /><Span variant="cyan">从下往上</Span>打断
+      </div>
+      <div class="paragraph">
+        此外，<RoleIcon role="ranged" tag="D3" />也可以使用<Span variant="pink">伤头</Span>
+        帮助队友进行打断
+      </div>
+      <div class="paragraph">
+        例如，当仇恨列表如下图所示时，
+        <RoleIcon role="tank" tag="MT" />应当打断第二只<BloomingAbominationSimplified />，
+        <RoleIcon role="tank" tag="ST" />应当打断第四只<BloomingAbominationSimplified />
+      </div>
+      <Image src={bloomings} alt="" class="w-62 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      <div class="paragraph">
+        同时，<RoleIcon role="all" tag="所有人" />集火， 在<BloomingAbominationSimplified />狂暴之前将其全部击杀
+      </div>
+      <div class="paragraph">
+        击杀<BloomingAbominationSimplified />后，
+        <RoleIcon role="tank" tag="MT" />将<BruteAbombinator />
+        拉到<BloomingAbominationSimplified />的尸体附近，利用小怪尸体阻挡石化
+      </div>
+      <Image src={quarry_swamp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     </div>
-    <div class="paragraph">
-      当小怪读条<Span variant="yellow">{windingWildwinds} / {crossingCrosswinds}</Span>时，
-    </div>
-    <div class="paragraph">
-      我们让<RoleIcon role="tank" />使用<Span variant="pink">插言</Span>
-      优先打断正在读条<Span variant="yellow">{windingWildwinds}</Span>（即正在释放月环）的
-      <BloomingAbominationSimplified />
-    </div>
-    <div class="paragraph">
-      为了防止重复打断，这里我们规定，按照仇恨列表的顺序，
-      <RoleIcon role="tank" tag="MT" /><Span variant="cyan">从上往下</Span>打断，
-      <RoleIcon role="tank" tag="ST" /><Span variant="cyan">从下往上</Span>打断
-    </div>
-    <div class="paragraph">
-      此外，<RoleIcon role="ranged" tag="D3" />也可以使用<Span variant="pink">伤头</Span>
-      帮助队友进行打断
-    </div>
-    <div class="paragraph">
-      例如，当仇恨列表如下图所示时，
-      <RoleIcon role="tank" tag="MT" />应当打断第二只<BloomingAbominationSimplified />，
-      <RoleIcon role="tank" tag="ST" />应当打断第四只<BloomingAbominationSimplified />
-    </div>
-    <Image src={bloomings} alt="" class="w-62 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-    <div class="paragraph">
-      同时，<RoleIcon role="all" tag="所有人" />集火， 在<BloomingAbominationSimplified />狂暴之前将其全部击杀
-    </div>
-    <div class="paragraph">
-      击杀<BloomingAbominationSimplified />后，
-      <RoleIcon role="tank" tag="MT" />将<BruteAbombinator />
-      拉到<BloomingAbominationSimplified />的尸体附近，利用小怪尸体阻挡石化
-    </div>
-    <Image src={quarry_swamp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
   </div>
-</SolutionSection>
-<SolutionSection title="解法：nO2魔改">
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      基于黄圈放置的位置，
-      <RoleIcon role="tank" />将小怪拉到场地<Span variant="pink">西北</Span>的安全区
-    </div>
-    <div class="paragraph">
-      <RoleIcon role="healer|dps" tag="其他人" />跟随T的位置，一起躲避
-      <Span variant="yellow">Roots of Evil</Span>
-    </div>
-    <div class="paragraph">扩大的黄圈范围及人群位置示意图如下：</div>
-    <div class="flex gap-4">
-      <div class="max-w-90 shrink">
-        <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+  <div slot="解法：nO2魔改" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        基于黄圈放置的位置，
+        <RoleIcon role="tank" />将小怪拉到场地<Span variant="pink">西北</Span>的安全区
+      </div>
+      <div class="paragraph">
+        <RoleIcon role="healer|dps" tag="其他人" />跟随T的位置，一起躲避
+        <Span variant="yellow">Roots of Evil</Span>
+      </div>
+      <div class="paragraph">扩大的黄圈范围及人群位置示意图如下：</div>
+      <div class="flex gap-4">
+        <div class="max-w-90 shrink">
+          <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        </div>
+      </div>
+      <div class="paragraph">
+        后续处理同<StratLink variant="lime" href="#sinister-seeds-game8-1">解法：Game8原版</StratLink>
       </div>
     </div>
-    <div class="paragraph">后续处理同<StratLink variant="lime" href="#game8-1">解法：Game8原版</StratLink></div>
   </div>
-</SolutionSection>
+</MultiSolutionSection>
