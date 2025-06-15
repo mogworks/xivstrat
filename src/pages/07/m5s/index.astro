@@ -1,12 +1,13 @@
 ---
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
-import StratBoard from '@/components/StratBoard.astro'
 import Macro from '@/components/Macro.astro'
 
 import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
 
 import CheatsheetsImage from '@/assets/cheatsheets/07/m5s.png?url'
+import WaymarkImage from '@/assets/waymarks/07/m5s.png?url'
+import TimelineImage from '@/assets/timelines/07/m5s.png?url'
 
 import { macro } from './_data/macro'
 
@@ -33,13 +34,7 @@ const navList = [
   </Fragment>
   <CollapsibleBox id="waymark" client:idle class="w-full">
     <div class="w-sm">
-      <StratBoard
-        width={500}
-        height={500}
-        key="waymark-m5s"
-        class="max-h-112.5 max-w-112.5 shrink"
-        canvasClass="h-full w-full border-2 border-amber-800/75 dark:border-amber-100"
-      />
+      <img src={WaymarkImage} alt="M5S 场地标点" class="w-full" />
     </div>
     <Fragment slot="header">
       <span>场地标点</span>
@@ -52,9 +47,7 @@ const navList = [
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="timeline" client:idle class="w-full">
-    content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br
-    />content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br />content<br
-    />content<br />content<br />content<br />content<br />content<br />
+    <img src={TimelineImage} alt="M5S 简易时间轴" class="w-full" />
     <Fragment slot="header">
       <span>简易时间轴</span>
     </Fragment>
@@ -78,12 +71,3 @@ const navList = [
     </Fragment>
   </CollapsibleBox>
 </DutyHomeLayout>
-
-<script>
-  import { useWaymark } from '@/hooks/waymark'
-
-  import { waymarkData } from './_data/waymark'
-
-  const FloorImage = '07/m5s/floor_2.png'
-  useWaymark(waymarkData, FloorImage, 'waymark-m5s')
-</script>
