@@ -7,6 +7,15 @@ interface Props {
 }
 
 const { developer, class: className = '' }: Props = Astro.props
+
+function isValidURL(str: string): boolean {
+  try {
+    new URL(str)
+    return true
+  } catch (_) {
+    return false
+  }
+}
 ---
 
 <div
@@ -20,7 +29,11 @@ const { developer, class: className = '' }: Props = Astro.props
     <p class="text-sm text-zinc-700 dark:text-zinc-300">{developer.gameName}</p>
     {
       developer.link && (
-        <a href={developer.link} target="_blank" class="text-zinc-500 dark:text-zinc-400">
+        <a
+          href={isValidURL(developer.link) ? developer.link : undefined}
+          target="_blank"
+          class="text-zinc-500 dark:text-zinc-400"
+        >
           {developer.link}
         </a>
       )
