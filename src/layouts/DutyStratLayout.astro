@@ -89,9 +89,20 @@ const duty = (await getEntry('duties', dutyId))!.data
         document.querySelectorAll('collapse-section').forEach((e) => {
           e.querySelector('.collapse-summary')?.classList.toggle('hidden', true)
           ;(e as any).forceOpen()
+          // 检测collapse-details，无子元素则隐藏本身
+          const detailsSection = e.querySelector('.collapse-details') as HTMLElement
+          const allChildrenHidden = Array.from(detailsSection.children)
+            .filter(
+              (e) => e instanceof HTMLElement && !e.classList.contains('pointer-events-none'), // 排除装饰元素
+            )
+            .every((child) => child instanceof HTMLElement && getComputedStyle(child).display === 'none')
+          if (allChildrenHidden) {
+            e.classList.toggle('hidden', true)
+          }
         })
       } else {
         document.querySelectorAll('collapse-section').forEach((e) => {
+          e.classList.toggle('hidden', false)
           e.querySelector('.collapse-summary')?.classList.toggle('hidden', false)
           ;(e as any).reset()
         })
