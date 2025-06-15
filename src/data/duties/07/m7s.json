@@ -103,11 +103,11 @@
       "name": "P3 - 终极狂潮",
       "mechanics": [
         {
-          "href": "#stoneringer-2-Stoneringers",
-          "name": "Stoneringer 2: Stoneringers",
-          "name_en": "Stoneringer 2: Stoneringers",
+          "href": "#S2RG",
+          "name": "S2RG",
+          "name_en": "",
           "name_ja": "",
-          "name_ch": "双持石制武器"
+          "name_ch": ""
         },
         {
           "href": "#debris-deathmatch",
@@ -122,6 +122,13 @@
           "name_en": "Sinister Seeds",
           "name_ja": "",
           "name_ch": "种弹播撒"
+        },
+        {
+          "href": "#S2S",
+          "name": "S2S",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
         },
         {
           "href": "#special-bombarian-special",

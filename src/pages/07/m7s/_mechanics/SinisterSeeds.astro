@@ -66,30 +66,6 @@ const crossingCrosswinds = translations.crossingCrosswinds
 const hurricaneForce = translations.hurricaneForce
 const quarrySwamp = translations.quarrySwamp
 const bloomingAbomination = translations.bloomingAbomination
-
-const solutions = [
-  {
-    id: 'sinister-seeds-game8',
-    title: '解法：Game8原版',
-  },
-  {
-    id: 'sinister-seeds-nO2m',
-    title: '解法：nO2魔改',
-  },
-]
-const defaultSolution = '解法：Game8原版'
-
-const solutions1 = [
-  {
-    id: 'sinister-seeds-game8-1',
-    title: '解法：Game8原版',
-  },
-  {
-    id: 'sinister-seeds-nO2m-1',
-    title: '解法：nO2魔改',
-  },
-]
-const defaultSolution1 = '解法：Game8原版'
 ---
 
 <SporeSacCast start="00:40.052" end="00:43.039" base={base} />
@@ -160,7 +136,7 @@ const defaultSolution1 = '解法：Game8原版'
           ，并点名
           <RoleIcon slot="target" role="all" tag="最远">×4</RoleIcon>
           四连追踪AoE
-          <Badge variant="emerald">8m圆形</Badge>
+          <Badge variant="emerald">7m圆形</Badge>
         </li>
         <li class="flex items-center gap-1 text-lg">
           模式二：赋予
@@ -170,7 +146,7 @@ const defaultSolution1 = '解法：Game8原版'
           ，并点名
           <RoleIcon slot="target" role="all" tag="最近">×4</RoleIcon>
           四连追踪AoE
-          <Badge variant="emerald">8m圆形</Badge>
+          <Badge variant="emerald">7m圆形</Badge>
         </li>
       </ul>
     </div>
@@ -264,8 +240,8 @@ const defaultSolution1 = '解法：Game8原版'
   </div>
 </MechanicSection>
 
-<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：Game8原版">
+<SolutionSection title="解法：Game8原版">
+  <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-4">
       <h4 class="text-2xl">
         <Span variant="lime">初始站位</Span>
@@ -483,118 +459,8 @@ const defaultSolution1 = '解法：Game8原版'
       <Image src={impact_solution} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     </div>
   </div>
-  <div slot="解法：nO2魔改">
-    <div class="flex flex-col gap-4">
-      <h4 class="text-2xl">
-        <Span variant="lime">初始站位</Span>
-      </h4>
-      <div class="shrink-0 grow space-y-4">
-        <div class="paragraph">
-          在<Span variant="green">种子</Span>落下后，
-          <RoleIcon role="all" tag="所有人" />初始站位如图：
-        </div>
-        <div class="flex gap-4">
-          <div class="max-w-90 shrink">
-            <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="flex flex-col gap-4">
-      <h4 class="mt-8 text-2xl">
-        <Span variant="lime">躲避藤蔓</Span>
-      </h4>
-      <div class="paragraph">
-        观察<Span variant="pink">最南边一个</Span>藤蔓的生长方向，如果<Span variant="pink">没有向北</Span
-        >生长，则全员在其<Span variant="pink">正北</Span>的内场安全区集合
-      </div>
-      <div class="paragraph">
-        如果<Span variant="pink">向北</Span>生长，则全员在其北侧的<Span variant="pink">另一个</Span>内场安全区集合
-      </div>
-      <div class="paragraph">
-        <ListDot />
-        近战组（即
-        <RoleIcon role="tank" tag="MT" /><RoleIcon role="tank" tag="ST" />
-        <RoleIcon role="melee" tag="D1" /><RoleIcon role="melee" tag="D2" />） 在内场安全区
-        <Span variant="pink">靠近</Span><RoleIcon role="boss" tag="boss" />处集合
-      </div>
-      <div class="paragraph">
-        <ListDot />
-        远程组（即
-        <RoleIcon role="healer" tag="H1" /><RoleIcon role="healer" tag="H2" />
-        <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />）在内场安全区
-        <Span variant="pink">远离</Span><RoleIcon role="boss" tag="boss" />处集合
-      </div>
-      <div class="paragraph">站位示意图如下：</div>
-      <div class="flex gap-4">
-        <div class="max-w-90 shrink">
-          <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        </div>
-      </div>
-    </div>
-    <div class="flex flex-col gap-4">
-      <h4 class="mt-8 text-2xl">
-        <Span variant="lime">放置冰花与追踪AOE</Span>
-      </h4>
-      <div class="paragraph">
-        <RoleIcon role="all" tag="所有人" />观察自身点名情况：
-      </div>
-      <div class="paragraph">
-        <ListDot />如果被点<Span variant="yellow">黄圈</Span>，则以<Span variant="pink">A点方向</Span>为起点，<Span
-          variant="pink">顺时针/逆时针</Span
-        ><Span variant="emerald">正点方向</Span><Span variant="cyan">尽量靠近内场</Span>放置剩下三个黄圈
-      </div>
-      <div class="paragraph">
-        <ListDot />如果被点<Span variant="yellow">冰花</Span>，则前往自己放花位置所在的<Span variant="emerald"
-          >斜点</Span
-        >附近待机，准时放花
-      </div>
-      <div class="paragraph">
-        <Span variant="yellow">冰花AOE伤害</Span>与<Span variant="yellow">第三轮黄圈伤害</Span><Span variant="pink"
-          >同时</Span
-        >，<Span variant="red">吃重会死</Span>，所以请无论如何不要让<Span variant="pink">第三轮黄圈</Span>覆盖到<Span
-          variant="emerald">斜点</Span
-        >
-      </div>
-      <div class="paragraph">四轮黄圈与放冰花示意图如下：</div>
-      <div class="flex gap-4">
-        <div class="max-w-90 shrink">
-          <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        </div>
-        <div class="max-w-90 shrink">
-          <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        </div>
-      </div>
-    </div>
-    <div class="flex flex-col gap-4">
-      <h4 class="mt-8 text-2xl">
-        <Span variant="lime">躲避冰花并分摊</Span>
-      </h4>
-      <div class="paragraph">
-        在<Span variant="pink">第四轮</Span>黄圈<Span variant="pink">消失</Span>后，前往分摊，解法与<StratLink
-          variant="lime"
-          href="#sinister-seeds-game8">Game8原版</StratLink
-        >相同
-      </div>
-    </div>
-    <div class="mt-8 flex flex-col gap-4">
-      <div class="paragraph">
-        <span class="line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700"
-          >此解法魔改自欧服野队raidplan，其链接最后三个字符为nO2，在招募版上被如此称呼</span
-        >
-      </div>
-      <div class="paragraph">
-        与<StratLink variant="orange" href="https://raidplan.io/plan/PWFgPfz0vL7runO2">原版</StratLink>相比，魔改后 <RoleIcon
-          role="melee"
-          tag="近战"
-        />不再需要远离boss放置黄圈，uptime提高
-      </div>
-      <div class="paragraph">
-        与Game8原版相比，初始时全员站位集中，便于 <RoleIcon role="healer" tag="治疗" />预铺
-      </div>
-    </div>
-  </div>
-</MultiSolutionSection>
+</SolutionSection>
+
 <NoteSection />
 
 <EventSection time="01:10.533">
@@ -691,8 +557,8 @@ const defaultSolution1 = '解法：Game8原版'
   </div>
 </MechanicSection>
 
-<MultiSolutionSection solutions={solutions1} defaultSolution={defaultSolution1} client:idle>
-  <div slot="解法：Game8原版" class="flex flex-col gap-4">
+<SolutionSection title="解法：Game8原版">
+  <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-4">
       <div class="paragraph">
         在躲避<Span variant="yellow">Roots of Evil</Span>时，
@@ -732,25 +598,4 @@ const defaultSolution1 = '解法：Game8原版'
       <Image src={quarry_swamp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     </div>
   </div>
-  <div slot="解法：nO2魔改" class="flex flex-col gap-4">
-    <div class="flex flex-col gap-4">
-      <div class="paragraph">
-        基于黄圈放置的位置，
-        <RoleIcon role="tank" />将小怪拉到场地<Span variant="pink">西北</Span>的安全区
-      </div>
-      <div class="paragraph">
-        <RoleIcon role="healer|dps" tag="其他人" />跟随T的位置，一起躲避
-        <Span variant="yellow">Roots of Evil</Span>
-      </div>
-      <div class="paragraph">扩大的黄圈范围及人群位置示意图如下：</div>
-      <div class="flex gap-4">
-        <div class="max-w-90 shrink">
-          <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        </div>
-      </div>
-      <div class="paragraph">
-        后续处理同<StratLink variant="lime" href="#sinister-seeds-game8-1">解法：Game8原版</StratLink>
-      </div>
-    </div>
-  </div>
-</MultiSolutionSection>
+</SolutionSection>
