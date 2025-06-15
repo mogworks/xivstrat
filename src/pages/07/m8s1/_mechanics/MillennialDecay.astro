@@ -4,6 +4,7 @@ import { Image } from 'astro:assets'
 import type { Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
@@ -12,6 +13,7 @@ import DamageInfo from '@/components/DamageInfo.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 import DotInfo from '@/components/DotInfo.astro'
+import ListDot from '@/components/ListDot.astro'
 
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
@@ -39,6 +41,14 @@ import breath_of_decay from '@/assets/07/m8s1/millennial_decay/breath_of_decay.p
 import gust_img from '@/assets/07/m8s1/millennial_decay/gust.png'
 import prowling_gale_1 from '@/assets/07/m8s1/millennial_decay/prowling_gale_1.png'
 import prowling_gale_2 from '@/assets/07/m8s1/millennial_decay/prowling_gale_2.png'
+import winds_of_decay_1 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_1.png'
+import winds_of_decay_2 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_2.png'
+import winds_of_decay_3 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_3.png'
+import winds_of_decay_4 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_4.png'
+import solution_1 from '@/assets/07/m8s1/millennial_decay/solution_1.png'
+import solution_2 from '@/assets/07/m8s1/millennial_decay/solution_2.png'
+import solution_3 from '@/assets/07/m8s1/millennial_decay/solution_3.png'
+import solution_4 from '@/assets/07/m8s1/millennial_decay/solution_4.png'
 
 interface Props {
   time: Time
@@ -188,7 +198,67 @@ const { time, base = 0 }: Props = Astro.props
     <T class="mt-8">
       <Skill name={windsOfDecay} />
     </T>
-    <P> TODO </P>
+    <P>
+      场地正点或斜点方向刷新
+      <Span variant="pink">4</Span>
+      只
+      <WolfOfWind />
+      ，必定与塔交错分布，随机连线
+      <Span variant="pink">4</Span>
+      <RoleIcon role="tank|healer" />
+      或
+      <Span variant="pink">4</Span>
+      <RoleIcon role="dps" />
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: winds_of_decay_1,
+          alt: '正点千年狂风：粗线',
+        },
+        {
+          src: winds_of_decay_2,
+          alt: '斜点千年狂风：粗线',
+        },
+      ]}
+    />
+    <P>
+      连线判定时，
+      <WolfOfWind />
+      会对连线玩家释放
+      <Span variant="pink">30°</Span>
+      扇形：
+    </P>
+    <Quote variant="lime">
+      <P>
+        距离不足时，对玩家造成
+        <DamageInfo damage="700000" type="magical" />
+        <MagicVulnerabilityUp tag="1" hover />
+        <DamageDown tag="30" />
+        <Span variant="rose" class="text-decimal">50%↓</Span>
+      </P>
+      <P>
+        距离足够时（连线会变为紫色），对玩家造成
+        <DamageInfo damage="70000" type="magical" />
+        <MagicVulnerabilityUp tag="1" hover />
+      </P>
+    </Quote>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: winds_of_decay_3,
+          alt: '正点千年狂风：细线',
+        },
+        {
+          src: winds_of_decay_4,
+          alt: '正点千年狂风：判定',
+        },
+      ]}
+    />
   </div>
 </MechanicSection>
 
@@ -205,11 +275,79 @@ const { time, base = 0 }: Props = Astro.props
         的站位，以适配开场的八方站位
       </P>
     </Quote>
-    <div class="paragraph">
-      首先第一个<WolfOfWind />必定是刷新在北侧或者南侧，将场地分割为左半场和右半场。
-    </div>
+    <P class="mt-8">
+      下文以
+      <WolfOfWind />
+      初始从正北顺时针刷新为例
+    </P>
+    <P>
+      初始全员按左右半场分组，
+      <RoleIcon role="tank" tag="MT" />
+      <RoleIcon role="healer" tag="H1" />
+      <RoleIcon role="melee" tag="D1" />
+      <RoleIcon role="ranged" tag="D3" />
+      去左半场，
+      <RoleIcon role="tank" tag="ST" />
+      <RoleIcon role="healer" tag="H2" />
+      <RoleIcon role="melee" tag="D2" />
+      <RoleIcon role="ranged" tag="D4" />
+      去右半场
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_1,
+          alt: '解法示意图1：TH先风圈',
+          title: '情形1：TH先风圈',
+        },
+        {
+          src: solution_2,
+          alt: '解法示意图2：DPS先风圈',
+          title: '情形2：DPS先风圈',
+        },
+      ]}
+    />
+    <P>
+      <HowlingBlade />
+      读条
+      <Skill name={millennialDecay} />，
+      <WolfOfWind />、击退预兆和风圈点名相继出现，首先确认自身是否被点风圈
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_3,
+          alt: '解法示意图1：TH先风圈',
+          title: '情形1：TH先风圈',
+        },
+        {
+          src: solution_4,
+          alt: '解法示意图2：DPS先风圈',
+          title: '情形2：DPS先风圈',
+        },
+      ]}
+    />
+    <Quote variant="lime">
+      <P>若自身没被点风圈，则按分组站在正左/右，靠近场中等待击退（也可以在<HowlingBlade />两侧开防击退）</P>
+      <P>若自身被点风圈，则按图示站在斜点方向，靠近场中等待击退（也可以去斜点场边开防击退）</P>
+      <P class="pl-4"><ListDot />近战被点风圈时，可以开启防击退技能，站数字标点靠近场地中轴线且远离场中的顶点</P>
+      <P class="pl-4">
+        <ListDot />
+        这样直到风圈判定都可以持续输出
+        <HowlingBlade />，具体站位可参考左图的
+        <RoleIcon role="tank" tag="MT" />
+        <RoleIcon role="tank" tag="ST" />
+        和右图的
+        <RoleIcon role="melee" tag="D1" />
+        <RoleIcon role="dps" tag="D2" />
+      </P>
+    </Quote>
 
-    <div class="paragraph">
+    <div class="paragraph mt-20">
       此时全员需要观察<WolfOfWind />是顺时针还是逆时针。
     </div>
 
