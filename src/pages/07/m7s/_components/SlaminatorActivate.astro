@@ -1,0 +1,31 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Span from '@/components/Span.vue'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Skill from '@/components/typography/Skill.astro'
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import Quote from '@/components/typography/Quote.astro'
+import P from '@/components/typography/P.astro'
+import Separator from '@/components/Separator.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+const slaminator = translations.slaminator
+---
+
+<EventSection time={time} base={base}>
+  <P>
+    <Skill name={slaminator} />
+    伤害判定，总伤<DamageInfo damage="800000" type="physical" /><Badge variant="yellow">分摊踩塔</Badge>
+  </P>
+</EventSection>

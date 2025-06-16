@@ -1,11 +1,12 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import DamageInfo from '@/components/DamageInfo.astro'
 import Badge from '@/components/Badge.astro'
 import Span from '@/components/Span.vue'
+
 import EventSection from '@/components/section/EventSection.astro'
 import { translations } from '../_translations'
+import DamageInfo from '@/components/DamageInfo.astro'
 
 interface Props {
   time: Time
@@ -13,12 +14,13 @@ interface Props {
 }
 
 const { time, base = 0 }: Props = Astro.props
-const revengeoftheVines = translations.revengeOfTheVines
+const powerslam = translations.powerslam
 ---
 
 <EventSection time={time} base={base}>
-  <Span variant="yellow">{revengeoftheVines}</Span>
+  <Span variant="yellow">{powerslam}</Span>
   伤害判定
-  <DamageInfo damage="190000" type="magical" />
+  <DamageInfo damage="205000" type="physical" />
+  <Badge variant="emerald">场地切换</Badge>
   <Badge variant="purple">AoE</Badge>
 </EventSection>
