@@ -1,0 +1,37 @@
+---
+import { cn } from '@/lib/utils'
+
+import LinkSVG from '@/assets/svg/link.svg'
+import Separator from '@/components/Separator.astro'
+
+interface Props {
+  class?: string
+  listClass?: string
+  list: {
+    url: string
+    label: string
+    embed?: string
+  }[]
+}
+
+const { class: className = '', listClass = '', list }: Props = Astro.props
+---
+
+<ol class={cn('flex flex-col gap-2', className)}>
+  {
+    list.map((item, index) => (
+      <div>
+        <li class={cn('flex h-4 items-center gap-2', listClass)}>
+          <div class="relative">
+            <em class="absolute -bottom-0.5 left-4 text-[0.6em]">{index + 1}</em>
+            <LinkSVG class="w-5" />
+          </div>
+          <Separator orientation="vertical" />
+          <a class="hover:underline" href={item.url} target="_blank">
+            <em>{item.label}</em>
+          </a>
+        </li>
+      </div>
+    ))
+  }
+</ol>

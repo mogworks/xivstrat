@@ -7,7 +7,8 @@ import SBGR from './_mechanics/SBGR.astro'
 import Sporesplosion from './_mechanics/Sporesplosion.astro'
 import DDAB from './_mechanics/DDAB.astro'
 import StrangeSeeds from './_mechanics/StrangeSeeds.astro'
-import PowerSlam from './_components/PowerSlam.astro'
+import PowerSlamCast from './_components/PowerSlamCast.astro'
+import PowerSlamActivate from './_components/PowerSlamActivate.astro'
 import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import GrapplingIvy from './_components/GrapplingIvy.astro'
@@ -17,6 +18,17 @@ import AbominableBlinkActivate from './_components/AbominableBlinkActivate.astro
 import ThornyDeathmatchCast from './_components/ThornyDeathmatchCast.astro'
 import TDAB from './_mechanics/TDAB.astro'
 import StoneringerCast from './_components/StoneringerCast.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import ThornsOfDeathDebuff from './_components/ThornsOfDeathDebuff.astro'
+import Badge from '@/components/Badge.astro'
+import BrutishSwingActivate from './_components/BrutishSwingActivate.astro'
+import GlowerPowerCast from './_components/GlowerPowerCast.astro'
+import GlowerPowerActivate from './_components/GlowerPowerActivate.astro'
+import ElectrogeneticForceActivate from './_components/ElectrogeneticForceActivate.astro'
+import RevengeOfTheVinesCast from './_components/RevengeOfTheVinesCast.astro'
+import RevengeOfTheVinesActivate from './_components/RevengeOfTheVinesActivate.astro'
+import BrutishSwingMoveActivate from './_components/BrutishSwingMoveActivate.astro'
 
 const dutyId = '07/m7s'
 const base = '02:38.206'
@@ -25,7 +37,7 @@ const base = '02:38.206'
 <DutyStratLayout dutyId={dutyId}>
   <GrapplingIvy time="02:38.206" base={base} />
   <EventSection time="02:42.841">
-    <BruteAbombinator />可选中
+    <BruteAbombinator />挂墙完毕，可选中
   </EventSection>
   <AttackSection time="02:43.372" base={base} damage="57000" damageType="physical" />
   <AttackSection time="02:46.402" base={base} damage="57000" damageType="physical" />
@@ -53,15 +65,40 @@ const base = '02:38.206'
   <SeparatorSection id="DDAB" title="Demolition Deathmatch + Abominable Blink" />
   <AttackSection time="04:28.850" base={base} damage="57000" damageType="physical" />
   <DemolitionDeathmatchCast start="04:23.274" base={base} />
+  <EventSection time="04:27.332"
+    >对
+    <RoleIcon role="any" tag="一仇" />
+    施加连线
+    <ThornsOfDeathDebuff hover />
+    <Span variant="orange">9000/3s</Span>
+    <Badge variant="orange">DoT</Badge>，另外两面墙最近各一名<RoleIcon role="any" />身上出现虚线预兆</EventSection
+  >
+  <EventSection time="04:32.462"
+    >对<RoleIcon role="any" tag="虚线" />施加连线<ThornsOfDeathDebuff hover /><Span variant="orange">9000/3s</Span>
+    <Badge variant="orange">DoT</Badge></EventSection
+  >
   <AttackSection time="04:31.880" base={base} damage="57000" damageType="physical" />
   <AbominableBlinkCast start="04:34.422" base={base} />
+  <AbominableBlinkActivate time="04:40.745" base={base} />
   <DDAB base={base} />
 
   <AttackSection time="04:42.302" base={base} damage="57000" damageType="physical" />
-  <SeparatorSection id="strange-seeds" title="StrangeSeeds" />
-  <StrangeSeeds start="04:48.21" base={base} />
+  <SeparatorSection id="strange-seeds" title="Strange Seeds" />
+  <StrangeSeeds base={base} />
+
+  <SeparatorSection title="Stoneringer + Brutish Swing + Glower Power + Revenge of the Vines" />
+  <BrutishSwingMoveActivate time="05:24.855" base={base} />
+  <BrutishSwingActivate time="05:28.947" base={base} />
+  <GlowerPowerCast start="05:29.839" base={base} />
+  <ElectrogeneticForceActivate time="05:33.672" base={base} />
+  <GlowerPowerActivate time="05:33.804" base={base} />
+  <RevengeOfTheVinesCast start="05:34.653" base={base} />
+  <RevengeOfTheVinesActivate time="05:39.643" base={base} />
+
   <AttackSection time="05:42.223" base={base} damage="57000" damageType="physical" />
   <AttackSection time="05:45.255" base={base} damage="57000" damageType="physical" />
 
-  <PowerSlam time="05:51.804" base={base} />
+  <SeparatorSection title="PowerSlam" />
+  <PowerSlamCast time="05:51.804" base={base} />
+  <PowerSlamActivate time="05:51.804" base={base} />
 </DutyStratLayout>

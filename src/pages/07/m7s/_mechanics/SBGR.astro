@@ -32,6 +32,7 @@ import { translations } from '../_translations'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import RevengeOfTheVinesActivate from '../_components/RevengeOfTheVinesActivate.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 interface Props {
   base: Time
@@ -42,6 +43,18 @@ const stoneringer = translations.stoneringer
 const brutishswing = translations.brutishSwing
 const glowerPower = translations.glowerPower
 const RvOftVines = translations.revengeOfTheVines
+
+const solutions = [
+  {
+    id: 'SBGR-game8',
+    title: '解法：Game8原版',
+  },
+  {
+    id: 'SBGR-35',
+    title: '解法：三五分散',
+  },
+]
+const defaultSolution = '解法：Game8原版'
 ---
 
 <StoneringerCast start="02:48.01" base={base} />
@@ -57,38 +70,40 @@ const RvOftVines = translations.revengeOfTheVines
   <div class="flex flex-col gap-4">
     <P>P2 场地共有三面墙，除了击飞过来的方向（也就是P1场地方向），每侧各有一面</P>
     <P>场地长边的两面墙位置中心对称</P>
-    <T class="mt-8 scroll-mt-[calc(5rem+1px)]">
-      <Skill name={stoneringer} />
-    </T>
-    <P>
-      <BruteAbombinator />落地后伸出藤蔓，吸附在P1 场地对面的墙上，读条<Span variant="yellow">{stoneringer}</Span
-      >拔出武器
-    </P>
-    <P>
-      然后读条<Span variant="yellow">{brutishswing}</Span>，连线其他墙壁，同时武器<Span variant="pink">发光</Span>
-    </P>
-    <P>随后<Span variant="pink">移动至连线墙壁</Span>，读条结束后发动对应<Span variant="yellow">钢铁/月环</Span></P>
-    <P>
-      武器的情况与<StratLink variant="yellow" href="./p1#stoneringer">P1 {stoneringer}</StratLink
-      >相同，但钢铁月环的<Span variant="pink">攻击范围</Span>不同，如下所示：
-    </P>
-    <ImgRow
-      class="game-img"
-      wrapperClass="max-w-150"
-      borderVariant="rose"
-      imgs={[
-        {
-          src: circle,
-          alt: '连线墙钢铁',
-          title: '钢铁，范围依旧大于最大攻击距离',
-        },
-        {
-          src: ring,
-          alt: '连线墙月环',
-          title: '月环',
-        },
-      ]}
-    />
+    <div class="flex flex-col gap-4">
+      <T class="mt-8 scroll-mt-[calc(5rem+1px)]">
+        <Skill name={stoneringer} />
+      </T>
+      <P>
+        <BruteAbombinator />落地后伸出藤蔓，吸附在P1 场地对面的墙上，读条<Span variant="yellow">{stoneringer}</Span
+        >拔出武器
+      </P>
+      <P>
+        然后读条<Span variant="yellow">{brutishswing}</Span>，连线其他墙壁，同时武器<Span variant="pink">发光</Span>
+      </P>
+      <P>随后<Span variant="pink">移动至连线墙壁</Span>，读条结束后发动对应<Span variant="yellow">钢铁/月环</Span></P>
+      <P>
+        武器的情况与<StratLink variant="yellow" href="./p1#stoneringer">P1 {stoneringer}</StratLink
+        >相同，但钢铁月环的<Span variant="pink">攻击范围</Span>不同，如下所示：
+      </P>
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-150"
+        borderVariant="rose"
+        imgs={[
+          {
+            src: circle,
+            alt: '连线墙钢铁',
+            title: '钢铁，范围依旧大于最大攻击距离',
+          },
+          {
+            src: ring,
+            alt: '连线墙月环',
+            title: '月环',
+          },
+        ]}
+      />
+    </div>
 
     <div class="flex flex-col gap-4">
       <T class="mt-8 scroll-mt-[calc(5rem+1px)]">
@@ -101,7 +116,12 @@ const RvOftVines = translations.revengeOfTheVines
       </P>
     </div>
     <div class="flex flex-col gap-4">
-      <T id="electrogenetic-force" text="Electrogenetic Force" variant="yellow" />
+      <T
+        class="mt-8 scroll-mt-[calc(5rem+1px)]"
+        id="electrogenetic-force"
+        text="Electrogenetic Force"
+        variant="yellow"
+      />
       <P>
         <BruteAbombinator />点名8人释放半径为<Span variant="pink">6m</Span>的圆形AOE，造成<DamageInfo
           damage="125000"
@@ -118,59 +138,61 @@ const RvOftVines = translations.revengeOfTheVines
     </div>
   </div>
 </MechanicSection>
-<SolutionSection id="game8" title="解法：Game8">
-  <div class="flex flex-col gap-4">
-    <P>
-      先观察<RoleIcon role="boss" tag="boss" />掏出的<Span variant="pink">武器</Span>，判断接下来是躲钢铁还是月环
-    </P>
-    <P>
-      再观察<RoleIcon role="boss" tag="boss" />连线的<Span variant="pink">墙壁</Span>，<RoleIcon
-        role="all"
-        tag="所有人"
-      />在<Span variant="pink">读条结束前</Span>前往对应安全区躲避钢铁月环
-    </P>
-    <P>之后全员按照图示站位，躲避直线AOE并分散</P>
-    <P><Skill name={RvOftVines} />读条时<Span variant="pink">集合</Span>刷血</P>
-    <P>
-      直线AOE范围与<RoleIcon role="all" tag="全员" />站位如下所示：
-    </P>
-    <ImgRow
-      class="game-img"
-      wrapperClass="max-w-150"
-      borderVariant="rose"
-      imgs={[
-        {
-          src: glowerPower1,
-          alt: 'boss跳长边',
-          title: 'boss跳长边',
-        },
-        {
-          src: glowerPower2,
-          alt: 'boss跳短边',
-          title: 'boss跳短边',
-        },
-      ]}
-    />
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：Game8原版">
+    <div class="flex flex-col gap-4">
+      <P>
+        先观察<RoleIcon role="boss" tag="boss" />掏出的<Span variant="pink">武器</Span>，判断接下来是躲钢铁还是月环
+      </P>
+      <P>
+        再观察<RoleIcon role="boss" tag="boss" />连线的<Span variant="pink">墙壁</Span>，<RoleIcon
+          role="all"
+          tag="所有人"
+        />在<Span variant="pink">读条结束前</Span>前往对应安全区躲避钢铁月环
+      </P>
+      <P>之后全员按照图示站位，躲避直线AOE并分散</P>
+      <P><Skill name={RvOftVines} />读条时<Span variant="pink">集合</Span>刷血</P>
+      <P>
+        直线AOE范围与<RoleIcon role="all" tag="全员" />站位如下所示：
+      </P>
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-150"
+        borderVariant="rose"
+        imgs={[
+          {
+            src: glowerPower1,
+            alt: 'boss跳长边',
+            title: 'boss跳长边',
+          },
+          {
+            src: glowerPower2,
+            alt: 'boss跳短边',
+            title: 'boss跳短边',
+          },
+        ]}
+      />
+    </div>
   </div>
-</SolutionSection>
-<SolutionSection title="解法：35分散">
-  <div class="flex flex-col gap-4">
-    <P
-      >与<StratLink variant="lime" href="#game8">解法：Game8</StratLink>仅仅只是<BruteAbombinator />在<Span
-        variant="pink">长边</Span
-      >时的分散站位不同，如图所示：</P
-    >
-    <ImgRow
-      class="game-img"
-      wrapperClass="max-w-150"
-      borderVariant="rose"
-      imgs={[
-        {
-          src: img,
-          alt: 'boss跳长边',
-          title: 'boss跳长边',
-        },
-      ]}
-    />
-  </div></SolutionSection
->
+  <div slot="解法：三五分散">
+    <div class="flex flex-col gap-4">
+      <P
+        >与<StratLink variant="lime" href="#SBGR-game8">解法：Game8原版</StratLink>仅仅只是<BruteAbombinator />在<Span
+          variant="pink">场地长边</Span
+        >时的分散站位不同，如图所示：</P
+      >
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-150"
+        borderVariant="rose"
+        imgs={[
+          {
+            src: img,
+            alt: 'boss跳长边',
+            title: 'boss跳长边',
+          },
+        ]}
+      />
+    </div>
+  </div>
+</MultiSolutionSection>

@@ -1,17 +1,19 @@
 ---
+import { Image } from 'astro:assets'
 import type { Time } from '@/lib/utils'
 import { timeToSeconds } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
-import Image from 'astro/components/Image.astro'
-import Span from '@/components/Span.vue'
-
 import EventSection from '@/components/section/EventSection.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
+import P from '@/components/typography/P.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import Skill from '@/components/typography/Skill.astro'
+import Span from '@/components/Span.vue'
+import T from '@/components/typography/T.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import MoonbeamsBiteCast from '../_components/MoonbeamsBiteCast.astro'
@@ -39,27 +41,25 @@ const terrestrial_rage_2 = terrestrial_rage_1 + 7
 </CastSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
-      <Span variant="yellow">幻狼招来</Span>
-    </div>
+    <T text="幻狼招来" variant="yellow" />
     <div class="flex flex-col gap-4">
-      <div class="paragraph">
+      <P>
         四个分身按顺/逆时针从
         <HowlingBlade />
         身上飞向正点场边。按出现顺序读条
-        <Span variant="yellow">幻狼剣</Span>
+        <Skill name="幻狼剣" />
         <Badge variant="yellow">半场AoE</Badge>
         ，向拿剑一侧冲锋。
-      </div>
-      <div class="paragraph">
+      </P>
+      <P>
         同时
-        <Span variant="yellow">大地の怒り</Span>
+        <Skill name="大地の怒り" />
         进行两轮按职能点名的分摊/分散
         <DamageInfo damage="110000" type="magical" />
         <MagicVulnerabilityUp tag="2" hover />
         。
-      </div>
-      <div class="paragraph">第一轮分摊分散与第一次冲锋同时判定；第二轮分摊分散略晚于第四次冲锋判定。</div>
+      </P>
+      <P>第一轮分摊分散与第一次冲锋同时判定；第二轮分摊分散略晚于第四次冲锋判定。</P>
     </div>
   </div>
 </MechanicSection>
@@ -73,29 +73,29 @@ const terrestrial_rage_2 = terrestrial_rage_1 + 7
       />
     </div>
     <div class="shrink-0 grow space-y-4">
-      <div class="paragraph">由于机制速度非常快，请提前看好冲锋的安全区。</div>
-      <div class="paragraph">以危险半场为12点，基础分摊分散站位如图。</div>
-      <div class="paragraph"></div>
-      <div class="paragraph">首先前往第一次冲锋安全区，按图站位等待分摊分散判定。</div>
-      <div class="paragraph">
+      <P>由于机制速度非常快，请提前看好冲锋的安全区。</P>
+      <P>以每一轮半场刀的危险半场为12点，基础分摊分散站位如图。</P>
+      <br />
+      <P>首先前往第一次冲锋安全区，按图站位等待分摊分散判定。</P>
+      <P>
         判定后
         <Span variant="lime">开启冲刺</Span>
         ，快速前往
         <Span variant="lime">二、三次冲锋的公共安全区</Span>。
-      </div>
-      <div class="paragraph">最后前往第四次冲锋安全区，按图站位处理第二次分摊分散。</div>
+      </P>
+      <P>最后前往第四次冲锋安全区，按图站位处理第二次分摊分散。</P>
     </div>
   </div>
 </SolutionSection>
 <EventSection time={terrestrial_rage_1} base={base}>
-  <Span variant="yellow">大震撃 | 大岩石</Span>
+  <Skill name={['大震撃', '大岩石']} />
   <DamageInfo damage="110000" type="magical" />
   <MagicVulnerabilityUp tag="2" hover />
   判定
 </EventSection>
 <MoonbeamsBiteCast start={moonbeams_bite_start} base={base} />
 <EventSection time={terrestrial_rage_2} base={base}>
-  <Span variant="yellow">大震撃 | 大岩石</Span>
+  <Skill name={['大震撃', '大岩石']} />
   <DamageInfo damage="110000" type="magical" />
   <MagicVulnerabilityUp tag="2" hover />
   判定

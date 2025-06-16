@@ -1,0 +1,33 @@
+---
+import type { Time } from '@/lib/utils'
+import type { VariantType } from '@/lib/variant'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+  num: number
+}
+
+const { time, base = 0, num }: Props = Astro.props
+const TendrillsofTerror = 'Tendrills of Terror'
+
+const color: Record<number, VariantType> = {
+  1: 'pink',
+  2: 'orange',
+  3: 'cyan',
+  4: 'indigo',
+  5: 'rose',
+}
+---
+
+<EventSection time={time} base={base}>
+  第<Span variant={color[num]}>{num}</Span>轮
+  <Skill name={TendrillsofTerror} />
+  冰花预兆出现
+  <Badge variant="emerald">米字形AoE</Badge>
+</EventSection>
