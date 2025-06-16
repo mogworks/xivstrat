@@ -49,6 +49,8 @@ import solution_1 from '@/assets/07/m8s1/millennial_decay/solution_1.png'
 import solution_2 from '@/assets/07/m8s1/millennial_decay/solution_2.png'
 import solution_3 from '@/assets/07/m8s1/millennial_decay/solution_3.png'
 import solution_4 from '@/assets/07/m8s1/millennial_decay/solution_4.png'
+import solution_5 from '@/assets/07/m8s1/millennial_decay/solution_5.png'
+import solution_6 from '@/assets/07/m8s1/millennial_decay/solution_6.png'
 
 interface Props {
   time: Time
@@ -266,13 +268,15 @@ const { time, base = 0 }: Props = Astro.props
   <div class="flex flex-col gap-4">
     <Quote variant="lime" class="opacity-80">
       <P>
-        注意：本解法互换了原版解法中，
+        改动点：为匹配开场八方站位，互换了
         <RoleIcon role="tank|healer" />
-        先风圈时，初始
+        先风圈时
         <RoleIcon role="tank" tag="ST" />
-        和
         <RoleIcon role="healer" tag="H2" />
-        的站位，以适配开场的八方站位
+        的站位，以及踩塔时
+        <RoleIcon role="tank" tag="ST" />
+        <RoleIcon role="healer" tag="H2" />
+        的站位
       </P>
     </Quote>
     <P class="mt-8">
@@ -293,6 +297,12 @@ const { time, base = 0 }: Props = Astro.props
       <RoleIcon role="ranged" tag="D4" />
       去右半场
     </P>
+    <P>
+      <HowlingBlade />
+      读条
+      <Skill name={millennialDecay} />，
+      <WolfOfWind />、击退预兆和风圈点名相继出现，首先确认自身是否被点风圈
+    </P>
     <ImgRow
       borderVariant="cyan"
       rounded
@@ -309,31 +319,27 @@ const { time, base = 0 }: Props = Astro.props
         },
       ]}
     />
-    <P>
-      <HowlingBlade />
-      读条
-      <Skill name={millennialDecay} />，
-      <WolfOfWind />、击退预兆和风圈点名相继出现，首先确认自身是否被点风圈
-    </P>
+    <P>确认风圈点名后，按下图站位</P>
     <ImgRow
       borderVariant="cyan"
       rounded
       imgs={[
         {
           src: solution_3,
-          alt: '解法示意图1：TH先风圈',
+          alt: '解法示意图3：TH先风圈',
           title: '情形1：TH先风圈',
         },
         {
           src: solution_4,
-          alt: '解法示意图2：DPS先风圈',
+          alt: '解法示意图4：DPS先风圈',
           title: '情形2：DPS先风圈',
         },
       ]}
     />
+    <P>具体来说：</P>
     <Quote variant="lime">
-      <P>若自身没被点风圈，则按分组站在正左/右，靠近场中等待击退（也可以在<HowlingBlade />两侧开防击退）</P>
-      <P>若自身被点风圈，则按图示站在斜点方向，靠近场中等待击退（也可以去斜点场边开防击退）</P>
+      <P>若自身没被点风圈，则按分组站在正左/右，靠近场中等待击退，或开启防击退后站在<HowlingBlade />两侧</P>
+      <P>若自身被点风圈，则按图示站在斜点方向，靠近场中等待击退，或开启防击退后站在场边</P>
       <P class="pl-4"><ListDot />近战被点风圈时，可以开启防击退技能，站数字标点靠近场地中轴线且远离场中的顶点</P>
       <P class="pl-4">
         <ListDot />
@@ -346,6 +352,34 @@ const { time, base = 0 }: Props = Astro.props
         <RoleIcon role="dps" tag="D2" />
       </P>
     </Quote>
+    <P>就位后，还需观察<WolfOfWind />是顺时针刷新还是逆时针刷新</P>
+    <P class="mt-8">下文以<RoleIcon role="tank|healer" />先风圈、<WolfOfWind />从北侧顺时针刷新为例</P>
+    <P>
+      击退判定后，
+      <RoleIcon role="tank|healer" />
+      先在场边放置点名，
+      <RoleIcon role="dps" />
+      注意躲避
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_5,
+          alt: '解法示意图5：TH先风圈',
+        },
+        {
+          src: solution_6,
+          alt: '解法示意图6：DPS先风圈',
+        },
+      ]}
+    />
+    <P>
+      被直线追的两人（即图示的<RoleIcon role="tank" tag="ST" /><RoleIcon role="healer" tag="H1" />）可以提前顺着
+      <WolfOfWind />
+      旋转的方向移动几步，避免被直线追上
+    </P>
 
     <div class="paragraph mt-20">
       此时全员需要观察<WolfOfWind />是顺时针还是逆时针。
