@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets'
 import { type Developer } from '@/data/developer'
 
 interface Props {
@@ -22,7 +23,7 @@ function isValidURL(str: string): boolean {
   class="group bg-card/50 hover:bg-card/80 border-border/50 relative flex max-w-sm flex-col items-center overflow-hidden rounded-xl p-4 text-center shadow-xl transition-all duration-500 hover:shadow-2xl"
 >
   <div>
-    <img src={developer.imgUrl} alt={developer.name} class="w-24 rounded-full object-cover" />
+    <Image src={developer.avatar} alt={developer.name} class="w-24 rounded-full object-cover" />
   </div>
   <div class="duration-500">
     <h1 class="font-semibold text-zinc-700 dark:text-zinc-300">{developer.name}</h1>
