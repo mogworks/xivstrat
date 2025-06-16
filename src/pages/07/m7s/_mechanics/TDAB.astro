@@ -13,9 +13,10 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import ListDot from '@/components/ListDot.astro'
 import { translations } from '../_translations'
-import img from '@/assets/07/m7s/Tmp.png'
 import StratLink from '@/components/StratLink.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
+import AblinkImg1 from '@/assets/07/m7s/tdab/AbBlink_flare1.png'
+import AblinkImg2 from '@/assets/07/m7s/tdab/AbBlink_flare2.png'
 
 interface Props {
   base: Time
@@ -74,12 +75,12 @@ const ThornsOfDeath = 'Thorns Of Death'
         borderVariant="rose"
         imgs={[
           {
-            src: img,
+            src: AblinkImg1,
             alt: '长边连线',
             title: '长边连线',
           },
           {
-            src: img,
+            src: AblinkImg2,
             alt: '短边连线',
             title: '短边连线',
           },

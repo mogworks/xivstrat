@@ -1,6 +1,10 @@
 ---
 import { Image } from 'astro:assets'
+
+import DefaultAvatarSVG from '@/assets/svg/default-avatar.svg'
 import { type Developer } from '@/data/developer'
+
+import { cn } from '@/lib/utils'
 
 interface Props {
   developer: Developer
@@ -20,10 +24,20 @@ function isValidURL(str: string): boolean {
 ---
 
 <div
-  class="group bg-card/50 hover:bg-card/80 border-border/50 relative flex max-w-sm flex-col items-center overflow-hidden rounded-xl p-4 text-center shadow-xl transition-all duration-500 hover:shadow-2xl"
+  class={cn(
+    'group bg-card/50 hover:bg-card/80 border-border/50 relative flex max-w-sm flex-col items-center overflow-hidden rounded-xl p-4 text-center shadow-xl transition-all duration-500 hover:shadow-2xl',
+    className,
+  )}
 >
   <div>
-    <Image src={developer.avatar} alt={developer.name} class="w-24 rounded-full object-cover" />
+    {developer.avatar && <Image src={developer.avatar} alt={developer.name} class="w-24 rounded-full object-cover" />}
+    {
+      !developer.avatar && (
+        <div class="bg- mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-zinc-300 p-5 text-zinc-600">
+          <DefaultAvatarSVG />
+        </div>
+      )
+    }
   </div>
   <div class="duration-500">
     <h1 class="font-semibold text-zinc-700 dark:text-zinc-300">{developer.name}</h1>
