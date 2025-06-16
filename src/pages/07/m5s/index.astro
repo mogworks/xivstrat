@@ -3,6 +3,7 @@ import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
 import Macro from '@/components/Macro.astro'
 
+import Separator from '@/components/Separator.astro'
 import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
 import ReferenceItem from '@/components/ReferenceItem.astro'
 
@@ -36,7 +37,16 @@ const navList = [
   </Fragment>
   <CollapsibleBox id="waymark" client:idle class="w-full">
     <div class="w-sm">
-      <img src={WaymarkImage} alt="M5S 场地标点" class="w-full" />
+      <div class="rounded-lg border bg-gray-200/30 p-4 dark:bg-white/10">
+        <button
+          class="!disabled:hover:bg-purple-700/60 inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white disabled:cursor-not-allowed disabled:opacity-50 dark:border-purple-500 dark:bg-purple-700/75"
+          disabled="true"
+        >
+          下载标点文件
+        </button>
+        <Separator class="my-2 mb-3" />
+        <img src={WaymarkImage} alt="M5S 场地标点" class="w-full" />
+      </div>
     </div>
     <Fragment slot="header">
       <span>场地标点</span>

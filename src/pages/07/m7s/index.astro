@@ -8,13 +8,14 @@ import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
 import ReferenceItem from '@/components/ReferenceItem.astro'
 
 import CheatsheetsImage from '@/assets/cheatsheets/07/m6s.png?url'
-import WaymarkImage from '@/assets/waymarks/07/m6s.png?url'
-import TimelineImage from '@/assets/timelines/07/m6s.png?url'
+import WaymarkImage1 from '@/assets/waymarks/07/m7s1.png?url'
+import WaymarkImage2 from '@/assets/waymarks/07/m7s2.png?url'
+import TimelineImage from '@/assets/timelines/07/m7s.png?url'
 
 import { macro } from './_data/macro'
 import { referenceList } from './_data/reference'
 
-const dutyId = '07/m6s'
+const dutyId = '07/m7s'
 const navList = [
   { label: '场地标点', id: 'waymark' },
   { label: '宏', id: 'macro' },
@@ -27,7 +28,7 @@ const navList = [
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
   <Fragment slot="operation">
     <CheatsheetDialog client:idle src={CheatsheetsImage} />
-    <a href="/07/m6s/p1">
+    <a href="/07/m7s/p1">
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
       >
@@ -45,7 +46,8 @@ const navList = [
           下载标点文件
         </button>
         <Separator class="my-2 mb-3" />
-        <img src={WaymarkImage} alt="M6S 场地标点" class="w-full" />
+        <img src={WaymarkImage1} alt="M7S 场地标点 1" class="w-full" />
+        <img src={WaymarkImage2} alt="M7S 场地标点 2" class="w-full" />
       </div>
     </div>
     <Fragment slot="header">
@@ -59,7 +61,7 @@ const navList = [
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="timeline" client:idle class="w-full">
-    <img src={TimelineImage} alt="m6s 简易时间轴" class="w-full" />
+    <img src={TimelineImage} alt="m7s 简易时间轴" class="w-full" />
     <Fragment slot="header">
       <span>简易时间轴</span>
     </Fragment>
