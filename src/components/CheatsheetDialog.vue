@@ -65,19 +65,19 @@ const scale = ref(1)
           </slot>
         </DialogDescription>
       </DialogHeader>
-      <slot>
-        <div class="overflow-auto">
-          <div
-            class="max-h-[90vh] max-w-[80vw]"
-            :style="{
-              transform: `scale(${scale})`,
-              transformOrigin: 'top left',
-            }"
-          >
-            <img :src="src" loading="lazy" alt="副本小抄" class="block w-full transition-all duration-150">
-          </div>
+      <div class="overflow-auto">
+        <div
+          class="max-h-[90vh] max-w-[80vw] transition-all duration-150"
+          :style="{
+            transform: `scale(${scale})`,
+            transformOrigin: 'top left',
+          }"
+        >
+          <slot>
+            <img v-if="src" :src="src" loading="lazy" alt="副本小抄" class="block w-full">
+          </slot>
         </div>
-      </slot>
+      </div>
       <DialogFooter v-if="$slots.footer">
         <slot name="footer" />
       </DialogFooter>

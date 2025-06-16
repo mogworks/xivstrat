@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets'
+
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
 import Macro from '@/components/Macro.astro'
@@ -7,9 +9,9 @@ import Separator from '@/components/Separator.astro'
 import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
 import ReferenceItem from '@/components/ReferenceItem.astro'
 
-import CheatsheetsImage from '@/assets/cheatsheets/07/m6s.png?url'
-import WaymarkImage from '@/assets/waymarks/07/m6s.png?url'
-import TimelineImage from '@/assets/timelines/07/m6s.png?url'
+import CheatsheetsImage from '@/assets/cheatsheets/07/m6s.png'
+import WaymarkImage from '@/assets/waymarks/07/m6s.png'
+import TimelineImage from '@/assets/timelines/07/m6s.png'
 
 import { macro } from './_data/macro'
 import { referenceList } from './_data/reference'
@@ -26,7 +28,9 @@ const navList = [
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
   <Fragment slot="operation">
-    <CheatsheetDialog client:idle src={CheatsheetsImage} />
+    <CheatsheetDialog client:idle>
+      <Image src={CheatsheetsImage} alt="m6s 副本小抄" loading="lazy" class="w-full" />
+    </CheatsheetDialog>
     <a href="/07/m6s/p1">
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
@@ -45,7 +49,7 @@ const navList = [
           下载标点文件
         </button>
         <Separator class="my-2 mb-3" />
-        <img src={WaymarkImage} alt="M6S 场地标点" class="w-full" />
+        <Image src={WaymarkImage} alt="m6s 场地标点" class="w-full" />
       </div>
     </div>
     <Fragment slot="header">
@@ -59,7 +63,7 @@ const navList = [
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="timeline" client:idle class="w-full">
-    <img src={TimelineImage} alt="m6s 简易时间轴" class="w-full" />
+    <Image src={TimelineImage} alt="m6s 简易时间轴" class="w-full" />
     <Fragment slot="header">
       <span>简易时间轴</span>
     </Fragment>
@@ -71,7 +75,8 @@ const navList = [
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="thanks" client:idle class="w-full">
-    谢谢你谢谢我谢谢他谢谢她谢谢它谢谢所有人
+    <!-- TODO: Under Construction -->
+    莫古力工坊
     <Fragment slot="header">
       <span>鸣谢</span>
     </Fragment>

@@ -7,4 +7,9 @@ export const referenceList = [
     url: 'https://docs.qq.com/sheet/DS0VEQ2NuZmZhQWVX?tab=d0a08h&nlc=1',
     label: '至天之座零式·中量级三语翻译对照',
   },
+  {
+    url: 'https://www.youtube.com/watch?v=EvPn0UHMevk',
+    label: '【 FF14 / 解说 】さり式 至天之座阿卡迪亚零式 次重量级3层(M7S)动画攻略解说视频【ぬけまる/Nukemaru】',
+    embed: 'https://www.youtube.com/embed/EvPn0UHMevk?si=dRGhfsw8jSifGMGV',
+  },
 ]
