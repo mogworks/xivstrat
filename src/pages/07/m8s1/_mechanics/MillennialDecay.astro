@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets'
-
 import type { Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
@@ -35,7 +33,6 @@ import BreathOfDecayEffect from '../_components/BreathOfDecayEffect.astro'
 
 import { translations } from '../_translations'
 
-import img from '@/assets/07/m8s1/tmp.png'
 import aero_iii from '@/assets/07/m8s1/millennial_decay/aeroIII.png'
 import breath_of_decay from '@/assets/07/m8s1/millennial_decay/breath_of_decay.png'
 import gust_img from '@/assets/07/m8s1/millennial_decay/gust.png'
@@ -51,6 +48,8 @@ import solution_3 from '@/assets/07/m8s1/millennial_decay/solution_3.png'
 import solution_4 from '@/assets/07/m8s1/millennial_decay/solution_4.png'
 import solution_5 from '@/assets/07/m8s1/millennial_decay/solution_5.png'
 import solution_6 from '@/assets/07/m8s1/millennial_decay/solution_6.png'
+import solution_7 from '@/assets/07/m8s1/millennial_decay/solution_7.png'
+import solution_8 from '@/assets/07/m8s1/millennial_decay/solution_8.png'
 
 interface Props {
   time: Time
@@ -279,6 +278,7 @@ const { time, base = 0 }: Props = Astro.props
         的站位
       </P>
     </Quote>
+
     <P class="mt-8">
       下文以
       <WolfOfWind />
@@ -301,7 +301,7 @@ const { time, base = 0 }: Props = Astro.props
       <HowlingBlade />
       读条
       <Skill name={millennialDecay} />，
-      <WolfOfWind />、击退预兆和风圈点名相继出现，首先确认自身是否被点风圈
+      <WolfOfWind />、击退预兆和风圈点名相继出现，首先确认自身是否被点风圈：
     </P>
     <ImgRow
       borderVariant="cyan"
@@ -319,7 +319,8 @@ const { time, base = 0 }: Props = Astro.props
         },
       ]}
     />
-    <P>确认风圈点名后，按下图站位</P>
+
+    <P>确认风圈点名后，按下图站位：</P>
     <ImgRow
       borderVariant="cyan"
       rounded
@@ -338,10 +339,10 @@ const { time, base = 0 }: Props = Astro.props
     />
     <P>具体来说：</P>
     <Quote variant="lime">
-      <P>若自身没被点风圈，则按分组站在正左/右，靠近场中等待击退，或开启防击退后站在<HowlingBlade />两侧</P>
-      <P>若自身被点风圈，则按图示站在斜点方向，靠近场中等待击退，或开启防击退后站在场边</P>
-      <P class="pl-4"><ListDot />近战被点风圈时，可以开启防击退技能，站数字标点靠近场地中轴线且远离场中的顶点</P>
-      <P class="pl-4">
+      <P><ListDot />若自身没被点风圈，则按分组站在正左/右，靠近场中等待击退，或开启防击退后站在<HowlingBlade />两侧</P>
+      <P><ListDot />若自身被点风圈，则按图示站在斜点方向，靠近场中等待击退，或开启防击退后站在场边</P>
+      <P class="pl-6"><ListDot />近战被点风圈时，可以开启防击退技能，站数字标点靠近场地中轴线且远离场中的顶点</P>
+      <P class="pl-6">
         <ListDot />
         这样直到风圈判定都可以持续输出
         <HowlingBlade />，具体站位可参考左图的
@@ -353,13 +354,14 @@ const { time, base = 0 }: Props = Astro.props
       </P>
     </Quote>
     <P>就位后，还需观察<WolfOfWind />是顺时针刷新还是逆时针刷新</P>
-    <P class="mt-8">下文以<RoleIcon role="tank|healer" />先风圈、<WolfOfWind />从北侧顺时针刷新为例</P>
+
+    <P>下文以<RoleIcon role="tank|healer" />先风圈、<WolfOfWind />从北侧顺时针刷新为例</P>
     <P>
       击退判定后，
       <RoleIcon role="tank|healer" />
       先在场边放置点名，
       <RoleIcon role="dps" />
-      注意躲避
+      注意躲避：
     </P>
     <ImgRow
       borderVariant="cyan"
@@ -381,126 +383,49 @@ const { time, base = 0 }: Props = Astro.props
       旋转的方向移动几步，避免被直线追上
     </P>
 
-    <div class="paragraph mt-20">
-      此时全员需要观察<WolfOfWind />是顺时针还是逆时针。
-    </div>
-
-    <div class="paragraph">以场地正北为基准，我们让MT组(MT, H1, D1, D3)去左半场，ST组(ST, H2, D2, D4)去右半场。</div>
-
-    <div class="paragraph">
-      第一轮点名出现，我们让四个点名去数字点，MT/D3去<Span variant="red">1</Span>， ST/D4去
-      <Span variant="yellow">2</Span>，
-    </div>
-
-    <div class="paragraph">
-      H1/D1去
-      <Span variant="purple">4</Span>， H2/D2去
-      <Span variant="sky">3</Span>。近战可以稍微靠近<HowlingBlade />在最远近战距离输出。无点名的安全区在<HowlingBlade
-      />的侧面。
-    </div>
-
-    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>这里应该是support组点名</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>这里应该是dps组点名</div>
-      </div>
-    </div>
-
-    <div class="paragraph">
-      场地击退效果出现，全员防击退。等待第一轮点名判定后，<WolfOfWind />开始旋转。
-    </div>
-
-    <div class="paragraph">
-      这里第一轮没有被点到的可以根据<WolfOfWind />是顺时针还是逆时针确定放圈的位置。
-    </div>
-
-    <div class="paragraph">如果是顺时针，MT组的远程就会在A点，近战在2点，ST组的远程在C点，近战在4点。</div>
-
-    <div class="paragraph">如果是逆时针，MT组的远程就会在C点，近战在3点，ST组的远程在A点，近战在1点。</div>
-
-    <div class="paragraph">
-      这里也可以直接看第二只<WolfOfWind />出现的位置，如果出现在2/4点就是顺时针的规则，否则就是逆时针。
-    </div>
-
-    <div class="paragraph">
-      以H1为例，观察<WolfOfWind />是顺时针，第一轮没有被点名，那就可以在第一次AoE判定之后去A点等待自己的点名。
-    </div>
-
-    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>这里应该是顺时针的站位，假设dps先被点名</div>
-      </div>
-
-      <div class="flex flex-col items-center gap-1">
-        <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>这里应该是逆时针的站位，假设dps先被点名</div>
-      </div>
-    </div>
-
-    <div class="paragraph">
-      两次点名结束后，继续躲避直到<WolfOfWind />消失。 随后场上出现四个<WolfOfWind />，观察自己是否有连线。
-    </div>
-
-    <div class="paragraph">如果有连线，去连线龙头相反的地方等待被击退将连线拉长。</div>
-
-    <div class="paragraph">
-      如果没有连线，则去自己的塔准备踩塔。由于塔会刷新在正点或者斜点，这里我们还是根据颜色分组。
-    </div>
-
-    <div class="paragraph">
-      <RoleIcon role="tank" tag="MT" />
-      或
-      <RoleIcon role="ranged" tag="D3" />
-      去
-      <Span variant="red">红色</Span>
-      标点，也就是
-      <Span variant="red">A</Span>
-      或者
-      <Span variant="red">1</Span>
-      。
-      <RoleIcon role="tank" tag="ST" />
-      或
-      <RoleIcon role="magic" tag="D4" />
-      去
-      <Span variant="yellow">黄色</Span>
-      标点，也就是
-      <Span variant="yellow">B</Span>
-      或者
-      <Span variant="yellow">2</Span>
-      。
-    </div>
-
-    <div class="paragraph">
-      <RoleIcon role="healer" tag="H2" />
-      和
-      <RoleIcon role="melee" tag="D2" />
-      去
-      <Span variant="sky">蓝色</Span>
-      标点，也就是
-      <Span variant="sky">C</Span>
-      或者
-      <Span variant="sky">3</Span>
-      。
-      <RoleIcon role="healer" tag="H1" />
-      和
-      <RoleIcon role="melee" tag="D1" />
-      去
-      <Span variant="purple">紫色</Span>
-      标点，也就是
-      <Span variant="purple">D</Span>
-      或者
-      <Span variant="purple">4</Span>
-      。
-    </div>
-
-    <div class="paragraph">
-      塔判定，<WolfOfWind />伤害判定，该机制结束。
-    </div>
+    <P>
+      第一轮风圈点名判定后，余下的
+      <Span variant="default">4</Span>
+      人（下图的<Span variant="default">4</Span><RoleIcon role="dps" />）也被点风圈：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_7,
+          alt: '解法示意图7：TH先风圈',
+        },
+        {
+          src: solution_8,
+          alt: '解法示意图8：DPS先风圈',
+        },
+      ]}
+    />
+    <P>之后，按如下规则移动：</P>
+    <Quote variant="lime">
+      <P>
+        <ListDot />本轮风圈近战位的两人（图示的
+        <RoleIcon role="melee" tag="D1" /><RoleIcon role="dps" tag="D2" />
+        ）追着直线跑，尽量给后面的人让出安全空间
+      </P>
+      <P class="pl-6"><ListDot />判定动画是可以踩进去的，不要等动画结束才移动，那样就太慢了</P>
+      <P>
+        <ListDot />本轮风圈远程位的两人（图示的
+        <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />
+        ）直接去自己半场的
+        <Span variant="red">A</Span>/<Span variant="sky">C</Span>
+        点场边
+      </P>
+      <P>
+        <ListDot />
+        前一轮风圈的
+        <Span variant="default">4</Span>
+        人（图示的
+        <RoleIcon role="tank|healer" />
+        ）在自己半场的靠后位置跟着直线转即可
+      </P>
+    </Quote>
   </div>
 </SolutionSection>
 
