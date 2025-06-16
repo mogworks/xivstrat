@@ -108,22 +108,22 @@ const { base = 0 }: Props = Astro.props
       之后
       <RoleIcon role="tank" tag="双T" />
       <Span variant="pink">根据自身debuff情况，引导反色的炸弹</Span>
-    </div>
-    <div class="paragraph">
-      可观察
+      ，
       <SugarRiot />
-      双手颜色，高举的右手代表近引导的颜色，向下的左手则为远引导的颜色
+      高举的右手代表打近，向下的左手代表打远
     </div>
+    <div class="paragraph">可以只看高举的右手，自身debuff颜色相同就远离，不同就靠近</div>
+    <div class="paragraph">口诀：看高手，同远异近</div>
     <div class="paragraph mt-8">
       远引导
       <RoleIcon role="tank" />
-      保持最大近战距离输出，近引导
+      在
+      <SugarRiot />
+      侧面保持最大近战距离输出，近引导
       <RoleIcon role="tank" />
       在
       <SugarRiot />
-      脚下偏前一点，
-      <RoleIcon role="tank" tag="双T" />
-      左右分开一定距离
+      脚下偏前一点
     </div>
     <div class="paragraph">
       <RoleIcon role="healer" />
