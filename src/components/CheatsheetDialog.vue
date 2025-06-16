@@ -49,6 +49,14 @@ const scale = ref(1)
             <div class="inline-flex min-w-[100px] text-center font-bold">
               缩放比例: {{ Math.round(scale * 100) }}%
             </div>
+            <div v-if="scale !== 1">
+              <button
+                class="flex w-max cursor-pointer items-center justify-between gap-1 rounded-sm border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
+                @click="scale = 1"
+              >
+                重置
+              </button>
+            </div>
           </div>
         </DialogTitle>
         <DialogDescription v-if="$slots.description">
