@@ -1,6 +1,7 @@
 ---
 import type { Time } from '@/lib/utils'
 import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
 
 import BruteAbombinator from './BruteAbombinator.astro'
 import { translations } from '../_translations'
@@ -18,5 +19,5 @@ const glowerPower = translations.glowerPower
 
 <CastSection start={start} base={base} duration={duartion} ability={glowerPower}>
   <BruteAbombinator slot="source" />
-  释放直线范围攻击
+  <Badge variant="emerald">14m宽直线</Badge>
 </CastSection>

@@ -10,6 +10,7 @@ import EventSection from '@/components/section/EventSection.astro'
 import BruteAbombinator from './BruteAbombinator.astro'
 
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import Badge from '@/components/Badge.astro'
 
 interface Props {
   time: Time
@@ -27,4 +28,5 @@ const { time, base = 0 }: Props = Astro.props
   <Span variant="yellow">Electrogenetic Force</Span>
   <DamageInfo damage="125000" type="magical" />
   <MagicVulnerabilityUp tag="2" hover />
+  <Badge variant="emerald">6m圆形</Badge>
 </EventSection>

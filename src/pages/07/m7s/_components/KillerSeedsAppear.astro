@@ -1,0 +1,27 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Span from '@/components/Span.vue'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Skill from '@/components/typography/Skill.astro'
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+  base?: Time
+  num: number
+}
+
+const { time, base = 0, num }: Props = Astro.props
+const killerseeds = 'Killer Seeds'
+---
+
+<EventSection time={time} base={base}>
+  <Skill name={killerseeds} />
+  预兆出现
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="yellow">双人分摊</Badge>
+</EventSection>

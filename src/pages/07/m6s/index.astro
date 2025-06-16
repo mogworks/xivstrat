@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets'
+
+import CollapsibleBox from '@/components/CollapsibleBox.vue'
+import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
+import Macro from '@/components/Macro.astro'
+
+import Separator from '@/components/Separator.astro'
+import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
+import ReferenceItem from '@/components/ReferenceItem.astro'
+
+import CheatsheetsImage from '@/assets/cheatsheets/07/m6s.png'
+import WaymarkImage from '@/assets/waymarks/07/m6s.png'
+import TimelineImage from '@/assets/timelines/07/m6s.png'
+
+import { macro } from './_data/macro'
+import { referenceList } from './_data/reference'
+
+const dutyId = '07/m6s'
+const navList = [
+  { label: '场地标点', id: 'waymark' },
+  { label: '宏', id: 'macro' },
+  { label: '简易时间轴', id: 'timeline' },
+  { label: '参考资料', id: 'reference' },
+  { label: '鸣谢', id: 'thanks' },
+]
+---
+
+<DutyHomeLayout dutyId={dutyId} navList={navList}>
+  <Fragment slot="operation">
+    <CheatsheetDialog client:idle>
+      <Image src={CheatsheetsImage} alt="m6s 副本小抄" loading="lazy" class="w-full" />
+    </CheatsheetDialog>
+    <a href="/07/m6s/p1">
+      <button
+        class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
+      >
+        查看正文
+      </button>
+    </a>
+  </Fragment>
+  <CollapsibleBox id="waymark" client:idle class="w-full">
+    <div class="w-sm">
+      <div class="rounded-lg border bg-gray-200/30 p-4 dark:bg-white/10">
+        <button
+          class="!disabled:hover:bg-purple-700/60 inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white disabled:cursor-not-allowed disabled:opacity-50 dark:border-purple-500 dark:bg-purple-700/75"
+          disabled="true"
+        >
+          下载标点文件
+        </button>
+        <Separator class="my-2 mb-3" />
+        <Image src={WaymarkImage} alt="m6s 场地标点" class="w-full" />
+      </div>
+    </div>
+    <Fragment slot="header">
+      <span>场地标点</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox id="macro" client:idle class="w-full">
+    <Macro text={macro} />
+    <Fragment slot="header">
+      <span>宏</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox id="timeline" client:idle class="w-full">
+    <Image src={TimelineImage} alt="m6s 简易时间轴" class="w-full" />
+    <Fragment slot="header">
+      <span>简易时间轴</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox id="reference" client:idle class="w-full">
+    <ReferenceItem list={referenceList} />
+    <Fragment slot="header">
+      <span>参考资料</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox id="thanks" client:idle class="w-full">
+    <!-- TODO: Under Construction -->
+    莫古力工坊
+    <Fragment slot="header">
+      <span>鸣谢</span>
+    </Fragment>
+  </CollapsibleBox>
+</DutyHomeLayout>
