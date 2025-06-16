@@ -7,4 +7,8 @@ export const referenceList = [
     url: 'https://docs.qq.com/sheet/DS0VEQ2NuZmZhQWVX?tab=d0a08h&nlc=1',
     label: '至天之座零式·中量级三语翻译对照',
   },
+  {
+    url: 'https://www.bilibili.com/opus/1069718586456539157',
+    label: 'xivstrat打法宏（全优化打法 与G8差异已标出） by D-Dark@Bilibili',
+  },
 ]
