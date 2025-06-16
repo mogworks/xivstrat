@@ -5,6 +5,7 @@ import { timeToSeconds } from '@/lib/utils'
 import Span from '@/components/Span.vue'
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -45,24 +46,31 @@ const damageApplyTime =
   <Badge variant="green">6m圆形</Badge>
   <Badge variant="purple">8次连续分摊</Badge>
 </CastSection>
-
-{
-  index.map(
-    (i) =>
-      damageApplyTime !== undefined && (
-        <>
-          <EventSection time={damageApplyTime + i + 1}>
-            <RoleIcon role="all" tag="全员" />第<Span variant="pink"> {i + 1} </Span>次分摊
-            <Span variant="yellow"> {ability} </Span>
-            <DamageInfo damage="100000" type="magical" />
-            <Badge variant="emerald">6m圆形</Badge>
-            <Badge variant="yellow">分摊</Badge>
-          </EventSection>
-        </>
-      ),
-  )
-}
-
+<CollapseSection>
+  <Fragment slot="summary">
+    <HowlingBlade />
+    连续释放<Span variant="pink">8</Span>次AoE，每轮伤害
+    <DamageInfo damage="100000" type="magical" />
+  </Fragment>
+  <Fragment slot="details">
+    {
+      index.map(
+        (i) =>
+          damageApplyTime !== undefined && (
+            <>
+              <EventSection time={damageApplyTime + i + 1}>
+                <RoleIcon role="all" tag="全员" />第<Span variant="pink"> {i + 1} </Span>次分摊
+                <Span variant="yellow"> {ability} </Span>
+                <DamageInfo damage="100000" type="magical" />
+                <Badge variant="emerald">6m圆形</Badge>
+                <Badge variant="yellow">分摊</Badge>
+              </EventSection>
+            </>
+          ),
+      )
+    }
+  </Fragment>
+</CollapseSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">很痛，建议合理安排减伤和资源。</div>
