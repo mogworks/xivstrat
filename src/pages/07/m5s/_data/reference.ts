@@ -12,4 +12,8 @@ export const referenceList = [
     label: '【 FF14 / 解说 】至天之座阿卡迪亚零式 次重量级1层(M5S)动画攻略解说视频【ぬけまる/Nukemaru】',
     embed: 'https://www.youtube.com/embed/s5CACs9ey9o?si=yrnPbT1-7Sz7QTBK',
   },
+  {
+    url: 'https://www.bilibili.com/opus/1069718586456539157',
+    label: 'xivstrat打法宏（全优化打法 与G8差异已标出） by D-Dark@Bilibili',
+  },
 ]
