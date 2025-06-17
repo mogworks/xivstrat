@@ -7,10 +7,12 @@ import Span from '@/components/Span.vue'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
 import img from '@/assets/07/m7s/Tmp.png'
-import circle from '@/assets/07/m7s/british_swing/circle.png'
-import ring from '@/assets/07/m7s/british_swing/ring.png'
-import glowerPower1 from '@/assets/07/m7s/british_swing/glower_power_1.png'
-import glowerPower2 from '@/assets/07/m7s/british_swing/glower_power_2.png'
+import circle from '@/assets/07/m7s/british_swing/stoneringer_p2_circle.png'
+import ring from '@/assets/07/m7s/british_swing/stoneringer_p2_ring.png'
+import glowerPowerVertical from '@/assets/07/m7s/british_swing/glower_power_vertical.png'
+import glowerPowerHorizontal from '@/assets/07/m7s/british_swing/glower_power_horizontal.png'
+import glowerPowerVertical35_1 from '@/assets/07/m7s/british_swing/glower_power_vertical_35_1.png'
+import glowerPowerVertical35_2 from '@/assets/07/m7s/british_swing/glower_power_vertical_35_2.png'
 import StoneringerCast from '../_components/StoneringerCast.astro'
 import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
 import GlowerPowerCast from '../_components/GlowerPowerCast.astro'
@@ -161,12 +163,12 @@ const defaultSolution = '解法：Game8原版'
         borderVariant="rose"
         imgs={[
           {
-            src: glowerPower1,
+            src: glowerPowerVertical,
             alt: 'boss跳长边',
             title: 'boss跳长边',
           },
           {
-            src: glowerPower2,
+            src: glowerPowerHorizontal,
             alt: 'boss跳短边',
             title: 'boss跳短边',
           },
@@ -187,9 +189,14 @@ const defaultSolution = '解法：Game8原版'
         borderVariant="rose"
         imgs={[
           {
-            src: img,
-            alt: 'boss跳长边',
-            title: 'boss跳长边',
+            src: glowerPowerVertical35_1,
+            alt: 'H1前往较大的安全区分散',
+            title: 'H1前往较大的安全区分散',
+          },
+          {
+            src: glowerPowerVertical35_2,
+            alt: 'D3前往较大的安全区分散',
+            title: 'D3前往较大的安全区分散',
           },
         ]}
       />
