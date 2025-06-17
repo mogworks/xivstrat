@@ -572,24 +572,15 @@ const { start, base = 0 }: Props = Astro.props
     }
   }
 
-  const gameStratToggle = document.getElementById('xreign-game-strat-toggle') as HTMLInputElement
-  if (gameStratToggle) {
-    gameStratToggle.addEventListener('change', function () {
-      toggleImages('xreign-game-strat-toggle-div', this.checked, '.game-img', '.strat-img')
-    })
-  }
+  document.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement
 
-  const wolvesReignLineToggle = document.getElementById('xreign-wolves-reign-omen-activate-toggle') as HTMLInputElement
-  if (wolvesReignLineToggle) {
-    wolvesReignLineToggle.addEventListener('change', function () {
-      toggleImages('xreign-wolves-reign-omen-activate-toggle-div', this.checked, '.omen-img', '.activate-img')
-    })
-  }
-
-  const revolutionaryTankXToggle = document.getElementById('xreign-revolutionary-tank-x-toggle') as HTMLInputElement
-  if (revolutionaryTankXToggle) {
-    revolutionaryTankXToggle.addEventListener('change', function () {
-      toggleImages('xreign-revolutionary-tank-x-toggle-div', this.checked, '.absolute_base', '.relative_base')
-    })
-  }
+    if (target && target.id === 'xreign-game-strat-toggle') {
+      toggleImages('xreign-game-strat-toggle-div', target.checked, '.game-img', '.strat-img')
+    } else if (target && target.id === 'xreign-wolves-reign-omen-activate-toggle') {
+      toggleImages('xreign-wolves-reign-omen-activate-toggle-div', target.checked, '.omen-img', '.activate-img')
+    } else if (target && target.id === 'xreign-revolutionary-tank-x-toggle') {
+      toggleImages('xreign-revolutionary-tank-x-toggle-div', target.checked, '.absolute_base', '.relative_base')
+    }
+  })
 </script>
