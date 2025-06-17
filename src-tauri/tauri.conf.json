@@ -1,0 +1,30 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "build": {
+    "beforeDevCommand": "pnpm run dev",
+    "beforeBuildCommand": "pnpm run build",
+    "devUrl": "http://localhost:4321",
+    "frontendDist": "../dist"
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"]
+  },
+  "productName": "XivStrat",
+  "version": "1.0.0",
+  "identifier": "com.xivstrat.app",
+  "app": {
+    "windows": [],
+    "security": {
+      "csp": null,
+      "devCsp": null
+    },
+    "withGlobalTauri": true
+  },
+  "plugins": {
+    "shell": {
+      "open": true
+    }
+  }
+}
