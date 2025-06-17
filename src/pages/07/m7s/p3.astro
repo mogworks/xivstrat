@@ -21,6 +21,13 @@ import SinisterSeedsCast from './_components/SinisterSeedsCast.astro'
 import BrutishSwingActivate from './_components/BrutishSwingActivate.astro'
 import SmashActivate from './_components/SmashActivate.astro'
 import DebrisDeathmatch from './_mechanics/DebrisDeathmatch.astro'
+import DebrisDeathmatchCast from './_components/DebrisDeathmatchCast.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Badge from '@/components/Badge.astro'
+import ThornsOfDeathDebuff from './_components/ThornsOfDeathDebuff.astro'
+import Span from '@/components/Span.vue'
+import SporeSacCast2 from './_components/SporeSacCast2.astro'
+import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 
 const dutyId = '07/m7s'
 const base = '06:16.310'
@@ -48,6 +55,7 @@ const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
   <AttackSection time="06:30.789" base={base} damage="57000" damageType="physical" />
 
   <SeparatorSection id="S2RG" title="Stoneringer2: Stoneringers + Revenge of the Vines + Glower Power" />
+  <MoveToCenterEvent time="06:31.100" base={base} />
   <Stoneringer2First time="06:33.194" base={base} />
 
   <SeparatorSection title="Brutal Impact" />
@@ -71,7 +79,10 @@ const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
   <AttackSection time="07:47.962" base={base} damage="57000" damageType="physical" />
   <AttackSection time="07:50.993" base={base} damage="57000" damageType="physical" />
 
-  <SeparatorSection id="debris-deathmatch" title="Debris Deathmatch" />
+  <SeparatorSection id="debris-deathmatch-sporesac" title="Debris Deathmatch + Spore Sac" />
+  <DebrisDeathmatchCast start="07:53.308" base={base} />
+  <EventSection time="07:55.308">四周四面墙最近各一名<RoleIcon role="any" />身上出现虚线预兆</EventSection>
+  <SporeSacCast2 start="07:58.431" end="08:01.422" base={base} />
   <AttackSection time="08:06.365" base={base} damage="57000" damageType="physical" />
   <AttackSection time="08:09.393" base={base} damage="57000" damageType="physical" />
   <AttackSection time="08:12.422" base={base} damage="57000" damageType="physical" />

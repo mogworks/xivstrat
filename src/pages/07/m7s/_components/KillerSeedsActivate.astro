@@ -3,20 +3,17 @@ import type { Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
 import EventSection from '@/components/section/EventSection.astro'
-import Span from '@/components/Span.vue'
 import DamageInfo from '@/components/DamageInfo.astro'
 import Skill from '@/components/typography/Skill.astro'
-import BruteAbombinator from './BruteAbombinator.astro'
 import { translations } from '../_translations'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
 interface Props {
   time: Time
   base?: Time
-  num: number
 }
 
-const { time, base = 0, num }: Props = Astro.props
+const { time, base = 0 }: Props = Astro.props
 const killerseeds = 'Killer Seeds'
 ---
 
