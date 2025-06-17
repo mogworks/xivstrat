@@ -4,8 +4,7 @@ import type { Time } from '@/lib/utils'
 import Span from '@/components/Span.vue'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
@@ -27,7 +26,6 @@ import AeroIIICast from '../_components/AeroIIICast.astro'
 import GustEvent from '../_components/GustEvent.astro'
 import PowerlingGaleEvent from '../_components/ProwlingGaleEvent.astro'
 import WindsOfDecayEvent from '../_components/WindsOfDecayEvent.astro'
-
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 import GustEffect from '../_components/GustEffect.astro'
@@ -56,6 +54,12 @@ import solution_9 from '@/assets/07/m8s1/millennial_decay/solution_9.png'
 import solution_10 from '@/assets/07/m8s1/millennial_decay/solution_10.png'
 import solution_11 from '@/assets/07/m8s1/millennial_decay/solution_11.png'
 import solution_12 from '@/assets/07/m8s1/millennial_decay/solution_12.png'
+import solution_13 from '@/assets/07/m8s1/millennial_decay/solution_13.png'
+import solution_14 from '@/assets/07/m8s1/millennial_decay/solution_14.png'
+import solution_15 from '@/assets/07/m8s1/millennial_decay/solution_15.png'
+import solution_16 from '@/assets/07/m8s1/millennial_decay/solution_16.png'
+import solution_op from '@/assets/07/m8s1/millennial_decay/solution_op.png'
+import StratLink from '@/components/StratLink.astro'
 
 interface Props {
   time: Time
@@ -71,6 +75,18 @@ const windsOfDecay = translations.windsOfDecay
 const greatWhirlwind = translations.greatWhirlwind
 
 const { time, base = 0 }: Props = Astro.props
+
+const solutions = [
+  {
+    id: 'millennial-decay-solution-iq6001',
+    title: '解法：IQ6000【改】',
+  },
+  {
+    id: 'millennial-decay-solution-op',
+    title: '解法：全员踩塔',
+  },
+]
+const defaultSolution = '解法：IQ6000【改】'
 ---
 
 <MillennialDecayCast start={time} base={base} />
@@ -269,8 +285,8 @@ const { time, base = 0 }: Props = Astro.props
   </div>
 </MechanicSection>
 
-<SolutionSection title="解法：IQ6000【改】">
-  <div class="flex flex-col gap-4">
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：IQ6000【改】" class="flex flex-col gap-4">
     <Quote variant="lime" class="opacity-80">
       <P>
         改动点：为匹配开场八方站位，互换了
@@ -470,18 +486,18 @@ const { time, base = 0 }: Props = Astro.props
       人负责踩塔
     </P>
     <P>
-      视点名情况和塔刷新模式的不同，按下表站位处理：
+      视连线情况和塔刷新模式的不同，按下表站位处理：
       <ToggleSwitch
-        id="millennial-decay-solution-omen-activate-toggle"
-        lVariant="yellow"
-        rVariant="pink"
-        lLabel="击退前"
-        rLabel="击退后"
+        id="millennial-decay-solution-th-dps-toggle"
+        lVariant="blue"
+        rVariant="red"
+        lLabel="TH踩塔"
+        rLabel="DPS踩塔"
       />
     </P>
     <ImgGrid
-      id="millennial-decay-solution-omen-grid"
-      cols={[{ title: '狼首连线TH' }, { title: '狼首连线DPS' }]}
+      id="millennial-decay-solution-th-tower-grid"
+      cols={[{ title: '击退前' }, { title: '击退后' }]}
       defaultImgWrapperStyle={{
         bordered: true,
         rounded: true,
@@ -494,17 +510,13 @@ const { time, base = 0 }: Props = Astro.props
             {
               img: {
                 src: solution_9,
-                alt: '解法示意图9: TH连线正点塔',
-                title: 'DPS往自己负责的正点击退，TH往连线对侧击退',
-                titleClass: 'text-center',
+                alt: '解法示意图9: 正点塔 TH踩塔 击退前',
               },
             },
             {
               img: {
                 src: solution_10,
-                alt: '解法示意图10: DPS连线正点塔',
-                title: 'TH往自己负责的正点击退，DPS往连线对侧击退',
-                titleClass: 'text-center',
+                alt: '解法示意图10: 正点塔 TH踩塔 击退后',
               },
             },
           ],
@@ -515,17 +527,13 @@ const { time, base = 0 }: Props = Astro.props
             {
               img: {
                 src: solution_11,
-                alt: '解法示意图11: TH连线斜点塔',
-                title: 'DPS往自己负责的斜点击退，TH往连线对侧击退',
-                titleClass: 'text-center',
+                alt: '解法示意图11: 斜点塔 TH踩塔 击退前',
               },
             },
             {
               img: {
                 src: solution_12,
-                alt: '解法示意图12: DPS连线斜点塔',
-                title: 'TH往自己负责的斜点击退，DPS往连线对侧击退',
-                titleClass: 'text-center',
+                alt: '解法示意图12: 斜点塔 TH踩塔 击退后',
               },
             },
           ],
@@ -533,8 +541,8 @@ const { time, base = 0 }: Props = Astro.props
       ]}
     />
     <ImgGrid
-      id="millennial-decay-solution-activate-grid"
-      cols={[{ title: '狼首连线TH' }, { title: '狼首连线DPS' }]}
+      id="millennial-decay-solution-dps-tower-grid"
+      cols={[{ title: '击退前' }, { title: '击退后' }]}
       defaultImgWrapperStyle={{
         bordered: true,
         rounded: true,
@@ -547,18 +555,14 @@ const { time, base = 0 }: Props = Astro.props
           cells: [
             {
               img: {
-                src: solution_9,
-                alt: '解法示意图9: TH连线正点塔',
-                title: 'DPS踩自己负责的正点塔，TH引导扇形',
-                titleClass: 'text-center',
+                src: solution_13,
+                alt: '解法示意图13: 正点塔 DPS踩塔 击退前',
               },
             },
             {
               img: {
-                src: solution_10,
-                alt: '解法示意图10: DPS连线正点塔',
-                title: 'TH踩自己负责的正点塔，DPS引导扇形',
-                titleClass: 'text-center',
+                src: solution_14,
+                alt: '解法示意图14: 正点塔 DPS踩塔 击退后',
               },
             },
           ],
@@ -568,73 +572,101 @@ const { time, base = 0 }: Props = Astro.props
           cells: [
             {
               img: {
-                src: solution_11,
-                alt: '解法示意图11: TH连线斜点塔',
-                title: 'DPS踩自己负责的斜点塔，TH引导扇形',
-                titleClass: 'text-center',
+                src: solution_15,
+                alt: '解法示意图15: 斜点塔 DPS踩塔 击退前',
               },
             },
             {
               img: {
-                src: solution_12,
-                alt: '解法示意图12: DPS连线斜点塔',
-                title: 'TH踩自己负责的斜点塔，DPS引导扇形',
-                titleClass: 'text-center',
+                src: solution_16,
+                alt: '解法示意图16: 斜点塔 DPS踩塔 击退后',
               },
             },
           ],
         },
       ]}
     />
+
+    <P>具体来说：</P>
+    <Quote variant="lime">
+      <P><ListDot />若自身没被连线，则按图示站自己塔的方向，靠近场中等待击退，或开启防击退后直接站在塔里</P>
+      <P class="pl-6">
+        <ListDot />
+        <RoleIcon role="tank" tag="MT" />
+        <RoleIcon role="ranged" tag="D3" />
+        负责
+        <Span variant="red">A</Span>/<Span variant="red">1</Span>点的塔，
+        <RoleIcon role="tank" tag="ST" />
+        <RoleIcon role="magic" tag="D4" />
+        负责
+        <Span variant="yellow">B</Span>/<Span variant="yellow">2</Span>点的塔
+      </P>
+      <P class="pl-6">
+        <ListDot />
+        <RoleIcon role="healer" tag="H2" />
+        <RoleIcon role="dps" tag="D2" />
+        负责
+        <Span variant="sky">C</Span>/<Span variant="sky">3</Span>点的塔，
+        <RoleIcon role="healer" tag="H1" />
+        <RoleIcon role="melee" tag="D1" />
+        负责
+        <Span variant="purple">D</Span>/<Span variant="purple">4</Span>点的塔
+      </P>
+      <P><ListDot />若自身被连线，就往连线狼首的对侧击退</P>
+      <P class="pl-6"><ListDot />击退到对侧后，站在对侧狼首的侧面或背面，以免同时吃到两个扇形</P>
+    </Quote>
   </div>
-</SolutionSection>
-
-<NoteSection>
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      <WolfOfWind />释放的直线AoE伤害约为
-      <DamageInfo damage="90000" type="magical" />
-      <DamageDown tag="30" />
-      如果有人不小心吃到了能稍微抢救一下。
-    </div>
-
-    <div class="paragraph">
-      如果最后的塔没有踩到，每个会对全团造成
-      <Span variant="yellow">{greatWhirlwind}</Span>
-      <DamageInfo damage="100000" type="magical" />
-      并赋予
-      <SustainedDamage tag="15" layer={1} />
-      每跳伤害
-      <DamageInfo damage="30000" type="special" />
-    </div>
-
-    <div class="paragraph">紧接着后面会有多段分摊AoE，一层DoT勉强可以奶得起来，两层基本团灭。</div>
+  <div slot="解法：全员踩塔" class="flex flex-col gap-4">
+    <P>虽然扇形有易伤，但踩塔没有易伤，因此可以全员参与踩塔，如下图：</P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_op,
+          alt: '解法示意图: 全员踩塔',
+        },
+      ]}
+    />
+    <P>具体来说：</P>
+    <Quote variant="lime">
+      <P>
+        <ListDot />
+        若自身没被连线，则还是按照
+        <StratLink variant="lime" href="#millennial-decay-solution-iq6001">解法：IQ6000【改】</StratLink>
+        的站位踩塔
+      </P>
+      <P>
+        <ListDot />
+        若自身被连线，就往连线狼首对侧顺时针的下一个塔处击退，一起参与踩塔，如上图所示
+      </P>
+    </Quote>
+    <P>好处是，有减员的情况下，更大概率避免炸塔</P>
+    <P>坏处是，全员都要同时承受踩塔和扇形的伤害，总伤害比正常处理时翻了一番</P>
   </div>
-</NoteSection>
+</MultiSolutionSection>
 
 <script>
-  const solutionOmenActivateToggle = document.getElementById(
-    'millennial-decay-solution-omen-activate-toggle',
-  ) as HTMLInputElement
+  const solutionThDpsToggle = document.getElementById('millennial-decay-solution-th-dps-toggle') as HTMLInputElement
 
-  function toggleTables(omenId: string, activateId: string, showActivate: boolean) {
-    const omenTable = document.getElementById(omenId)
-    const activateTable = document.getElementById(activateId)
+  function toggleTables(thTowerId: string, dpsTowerId: string, showActivate: boolean) {
+    const thTowerTable = document.getElementById(thTowerId)
+    const dpsTowerTable = document.getElementById(dpsTowerId)
 
-    if (omenTable && activateTable) {
+    if (thTowerTable && dpsTowerTable) {
       if (showActivate) {
-        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', true))
-        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', false))
+        thTowerTable.classList.toggle('grid', !thTowerTable.classList.toggle('hidden', true))
+        dpsTowerTable.classList.toggle('grid', !dpsTowerTable.classList.toggle('hidden', false))
       } else {
-        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', true))
-        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', false))
+        dpsTowerTable.classList.toggle('grid', !dpsTowerTable.classList.toggle('hidden', true))
+        thTowerTable.classList.toggle('grid', !thTowerTable.classList.toggle('hidden', false))
       }
     }
   }
 
-  if (solutionOmenActivateToggle) {
-    solutionOmenActivateToggle.addEventListener('change', function () {
-      toggleTables('millennial-decay-solution-omen-grid', 'millennial-decay-solution-activate-grid', this.checked)
+  if (solutionThDpsToggle) {
+    solutionThDpsToggle.addEventListener('change', function () {
+      toggleTables('millennial-decay-solution-th-tower-grid', 'millennial-decay-solution-dps-tower-grid', this.checked)
     })
   }
 </script>
