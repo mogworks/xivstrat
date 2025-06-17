@@ -18,8 +18,8 @@ const { tag = '', hover = false, class: className = '', level = 1 }: Props = Ast
 const icons = [TDeathI, TDeathII, TDeathIII, TDeathIV]
 const icon = icons[level - 1] ?? TDeathI
 
-const name = `Thorns of Death ${['I', 'II', 'III', 'IV'][level - 1] ?? 'I'}`
-const description = '持续伤害，连线越长每跳伤害越高'
+const name = `荆棘生死战 ${['I', 'II', 'III', 'IV'][level - 1] ?? 'I'}`
+const description = `身体被荆棘连接，体力${['逐渐', '逐渐', '加剧', '严重'][level - 1] ?? '逐渐'}流失`
 ---
 
 <Buff

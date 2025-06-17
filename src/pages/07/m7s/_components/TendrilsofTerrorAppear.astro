@@ -6,6 +6,7 @@ import Badge from '@/components/Badge.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import Span from '@/components/Span.vue'
 import Skill from '@/components/typography/Skill.astro'
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
@@ -14,7 +15,7 @@ interface Props {
 }
 
 const { time, base = 0, num }: Props = Astro.props
-const TendrillsofTerror = 'Tendrills of Terror'
+const tendrilsOfTerror = translations.tendrilsOfTerror
 
 const color: Record<number, VariantType> = {
   1: 'pink',
@@ -27,7 +28,7 @@ const color: Record<number, VariantType> = {
 
 <EventSection time={time} base={base}>
   第<Span variant={color[num]}>{num}</Span>轮
-  <Skill name={TendrillsofTerror} />
+  <Skill name={tendrilsOfTerror} />
   冰花预兆出现
   <Badge variant="emerald">米字形AoE</Badge>
 </EventSection>

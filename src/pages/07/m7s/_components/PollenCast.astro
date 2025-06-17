@@ -5,6 +5,7 @@ import Span from '@/components/Span.vue'
 import Badge from '@/components/Badge.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -14,9 +15,10 @@ interface Props {
 }
 
 const { start, base = 0, duration = 3.7, num = 4 }: Props = Astro.props
+const pollen = translations.pollen
 ---
 
-<CastSection start={start} base={base} duration={duration} ability="Pollen">
+<CastSection start={start} base={base} duration={duration} ability={pollen}>
   <Span variant="green" slot="source">种子×{num}</Span>
   <DamageInfo damage="130000" type="magical" />
   <DamageDown tag="30" hover />

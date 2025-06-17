@@ -77,6 +77,8 @@ const hurricaneForce = translations.hurricaneForce
 const quarrySwamp = translations.quarrySwamp
 const bloomingAbomination = translations.bloomingAbomination
 const sporeSac = translations.sporeSac
+const pollen = translations.pollen
+const rootsOfEvil = translations.rootsOfEvil
 ---
 
 <SporeSacCast start="00:40.052" end="00:43.039" base={base} />
@@ -172,7 +174,7 @@ const sporeSac = translations.sporeSac
 
   <div class="flex flex-col gap-4">
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Pollen</Span>
+      <Span variant="yellow">{pollen}</Span>
     </h4>
     <div class="paragraph">
       <Span variant="green">种子</Span>
@@ -206,7 +208,7 @@ const sporeSac = translations.sporeSac
     />
     <div class="paragraph">即一定会有四个安全区，其中两个在内场的对角方向，两个在相对的角落</div>
     <div class="paragraph">
-      <Span variant="yellow">Pollen</Span>伤害判定后，在
+      <Span variant="yellow">{pollen}</Span>伤害判定后，在
       <Span variant="green">种子</Span>
       落下的地方会生成<BloomingAbominationSimplified />
     </div>
@@ -223,8 +225,7 @@ const sporeSac = translations.sporeSac
       <Span variant="yellow">{impact}</Span>
     </h4>
     <div class="paragraph">
-      点名 2<RoleIcon role="healer" />
-      释放
+      点名 2<RoleIcon role="healer" />释放
       <Span variant="pink">直径6m的圆形分摊</Span>
       <DamageInfo damage="600000" type="magical" />
       <MagicVulnerabilityUp tag="2" hover />
@@ -302,7 +303,7 @@ const sporeSac = translations.sporeSac
     <div class="paragraph">
       由于<Span variant="yellow">{sinisterSeeds}</Span>
       的机制效果为选择<Span variant="orange">最近</Span>或<Span variant="blue">最远</Span>
-      的四人释放放置<Span variant="pink">冰花</Span>的分散点名， 并点其余四人<Span variant="yellow">追踪AoE</Span>
+      的四人释放放置<Span variant="pink">冰花</Span>的分散点名，并点其余四人<Span variant="yellow">追踪AoE</Span>
     </div>
     <div class="paragraph">
       且我们在<Span variant="lime">躲避藤蔓</Span>
@@ -488,7 +489,7 @@ const sporeSac = translations.sporeSac
 </SolutionSection>
 
 <EventSection time="01:10.533">
-  <Span variant="yellow">Roots of Evil</Span>伤害判定
+  <Span variant="yellow">{rootsOfEvil}</Span>伤害判定
   <DamageInfo damage="120000" type="magical" />
   <DamageDown tag="30" hover />
   <Badge variant="emerald">12m圆形</Badge>
@@ -509,7 +510,7 @@ const sporeSac = translations.sporeSac
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <T text="Roots of Evil" variant="yellow" />
+    <T text={rootsOfEvil} variant="yellow" />
     <P>
       之前判定的四连<Span variant="yellow">追踪AoE</Span>扩大范围后，统一再判定一次，如下表所示：
     </P>
@@ -619,7 +620,7 @@ const sporeSac = translations.sporeSac
 <SolutionSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
-      在躲避<Span variant="yellow">Roots of Evil</Span>时，
+      在躲避<Span variant="yellow">{rootsOfEvil}</Span>时，
       <RoleIcon role="tank" />将小怪拉到场地<Span variant="cyan">西侧或西北侧</Span>的安全区
     </div>
     <div class="paragraph">

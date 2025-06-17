@@ -31,5 +31,16 @@ export const translations = {
   windingWildwinds: 'Winding Wildwinds',
   hurricaneForce: 'Hurricane Force',
   electrogeneticForce: 'Electrogenetic Force',
-  theUnpotted: 'The Unpotted'
+  theUnpotted: 'The Unpotted',
+  brutalSmash: 'Brutal Smash',
+  itCameFromTheDirt: 'It Came from the Dirt',
+  pollen: 'Pollen',
+  explosion: 'Explosion',
+  heavyImpact: 'Heavy Impact',
+  tendrilsOfTerror: 'Tendrils of Terror',
+  rootsOfEvil: 'Roots of Evil',
+  killerSeeds: 'Killer Seeds',
+  stoneringerTheBludgeoning: 'Stoneringer: The Bludgeoning',
+  stoneringerTheStabbing: 'Stoneringer: The Stabbing',
+  thornsOfDeath: 'Thorns of Death',
 }
