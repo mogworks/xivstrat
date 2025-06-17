@@ -25,9 +25,16 @@ import ExplosionCast from './_components/ExplosionCast.astro'
 import ExplosionActivate from './_components/ExplosionActivate.astro'
 import SmashActivate from './_components/SmashActivate.astro'
 import BrutishSwingActivate from './_components/BrutishSwingActivate.astro'
+import { translations } from './_translations'
 
 const dutyId = '07/m7s'
 const base = 0
+const brutalImpact = translations.brutalImpact
+const stoneringer = translations.stoneringer
+const sinisterSeeds = translations.sinisterSeeds
+const explosion = translations.explosion
+const pulpSmash = translations.pulpSmash
+const neoBombarianSpecial = translations.neoBombarianSpecial
 ---
 
 <DutyStratLayout dutyId={dutyId}>
@@ -38,7 +45,7 @@ const base = 0
     固定在场中偏南一点的位置
   </EventSection>
   <AttackSection time="00:03.832" base={base} damage="57000" damageType="physical" />
-  <SeparatorSection id="BrutalImpact" title="Brutal Impact" />
+  <SeparatorSection id="BrutalImpact" title={brutalImpact} />
   <BrutalImpactCast start="00:05.165" base={base} toln={6} />
   <CollapseSection>
     <Fragment slot="summary">
@@ -59,15 +66,15 @@ const base = 0
   <BrutalImpact base={base} />
   <AttackSection time="00:18.577" base={base} damage="57000" damageType="physical" />
 
-  <SeparatorSection id="stoneringer" title="Stoneringer" />
+  <SeparatorSection id="stoneringer" title={stoneringer} />
   <Stoneringer base={base} />
   <AttackSection time="00:35.910" base={base} damage="57000" damageType="physical" />
   <AttackSection time="00:39.740" base={base} damage="57000" damageType="physical" />
 
-  <SeparatorSection id="sinister-seeds" title="Sinister Seeds" />
+  <SeparatorSection id="sinister-seeds" title={sinisterSeeds} />
   <SinisterSeeds base={base} />
 
-  <SeparatorSection id="explosion" title="Explosion" />
+  <SeparatorSection id="explosion" title={explosion} />
 
   <ExplosionCast time="01:36.275" base={base} num={1} />
   <ExplosionCast time="01:38.818" base={base} num={2} />
@@ -84,12 +91,12 @@ const base = 0
 
   <AttackSection time="02:02.160" base={base} damage="57000" damageType="physical" />
 
-  <SeparatorSection id="pulp-smash" title="Pulp Smash" />
+  <SeparatorSection id="pulp-smash" title={pulpSmash} />
   <PulpSmash base={base} />
   <AttackSection time="02:11.071" base={base} damage="57000" damageType="physical" />
   <AttackSection time="02:14.104" base={base} damage="57000" damageType="physical" />
   <AttackSection time="02:17.136" base={base} damage="57000" damageType="physical" />
 
-  <SeparatorSection id="neo-bombarian-special" title="Neo Bombarian Special" />
+  <SeparatorSection id="neo-bombarian-special" title={neoBombarianSpecial} />
   <NeoBombarianSpecial base={base} />
 </DutyStratLayout>
