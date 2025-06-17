@@ -28,3 +28,4 @@ pnpm-debug.log*
 datamining/
 
 CLAUDE.md
+.vscode/
