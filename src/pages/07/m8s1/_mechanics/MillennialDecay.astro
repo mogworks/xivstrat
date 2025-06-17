@@ -18,6 +18,8 @@ import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
 import Quote from '@/components/typography/Quote.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
+import ImgGrid from '@/components/typography/ImgGrid.astro'
 
 import MillennialDecayCast from '../_components/MillennialDecayCast.astro'
 import BreathOfDecayCast from '../_components/BreathOfDecayCast.astro'
@@ -50,6 +52,10 @@ import solution_5 from '@/assets/07/m8s1/millennial_decay/solution_5.png'
 import solution_6 from '@/assets/07/m8s1/millennial_decay/solution_6.png'
 import solution_7 from '@/assets/07/m8s1/millennial_decay/solution_7.png'
 import solution_8 from '@/assets/07/m8s1/millennial_decay/solution_8.png'
+import solution_9 from '@/assets/07/m8s1/millennial_decay/solution_9.png'
+import solution_10 from '@/assets/07/m8s1/millennial_decay/solution_10.png'
+import solution_11 from '@/assets/07/m8s1/millennial_decay/solution_11.png'
+import solution_12 from '@/assets/07/m8s1/millennial_decay/solution_12.png'
 
 interface Props {
   time: Time
@@ -279,8 +285,17 @@ const { time, base = 0 }: Props = Astro.props
       </P>
     </Quote>
 
-    <P class="mt-8">
-      下文以
+    <T class="mt-8">
+      <Skill variant="lime" name={breathOfDecay} />
+      &
+      <Skill variant="lime" name={gust} />
+    </T>
+    <P>
+      先看前半段
+      <Skill name={breathOfDecay} />
+      和
+      <Skill name={gust} />
+      的处理方法，下文以
       <WolfOfWind />
       初始从正北顺时针刷新为例
     </P>
@@ -426,6 +441,151 @@ const { time, base = 0 }: Props = Astro.props
         ）在自己半场的靠后位置跟着直线转即可
       </P>
     </Quote>
+
+    <T class="mt-8">
+      <Skill variant="lime" name={prowlingGale} />
+      &
+      <Skill variant="lime" name={windsOfDecay} />
+    </T>
+    <P>
+      进入机制后半段，
+      <HowlingBlade />
+      再次读条全屏击退，同时正/斜点刷新
+      <Span variant="pink">4</Span>
+      座单人塔，斜/正点刷新
+      <Span variant="pink">4</Span>
+      只
+      <WolfOfWind />
+    </P>
+    <P>
+      <WolfOfWind />
+      会随机连线
+      <Span variant="default">4</Span>
+      <RoleIcon role="tank|healer" />
+      或
+      <Span variant="default">4</Span>
+      <RoleIcon role="dps" />
+      释放扇形，我们让被连线的人专心引导扇形，剩余
+      <Span variant="default">4</Span>
+      人负责踩塔
+    </P>
+    <P>
+      视点名情况和塔刷新模式的不同，按下表站位处理：
+      <ToggleSwitch
+        id="millennial-decay-solution-omen-activate-toggle"
+        lVariant="yellow"
+        rVariant="pink"
+        lLabel="击退前"
+        rLabel="击退后"
+      />
+    </P>
+    <ImgGrid
+      id="millennial-decay-solution-omen-grid"
+      cols={[{ title: '狼首连线TH' }, { title: '狼首连线DPS' }]}
+      defaultImgWrapperStyle={{
+        bordered: true,
+        rounded: true,
+        borderVariant: 'cyan',
+      }}
+      rows={[
+        {
+          title: '正点塔',
+          cells: [
+            {
+              img: {
+                src: solution_9,
+                alt: '解法示意图9: TH连线正点塔',
+                title: 'DPS往自己负责的正点击退，TH往连线对侧击退',
+                titleClass: 'text-center',
+              },
+            },
+            {
+              img: {
+                src: solution_10,
+                alt: '解法示意图10: DPS连线正点塔',
+                title: 'TH往自己负责的正点击退，DPS往连线对侧击退',
+                titleClass: 'text-center',
+              },
+            },
+          ],
+        },
+        {
+          title: '斜点塔',
+          cells: [
+            {
+              img: {
+                src: solution_11,
+                alt: '解法示意图11: TH连线斜点塔',
+                title: 'DPS往自己负责的斜点击退，TH往连线对侧击退',
+                titleClass: 'text-center',
+              },
+            },
+            {
+              img: {
+                src: solution_12,
+                alt: '解法示意图12: DPS连线斜点塔',
+                title: 'TH往自己负责的斜点击退，DPS往连线对侧击退',
+                titleClass: 'text-center',
+              },
+            },
+          ],
+        },
+      ]}
+    />
+    <ImgGrid
+      id="millennial-decay-solution-activate-grid"
+      cols={[{ title: '狼首连线TH' }, { title: '狼首连线DPS' }]}
+      defaultImgWrapperStyle={{
+        bordered: true,
+        rounded: true,
+        borderVariant: 'cyan',
+      }}
+      class="hidden"
+      rows={[
+        {
+          title: '正点塔',
+          cells: [
+            {
+              img: {
+                src: solution_9,
+                alt: '解法示意图9: TH连线正点塔',
+                title: 'DPS踩自己负责的正点塔，TH引导扇形',
+                titleClass: 'text-center',
+              },
+            },
+            {
+              img: {
+                src: solution_10,
+                alt: '解法示意图10: DPS连线正点塔',
+                title: 'TH踩自己负责的正点塔，DPS引导扇形',
+                titleClass: 'text-center',
+              },
+            },
+          ],
+        },
+        {
+          title: '斜点塔',
+          cells: [
+            {
+              img: {
+                src: solution_11,
+                alt: '解法示意图11: TH连线斜点塔',
+                title: 'DPS踩自己负责的斜点塔，TH引导扇形',
+                titleClass: 'text-center',
+              },
+            },
+            {
+              img: {
+                src: solution_12,
+                alt: '解法示意图12: DPS连线斜点塔',
+                title: 'TH踩自己负责的斜点塔，DPS引导扇形',
+                titleClass: 'text-center',
+              },
+            },
+          ],
+        },
+      ]}
+    />
   </div>
 </SolutionSection>
 
@@ -451,3 +611,30 @@ const { time, base = 0 }: Props = Astro.props
     <div class="paragraph">紧接着后面会有多段分摊AoE，一层DoT勉强可以奶得起来，两层基本团灭。</div>
   </div>
 </NoteSection>
+
+<script>
+  const solutionOmenActivateToggle = document.getElementById(
+    'millennial-decay-solution-omen-activate-toggle',
+  ) as HTMLInputElement
+
+  function toggleTables(omenId: string, activateId: string, showActivate: boolean) {
+    const omenTable = document.getElementById(omenId)
+    const activateTable = document.getElementById(activateId)
+
+    if (omenTable && activateTable) {
+      if (showActivate) {
+        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', true))
+        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', false))
+      } else {
+        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', true))
+        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', false))
+      }
+    }
+  }
+
+  if (solutionOmenActivateToggle) {
+    solutionOmenActivateToggle.addEventListener('change', function () {
+      toggleTables('millennial-decay-solution-omen-grid', 'millennial-decay-solution-activate-grid', this.checked)
+    })
+  }
+</script>
