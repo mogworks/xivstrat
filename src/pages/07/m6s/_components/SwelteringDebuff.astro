@@ -2,6 +2,7 @@
 import Buff from '@/components/Buff.astro'
 
 import sweltering from '@/assets/buff/07/m6s/214273.png'
+import { translations } from '../_translations'
 
 interface Props {
   tag?: string
@@ -10,13 +11,14 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const { Sweltering, SwelteringDescription } = translations
 ---
 
 <Buff
   icon={sweltering}
-  name="Sweltering"
+  name={Sweltering}
   nameVariant="yellow"
-  description="Unable to bear the heat and taking damage over time."
+  description={SwelteringDescription}
   tag={tag}
   hover={hover}
   class={className}

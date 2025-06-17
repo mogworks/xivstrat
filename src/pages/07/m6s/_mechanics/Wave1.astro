@@ -19,6 +19,7 @@ import Yan from '../_components/Yan.astro'
 import wave1 from '@/assets/07/m6s/paint_mark/wave1@3x.png'
 import wave1_solution_1 from '@/assets/07/m6s/soul_sugar/wave1_solution_1.png'
 import wave1_solution_2 from '@/assets/07/m6s/soul_sugar/wave1_solution_2.png'
+import { translations } from '../_translations'
 
 interface Props {
   base?: Time
@@ -42,7 +43,7 @@ const { base = 0 }: Props = Astro.props
 </LivePaintingCast>
 <AttackSection time="03:45.487" base={base} damage="57000" damageType="magical" />
 <UnlimitedCravingActivate time="03:47.892" base={base} wave={1} />
-<SolutionSection title="解法：Wave #1">
+<SolutionSection title={`${translations.Wave} #1`}>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       目标优先级：
@@ -240,11 +241,11 @@ const { base = 0 }: Props = Astro.props
       <Span variant="cyan">溅射能力强的技能</Span>
       留给
       <Span variant="pink">后半段</Span>
-      <Span variant="orange">Wave #2</Span>
+      <Span variant="orange">{translations.Wave} #2</Span>
     </div>
     <div class="paragraph">
       好处是
-      <Span variant="purple">Wave #4</Span>
+      <Span variant="purple">{translations.Wave} #4</Span>
       可以更早开出团辅，减轻
       <RoleIcon role="tank" tag="ST" />
       和
@@ -259,12 +260,12 @@ const { base = 0 }: Props = Astro.props
       大致延后约
       <Span variant="pink">10s</Span>
       ，在
-      <Span variant="orange">Wave #2</Span>
+      <Span variant="orange">{translations.Wave} #2</Span>
       连线出现时开启
     </div>
     <div class="paragraph">
       好处是
-      <Span variant="orange">Wave #2</Span>
+      <Span variant="orange">{translations.Wave} #2</Span>
       AoE质量更高
     </div>
   </div>

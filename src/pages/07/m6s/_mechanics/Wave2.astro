@@ -27,12 +27,15 @@ import wave2_solution_2 from '@/assets/07/m6s/soul_sugar/wave2_solution_2.png'
 import wave2_solution_3 from '@/assets/07/m6s/soul_sugar/wave2_solution_3.png'
 import wave2_solution_4 from '@/assets/07/m6s/soul_sugar/wave2_solution_4.png'
 import wave2_solution_5 from '@/assets/07/m6s/soul_sugar/wave2_solution_5.png'
+import { translations } from '../_translations'
 
 interface Props {
   base?: Time
 }
 
 const { base = 0 }: Props = Astro.props
+
+const { WaterIII } = translations
 ---
 
 <LivePaintingCast start="04:09.934" base={base} class="-my-5">
@@ -45,7 +48,7 @@ const { base = 0 }: Props = Astro.props
     <Span variant="orange">×2</Span>
   </FeatherRay>
 </LivePaintingCast>
-<SolutionSection title="解法：Wave #2">
+<SolutionSection title={`解法：${translations.Wave} #2`}>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       目标优先级：
@@ -340,7 +343,7 @@ const { base = 0 }: Props = Astro.props
       读条结束时判定半径
       <Span variant="pink">8m</Span>
       的圆形AoE
-      <Span variant="yellow">Water III</Span>
+      <Span variant="yellow">{WaterIII}</Span>
       <DamageInfo damage="45000" type="magical" />
       <VulnerabilityUp tag="8" hover />
       <Span variant="rose" class="text-decimal">3100%↑</Span>

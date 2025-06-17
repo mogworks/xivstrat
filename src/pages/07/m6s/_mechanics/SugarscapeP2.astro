@@ -21,6 +21,7 @@ import SwelteringDebuff from '../_components/SwelteringDebuff.astro'
 
 import paint_1 from '@/assets/07/m6s/paint/1.png'
 import floor_p2 from '@/assets/07/m6s/floor_p2.png'
+import { translations } from '../_translations'
 
 interface Props {
   base: Time
@@ -32,6 +33,8 @@ const start = '01:30.298'
 const duration = 7.7
 const adjustedDuration = duration + 0.3
 const end = timeToSeconds(start) + adjustedDuration
+
+const { Sugarscape, HeatingUp, BurningUp, Brûlée, CrowdBrûlée } = translations
 ---
 
 <SugarscapeCast start={start} end={end} base={base}>
@@ -65,7 +68,7 @@ const end = timeToSeconds(start) + adjustedDuration
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Sugarscape</Span>
+      <Span variant="yellow">{Sugarscape}</Span>
     </h4>
     <div class="paragraph">
       <SugarRiot />
@@ -89,7 +92,7 @@ const end = timeToSeconds(start) + adjustedDuration
       伤害一致
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Heating Up</Span>
+      <Span variant="yellow">{HeatingUp}</Span>
     </h4>
     <div class="paragraph">
       <RoleIcon role="healer" tag="H1" />
@@ -113,21 +116,21 @@ const end = timeToSeconds(start) + adjustedDuration
     <div class="paragraph pl-4">
       <ListDot />
       对持有者造成
-      <Span variant="yellow">Brûlée</Span>
+      <Span variant="yellow">{Brûlée}</Span>
       <DamageInfo damage="100000" type="magical" />
       <FireResistanceDownII tag="3" hover />
     </div>
     <div class="paragraph pl-4">
       <ListDot />
       对范围内其他人造成
-      <Span variant="yellow">Brûlée</Span>
+      <Span variant="yellow">{Brûlée}</Span>
       <DamageInfo damage="100000" type="magical" />
       <FireResistanceDownII tag="3" hover />
       <DamageDown tag="30" hover />
       <Span variant="rose" class="text-decimal">30%↓</Span>
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Burning Up</Span>
+      <Span variant="yellow">{BurningUp}</Span>
     </h4>
     <div class="paragraph">
       随机
@@ -147,7 +150,7 @@ const end = timeToSeconds(start) + adjustedDuration
     </div>
     <div class="paragraph">
       6人分摊时每人受到
-      <Span variant="yellow">Crowd Brûlée</Span>
+      <Span variant="yellow">{CrowdBrûlée}</Span>
       <DamageInfo damage="100000" type="magical" />
     </div>
   </div>
