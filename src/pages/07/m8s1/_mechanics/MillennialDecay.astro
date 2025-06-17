@@ -4,7 +4,7 @@ import type { Time } from '@/lib/utils'
 import Span from '@/components/Span.vue'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
@@ -58,6 +58,8 @@ import solution_13 from '@/assets/07/m8s1/millennial_decay/solution_13.png'
 import solution_14 from '@/assets/07/m8s1/millennial_decay/solution_14.png'
 import solution_15 from '@/assets/07/m8s1/millennial_decay/solution_15.png'
 import solution_16 from '@/assets/07/m8s1/millennial_decay/solution_16.png'
+import solution_op from '@/assets/07/m8s1/millennial_decay/solution_op.png'
+import StratLink from '@/components/StratLink.astro'
 
 interface Props {
   time: Time
@@ -73,6 +75,18 @@ const windsOfDecay = translations.windsOfDecay
 const greatWhirlwind = translations.greatWhirlwind
 
 const { time, base = 0 }: Props = Astro.props
+
+const solutions = [
+  {
+    id: 'millennial-decay-solution-iq6001',
+    title: '解法：IQ6000【改】',
+  },
+  {
+    id: 'millennial-decay-solution-op',
+    title: '解法：全员踩塔',
+  },
+]
+const defaultSolution = '解法：IQ6000【改】'
 ---
 
 <MillennialDecayCast start={time} base={base} />
@@ -271,8 +285,8 @@ const { time, base = 0 }: Props = Astro.props
   </div>
 </MechanicSection>
 
-<SolutionSection title="解法：IQ6000【改】">
-  <div class="flex flex-col gap-4">
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：IQ6000【改】" class="flex flex-col gap-4">
     <Quote variant="lime" class="opacity-80">
       <P>
         改动点：为匹配开场八方站位，互换了
@@ -602,7 +616,35 @@ const { time, base = 0 }: Props = Astro.props
       <P class="pl-6"><ListDot />击退到对侧后，站在对侧狼首的侧面或背面，以免同时吃到两个扇形</P>
     </Quote>
   </div>
-</SolutionSection>
+  <div slot="解法：全员踩塔" class="flex flex-col gap-4">
+    <P>虽然扇形有易伤，但踩塔没有易伤，因此可以全员参与踩塔，如下图：</P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_op,
+          alt: '解法示意图: 全员踩塔',
+        },
+      ]}
+    />
+    <P>具体来说：</P>
+    <Quote variant="lime">
+      <P>
+        <ListDot />
+        若自身没被连线，则还是按照
+        <StratLink variant="lime" href="#millennial-decay-solution-iq6001">解法：IQ6000【改】</StratLink>
+        的站位踩塔
+      </P>
+      <P>
+        <ListDot />
+        若自身被连线，就往连线狼首对侧顺时针的下一个塔处击退，一起参与踩塔，如上图所示
+      </P>
+    </Quote>
+    <P>好处是，有减员的情况下，更大概率避免炸塔</P>
+    <P>坏处是，全员都要同时承受踩塔和扇形的伤害，总伤害比正常处理时翻了一番</P>
+  </div>
+</MultiSolutionSection>
 
 <script>
   const solutionThDpsToggle = document.getElementById('millennial-decay-solution-th-dps-toggle') as HTMLInputElement
