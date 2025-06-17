@@ -33,7 +33,7 @@ function isValidURL(str: string): boolean {
     {developer.avatar && <Image src={developer.avatar} alt={developer.name} class="w-24 rounded-full object-cover" />}
     {
       !developer.avatar && (
-        <div class="bg- mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-zinc-300 p-5 text-zinc-600">
+        <div class="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-zinc-300 p-5 text-zinc-600">
           <DefaultAvatarSVG />
         </div>
       )
