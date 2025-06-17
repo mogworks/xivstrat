@@ -1,0 +1,10 @@
+{
+  "identifier": "default",
+  "description": "Default permissions for the XivStrat app",
+  "permissions": [
+    "core:default",
+    "shell:allow-open"
+  ],
+  "windows": ["main"],
+  "webviews": ["main"]
+}
