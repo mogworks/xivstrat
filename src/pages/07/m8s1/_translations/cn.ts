@@ -17,4 +17,8 @@ export const translations = {
   trackingTremors: '连震击',
   greatDivide: '一刀两断',
   terrestrialTitans: '大地的呼唤',
+  titanicPursuit: '斩空剑',
+  towerfall: '崩塌',
+  bareFangs: '光牙召唤',
+  fangedCrossing: '十字光牙',
 }

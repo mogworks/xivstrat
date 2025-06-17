@@ -3,6 +3,7 @@ import Buff from '@/components/Buff.astro'
 import Span from '@/components/Span.vue'
 
 import warm_tint from '@/assets/buff/07/m6s/214275.png'
+import { translations } from '../_translations'
 
 interface Props {
   hover?: boolean
@@ -10,18 +11,20 @@ interface Props {
 }
 
 const { hover = false, class: className = '' }: Props = Astro.props
+const { WarmTintName, WarmTintDescription } = translations
 ---
 
 <Buff
   icon={warm_tint}
-  name="Warm Tint"
+  name={WarmTintName}
   nameVariant="orange"
-  description="Bodily aether has become unbalanced by the influence of warm hues. Will take severe damage if hit by another Warm Bomb."
+  description={WarmTintDescription}
   hover={hover}
   class={className}
 >
   <p>
-    Bodily aether has become unbalanced by the influence of <Span variant="orange">warm</Span> hues. Will take severe damage
-    if hit by another <Span variant="orange">Warm Bomb</Span>.
+    受到<Span variant="orange">暖色爆弹怪</Span>的影响，体内的属性以太发生了偏移。再次受到<Span variant="orange"
+      >同种攻击</Span
+    >时伤害大幅提高
   </p>
 </Buff>

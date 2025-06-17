@@ -17,12 +17,15 @@ import WingmarkDebuff from '../_components/WingmarkDebuff.astro'
 
 import hane from '@/assets/07/m6s/paint_mark/hane@3x.png'
 import wingmark from '@/assets/07/m6s/wingmark.png'
+import { translations } from '../_translations'
 
 interface Props {
   base: Time
 }
 
 const { base = 0 }: Props = Astro.props
+
+const DoubleStyle = translations.DoubleStyle
 ---
 
 <WingmarkCast start="00:30.879" base={base} />
@@ -58,7 +61,7 @@ const { base = 0 }: Props = Astro.props
     <div class="paragraph">
       <ListDot />
       暂时还无需处理该机制，在之后的
-      <StratLink variant="yellow" href="#double-style">Double Style</StratLink>
+      <StratLink variant="yellow" href="#double-style">{DoubleStyle}</StratLink>
       中会一并处理
     </div>
   </div>

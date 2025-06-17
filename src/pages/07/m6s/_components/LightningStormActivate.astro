@@ -7,6 +7,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import Span from '@/components/Span.vue'
 import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
@@ -14,6 +15,7 @@ interface Props {
 }
 
 const { time, base = 0 }: Props = Astro.props
+const LightningStorm = translations.LightningStorm
 ---
 
 <EventSection time={time} base={base}>
@@ -26,7 +28,7 @@ const { time, base = 0 }: Props = Astro.props
   <Span variant="default">1</Span>
   <RoleIcon role="dps" />
   发动
-  <Span variant="yellow">Lightning Storm</Span>
+  <Span variant="yellow">{LightningStorm}</Span>
   <DamageInfo damage="150000" type="magical" />
   <Badge variant="emerald">8m圆形</Badge>
   <Badge variant="yellow">区域导雷</Badge>

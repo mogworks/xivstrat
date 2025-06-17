@@ -2,6 +2,7 @@
 import Buff from '@/components/Buff.astro'
 
 import icon from '@/assets/buff/07/m6s/219486.png'
+import { translations } from '../_translations'
 
 interface Props {
   tag?: string
@@ -10,13 +11,14 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const { HuffyCat, HuffyCatDescription } = translations
 ---
 
 <Buff
   icon={icon}
-  name="Huffy Cat"
+  name={HuffyCat}
   nameVariant="yellow"
-  description="Failure to purloin tasty aether is inspiring pure and fluffy rage."
+  description={HuffyCatDescription}
   tag={tag}
   hover={hover}
   class={className}
