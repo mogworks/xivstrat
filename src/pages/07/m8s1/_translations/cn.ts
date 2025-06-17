@@ -15,4 +15,6 @@ export const translations = {
   windsOfDecay: '千年狂风',
   greatWhirlwind: '大龙卷风',
   trackingTremors: '连震击',
+  greatDivide: '一刀两断',
+  terrestrialTitans: '大地的呼唤',
 }

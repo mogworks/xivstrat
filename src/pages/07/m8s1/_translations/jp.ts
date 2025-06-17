@@ -15,4 +15,6 @@ export const translations = {
   windsOfDecay: '千年の大風',
   greatWhirlwind: '大旋風',
   trackingTremors: '連震撃',
+  greatDivide: '一刀両断',
+  terrestrialTitans: '大地の呼び声',
 }
