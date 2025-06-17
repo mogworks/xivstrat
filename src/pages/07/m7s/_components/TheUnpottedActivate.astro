@@ -8,6 +8,7 @@ import Span from '@/components/Span.vue'
 import EventSection from '@/components/section/EventSection.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import Badge from '@/components/Badge.astro'
+import { translations } from '../_translations'
 
 import BruteAbombinator from './BruteAbombinator.astro'
 
@@ -17,6 +18,7 @@ interface Props {
 }
 
 const { time, base = 0 }: Props = Astro.props
+const theUnpotted = translations.theUnpotted
 ---
 
 <EventSection time={time} base={base}>
@@ -24,7 +26,7 @@ const { time, base = 0 }: Props = Astro.props
   对
   <RoleIcon role="all" tag="所有人" />
   发动
-  <Span variant="yellow">The Unpotted</Span>
+  <Span variant="yellow">{theUnpotted}</Span>
   <DamageInfo damage="78000" type="magical" />
   <MagicVulnerabilityUp tag="2" hover />
   <Badge variant="emerald">25°扇形</Badge>

@@ -37,6 +37,7 @@ import wingmark from '@/assets/07/m6s/wingmark.png'
 import color_clash_44 from '@/assets/07/m6s/double_style/color_clash_44.png'
 import color_clash_22 from '@/assets/07/m6s/double_style/color_clash_22.png'
 import color_clash_22_optimize from '@/assets/07/m6s/double_style/color_clash_22_optimize.png'
+import { translations } from '../_translations'
 
 interface Props {
   base: Time
@@ -55,6 +56,8 @@ const solutions = [
   },
 ]
 const defaultSolution = '解法：常规站位'
+
+const { ColorClash, DoubleStyle } = translations
 ---
 
 <DoubleStyleCast start="00:45.493" base={base} duration={12.6} />
@@ -85,7 +88,7 @@ const defaultSolution = '解法：常规站位'
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Double Style</Span>
+      <Span variant="yellow">{DoubleStyle}</Span>
     </h4>
     <div class="paragraph">
       <SugarRiot />
@@ -260,21 +263,21 @@ const defaultSolution = '解法：常规站位'
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       在
-      <Span variant="yellow">Double Style</Span>
+      <Span variant="yellow">{DoubleStyle}</Span>
       图案效果判定前，
       <WingmarkDebuff hover />
       也会判定，强制让玩家飞行一段距离
     </div>
     <div class="paragraph">
       由于
-      <Span variant="yellow">Double Style</Span>
+      <Span variant="yellow">{DoubleStyle}</Span>
       会让场地只有一角安全，玩家需要预先调整位置，让自己飞到安全角落
     </div>
     <div class="paragraph">
       接着
-      <Span variant="yellow">Color Clash</Span>
+      <Span variant="yellow">{ColorClash}</Span>
       会和
-      <Span variant="yellow">Double Style</Span>
+      <Span variant="yellow">{DoubleStyle}</Span>
       几乎同时发动，玩家需要在安全角落处理四四/二二分摊
     </div>
   </div>

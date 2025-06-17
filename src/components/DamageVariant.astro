@@ -1,0 +1,23 @@
+---
+import Icon from '@/components/Icon.astro'
+import { damageVariantIconMap as map, type DamageVariantType } from '@/lib/damage_variant'
+
+interface Props {
+  variant?: DamageVariantType
+  variants?: DamageVariantType[]
+}
+
+const { variant = undefined, variants = [] }: Props = Astro.props
+
+const single = variant !== undefined
+---
+
+{
+  single ? (
+    <Icon img={map[variant]} alt="" iconClass="scale-150" />
+  ) : (
+    variants.map((v) => {
+      return <Icon img={map[v]} alt="" iconClass="scale-150" />
+    })
+  )
+}

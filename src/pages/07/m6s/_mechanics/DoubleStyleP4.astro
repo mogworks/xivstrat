@@ -37,16 +37,19 @@ import spread_1 from '@/assets/07/m6s/double_style_p4/solution/spread_1.png'
 import spread_2 from '@/assets/07/m6s/double_style_p4/solution/spread_2.png'
 import spread_to_stack_1 from '@/assets/07/m6s/double_style_p4/solution/spread_to_stack_1.png'
 import spread_to_stack_2 from '@/assets/07/m6s/double_style_p4/solution/spread_to_stack_2.png'
+import { translations } from '../_translations'
 
 interface Props {
   base: Time
 }
 
 const { base = 0 }: Props = Astro.props
+
+const { TasteofFire, TasteofThunder, Rush, DoubleStyle, SingleStyle, Sugarscape } = translations
 ---
 
 <DoubleStyleCast start="07:23.731" base={base} duration={6.6} />
-<CastSection start="07:32.868" base={base} duration={0.7} ability="Rush">
+<CastSection start="07:32.868" base={base} duration={0.7} ability={Rush}>
   <RoleIcon slot="source" role="enemy_level1">
     <Span variant="rose">绘画图案：箭矢</Span>
   </RoleIcon>
@@ -57,7 +60,7 @@ const { base = 0 }: Props = Astro.props
   <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
   <ul class="list-none space-y-4">
     <li class="flex items-center gap-1 text-lg">
-      <Span variant="yellow">Taste of Fire</Span>
+      <Span variant="yellow">{TasteofFire}</Span>
       伤害判定
       <DamageInfo damage="130000" type="magical" />
       <MagicVulnerabilityUp tag="2" hover />
@@ -65,7 +68,7 @@ const { base = 0 }: Props = Astro.props
       <Badge variant="yellow">四四分摊</Badge>
     </li>
     <li class="flex items-center gap-1 text-lg">
-      <Span variant="yellow">Taste of Thunder</Span>
+      <Span variant="yellow">{TasteofThunder}</Span>
       伤害判定
       <DamageInfo damage="130000" type="magical" />
       <MagicVulnerabilityUp tag="2" hover />
@@ -77,7 +80,7 @@ const { base = 0 }: Props = Astro.props
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Double Style</Span>
+      <Span variant="yellow">{DoubleStyle}</Span>
     </h4>
     <div class="paragraph">
       <SugarRiot />
@@ -97,7 +100,7 @@ const { base = 0 }: Props = Astro.props
       的四四分摊，
       <Span variant="pink">站入溪流中时</Span>
       ，受到
-      <Span variant="yellow">Taste of Fire</Span>
+      <Span variant="yellow">{TasteofFire}</Span>
       <DamageInfo damage="130000" type="magical" />
       <MagicVulnerabilityUp tag="2" hover />
       （四人分摊）
@@ -115,7 +118,7 @@ const { base = 0 }: Props = Astro.props
       的八人分散，
       <Span variant="pink">不站入溪流中时</Span>
       ，受到
-      <Span variant="yellow">Taste of Thunder</Span>
+      <Span variant="yellow">{TasteofThunder}</Span>
       <DamageInfo damage="130000" type="magical" />
       <MagicVulnerabilityUp tag="2" hover />
     </div>
@@ -128,15 +131,15 @@ const { base = 0 }: Props = Astro.props
     <div class="paragraph">
       <ListDot />
       箭矢：和
-      <StratLink variant="yellow" href="/07/m6s/p3#single-style">Single Style</StratLink>
+      <StratLink variant="yellow" href="/07/m6s/p3#single-style">{SingleStyle}</StratLink>
       机制中一样，形成井字形AoE（见下文）
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Rush</Span>
+      <Span variant="yellow">{Rush}</Span>
     </h4>
     <div class="paragraph">
       箭矢出现后，读条
-      <Span variant="yellow">Rush</Span>
+      <Span variant="yellow">{Rush}</Span>
       <DamageInfo damage="170000" type="physical" />
       <DamageDown tag="30" />
       <Span variant="rose" class="text-decimal">30%↓</Span>
@@ -179,7 +182,7 @@ const { base = 0 }: Props = Astro.props
     <div class="paragraph mt-8">
       <SugarRiot />
       读条
-      <StratLink variant="yellow" href="#sugarscape">Sugarscape</StratLink>
+      <StratLink variant="yellow" href="#sugarscape">{Sugarscape}</StratLink>
       后，
       <RoleIcon role="tank" tag="MT" />
       迅速将
@@ -197,16 +200,16 @@ const { base = 0 }: Props = Astro.props
       注意一定要在
       <SugarRiot />
       读条
-      <StratLink variant="yellow" href="#sugarscape">Sugarscape</StratLink>
+      <StratLink variant="yellow" href="#sugarscape">{Sugarscape}</StratLink>
       后立刻带位，等读条
-      <Span variant="yellow">Double Style</Span>
+      <Span variant="yellow">{DoubleStyle}</Span>
       就来不及了
     </div>
     <div class="paragraph">
       接着
       <SugarRiot />
       读条
-      <Span variant="yellow">Double Style</Span>
+      <Span variant="yellow">{DoubleStyle}</Span>
       ，我们视情况采取不同策略
     </div>
     <h4 class="mt-12 text-2xl"><Span variant="lime">火焰 + 箭矢</Span></h4>

@@ -62,7 +62,6 @@ import solution_op from '@/assets/07/m8s1/millennial_decay/solution_op.png'
 import StratLink from '@/components/StratLink.astro'
 
 interface Props {
-  time: Time
   base?: Time
 }
 
@@ -74,7 +73,7 @@ const prowlingGale = translations.prowlingGale
 const windsOfDecay = translations.windsOfDecay
 const greatWhirlwind = translations.greatWhirlwind
 
-const { time, base = 0 }: Props = Astro.props
+const { base = 0 }: Props = Astro.props
 
 const solutions = [
   {
@@ -89,7 +88,7 @@ const solutions = [
 const defaultSolution = '解法：IQ6000【改】'
 ---
 
-<MillennialDecayCast start={time} base={base} />
+<MillennialDecayCast start="01:01.456" base={base} />
 <AeroIIICast start="01:12.135" base={base} />
 <BreathOfDecayCast start="01:10.623" base={base} order={1} />
 <GustEvent time="01:19.081" base={base} />

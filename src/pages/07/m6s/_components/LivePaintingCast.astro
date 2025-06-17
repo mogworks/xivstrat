@@ -4,6 +4,7 @@ import type { Time } from '@/lib/utils'
 import CastSection from '@/components/section/CastSection.astro'
 
 import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -12,9 +13,10 @@ interface Props {
 }
 
 const { start, base = 0, class: className }: Props = Astro.props
+const LivePainting = translations.LivePainting
 ---
 
-<CastSection start={start} base={base} duration={3.7} ability="Live Painting" class={className}>
+<CastSection start={start} base={base} duration={3.7} ability={LivePainting} class={className}>
   <SugarRiot slot="source" />
   <slot />
 </CastSection>
