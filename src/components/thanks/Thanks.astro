@@ -1,11 +1,20 @@
 ---
+import { Image } from 'astro:assets'
+
+import { cn } from '@/lib/utils'
+
 import DefaultAvatarSVG from '@/assets/svg/default-avatar.svg'
 
 import AreaBox from '@/components/AreaBox.astro'
 import DevSimpleProfile from '@/components/thanks/DevSimpleProfile.astro'
-import Separator from '../Separator.astro'
+import Separator from '@/components/Separator.astro'
+
+import MMWLogo from '@/assets/developer/group/MMW.png'
+import MGLLogo from '@/assets/developer/group/MGL.png'
+import SPJPLogo from '@/assets/developer/SuperJump.png'
 
 interface Props {
+  groupList: string[]
   devList: string[]
   other: {
     type: string
@@ -14,10 +23,35 @@ interface Props {
   }[]
 }
 
-const { devList, other }: Props = Astro.props
+const { groupList, devList, other }: Props = Astro.props
+
+const hasMGL = groupList?.map((item) => item.toUpperCase())?.includes('MGL')
+const hasMMW = groupList?.map((item) => item.toUpperCase())?.includes('MMW')
+const hasSPJP = groupList?.map((item) => item.toUpperCase())?.includes('SPJP')
 ---
 
 <div class="flex flex-col gap-4">
+  <AreaBox>
+    <p class="flex items-center gap-1 font-bold opacity-90">
+      <DefaultAvatarSVG class="inline-block w-6" />
+      攻略制作
+    </p>
+    <Separator class="my-2 mb-0" />
+    <div class="-mb-4 flex items-center">
+      {
+        hasMMW && (
+          <Image
+            src={MMWLogo}
+            draggable="false"
+            alt="MMW"
+            class={cn('blur-20 -ml-5 w-36 pt-2 first:-ml-5', hasMGL && '-mr-8')}
+          />
+        )
+      }
+      {hasMGL && <Image src={MGLLogo} draggable="false" alt="MGL" class="-mr-2 w-32 first:-ml-5" />}
+      {hasSPJP && <Image src={SPJPLogo} draggable="false" alt="Super Jump" class="w-20" />}
+    </div>
+  </AreaBox>
   <AreaBox>
     <p class="flex items-center gap-1 font-bold opacity-90">
       <DefaultAvatarSVG class="inline-block w-6" />

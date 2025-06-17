@@ -1,4 +1,5 @@
 export const thanksList = {
+  groupList: ['MMW', 'MGL', 'SPJP'],
   devList: [
     'SuperJump',
     'DavidKitano',

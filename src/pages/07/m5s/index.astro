@@ -82,7 +82,7 @@ const navList = [
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="thanks" client:idle class="w-full">
-    <Thanks devList={thanksList.devList} other={thanksList.other ?? []} />
+    <Thanks devList={thanksList.devList} other={thanksList.other ?? []} groupList={thanksList.groupList} />
     <Fragment slot="header">
       <span>鸣谢</span>
     </Fragment>
