@@ -44,6 +44,10 @@ jobs:
       - name: Install frontend dependencies
         run: pnpm install --no-frozen-lockfile
 
+      - name: Generate Tauri icons
+        run: |
+          pnpm tauri icon src-tauri/icons/icon.png || true
+
       - name: Build Tauri app
         uses: tauri-apps/tauri-action@v0
         env:
@@ -61,8 +65,8 @@ jobs:
         with:
           name: ${{ matrix.platform }}-build
           path: |
-            src-tauri/target/release/bundle/**/*.dmg
-            src-tauri/target/release/bundle/**/*.msi
-            src-tauri/target/release/bundle/**/*.exe
-            src-tauri/target/release/bundle/**/*.app
+            src-tauri/target/*/release/bundle/**/*.dmg
+            src-tauri/target/*/release/bundle/**/*.msi
+            src-tauri/target/*/release/bundle/**/*.exe
+            src-tauri/target/*/release/bundle/**/*.app.tar.gz
           retention-days: 5
