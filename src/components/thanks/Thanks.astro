@@ -1,0 +1,50 @@
+---
+import DefaultAvatarSVG from '@/assets/svg/default-avatar.svg'
+
+import AreaBox from '@/components/AreaBox.astro'
+import DevSimpleProfile from '@/components/thanks/DevSimpleProfile.astro'
+import Separator from '../Separator.astro'
+
+interface Props {
+  devList: string[]
+  other: {
+    type: string
+    label: string
+    link?: string
+  }[]
+}
+
+const { devList, other }: Props = Astro.props
+---
+
+<div class="flex flex-col gap-4">
+  <AreaBox>
+    <p class="flex items-center gap-1">
+      <DefaultAvatarSVG class="inline-block w-6" />
+      莫古力工坊
+    </p>
+    <Separator class="my-2 mb-0" />
+    {devList.map((devId) => <DevSimpleProfile targetId={devId} />)}
+  </AreaBox>
+  {
+    other && other.length > 0 && (
+      <AreaBox>
+        <p class="flex items-center gap-1">
+          <DefaultAvatarSVG class="inline-block w-6" />
+          其它协力
+        </p>
+        <Separator class="my-2 mb-1.5" />
+        <ol>
+          {other.map((user) => (
+            <li>
+              {user.type}:
+              <a href={user.link ?? '#'} target="_blank" class="italic hover:underline">
+                {user.label}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </AreaBox>
+    )
+  }
+</div>
