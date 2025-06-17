@@ -14,4 +14,5 @@ export const translations = {
   prowlingGale: '风狼阵',
   windsOfDecay: '千年狂风',
   greatWhirlwind: '大旋风',
+  trackingTremors: '连震击',
 }
