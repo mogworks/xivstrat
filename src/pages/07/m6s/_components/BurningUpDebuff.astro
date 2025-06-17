@@ -2,6 +2,7 @@
 import Buff from '@/components/Buff.astro'
 
 import burning_up from '@/assets/buff/07/m6s/214288.png'
+import { translations } from '../_translations'
 
 interface Props {
   tag?: string
@@ -10,13 +11,14 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const { BurningUp, BurningUpDescription } = translations
 ---
 
 <Buff
   icon={burning_up}
-  name="Burning Up"
+  name={BurningUp}
   nameVariant="yellow"
-  description="Getting hotter by the moment, resulting in damage to those nearby when this effect expires."
+  description={BurningUpDescription}
   tag={tag}
   hover={hover}
   class={className}

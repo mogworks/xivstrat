@@ -5,6 +5,7 @@ import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
 import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -13,13 +14,14 @@ interface Props {
 }
 
 const { start, base = 0, ...rest }: Props = Astro.props
+const MousseMural = translations.MousseMural
 ---
 
 <CastSection
   start={start}
   base={base}
   duration={4.7}
-  ability="Mousse Mural"
+  ability={MousseMural}
   target
   damage="180000"
   damageType="magical"

@@ -20,10 +20,10 @@ const { time, base = 0, num }: Props = Astro.props
 const strangeseeds = translations.strangeSeeds
 
 const color: Record<number, VariantType> = {
-  1: 'pink',
+  1: 'red',
   2: 'orange',
-  3: 'cyan',
-  4: 'indigo',
+  3: 'blue',
+  4: 'purple',
 }
 ---
 
@@ -35,4 +35,5 @@ const color: Record<number, VariantType> = {
   <MagicVulnerabilityUp tag="7" hover />
   <Badge variant="emerald">6m圆形</Badge>
   <Badge variant="yellow">分散</Badge>
+  <Badge variant="sky">放冰花</Badge>
 </EventSection>

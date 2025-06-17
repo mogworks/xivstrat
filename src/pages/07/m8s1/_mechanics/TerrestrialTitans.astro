@@ -1,83 +1,60 @@
 ---
-import { Image } from 'astro:assets'
-
 import type { Time } from '@/lib/utils'
 
-import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import P from '@/components/typography/P.astro'
 
 import TerrestrialTitansCast from '../_components/TerrestrialTitansCast.astro'
 import TitanicPursuitCast from '../_components/TitanicPursuitCast.astro'
 import BareFangsEvent from '../_components/BareFangsEvent.astro'
-import Towerfall from '../_components/Towerfall.astro'
+import TowerfallActivate from '../_components/TowerfallActivate.astro'
 
-import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import { translations } from '../_translations'
 
-import tmp from '@/assets/07/m8s1/Tmp.png'
+import FangedCrossingCast from '../_components/FangedCrossingCast.astro'
 
 interface Props {
-  time: Time
   base?: Time
 }
 
-const terrestrialTitans = '大地の呼び声' //召唤柱子
-const titanicPursuit = '斬空劍' //切断柱子+全屏aoe
-const towerfall = 'Towerfall' //柱子倒下
-const bareFangs = '光牙招来' //召唤光牙
+const {
+  terrestrialTitans, // 召唤柱子 5m半径，离场中7m
+  titanicPursuit, // 切断柱子+全屏aoe
+  fangedCrossing,
+} = translations
 
-const { time, base = 0 }: Props = Astro.props
+const { base = 0 }: Props = Astro.props
 ---
 
-<TerrestrialTitansCast start="02:14.825" />
-<TitanicPursuitCast start="02:21.940" />
-<BareFangsEvent time="02:26.654" />
-<Towerfall time="02:33.543" />
+<TerrestrialTitansCast start="02:14.825" base={base} />
+<TitanicPursuitCast start="02:21.940" base={base} />
+<BareFangsEvent time="02:26.654" base={base} />
+<TowerfallActivate time="02:33.543" base={base} />
+<FangedCrossingCast start="02:29.940" base={base} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
-      <Span variant="yellow">{terrestrialTitans} </Span>
-    </div>
+    <T>
+      <Skill name={terrestrialTitans} />
+    </T>
+    <P>TODO</P>
 
-    <div class="paragraph">
-      <HowlingBlade />
-      读条
-      <Span variant="yellow">{terrestrialTitans} </Span>
-      在场地南北或东西两侧各召唤一根柱子，随后读条
-      <Span variant="yellow">{titanicPursuit} </Span>
-    </div>
-    <div class="paragraph">造成少量AoE伤害并且斩断柱子，此时柱子上会有一根蓝色的线，稍后柱子会沿着此线向两侧倒去。</div>
+    <T class="mt-8">
+      <Skill name={titanicPursuit} />
+    </T>
+    <P>TODO</P>
 
-    <div class="paragraph">
-      之后，
-      <HowlingBlade />
-      会在没有柱子的两侧各召唤一个释放十字AoE的光牙。两个光牙必定是分别打正点和斜点。
-    </div>
-    <div class="paragraph">随后柱子倒下的伤害和光牙的AoE同时伤害判定。</div>
+    <T class="mt-8">
+      <Skill name={fangedCrossing} />
+    </T>
+    <P>TODO</P>
   </div>
 </MechanicSection>
 
 <SolutionSection>
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">此机制的安全区一定是四个斜点也就是数字标点处。</div>
-
-    <div class="paragraph">我们需要先躲开地上的柱子，随后AoE闪过之后柱子上的蓝线会先出现。此时观察蓝线，</div>
-
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-    </div>
-
-    <div class="paragraph">蓝线正对的两个数字标点会成为备选的安全区。看向其中一个安全区，等待光牙出现。</div>
-
-    <div class="paragraph">随后观察光牙是否覆盖标点，如果没有被覆盖，那么此处便是安全区。</div>
-
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={tmp} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-    </div>
-
-    <div class="paragraph">如果被覆盖，那对面必定是安全区。举个例子，蓝线出现，正对着1点和3点，</div>
-
-    <div class="paragraph">此时看向1点，等光牙出现。如果光牙的AoE会覆盖1点，那么3点便是安全区。</div>
-  </div>
+  <div class="flex flex-col gap-4">TODO</div>
 </SolutionSection>
