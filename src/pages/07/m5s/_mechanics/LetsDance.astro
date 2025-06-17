@@ -15,6 +15,7 @@ import DamageDown from '@/components/buff/DamageDown.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 import CastSection from '@/components/section/CastSection.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
@@ -62,40 +63,50 @@ const defaultSolution = '解法：日野主流'
 <CastSection start={start} base={base} duration={5.5} ability="Let's Dance!">
   <Badge variant="yellow">连续左右刀</Badge>
 </CastSection>
-{
-  wavelengthTimes.map((time, index) => (
-    <EventSection time={time} base={base}>
-      第{index + 1}组
-      <Wavelength type="α" hover />
-      <Wavelength type="β" hover />
-      范围检定
-      <Separator orientation="vertical" class="mx-1 h-28 w-0.5 bg-teal-500" />
-      <ul class="list-none space-y-4">
-        <li class="flex items-center gap-1 text-lg">
-          <span class="text-sm opacity-80">正确</span>
-          <Span variant="yellow">Minor Freak Out</Span>
-          <DamageInfo damage="30000" type="magical" />
-          <MagicVulnerabilityUp tag="19" hover />
-          <Badge variant="green">小范围AoE</Badge>
-        </li>
-        <li class="flex items-center gap-1 text-lg">
-          <span class="text-sm opacity-80">错误</span>
-          <Span variant="yellow">Freak Out</Span>
-          <DamageInfo damage="100000" type="magical" />
-          <SustainedDamage tag="15" hover />
-          <DotInfo damage="30000" />
-          <Badge variant="purple">单体</Badge>
-        </li>
-        <li class="flex items-center gap-1 text-lg">
-          <span class="text-sm opacity-80">寄了</span>
-          <Span variant="yellow">Major Freak Out</Span>
-          <DamageInfo damage=">1000000" type="magical" />
-          <Badge variant="red">团灭</Badge>
-        </li>
-      </ul>
-    </EventSection>
-  ))
-}
+<CollapseSection>
+  <Fragment slot="summary">
+    场外青蛙发动8次左/右半场刀，同时对玩家进行4次
+    <Wavelength type="α" hover />
+    <Wavelength type="β" hover />
+    范围检定
+  </Fragment>
+  <Fragment slot="details">
+    {
+      wavelengthTimes.map((time, index) => (
+        <EventSection time={time} base={base}>
+          第{index + 1}组
+          <Wavelength type="α" hover />
+          <Wavelength type="β" hover />
+          范围检定
+          <Separator orientation="vertical" class="mx-1 h-28 w-0.5 bg-teal-500" />
+          <ul class="list-none space-y-4">
+            <li class="flex items-center gap-1 text-lg">
+              <span class="text-sm opacity-80">正确</span>
+              <Span variant="yellow">Minor Freak Out</Span>
+              <DamageInfo damage="30000" type="magical" />
+              <MagicVulnerabilityUp tag="19" hover />
+              <Badge variant="green">小范围AoE</Badge>
+            </li>
+            <li class="flex items-center gap-1 text-lg">
+              <span class="text-sm opacity-80">错误</span>
+              <Span variant="yellow">Freak Out</Span>
+              <DamageInfo damage="100000" type="magical" />
+              <SustainedDamage tag="15" hover />
+              <DotInfo damage="30000" />
+              <Badge variant="purple">单体</Badge>
+            </li>
+            <li class="flex items-center gap-1 text-lg">
+              <span class="text-sm opacity-80">寄了</span>
+              <Span variant="yellow">Major Freak Out</Span>
+              <DamageInfo damage=">1000000" type="magical" />
+              <Badge variant="red">团灭</Badge>
+            </li>
+          </ul>
+        </EventSection>
+      ))
+    }
+  </Fragment>
+</CollapseSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">

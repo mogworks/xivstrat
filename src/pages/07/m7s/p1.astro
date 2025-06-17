@@ -1,9 +1,12 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
+import CollapseSection from '@/components/section/CollapseSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import Span from '@/components/Span.vue'
 
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
@@ -37,12 +40,22 @@ const base = 0
   <AttackSection time="00:03.832" base={base} damage="57000" damageType="physical" />
   <SeparatorSection id="BrutalImpact" title="Brutal Impact" />
   <BrutalImpactCast start="00:05.165" base={base} toln={6} />
-  <BrutalImpactActivate time="00:10.381" base={base} num={1} />
-  <BrutalImpactActivate time="00:11.451" base={base} num={2} />
-  <BrutalImpactActivate time="00:12.521" base={base} num={3} />
-  <BrutalImpactActivate time="00:13.589" base={base} num={4} />
-  <BrutalImpactActivate time="00:14.657" base={base} num={5} />
-  <BrutalImpactActivate time="00:15.727" base={base} num={6} />
+  <CollapseSection>
+    <Fragment slot="summary">
+      <BruteAbombinator />
+      连续释放<Span variant="pink">6</Span>次AoE，每轮伤害
+      <DamageInfo damage="60000" type="physical" />
+    </Fragment>
+    <Fragment slot="details">
+      <BrutalImpactActivate time="00:10.381" base={base} num={1} />
+      <BrutalImpactActivate time="00:11.451" base={base} num={2} />
+      <BrutalImpactActivate time="00:12.521" base={base} num={3} />
+      <BrutalImpactActivate time="00:13.589" base={base} num={4} />
+      <BrutalImpactActivate time="00:14.657" base={base} num={5} />
+      <BrutalImpactActivate time="00:15.727" base={base} num={6} /></Fragment
+    >
+  </CollapseSection>
+
   <BrutalImpact base={base} />
   <AttackSection time="00:18.577" base={base} damage="57000" damageType="physical" />
 
