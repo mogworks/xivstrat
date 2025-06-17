@@ -20,4 +20,5 @@ export const translations = {
   titanicPursuit: '斬空剣',
   towerfall: '倒壊',
   bareFangs: '光牙招来',
+  fangedCrossing: '十字光牙',
 }
