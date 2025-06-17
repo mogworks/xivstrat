@@ -32,7 +32,7 @@ const navList = [
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
   <Fragment slot="operation">
-    <CheatsheetDialog slot="operation">
+    <CheatsheetDialog client:idle>
       <AreaBox class="h-full w-fit">
         <Image
           src={CheatsheetsImage}
