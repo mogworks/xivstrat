@@ -4,5 +4,7 @@
   "permissions": [
     "core:default",
     "shell:allow-open"
-  ]
+  ],
+  "windows": ["main"],
+  "webviews": ["main"]
 }

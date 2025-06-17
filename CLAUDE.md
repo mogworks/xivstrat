@@ -1,7 +1,7 @@
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
+请始终使用中文.
 ## Project Overview
 
 XivStrat is a Final Fantasy XIV strategy guide website built with Astro, Vue 3, TailwindCSS, and PixiJS. It provides detailed raid guides with interactive visualizations starting from patch 7.2.
