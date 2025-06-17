@@ -404,9 +404,6 @@ const { start, base = 0 }: Props = Astro.props
 </NoteSection>
 
 <script>
-  const mechanicToggle = document.getElementById('xfang-mechanic-toggle') as HTMLInputElement
-  const solutionToggle = document.getElementById('xfang-solution-toggle') as HTMLInputElement
-
   function toggleTables(omenId: string, activateId: string, showActivate: boolean) {
     const omenTable = document.getElementById(omenId)
     const activateTable = document.getElementById(activateId)
@@ -422,15 +419,13 @@ const { start, base = 0 }: Props = Astro.props
     }
   }
 
-  if (mechanicToggle) {
-    mechanicToggle.addEventListener('change', function () {
-      toggleTables('xfang-mechanic-omen', 'xfang-mechanic-activate', this.checked)
-    })
-  }
+  document.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement
 
-  if (solutionToggle) {
-    solutionToggle.addEventListener('change', function () {
-      toggleTables('xfang-solution-omen', 'xfang-solution-activate', this.checked)
-    })
-  }
+    if (target && target.id === 'xfang-mechanic-toggle') {
+      toggleTables('xfang-mechanic-omen', 'xfang-mechanic-activate', target.checked)
+    } else if (target && target.id === 'xfang-solution-toggle') {
+      toggleTables('xfang-solution-omen', 'xfang-solution-activate', target.checked)
+    }
+  })
 </script>
