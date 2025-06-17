@@ -1,7 +1,7 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use tauri::{Manager, WebviewUrl};
+use tauri::Manager;
 
 fn main() {
     tauri::Builder::default()
@@ -9,53 +9,26 @@ fn main() {
         .setup(|app| {
             let window = app.get_webview_window("main").unwrap();
             
-            // Handle navigation (when user navigates within the webview)
-            let window_clone = window.clone();
-            window.on_navigation(move |url| {
-                // Allow navigation within the app
-                if url.scheme() == "http" || url.scheme() == "https" {
-                    // Check if it's the local dev server or production build
-                    if url.host_str() == Some("localhost") 
-                        || url.host_str() == Some("127.0.0.1")
-                        || url.scheme() == "tauri" {
-                        return true;
-                    }
-                    // Open external links in the default browser
-                    if let Err(e) = webbrowser::open(url.as_str()) {
-                        eprintln!("Failed to open URL in browser: {}", e);
-                    }
-                    return false;
-                }
-                true
-            });
-            
-            // Handle new window requests (target="_blank" links)
-            window.on_window_event(move |event| {
-                if let tauri::WindowEvent::WebviewWindowCreated { label, webview_window } = event {
-                    // Get the URL that's trying to open
-                    if let Ok(url) = webview_window.url() {
-                        // Open in default browser instead of new window
-                        if url.scheme() == "http" || url.scheme() == "https" {
-                            if let Err(e) = webbrowser::open(url.as_str()) {
-                                eprintln!("Failed to open URL in browser: {}", e);
-                            }
-                            // Close the newly created window
-                            let _ = webview_window.close();
-                        }
-                    }
-                }
-            });
-            
             // Inject JavaScript to handle all external links
             window.eval(r#"
-                (function() {
+                // Wait for the page to load
+                window.addEventListener('DOMContentLoaded', function() {
                     // Override window.open
                     const originalOpen = window.open;
                     window.open = function(url, target, features) {
                         if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
-                            // For external URLs, use shell open
-                            window.__TAURI__.shell.open(url);
-                            return null;
+                            // Check if it's an external URL
+                            try {
+                                const urlObj = new URL(url);
+                                const currentHost = window.location.hostname;
+                                if (urlObj.hostname !== currentHost && currentHost !== 'localhost' && currentHost !== '127.0.0.1') {
+                                    // For external URLs, use shell open
+                                    window.__TAURI__.shell.open(url);
+                                    return null;
+                                }
+                            } catch (e) {
+                                // If URL parsing fails, let it proceed normally
+                            }
                         }
                         return originalOpen.call(this, url, target, features);
                     };
@@ -69,19 +42,55 @@ fn main() {
                         
                         if (target && target.tagName === 'A') {
                             const href = target.getAttribute('href');
-                            const targetAttr = target.getAttribute('target');
                             
                             if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
                                 // Check if it's an external link
-                                const url = new URL(href);
-                                if (url.hostname !== window.location.hostname) {
-                                    e.preventDefault();
-                                    window.__TAURI__.shell.open(href);
+                                try {
+                                    const url = new URL(href, window.location.href);
+                                    const currentHost = window.location.hostname;
+                                    if (url.hostname !== currentHost && currentHost !== 'localhost' && currentHost !== '127.0.0.1') {
+                                        e.preventDefault();
+                                        window.__TAURI__.shell.open(href);
+                                    }
+                                } catch (err) {
+                                    // If URL parsing fails, let the default behavior happen
+                                    console.error('Failed to parse URL:', err);
                                 }
                             }
                         }
                     }, true);
-                })();
+                    
+                    // Also handle dynamically added links
+                    const observer = new MutationObserver(function(mutations) {
+                        mutations.forEach(function(mutation) {
+                            mutation.addedNodes.forEach(function(node) {
+                                if (node.nodeType === 1) { // Element node
+                                    // Check if it's a link or contains links
+                                    const links = node.tagName === 'A' ? [node] : (node.querySelectorAll ? node.querySelectorAll('a') : []);
+                                    links.forEach(function(link) {
+                                        const href = link.getAttribute('href');
+                                        if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+                                            link.addEventListener('click', function(e) {
+                                                try {
+                                                    const url = new URL(href, window.location.href);
+                                                    const currentHost = window.location.hostname;
+                                                    if (url.hostname !== currentHost && currentHost !== 'localhost' && currentHost !== '127.0.0.1') {
+                                                        e.preventDefault();
+                                                        window.__TAURI__.shell.open(href);
+                                                    }
+                                                } catch (err) {
+                                                    console.error('Failed to parse URL:', err);
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    });
+                    
+                    observer.observe(document.body, { childList: true, subtree: true });
+                });
             "#).unwrap();
             
             Ok(())
