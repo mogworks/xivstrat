@@ -14,22 +14,29 @@ import SpecialBombarianSpecial from './_mechanics/SpecialBombarianSpecial.astro'
 import { translations } from './_translations'
 import Stoneringer2First from './_mechanics/Stoneringer2First.astro'
 import Stoneringer2Second from './_mechanics/Stoneringer2Second.astro'
-import PulpSmashCast from './_components/PulpSmashCast.astro'
-import TheUnpottedActivate from './_components/TheUnpottedActivate.astro'
+
 import SinisterSeedsP3 from './_mechanics/SinisterSeedsP3.astro'
 import StoneringerCast from './_components/StoneringerCast.astro'
 import SmashHereCast from './_components/SmashHereCast.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
-import SinisterSeedsCast from './_components/SinisterSeedsCast.astro'
+
 import BrutishSwingActivate from './_components/BrutishSwingActivate.astro'
 import SmashActivate from './_components/SmashActivate.astro'
 import DebrisDeathmatch from './_mechanics/DebrisDeathmatch.astro'
+
+import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 
 const dutyId = '07/m7s'
 const base = '06:16.310'
 const sinisterSeeds = translations.sinisterSeeds
 const specialBombarianSpecial = translations.specialBombarianSpecial
 const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
+const revengeOfTheVines = translations.revengeOfTheVines
+const glowerPower = translations.glowerPower
+const brutalImpact = translations.brutalImpact
+const stoneringer = translations.stoneringer
+const debrisDeathmatch = translations.debrisDeathmatch
+const strangeSeeds = translations.strangeSeeds
+const sporeSac = translations.sporeSac
 ---
 
 <DutyStratLayout dutyId={dutyId}>
@@ -45,7 +52,7 @@ const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
     <Fragment slot="summary">
       <BruteAbombinator />
       连续释放<Span variant="pink">7</Span>次AoE，每轮伤害
-      <DamageInfo damage="60000" type="physical" />
+      <DamageInfo damage="55000" type="physical" />
     </Fragment>
     <Fragment slot="details">
       <BrutalImpactActivate time="06:21.518" base={base} num={1} />
@@ -59,17 +66,18 @@ const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
   </CollapseSection>
   <AttackSection time="06:30.789" base={base} damage="57000" damageType="physical" />
 
-  <SeparatorSection id="S2RG" title="Stoneringer2: Stoneringers + Revenge of the Vines + Glower Power" />
+  <SeparatorSection id="S2RG" title=`${stoneringer2Stoneringers} + ${revengeOfTheVines} + ${glowerPower}` />
+  <MoveToCenterEvent time="06:31.100" base={base} />
   <Stoneringer2First time="06:33.194" base={base} />
 
-  <SeparatorSection title="Brutal Impact" />
+  <SeparatorSection title={brutalImpact} />
   <AttackSection time="07:15.515" base={base} damage="57000" damageType="physical" />
   <BrutalImpactCast start="07:16.318" base={base} toln={8} />
   <CollapseSection>
     <Fragment slot="summary">
       <BruteAbombinator />
       连续释放<Span variant="pink">8</Span>次AoE，每轮伤害
-      <DamageInfo damage="60000" type="physical" />
+      <DamageInfo damage="55000" type="physical" />
     </Fragment>
     <Fragment slot="details">
       <BrutalImpactActivate time="07:21.535" base={base} num={1} />
@@ -82,7 +90,7 @@ const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
       <BrutalImpactActivate time="07:29.028" base={base} num={8} />
     </Fragment>
   </CollapseSection>
-  <SeparatorSection title="Stoneringer" />
+  <SeparatorSection title={stoneringer} />
   <StoneringerCast start="07:32.145" base={base} />
   <SmashHereCast start="07:39.990" base={base} />
   <BrutishSwingActivate time="07:43.955" base={base} />
@@ -91,34 +99,19 @@ const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
   <AttackSection time="07:47.962" base={base} damage="57000" damageType="physical" />
   <AttackSection time="07:50.993" base={base} damage="57000" damageType="physical" />
 
-  <SeparatorSection id="debris-deathmatch" title="Debris Deathmatch" />
-  <AttackSection time="08:06.365" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="08:09.393" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="08:12.422" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="08:15.457" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="08:18.484" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="08:21.516" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="08:24.549" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="08:27.580" base={base} damage="57000" damageType="physical" />
+  <SeparatorSection id="debris-deathmatch-sporesac" title={`${debrisDeathmatch} + {$sporeSac}`} />
   <DebrisDeathmatch base={base} />
 
-  <SeparatorSection id="sinister-seeds" title="Sinister Seeds" />
-  <SinisterSeedsCast start="08:39.830" base={base} />
-  <AttackSection time="08:46.643" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="08:49.674" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="08:52.703" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="08:55.732" base={base} damage="57000" damageType="physical" />
-  <PulpSmashCast start="08:56.980" base={base} />
-  <TheUnpottedActivate time="09:04.019" base={base} />
+  <SeparatorSection id="sinister-seeds" title={sinisterSeeds} />
   <SinisterSeedsP3 base={base} />
 
-  <SeparatorSection title="Brutal Impact" />
+  <SeparatorSection title={brutalImpact} />
   <BrutalImpactCast start="09:05.357" base={base} toln={8} />
   <CollapseSection>
     <Fragment slot="summary">
       <BruteAbombinator />
       连续释放<Span variant="pink">8</Span>次AoE，每轮伤害
-      <DamageInfo damage="60000" type="physical" />
+      <DamageInfo damage="55000" type="physical" />
     </Fragment>
     <Fragment slot="details">
       <BrutalImpactActivate time="09:10.574" base={base} num={1} />
@@ -134,24 +127,24 @@ const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
   <AttackSection time="09:20.907" base={base} damage="57000" damageType="physical" />
   <AttackSection time="09:23.935" base={base} damage="57000" damageType="physical" />
 
-  <SeparatorSection id="S2S" title="Stoneringer2: Stoneringers + StrangeSeeds" />
+  <SeparatorSection id="S2S" title=`${stoneringer2Stoneringers} + ${strangeSeeds}` />
   <Stoneringer2Second time="09:26.252" base={base} />
 
   <AttackSection time="10:14.526" base={base} damage="57000" damageType="physical" />
-  <SeparatorSection title="Stoneringer" />
+  <SeparatorSection title={stoneringer} />
   <StoneringerCast start="10:16.130" base={base} />
   <SmashHereCast start="10:23.968" base={base} />
   <BrutishSwingActivate time="10:27.935" base={base} />
   <SmashActivate time="10:29.098" base={base} />
   <AttackSection time="10:31.948" base={base} damage="57000" damageType="physical" />
 
-  <SeparatorSection title="Brutal Impact" />
+  <SeparatorSection title={brutalImpact} />
   <BrutalImpactCast start="10:33.242" base={base} toln={8} />
   <CollapseSection>
     <Fragment slot="summary">
       <BruteAbombinator />
       连续释放<Span variant="pink">8</Span>次AoE，每轮伤害
-      <DamageInfo damage="60000" type="physical" />
+      <DamageInfo damage="55000" type="physical" />
     </Fragment>
     <Fragment slot="details">
       <BrutalImpactActivate time="10:38.459" base={base} num={1} />
@@ -168,5 +161,6 @@ const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
   <AttackSection time="10:51.819" base={base} damage="57000" damageType="physical" />
   <AttackSection time="10:54.850" base={base} damage="57000" damageType="physical" />
   <SeparatorSection id="special-bombarian-special" title={specialBombarianSpecial} />
+  <MoveToCenterEvent time="10:55.164" base={base} />
   <SpecialBombarianSpecial base={base} />
 </DutyStratLayout>

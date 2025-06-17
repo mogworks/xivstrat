@@ -8,6 +8,7 @@ import EventSection from '@/components/section/EventSection.astro'
 
 import Jabberwock from './Jabberwock.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
@@ -16,6 +17,7 @@ interface Props {
 }
 
 const { time, base = 0, wave }: Props = Astro.props
+const ManxomeWindersnatch = translations.ManxomeWindersnatch
 ---
 
 <EventSection time={time} base={base}>
@@ -23,7 +25,7 @@ const { time, base = 0, wave }: Props = Astro.props
   对随机
   <RoleIcon role="healer" />
   释放
-  <Span variant="yellow">Manxome Windersnatch</Span>
+  <Span variant="yellow">{ManxomeWindersnatch}</Span>
   <DamageInfo damage="120000" type="magical" />
   <Bind hover />
 </EventSection>

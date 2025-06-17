@@ -29,25 +29,34 @@ function isValidURL(str: string): boolean {
     className,
   )}
 >
-  <div>
-    {developer.avatar && <Image src={developer.avatar} alt={developer.name} class="w-24 rounded-full object-cover" />}
+  <div class="select-none">
+    {
+      developer.avatar && (
+        <Image
+          src={developer.avatar}
+          alt={developer.name}
+          draggable="false"
+          class="w-24 rounded-full object-cover select-none"
+        />
+      )
+    }
     {
       !developer.avatar && (
-        <div class="bg- mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-zinc-300 p-5 text-zinc-600">
+        <div class="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-zinc-300 p-5 text-zinc-600">
           <DefaultAvatarSVG />
         </div>
       )
     }
   </div>
   <div class="duration-500">
-    <h1 class="font-semibold text-zinc-700 dark:text-zinc-300">{developer.name}</h1>
-    <p class="text-sm text-zinc-700 dark:text-zinc-300">{developer.gameName}</p>
+    <h1 class="mt-2 font-bold text-zinc-700 dark:text-zinc-300">{developer.name}</h1>
+    <p class="text-sm text-zinc-700 opacity-80 dark:text-zinc-300">{developer.gameName}</p>
     {
       developer.link && (
         <a
           href={isValidURL(developer.link) ? developer.link : undefined}
           target="_blank"
-          class="text-zinc-500 dark:text-zinc-400"
+          class="mt-4 text-zinc-500 hover:underline dark:text-zinc-400"
         >
           {developer.link}
         </a>

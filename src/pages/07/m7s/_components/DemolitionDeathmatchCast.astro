@@ -5,9 +5,6 @@ import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
 import BruteAbombinator from './BruteAbombinator.astro'
-import ThornsOfDeathDebuff from './ThornsOfDeathDebuff.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
-import Span from '@/components/Span.vue'
 import { translations } from '../_translations'
 
 interface Props {
@@ -24,4 +21,6 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
 
 <CastSection start={start} base={base} duration={2.7} ability={demolitionDeathmatch}>
   <BruteAbombinator slot="source" />
+  <Badge variant="emerald">连线</Badge>
+  <Badge variant="orange">DoT</Badge>
 </CastSection>

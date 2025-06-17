@@ -7,6 +7,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import EventSection from '@/components/section/EventSection.astro'
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
@@ -15,10 +16,11 @@ interface Props {
 }
 
 const { time, base = 0, num }: Props = Astro.props
+const MousseDrip = translations.MousseDrip
 ---
 
 <EventSection time={time} base={base}>
-  <Span variant="yellow">Mousse Drip</Span>
+  <Span variant="yellow">{MousseDrip}</Span>
   第
   <Span variant="pink">{num}</Span>
   段伤害判定，

@@ -10,8 +10,11 @@ export const translations = {
   millennialDecay: '千年风化',
   breathOfDecay: '千年风啸',
   aeroIII: '暴风',
-  gust: '旋风',
+  gust: '狂风',
   prowlingGale: '风狼阵',
   windsOfDecay: '千年狂风',
-  greatWhirlwind: '大旋风',
+  greatWhirlwind: '大龙卷风',
+  trackingTremors: '连震击',
+  greatDivide: '一刀两断',
+  terrestrialTitans: '大地的呼唤',
 }

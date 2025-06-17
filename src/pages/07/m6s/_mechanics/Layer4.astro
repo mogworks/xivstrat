@@ -47,6 +47,7 @@ import explosion_1 from '@/assets/07/m6s/layer_4/explosion_1.png'
 import explosion_2 from '@/assets/07/m6s/layer_4/explosion_2.png'
 import explosion_3 from '@/assets/07/m6s/layer_4/explosion_3.png'
 import explosion_4 from '@/assets/07/m6s/layer_4/explosion_4.png'
+import { translations } from '../_translations'
 
 interface Props {
   base: Time
@@ -58,6 +59,8 @@ const start = '08:50.781'
 const duration = 6.7
 const adjustedDuration = duration + 0.3
 const end = timeToSeconds(start) + adjustedDuration
+
+const { Explosion, UnmitigatedExplosion, Layer, MousseDrip, TasteofThunder, Wingmark } = translations
 ---
 
 <LayerCast start={start} end={end} base={base} />
@@ -108,7 +111,7 @@ const end = timeToSeconds(start) + adjustedDuration
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Layer</Span>
+      <Span variant="yellow">{Layer}</Span>
       {' '}
       <Span variant="zinc">#4</Span>
     </h4>
@@ -132,7 +135,7 @@ const end = timeToSeconds(start) + adjustedDuration
     </div>
     <div class="paragraph">桥面烧毁，溪流也变为熔岩，站入即死</div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Mousse Drip</Span>
+      <Span variant="yellow">{MousseDrip}</Span>
     </h4>
     <div class="paragraph">
       读条结束时锁定距离
@@ -151,7 +154,7 @@ const end = timeToSeconds(start) + adjustedDuration
       ，每段伤害判定后会在原地留下一个“屎圈”
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Moussacre</Span>
+      <Span variant="yellow">{MousseDrip}</Span>
     </h4>
     <div class="paragraph">
       读条结束时对距离
@@ -164,37 +167,37 @@ const end = timeToSeconds(start) + adjustedDuration
       <MagicVulnerabilityUp tag="2" hover />
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Taste of Thunder</Span>
+      <Span variant="yellow">{TasteofThunder}</Span>
     </h4>
     <div class="paragraph">
       同
-      <StratLink variant="yellow" href="#taste-of-thunder">Layer #3：Taste of Thunder</StratLink>
+      <StratLink variant="yellow" href="#taste-of-thunder">Layer #3: {TasteofThunder}</StratLink>
       ，提示特效：
       <TasteOfThunderPlayButton />
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Explosion</Span>
+      <Span variant="yellow">{Explosion}</Span>
     </h4>
     <div class="paragraph">
       场地会不时生成单人塔
       <Span variant="default">×8</Span>
       ，塔判定时受到
-      <Span variant="yellow">Explosion</Span>
+      <Span variant="yellow">{Explosion}</Span>
       <DamageInfo damage="30000" type="magical" />
     </div>
     <div class="paragraph">
       如果不睬塔则会炸团，每炸1个塔造成全屏AoE
-      <Span variant="yellow">Unmitigated Explosion</Span>
+      <Span variant="yellow">{UnmitigatedExplosion}</Span>
       <DamageInfo damage="110000" type="magical" />
       <SustainedDamage tag="15" hover layer={1} />
       <DotInfo damage="30000" />
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Wingmark</Span>
+      <Span variant="yellow">{Wingmark}</Span>
     </h4>
     <div class="paragraph">
       同
-      <StratLink variant="yellow" href="/07/m6s/p1#wingmark">P1：Wingmark</StratLink>
+      <StratLink variant="yellow" href="/07/m6s/p1#wingmark">P1: {Wingmark}</StratLink>
       ，赋予
       <RoleIcon role="all" tag="全员" />
       <WingmarkDebuff tag="10" hover />
@@ -276,14 +279,14 @@ const end = timeToSeconds(start) + adjustedDuration
       <ListDot />
       <SugarRiot />
       读条
-      <Span variant="yellow">Mousse Drip</Span>
+      <Span variant="yellow">{MousseDrip}</Span>
       后，分摊点名确定，第一轮塔出现
     </div>
     <div class="paragraph mt-12">
       接着，
       <SugarRiot />
       读条
-      <Span variant="yellow">Moussacre</Span>
+      <Span variant="yellow">{MousseDrip}</Span>
       ，近战靠近
       <SugarRiot />
       引导扇形，远程处理分摊点名
@@ -323,12 +326,12 @@ const end = timeToSeconds(start) + adjustedDuration
       扇形和分摊结束后，
       <Span variant="pink">先别急着去踩塔</Span>
       ，先等
-      <Span variant="yellow">Taste of Thunder</Span>
+      <Span variant="yellow">{TasteofThunder}</Span>
       判定自身位置后，再去踩塔
     </div>
     <div class="paragraph mt-12">
       待
-      <Span variant="yellow">Taste of Thunder</Span>
+      <Span variant="yellow">{TasteofThunder}</Span>
       提示特效（
       <TasteOfThunderPlayButton variant="lime" />
       ）出现后，按下图就位踩塔
@@ -406,7 +409,7 @@ const end = timeToSeconds(start) + adjustedDuration
       接着
       <SugarRiot />
       读条
-      <Span variant="yellow">Wingmark</Span>
+      <Span variant="yellow">{Wingmark}</Span>
       ，赋予全员
       <WingmarkDebuff tag="10" hover />
       ，同时场地上刷新第二轮塔
@@ -451,7 +454,7 @@ const end = timeToSeconds(start) + adjustedDuration
     </div>
     <div class="paragraph mt-8">
       飞到目标岛后先别急着踩塔，先等
-      <Span variant="yellow">Taste of Thunder</Span>
+      <Span variant="yellow">{TasteofThunder}</Span>
       提示特效（
       <TasteOfThunderPlayButton variant="lime" />
       ）出现后，再就位
@@ -497,7 +500,7 @@ const end = timeToSeconds(start) + adjustedDuration
     />
     <div class="paragraph mt-8">
       飞到目标岛后先别急着踩塔，先等
-      <Span variant="yellow">Taste of Thunder</Span>
+      <Span variant="yellow">{TasteofThunder}</Span>
       提示特效（
       <TasteOfThunderPlayButton variant="lime" />
       ）出现后，再就位

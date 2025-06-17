@@ -15,7 +15,6 @@ import Skill from '@/components/typography/Skill.astro'
 import Attack from './_components/Attack.astro'
 import BeckonMoonlight from './_mechanics/BeckonMoonlight.astro'
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
-import GreatDivide from './_components/GreatDivide.astro'
 import HowlingBlade from './_components/entities/HowlingBlade.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 import RetargetableEvent from './_components/RetargetableEvent.astro'
@@ -25,6 +24,7 @@ import WealOfStone from './_mechanics/WealOfStone.astro'
 import XReignCast from './_components/XReignCast.astro'
 import WolfOfWind from './_components/entities/WolfOfWind.astro'
 import Xfang from './_mechanics/Xfang.astro'
+import GreatDivide from './_mechanics/GreatDivide.astro'
 import ShadowChase from './_mechanics/ShadowChase.astro'
 
 const dutyId = '07/m8s1'
@@ -67,7 +67,7 @@ const base = '04:19.898'
   <WealOfStone start="05:10.290" base={base} />
   <Attack time="05:16.0" base={base} />
   <Attack time="05:19.0" base={base} />
-  <GreatDivide start="05:19.593" base={base} />
+  <GreatDivide start="05:19.593" base={base} phase="P3" />
   <Attack time="05:28.0" base={base} />
   <Attack time="05:31.0" base={base} />
   <MoveToCenterEvent time="05:32.835" base={base} />
@@ -79,7 +79,20 @@ const base = '04:19.898'
   <!-- TODO: 随机两个相邻斜点出土狼头 四个正点固定安全 这里我没写来个好哥哥补一下 -->
   <Xfang start="06:02.102" base={base} />
   <Attack time="06:14.0" base={base} />
-  <TrackingTremors start="6:13.522" base={base} />
+  <TrackingTremors
+    start="06:13.522"
+    base={base}
+    activateTimes={[
+      '06:19.407',
+      '06:20.478',
+      '06:21.547',
+      '06:22.616',
+      '06:23.688',
+      '06:24.759',
+      '06:25.829',
+      '06:26.898',
+    ]}
+  />
   <Attack time="06:22.0" base={base} />
   <Attack time="06:25.0" base={base} />
   <Attack time="06:28.0" base={base} />

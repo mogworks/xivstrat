@@ -2,6 +2,7 @@
 import { type HTMLAttributes, onMounted, onUnmounted, ref } from 'vue'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/shadcn-vue/tabs'
+import { $stratSettings } from '@/stores/stratSettings'
 
 const prop = defineProps<{
   solutions: {
@@ -39,6 +40,12 @@ onUnmounted(() => {
   window.removeEventListener('hashchange', handleHashChange)
   window.removeEventListener('popstate', handleHashChange)
 })
+
+// 处理标签页切换完成的回调
+const handleTabSwitchComplete = () => {
+  // 使用 Transition 的 @enter 事件，在动画开始时，再次触发DutyStratLayout里的相关代码，按阅读模式修改元素
+  $stratSettings.setKey('readModeRefresh', $stratSettings.get().readModeRefresh === 'true' ? 'false' : 'true')
+}
 </script>
 
 <template>
@@ -63,13 +70,10 @@ onUnmounted(() => {
         leave-from-class="opacity-100 translate-y-0"
         leave-to-class="opacity-0 translate-y-[12px]"
         mode="out-in"
+        @enter="handleTabSwitchComplete"
       >
         <div :key="defaultSolutionRef">
-          <TabsContent
-            v-for="l in solutions"
-            :key="l.id"
-            :value="l.title"
-          >
+          <TabsContent v-for="l in solutions" :key="l.id" :value="l.title">
             <div
               class="bg-card/95 text-card-foreground relative h-full w-full rounded-lg border border-dashed border-lime-700/25 px-4 py-6 dark:border-lime-700/50"
             >
