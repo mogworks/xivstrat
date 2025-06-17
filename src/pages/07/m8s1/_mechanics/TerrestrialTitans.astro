@@ -14,25 +14,28 @@ import Towerfall from '../_components/Towerfall.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
+import { translations } from '../_translations'
+
 import tmp from '@/assets/07/m8s1/Tmp.png'
 
 interface Props {
-  time: Time
   base?: Time
 }
 
-const terrestrialTitans = '大地の呼び声' //召唤柱子
-const titanicPursuit = '斬空劍' //切断柱子+全屏aoe
-const towerfall = 'Towerfall' //柱子倒下
-const bareFangs = '光牙招来' //召唤光牙
+const {
+  terrestrialTitans, // 召唤柱子
+  titanicPursuit, // 切断柱子+全屏aoe
+  towerfall, // 柱子倒下
+  bareFangs, // 召唤光牙
+} = translations
 
-const { time, base = 0 }: Props = Astro.props
+const { base = 0 }: Props = Astro.props
 ---
 
-<TerrestrialTitansCast start="02:14.825" />
-<TitanicPursuitCast start="02:21.940" />
-<BareFangsEvent time="02:26.654" />
-<Towerfall time="02:33.543" />
+<TerrestrialTitansCast start="02:14.825" base={base} />
+<TitanicPursuitCast start="02:21.940" base={base} />
+<BareFangsEvent time="02:26.654" base={base} />
+<Towerfall time="02:33.543" base={base} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
