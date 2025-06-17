@@ -60,13 +60,66 @@ jobs:
           prerelease: false
           args: ${{ matrix.args }}
 
-      - name: Upload build artifacts
+      - name: Upload build artifacts (Windows)
+        if: matrix.platform == 'windows-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.platform }}-build
+          path: |
+            src-tauri/target/release/bundle/**/*.msi
+            src-tauri/target/release/bundle/**/*.exe
+          retention-days: 5
+
+      - name: Upload build artifacts (macOS)
+        if: matrix.platform == 'macos-latest'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.platform }}-build
           path: |
             src-tauri/target/*/release/bundle/**/*.dmg
-            src-tauri/target/*/release/bundle/**/*.msi
-            src-tauri/target/*/release/bundle/**/*.exe
             src-tauri/target/*/release/bundle/**/*.app.tar.gz
           retention-days: 5
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get version from tauri.conf.json
+        id: get_version
+        run: |
+          VERSION=$(cat src-tauri/tauri.conf.json | jq -r '.version')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Display structure of downloaded files
+        run: ls -la artifacts/*/
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.get_version.outputs.version }}
+          name: XivStrat Desktop v${{ steps.get_version.outputs.version }}
+          body: |
+            ## 下载说明
+            
+            - **Windows**: 下载 `.msi` 或 `.exe` 文件
+            - **macOS**: 下载 `.dmg` 文件
+            
+            ### 更新内容
+            - 查看提交历史了解详细更新
+          draft: false
+          prerelease: false
+          files: |
+            artifacts/**/*.dmg
+            artifacts/**/*.msi
+            artifacts/**/*.exe
+            artifacts/**/*.app.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
