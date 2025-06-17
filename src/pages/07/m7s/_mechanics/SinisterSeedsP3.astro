@@ -18,10 +18,20 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import T from '@/components/typography/T.astro'
 
 import SinisterSeedsCast from '../_components/SinisterSeedsCast.astro'
+import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
 import { translations } from '../_translations'
 import RoleIcon from '@/components/RoleIcon.astro'
+import SinisterSeedsMode1Cast from '../_components/SinisterSeedsMode1Cast.astro'
+import SinisterSeedsMode2Activate from '../_components/SinisterSeedsMode2Activate.astro'
+import PulpSmashCast from '../_components/PulpSmashCast.astro'
+import TheUnpottedActivate from '../_components/TheUnpottedActivate.astro'
 import Span from '@/components/Span.vue'
 import ListDot from '@/components/ListDot.astro'
+import TendrilsofTerrorAppear2 from '../_components/TendrilsofTerrorAppear2.astro'
+import TendrilsofTerrorActivate2 from '../_components/TendrilsofTerrorActivate2.astro'
+import RootsofEvilActivate from '../_components/RootsofEvilActivate.astro'
+import PulpSmashActivate from '../_components/PulpSmashActivate.astro'
+import ICftDActivate from '../_components/ICftDActivate.astro'
 
 interface Props {
   time?: Time
@@ -33,6 +43,24 @@ const sinisterSeeds = translations.sinisterSeeds
 const pulpSmash = translations.pulpSmash
 const theUnpotted = translations.theUnpotted
 ---
+
+<SinisterSeedsCast start="08:39.830" base={base} />
+<SinisterSeedsMode1Cast start="08:44.953" base={base} />
+<AttackSection time="08:46.643" base={base} damage="57000" damageType="physical" />
+<SinisterSeedsMode1Cast start="08:46.956" base={base} />
+<SinisterSeedsMode1Cast start="08:48.963" base={base} />
+<AttackSection time="08:49.674" base={base} damage="57000" damageType="physical" />
+<SinisterSeedsMode1Cast start="08:50.965" base={base} />
+<SinisterSeedsMode2Activate time="08:51.948" base={base} />
+<AttackSection time="08:52.703" base={base} damage="57000" damageType="physical" />
+<TendrilsofTerrorAppear2 time="08:55.643" base={base} />
+<AttackSection time="08:55.732" base={base} damage="57000" damageType="physical" />
+<PulpSmashCast start="08:56.980" base={base} />
+<TendrilsofTerrorActivate2 time="08:58.630" base={base} />
+<RootsofEvilActivate time="08:58.764" base={base} />
+<PulpSmashActivate time="09:02.016" base={base} />
+<ICftDActivate time="09:03.975" base={base} />
+<TheUnpottedActivate time="09:04.019" base={base} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

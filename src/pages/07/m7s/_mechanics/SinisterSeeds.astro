@@ -63,6 +63,11 @@ import NoteSection from '@/components/section/NoteSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import Skill from '@/components/typography/Skill.astro'
 import ImgGrid from '@/components/typography/ImgGrid.astro'
+import PollenActivate from '../_components/PollenActivate.astro'
+import SinisterSeedsMode2Activate from '../_components/SinisterSeedsMode2Activate.astro'
+import SinisterSeedsMode1Cast from '../_components/SinisterSeedsMode1Cast.astro'
+import TendrilsofTerrorAppear2 from '../_components/TendrilsofTerrorAppear2.astro'
+import TendrilsofTerrorActivate2 from '../_components/TendrilsofTerrorActivate2.astro'
 
 interface Props {
   base: Time
@@ -82,17 +87,17 @@ const sporeSac = translations.sporeSac
 <SporeSacCast start="00:40.052" end="00:43.039" base={base} />
 <SinisterSeedsCast start="00:48.384" base={base} />
 <PollenCast start="00:49.812" />
-<EventSection time="00:55.000">
-  <BloomingAbomination num={4} />生成
+<PollenActivate time="00:53.780" base={base} />
+<SinisterSeedsMode1Cast start="00:53.511" base={base} />
+<SinisterSeedsMode1Cast start="00:55.515" base={base} />
+<EventSection time="00:55.917">
+  <BloomingAbomination num={4} />可选中
 </EventSection>
-<EventSection time="01:01.133">
-  分散点名伤害判定
-  <DamageInfo damage="130000" type="magical" />
-  <MagicVulnerabilityUp tag="2" hover />
-  ，随后在判定位置生成米字形AoE提示
-</EventSection>
-<EventSection time="01:05.678">
-  米字形AoE判定，同时
+<SinisterSeedsMode1Cast start="00:57.521" base={base} />
+<SinisterSeedsMode1Cast start="00:59.527" base={base} />
+<SinisterSeedsMode2Activate time="01:01.133" base={base} />
+<TendrilsofTerrorAppear2 time="01:02.155" base={base} />
+<EventSection time="01:05.052">
   <Span variant="yellow">{impact}</Span>
   判定
   <DamageInfo damage="150000" type="magical" />
@@ -100,6 +105,7 @@ const sporeSac = translations.sporeSac
   <Badge variant="emerald">6m圆形</Badge>
   <Badge variant="yellow">四四分摊</Badge>
 </EventSection>
+<TendrilsofTerrorActivate2 time="01:05.142" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T class="gap-strat inline-flex">
@@ -132,7 +138,7 @@ const sporeSac = translations.sporeSac
   </div>
 
   <div class="flex flex-col gap-4">
-    <T class="gap-strat inline-flex mt-8">
+    <T class="gap-strat mt-8 inline-flex">
       <Skill name={sinisterSeeds} variant="yellow" />
     </T>
     <P> 共有两种模式： </P>
