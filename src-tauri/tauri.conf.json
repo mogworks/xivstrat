@@ -36,5 +36,9 @@
       "csp": null
     }
   },
-  "plugins": {}
+  "plugins": {
+    "shell": {
+      "open": true
+    }
+  }
 }
