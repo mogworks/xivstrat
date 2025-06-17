@@ -647,26 +647,30 @@ const defaultSolution = '解法：IQ6000【改】'
 </MultiSolutionSection>
 
 <script>
-  const solutionThDpsToggle = document.getElementById('millennial-decay-solution-th-dps-toggle') as HTMLInputElement
+  function toggleTables(thTowerGridId: string, dpsTowerGridId: string, change: boolean) {
+    const thTowerGrid = document.getElementById(thTowerGridId)
+    const dpsTowerGrid = document.getElementById(dpsTowerGridId)
 
-  function toggleTables(thTowerId: string, dpsTowerId: string, showActivate: boolean) {
-    const thTowerTable = document.getElementById(thTowerId)
-    const dpsTowerTable = document.getElementById(dpsTowerId)
-
-    if (thTowerTable && dpsTowerTable) {
-      if (showActivate) {
-        thTowerTable.classList.toggle('grid', !thTowerTable.classList.toggle('hidden', true))
-        dpsTowerTable.classList.toggle('grid', !dpsTowerTable.classList.toggle('hidden', false))
+    if (thTowerGrid && dpsTowerGrid) {
+      if (change) {
+        thTowerGrid.classList.toggle('grid', !thTowerGrid.classList.toggle('hidden', true))
+        dpsTowerGrid.classList.toggle('grid', !dpsTowerGrid.classList.toggle('hidden', false))
       } else {
-        dpsTowerTable.classList.toggle('grid', !dpsTowerTable.classList.toggle('hidden', true))
-        thTowerTable.classList.toggle('grid', !thTowerTable.classList.toggle('hidden', false))
+        dpsTowerGrid.classList.toggle('grid', !dpsTowerGrid.classList.toggle('hidden', true))
+        thTowerGrid.classList.toggle('grid', !thTowerGrid.classList.toggle('hidden', false))
       }
     }
   }
 
-  if (solutionThDpsToggle) {
-    solutionThDpsToggle.addEventListener('change', function () {
-      toggleTables('millennial-decay-solution-th-tower-grid', 'millennial-decay-solution-dps-tower-grid', this.checked)
-    })
-  }
+  document.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement
+
+    if (target && target.id === 'millennial-decay-solution-th-dps-toggle') {
+      toggleTables(
+        'millennial-decay-solution-th-tower-grid',
+        'millennial-decay-solution-dps-tower-grid',
+        target.checked,
+      )
+    }
+  })
 </script>
