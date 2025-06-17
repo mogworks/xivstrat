@@ -6,13 +6,13 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
-import GreatDivide from './_components/GreatDivide.astro'
 import HowlingBlade from './_components/entities/HowlingBlade.astro'
 import MoveToNorthEvent from './_components/MoveToNorthEvent.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 import TrackingTremors from './_mechanics/TrackingTremors.astro'
 import XReignCast from './_components/XReignCast.astro'
 
+import GreatDivide from './_mechanics/GreatDivide.astro'
 import MillennialDecay from './_mechanics/MillennialDecay.astro'
 import TerrestrialTitans from './_mechanics/TerrestrialTitans.astro'
 import Xfang from './_mechanics/Xfang.astro'
@@ -45,7 +45,7 @@ const eminentReign = translations.eminentReign
   <SeparatorSection />
   <ExtraplanarPursuitCast start="00:49.014" base={base} />
   <MoveToCenterEvent time="00:58.834" base={base} />
-  <SeparatorSection id="millennial-decay" title="千年の風化" />
+  <SeparatorSection id="millennial-decay" title={translations.millennialDecay} />
   <MillennialDecay time="01:01.456" base={base} />
   <SeparatorSection />
   <TrackingTremors
@@ -63,10 +63,11 @@ const eminentReign = translations.eminentReign
     ]}
   />
   <ExtraplanarPursuitCast start="01:51.126" base={base} />
-  <SeparatorSection id="great-divide" title="一刀両断" />
-  <GreatDivide start="01:58.873" base={base} />
+  <SeparatorSection id="great-divide" title={translations.greatDivide} />
+  <GreatDivide start="01:58.873" base={base} phase="P1" />
+  <SeparatorSection />
   <MoveToCenterEvent time="02:12.198" base={base} />
-  <SeparatorSection id="terrestrial-titans" title="大地の呼び声" />
+  <SeparatorSection id="terrestrial-titans" title={translations.terrestrialTitans} />
   <TerrestrialTitans time="02:14.825" base={base} />
   <XReignCast start="02:34.300" base={base} />
   <MoveToNorthEvent time="02:53.751" base={base} />

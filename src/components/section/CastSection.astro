@@ -1,6 +1,7 @@
 ---
 import type { Time } from '@/lib/utils'
 import type { CombinedRoleType, RoleType } from '@/lib/role'
+import type { DamageVariantType } from '@/lib/damage_variant'
 
 import { timeToSeconds } from '@/lib/utils'
 import Boss from '@/components/Boss.astro'
@@ -20,7 +21,8 @@ interface Props {
   targetTag?: string
   damage?: string
   damageType?: 'physical' | 'magical' | 'special'
-  damageVariant?: 'stack'
+  damageVariant?: DamageVariantType
+  damageVariants?: DamageVariantType[]
   adjustDuration?: boolean
   [key: string]: any
 }
@@ -36,6 +38,7 @@ const {
   damage = undefined,
   damageType = 'physical',
   damageVariant = undefined,
+  damageVariants = [],
   adjustDuration = true,
   ...rest
 }: Props = Astro.props
@@ -73,7 +76,7 @@ const adjustedDuration = adjustDuration
     <slot name="ability">
       <Span variant="yellow">{ability}</Span>
     </slot>
-    {damage && <DamageInfo damage={damage} type={damageType} variant={damageVariant} />}
+    {damage && <DamageInfo damage={damage} type={damageType} variant={damageVariant} variants={damageVariants} />}
     <slot />
   </div>
 </Section>

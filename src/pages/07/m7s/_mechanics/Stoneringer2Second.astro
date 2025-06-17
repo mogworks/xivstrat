@@ -50,6 +50,7 @@ const { time, base = 0 }: Props = Astro.props
 const lashingLariat = translations.lashingLariat
 const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
 const slaminator = translations.slaminator
+const strangeSeeds = translations.strangeSeeds
 ---
 
 <Stoneringer2Cast start={time} base={base} />
@@ -175,12 +176,12 @@ const slaminator = translations.slaminator
       imgs={[
         {
           src: pos3_img,
-          alt: 'Strange Seeds 第一次放置TN',
+          alt: `${strangeSeeds} 第一次放置TN`,
           title: '第一次放置',
         },
         {
           src: pos4_img,
-          alt: 'Strange Seeds 第二次放置DPS',
+          alt: `${strangeSeeds} 第二次放置DPS`,
           title: '第二次放置',
         },
       ]}
@@ -193,12 +194,12 @@ const slaminator = translations.slaminator
       imgs={[
         {
           src: pos1_img,
-          alt: 'Strange Seeds 第一次放置DPS',
+          alt: `${strangeSeeds} 第一次放置DPS`,
           title: '第一次放置',
         },
         {
           src: pos2_img,
-          alt: 'Strange Seeds 第二次放置TN',
+          alt: `${strangeSeeds} 第二次放置TN`,
           title: '第二次放置',
         },
       ]}
