@@ -6,14 +6,16 @@ import { cn } from '@/lib/utils'
 import physical from '@/assets/damage_type/physical.png'
 import magical from '@/assets/damage_type/magical.png'
 import special from '@/assets/damage_type/special.png'
+import StackIcon from './StackIcon.astro'
 
 interface Props {
   damage: string
   type: 'physical' | 'magical' | 'special'
+  variant?: 'stack'
   class?: string
 }
 
-const { damage, type, class: className = '' }: Props = Astro.props
+const { damage, type, variant = undefined, class: className = '' }: Props = Astro.props
 
 const style = {
   physical: 'border-sky-600 from-sky-600/75 to-sky-950 dark:to-sky-600/0',
@@ -24,6 +26,7 @@ const style = {
 const img = { physical, magical, special }[type]
 ---
 
+{variant === 'stack' && <StackIcon />}
 <span
   class={cn(
     'damage-info inline-flex items-center rounded border bg-gradient-to-r pr-[calc(1em*6/18)] text-decimal text-white',

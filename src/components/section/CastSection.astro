@@ -20,6 +20,7 @@ interface Props {
   targetTag?: string
   damage?: string
   damageType?: 'physical' | 'magical' | 'special'
+  damageVariant?: 'stack'
   adjustDuration?: boolean
   [key: string]: any
 }
@@ -34,6 +35,7 @@ const {
   targetTag = undefined,
   damage = undefined,
   damageType = 'physical',
+  damageVariant = undefined,
   adjustDuration = true,
   ...rest
 }: Props = Astro.props
@@ -71,7 +73,7 @@ const adjustedDuration = adjustDuration
     <slot name="ability">
       <Span variant="yellow">{ability}</Span>
     </slot>
-    {damage && <DamageInfo damage={damage} type={damageType} />}
+    {damage && <DamageInfo damage={damage} type={damageType} variant={damageVariant} />}
     <slot />
   </div>
 </Section>
