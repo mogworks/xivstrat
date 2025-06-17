@@ -203,8 +203,6 @@ const slaminator = translations.slaminator
 </SolutionSection>
 
 <script>
-  const solutionToggle = document.getElementById('strange-seeds-solution-toggle') as HTMLInputElement
-
   function toggleTables(omenId: string, activateId: string, showActivate: boolean) {
     const omenTable = document.getElementById(omenId)
     const activateTable = document.getElementById(activateId)
@@ -221,9 +219,11 @@ const slaminator = translations.slaminator
     }
   }
 
-  if (solutionToggle) {
-    solutionToggle.addEventListener('change', function () {
-      toggleTables('strange-seeds-solution-omen', 'strange-seeds-solution-activate', this.checked)
-    })
-  }
+  document.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement
+
+    if (target && target.matches('#strange-seeds-solution-toggle')) {
+      toggleTables('strange-seeds-solution-omen', 'strange-seeds-solution-activate', target.checked)
+    }
+  })
 </script>
