@@ -121,126 +121,126 @@ export const timelineMap = {
         value: '125000',
       },
 
-      // 低身舞步！
+      // 尽情舞蹈！
       {
         time: '02:34.9',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '02:37.4',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '02:39.8',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '02:42.3',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '02:44.7',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '02:47.2',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '02:49.7',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '02:52.1',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '06:24.0',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '06:26.4',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '06:28.9',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '06:31.3',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '06:33.8',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '06:36.2',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '06:38.7',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
       {
         time: '06:41.1',
-        name: '低身舞步！',
+        name: '尽情舞蹈！',
         type: 'magical',
         value: '95000',
       },
 
-      // 音频炸弹
+      // 音频爆炸
       {
         time: '03:05.5',
-        name: '音频炸弹',
+        name: '音频爆炸',
         type: 'magical',
         value: '30000',
       },
       {
         time: '03:10.5',
-        name: '音频炸弹',
+        name: '音频爆炸',
         type: 'magical',
         value: '30000',
       },
       {
         time: '03:15.5',
-        name: '音频炸弹',
+        name: '音频爆炸',
         type: 'magical',
         value: '30000',
       },
       {
         time: '03:20.5',
-        name: '音频炸弹',
+        name: '音频爆炸',
         type: 'magical',
         value: '30000',
       },
@@ -303,10 +303,10 @@ export const timelineMap = {
         value: '90000',
       },
 
-      // 高能量夜狂热
+      // 高能夜狂热
       {
         time: '10:05.7',
-        name: '高能量夜狂热',
+        name: '高能夜狂热',
         type: 'special',
         value: '9999999',
       },
@@ -360,7 +360,7 @@ export const timelineMap = {
       },
       {
         time: '02:21.4',
-        name: '热积蓄/重热积蓄',
+        name: '热扩散/重热扩散',
         type: 'magical',
         value: '100000',
       },
@@ -378,7 +378,7 @@ export const timelineMap = {
       },
       {
         time: '02:52.4',
-        name: '热积蓄',
+        name: '热扩散',
         type: 'magical',
         value: '100000',
       },
@@ -409,7 +409,7 @@ export const timelineMap = {
       },
       {
         time: '05:06.2',
-        name: '送你原石',
+        name: '给你原石',
         type: 'magical',
         value: '200000',
       },
@@ -422,7 +422,7 @@ export const timelineMap = {
       },
       {
         time: '06:29.5',
-        name: '送你原石',
+        name: '给你原石',
         type: 'magical',
         value: '200000',
       },
