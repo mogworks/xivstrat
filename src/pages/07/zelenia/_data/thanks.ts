@@ -1,4 +1,4 @@
 export const thanksList = {
-  devList: ['superjump', 'davidkitano', 'sui'],
+  devList: ['SuperJump', 'DavidKitano', 'LuoLuoKe', 'Sui'],
   other: [],
 }

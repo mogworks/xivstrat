@@ -1,4 +1,15 @@
 export const thanksList = {
-  devList: ['superjump', 'davidkitano', 'baixi', 'tiramisue', 'youchai', 'congyun', 'ling', 'saleri'],
+  devList: [
+    'SuperJump',
+    'DavidKitano',
+    'BaiXi',
+    'LuoLuoKe',
+    'TiramisuE',
+    'Ling',
+    'Saleri',
+    'Demon',
+    'YouChai',
+    'CongYun',
+  ],
   other: [],
 }

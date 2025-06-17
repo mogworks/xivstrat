@@ -1,5 +1,5 @@
 export const thanksList = {
-  devList: ['superjump', 'davidkitano', 'baixi'],
+  devList: ['SuperJump', 'DavidKitano', 'BaiXi', 'LuoLuoKe', 'YuKa'],
   other: [
     {
       type: '宏整合',

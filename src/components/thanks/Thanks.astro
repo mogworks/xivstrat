@@ -24,7 +24,7 @@ const { devList, other }: Props = Astro.props
       莫古力工坊
     </p>
     <Separator class="my-2 mb-0" />
-    {devList.map((devId) => <DevSimpleProfile targetId={devId} />)}
+    {devList.map((devId) => <DevSimpleProfile targetId={devId.toLowerCase()} />)}
   </AreaBox>
   {
     other && other.length > 0 && (
