@@ -18,12 +18,14 @@ import SugarRiot from '../_components/SugarRiot.astro'
 import color_riot_1 from '@/assets/07/m6s/color_riot_1.png'
 import color_riot_2 from '@/assets/07/m6s/color_riot_2.png'
 import color_riot_solution from '@/assets/07/m6s/color_riot_solution.png'
+import { translations } from '../_translations'
 
 interface Props {
   base: Time
 }
 
 const { base = 0 }: Props = Astro.props
+const { WarmBomb, CoolBomb } = translations
 ---
 
 <ColorRiotCast start="00:17.322" base={base} />
@@ -81,13 +83,13 @@ const { base = 0 }: Props = Astro.props
     </div>
     <div class="flex flex-col gap-4 rounded-md border border-dashed p-4">
       <h4 class="text-xl">
-        <Span variant="blue">Cool Bomb</Span>
+        <Span variant="blue">{CoolBomb}</Span>
       </h4>
       <ColorRiotBombEffect type="cool" hover />
     </div>
     <div class="flex flex-col gap-4 rounded-md border border-dashed p-4">
       <h4 class="text-xl">
-        <Span variant="orange">Warm Bomb</Span>
+        <Span variant="orange">{WarmBomb}</Span>
       </h4>
       <ColorRiotBombEffect type="warm" hover />
     </div>

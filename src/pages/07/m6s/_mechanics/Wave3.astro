@@ -33,6 +33,7 @@ import wave3_solution_3 from '@/assets/07/m6s/soul_sugar/wave3_solution_3.png'
 import wave3_solution_4 from '@/assets/07/m6s/soul_sugar/wave3_solution_4.png'
 import wave3_solution_5 from '@/assets/07/m6s/soul_sugar/wave3_solution_5.png'
 import wave3_solution_6 from '@/assets/07/m6s/soul_sugar/wave3_solution_6.png'
+import { translations } from '../_translations'
 
 interface Props {
   base?: Time
@@ -71,7 +72,7 @@ const { base = 0 }: Props = Astro.props
   <Mu wave={1} />
   <Mu wave={2} />
 </OreRigatoCast>
-<SolutionSection title="解法：Wave #3">
+<SolutionSection title={`解法：${translations.Wave} #3`}>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       目标优先级：
@@ -265,14 +266,14 @@ const { base = 0 }: Props = Astro.props
       <ListDot />
       <SugarRiot />
       释放
-      <Span variant="yellow">Ready Ore Not</Span>
+      <Span variant="yellow">{translations.ReadyOreNot}</Span>
       <DamageInfo damage="200000" type="magical" />
       约
       <Span variant="pink">1s</Span>
       后，
       <Mu />
       开始读条
-      <Span variant="yellow">Ore-rigato</Span>
+      <Span variant="yellow">{translations.OreRigato}</Span>
       <DamageInfo damage="100000" type="physical" />
       <SustainedDamage layer={1} tag="15" hover />
       <DotInfo damage="30000" />
@@ -284,7 +285,7 @@ const { base = 0 }: Props = Astro.props
       ，≥2只
       <Mu />
       同时释放
-      <Span variant="yellow">Ore-rigato</Span>
+      <Span variant="yellow">{translations.OreRigato}</Span>
       基本等于团灭
     </div>
     <div class="paragraph">

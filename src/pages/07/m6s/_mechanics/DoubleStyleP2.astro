@@ -24,6 +24,7 @@ import solution_1 from '@/assets/07/m6s/double_style_p2/solution_1.png'
 import solution_2 from '@/assets/07/m6s/double_style_p2/solution_2.png'
 import supplement_1 from '@/assets/07/m6s/double_style_p2/supplement_1.png'
 import supplement_2 from '@/assets/07/m6s/double_style_p2/supplement_2.png'
+import { translations } from '../_translations'
 
 interface Props {
   base: Time
@@ -35,6 +36,8 @@ const duration = 8.6
 const puddingGrafActivate = '03:10.063'
 const quicksandStart = '03:02.561'
 const quicksandActivate = timeToSeconds(start) + duration + 3
+
+const PuddingGraf = translations.PuddingGraf
 ---
 
 <EventSection time={quicksandStart} base={base}><Span variant="zinc">场地北/南侧出现大范围流沙</Span></EventSection>
@@ -65,7 +68,7 @@ const quicksandActivate = timeToSeconds(start) + duration + 3
       若被
       <Image src={hanebomb} alt="Paint Mark: Hanebomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
       连线，则
-      <Span variant="yellow">Pudding Graf</Span>
+      <Span variant="yellow">{PuddingGraf}</Span>
       判定后会留下一个
       <Span variant="blue">烈羽爆弹</Span>
     </div>
@@ -74,7 +77,7 @@ const quicksandActivate = timeToSeconds(start) + duration + 3
       若被
       <Image src={bomb} alt="Paint Mark: Bomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
       连线，则
-      <Span variant="yellow">Pudding Graf</Span>
+      <Span variant="yellow">{PuddingGraf}</Span>
       判定后会留下一个
       <Span variant="yellow">爆弹</Span>
     </div>
@@ -87,7 +90,7 @@ const quicksandActivate = timeToSeconds(start) + duration + 3
     <div class="paragraph">
       <Span variant="blue">烈羽爆弹</Span>
       则会先飞行一段距离，飞行的方向是
-      <Span variant="yellow">Pudding Graf</Span>
+      <Span variant="yellow">{PuddingGraf}</Span>
       判定时玩家面向的方向
     </div>
     <div class="paragraph">
@@ -99,7 +102,7 @@ const quicksandActivate = timeToSeconds(start) + duration + 3
       可被流沙吸收
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Pudding Graf</Span>
+      <Span variant="yellow">{PuddingGraf}</Span>
     </h4>
     <div class="paragraph">
       点名
@@ -160,7 +163,7 @@ const quicksandActivate = timeToSeconds(start) + duration + 3
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       玩家需要在处理八人分散（
-      <Span variant="yellow">Pudding Graf</Span>
+      <Span variant="yellow">{PuddingGraf}</Span>
       ）的同时，将
       <Span variant="yellow">爆弹</Span>
       和
@@ -212,7 +215,7 @@ const quicksandActivate = timeToSeconds(start) + duration + 3
     <div class="paragraph">
       <ListDot />
       在
-      <Span variant="yellow">Pudding Graf</Span>
+      <Span variant="yellow">{PuddingGraf}</Span>
       伤害判定后，即看到自己出现
       <MagicVulnerabilityUp tag="2" hover />
       后，立刻走出流沙，以免被流沙吞噬

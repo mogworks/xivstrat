@@ -5,6 +5,7 @@ import Badge from '@/components/Badge.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import Span from '@/components/Span.vue'
 import EventSection from '@/components/section/EventSection.astro'
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
@@ -13,10 +14,11 @@ interface Props {
 }
 
 const { time, base = 0, num }: Props = Astro.props
+const PuddingParty = translations.PuddingParty
 ---
 
 <EventSection time={time} base={base}>
-  <Span variant="yellow">Pudding Party</Span>
+  <Span variant="yellow">{PuddingParty}</Span>
   第
   <Span variant="pink">{num}</Span>
   段伤害判定

@@ -2,6 +2,7 @@
 import Buff from '@/components/Buff.astro'
 
 import mousse_mine from '@/assets/buff/07/m6s/214277.png'
+import { translations } from '../_translations'
 
 interface Props {
   tag?: string
@@ -10,13 +11,14 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const { MousseMine, MousseMineDescription } = translations
 ---
 
 <Buff
   icon={mousse_mine}
-  name="Mousse Mine"
+  name={MousseMine}
   nameVariant="yellow"
-  description="Covered in mousse and unable to move. Will detonate when this effect expires."
+  description={MousseMineDescription}
   tag={tag}
   hover={hover}
   class={className}

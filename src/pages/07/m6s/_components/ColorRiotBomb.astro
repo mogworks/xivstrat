@@ -2,14 +2,16 @@
 import HoverSpan from '@/components/HoverSpan.vue'
 
 import ColorRiotBombEffect from './ColorRiotBombEffect.astro'
+import { translations } from '../_translations'
 
 interface Props {
   type: 'cool' | 'warm'
 }
 
 const { type }: Props = Astro.props
+const { CoolBomb, WarmBomb } = translations
 ---
 
-<HoverSpan variant={type === 'cool' ? 'blue' : 'orange'} text={type === 'cool' ? 'Cool Bomb' : 'Warm Bomb'} client:idle>
+<HoverSpan variant={type === 'cool' ? 'blue' : 'orange'} text={type === 'cool' ? CoolBomb : WarmBomb} client:idle>
   <ColorRiotBombEffect type={type} />
 </HoverSpan>
