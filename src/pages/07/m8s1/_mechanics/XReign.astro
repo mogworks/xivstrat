@@ -288,7 +288,7 @@ const { start, base = 0 }: Props = Astro.props
       <PhysicalVulnerabilityUp tag="1" hover />
       （三人分摊时人均）
     </P>
-    <T id="xreign-bug" text="Bug" variant="yellow" class="mt-12 scroll-mt-[calc(5rem+1px)]" />
+    <T id="xreign-bug" text="Bug" variant="yellow" class="mt-8 scroll-mt-[calc(5rem+1px)]" />
     <P>
       眼尖的同学可能已经发现，以下两张图，
       <HowlingBlade />
@@ -354,9 +354,11 @@ const { start, base = 0 }: Props = Astro.props
       <HowlingBlade />
       冲锋的
       <Span variant="pink">终点方向</Span>
-      为12点准备引导扇形
+      为12点准备引导扇形，
+      <RoleIcon role="tank" tag="ST" />
+      提前建立好二仇
     </P>
-    <T text={eminentReign} variant="lime" class="mt-12" />
+    <T text={eminentReign} variant="lime" class="mt-8" />
     <P>
       首先是比较简单的<Skill name={eminentReign} />，按下图“1331”站位：
     </P>
@@ -386,7 +388,7 @@ const { start, base = 0 }: Props = Astro.props
     <P>
       并且由于分摊扇形的角度较窄，<RoleIcon role="dps" />注意不要偏离<RoleIcon role="healer" />太多
     </P>
-    <T text={revolutionaryReign} variant="lime" class="mt-12" />
+    <T text={revolutionaryReign} variant="lime" class="mt-8" />
     <P>
       其次是比较复杂的<Skill name={revolutionaryReign} />，按下图“1331”站位：
     </P>
@@ -570,24 +572,15 @@ const { start, base = 0 }: Props = Astro.props
     }
   }
 
-  const gameStratToggle = document.getElementById('xreign-game-strat-toggle') as HTMLInputElement
-  if (gameStratToggle) {
-    gameStratToggle.addEventListener('change', function () {
-      toggleImages('xreign-game-strat-toggle-div', this.checked, '.game-img', '.strat-img')
-    })
-  }
+  document.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement
 
-  const wolvesReignLineToggle = document.getElementById('xreign-wolves-reign-omen-activate-toggle') as HTMLInputElement
-  if (wolvesReignLineToggle) {
-    wolvesReignLineToggle.addEventListener('change', function () {
-      toggleImages('xreign-wolves-reign-omen-activate-toggle-div', this.checked, '.omen-img', '.activate-img')
-    })
-  }
-
-  const revolutionaryTankXToggle = document.getElementById('xreign-revolutionary-tank-x-toggle') as HTMLInputElement
-  if (revolutionaryTankXToggle) {
-    revolutionaryTankXToggle.addEventListener('change', function () {
-      toggleImages('xreign-revolutionary-tank-x-toggle-div', this.checked, '.absolute_base', '.relative_base')
-    })
-  }
+    if (target && target.id === 'xreign-game-strat-toggle') {
+      toggleImages('xreign-game-strat-toggle-div', target.checked, '.game-img', '.strat-img')
+    } else if (target && target.id === 'xreign-wolves-reign-omen-activate-toggle') {
+      toggleImages('xreign-wolves-reign-omen-activate-toggle-div', target.checked, '.omen-img', '.activate-img')
+    } else if (target && target.id === 'xreign-revolutionary-tank-x-toggle') {
+      toggleImages('xreign-revolutionary-tank-x-toggle-div', target.checked, '.absolute_base', '.relative_base')
+    }
+  })
 </script>

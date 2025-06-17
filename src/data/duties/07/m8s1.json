@@ -13,8 +13,8 @@
     {
       "href": "/07/m8s1/p1",
       "title": "Part 1",
-      "subtitle": "门神1",
-      "name": "P1 - 门神1",
+      "subtitle": "风啸剑嚎",
+      "name": "P1 - 风啸剑嚎",
       "mechanics": [
         {
           "href": "#stonefang-or-windfang",
@@ -38,13 +38,6 @@
           "name_ch": "千年风化"
         },
         {
-          "href": "#tracking-tremors",
-          "name": "連震撃",
-          "name_en": "Tracking Tremors",
-          "name_ja": "連震撃",
-          "name_ch": "连震击"
-        },
-        {
           "href": "#great-divide",
           "name": "一刀両断",
           "name_en": "Great Divide",
@@ -63,8 +56,8 @@
     {
       "href": "/07/m8s1/p2",
       "title": "Part 2",
-      "subtitle": "门神2 小怪",
-      "name": "P2 - 门神2 小怪",
+      "subtitle": "光狼召唤",
+      "name": "P2 - 光狼召唤",
       "mechanics": [
         {
           "href": "#tactical-pack",
@@ -99,8 +92,8 @@
     {
       "href": "/07/m8s1/p3",
       "title": "Part 3",
-      "subtitle": "门神3",
-      "name": "P3 - 门神3",
+      "subtitle": "残影幻狼",
+      "name": "P3 - 残影幻狼",
       "mechanics": [
         {
           "href": "#terrestrial-rage",

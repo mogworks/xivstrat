@@ -10,6 +10,7 @@ import Span from '@/components/Span.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import CastSection from '@/components/section/CastSection.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import StratLink from '@/components/StratLink.astro'
@@ -30,36 +31,48 @@ const { start, base = 0, getDownTimes = [] }: Props = Astro.props
 <CastSection start={start} base={base} duration={4.5} ability="Arcady Night Encore">
   <Badge variant="yellow">连续钢铁月环</Badge>
 </CastSection>
-{
-  getDownTimes.map((time, index) => (
-    <EventSection time={time} base={base}>
-      <Boss />
-      对随机不重复
-      {index % 2 === 0 ? (
-        <>
-          <RoleIcon role="tank" />
-          <RoleIcon role="healer" />
-          或
-          <RoleIcon role="dps" />
-        </>
-      ) : (
-        <>
-          <RoleIcon role="dps" />
-          或
-          <RoleIcon role="tank" />
-          <RoleIcon role="healer" />
-        </>
-      )}
-      发动
-      <Span variant="yellow">Get Down!</Span>
-      <DamageInfo damage="95000" type="magical" />
-      <MagicVulnerabilityUp tag="9" hover />
-      <Badge variant="emerald">45°扇形</Badge>
-      <Badge variant="emerald">八方</Badge>
-      <Badge variant="yellow">分散</Badge>
-    </EventSection>
-  ))
-}
+<CollapseSection>
+  <Fragment slot="summary">
+    <Boss />按职能交替点名
+    <RoleIcon role="tank" />
+    <RoleIcon role="healer" />
+    或
+    <RoleIcon role="dps" />
+    8轮扇形
+  </Fragment>
+  <Fragment slot="details">
+    {
+      getDownTimes.map((time, index) => (
+        <EventSection time={time} base={base}>
+          <Boss />
+          对随机不重复
+          {index % 2 === 0 ? (
+            <>
+              <RoleIcon role="tank" />
+              <RoleIcon role="healer" />
+              或
+              <RoleIcon role="dps" />
+            </>
+          ) : (
+            <>
+              <RoleIcon role="dps" />
+              或
+              <RoleIcon role="tank" />
+              <RoleIcon role="healer" />
+            </>
+          )}
+          发动
+          <Span variant="yellow">Get Down!</Span>
+          <DamageInfo damage="95000" type="magical" />
+          <MagicVulnerabilityUp tag="9" hover />
+          <Badge variant="emerald">45°扇形</Badge>
+          <Badge variant="emerald">八方</Badge>
+          <Badge variant="yellow">分散</Badge>
+        </EventSection>
+      ))
+    }
+  </Fragment>
+</CollapseSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">

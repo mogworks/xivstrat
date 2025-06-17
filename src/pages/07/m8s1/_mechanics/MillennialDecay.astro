@@ -1,22 +1,24 @@
 ---
-import { Image } from 'astro:assets'
-
 import type { Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
 
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
 import Quote from '@/components/typography/Quote.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import ImgGrid from '@/components/typography/ImgGrid.astro'
 
 import MillennialDecayCast from '../_components/MillennialDecayCast.astro'
 import BreathOfDecayCast from '../_components/BreathOfDecayCast.astro'
@@ -24,7 +26,6 @@ import AeroIIICast from '../_components/AeroIIICast.astro'
 import GustEvent from '../_components/GustEvent.astro'
 import PowerlingGaleEvent from '../_components/ProwlingGaleEvent.astro'
 import WindsOfDecayEvent from '../_components/WindsOfDecayEvent.astro'
-
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 import GustEffect from '../_components/GustEffect.astro'
@@ -32,8 +33,33 @@ import BreathOfDecayEffect from '../_components/BreathOfDecayEffect.astro'
 
 import { translations } from '../_translations'
 
-import img from '@/assets/07/m8s1/tmp.png'
+import aero_iii from '@/assets/07/m8s1/millennial_decay/aeroIII.png'
 import breath_of_decay from '@/assets/07/m8s1/millennial_decay/breath_of_decay.png'
+import gust_img from '@/assets/07/m8s1/millennial_decay/gust.png'
+import prowling_gale_1 from '@/assets/07/m8s1/millennial_decay/prowling_gale_1.png'
+import prowling_gale_2 from '@/assets/07/m8s1/millennial_decay/prowling_gale_2.png'
+import winds_of_decay_1 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_1.png'
+import winds_of_decay_2 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_2.png'
+import winds_of_decay_3 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_3.png'
+import winds_of_decay_4 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_4.png'
+import solution_1 from '@/assets/07/m8s1/millennial_decay/solution_1.png'
+import solution_2 from '@/assets/07/m8s1/millennial_decay/solution_2.png'
+import solution_3 from '@/assets/07/m8s1/millennial_decay/solution_3.png'
+import solution_4 from '@/assets/07/m8s1/millennial_decay/solution_4.png'
+import solution_5 from '@/assets/07/m8s1/millennial_decay/solution_5.png'
+import solution_6 from '@/assets/07/m8s1/millennial_decay/solution_6.png'
+import solution_7 from '@/assets/07/m8s1/millennial_decay/solution_7.png'
+import solution_8 from '@/assets/07/m8s1/millennial_decay/solution_8.png'
+import solution_9 from '@/assets/07/m8s1/millennial_decay/solution_9.png'
+import solution_10 from '@/assets/07/m8s1/millennial_decay/solution_10.png'
+import solution_11 from '@/assets/07/m8s1/millennial_decay/solution_11.png'
+import solution_12 from '@/assets/07/m8s1/millennial_decay/solution_12.png'
+import solution_13 from '@/assets/07/m8s1/millennial_decay/solution_13.png'
+import solution_14 from '@/assets/07/m8s1/millennial_decay/solution_14.png'
+import solution_15 from '@/assets/07/m8s1/millennial_decay/solution_15.png'
+import solution_16 from '@/assets/07/m8s1/millennial_decay/solution_16.png'
+import solution_op from '@/assets/07/m8s1/millennial_decay/solution_op.png'
+import StratLink from '@/components/StratLink.astro'
 
 interface Props {
   time: Time
@@ -49,6 +75,18 @@ const windsOfDecay = translations.windsOfDecay
 const greatWhirlwind = translations.greatWhirlwind
 
 const { time, base = 0 }: Props = Astro.props
+
+const solutions = [
+  {
+    id: 'millennial-decay-solution-iq6001',
+    title: '解法：IQ6000【改】',
+  },
+  {
+    id: 'millennial-decay-solution-op',
+    title: '解法：全员踩塔',
+  },
+]
+const defaultSolution = '解法：IQ6000【改】'
 ---
 
 <MillennialDecayCast start={time} base={base} />
@@ -66,12 +104,26 @@ const { time, base = 0 }: Props = Astro.props
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <T>
+    <Quote variant="yellow" class="opacity-80">
+      <P>注意：以下图示为各个机制单独拆解，实际战斗中机制会组合出现，发动顺序可参考上方时间轴</P>
+    </Quote>
+
+    <T class="mt-8">
       <Skill name={aeroIII} />
     </T>
     <P>源自场地中心的全屏径向击退，防击退有效</P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: aero_iii,
+          alt: '暴风',
+        },
+      ]}
+    />
 
-    <T class="mt-12">
+    <T class="mt-8">
       <Skill name={breathOfDecay} />
     </T>
     <P>
@@ -105,7 +157,7 @@ const { time, base = 0 }: Props = Astro.props
       ]}
     />
 
-    <T class="mt-12">
+    <T class="mt-8">
       <Skill name={gust} />
     </T>
     <P>
@@ -122,178 +174,503 @@ const { time, base = 0 }: Props = Astro.props
       <Span variant="pink">2</Span>
       轮，每轮点名不同的职能组
     </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: gust_img,
+          alt: '旋风',
+        },
+      ]}
+    />
 
-    <T class="mt-12">
+    <T class="mt-8">
       <Skill name={prowlingGale} />
     </T>
-    <P> TODO </P>
+    <P>
+      场地正点或斜点方向生成
+      <Span variant="pink">4</Span>
+      座塔
+    </P>
+    <P>
+      正常踩塔会受到
+      <Skill name={prowlingGale} />
+      <DamageInfo damage="75000" type="magical" />
+      ，每炸一座塔则全员受到
+      <Skill name={greatWhirlwind} />
+      <DamageInfo damage="100000" type="magical" />
+      <SustainedDamage layer={1} tag="15" hover />
+      <DotInfo damage="30000" />
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: prowling_gale_1,
+          alt: '风狼阵：正点塔',
+        },
+        {
+          src: prowling_gale_2,
+          alt: '风狼阵：斜点塔',
+        },
+      ]}
+    />
 
-    <T class="mt-12">
+    <T class="mt-8">
       <Skill name={windsOfDecay} />
     </T>
-    <P> TODO </P>
+    <P>
+      场地正点或斜点方向刷新
+      <Span variant="pink">4</Span>
+      只
+      <WolfOfWind />
+      ，必定与塔交错分布，随机连线
+      <Span variant="pink">4</Span>
+      <RoleIcon role="tank|healer" />
+      或
+      <Span variant="pink">4</Span>
+      <RoleIcon role="dps" />
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: winds_of_decay_1,
+          alt: '正点千年狂风：粗线',
+        },
+        {
+          src: winds_of_decay_2,
+          alt: '斜点千年狂风：粗线',
+        },
+      ]}
+    />
+    <P>
+      连线判定时，
+      <WolfOfWind />
+      会对连线玩家释放
+      <Span variant="pink">30°</Span>
+      扇形：
+    </P>
+    <Quote variant="lime">
+      <P>
+        距离不足时，对玩家造成
+        <DamageInfo damage="700000" type="magical" />
+        <MagicVulnerabilityUp tag="1" hover />
+        <DamageDown tag="30" />
+        <Span variant="rose" class="text-decimal">50%↓</Span>
+      </P>
+      <P>
+        距离足够时（连线会变为紫色），对玩家造成
+        <DamageInfo damage="70000" type="magical" />
+        <MagicVulnerabilityUp tag="1" hover />
+      </P>
+    </Quote>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: winds_of_decay_3,
+          alt: '正点千年狂风：细线',
+        },
+        {
+          src: winds_of_decay_4,
+          alt: '正点千年狂风：判定',
+        },
+      ]}
+    />
   </div>
 </MechanicSection>
 
-<SolutionSection title="解法：IQ6000【改】">
-  <div class="flex flex-col gap-4">
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：IQ6000【改】" class="flex flex-col gap-4">
     <Quote variant="lime" class="opacity-80">
       <P>
-        注意：本解法互换了原版解法中，
+        改动点：为匹配开场八方站位，互换了
         <RoleIcon role="tank|healer" />
-        先风圈时，初始
+        先风圈时
         <RoleIcon role="tank" tag="ST" />
-        和
         <RoleIcon role="healer" tag="H2" />
-        的站位，以适配开场的八方站位
+        的站位，以及踩塔时
+        <RoleIcon role="tank" tag="ST" />
+        <RoleIcon role="healer" tag="H2" />
+        的站位
       </P>
     </Quote>
-    <div class="paragraph">
-      首先第一个<WolfOfWind />必定是刷新在北侧或者南侧，将场地分割为左半场和右半场。
-    </div>
 
-    <div class="paragraph">
-      此时全员需要观察<WolfOfWind />是顺时针还是逆时针。
-    </div>
-
-    <div class="paragraph">以场地正北为基准，我们让MT组(MT, H1, D1, D3)去左半场，ST组(ST, H2, D2, D4)去右半场。</div>
-
-    <div class="paragraph">
-      第一轮点名出现，我们让四个点名去数字点，MT/D3去<Span variant="red">1</Span>， ST/D4去
-      <Span variant="yellow">2</Span>，
-    </div>
-
-    <div class="paragraph">
-      H1/D1去
-      <Span variant="purple">4</Span>， H2/D2去
-      <Span variant="sky">3</Span>。近战可以稍微靠近<HowlingBlade />在最远近战距离输出。无点名的安全区在<HowlingBlade
-      />的侧面。
-    </div>
-
-    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>这里应该是support组点名</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>这里应该是dps组点名</div>
-      </div>
-    </div>
-
-    <div class="paragraph">
-      场地击退效果出现，全员防击退。等待第一轮点名判定后，<WolfOfWind />开始旋转。
-    </div>
-
-    <div class="paragraph">
-      这里第一轮没有被点到的可以根据<WolfOfWind />是顺时针还是逆时针确定放圈的位置。
-    </div>
-
-    <div class="paragraph">如果是顺时针，MT组的远程就会在A点，近战在2点，ST组的远程在C点，近战在4点。</div>
-
-    <div class="paragraph">如果是逆时针，MT组的远程就会在C点，近战在3点，ST组的远程在A点，近战在1点。</div>
-
-    <div class="paragraph">
-      这里也可以直接看第二只<WolfOfWind />出现的位置，如果出现在2/4点就是顺时针的规则，否则就是逆时针。
-    </div>
-
-    <div class="paragraph">
-      以H1为例，观察<WolfOfWind />是顺时针，第一轮没有被点名，那就可以在第一次AoE判定之后去A点等待自己的点名。
-    </div>
-
-    <div class="grid grid-cols-4 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>这里应该是顺时针的站位，假设dps先被点名</div>
-      </div>
-
-      <div class="flex flex-col items-center gap-1">
-        <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>这里应该是逆时针的站位，假设dps先被点名</div>
-      </div>
-    </div>
-
-    <div class="paragraph">
-      两次点名结束后，继续躲避直到<WolfOfWind />消失。 随后场上出现四个<WolfOfWind />，观察自己是否有连线。
-    </div>
-
-    <div class="paragraph">如果有连线，去连线龙头相反的地方等待被击退将连线拉长。</div>
-
-    <div class="paragraph">
-      如果没有连线，则去自己的塔准备踩塔。由于塔会刷新在正点或者斜点，这里我们还是根据颜色分组。
-    </div>
-
-    <div class="paragraph">
+    <T class="mt-8">
+      <Skill variant="lime" name={breathOfDecay} />
+      &
+      <Skill variant="lime" name={gust} />
+    </T>
+    <P>
+      先看前半段
+      <Skill name={breathOfDecay} />
+      和
+      <Skill name={gust} />
+      的处理方法，下文以
+      <WolfOfWind />
+      初始从正北顺时针刷新为例
+    </P>
+    <P>
+      初始全员按左右半场分组，
       <RoleIcon role="tank" tag="MT" />
-      或
-      <RoleIcon role="ranged" tag="D3" />
-      去
-      <Span variant="red">红色</Span>
-      标点，也就是
-      <Span variant="red">A</Span>
-      或者
-      <Span variant="red">1</Span>
-      。
-      <RoleIcon role="tank" tag="ST" />
-      或
-      <RoleIcon role="magic" tag="D4" />
-      去
-      <Span variant="yellow">黄色</Span>
-      标点，也就是
-      <Span variant="yellow">B</Span>
-      或者
-      <Span variant="yellow">2</Span>
-      。
-    </div>
-
-    <div class="paragraph">
-      <RoleIcon role="healer" tag="H2" />
-      和
-      <RoleIcon role="melee" tag="D2" />
-      去
-      <Span variant="sky">蓝色</Span>
-      标点，也就是
-      <Span variant="sky">C</Span>
-      或者
-      <Span variant="sky">3</Span>
-      。
       <RoleIcon role="healer" tag="H1" />
-      和
       <RoleIcon role="melee" tag="D1" />
-      去
-      <Span variant="purple">紫色</Span>
-      标点，也就是
-      <Span variant="purple">D</Span>
-      或者
-      <Span variant="purple">4</Span>
-      。
-    </div>
+      <RoleIcon role="ranged" tag="D3" />
+      去左半场，
+      <RoleIcon role="tank" tag="ST" />
+      <RoleIcon role="healer" tag="H2" />
+      <RoleIcon role="melee" tag="D2" />
+      <RoleIcon role="ranged" tag="D4" />
+      去右半场
+    </P>
+    <P>
+      <HowlingBlade />
+      读条
+      <Skill name={millennialDecay} />，
+      <WolfOfWind />、击退预兆和风圈点名相继出现，首先确认自身是否被点风圈：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_1,
+          alt: '解法示意图1：TH先风圈',
+          title: '情形1：TH先风圈',
+        },
+        {
+          src: solution_2,
+          alt: '解法示意图2：DPS先风圈',
+          title: '情形2：DPS先风圈',
+        },
+      ]}
+    />
 
-    <div class="paragraph">
-      塔判定，<WolfOfWind />伤害判定，该机制结束。
-    </div>
+    <P>确认风圈点名后，按下图站位：</P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_3,
+          alt: '解法示意图3：TH先风圈',
+          title: '情形1：TH先风圈',
+        },
+        {
+          src: solution_4,
+          alt: '解法示意图4：DPS先风圈',
+          title: '情形2：DPS先风圈',
+        },
+      ]}
+    />
+    <P>具体来说：</P>
+    <Quote variant="lime">
+      <P><ListDot />若自身没被点风圈，则按分组站在正左/右，靠近场中等待击退，或开启防击退后站在<HowlingBlade />两侧</P>
+      <P><ListDot />若自身被点风圈，则按图示站在斜点方向，靠近场中等待击退，或开启防击退后站在场边</P>
+      <P class="pl-6"><ListDot />近战被点风圈时，可以开启防击退技能，站数字标点靠近场地中轴线且远离场中的顶点</P>
+      <P class="pl-6">
+        <ListDot />
+        这样直到风圈判定都可以持续输出
+        <HowlingBlade />，具体站位可参考左图的
+        <RoleIcon role="tank" tag="MT" />
+        <RoleIcon role="tank" tag="ST" />
+        和右图的
+        <RoleIcon role="melee" tag="D1" />
+        <RoleIcon role="dps" tag="D2" />
+      </P>
+    </Quote>
+    <P>就位后，还需观察<WolfOfWind />是顺时针刷新还是逆时针刷新</P>
+
+    <P>下文以<RoleIcon role="tank|healer" />先风圈、<WolfOfWind />从北侧顺时针刷新为例</P>
+    <P>
+      击退判定后，
+      <RoleIcon role="tank|healer" />
+      先在场边放置点名，
+      <RoleIcon role="dps" />
+      注意躲避：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_5,
+          alt: '解法示意图5：TH先风圈',
+        },
+        {
+          src: solution_6,
+          alt: '解法示意图6：DPS先风圈',
+        },
+      ]}
+    />
+    <P>
+      被直线追的两人（即图示的<RoleIcon role="tank" tag="ST" /><RoleIcon role="healer" tag="H1" />）可以提前顺着
+      <WolfOfWind />
+      旋转的方向移动几步，避免被直线追上
+    </P>
+
+    <P>
+      第一轮风圈点名判定后，余下的
+      <Span variant="default">4</Span>
+      人（下图的<Span variant="default">4</Span><RoleIcon role="dps" />）也被点风圈：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_7,
+          alt: '解法示意图7：TH先风圈',
+        },
+        {
+          src: solution_8,
+          alt: '解法示意图8：DPS先风圈',
+        },
+      ]}
+    />
+    <P>之后，按如下规则移动：</P>
+    <Quote variant="lime">
+      <P>
+        <ListDot />本轮风圈近战位的两人（图示的
+        <RoleIcon role="melee" tag="D1" /><RoleIcon role="dps" tag="D2" />
+        ）追着直线跑，尽量给后面的人让出安全空间
+      </P>
+      <P class="pl-6"><ListDot />判定动画是可以踩进去的，不要等动画结束才移动，那样就太慢了</P>
+      <P>
+        <ListDot />本轮风圈远程位的两人（图示的
+        <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />
+        ）直接去自己半场的
+        <Span variant="red">A</Span>/<Span variant="sky">C</Span>
+        点场边
+      </P>
+      <P>
+        <ListDot />
+        前一轮风圈的
+        <Span variant="default">4</Span>
+        人（图示的
+        <RoleIcon role="tank|healer" />
+        ）在自己半场的靠后位置跟着直线转即可
+      </P>
+    </Quote>
+
+    <T class="mt-8">
+      <Skill variant="lime" name={prowlingGale} />
+      &
+      <Skill variant="lime" name={windsOfDecay} />
+    </T>
+    <P>
+      进入机制后半段，
+      <HowlingBlade />
+      再次读条全屏击退，同时正/斜点刷新
+      <Span variant="pink">4</Span>
+      座单人塔，斜/正点刷新
+      <Span variant="pink">4</Span>
+      只
+      <WolfOfWind />
+    </P>
+    <P>
+      <WolfOfWind />
+      会随机连线
+      <Span variant="default">4</Span>
+      <RoleIcon role="tank|healer" />
+      或
+      <Span variant="default">4</Span>
+      <RoleIcon role="dps" />
+      释放扇形，我们让被连线的人专心引导扇形，剩余
+      <Span variant="default">4</Span>
+      人负责踩塔
+    </P>
+    <P>
+      视连线情况和塔刷新模式的不同，按下表站位处理：
+      <ToggleSwitch
+        id="millennial-decay-solution-th-dps-toggle"
+        lVariant="blue"
+        rVariant="red"
+        lLabel="TH踩塔"
+        rLabel="DPS踩塔"
+      />
+    </P>
+    <ImgGrid
+      id="millennial-decay-solution-th-tower-grid"
+      cols={[{ title: '击退前' }, { title: '击退后' }]}
+      defaultImgWrapperStyle={{
+        bordered: true,
+        rounded: true,
+        borderVariant: 'cyan',
+      }}
+      rows={[
+        {
+          title: '正点塔',
+          cells: [
+            {
+              img: {
+                src: solution_9,
+                alt: '解法示意图9: 正点塔 TH踩塔 击退前',
+              },
+            },
+            {
+              img: {
+                src: solution_10,
+                alt: '解法示意图10: 正点塔 TH踩塔 击退后',
+              },
+            },
+          ],
+        },
+        {
+          title: '斜点塔',
+          cells: [
+            {
+              img: {
+                src: solution_11,
+                alt: '解法示意图11: 斜点塔 TH踩塔 击退前',
+              },
+            },
+            {
+              img: {
+                src: solution_12,
+                alt: '解法示意图12: 斜点塔 TH踩塔 击退后',
+              },
+            },
+          ],
+        },
+      ]}
+    />
+    <ImgGrid
+      id="millennial-decay-solution-dps-tower-grid"
+      cols={[{ title: '击退前' }, { title: '击退后' }]}
+      defaultImgWrapperStyle={{
+        bordered: true,
+        rounded: true,
+        borderVariant: 'cyan',
+      }}
+      class="hidden"
+      rows={[
+        {
+          title: '正点塔',
+          cells: [
+            {
+              img: {
+                src: solution_13,
+                alt: '解法示意图13: 正点塔 DPS踩塔 击退前',
+              },
+            },
+            {
+              img: {
+                src: solution_14,
+                alt: '解法示意图14: 正点塔 DPS踩塔 击退后',
+              },
+            },
+          ],
+        },
+        {
+          title: '斜点塔',
+          cells: [
+            {
+              img: {
+                src: solution_15,
+                alt: '解法示意图15: 斜点塔 DPS踩塔 击退前',
+              },
+            },
+            {
+              img: {
+                src: solution_16,
+                alt: '解法示意图16: 斜点塔 DPS踩塔 击退后',
+              },
+            },
+          ],
+        },
+      ]}
+    />
+
+    <P>具体来说：</P>
+    <Quote variant="lime">
+      <P><ListDot />若自身没被连线，则按图示站自己塔的方向，靠近场中等待击退，或开启防击退后直接站在塔里</P>
+      <P class="pl-6">
+        <ListDot />
+        <RoleIcon role="tank" tag="MT" />
+        <RoleIcon role="ranged" tag="D3" />
+        负责
+        <Span variant="red">A</Span>/<Span variant="red">1</Span>点的塔，
+        <RoleIcon role="tank" tag="ST" />
+        <RoleIcon role="magic" tag="D4" />
+        负责
+        <Span variant="yellow">B</Span>/<Span variant="yellow">2</Span>点的塔
+      </P>
+      <P class="pl-6">
+        <ListDot />
+        <RoleIcon role="healer" tag="H2" />
+        <RoleIcon role="dps" tag="D2" />
+        负责
+        <Span variant="sky">C</Span>/<Span variant="sky">3</Span>点的塔，
+        <RoleIcon role="healer" tag="H1" />
+        <RoleIcon role="melee" tag="D1" />
+        负责
+        <Span variant="purple">D</Span>/<Span variant="purple">4</Span>点的塔
+      </P>
+      <P><ListDot />若自身被连线，就往连线狼首的对侧击退</P>
+      <P class="pl-6"><ListDot />击退到对侧后，站在对侧狼首的侧面或背面，以免同时吃到两个扇形</P>
+    </Quote>
   </div>
-</SolutionSection>
-
-<NoteSection>
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      <WolfOfWind />释放的直线AoE伤害约为
-      <DamageInfo damage="90000" type="magical" />
-      <DamageDown tag="30" />
-      如果有人不小心吃到了能稍微抢救一下。
-    </div>
-
-    <div class="paragraph">
-      如果最后的塔没有踩到，每个会对全团造成
-      <Span variant="yellow">{greatWhirlwind}</Span>
-      <DamageInfo damage="100000" type="magical" />
-      并赋予
-      <SustainedDamage tag="15" layer={1} />
-      每跳伤害
-      <DamageInfo damage="30000" type="special" />
-    </div>
-
-    <div class="paragraph">紧接着后面会有多段分摊AoE，一层DoT勉强可以奶得起来，两层基本团灭。</div>
+  <div slot="解法：全员踩塔" class="flex flex-col gap-4">
+    <P>虽然扇形有易伤，但踩塔没有易伤，因此可以全员参与踩塔，如下图：</P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_op,
+          alt: '解法示意图: 全员踩塔',
+        },
+      ]}
+    />
+    <P>具体来说：</P>
+    <Quote variant="lime">
+      <P>
+        <ListDot />
+        若自身没被连线，则还是按照
+        <StratLink variant="lime" href="#millennial-decay-solution-iq6001">解法：IQ6000【改】</StratLink>
+        的站位踩塔
+      </P>
+      <P>
+        <ListDot />
+        若自身被连线，就往连线狼首对侧顺时针的下一个塔处击退，一起参与踩塔，如上图所示
+      </P>
+    </Quote>
+    <P>好处是，有减员的情况下，更大概率避免炸塔</P>
+    <P>坏处是，全员都要同时承受踩塔和扇形的伤害，总伤害比正常处理时翻了一番</P>
   </div>
-</NoteSection>
+</MultiSolutionSection>
+
+<script>
+  function toggleTables(thTowerGridId: string, dpsTowerGridId: string, change: boolean) {
+    const thTowerGrid = document.getElementById(thTowerGridId)
+    const dpsTowerGrid = document.getElementById(dpsTowerGridId)
+
+    if (thTowerGrid && dpsTowerGrid) {
+      if (change) {
+        thTowerGrid.classList.toggle('grid', !thTowerGrid.classList.toggle('hidden', true))
+        dpsTowerGrid.classList.toggle('grid', !dpsTowerGrid.classList.toggle('hidden', false))
+      } else {
+        dpsTowerGrid.classList.toggle('grid', !dpsTowerGrid.classList.toggle('hidden', true))
+        thTowerGrid.classList.toggle('grid', !thTowerGrid.classList.toggle('hidden', false))
+      }
+    }
+  }
+
+  document.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement
+
+    if (target && target.id === 'millennial-decay-solution-th-dps-toggle') {
+      toggleTables(
+        'millennial-decay-solution-th-tower-grid',
+        'millennial-decay-solution-dps-tower-grid',
+        target.checked,
+      )
+    }
+  })
+</script>

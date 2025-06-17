@@ -4,27 +4,28 @@ import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
-import Span from '@/components/Span.vue'
-import LimitBreak from '@/components/action/LimitBreak.astro'
 import EventSection from '@/components/section/EventSection.astro'
+import LimitBreak from '@/components/action/LimitBreak.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
+import P from '@/components/typography/P.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import Skill from '@/components/typography/Skill.astro'
 
 import Attack from './_components/Attack.astro'
 import BeckonMoonlight from './_mechanics/BeckonMoonlight.astro'
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
 import GreatDivide from './_components/GreatDivide.astro'
 import HowlingBlade from './_components/entities/HowlingBlade.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 import RetargetableEvent from './_components/RetargetableEvent.astro'
-import ShadowChase from './_mechanics/ShadowChase.astro'
 import TerrestrialRage from './_mechanics/TerrestrialRage.astro'
 import TrackingTremors from './_mechanics/TrackingTremors.astro'
 import WealOfStone from './_mechanics/WealOfStone.astro'
 import XReignCast from './_components/XReignCast.astro'
 import WolfOfWind from './_components/entities/WolfOfWind.astro'
 import Xfang from './_mechanics/Xfang.astro'
+import ShadowChase from './_mechanics/ShadowChase.astro'
 
 const dutyId = '07/m8s1'
 const base = '04:19.898'
@@ -38,7 +39,7 @@ const base = '04:19.898'
   <!-- 运动会读条 -->
   <TerrestrialRage start="04:34.950" base={base} />
   <EventSection time="04:45.483" base={base}>
-    <Span variant="yellow">大震撃 | 大岩石</Span>
+    <Skill name={['大震撃', '大岩石']} />
     <DamageInfo damage="110000" type="magical" />
     <MagicVulnerabilityUp tag="2" hover />
     判定
@@ -48,7 +49,7 @@ const base = '04:19.898'
   <SeparatorSection id="shadowchase" title="残影剣" />
   <ShadowChase start="04:44.0" base={base} />
   <EventSection time="04:52.9" base={base}>
-    <Span variant="yellow">大震撃 | 大岩石</Span>
+    <Skill name={['大震撃', '大岩石']} />
     <DamageInfo damage="110000" type="magical" />
     <MagicVulnerabilityUp tag="2" hover />
     判定
@@ -56,7 +57,7 @@ const base = '04:19.898'
   <RetargetableEvent time="04:55.0" base={base} />
   <CastSection start="04:55.0" base={base} duration={2.2}>
     <WolfOfWind slot="source" />
-    <Span variant="yellow">風狼豪波</Span>
+    <Skill name="風狼豪波" />
     <Badge variant="yellow">直线AoE</Badge>
   </CastSection>
 
@@ -78,7 +79,20 @@ const base = '04:19.898'
   <!-- TODO: 随机两个相邻斜点出土狼头 四个正点固定安全 这里我没写来个好哥哥补一下 -->
   <Xfang start="06:02.102" base={base} />
   <Attack time="06:14.0" base={base} />
-  <TrackingTremors start="6:13.522" base={base} />
+  <TrackingTremors
+    start="06:13.522"
+    base={base}
+    activateTimes={[
+      '06:19.407',
+      '06:20.478',
+      '06:21.547',
+      '06:22.616',
+      '06:23.688',
+      '06:24.759',
+      '06:25.829',
+      '06:26.898',
+    ]}
+  />
   <Attack time="06:22.0" base={base} />
   <Attack time="06:25.0" base={base} />
   <Attack time="06:28.0" base={base} />
@@ -86,28 +100,28 @@ const base = '04:19.898'
   <SeparatorSection id="extraplanar-feast" title="空間斬り・終" />
   <!-- 打的慢的话这个aoe会跳过 -->
   <ExtraplanarPursuitCast start="06:28.725" base={base} />
-  <NoteSection>
-    <div class="paragraph">如果小怪阶段打太慢，会跳过这个AoE。</div>
-  </NoteSection>
+  <NoteSection> 如果小怪阶段打太慢，会跳过一次AoE。 </NoteSection>
   <Attack time="06:34.0" base={base} />
   <Attack time="06:37.0" base={base} />
   <Attack time="06:40.0" base={base} />
   <Attack time="06:43.0" base={base} />
   <ExtraplanarPursuitCast start="06:43.514" base={base} />
   <MoveToCenterEvent time="06:48.319" base={base} />
+  <NoteSection>
+    <P>
+      如果此时
+      <HowlingBlade />
+      剩余血量过多，请酌情使用
+      <LimitBreak role="melee" stage={3} />
+      。 输出充足的情况下可以留到转场后减轻dps压力。
+    </P>
+  </NoteSection>
   <EventSection time="06:48.0" base={base}>
     <HowlingBlade />
     不可选中，随后释放
-    <Span variant="fuchsia">空間斬り・終</Span>
+    <Skill name="空間斬り・終" variant="fuchsia" />
     ，造成
     <DamageInfo damage="9999999" type="special" />
     <Badge variant="fuchsia">狂暴</Badge>
   </EventSection>
-  <NoteSection>
-    如果此时
-    <HowlingBlade />
-    剩余血量过多，请酌情使用
-    <LimitBreak role="melee" stage={3} />
-    。 输出充足的情况下可以留到转场后减轻dps压力。
-  </NoteSection>
 </DutyStratLayout>

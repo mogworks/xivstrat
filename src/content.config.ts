@@ -49,12 +49,13 @@ const dutyGroups = defineCollection({
 
 const developers = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/data/developers' }),
-  schema: z.object({
-    name: z.string(),
-    gameName: z.string(),
-    imgUrl: z.string(),
-    link: z.string(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      gameName: z.string(),
+      avatar: image(),
+      link: z.string(),
+    }),
 })
 
 export const collections = { duties, dutyGroups, developers }

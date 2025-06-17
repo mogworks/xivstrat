@@ -9,13 +9,123 @@ import Span from '@/components/Span.vue'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
+import ListDot from '@/components/ListDot.astro'
 import { translations } from '../_translations'
+import StratLink from '@/components/StratLink.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import AblinkImg1 from '@/assets/07/m7s/tdab/AbBlink_flare1.png'
+import AblinkImg2 from '@/assets/07/m7s/tdab/AbBlink_flare2.png'
 
 interface Props {
   base: Time
 }
 
 const { base = 0 }: Props = Astro.props
+const thornyDeathmatch = translations.thornyDeathmatch
+const abominableBlink = translations.abominableBlink
+const sporesplosion = translations.sporesplosion
+const brutishswing = translations.brutishSwing
+const stoneringer = translations.stoneringer
+const ThornsOfDeath = 'Thorns Of Death'
 ---
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4">
+      <T>
+        <Skill name={thornyDeathmatch} />
+      </T>
+      <P>
+        <BruteAbombinator />读条完毕后，所在的墙壁连线当前<RoleIcon role="any" tag="一仇" />，并附加<ThornsOfDeathDebuff
+          hover
+        />
+      </P>
+    </div>
+    <div class="flex flex-col gap-4">
+      <T class="mt-8 scroll-mt-[calc(5rem+1px)]">
+        <Skill name={ThornsOfDeath} />
+      </T>
+      <P>
+        每<Span variant="pink">3</Span>秒一跳的<Span variant="orange">持续伤害（DoT）</Span>，只有盾减生效，<RoleIcon
+          role="tank"
+        />与<RoleIcon role="healer|dps" />承伤无明显差别
+      </P>
+      <P
+        >随着<Span variant="pink">连线长度（角色距离连线墙的距离）</Span>的增加，伤害量共有<Span variant="pink">4</Span
+        >档：</P
+      >
+      <P class="pl-4">
+        <ListDot /><ThornsOfDeathDebuff level={1} hover />，伤害<Span variant="orange">9000/3s</Span>
+      </P>
+      <P class="pl-4">
+        <ListDot /><ThornsOfDeathDebuff level={2} hover />，伤害<Span variant="orange">12000/3s</Span>
+      </P>
+      <P class="pl-4">
+        <ListDot /><ThornsOfDeathDebuff level={3} hover />，伤害<Span variant="orange">80000/3s</Span>
+      </P>
+      <P class="pl-4">
+        <ListDot /><ThornsOfDeathDebuff level={4} hover />，伤害<Span variant="orange">157000/3s</Span>
+      </P>
+      <P>场地位置与伤害档数如图所示：</P>
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-150"
+        borderVariant="rose"
+        imgs={[
+          {
+            src: AblinkImg1,
+            alt: '长边连线',
+            title: '长边连线',
+          },
+          {
+            src: AblinkImg2,
+            alt: '短边连线',
+            title: '短边连线',
+          },
+        ]}
+      />
+    </div>
+    <div class="flex flex-col gap-4">
+      <T class="mt-8 scroll-mt-[calc(5rem+1px)]">
+        <Skill name={abominableBlink} />
+      </T>
+      <P>
+        读条开始时，<BruteAbombinator />点名任一<RoleIcon role="tank" />施加核爆标记，读条结束时以其为中心造成<Span
+          variant="rose">距离衰减</Span
+        >伤害
+      </P>
+    </div>
+  </div>
+</MechanicSection>
+<NoteSection>
+  <P
+    >对<RoleIcon role="any" tag="一仇" />的<ThornsOfDeathDebuff level={1} hover /><ThornsOfDeathDebuff
+      level={2}
+      hover
+    /><ThornsOfDeathDebuff level={3} hover /><ThornsOfDeathDebuff level={4} hover />连线可以通过挑衅/退避转移</P
+  >
+</NoteSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      <Skill name={stoneringer} />读条时，<RoleIcon role="all" tag="所有人" />观察并<Span variant="pink">记住</Span
+      ><RoleIcon role="boss" tag="boss" />掏出的武器，以处理<StratLink variant="yellow" href="#sporesplosion"
+        ><Skill name={sporesplosion} /></StratLink
+      >结束后的<Skill name={brutishswing} />
+    </P>
+    <P><Skill name={abominableBlink} />读条时：</P>
+    <P>
+      <ListDot />被<Skill name={abominableBlink} />点名的<RoleIcon role="tank" />
+      <Span variant="pink">远离人群</Span>放置核爆</P
+    >
+    <P
+      ><ListDot /><RoleIcon role="all" tag="其他人" />集合<Span variant="pink">远离</Span><RoleIcon
+        role="tank"
+        tag="点名"
+      /></P
+    >
+  </div>
+</SolutionSection>
