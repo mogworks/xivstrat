@@ -1,7 +1,6 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use tauri::Manager;
 
 fn main() {
     // 增强的注入脚本，修复外链打开功能
@@ -15,10 +14,14 @@ fn main() {
                 if (this.initialized) return;
                 this.initialized = true;
                 
-                console.log('[Tauri] 初始化增强功能...');
                 
                 // 立即注入返回按钮
                 this.injectBackButton();
+                
+                // 初始化完成后立即检查一次可见性
+                setTimeout(() => {
+                    this.updateBackButtonVisibility();
+                }, 50);
                 
                 // 设置链接拦截 - 必须在 Tauri API 加载后执行
                 this.waitForTauriAndSetupLinks();
@@ -26,16 +29,13 @@ fn main() {
                 // 监听 DOM 变化
                 this.observeChanges();
                 
-                console.log('[Tauri] 增强功能初始化完成');
             },
             
             waitForTauriAndSetupLinks: function() {
-                console.log('[Tauri] 等待 Tauri API 加载...');
                 
                 const checkInterval = setInterval(() => {
                     if (window.__TAURI__ && window.__TAURI__.shell && window.__TAURI__.shell.open) {
                         clearInterval(checkInterval);
-                        console.log('[Tauri] Tauri API 已加载，设置链接拦截');
                         this.setupLinkInterception();
                     }
                 }, 100);
@@ -44,18 +44,62 @@ fn main() {
                 setTimeout(() => {
                     clearInterval(checkInterval);
                     if (!window.__TAURI__ || !window.__TAURI__.shell || !window.__TAURI__.shell.open) {
-                        console.warn('[Tauri] Tauri API 未能加载');
                     }
                 }, 10000);
             },
             
+            isHomePage: function() {
+                // 检查是否在首页
+                const path = window.location.pathname;
+                const hash = window.location.hash;
+                const href = window.location.href;
+                const protocol = window.location.protocol;
+                
+                
+                // 更全面的首页检测
+                const isHome = path === '/' || 
+                               path === '/index.html' || 
+                               path === '/index' ||
+                               path === '' ||
+                               (path === '/' && hash === '') ||
+                               // 处理 Tauri 协议的情况（tauri://localhost）
+                               (protocol === 'tauri:' && (path === '/' || path === '')) ||
+                               (protocol === 'https:' && (path === '/' || path === '')) ||
+                               (protocol === 'http:' && (path === '/' || path === '')) ||
+                               // 处理可能的末尾斜杠
+                               path.replace(/\/$/, '') === '' ||
+                               // 通过检查是否有特定的首页元素来判断
+                               (document.querySelector('h1') && document.querySelector('h1').textContent === 'XivStrat');
+                
+                return isHome;
+            },
+            
+            updateBackButtonVisibility: function() {
+                const button = document.getElementById(this.backButtonId);
+                if (button) {
+                    const isHome = this.isHomePage();
+                    if (isHome) {
+                        button.style.display = 'none';
+                        button.style.visibility = 'hidden';
+                        button.style.opacity = '0';
+                        button.style.pointerEvents = 'none';
+                    } else {
+                        button.style.display = 'flex';
+                        button.style.visibility = 'visible';
+                        button.style.opacity = '1';
+                        button.style.pointerEvents = 'auto';
+                    }
+                } else {
+                }
+            },
+            
             injectBackButton: function() {
-                // 如果按钮已存在，跳过
+                // 如果按钮已存在，只更新可见性
                 if (document.getElementById(this.backButtonId)) {
+                    this.updateBackButtonVisibility();
                     return;
                 }
                 
-                console.log('[Tauri] 注入返回按钮...');
                 
                 // 创建样式
                 const style = document.createElement('style');
@@ -130,17 +174,25 @@ fn main() {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    console.log('[Tauri] 返回按钮点击');
                     window.history.back();
                 });
                 
+                // 在添加到 body 之前，先设置初始状态
+                if (this.isHomePage()) {
+                    button.style.display = 'none';
+                    button.style.visibility = 'hidden';
+                    button.style.opacity = '0';
+                    button.style.pointerEvents = 'none';
+                }
+                
                 // 添加到 body
                 document.body.appendChild(button);
-                console.log('[Tauri] 返回按钮已添加');
+                
+                // 再次确保可见性正确
+                this.updateBackButtonVisibility();
             },
             
             setupLinkInterception: function() {
-                console.log('[Tauri] 设置链接拦截...');
                 
                 const self = this;
                 
@@ -153,22 +205,15 @@ fn main() {
                     }
                     
                     if (target && target.tagName === 'A' && target.href) {
-                        console.log('[Tauri] 检测到链接点击:', target.href);
                         
                         try {
                             const targetUrl = new URL(target.href);
                             const currentUrl = new URL(window.location.href);
                             
-                            // 打印调试信息
-                            console.log('[Tauri] 目标主机:', targetUrl.hostname);
-                            console.log('[Tauri] 当前主机:', currentUrl.hostname);
-                            console.log('[Tauri] 协议:', targetUrl.protocol);
                             
                             // 检查是否为外部链接（不同主机名）
                             if (targetUrl.protocol.startsWith('http') && 
                                 targetUrl.hostname !== currentUrl.hostname) {
-                                
-                                console.log('[Tauri] 确认为外部链接，准备拦截');
                                 
                                 // 阻止默认行为
                                 e.preventDefault();
@@ -177,26 +222,19 @@ fn main() {
                                 
                                 // 使用 Tauri API 打开
                                 if (window.__TAURI__ && window.__TAURI__.shell && window.__TAURI__.shell.open) {
-                                    console.log('[Tauri] 调用 shell.open:', target.href);
                                     try {
                                         await window.__TAURI__.shell.open(target.href);
-                                        console.log('[Tauri] 外部链接打开成功');
                                     } catch (err) {
-                                        console.error('[Tauri] shell.open 失败:', err);
                                         // 降级方案
-                                        console.log('[Tauri] 尝试使用 window.open 作为降级方案');
                                         window.open(target.href, '_blank');
                                     }
                                 } else {
-                                    console.error('[Tauri] Shell API 不可用');
                                 }
                                 
                                 return false;
                             } else {
-                                console.log('[Tauri] 内部链接，允许默认行为');
                             }
                         } catch (err) {
-                            console.error('[Tauri] 处理链接时出错:', err);
                         }
                     }
                 }
@@ -224,7 +262,6 @@ fn main() {
                             targetUrl.hostname !== currentUrl.hostname) {
                             // 标记这个链接，以便在 click 事件中处理
                             target.dataset.tauriExternal = 'true';
-                            console.log('[Tauri] 标记外部链接（mousedown）:', target.href);
                         }
                     }
                 }, true);
@@ -258,7 +295,6 @@ fn main() {
                 // 处理已存在的链接
                 document.querySelectorAll('a').forEach(link => this.processLink(link));
                 
-                console.log('[Tauri] 链接拦截设置完成');
             },
             
             // 处理单个链接
@@ -279,7 +315,6 @@ fn main() {
                             link.removeAttribute('target');
                         }
                         
-                        console.log('[Tauri] 处理外部链接:', link.href);
                     }
                 } catch (err) {
                     // 忽略无效 URL
@@ -287,7 +322,6 @@ fn main() {
             },
             
             observeChanges: function() {
-                console.log('[Tauri] 设置 DOM 观察器...');
                 
                 const self = this;
                 
@@ -295,7 +329,6 @@ fn main() {
                 const observer = new MutationObserver(() => {
                     // 检查返回按钮是否被移除
                     if (!document.getElementById(this.backButtonId)) {
-                        console.log('[Tauri] 返回按钮被移除，重新注入');
                         this.injectBackButton();
                     }
                 });
@@ -312,11 +345,13 @@ fn main() {
                     const url = location.href;
                     if (url !== lastUrl) {
                         lastUrl = url;
-                        console.log('[Tauri] 检测到路由变化');
                         // 延迟检查，确保页面渲染完成
                         setTimeout(() => {
                             if (!document.getElementById(self.backButtonId)) {
                                 self.injectBackButton();
+                            } else {
+                                // 更新按钮可见性
+                                self.updateBackButtonVisibility();
                             }
                             // 重新处理新页面的链接
                             document.querySelectorAll('a').forEach(link => self.processLink(link));
@@ -324,7 +359,17 @@ fn main() {
                     }
                 }).observe(document, { subtree: true, childList: true });
                 
-                console.log('[Tauri] DOM 观察器设置完成');
+                // 额外监听 popstate 事件（浏览器前进/后退）
+                window.addEventListener('popstate', () => {
+                    setTimeout(() => {
+                        self.updateBackButtonVisibility();
+                    }, 100);
+                });
+                
+                // 监听 hashchange 事件
+                window.addEventListener('hashchange', () => {
+                    self.updateBackButtonVisibility();
+                });
             }
         };
         
@@ -345,11 +390,19 @@ fn main() {
             setTimeout(() => {
                 if (!window.__TAURI_INJECTED__.initialized) {
                     window.__TAURI_INJECTED__.init();
+                } else {
+                    // 如果已经初始化，再次检查按钮可见性
+                    window.__TAURI_INJECTED__.updateBackButtonVisibility();
                 }
             }, 100);
         });
         
-        console.log('[Tauri] 注入脚本已加载');
+        // 监听 DOMContentLoaded 后的一小段时间，以处理动态内容
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                window.__TAURI_INJECTED__.updateBackButtonVisibility();
+            }, 500);
+        });
     "#;
 
     tauri::Builder::default()
@@ -361,6 +414,7 @@ fn main() {
                 tauri::WebviewUrl::App("index.html".into())
             )
             .title("XivStrat")
+            .inner_size(1600.0, 900.0)
             .initialization_script(injection_script)
             .build()?;
 
