@@ -15,14 +15,16 @@ const lineList = text?.split('\n') ?? []
 ---
 
 <article class={cn('w-fit rounded-lg border bg-gray-200/30 p-4 text-sm dark:bg-white/10', className)}>
-  <copy-button target={text}>
-    <button
-      class="flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
-    >
-      <CopySVG class="h-3 w-3" />
-      复制全宏
-    </button>
-  </copy-button>
+  <div class="w-min">
+    <copy-button target={text}>
+      <button
+        class="flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
+      >
+        <CopySVG class="h-3 w-3" />
+        复制全宏
+      </button>
+    </copy-button>
+  </div>
   <Separator class="my-2" />
   <code>
     {
