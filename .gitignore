@@ -24,6 +24,7 @@ pnpm-debug.log*
 .idea/
 *~
 
+
 # ai
 .claude/
 .cursor/
@@ -33,3 +34,4 @@ CLAUDE.md
 src-tauri/target/
 src-tauri/icons/
 src-tauri/gen/
+

@@ -2,7 +2,7 @@
 name = "xivstrat"
 version = "1.0.0"
 description = "XivStrat - 最终幻想14中文攻略站"
-authors = ["XivStrat Team"]
+authors = [ "莫古力工坊" ]
 license = "AGPL-3.0"
 repository = ""
 edition = "2021"
@@ -13,10 +13,10 @@ tauri-build = { version = "2", features = [] }
 [dependencies]
 tauri = { version = "2", features = [] }
 tauri-plugin-shell = "2"
-serde = { version = "1", features = ["derive"] }
+serde = { version = "1", features = [ "derive" ] }
 serde_json = "1"
 
 [features]
 # this feature is used for production builds or when `devPath` points to the filesystem
 # DO NOT REMOVE!!
-custom-protocol = ["tauri/custom-protocol"]
+custom-protocol = [ "tauri/custom-protocol" ]
