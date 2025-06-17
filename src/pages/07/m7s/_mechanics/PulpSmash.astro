@@ -7,16 +7,17 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import PulpSmashCast from '../_components/PulpSmashCast.astro'
 import TheUnpottedActivate from '../_components/TheUnpottedActivate.astro'
 
-import pulp_smash from '@/assets/07/m7s/pulp_smash.png'
+import pulp_smash from '@/assets/07/m7s/pulp_smash/pulp_smash.png'
+import pulp_smash_arena_base from '@/assets/07/m7s/pulp_smash/pulp_smash_arena_base.png'
 import PulpSmashActivate from '../_components/PulpSmashActivate.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import ListDot from '@/components/ListDot.astro'
-import Tmp from '@/assets/07/m7s/Tmp.png'
 import ICftDActivate from '../_components/ICftDActivate.astro'
 import { translations } from '../_translations'
 
@@ -69,16 +70,21 @@ const { base = 0 }: Props = Astro.props
       跳完后<Span variant="pink">立刻离开原地</Span>并<Span variant="pink">分散</Span>
     </div>
     <div class="paragraph">分散示意图如下：</div>
-    <div class="grid grid-cols-3 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={pulp_smash} alt="" class="w-128 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>面基</div>
-      </div>
-
-      <div class="flex flex-col items-center gap-1">
-        <Image src={Tmp} alt="" class="w-128 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>场基</div>
-      </div>
-    </div>
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="cyan"
+      imgs={[
+        {
+          src: pulp_smash,
+          alt: '以BOSS面向为准',
+          title: '面基',
+        },
+        {
+          src: pulp_smash_arena_base,
+          alt: '以场地方向为准',
+          title: '场基',
+        },
+      ]}
+    />
   </div>
 </SolutionSection>
