@@ -35,7 +35,7 @@ const duty = (await getEntry('duties', dutyId))!.data
 
   // TODO 把逻辑拆分到各自组件内
 
-  subscribeKeys($stratSettings, ['viewMode', 'readMode', 'attackEvent'], (stratSettings) => {
+  subscribeKeys($stratSettings, ['viewMode', 'readMode', 'readModeRefresh', 'attackEvent'], (stratSettings) => {
     if (stratSettings.attackEvent === 'only') {
       // 只显示普通攻击
       document.querySelectorAll('section.strat-section:not(.attack-section),collapse-section').forEach((e) => {
