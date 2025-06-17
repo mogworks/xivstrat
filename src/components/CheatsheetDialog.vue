@@ -12,11 +12,17 @@ import {
   DialogTrigger,
 } from '@/components/shadcn-vue/dialog'
 
-defineProps<{
-  title?: string
-  description?: string
-  src?: string
-}>()
+withDefaults(
+  defineProps<{
+    title?: string
+    description?: string
+    src?: string
+    useScale?: boolean
+  }>(),
+  {
+    useScale: true,
+  }
+)
 
 const scale = ref(1)
 </script>
@@ -37,7 +43,7 @@ const scale = ref(1)
           <slot name="title">
             {{ title }}
           </slot>
-          <div class="flex items-center gap-4">
+          <div v-if="useScale" class="flex items-center gap-4">
             <input
               v-model="scale"
               type="range"
@@ -65,16 +71,22 @@ const scale = ref(1)
           </slot>
         </DialogDescription>
       </DialogHeader>
-      <div class="overflow-auto">
+      <div class="h-[75vh] overflow-auto">
         <div
-          class="max-h-[90vh] max-w-[80vw] transition-all duration-150"
+          class="flex h-full w-full max-w-[80vw] flex-row gap-4 transition-all duration-150"
           :style="{
             transform: `scale(${scale})`,
             transformOrigin: 'top left',
           }"
         >
           <slot>
-            <img v-if="src" :src="src" loading="lazy" alt="副本小抄" class="block w-full">
+            <img
+              v-if="src"
+              :src="src"
+              loading="lazy"
+              alt="副本小抄"
+              class="block h-full object-contain object-left-top"
+            >
           </slot>
         </div>
       </div>
