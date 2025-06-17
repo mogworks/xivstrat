@@ -5,10 +5,7 @@ import Badge from '@/components/Badge.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import Skill from '@/components/typography/Skill.astro'
-
-import { translations } from '../_translations'
-
-import P from '@/components/typography/P.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
 
 interface Props {
   time: Time
@@ -16,12 +13,13 @@ interface Props {
 }
 
 const { time, base = 0 }: Props = Astro.props
-const slaminator = translations.slaminator
+const pollen = 'Pollen'
 ---
 
 <EventSection time={time} base={base}>
-  <P>
-    <Skill name={slaminator} />
-    伤害判定，总伤<DamageInfo damage="800000" type="physical" /><Badge variant="red">双T分摊</Badge>
-  </P>
+  <Skill name={pollen} />
+  伤害判定
+  <DamageInfo damage="120000" type="magical" />
+  <DamageDown tag="30" hover />
+  <Badge variant="emerald">8m圆形</Badge>
 </EventSection>
