@@ -24,5 +24,12 @@ pnpm-debug.log*
 .idea/
 *~
 
-# datamining
-datamining/
+# ai
+.claude/
+.cursor/
+CLAUDE.md
+
+#tauri
+src-tauri/target/
+src-tauri/icons/
+src-tauri/gen/

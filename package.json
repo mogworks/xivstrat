@@ -5,7 +5,7 @@
   "packageManager": "pnpm@10.12.1",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "npm run minify && astro check",
+    "prebuild": "pnpm run minify && astro check",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
