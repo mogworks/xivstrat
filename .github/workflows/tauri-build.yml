@@ -3,7 +3,7 @@ name: Build Tauri App
 on:
   push:
     branches:
-      - dev_tauri_0617
+      - offline
 
 jobs:
   build:
