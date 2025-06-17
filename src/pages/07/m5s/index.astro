@@ -8,6 +8,7 @@ import Macro from '@/components/Macro.astro'
 import Separator from '@/components/Separator.astro'
 import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
 import ReferenceItem from '@/components/ReferenceItem.astro'
+import AreaBox from '@/components/AreaBox.astro'
 
 import CheatsheetsImage from '@/assets/cheatsheets/07/m5s.png'
 import WaymarkImage from '@/assets/waymarks/07/m5s.png'
@@ -29,7 +30,9 @@ const navList = [
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
   <Fragment slot="operation">
     <CheatsheetDialog client:idle>
-      <Image src={CheatsheetsImage} alt="m5s 副本小抄" loading="lazy" class="w-full" />
+      <AreaBox class="h-full w-fit">
+        <Image src={CheatsheetsImage} alt="m5s 副本小抄" loading="lazy" class="h-full object-contain object-left-top" />
+      </AreaBox>
     </CheatsheetDialog>
     <a href="/07/m5s/p1">
       <button
@@ -41,7 +44,7 @@ const navList = [
   </Fragment>
   <CollapsibleBox id="waymark" client:idle class="w-full">
     <div class="w-sm">
-      <div class="rounded-lg border bg-gray-200/30 p-4 dark:bg-white/10">
+      <AreaBox>
         <button
           class="!disabled:hover:bg-purple-700/60 inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white disabled:cursor-not-allowed disabled:opacity-50 dark:border-purple-500 dark:bg-purple-700/75"
           disabled="true"
@@ -50,7 +53,7 @@ const navList = [
         </button>
         <Separator class="my-2 mb-3" />
         <Image src={WaymarkImage} alt="m5s 场地标点" class="w-full" />
-      </div>
+      </AreaBox>
     </div>
     <Fragment slot="header">
       <span>场地标点</span>
@@ -63,7 +66,9 @@ const navList = [
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="timeline" client:idle class="w-full">
-    <Image src={TimelineImage} alt="m5s 简易时间轴" class="w-full" />
+    <AreaBox>
+      <Image src={TimelineImage} alt="m5s 简易时间轴" class="w-full" />
+    </AreaBox>
     <Fragment slot="header">
       <span>简易时间轴</span>
     </Fragment>
