@@ -14,6 +14,7 @@ import explosion2 from '@/assets/07/m7s/explosion/2.png'
 import solution1 from '@/assets/07/m7s/explosion/solution_1.png'
 import solution2 from '@/assets/07/m7s/explosion/solution_2.png'
 import solution3 from '@/assets/07/m7s/explosion/solution_3.png'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 interface Props {
   base: Time
@@ -34,16 +35,13 @@ const { base = 0 }: Props = Astro.props
     <h4 class="mt-4 text-2xl">
       <Span variant="yellow">陨石刷新</Span>
     </h4>
-    <div class="grid grid-cols-2 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={explosion1} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>情况1</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={explosion2} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>情况2</div>
-      </div>
-    </div>
+    <ImgRow
+      bordered={false}
+      imgs={[
+        { src: explosion1, alt: '陨石刷新情况1', title: '情况1' },
+        { src: explosion2, alt: '陨石刷新情况2', title: '情况2' },
+      ]}
+    />
   </div>
 </MechanicSection>
 <SolutionSection>
@@ -64,19 +62,13 @@ const { base = 0 }: Props = Astro.props
       <Span variant="yellow">第2颗</Span>陨石爆炸后，<Span variant="pink">远离</Span>
       <Span variant="blue">第3颗</Span>陨石
     </div>
-    <div class="grid grid-cols-3 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={solution1} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>Step 1</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={solution2} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>Step 2</div>
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={solution3} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div>Step 3</div>
-      </div>
-    </div>
+    <ImgRow
+      bordered={false}
+      imgs={[
+        { src: solution1, alt: '陨石躲避步骤1', title: '步骤1' },
+        { src: solution2, alt: '陨石躲避步骤2', title: '步骤2' },
+        { src: solution3, alt: '陨石躲避步骤3', title: '步骤3' },
+      ]}
+    />
   </div>
 </SolutionSection>
