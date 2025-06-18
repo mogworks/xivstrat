@@ -5,9 +5,6 @@ on:
     tags:
       - 'v*'
 
-env:
-  APP_VERSION: ${GITHUB_REF#refs/tags/v}
-
 jobs:
   build:
     strategy:
@@ -22,6 +19,9 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        run: echo "APP_VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
 
       - name: Update Tauri Config Version
         run: |
@@ -101,7 +101,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ env.APP_VERSION }}
+          tag_name: ${{ env.APP_VERSION }}
           name: XivStrat Desktop ${{ env.APP_VERSION }}
           body: |
             ## 下载说明
