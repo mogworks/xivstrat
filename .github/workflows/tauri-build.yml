@@ -87,11 +87,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Get version from tauri.conf.json
+      - name: Get version from tag
         id: get_version
-        run: |
-          VERSION=$(cat src-tauri/tauri.conf.json | jq -r '.version')
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
+        run: echo "RELEASE_TAG=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4
@@ -104,7 +102,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          # tag_name: v${{ steps.get_version.outputs.version }}
+          tag_name: v${{ steps.get_version.outputs.version }}
           name: XivStrat Desktop v${{ steps.get_version.outputs.version }}
           body: |
             ## 下载说明
