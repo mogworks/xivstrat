@@ -26,6 +26,7 @@ jobs:
 
       - name: Update Tauri Config Version
         run: |
+          echo "Updating Tauri config version to ${{ steps.get_version.outputs.version }}"
           jq --arg v "${{ steps.get_version.outputs.version }}" '.version = $v' src-tauri/tauri.conf.json > tmp.json && mv tmp.json src-tauri/tauri.conf.json
         shell: bash
 
