@@ -5,6 +5,7 @@ import Badge from '@/components/Badge.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import Span from '@/components/Span.vue'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -14,7 +15,7 @@ interface Props {
 const { start, base = 0 }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={4.7} ability="Do the Hustle">
+<CastSection start={start} base={base} duration={4.7} ability={translations.doTheHustle}>
   <Fragment slot="source">
     <RoleIcon role="enemy_level1">
       <Span variant="rose">青蛙×2</Span>

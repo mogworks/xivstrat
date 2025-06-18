@@ -31,6 +31,7 @@ import lets_dance_right from '@/assets/07/m5s/lets_dance/right.png'
 import lets_dance_solution_1 from '@/assets/07/m5s/lets_dance/solution_1.png'
 import lets_dance_solution_2 from '@/assets/07/m5s/lets_dance/solution_2.png'
 import Grooviness100 from '@/assets/07/m5s/Grooviness100.png'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -60,7 +61,7 @@ const solutions = [
 const defaultSolution = '解法：日野主流'
 ---
 
-<CastSection start={start} base={base} duration={5.5} ability="Let's Dance!">
+<CastSection start={start} base={base} duration={5.5} ability={translations.letsDance}>
   <Badge variant="yellow">连续左右刀</Badge>
 </CastSection>
 <CollapseSection>
@@ -82,14 +83,14 @@ const defaultSolution = '解法：日野主流'
           <ul class="list-none space-y-4">
             <li class="flex items-center gap-1 text-lg">
               <span class="text-sm opacity-80">正确</span>
-              <Span variant="yellow">Minor Freak Out</Span>
+              <Span variant="yellow">{translations.minorFreakOut}</Span>
               <DamageInfo damage="30000" type="magical" />
               <MagicVulnerabilityUp tag="19" hover />
               <Badge variant="green">小范围AoE</Badge>
             </li>
             <li class="flex items-center gap-1 text-lg">
               <span class="text-sm opacity-80">错误</span>
-              <Span variant="yellow">Freak Out</Span>
+              <Span variant="yellow">{translations.freakOut}</Span>
               <DamageInfo damage="100000" type="magical" />
               <SustainedDamage tag="15" hover />
               <DotInfo damage="30000" />
@@ -97,7 +98,7 @@ const defaultSolution = '解法：日野主流'
             </li>
             <li class="flex items-center gap-1 text-lg">
               <span class="text-sm opacity-80">寄了</span>
-              <Span variant="yellow">Major Freak Out</Span>
+              <Span variant="yellow">{translations.majorFreakOut}</Span>
               <DamageInfo damage=">1000000" type="magical" />
               <Badge variant="red">团灭</Badge>
             </li>
@@ -110,7 +111,7 @@ const defaultSolution = '解法：日野主流'
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Let's Dance!</Span>
+      <Span variant="yellow">{translations.letsDance}</Span>
     </h4>
     <div class="paragraph">
       <Boss />
@@ -118,7 +119,7 @@ const defaultSolution = '解法：日野主流'
     </div>
     <div class="paragraph">
       可对玩家造成
-      <Span variant="yellow">Let's Dance!</Span>
+      <Span variant="yellow">{translations.letsDance}</Span>
       <DamageInfo damage="125000" type="magical" />
       <DamageDown tag="30" hover />
       <Span variant="rose" class="text-decimal">25%↓</Span>
@@ -147,12 +148,12 @@ const defaultSolution = '解法：日野主流'
     <div class="paragraph">注意观察青蛙举起的手，其指向即为BOSS发动左/右刀的方向</div>
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow"
-        >Wavelength <Span variant="violet">(</Span>α<Span variant="violet">|</Span>β<Span variant="violet">)</Span
-        ></Span
+        >{translations.wavelength}
+        <Span variant="violet">(</Span>α<Span variant="violet">|</Span>β<Span variant="violet">)</Span></Span
       >
     </h4>
     <div class="paragraph">
-      <Span variant="yellow">Let's Dance!</Span>
+      <Span variant="yellow">{translations.letsDance}</Span>
       读条开始时，
       <Wavelength type="α" hover />
       <Wavelength type="β" hover />
@@ -175,7 +176,7 @@ const defaultSolution = '解法：日野主流'
       <Span variant="yellow">Grooviness</Span>
     </h4>
     <div class="paragraph">
-      <Span variant="yellow">Arcady Night Fever</Span>
+      <Span variant="yellow">{translations.arcadyNightFever}</Span>
       机制开始时会出现一个计量槽，累积满时会奖励<LimitBreak stage={1} />
     </div>
     <div class="paragraph">
@@ -185,7 +186,7 @@ const defaultSolution = '解法：日野主流'
     </div>
     <div class="paragraph">
       算上
-      <StratLink variant="yellow" href="#arcady-night-fever">Arcady Night Fever</StratLink>
+      <StratLink variant="yellow" href="#arcady-night-fever">{translations.arcadyNightFever}</StratLink>
       阶段正确处理累积的
       <Span variant="pink">66</Span>
       点，恰好可以攒满计量槽
@@ -293,7 +294,7 @@ const defaultSolution = '解法：日野主流'
     <div class="paragraph">
       若范围检定时他们站在一起，就会造成
       <Span variant="red">团灭级全屏伤害</Span>
-      <Span variant="yellow">Major Freak Out</Span>
+      <Span variant="yellow">{translations.majorFreakOut}</Span>
       <DamageInfo damage=">1000000" type="magical" />
     </div>
     <div class="paragraph">

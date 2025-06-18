@@ -4,6 +4,7 @@ import Span from '@/components/Span.vue'
 import BurnBabyBurn from './BurnBabyBurn.astro'
 import InTheSpotlight from './InTheSpotlight.astro'
 import Spotlightless from './Spotlightless.astro'
+import { translations } from '../_translations'
 ---
 
 <div class="paragraph">
@@ -49,7 +50,7 @@ import Spotlightless from './Spotlightless.astro'
 <div class="paragraph">
   <Spotlightless hover />
   表示机制处理失败，玩家会被一个名为
-  <Span variant="yellow">Shame</Span>
+  <Span variant="yellow">{translations.shame}</Span>
   的超高伤害击飞上天秒杀
 </div>
 <div class="paragraph">

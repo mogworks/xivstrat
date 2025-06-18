@@ -25,6 +25,7 @@ import frog_2 from '@/assets/07/m5s/frog_2.png'
 import disco_infernal_p3_solution_1 from '@/assets/07/m5s/disco_infernal_p2/solution_1.png'
 import disco_infernal_p3_solution_2 from '@/assets/07/m5s/disco_infernal_p2/solution_2.png'
 import disco_infernal_p3_solution_3 from '@/assets/07/m5s/disco_infernal_p2/solution_3.png'
+import { translations } from '../_translations'
 
 interface Props {
   base?: Time
@@ -87,7 +88,7 @@ const { base = 0 }: Props = Astro.props
       <BurnBabyBurnEffect />
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Back-up Dance</Span>
+      <Span variant="yellow">{translations.backupDance}</Span>
     </h4>
     <div class="paragraph">
       <Boss />
@@ -117,7 +118,7 @@ const { base = 0 }: Props = Astro.props
       它们一出现就会对最近的人读条可引导的
       <Span variant="pink">45°</Span>
       扇形
-      <Span variant="yellow">Back-up Dance</Span>
+      <Span variant="yellow">{translations.backupDance}</Span>
       <DamageInfo damage="90000" type="magical" />
       <FrogtourageFan tag="18" hover />
       ，共两轮（8只）

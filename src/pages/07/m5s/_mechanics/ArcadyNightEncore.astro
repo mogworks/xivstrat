@@ -18,6 +18,7 @@ import StratLink from '@/components/StratLink.astro'
 import Wavelength from '../_components/Wavelength.astro'
 
 import Grooviness66 from '@/assets/07/m5s/Grooviness66.png'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -28,7 +29,7 @@ interface Props {
 const { start, base = 0, getDownTimes = [] }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={4.5} ability="Arcady Night Encore">
+<CastSection start={start} base={base} duration={4.5} ability={translations.arcadyNightEncore}>
   <Badge variant="yellow">连续钢铁月环</Badge>
 </CastSection>
 <CollapseSection>
@@ -62,7 +63,7 @@ const { start, base = 0, getDownTimes = [] }: Props = Astro.props
             </>
           )}
           发动
-          <Span variant="yellow">Get Down!</Span>
+          <Span variant="yellow">{translations.getDown}</Span>
           <DamageInfo damage="95000" type="magical" />
           <MagicVulnerabilityUp tag="9" hover />
           <Badge variant="emerald">45°扇形</Badge>
@@ -76,7 +77,7 @@ const { start, base = 0, getDownTimes = [] }: Props = Astro.props
 <SolutionSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
-      <StratLink variant="yellow" href="/07/m5s/p1#arcady-night-fever">Arcady Night Fever</StratLink>
+      <StratLink variant="yellow" href="/07/m5s/p1#arcady-night-fever">{translations.arcadyNightFever}</StratLink>
       返场，但这一次不会再附加
       <Wavelength type="α" hover />
       和
