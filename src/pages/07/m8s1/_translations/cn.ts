@@ -21,4 +21,5 @@ export const translations = {
   towerfall: '崩塌',
   bareFangs: '光牙召唤',
   fangedCrossing: '十字光牙',
+  tacticalPack: '光狼召唤',
 }
