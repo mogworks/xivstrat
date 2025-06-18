@@ -2,8 +2,8 @@ name: Build Tauri App
 
 on:
   push:
-    branches:
-      - release
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -19,6 +19,20 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Get version from tag
+        id: get_version
+        run: |
+          raw_tag="${GITHUB_REF#refs/tags/}"
+          clean_version="${raw_tag#v}"
+          echo "version=$clean_version" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Update Tauri Config Version
+        run: |
+          echo "Updating Tauri config version to ${{ steps.get_version.outputs.version }}"
+          jq --arg v "${{ steps.get_version.outputs.version }}" '.version = $v' src-tauri/tauri.conf.json > tmp.json && mv tmp.json src-tauri/tauri.conf.json
+        shell: bash
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -53,11 +67,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: v__VERSION__
-          releaseName: XivStrat Desktop v__VERSION__
-          releaseBody: See the assets to download this version and install.
-          releaseDraft: true
-          prerelease: false
           args: ${{ matrix.args }}
 
       - name: Upload build artifacts (Windows)
@@ -87,11 +96,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Get version from tauri.conf.json
+      - name: Get version from tag
         id: get_version
-        run: |
-          VERSION=$(cat src-tauri/tauri.conf.json | jq -r '.version')
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
+        run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4
@@ -104,8 +111,8 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ steps.get_version.outputs.version }}
-          name: XivStrat Desktop v${{ steps.get_version.outputs.version }}
+          tag_name: ${{ steps.get_version.outputs.version }}
+          name: XivStrat Desktop ${{ steps.get_version.outputs.version }}
           body: |
             ## 下载说明
 
