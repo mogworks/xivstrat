@@ -33,7 +33,7 @@ const duty = (await getEntry('duties', dutyId))!.data
 
   import { $stratSettings } from '@/stores/stratSettings'
 
-  // TODO 把逻辑拆分到各自组件内
+  // TODO: 把逻辑拆分到各自组件内
 
   subscribeKeys($stratSettings, ['viewMode', 'readMode', 'readModeRefresh', 'attackEvent'], (stratSettings) => {
     if (stratSettings.attackEvent === 'only') {

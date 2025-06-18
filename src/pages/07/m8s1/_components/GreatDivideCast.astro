@@ -6,14 +6,15 @@ import CastSection from '@/components/section/CastSection.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
+import { translations } from '../_translations'
+
 interface Props {
   start: Time
   base?: Time
-  [key: string]: any
 }
 
-const { start, base = 0, ...rest }: Props = Astro.props
-const ability = '一刀両断'
+const { start, base = 0 }: Props = Astro.props
+const ability = translations.greatDivide
 ---
 
 <CastSection
@@ -25,9 +26,8 @@ const ability = '一刀両断'
   targetTag="一仇"
   damage="1050000"
   damageType="physical"
-  {...rest}
 >
   <HowlingBlade slot="source" />
-  <Badge variant="green">直线</Badge>
+  <Badge variant="emerald">6m宽直线</Badge>
   <Badge variant="red">死刑</Badge>
 </CastSection>

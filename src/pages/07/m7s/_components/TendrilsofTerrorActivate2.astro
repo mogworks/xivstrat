@@ -1,0 +1,26 @@
+---
+import type { Time } from '@/lib/utils'
+import type { VariantType } from '@/lib/variant'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Span from '@/components/Span.vue'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Skill from '@/components/typography/Skill.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+
+interface Props {
+  time: Time
+  base?: Time
+}
+
+const { time, base = 0 }: Props = Astro.props
+const TendrillsofTerror = 'Tendrills of Terror'
+---
+
+<EventSection time={time} base={base}>
+  <Skill name={TendrillsofTerror} />冰花伤害判定
+  <DamageInfo damage="123000" type="magical" />
+  <DamageDown tag="30" hover />
+  <Badge variant="emerald">米字形AoE</Badge>
+</EventSection>

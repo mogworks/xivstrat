@@ -6,6 +6,7 @@ import DamageInfo from '@/components/DamageInfo.astro'
 import Span from '@/components/Span.vue'
 
 import EventSection from '@/components/section/EventSection.astro'
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
@@ -13,10 +14,11 @@ interface Props {
 }
 
 const { time, base = 0 }: Props = Astro.props
+const smashHereThere = translations.smashHereThere
 ---
 
 <EventSection time={time} base={base}>
-  <Span variant="yellow">Smash Here/There</Span>
+  <Span variant="yellow">{smashHereThere}</Span>
   伤害判定
   <DamageInfo damage="756000" type="physical" />
   <Badge variant="emerald">远/近引导</Badge>

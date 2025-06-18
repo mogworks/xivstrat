@@ -16,6 +16,7 @@ import ColorRiot from './_mechanics/ColorRiot.astro'
 import DoubleStyleP1 from './_mechanics/DoubleStyleP1.astro'
 import StickyMousse from './_mechanics/StickyMousse.astro'
 import Wingmark from './_mechanics/Wingmark.astro'
+import { translations } from './_translations'
 
 const dutyId = '07/m6s'
 const base = 0
@@ -34,18 +35,18 @@ const base = 0
   <MousseMuralCast start="00:06.177" base={base} />
   <AttackSection time="00:14.078" base={base} damage="57000" damageType="magical" />
   <AttackSection time="00:17.100" base={base} damage="57000" damageType="magical" />
-  <SeparatorSection id="color-riot" title="Color Riot" />
+  <SeparatorSection id="color-riot" title={translations.ColorRiot} />
   <ColorRiot base={base} />
   <SeparatorSection />
   <AttackSection time="00:27.369" base={base} damage="57000" damageType="magical" />
   <MoveToCenterEvent time="00:29.678" base={base} />
-  <SeparatorSection id="wingmark" title="Wingmark" />
+  <SeparatorSection id="wingmark" title={translations.Wingmark} />
   <Wingmark base={base} />
-  <SeparatorSection id="color-clash" title="Color Clash" />
+  <SeparatorSection id="color-clash" title={translations.ColorClash} />
   <ColorClash base={base} />
-  <SeparatorSection id="double-style" title="Double Style" />
+  <SeparatorSection id="double-style" title={translations.DoubleStyle} />
   <DoubleStyleP1 base={base} />
-  <SeparatorSection id="sticky-mousse" title="Sticky Mousse" />
+  <SeparatorSection id="sticky-mousse" title={translations.StickyMousse} />
   <StickyMousse base={base} />
   <SeparatorSection />
   <ColorRiotCast start="01:16.779" base={base} />

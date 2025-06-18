@@ -14,6 +14,6 @@ export const referenceList = [
   },
   {
     url: 'https://www.bilibili.com/opus/1069718586456539157',
-    label: 'xivstrat打法宏（全优化打法 与G8差异已标出） by D-Dark@Bilibili',
+    label: 'xivstrat打法宏（全优化打法 与G8差异已标出） ',
   },
 ]

@@ -2,6 +2,7 @@
 import Buff from '@/components/Buff.astro'
 
 import wingmark from '@/assets/buff/07/m6s/214274.png'
+import { translations } from '../_translations'
 
 interface Props {
   tag?: string
@@ -10,13 +11,14 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const { Wingmark, WingmarkDescription } = translations
 ---
 
 <Buff
   icon={wingmark}
-  name="Wingmark"
+  name={Wingmark}
   nameVariant="yellow"
-  description="Bearing painted wings. Will fly forward when this effect expires."
+  description={WingmarkDescription}
   tag={tag}
   hover={hover}
   class={className}

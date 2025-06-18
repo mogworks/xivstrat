@@ -30,7 +30,7 @@ interface Props {
 const { base = 0 }: Props = Astro.props
 ---
 
-<PulpSmashCast start="02:02.23" base={base} />
+<PulpSmashCast start="02:01.981" base={base} />
 <PulpSmashActivate time="02:07.019" base={base} />
 <ICftDActivate time="02:08.978" base={base} />
 <TheUnpottedActivate time="02:09.025" base={base} />
@@ -72,7 +72,7 @@ const { base = 0 }: Props = Astro.props
     <div class="paragraph">分散示意图如下：</div>
     <ImgRow
       wrapperClass="max-w-100"
-      borderVariant="cyan"
+      bordered={false}
       imgs={[
         {
           src: pulp_smash,
