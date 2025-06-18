@@ -26,6 +26,7 @@ jobs:
           raw_tag="${GITHUB_REF#refs/tags/}"
           clean_version="${raw_tag#v}"
           echo "version=$clean_version" >> "$GITHUB_OUTPUT"
+        shell: bash
 
       - name: Update Tauri Config Version
         run: |
