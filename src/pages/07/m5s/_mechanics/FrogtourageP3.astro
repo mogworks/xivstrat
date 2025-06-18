@@ -30,6 +30,7 @@ import frogtourage_p3_part2_2 from '@/assets/07/m5s/frogtourage_p3/part_2_2.png'
 import frogtourage_p3_part2_solution_1 from '@/assets/07/m5s/frogtourage_p3/part_2_solution_1.png'
 import frogtourage_p3_part2_solution_2 from '@/assets/07/m5s/frogtourage_p3/part_2_solution_2.png'
 import frogtourage_p3_part3 from '@/assets/07/m5s/frogtourage_p3/part_3.png'
+import { translations } from '../_translations'
 
 interface Props {
   base?: Time
@@ -40,14 +41,14 @@ const { base = 0 }: Props = Astro.props
 
 <FrogtourageCast phase="p3" start="07:26.025" base={base} />
 <ContentSection id="frogtourage-part-1" class="mt-8">
-  <Span variant="zinc" class="border-l-4 pl-2 text-2xl">Frogtourage Part 1</Span>
+  <Span variant="zinc" class="border-l-4 pl-2 text-2xl">{translations.frogtourage} Part 1</Span>
 </ContentSection>
 <AttackSection time="07:31.1" base={base} damage="55000" damageType="physical" />
 <AttackSection time="07:34.1" base={base} damage="55000" damageType="physical" />
 <FrogDoTheHustleCast start="07:31.194" base={base} />
 <AttackSection time="07:37.1" base={base} damage="55000" damageType="physical" />
 <FrogDoTheHustleCast start="07:35.293" base={base} />
-<CastSection start="07:39.255" base={base} duration={4.7} ability="Do the Hustle">
+<CastSection start="07:39.255" base={base} duration={4.7} ability={translations.doTheHustle}>
   <Badge variant="yellow">左右刀</Badge>
 </CastSection>
 <MechanicSection>
@@ -129,7 +130,7 @@ const { base = 0 }: Props = Astro.props
   </div>
 </SolutionSection>
 <ContentSection id="frogtourage-part-2" class="mt-8">
-  <Span variant="zinc" class="border-l-4 pl-2 text-2xl">Frogtourage Part 2</Span>
+  <Span variant="zinc" class="border-l-4 pl-2 text-2xl">{translations.frogtourage} Part 2</Span>
 </ContentSection>
 <AttackSection time="07:46.3" base={base} damage="55000" damageType="physical" />
 <AttackSection time="07:49.3" base={base} damage="55000" damageType="physical" />
@@ -160,7 +161,7 @@ const { base = 0 }: Props = Astro.props
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       划线效果和
-      <StratLink variant="yellow" href="/07/m5s/p2#frogtourage">P2：Frogtourage</StratLink>
+      <StratLink variant="yellow" href="/07/m5s/p2#frogtourage">P2：{translations.frogtourage}</StratLink>
       相同，不同的是这次是2组
       <RoleIcon role="enemy_level1">
         <Span variant="rose">青蛙×2</Span>
@@ -227,7 +228,7 @@ const { base = 0 }: Props = Astro.props
   </div>
 </SolutionSection>
 <ContentSection id="frogtourage-part-3" class="mt-8">
-  <Span variant="zinc" class="border-l-4 pl-2 text-2xl">Frogtourage Part 3</Span>
+  <Span variant="zinc" class="border-l-4 pl-2 text-2xl">{translations.frogtourage} Part 3</Span>
 </ContentSection>
 <AttackSection time="08:17.7" base={base} damage="55000" damageType="physical" />
 <CastSection start="08:21.584" base={base} duration={4.7} ability="Do the Hustle">

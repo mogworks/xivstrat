@@ -10,6 +10,7 @@ import Span from '@/components/Span.vue'
 import StratInterval from '@/components/StratInterval.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import EventSection from '@/components/section/EventSection.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start?: Time
@@ -36,7 +37,7 @@ const adjustedDuration = duration + 0.3
       或
       <Span variant="default">4</Span><RoleIcon role="dps" />
       读条
-      <Span variant="yellow">Quarter Beats</Span>
+      <Span variant="yellow">{translations.quarterBeats}</Span>
       <DamageInfo damage="125000" type="magical" />
       <MagicVulnerabilityUp tag="2" hover />
       <Badge variant="emerald">4m圆形</Badge>
@@ -47,7 +48,7 @@ const adjustedDuration = duration + 0.3
       对
       <RoleIcon role="all" tag="全员" />
       读条
-      <Span variant="yellow">Eighth Beats</Span>
+      <Span variant="yellow">{translations.eighthBeats}</Span>
       <DamageInfo damage="125000" type="magical" />
       <MagicVulnerabilityUp tag="2" hover />
       <Badge variant="emerald">5m圆形</Badge>

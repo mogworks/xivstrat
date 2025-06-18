@@ -32,6 +32,7 @@ import arcady_night_fever_solution_5 from '@/assets/07/m5s/arcady_night_fever/so
 import arcady_night_fever_solution_6 from '@/assets/07/m5s/arcady_night_fever/solution_6.png'
 import VideoPlaySVG from '@/assets/svg/video-play.svg'
 import ResetSVG from '@/assets/svg/reset.svg'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -42,7 +43,7 @@ const { start, base = 0, getDownTimes = [] }: Props = Astro.props
 const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '23']
 ---
 
-<CastSection start={start} base={base} duration={4.5} ability="Arcady Night Fever">
+<CastSection start={start} base={base} duration={4.5} ability={translations.arcadyNightFever}>
   <Badge variant="yellow">连续钢铁月环</Badge>
 </CastSection>
 <CollapseSection>
@@ -79,7 +80,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
             </>
           )}
           发动
-          <Span variant="yellow">Get Down!</Span>
+          <Span variant="yellow">{translations.getDown}</Span>
           <DamageInfo damage="95000" type="magical" />
           <MagicVulnerabilityUp tag="9" hover />
           {index % 2 === 0 ? (
@@ -98,7 +99,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Arcady Night Fever</Span>
+      <Span variant="yellow">{translations.arcadyNightFever}</Span>
     </h4>
     <div class="paragraph">
       读条后，
@@ -109,9 +110,9 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
     </div>
     <div class="paragraph">
       钢铁/月环的范围与
-      <Span variant="yellow">Inside Out</Span>
+      <Span variant="yellow">{translations.insideOut}</Span>
       /
-      <Span variant="yellow">Outside In</Span>
+      <Span variant="yellow">{translations.outSideIn}</Span>
       相同，半径分别为
       <Span variant="pink">7m</Span>
       和
@@ -119,13 +120,13 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
     </div>
     <div class="paragraph">
       每次钢铁/月环的同时，对随机不重复玩家发动一次名为
-      <Span variant="yellow">Get Down!</Span>
+      <Span variant="yellow">{translations.getDown}</Span>
       的
       <Span variant="pink">45°扇形</Span>
       攻击
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Get Down!</Span>
+      <Span variant="yellow">{translations.getDown}</Span>
     </h4>
     <div class="paragraph">
       <Span variant="pink">45°扇形</Span>
@@ -172,8 +173,8 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
     </div>
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow"
-        >Wavelength <Span variant="violet">(</Span>α<Span variant="violet">|</Span>β<Span variant="violet">)</Span
-        ></Span
+        >{translations.wavelength}
+        <Span variant="violet">(</Span>α<Span variant="violet">|</Span>β<Span variant="violet">)</Span></Span
       >
     </h4>
     <div class="paragraph">
@@ -287,7 +288,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
   <div class="flex flex-col gap-4">
     <div class="paragraph border-l-2 border-teal-500 pl-2 opacity-80">
       这里只阐述钢铁/月环+扇形的处理，至于debuff则会在下个机制
-      <StratLink variant="yellow" href="#lets-dance">Let's Dance!</StratLink>
+      <StratLink variant="yellow" href="#lets-dance">{translations.letsDance}</StratLink>
       中一并处理
     </div>
     <div class="paragraph mt-8">由于每人都会被点名1次扇形，显然应该按八方分散处理</div>
