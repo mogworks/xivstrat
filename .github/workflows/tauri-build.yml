@@ -25,7 +25,7 @@ jobs:
 
       - name: Update Tauri Config Version
         run: |
-          jq --arg v "$APP_VERSION" '.package.version = $v' src-tauri/tauri.conf.json > tmp.json && mv tmp.json src-tauri/tauri.conf.json
+          jq --arg v "$APP_VERSION" '.version = $v' src-tauri/tauri.conf.json > tmp.json && mv tmp.json src-tauri/tauri.conf.json
         shell: bash
 
       - name: Setup Node
