@@ -21,6 +21,7 @@ import funky_floor_implementation_1 from '@/assets/07/m5s/funky_floor/implementa
 import funky_floor_implementation_2 from '@/assets/07/m5s/funky_floor/implementation_2.png'
 import funky_floor_implementation_3 from '@/assets/07/m5s/funky_floor/implementation_3.png'
 import funky_floor_implementation_4 from '@/assets/07/m5s/funky_floor/implementation_4.png'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -30,7 +31,7 @@ interface Props {
 const { start, base = 0 }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={2.2} ability="Funky Floor" />
+<CastSection start={start} base={base} duration={2.2} ability={translations.funkyFloor} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
@@ -80,7 +81,7 @@ const { start, base = 0 }: Props = Astro.props
         <div class="paragraph">
           <Span variant="cyan">聚光灯</Span>
           的作用是处理
-          <StratLink variant="yellow" href="#disco-infernal">Disco Infernal</StratLink>
+          <StratLink variant="yellow" href="#disco-infernal">{translations.discoInfernal}</StratLink>
           赋予的
           <BurnBabyBurn hover />
         </div>

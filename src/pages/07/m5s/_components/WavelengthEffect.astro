@@ -7,6 +7,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 
 import Wavelength from './Wavelength.astro'
+import { translations } from '../_translations'
 ---
 
 <div class="paragraph">
@@ -24,7 +25,7 @@ import Wavelength from './Wavelength.astro'
   <Span variant="red">同时长同种debuff</Span>
   ，则共同产生
   <Span variant="red">团灭级全屏伤害</Span>
-  <Span variant="yellow">Major Freak Out</Span>
+  <Span variant="yellow">{translations.majorFreakOut}</Span>
   <DamageInfo damage=">1000000" type="magical" />
 </div>
 <div class="paragraph">
@@ -34,7 +35,7 @@ import Wavelength from './Wavelength.astro'
   <Span variant="green">同时长异种debuff</Span>
   ，则共同产生
   <Span variant="green">小范围圆形伤害</Span>
-  <Span variant="yellow">Minor Freak Out</Span>
+  <Span variant="yellow">{translations.minorFreakOut}</Span>
   <DamageInfo damage="30000" type="magical" />
   <MagicVulnerabilityUp tag="19" hover />
 </div>
@@ -45,7 +46,7 @@ import Wavelength from './Wavelength.astro'
   <Span variant="purple">同时长异种debuff</Span>
   ，则产生
   <Span variant="purple">单体伤害</Span>
-  <Span variant="yellow">Freak Out</Span>
+  <Span variant="yellow">{translations.freakOut}</Span>
   <DamageInfo damage="100000" type="magical" />
   <SustainedDamage tag="15" hover />
   <DotInfo damage="30000" />

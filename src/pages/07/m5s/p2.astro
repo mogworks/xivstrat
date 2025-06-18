@@ -26,6 +26,7 @@ import LetsDanceRemix from './_mechanics/LetsDanceRemix.astro'
 import LetsPose from './_mechanics/LetsPose.astro'
 import RideTheWaves from './_mechanics/RideTheWaves.astro'
 import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
+import { translations } from './_translations'
 
 const dutyId = '07/m5s'
 const base = '03:33.5'
@@ -44,7 +45,7 @@ const base = '03:33.5'
       注意：若需要调整
       <Boss />
       位置（参见
-      <Span variant="yellow">Ride the Waves</Span>
+      <Span variant="yellow">{translations.rideTheWaves}</Span>
       <StratLink variant="lime" href="#ride-the-waves-solution-optimize">解法：近战优化</StratLink>
       ），此时是最佳时机
     </div>
@@ -54,7 +55,7 @@ const base = '03:33.5'
   <AttackSection time="03:39.6" base={base} damage="55000" damageType="physical" />
   <AttackSection time="03:42.6" base={base} damage="55000" damageType="physical" />
   <FlipToXSideCast start="03:42.692" base={base} />
-  <SeparatorSection id="ride-the-waves" title="Ride the Waves" />
+  <SeparatorSection id="ride-the-waves" title={translations.rideTheWaves} />
   <RideTheWaves base={base} />
   <SeparatorSection />
   <AttackSection time="04:13.4" base={base} damage="55000" damageType="physical" />
@@ -70,10 +71,10 @@ const base = '03:33.5'
   <AttackSection time="04:52.5" base={base} damage="55000" damageType="physical" />
   <AttackSection time="04:55.6" base={base} damage="55000" damageType="physical" />
   <MoveToCenterEvent time="04:56.665" base={base} />
-  <SeparatorSection id="frogtourage" title="Frogtourage" />
+  <SeparatorSection id="frogtourage" title={translations.frogtourage} />
   <Frogtourage base={base} />
   <AttackSection time="05:18.0" base={base} damage="55000" damageType="physical" />
-  <SeparatorSection id="disco-infernal" title="Disco Infernal" />
+  <SeparatorSection id="disco-infernal" title={translations.discoInfernal} />
   <DiscoInfernalP2 base={base} />
   <SeparatorSection />
   <XSnapTwistAndDropTheNeedleCast start="05:47.508" base={base} />
@@ -83,7 +84,7 @@ const base = '03:33.5'
   <AttackSection time="06:08.8" base={base} damage="55000" damageType="physical" />
   <MoveToCenterEvent time="06:09.918" base={base} />
   <EnsembleAssembleCast start="06:12.323" base={base} />
-  <SeparatorSection id="arcady-night-encore" title="Arcady Night Encore" />
+  <SeparatorSection id="arcady-night-encore" title={translations.arcadyNightEncore} />
   <ArcadyNightEncore
     start="06:18.474"
     base={base}
@@ -98,8 +99,8 @@ const base = '03:33.5'
       '06:41.111',
     ]}
   />
-  <SeparatorSection id="lets-dance-remix" title="Let's Dance! Remix" />
+  <SeparatorSection id="lets-dance-remix" title={translations.letsDanceRemix} />
   <LetsDanceRemix start="06:45.250" base={base} />
-  <SeparatorSection id="lets-pose" title="Let's Pose!" />
+  <SeparatorSection id="lets-pose" title={translations.letsPose} />
   <LetsPose phase="p2" start="07:04.596" base={base} />
 </DutyStratLayout>
