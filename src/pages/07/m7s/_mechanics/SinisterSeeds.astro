@@ -129,7 +129,7 @@ const rootsOfEvil = translations.rootsOfEvil
     </P>
     <ImgRow
       wrapperClass="max-w-96"
-      borderVariant="cyan"
+      bordered={false}
       imgs={[
         { src: spore_case_1, alt: '' },
         { src: spore_case_2, alt: '' },
@@ -154,7 +154,7 @@ const rootsOfEvil = translations.rootsOfEvil
     <div class="paragraph">藤蔓的生长方向和最终的钢铁是有规律的，共有以下四种情况：</div>
     <ImgRow
       wrapperClass="max-w-60"
-      borderVariant="cyan"
+      bordered={false}
       imgs={[
         { src: pollen_case_1, alt: '', title: '' },
         { src: pollen_case_2, alt: '', title: '' },
@@ -165,7 +165,7 @@ const rootsOfEvil = translations.rootsOfEvil
     <div class="paragraph">如果我们只看AoE的范围，则仅有以下两种情况：</div>
     <ImgRow
       wrapperClass="max-w-96"
-      borderVariant="cyan"
+      bordered={false}
       imgs={[
         { src: pollen_safe_zone_1, alt: '内场左下安全区' },
         { src: pollen_safe_zone_2, alt: '内场右下安全区' },
@@ -255,11 +255,7 @@ const rootsOfEvil = translations.rootsOfEvil
     </div>
     <div class="flex gap-4">
       <div class="max-w-90 shrink">
-        <Image
-          src={sinister_solution_preparation}
-          alt=""
-          class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
-        />
+        <Image src={sinister_solution_preparation} alt="" class="w-96" />
       </div>
     </div>
   </div>
@@ -287,7 +283,7 @@ const rootsOfEvil = translations.rootsOfEvil
     <div class="paragraph">根据安全区的两种情况，站位分别如下所示：</div>
     <ImgRow
       wrapperClass="max-w-100"
-      borderVariant="cyan"
+      bordered={false}
       imgs={[
         { src: pollen_solution_case_1, alt: '', title: '情况1' },
         { src: pollen_solution_case_2, alt: '', title: '情况2' },
@@ -346,7 +342,7 @@ const rootsOfEvil = translations.rootsOfEvil
       <ListDot />随后往场中拐，放下第4个黄圈
     </P>
     <ImgRow
-      borderVariant="cyan"
+      bordered={false}
       imgs={[
         { src: sinister_solution_place_1, alt: '远程初始在右上左下角落', title: '右上角和左下角为初始安全区' },
         { src: sinister_solution_place_3, alt: '远程初始在左上右下角落', title: '左上角和右下角为初始安全区' },
@@ -391,7 +387,7 @@ const rootsOfEvil = translations.rootsOfEvil
     <ImgGrid
       cols={[{ title: 'Game8改' }, { title: 'Game8原版' }]}
       defaultImgWrapperStyle={{
-        bordered: true,
+        bordered: false,
         rounded: false,
         borderVariant: 'cyan',
       }}
@@ -483,7 +479,7 @@ const rootsOfEvil = translations.rootsOfEvil
       <RoleIcon role="healer" />的分摊
       <Span variant="yellow">{impact}</Span>
     </div>
-    <Image src={impact_solution} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <Image src={impact_solution} alt="" class="w-96" />
   </div>
 </SolutionSection>
 
@@ -519,7 +515,7 @@ const rootsOfEvil = translations.rootsOfEvil
     <ImgGrid
       cols={[{ title: 'Game8改' }, { title: 'Game8原版' }]}
       defaultImgWrapperStyle={{
-        bordered: true,
+        bordered: false,
         rounded: false,
         borderVariant: 'cyan',
       }}
@@ -588,17 +584,13 @@ const rootsOfEvil = translations.rootsOfEvil
       <DamageInfo damage="9999999" type="special" />
     </div>
   </div>
-  <div class="mt-4 grid grid-cols-3 gap-x-2 gap-y-4">
-    <div class="flex flex-col items-center gap-1">
-      <Image src={winding_wildwinds} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      <div>{windingWildwinds}</div>
-    </div>
-    <div class="flex flex-col items-center gap-1">
-      <Image src={crossing_crosswinds} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      <div>{crossingCrosswinds}</div>
-    </div>
-  </div>
-
+  <ImgRow
+    bordered={false}
+    imgs={[
+      { src: winding_wildwinds, alt: '', title: `${windingWildwinds}` },
+      { src: crossing_crosswinds, alt: '', title: `${crossingCrosswinds}` },
+    ]}
+  />
   <div class="flex flex-col gap-4">
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">{quarrySwamp}</Span>
@@ -646,7 +638,7 @@ const rootsOfEvil = translations.rootsOfEvil
       <RoleIcon role="tank" tag="MT" />应当打断第二只<BloomingAbominationSimplified />，
       <RoleIcon role="tank" tag="ST" />应当打断第四只<BloomingAbominationSimplified />
     </div>
-    <Image src={bloomings} alt="" class="w-62 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <Image src={bloomings} alt="" class="w-62 rounded border-2 border-yellow-800 dark:border-yellow-100" />
     <div class="paragraph">
       同时，<RoleIcon role="all" tag="所有人" />集火， 在<BloomingAbominationSimplified />狂暴之前将其全部击杀
     </div>
@@ -655,6 +647,6 @@ const rootsOfEvil = translations.rootsOfEvil
       <RoleIcon role="tank" tag="MT" />将<BruteAbombinator />
       拉到<BloomingAbominationSimplified />的尸体附近，利用小怪尸体阻挡石化
     </div>
-    <Image src={quarry_swamp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <Image src={quarry_swamp} alt="" class="w-96" />
   </div>
 </SolutionSection>

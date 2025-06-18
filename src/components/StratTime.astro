@@ -33,8 +33,11 @@ const { time = 0, base = 0, class: className = '' }: Props = Astro.props
       if (stratSettings.timeFormat === 's') {
         span.textContent = showSeconds.toFixed(1)
       } else {
-        const m = Math.floor(showSeconds / 60)
-        const s = showSeconds % 60
+        // 先对总秒数进行四舍五入，避免后续格式化问题
+        const roundedSeconds = Math.round(showSeconds * 10) / 10
+        const m = Math.floor(roundedSeconds / 60)
+        const s = roundedSeconds % 60
+
         const mStr = m < 10 ? `0${m}` : `${m}`
         const sStr = s < 10 ? `0${s.toFixed(1)}` : s.toFixed(1)
         span.textContent = `${mStr}:${sStr}`

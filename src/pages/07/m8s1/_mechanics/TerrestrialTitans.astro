@@ -3,6 +3,8 @@ import type { Time } from '@/lib/utils'
 
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
 
 import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
@@ -12,10 +14,10 @@ import TerrestrialTitansCast from '../_components/TerrestrialTitansCast.astro'
 import TitanicPursuitCast from '../_components/TitanicPursuitCast.astro'
 import BareFangsEvent from '../_components/BareFangsEvent.astro'
 import TowerfallActivate from '../_components/TowerfallActivate.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import FangedCrossingCast from '../_components/FangedCrossingCast.astro'
 
 import { translations } from '../_translations'
-
-import FangedCrossingCast from '../_components/FangedCrossingCast.astro'
 
 interface Props {
   base?: Time
@@ -41,7 +43,12 @@ const { base = 0 }: Props = Astro.props
     <T>
       <Skill name={terrestrialTitans} />
     </T>
-    <P>TODO</P>
+    <P>
+      <HowlingBlade />
+      读条后，场地一组相对的正点会隆起两根石柱，站进范围内会受到
+      <DamageInfo damage="160000" type="magical" />
+      <DamageDown tag="30" hover percent={50} />
+    </P>
 
     <T class="mt-8">
       <Skill name={titanicPursuit} />
