@@ -11,6 +11,7 @@ import NoteSection from '@/components/section/NoteSection.astro'
 import P from '@/components/typography/P.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import Skill from '@/components/typography/Skill.astro'
+import DraftWarning from '@/components/DraftWarning.astro'
 
 import Attack from './_components/Attack.astro'
 import BeckonMoonlight from './_mechanics/BeckonMoonlight.astro'
@@ -32,6 +33,9 @@ const base = '04:19.898'
 ---
 
 <DutyStratLayout dutyId={dutyId}>
+  <SeparatorSection />
+  <DraftWarning />
+  <SeparatorSection />
   <Attack time="04:29.0" base={base} />
   <MoveToCenterEvent time="04:31.622" base={base} />
 

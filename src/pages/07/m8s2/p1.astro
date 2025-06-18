@@ -1,6 +1,8 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
+import DraftWarning from '@/components/DraftWarning.astro'
+
 import DownForTheCount from '../../../components/buff/DownForTheCount.astro'
 import EventSection from '../../../components/section/EventSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
@@ -21,6 +23,9 @@ const base = '07:33.729'
 ---
 
 <DutyStratLayout dutyId={dutyId}>
+  <SeparatorSection />
+  <DraftWarning />
+  <SeparatorSection />
   <EventSection time={base} base={base}>
     <RoleIcon role="all" tag="全员" />
     身上的

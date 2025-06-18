@@ -5,6 +5,7 @@ import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import Span from '@/components/Span.vue'
+import DraftWarning from '@/components/DraftWarning.astro'
 
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
@@ -40,6 +41,9 @@ const sporeSac = translations.sporeSac
 ---
 
 <DutyStratLayout dutyId={dutyId}>
+  <SeparatorSection />
+  <DraftWarning />
+  <SeparatorSection />
   <EventSection time="06:09.273">
     <BruteAbombinator />可选中
   </EventSection>

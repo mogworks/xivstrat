@@ -2,6 +2,7 @@
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import DraftWarning from '@/components/DraftWarning.astro'
 
 import TacticalPackCast from './_components/TacticalPackCast.astro'
 import UntargetbaleEvent from './_components/UntargetableEvent.astro'
@@ -22,6 +23,9 @@ const base = '02:53.751'
 ---
 
 <DutyStratLayout dutyId={dutyId}>
+  <SeparatorSection />
+  <DraftWarning />
+  <SeparatorSection />
   <MoveToNorthEvent time="02:53.751" base={base} />
   <SeparatorSection id="tactical-pack" title="光狼招来" />
   <TacticalPackCast start="02:56.110" base={base} />
