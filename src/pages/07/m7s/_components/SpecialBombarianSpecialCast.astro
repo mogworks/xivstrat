@@ -4,6 +4,7 @@ import type { Time } from '@/lib/utils'
 import Badge from '@/components/Badge.astro'
 import Span from '@/components/Span.vue'
 import CastSection from '@/components/section/CastSection.astro'
+import { translations } from '../_translations'
 
 import BruteAbombinator from './BruteAbombinator.astro'
 
@@ -13,10 +14,11 @@ interface Props {
 }
 
 const { start, base = 0 }: Props = Astro.props
+const specialBombarianSpecial = translations.specialBombarianSpecial
 ---
 
-<CastSection start={start} base={base} duration={9.7} ability="Special Bombarian Special">
+<CastSection start={start} base={base} duration={9.7} ability={specialBombarianSpecial}>
   <BruteAbombinator slot="source" />
-  <Span slot="ability" variant="fuchsia">Special Bombarian Special</Span>
+  <Span slot="ability" variant="fuchsia">{specialBombarianSpecial}</Span>
   <Badge variant="fuchsia">狂暴</Badge>
 </CastSection>

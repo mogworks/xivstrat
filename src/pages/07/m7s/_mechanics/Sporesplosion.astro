@@ -34,6 +34,7 @@ interface Props {
 const { start, base = 0 }: Props = Astro.props
 const brutishSwing = translations.brutishSwing
 const glowerPower = translations.glowerPower
+const electrogeneticForce = translations.electrogeneticForce
 ---
 
 <EventSection time="03:47.100">
@@ -74,16 +75,10 @@ const glowerPower = translations.glowerPower
     </h4>
     <div class="grid grid-cols-2 gap-x-2 gap-y-4">
       <div class="flex flex-col items-center gap-1">
-        <Image src={pos_img} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <Image src={pos_img} alt="孢子生产位置分布参考" />
       </div>
       <div class="flex flex-col items-center gap-1">
-        <StratBoard
-          width={654}
-          height={327}
-          key="sporesplosion"
-          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
-          canvasClass="h-full w-full"
-        />
+        <StratBoard width={654} height={327} key="sporesplosion" canvasClass="h-full w-full" />
       </div>
     </div>
   </div>
@@ -104,7 +99,7 @@ const glowerPower = translations.glowerPower
       ，
       <Span variant="yellow">{glowerPower}</Span>
       和
-      <Span variant="yellow">Electrogenetic Force</Span>
+      <Span variant="yellow">{electrogeneticForce}</Span>
       的组合技
     </div>
   </div>

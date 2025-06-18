@@ -2,18 +2,17 @@
 import type { Time } from '@/lib/utils'
 
 import EventSection from '@/components/section/EventSection.astro'
+import GleamingFang from './entities/GleamingFang.astro'
 
 interface Props {
   time: Time
   base?: Time
-  [key: string]: any
 }
 
-const ability = '光牙招来'
-
-const { time, base = 0, ...rest }: Props = Astro.props
-
-//TODO: 加入两侧光牙的贴图
+const { time, base = 0 }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}> 光牙出现 </EventSection>
+<EventSection time={time} base={base}>
+  场地剩余的一对正点各出现一组十字形和X字形
+  <GleamingFang />
+</EventSection>
