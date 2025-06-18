@@ -25,7 +25,7 @@ jobs:
 
       - name: Update Tauri Config Version
         run: |
-          sed -i.bak "s/\"version\": \".*\"/\"version\": \"${{ env.APP_VERSION }}\"/" src-tauri/tauri.conf.json
+          sed -i.bak "s/\"version\": \".*\"/\"version\": \"${APP_VERSION}\"/" src-tauri/tauri.conf.json
         shell: bash
 
       - name: Setup Node
@@ -90,6 +90,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Get version from tag
+        id: get_version
+        run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
@@ -101,8 +105,8 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.APP_VERSION }}
-          name: XivStrat Desktop ${{ env.APP_VERSION }}
+          tag_name: ${{ steps.get_version.outputs.version }}
+          name: XivStrat Desktop ${{ steps.get_version.outputs.version }}
           body: |
             ## 下载说明
 
