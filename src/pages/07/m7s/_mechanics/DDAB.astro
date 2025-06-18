@@ -18,6 +18,7 @@ import flare2 from '@/assets/07/m7s/sporesplosion/AbBlink_flare2.png'
 import AbominableBlinkCast from '../_components/AbominableBlinkCast.astro'
 import DemolitionDeathmatchCast from '../_components/DemolitionDeathmatchCast.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 interface Props {
   base?: Time
@@ -69,25 +70,43 @@ const { base = 0 }: Props = Astro.props
     <h4 class="mt-4 text-2xl">
       <Span variant="yellow">接线参考</Span>
     </h4>
-    <div class="grid grid-cols-2 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={chn1} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={chn2} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      </div>
-    </div>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-150"
+      bordered={false}
+      imgs={[
+        {
+          src: chn1,
+          alt: '接线情况1',
+          class: 'drop-shadow-sm drop-shadow-black',
+        },
+        {
+          src: chn2,
+          alt: '接线情况2',
+          class: 'drop-shadow-sm drop-shadow-black',
+        },
+      ]}
+    />
     <h4 class="mt-4 text-2xl">
       <Span variant="yellow">核爆参考</Span>
     </h4>
-    <div class="grid grid-cols-2 gap-x-2 gap-y-4">
-      <div class="flex flex-col items-center gap-1">
-        <Image src={flare1} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      </div>
-      <div class="flex flex-col items-center gap-1">
-        <Image src={flare2} alt="" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      </div>
-    </div>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-150"
+      bordered={false}
+      imgs={[
+        {
+          src: flare1,
+          alt: '核爆情况1',
+          class: 'drop-shadow-sm drop-shadow-black',
+        },
+        {
+          src: flare2,
+          alt: '核爆情况2',
+          class: 'drop-shadow-sm drop-shadow-black',
+        },
+      ]}
+    />
   </div>
 </SolutionSection>
 <NoteSection>
