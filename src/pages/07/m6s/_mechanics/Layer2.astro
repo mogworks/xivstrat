@@ -26,6 +26,7 @@ import paint_3 from '@/assets/07/m6s/paint/3.png'
 import floor from '@/assets/07/m6s/layer_2/floor.png'
 import solution_jp from '@/assets/07/m6s/layer_2/solution_jp.png'
 import solution_op from '@/assets/07/m6s/layer_2/solution_op.png'
+import { translations } from '../_translations'
 
 interface Props {
   base: Time
@@ -53,6 +54,8 @@ const solutions = [
   },
 ]
 const defaultSolution = '解法：仙人掌基准（危险角基准）'
+
+const { Layer, SprayPain, Brûlée } = translations
 ---
 
 <LayerCast start={start} end={end} base={base} />
@@ -66,7 +69,7 @@ const defaultSolution = '解法：仙人掌基准（危险角基准）'
   <RoleIcon role="healer" tag="H1" />
   <RoleIcon role="healer" tag="H2" />
   受到
-  <Span variant="yellow">Brûlée</Span>
+  <Span variant="yellow">{Brûlée}</Span>
   <DamageInfo damage="100000" type="magical" />
   <FireResistanceDownII tag="3" hover />
   <Badge variant="emerald">15m圆形</Badge>
@@ -77,7 +80,7 @@ const defaultSolution = '解法：仙人掌基准（危险角基准）'
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Layer</Span>
+      <Span variant="yellow">{Layer}</Span>
       {' '}
       <Span variant="zinc">#2</Span>
     </h4>
@@ -92,7 +95,7 @@ const defaultSolution = '解法：仙人掌基准（危险角基准）'
     </div>
     <Image src={floor} alt="Layer #2 Floor" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Spray Pain</Span>
+      <Span variant="yellow">{SprayPain}</Span>
     </h4>
     <div class="paragraph">
       半径

@@ -8,6 +8,7 @@ import Span from '@/components/Span.vue'
 import DamageInfo from '@/components/DamageInfo.astro'
 import Skill from '@/components/typography/Skill.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
@@ -16,20 +17,20 @@ interface Props {
 }
 
 const { time, base = 0, num }: Props = Astro.props
-const TendrillsofTerror = 'Tendrills of Terror'
+const tendrilsOfTerror = translations.tendrilsOfTerror
 
 const color: Record<number, VariantType> = {
-  1: 'pink',
+  1: 'red',
   2: 'orange',
-  3: 'cyan',
-  4: 'indigo',
-  5: 'rose',
+  3: 'blue',
+  4: 'purple',
+  5: 'red',
 }
 ---
 
 <EventSection time={time} base={base}>
   第<Span variant={color[num]}>{num}</Span>轮
-  <Skill name={TendrillsofTerror} />冰花伤害判定
+  <Skill name={tendrilsOfTerror} />冰花伤害判定
   <DamageInfo damage="123000" type="magical" />
   <DamageDown tag="30" hover />
   <Badge variant="emerald">米字形AoE</Badge>

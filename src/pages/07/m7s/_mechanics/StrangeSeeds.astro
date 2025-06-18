@@ -22,6 +22,8 @@ import TendrilsofTerrorActivate from '../_components/TendrilsofTerrorActivate.as
 import KillerSeedsAppear from '../_components/KillerSeedsAppear.astro'
 import KillerSeedsActivate from '../_components/KillerSeedsActivate.astro'
 import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 
 interface Props {
   base?: Time
@@ -51,6 +53,11 @@ const stoneringer = translations.stoneringer
 <TendrilsofTerrorActivate time="05:13.631" base={base} num={4} />
 <KillerSeedsAppear time="05:13.853" base={base} />
 <KillerSeedsActivate time="05:18.842" base={base} />
+<EventSection time="05:20.310">
+  墙与<RoleIcon role="any" />
+  连线
+  <ThornsOfDeathDebuff hover />消失
+</EventSection>
 <TendrilsofTerrorAppear time="05:20.532" base={base} num={5} />
 <BrutishSwingCast start="05:20.887" base={base} />
 <TendrilsofTerrorActivate time="05:23.516" base={base} num={5} />

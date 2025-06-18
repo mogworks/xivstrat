@@ -23,6 +23,7 @@ import Wave1 from './_mechanics/Wave1.astro'
 import Wave2 from './_mechanics/Wave2.astro'
 import Wave3 from './_mechanics/Wave3.astro'
 import Wave4 from './_mechanics/Wave4.astro'
+import { translations } from './_translations'
 
 const dutyId = '07/m6s'
 const base = '03:22.353'
@@ -45,21 +46,21 @@ const base = '03:22.353'
     </div>
   </NoteSection>
   <AttackSection time="03:32.407" base={base} damage="57000" damageType="magical" />
-  <SeparatorSection id="soul-sugar" title="Soul Sugar" class="mt-8" />
+  <SeparatorSection id="soul-sugar" title={translations.SoulSugar} class="mt-8" />
   <SoulSugar base={base} />
   <SeparatorSection />
   <AttentionSection class="mt-8 opacity-80" />
-  <SeparatorSection id="wave-1" title="Wave #1" variant="red" class="mt-8" />
+  <SeparatorSection id="wave-1" title={`${translations.Wave} #1`} variant="red" class="mt-8" />
   <Wave1 base={base} />
-  <SeparatorSection id="wave-2" title="Wave #2" variant="orange" class="mt-8" />
+  <SeparatorSection id="wave-2" title={`${translations.Wave} #2`} variant="orange" class="mt-8" />
   <Wave2 base={base} />
-  <SeparatorSection id="wave-3" title="Wave #3" variant="blue" class="mt-8" />
+  <SeparatorSection id="wave-3" title={`${translations.Wave} #3`} variant="blue" class="mt-8" />
   <Wave3 base={base} />
-  <SeparatorSection id="wave-4" title="Wave #4" variant="purple" class="mt-8" />
+  <SeparatorSection id="wave-4" title={`${translations.Wave} #4`} variant="purple" class="mt-8" />
   <Wave4 base={base} />
   <SeparatorSection id="roasted-whole-lamb" title="补充：双T无敌烤全羊" class="mt-8" />
   <RoastedWholeLamb />
-  <SeparatorSection id="single-style" title="Single Style" class="mt-8" />
+  <SeparatorSection id="single-style" title={translations.SingleStyle} class="mt-8" />
   <SingleStyle base={base} />
   <SeparatorSection />
   <AttackSection time="06:39.969" base={base} damage="57000" damageType="magical" />
@@ -70,7 +71,7 @@ const base = '03:22.353'
     <div class="flex flex-col gap-4">
       <div class="paragraph">
         由于
-        <Span variant="yellow">Single Style</Span>
+        <Span variant="yellow">{translations.SingleStyle}</Span>
         紧跟本次死刑，
         <SugarRiot />
         面向可能是乱的，

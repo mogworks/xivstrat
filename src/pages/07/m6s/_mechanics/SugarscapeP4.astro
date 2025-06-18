@@ -14,6 +14,7 @@ import AttackSection from '../_components/SugarRiotAttackSection.astro'
 
 import paint_4 from '@/assets/07/m6s/paint/4.png'
 import floor_p4_1 from '@/assets/07/m6s/floor_p4_1.png'
+import { translations } from '../_translations'
 
 interface Props {
   base: Time
@@ -25,13 +26,15 @@ const start = '07:08.579'
 const duration = 7.7
 const adjustedDuration = duration + 0.3
 const end = timeToSeconds(start) + adjustedDuration
+
+const Sugarscape = translations.Sugarscape
 ---
 
 <SugarscapeCast start={start} end={end} base={base}>，场地变换为绿地 + 溪流 + 桥</SugarscapeCast>
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Sugarscape</Span>
+      <Span variant="yellow">{Sugarscape}</Span>
     </h4>
     <div class="paragraph">
       <SugarRiot />

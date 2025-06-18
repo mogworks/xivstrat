@@ -15,4 +15,10 @@ export const translations = {
   windsOfDecay: '千年の大風',
   greatWhirlwind: '大旋風',
   trackingTremors: '連震撃',
+  greatDivide: '一刀両断',
+  terrestrialTitans: '大地の呼び声',
+  titanicPursuit: '斬空剣',
+  towerfall: '倒壊',
+  bareFangs: '光牙招来',
+  fangedCrossing: '十字光牙',
 }
