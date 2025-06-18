@@ -2,6 +2,7 @@ export const thanksList = {
   groupList: ['MMW', 'MGL', 'SPJP'],
   devList: [
     'SuperJump',
+    'Hikaru',
     'DavidKitano',
     'BaiXi',
     'LuoLuoKe',
@@ -10,6 +11,7 @@ export const thanksList = {
     'Saleri',
     'Demon',
     'DaGongYou',
+    'NaiSeR',
     'YouChai',
     'CongYun',
   ],
