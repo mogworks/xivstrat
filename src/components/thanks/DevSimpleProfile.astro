@@ -29,7 +29,12 @@ const targetDeveloper = developers.find((item) => item.id === targetId)
         gameName={targetDeveloper.data.gameName}
       >
         {targetDeveloper.data.avatar ? (
-          <Image src={targetDeveloper.data.avatar} alt={targetDeveloper.data.name} class="h-full w-full object-fill" />
+          <Image
+            src={targetDeveloper.data.avatar}
+            alt={targetDeveloper.data.name}
+            class="h-full w-full object-fill select-none"
+            draggable="false"
+          />
         ) : (
           <div class="flex h-full w-full items-center justify-center rounded-full bg-zinc-300 text-zinc-600">
             <DefaultAvatarSVG class="p-3" />
