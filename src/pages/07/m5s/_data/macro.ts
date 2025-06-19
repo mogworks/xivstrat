@@ -1,5 +1,6 @@
 /* eslint-disable no-irregular-whitespace */
 
+// TODO: 需要检查游戏内格式
 export const macro = `/p 【职能分摊分散】|  【钢铁月环八方】  |【地火分摊分散】
 /p 　　H1　　　　 |　　MT　 ST　　　　 |　D3　 D4
 /p MT　　远D　　 | 　H1　　　　 H2　　 |　H1　 H2

@@ -2,6 +2,7 @@
 import { cn } from '@/lib/utils'
 
 import LinkSVG from '@/assets/svg/link.svg'
+import BiliBiliSVG from '@/assets/svg/bilibili.svg'
 
 import Separator from '@/components/Separator.astro'
 import AreaBox from '@/components/AreaBox.astro'
@@ -25,9 +26,9 @@ const { class: className = '', listClass = '', list }: Props = Astro.props
       list.map((item, index) => (
         <div>
           <li class={cn('flex h-4 items-center gap-2', listClass)}>
-            <div class="relative">
-              <em class="absolute -bottom-0.5 left-4.25 w-min text-[0.6em]">{index + 1}</em>
-              <LinkSVG class="w-5" />
+            <div class="relative w-6">
+              <em class="absolute -bottom-0.5 left-4.5 w-min text-[0.6em]">{index + 1}</em>
+              {item.url?.includes('bilibili') ? <BiliBiliSVG class="w-5 pr-0.5 pl-0.5" /> : <LinkSVG class="w-5" />}
             </div>
             <Separator orientation="vertical" />
             <a class="hover:underline" href={item.url} target="_blank">
