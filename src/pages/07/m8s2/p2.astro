@@ -1,8 +1,66 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import RiseOfTheHowlingWind from './_mechanics/RiseOfTheHowlingWind.astro'
+import TwofoldTempest from './_mechanics/TwofoldTempest.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import DraftWarning from '@/components/DraftWarning.astro'
+import BareFangsCast from './_components/BareFangsCast.astro'
+
+import { translations } from './_translations'
+import ChampionsCircuit from './_mechanics/ChampionsCircuit.astro'
+import QuakeIII from './_mechanics/QuakeIII.astro'
+import QuakeIIICast from './_components/QuakeIIICast.astro'
+import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
+import TwinbiteCast from './_components/TwinbiteCast.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import P from '@/components/typography/P.astro'
+import StratLink from '@/components/StratLink.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import ImmobileSuitDebuff from './_components/ImmobileSuitDebuff.astro'
 
 const dutyId = '07/m8s2'
 const base = '09:17.549'
+
+const twofoldTempest = translations.twofoldTempest
+const bareFangs = translations.bareFangs
+const championsCircuit = translations.championsCircuit
+const quakeIII = translations.quakeIII
+const ultraviolentRay = translations.ultraviolentRay
+const twinbite = translations.twinbite
 ---
 
-<DutyStratLayout dutyId={dutyId} />
+<DutyStratLayout dutyId={dutyId}>
+  <SeparatorSection />
+  <DraftWarning />
+  <SeparatorSection />
+  <RiseOfTheHowlingWind start={base} base={base} />
+  <SeparatorSection id="twofold-tempest" title=`${twofoldTempest}` />
+  <TwofoldTempest start="09:26.675" base={base} activateTimes={['09:33.725', '09:40.823', '09:47.925', '09:54.982']} />
+
+  <SeparatorSection id="bare-fangs" title=`${bareFangs} + ${championsCircuit}` />
+  <EventSection time="10:0.0" base={bareFangs}> 初始平台恢复 </EventSection>
+  <ChampionsCircuit
+    start="10:03.132"
+    base={base}
+    activateTimes={['10:19.279', '10:23.683', '10:28.038', '10:32.395', '10:36.755']}
+  />
+
+  <EventSection time="10:40.0" base={bareFangs}>
+    传送冷却时长恢复至<ImmobileSuitDebuff tag="2" />
+  </EventSection>
+  <QuakeIIICast start="10:41.608" base={base} />
+  <UltraviolentRayCast start="10:54.772" base={base} />
+  <TwinbiteCast start="11:04.913" base={base} />
+  <NoteSection>
+    <div class="flex flex-col gap-4">
+      <P>
+        请参考P1的
+        <StratLink variant="cyan" href="/07/m8s2/p1#quake-iii">{quakeIII}</StratLink>
+        ,
+        <StratLink variant="cyan" href="/07/m8s2/p1#ultraviolent-ray">{ultraviolentRay}</StratLink>
+        和
+        <StratLink variant="cyan" href="/07/m8s2/p1#twinbite">{twinbite}</StratLink>
+      </P>
+    </div>
+  </NoteSection>
+</DutyStratLayout>

@@ -18,8 +18,18 @@ import ProwlingGale from './_mechanics/ProwlingGale.astro'
 
 import MooncleaverCast from './_components/MooncleaverCast.astro'
 
+import { translations } from './_translations'
+
 const dutyId = '07/m8s2'
 const base = '07:33.729'
+
+const quakeIII = translations.quakeIII
+const ultraviolentRay = translations.ultraviolentRay
+const twinbite = translations.twinbite
+const herosBlow = translations.herosBlow
+const mooncleaver = translations.mooncleaver
+const elementalPurge = translations.elementalPurge
+const prowlingGale = translations.prowlingGale
 ---
 
 <DutyStratLayout dutyId={dutyId}>
@@ -38,16 +48,16 @@ const base = '07:33.729'
     保持二仇。
   </NoteSection>
 
-  <SeparatorSection id="quake-iii" title="爆震" />
+  <SeparatorSection id="quake-iii" title=`${quakeIII}` />
   <QuakeIII start="07:40.930" base={base} />
 
-  <SeparatorSection id="ultraviolent-ray" title="魔光" />
+  <SeparatorSection id="ultraviolent-ray" title=`${ultraviolentRay}` />
   <UltraviolentRay start="07:55.096" base={base} />
 
-  <SeparatorSection id="twinbite" title="雙牙擊" />
+  <SeparatorSection id="twinbite" title=`${twinbite}` />
   <Twinbite start="08:02.234" base={base} />
 
-  <SeparatorSection id="heros-blow" title="鎧袖一触" />
+  <SeparatorSection id="heros-blow" title=`${herosBlow}` />
   <HerosBlow start="08:14.462" base={base} />
 
   <NoteSection> 以上四个机制会在整场战斗重复多次。 </NoteSection>
@@ -55,12 +65,12 @@ const base = '07:33.729'
   <UltraviolentRay start="08:25.583" base={base} />
   <QuakeIII start="08:37.727" base={base} />
 
-  <SeparatorSection id="mooncleaver" title="剛刃一閃" />
+  <SeparatorSection id="mooncleaver" title=`${mooncleaver}` />
   <MooncleaverCast start="08:50.987" base={base} />
 
-  <SeparatorSection id="elemental-purge" title="風震の魔印" />
+  <SeparatorSection id="elemental-purge" title=`${elementalPurge}` />
   <ElementalPurge start="08:58.105" base={base} />
 
-  <SeparatorSection id="prowling-gale" title="風狼陣" />
+  <SeparatorSection id="prowling-gale" title=`${prowlingGale}` />
   <ProwlingGale start="09:14.167" base={base} />
 </DutyStratLayout>
