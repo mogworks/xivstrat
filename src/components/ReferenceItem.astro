@@ -21,11 +21,11 @@ const { class: className = '', listClass = '', list }: Props = Astro.props
 ---
 
 <AreaBox>
-  <ol class={cn('flex flex-col gap-2', className)}>
+  <ol class={cn('flex flex-col', className)}>
     {
       list.map((item, index) => (
         <div>
-          <li class={cn('flex h-4 items-center gap-2', listClass)}>
+          <li class={cn('flex items-start gap-2', listClass)}>
             <div class="relative w-6">
               <em class="absolute -bottom-0.5 left-4.5 w-min text-[0.6em]">{index + 1}</em>
               {item.url?.includes('bilibili') ? <BiliBiliSVG class="w-5 pr-0.5 pl-0.5" /> : <LinkSVG class="w-5" />}
