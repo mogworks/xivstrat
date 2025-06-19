@@ -23,6 +23,7 @@ import frogtourage_solution_1 from '@/assets/07/m5s/frogtourage/solution_1.png'
 import frogtourage_solution_2 from '@/assets/07/m5s/frogtourage/solution_2.png'
 import frogtourage_solution_3 from '@/assets/07/m5s/frogtourage/solution_3.png'
 import frogtourage_solution_4 from '@/assets/07/m5s/frogtourage/solution_4.png'
+import { translations } from '../_translations'
 
 interface Props {
   base?: Time
@@ -77,7 +78,7 @@ const { base = 0 }: Props = Astro.props
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
-      <Span variant="yellow">Frogtourage</Span>
+      <Span variant="yellow">{translations.frogtourage}</Span>
       会和
       <QuarterOrEighthBeatsAbility />
       同时判定，我们必须在限定的安全区内处理分摊/分散
@@ -91,7 +92,7 @@ const { base = 0 }: Props = Astro.props
     </div>
     <div class="paragraph mt-4">
       首先要做的是确定
-      <Span variant="yellow">Frogtourage</Span>
+      <Span variant="yellow">{translations.frogtourage}</Span>
       的安全区
     </div>
     <div class="paragraph">由于两组青蛙划线包围的危险区域必然是不同类型（场中或两侧），因此只需要固定观察一组青蛙</div>

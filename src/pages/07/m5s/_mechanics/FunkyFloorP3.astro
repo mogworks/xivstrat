@@ -15,6 +15,7 @@ import InsideOutOrOutsideInCast from '../_components/InsideOutOrOutsideInCast.as
 import QuarterOrEighthBeatsCast from '../_components/QuarterOrEighthBeatsCast.astro'
 
 import funky_floor_p3_beats_solution from '@/assets/07/m5s/funky_floor/p3_beats_solution.png'
+import { translations } from '../_translations'
 
 interface Props {
   base?: Time
@@ -23,11 +24,11 @@ interface Props {
 const { base = 0 }: Props = Astro.props
 ---
 
-<CastSection start="08:42.080" base={base} duration={2.2} ability="Funky Floor" />
+<CastSection start="08:42.080" base={base} duration={2.2} ability={translations.funkyFloor} />
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
-      <StratLink variant="yellow" href="/07/m5s/p1#funky-floor">Funky Floor</StratLink>
+      <StratLink variant="yellow" href="/07/m5s/p1#funky-floor">{translations.funkyFloor}</StratLink>
       返场，但本次没有
       <Span variant="cyan">聚光灯</Span>
       ，也无需处理
@@ -94,6 +95,6 @@ const { base = 0 }: Props = Astro.props
   </div>
 </NoteSection>
 <EventSection time="09:15.0" base={base}>
-  <Span variant="yellow">Funky Floor</Span>
+  <Span variant="yellow">{translations.funkyFloor}</Span>
   效果结束
 </EventSection>

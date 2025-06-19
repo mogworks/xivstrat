@@ -34,6 +34,7 @@ import ride_the_waves_optimize_1 from '@/assets/07/m5s/ride_the_waves/optimize_1
 import ride_the_waves_optimize_2 from '@/assets/07/m5s/ride_the_waves/optimize_2.png'
 import ride_the_waves_optimize_3 from '@/assets/07/m5s/ride_the_waves/optimize_3.png'
 import ride_the_waves_optimize_4 from '@/assets/07/m5s/ride_the_waves/optimize_4.png'
+import { translations } from '../_translations'
 
 interface Props {
   base?: Time
@@ -54,7 +55,7 @@ const solutions = [
 const defaultSolution = '解法：近战优化'
 ---
 
-<CastSection start="03:48.804" base={base} duration={3.2} ability="Ride the Waves">
+<CastSection start="03:48.804" base={base} duration={3.2} ability={translations.rideTheWaves}>
   <Badge variant="yellow">步进式地火</Badge>
 </CastSection>
 <NoteSection>
@@ -85,7 +86,7 @@ const defaultSolution = '解法：近战优化'
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Ride the Waves</Span>
+      <Span variant="yellow">{translations.rideTheWaves}</Span>
     </h4>
     <div class="paragraph">
       场地
@@ -130,7 +131,7 @@ const defaultSolution = '解法：近战优化'
       </div>
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Quarter Beats</Span>
+      <Span variant="yellow">{translations.quarterBeats}</Span>
     </h4>
     <div class="paragraph">
       点名
@@ -147,7 +148,7 @@ const defaultSolution = '解法：近战优化'
       <MagicVulnerabilityUp tag="2" hover />
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Eighth Beats</Span>
+      <Span variant="yellow">{translations.eighthBeats}</Span>
     </h4>
     <div class="paragraph">
       点名
@@ -163,7 +164,7 @@ const defaultSolution = '解法：近战优化'
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
-      <Span variant="yellow">Ride the Waves</Span>
+      <Span variant="yellow">{translations.rideTheWaves}</Span>
       期间会有两次不同的
       <QuarterOrEighthBeatsAbility />
     </div>
@@ -248,7 +249,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形1：
-          <Span variant="yellow">Quarter Beats</Span>
+          <Span variant="yellow">{translations.quarterBeats}</Span>
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
@@ -259,7 +260,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形2：
-          <Span variant="yellow">Eighth Beats</Span>
+          <Span variant="yellow">{translations.eighthBeats}</Span>
         </div>
       </div>
     </div>
@@ -277,7 +278,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形1：
-          <Span variant="yellow">Quarter Beats</Span>
+          <Span variant="yellow">{translations.quarterBeats}</Span>
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
@@ -288,7 +289,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形2：
-          <Span variant="yellow">Eighth Beats</Span>
+          <Span variant="yellow">{translations.eighthBeats}</Span>
         </div>
       </div>
     </div>
@@ -325,7 +326,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形1：
-          <Span variant="yellow">Quarter Beats</Span>
+          <Span variant="yellow">{translations.quarterBeats}</Span>
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
@@ -336,7 +337,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形2：
-          <Span variant="yellow">Eighth Beats</Span>
+          <Span variant="yellow">{translations.eighthBeats}</Span>
         </div>
       </div>
     </div>
@@ -368,7 +369,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形1：
-          <Span variant="yellow">Quarter Beats</Span>
+          <Span variant="yellow">{translations.quarterBeats}</Span>
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
@@ -379,7 +380,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形2：
-          <Span variant="yellow">Eighth Beats</Span>
+          <Span variant="yellow">{translations.eighthBeats}</Span>
         </div>
       </div>
     </div>

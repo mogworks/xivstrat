@@ -13,158 +13,157 @@
     {
       "href": "/07/m5s/p1",
       "title": "Part 1",
-      "subtitle": "阿卡狄亚夜狂热",
-      "name": "P1 - 阿卡狄亚夜狂热",
+      "subtitle": "登天夜狂热",
+      "name": "P1 - 登天夜狂热",
       "mechanics": [
         {
           "href": "#deep-cut",
           "name": "Deep Cut",
           "name_en": "Deep Cut",
           "name_ja": "",
-          "name_ch": "深切"
+          "name_ch": "经典铭心"
         },
         {
           "href": "#flip-to-x-side",
           "name": "Flip to (A|B)-side",
           "name_en": "Flip to (A|B)-side",
           "name_ja": "",
-          "name_ch": "切换至A/B面"
+          "name_ch": "放入A/B面"
         },
         {
           "href": "#disco-infernal",
           "name": "Disco Infernal",
           "name_en": "Disco Infernal",
           "name_ja": "",
-          "name_ch": "地狱迪斯科"
+          "name_ch": "激热跳舞街"
         },
         {
           "href": "#funky-floor",
           "name": "Funky Floor",
           "name_en": "Funky Floor",
           "name_ja": "",
-          "name_ch": "律动舞池"
+          "name_ch": "热舞场地"
         },
         {
           "href": "#inside-out-or-outside-in",
           "name": "Inside Out | Outside In",
           "name_en": "Inside Out | Outside In",
           "name_ja": "",
-          "name_ch": "内外颠倒"
+          "name_ch": "内翻外转 | 外翻内转"
         },
         {
           "href": "#arcady-night-fever",
           "name": "Arcady Night Fever",
           "name_en": "Arcady Night Fever",
           "name_ja": "",
-          "name_ch": "乐园夜狂热"
+          "name_ch": "登天夜狂热"
         },
         {
           "href": "#lets-dance",
           "name": "Let's Dance!",
           "name_en": "Let's Dance!",
           "name_ja": "",
-          "name_ch": "舞动起来！"
+          "name_ch": "放纵劲舞！"
         },
         {
           "href": "#lets-pose",
           "name": "Let's Pose!",
           "name_en": "Let's Pose!",
           "name_ja": "",
-          "name_ch": "摆个造型！"
+          "name_ch": "在这停顿！"
         }
-
       ]
     },
     {
       "href": "/07/m5s/p2",
       "title": "Part 2",
-      "subtitle": "阿卡狄亚夜安可",
-      "name": "P2 - 阿卡狄亚夜安可",
+      "subtitle": "返场夜狂热",
+      "name": "P2 - 返场夜狂热",
       "mechanics": [
         {
           "href": "#ride-the-waves",
           "name": "Ride the Waves",
           "name_en": "Ride the Waves",
           "name_ja": "",
-          "name_ch": "乘风破浪"
+          "name_ch": "舞浪全开"
         },
         {
           "href": "#frogtourage",
           "name": "Frogtourage",
           "name_en": "Frogtourage",
           "name_ja": "",
-          "name_ch": "青蛙随行"
+          "name_ch": "来吧！青蛙舞者！"
         },
         {
           "href": "#disco-infernal",
           "name": "Disco Infernal",
           "name_en": "Disco Infernal",
           "name_ja": "",
-          "name_ch": "地狱迪斯科"
+          "name_ch": "激热跳舞街"
         },
         {
           "href": "#arcady-night-encore",
           "name": "Arcady Night Encore",
           "name_en": "Arcady Night Encore",
           "name_ja": "",
-          "name_ch": "乐园夜安可"
+          "name_ch": "返场夜狂热"
         },
         {
           "href": "#lets-dance-remix",
           "name": "Let's Dance! Remix",
           "name_en": "Let's Dance! Remix",
           "name_ja": "",
-          "name_ch": "舞动起来·混音"
+          "name_ch": "彻夜狂欢，放纵劲舞！"
         },
         {
           "href": "#lets-pose",
           "name": "Let's Pose!",
           "name_en": "Let's Pose!",
           "name_ja": "",
-          "name_ch": "摆个造型！"
+          "name_ch": "在这停顿！"
         }
       ]
     },
     {
       "href": "/07/m5s/p3",
       "title": "Part 3",
-      "subtitle": "终幕狂热",
-      "name": "P3 - 终幕狂热",
+      "subtitle": "高能夜狂热",
+      "name": "P3 - 高能夜狂热",
       "mechanics": [
         {
           "href": "#frogtourage-part-1",
           "name": "Frogtourage Part 1",
           "name_en": "Frogtourage Part 1",
           "name_ja": "",
-          "name_ch": "青蛙随行一幕"
+          "name_ch": "来吧！青蛙舞者！#1"
         },
         {
           "href": "#frogtourage-part-2",
           "name": "Frogtourage Part 2",
           "name_en": "Frogtourage Part 2",
           "name_ja": "",
-          "name_ch": "青蛙随行二幕"
+          "name_ch": "来吧！青蛙舞者！#2"
         },
         {
           "href": "#frogtourage-part-3",
           "name": "Frogtourage Part 3",
           "name_en": "Frogtourage Part 3",
           "name_ja": "",
-          "name_ch": "青蛙随行三幕"
+          "name_ch": "来吧！青蛙舞者！#3"
         },
         {
           "href": "#funky-floor",
           "name": "Funky Floor",
           "name_en": "Funky Floor",
           "name_ja": "",
-          "name_ch": "律动舞池"
+          "name_ch": "热舞场地"
         },
         {
           "href": "#hi-nrg-fever",
           "name": "Hi-NRG Fever",
           "name_en": "Hi-NRG Fever",
           "name_ja": "",
-          "name_ch": "高能狂热"
+          "name_ch": "高能夜狂热"
         }
       ]
     }

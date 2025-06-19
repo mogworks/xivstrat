@@ -6,6 +6,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import CastSection from '@/components/section/CastSection.astro'
 import FrogtourageFan from './FrogtourageFan.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start?: Time
@@ -21,7 +22,7 @@ const { start = undefined, end = undefined, base = 0 }: Props = Astro.props
   end={end}
   base={base}
   duration={8.6}
-  ability="Back-up Dance"
+  ability={translations.backupDance}
   target
   damage="90000"
   damageType="magical"
