@@ -10,38 +10,78 @@ import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
+import EventSection from '@/components/section/EventSection.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 import WolfOfStone from '../_components/entities/WolfOfStone.astro'
-
 import Windpack from '../_components/buff/Windpack.astro'
 import Stonepack from '../_components/buff/Stonepack.astro'
 import WindborneEnd from '../_components/buff/WindborneEnd.astro'
 import EarthborneEnd from '../_components/buff/EarthborneEnd.astro'
+import TacticalPackCast from '../_components/TacticalPackCast.astro'
+import WolvesAppearEvent from '../_components/WolvesAppearEvent.astro'
+import UntargetbaleEvent from '../_components/UntargetableEvent.astro'
+import HowlingHavocCast from '../_components/HowlingHavocCast.astro'
+import PackPredationCast from '../_components/PackPredationCast.astro'
+import ClearEarthborneEndEvent from '../_components/ClearEarthborneEndEvent.astro'
+import ClearWindborneEndEvent from '../_components/ClearWindborneEndEvent.astro'
+import ForlornWindCast from '../_components/ForlornWindCast.astro'
+import ForlornStoneCast from '../_components/ForlornStoneCast.astro'
+
+import { translations } from '../_translations'
 
 import img from '@/assets/07/m8s1/tmp.png'
 
 interface Props {
-  time: Time
   base?: Time
 }
 
-const tracticalPack = '光狼招来'
-const howlingHoavoc = '風麈の咆哮'
-const packPredation = '光狼陣'
+const tacticalPack = translations.tacticalPack
+const howlingHoavoc = translations.howlingHavoc
+const packPredation = translations.packPredation
 
 //TODO: 找俩icon把这玩意替换掉
 const greenBall = '绿球'
 const yellowCude = '黄方块'
 
-const { time, base = 0 }: Props = Astro.props
+const { base = 0 }: Props = Astro.props
 ---
+
+<TacticalPackCast start="02:56.110" base={base} />
+<UntargetbaleEvent time="03:01.224" base={base} />
+<WolvesAppearEvent time="03:03.400" base={base} />
+<EventSection time="03:03.400">
+  场中出现半径
+  <Span variant="pink">8m</Span>
+  的圆形范围提示
+</EventSection>
+<HowlingHavocCast start="03:03.400" base={base} />
+<EventSection time="03:09.002">
+  场中半径
+  <Span variant="pink">8m</Span>
+  的圆形区域变为即死区
+</EventSection>
+
+<PackPredationCast start="03:13.586" base={base} />
+<ClearEarthborneEndEvent time="03:20.000" base={base} />
+<ClearWindborneEndEvent time="03:24.000" base={base} />
+
+<PackPredationCast start="03:27.703" base={base} />
+<ClearEarthborneEndEvent time="03:34.000" base={base} />
+<ClearWindborneEndEvent time="03:38.000" base={base} />
+
+<PackPredationCast start="03:41.8422" base={base} />
+<ClearEarthborneEndEvent time="03:48.000" base={base} />
+<ClearWindborneEndEvent time="03:52.000" base={base} />
+
+<ForlornWindCast start="04:01.992" base={base} />
+<ForlornStoneCast start="04:01.992" base={base} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="text-2xl">
-      <Span variant="yellow">{tracticalPack} </Span>
+      <Span variant="yellow">{tacticalPack} </Span>
     </div>
 
     <div class="paragraph">

@@ -33,4 +33,5 @@ export const translations = {
   windborneEnd: '風の呪痕',
   windborneEndDesp:
     '風属性の呪いを受けた状態。効果時間が終了すると戦闘不能になるが、風のエーテル塊に接触することで解除できる',
+  packPredation: '光狼陣',
 }
