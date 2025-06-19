@@ -15,6 +15,8 @@ import GleamingFang from '../_components/entities/GleamingFang.astro'
 
 import img from '@/assets/07/m8s2/tmp.png'
 
+import { translations } from '../_translations'
+
 interface Props {
   start: Time
   base?: Time
@@ -22,7 +24,7 @@ interface Props {
 
 const { start, base = 0 }: Props = Astro.props
 
-const ultraviolentRay = '魔光'
+const ultraviolentRay = translations.ultraviolentRay
 ---
 
 <UltraviolentRayCast start={start} base={base} />
