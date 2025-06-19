@@ -1,91 +1,58 @@
 ---
 import type { Time } from '@/lib/utils'
-import { timeToSeconds } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
-import Span from '@/components/Span.vue'
 import CastSection from '@/components/section/CastSection.astro'
-import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-
-import WindpackDebuff from '../_components/WindpackDebuff.astro'
-import StonepackDebuff from '../_components/StonepackDebuff.astro'
-import WindborneEndDebuff from '../_components/WindborneEndDebuff.astro'
-import EarthborneEndDebuff from '../_components/EarthborneEndDebuff.astro'
+import Separator from '@/components/Separator.astro'
+import Skill from '@/components/typography/Skill.astro'
 
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
-import StoneWolfheadIcon from '../_components/StoneWolfheadIcon.astro'
+import WolfOfStone from '../_components/entities/WolfOfStone.astro'
+
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
   base?: Time
-  [key: string]: any
 }
 
-const ability = '光狼陣'
-const alphaWind = 'Alpha Wind' //风狼头对T死刑
-const alphaStone = 'Alpha Stone' //土狼头对T死刑
-const stalkingWind = 'Stalking Wind' //风狼头对人群直线
-const stalkingStone = 'Stalking Stone' //土狼头对人群直线
+const ability = translations.packPredation
+const alphaWind = translations.alphaWind // 风狼头对T死刑
+const alphaStone = translations.alphaStone // 土狼头对T死刑
+const stalkingWind = translations.stalkingWind // 风狼头对人群直线
+const stalkingStone = translations.stalkingStone // 土狼头对人群直线
 
 const duration = 4.7
 
-const { start, base = 0, ...rest }: Props = Astro.props
-
-const damageApplyTime =
-  start !== undefined
-    ? timeToSeconds(start) + duration + 0.3 // 修正延迟，计算伤害生效时间
-    : undefined
+const { start, base = 0 }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={duration} ability={ability} {...rest}>
+<CastSection start={start} base={base} duration={duration} ability={ability}>
   <WolfOfWind slot="source" />
-  <StoneWolfheadIcon slot="source" />
-  <Badge variant="green">点名</Badge>
+  <WolfOfStone slot="source" />
+  <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
+  <ul class="list-none space-y-4">
+    <li class="flex items-center gap-1 text-lg">
+      对
+      <RoleIcon role="tank" />
+      造成
+      <Skill name={[alphaWind, alphaStone]} />
+      <DamageInfo damage="270000" type="magical" />
+      <MagicVulnerabilityUp tag="1" hover />
+      <Badge variant="emerald">扇形</Badge>
+      <Badge variant="red">死刑</Badge>
+    </li>
+    <li class="flex items-center gap-1 text-lg">
+      对
+      <RoleIcon role="healer|dps" />
+      造成
+      <Skill name={[stalkingWind, stalkingStone]} />
+      <DamageInfo damage="170000" type="magical" />
+      <MagicVulnerabilityUp tag="1" hover />
+      <Badge variant="purple">直线</Badge>
+    </li>
+  </ul>
 </CastSection>
-
-<EventSection time={damageApplyTime}>
-  <WolfOfWind />
-  对 1<RoleIcon role="tank" />
-  使用
-  <Span variant="yellow"> {alphaWind} </Span>
-  <DamageInfo damage="270000" type="magical" />
-  <MagicVulnerabilityUp tag="1" hover />
-  <Badge variant="green">扇形</Badge>
-  <Badge variant="red">死刑</Badge>
-</EventSection>
-
-<EventSection time={damageApplyTime}>
-  <StoneWolfheadIcon />
-  对 1<RoleIcon role="tank" />
-  使用
-  <Span variant="yellow"> {alphaStone} </Span>
-  <DamageInfo damage="270000" type="magical" />
-  <MagicVulnerabilityUp tag="1" hover />
-  <Badge variant="green">扇形</Badge>
-  <Badge variant="red">死刑</Badge>
-</EventSection>
-
-<EventSection time={damageApplyTime}>
-  <WolfOfWind />
-  对 1<RoleIcon role="healer" />
-  2<RoleIcon role="dps" />
-  使用
-  <Span variant="yellow"> {stalkingWind} </Span>
-  <DamageInfo damage="170000" type="magical" />
-  <MagicVulnerabilityUp tag="1" hover />
-  <Badge variant="purple">直线AoE</Badge>
-</EventSection>
-
-<EventSection time={damageApplyTime}>
-  <StoneWolfheadIcon />
-  对 1<RoleIcon role="healer" />
-  2<RoleIcon role="dps" />
-  使用
-  <Span variant="yellow"> {stalkingStone} </Span>
-  <DamageInfo damage="170000" type="magical" />
-  <MagicVulnerabilityUp tag="1" hover />
-  <Badge variant="purple">直线AoE</Badge>
-</EventSection>
