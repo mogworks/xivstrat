@@ -7,6 +7,11 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import QuakeIIICast from '../_components/QuakeIIICast.astro'
 
@@ -26,23 +31,23 @@ const quakeIII = 'クエイガ'
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
+    <T>
       <Span variant="yellow">{quakeIII}</Span>
-    </div>
-    <div class="paragraph">
+    </T>
+    <P>
       <HowlingBlade />
       点名
       <RoleIcon role="healer" tag="双奶" />
       分摊，需要判定时四个人在在同一个平台上。
-    </div>
+    </P>
   </div>
 </MechanicSection>
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">我们将所有人分为MT组和ST组，MT组去左下平台，ST组去右下平台。</div>
+    <P>我们将所有人分为MT组和ST组，MT组去左下平台，ST组去右下平台。</P>
 
-    <div class="paragraph">注意靠近场中，方便团辅和奶。</div>
+    <P>注意靠近场中，方便团辅和奶。</P>
 
     <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
       <Image src={img} alt="quake1" class="border-2 border-amber-800/75 dark:border-amber-100" />
