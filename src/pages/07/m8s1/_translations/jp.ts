@@ -22,4 +22,15 @@ export const translations = {
   bareFangs: '光牙招来',
   fangedCrossing: '十字光牙',
   tacticalPack: '光狼招来',
+  howlingHavoc: '風塵の咆哮',
+  windpack: '風の戒め',
+  windpackDesp: '風属性のエーテルを纏わされ、同属性の狼頭に対しダメージを与えられなくなる状態。',
+  stonepack: '土の戒め',
+  stonepackDesp: '土属性のエーテルを纏わされ、同属性の狼頭に対しダメージを与えられなくなる状態。',
+  earthborneEnd: '土の呪痕',
+  earthborneEndDesp:
+    '土属性の呪いを受けた状態。効果時間が終了すると戦闘不能になるが、土のエーテル塊に接触することで解除できる',
+  windborneEnd: '風の呪痕',
+  windborneEndDesp:
+    '風属性の呪いを受けた状態。効果時間が終了すると戦闘不能になるが、風のエーテル塊に接触することで解除できる',
 }

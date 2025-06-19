@@ -10,13 +10,13 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
-import WindpackDebuff from '../_components/WindpackDebuff.astro'
-import StonepackDebuff from '../_components/StonepackDebuff.astro'
-import WindborneEndDebuff from '../_components/WindborneEndDebuff.astro'
-import EarthborneEndDebuff from '../_components/EarthborneEndDebuff.astro'
+import Windpack from '../_components/buff/Windpack.astro'
+import Stonepack from '../_components/buff/Stonepack.astro'
+import WindborneEnd from '../_components/buff/WindborneEnd.astro'
+import EarthborneEnd from '../_components/buff/EarthborneEnd.astro'
 
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
-import StoneWolfheadIcon from '../_components/StoneWolfheadIcon.astro'
+import WolfOfStone from '../_components/entities/WolfOfStone.astro'
 
 interface Props {
   start: Time
@@ -42,7 +42,7 @@ const damageApplyTime =
 
 <CastSection start={start} base={base} duration={duration} ability={ability} {...rest}>
   <WolfOfWind slot="source" />
-  <StoneWolfheadIcon slot="source" />
+  <WolfOfStone slot="source" />
   <Badge variant="green">点名</Badge>
 </CastSection>
 
@@ -58,7 +58,7 @@ const damageApplyTime =
 </EventSection>
 
 <EventSection time={damageApplyTime}>
-  <StoneWolfheadIcon />
+  <WolfOfStone />
   对 1<RoleIcon role="tank" />
   使用
   <Span variant="yellow"> {alphaStone} </Span>
@@ -80,7 +80,7 @@ const damageApplyTime =
 </EventSection>
 
 <EventSection time={damageApplyTime}>
-  <StoneWolfheadIcon />
+  <WolfOfStone />
   对 1<RoleIcon role="healer" />
   2<RoleIcon role="dps" />
   使用

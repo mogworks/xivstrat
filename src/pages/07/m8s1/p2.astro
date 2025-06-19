@@ -2,12 +2,14 @@
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
 import DraftWarning from '@/components/DraftWarning.astro'
 
 import TacticalPackCast from './_components/TacticalPackCast.astro'
 import UntargetbaleEvent from './_components/UntargetableEvent.astro'
 import HowlingHavocCast from './_components/HowlingHavocCast.astro'
-import WolvesHeadAppearEvent from './_components/WolvesHeadAppearEvent.astro'
+import WolvesAppearEvent from './_components/WolvesAppearEvent.astro'
 import PackPredationCast from './_components/PackPredationCast.astro'
 import ClearWindborneEndEvent from './_components/ClearWindborneEndEvent.astro'
 import ClearEarthborneEndEvent from './_components/ClearEarthborneEndEvent.astro'
@@ -17,6 +19,7 @@ import RavenousSaberCast from './_components/RavenousSaberCast.astro'
 import MoveToNorthEvent from './_components/MoveToNorthEvent.astro'
 
 import TracticalPack from './_mechanics/TacticalPack.astro'
+import { translations } from './_translations'
 
 const dutyId = '07/m8s1'
 const base = '02:53.751'
@@ -26,12 +29,23 @@ const base = '02:53.751'
   <SeparatorSection />
   <DraftWarning />
   <SeparatorSection />
+
   <MoveToNorthEvent time="02:53.751" base={base} />
-  <SeparatorSection id="tactical-pack" title="光狼招来" />
+  <SeparatorSection id="tactical-pack" title={translations.tacticalPack} />
   <TacticalPackCast start="02:56.110" base={base} />
   <UntargetbaleEvent time="03:01.224" base={base} />
-  <WolvesHeadAppearEvent time="03:03.000" base={base} />
+  <WolvesAppearEvent time="03:03.400" base={base} />
+  <EventSection time="03:03.400">
+    场中出现半径
+    <Span variant="pink">8m</Span>
+    的圆形范围提示
+  </EventSection>
   <HowlingHavocCast start="03:03.400" base={base} />
+  <EventSection time="03:09.002">
+    场中半径
+    <Span variant="pink">8m</Span>
+    的圆形区域变为即死区
+  </EventSection>
 
   <PackPredationCast start="03:13.586" base={base} />
   <ClearEarthborneEndEvent time="03:20.000" base={base} />

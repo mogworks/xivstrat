@@ -22,4 +22,13 @@ export const translations = {
   bareFangs: '光牙召唤',
   fangedCrossing: '十字光牙',
   tacticalPack: '光狼召唤',
+  howlingHavoc: '风尘咆哮',
+  windpack: '风之戒律',
+  windpackDesp: '身体被风属性以太缠绕，无法对同属性的狼首造成伤害',
+  stonepack: '土之戒律',
+  stonepackDesp: '身体被土属性以太缠绕，无法对同属性的狼首造成伤害',
+  earthborneEnd: '土之咒痕',
+  earthborneEndDesp: '受到了土属性的诅咒，效果时间结束时陷入无法战斗状态。该状态在接触土以太块时解除',
+  windborneEnd: '风之咒痕',
+  windborneEndDesp: '受到了风属性的诅咒，效果时间结束时陷入无法战斗状态。该状态在接触风以太块时解除',
 }

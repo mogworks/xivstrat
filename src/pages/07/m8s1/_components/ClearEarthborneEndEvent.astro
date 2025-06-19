@@ -7,7 +7,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
-import EarthborneEndDebuff from '../_components/EarthborneEndDebuff.astro'
+import EarthborneEnd from '../_components/buff/EarthborneEnd.astro'
 
 interface Props {
   time: Time
@@ -23,7 +23,7 @@ const { time, base = 0, reverse = 0, ...rest }: Props = Astro.props
 ---
 
 <EventSection time={time} base={base}>
-  消除<EarthborneEndDebuff tag="1" />， 对
+  消除<EarthborneEnd tag="1" />， 对
   <RoleIcon role="all" tag="全员" />
   <DamageInfo damage={damage} type={damageType} />
   <MagicVulnerabilityUp tag="4" hover />
