@@ -10,44 +10,108 @@ import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
+import Skill from '@/components/typography/Skill.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
-import StoneWolfheadIcon from '../_components/StoneWolfheadIcon.astro'
+import WolfOfStone from '../_components/entities/WolfOfStone.astro'
+import Windpack from '../_components/buff/Windpack.astro'
+import Stonepack from '../_components/buff/Stonepack.astro'
+import WindborneEnd from '../_components/buff/WindborneEnd.astro'
+import EarthborneEnd from '../_components/buff/EarthborneEnd.astro'
+import TacticalPackCast from '../_components/TacticalPackCast.astro'
+import WolvesAppearEvent from '../_components/WolvesAppearEvent.astro'
+import UntargetbaleEvent from '../_components/UntargetableEvent.astro'
+import HowlingHavocCast from '../_components/HowlingHavocCast.astro'
+import PackPredationCast from '../_components/PackPredationCast.astro'
+import ClearBorneEndEvent from '../_components/ClearBorneEndEvent.astro'
+import ForlornWindCast from '../_components/ForlornWindCast.astro'
+import ForlornStoneCast from '../_components/ForlornStoneCast.astro'
+import FontOfWindAether from '../_components/entities/FontOfWindAether.astro'
+import FontOfEarthAether from '../_components/entities/FontOfEarthAether.astro'
 
-import WindpackDebuff from '../_components/WindpackDebuff.astro'
-import StonepackDebuff from '../_components/StonepackDebuff.astro'
-import WindborneEndDebuff from '../_components/WindborneEndDebuff.astro'
-import EarthborneEndDebuff from '../_components/EarthborneEndDebuff.astro'
+import { translations } from '../_translations'
 
 import img from '@/assets/07/m8s1/tmp.png'
 
 interface Props {
-  time: Time
   base?: Time
 }
 
-const tracticalPack = '光狼招来'
-const howlingHoavoc = '風麈の咆哮'
-const packPredation = '光狼陣'
+const tacticalPack = translations.tacticalPack
+const howlingHoavoc = translations.howlingHavoc
+const packPredation = translations.packPredation
 
 //TODO: 找俩icon把这玩意替换掉
 const greenBall = '绿球'
 const yellowCude = '黄方块'
 
-const { time, base = 0 }: Props = Astro.props
+const { base = 0 }: Props = Astro.props
 ---
+
+<TacticalPackCast start="02:56.110" base={base} />
+<UntargetbaleEvent time="03:01.224" base={base} />
+<EventSection time="03:03.400" class="opacity-80">
+  场中出现半径
+  <Span variant="pink">8m</Span>
+  的圆形范围提示
+</EventSection>
+<WolvesAppearEvent time="03:03.400" base={base} />
+<HowlingHavocCast start="03:03.400" base={base} />
+<EventSection time="03:09.002" class="opacity-80">
+  场中半径
+  <Span variant="pink">8m</Span>
+  的圆形区域变为即死区
+</EventSection>
+
+<CollapseSection wider>
+  <Fragment slot="summary">
+    <WolfOfWind />
+    <WolfOfStone />
+    读条
+    <Skill name={packPredation} />
+    ，
+    <RoleIcon role="healer|dps" />
+    触碰
+    <FontOfWindAether />
+    /
+    <FontOfEarthAether />
+    以消除
+    <WindborneEnd hover />
+    /
+    <EarthborneEnd hover />
+    ，重复3轮
+  </Fragment>
+  <Fragment slot="details">
+    <PackPredationCast start="03:13.586" base={base} />
+    <ClearBorneEndEvent time="03:21.086" base={base} buffTime="21" type="wind" />
+    <ClearBorneEndEvent time="03:26.086" base={base} buffTime="21" type="stone" />
+
+    <PackPredationCast start="03:27.703" base={base} />
+    <ClearBorneEndEvent time="03:35.203" base={base} buffTime="37" type="wind" />
+    <ClearBorneEndEvent time="03:40.203" base={base} buffTime="37" type="stone" />
+
+    <PackPredationCast start="03:41.842" base={base} />
+    <ClearBorneEndEvent time="03:49.342" base={base} buffTime="54" type="wind" />
+    <ClearBorneEndEvent time="03:54.342" base={base} buffTime="54" type="stone" />
+  </Fragment>
+</CollapseSection>
+
+<ForlornWindCast start="04:01.992" base={base} />
+<ForlornStoneCast start="04:01.992" base={base} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="text-2xl">
-      <Span variant="yellow">{tracticalPack} </Span>
+      <Span variant="yellow">{tacticalPack} </Span>
     </div>
 
     <div class="paragraph">
       <HowlingBlade />上天，预示着小怪阶段开始。 此时场地东西侧会出现
       <WolfOfWind />
-      <StoneWolfheadIcon />
+      <WolfOfStone />
       并连线玩家。
     </div>
 
@@ -65,30 +129,30 @@ const { time, base = 0 }: Props = Astro.props
     </div>
 
     <div class="paragraph pl-6">
-      <WindpackDebuff hover />：无法对<WolfOfWind />造成伤害。
+      <Windpack hover />：无法对<WolfOfWind />造成伤害。
     </div>
 
     <div class="paragraph pl-6">
-      <StonepackDebuff hover />：无法对<StoneWolfheadIcon />造成伤害。
+      <Stonepack hover />：无法对<WolfOfStone />造成伤害。
     </div>
 
     <div class="paragraph pl-6">
-      <WindborneEndDebuff hover tag="21" />
-      <WindborneEndDebuff hover tag="37" />
-      <WindborneEndDebuff hover tag="54" />
+      <WindborneEnd hover tag="21" />
+      <WindborneEnd hover tag="37" />
+      <WindborneEnd hover tag="54" />
       ：倒计时结束前需要穿过场上{greenBall}以消除该debuff，否则团灭。
     </div>
 
     <div class="paragraph pl-6">
-      <EarthborneEndDebuff hover tag="21" />
-      <EarthborneEndDebuff hover tag="37" />
-      <EarthborneEndDebuff hover tag="54" />
+      <EarthborneEnd hover tag="21" />
+      <EarthborneEnd hover tag="37" />
+      <EarthborneEnd hover tag="54" />
       ：倒计时结束前需要穿过场上{yellowCude}以消除该debuff，否则团灭。
     </div>
 
     <div class="paragraph">
-      <EarthborneEndDebuff hover />
-      <WindborneEndDebuff hover />
+      <EarthborneEnd hover />
+      <WindborneEnd hover />
       被消除会对全团造成一个微量的魔法伤害，并且赋予
       <MagicVulnerabilityUp tag="4" hover />
       ，若是在有
@@ -98,8 +162,8 @@ const { time, base = 0 }: Props = Astro.props
 
     <div class="paragraph">
       消除debuff还会对
-      <EarthborneEndDebuff hover />
-      <WindborneEndDebuff hover />
+      <EarthborneEnd hover />
+      <WindborneEnd hover />
       造成约
       <DamageInfo damage="2100000" type="special" />的伤害，15%。
     </div>
@@ -107,7 +171,7 @@ const { time, base = 0 }: Props = Astro.props
     <div class="paragraph">绿色的球和黄色正方体开始顺时针或逆时针绕场地旋转。</div>
 
     <div class="paragraph">
-      随后，<WolfOfWind /><StoneWolfheadIcon />开始读条
+      随后，<WolfOfWind /><WolfOfStone />开始读条
       <Span variant="yellow">{packPredation}</Span>
       分别对当前
       <RoleIcon role="tank" />
@@ -116,7 +180,7 @@ const { time, base = 0 }: Props = Astro.props
     </div>
 
     <div class="paragraph">
-      同时会各点名一个拥有<WindpackDebuff /><StonepackDebuff />的玩家释放直线AoE，并且附加
+      同时会各点名一个拥有<Windpack /><Stonepack />的玩家释放直线AoE，并且附加
       <MagicVulnerabilityUp tag="1" hover />
     </div>
 
@@ -132,7 +196,7 @@ const { time, base = 0 }: Props = Astro.props
     <div class="paragraph">
       连线出现，我们首先把连线拉长，去对面的
       <WolfOfWind />
-      <StoneWolfheadIcon />
+      <WolfOfStone />
       等待
       <Span variant="green">{greenBall}</Span>
       和
@@ -149,7 +213,7 @@ const { time, base = 0 }: Props = Astro.props
       之后，
       <RoleIcon role="tank" />将
       <WolfOfWind />
-      <StoneWolfheadIcon />
+      <WolfOfStone />
       面向同色的方向，跟随
       <Span variant="green">{greenBall}</Span>
       和
@@ -167,7 +231,7 @@ const { time, base = 0 }: Props = Astro.props
     <div class="paragraph pl-6">
       因为
       <WolfOfWind />
-      <StoneWolfheadIcon />
+      <WolfOfStone />
       开始读条
       <Span variant="yellow">{packPredation}</Span>
       之后会停止移动，但是
@@ -180,14 +244,14 @@ const { time, base = 0 }: Props = Astro.props
     <div class="paragraph">
       人群站在
       <WolfOfWind />
-      <StoneWolfheadIcon />
+      <WolfOfStone />
       后面，等待点名出现。伤害判定后，等
       <MagicVulnerabilityUp tag="1" hover />
       消失，
     </div>
 
     <div class="paragraph">
-      <EarthborneEndDebuff hover tag="21" />
+      <EarthborneEnd hover tag="21" />
       向后走穿过
       <Span variant="yellow">{yellowCude}</Span>
       消除debuff，此时全员获得
@@ -196,7 +260,7 @@ const { time, base = 0 }: Props = Astro.props
     </div>
 
     <div class="paragraph">
-      <WindborneEndDebuff hover tag="21" />
+      <WindborneEnd hover tag="21" />
       等
       <MagicVulnerabilityUp tag="4" hover />
       消失后向后走穿过
@@ -216,17 +280,17 @@ const { time, base = 0 }: Props = Astro.props
 
     <div class="paragraph">
       再重复两次，分别消除
-      <WindborneEndDebuff hover tag="37" />
-      <WindborneEndDebuff hover tag="54" />
-      <EarthborneEndDebuff hover tag="37" />
-      <EarthborneEndDebuff hover tag="54" />
+      <WindborneEnd hover tag="37" />
+      <WindborneEnd hover tag="54" />
+      <EarthborneEnd hover tag="37" />
+      <EarthborneEnd hover tag="54" />
       。
     </div>
 
     <div class="paragraph">
       所有debuff消除后，
       <WolfOfWind />
-      <StoneWolfheadIcon />
+      <WolfOfStone />
       开始读条狂暴，请尽快击杀。
     </div>
   </div>
@@ -235,9 +299,9 @@ const { time, base = 0 }: Props = Astro.props
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
-      <EarthborneEndDebuff hover />
+      <EarthborneEnd hover />
       在AoE判定后应该尽快去消除，给
-      <WindborneEndDebuff hover />
+      <WindborneEnd hover />
       留出充足的时间 。1s的易伤走过去差不多基本消失了。
     </div>
 

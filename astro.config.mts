@@ -11,4 +11,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss(), svgLoader()],
   },
+
+  image: {
+    layout: 'constrained',
+  },
 })

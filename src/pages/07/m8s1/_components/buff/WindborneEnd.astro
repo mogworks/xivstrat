@@ -1,0 +1,20 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import { translations } from '../../_translations'
+
+import icon from '@/assets/buff/07/m8s1/214267.png'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+
+const name = translations.windborneEnd
+const desp = translations.windborneEndDesp
+---
+
+<Buff icon={icon} name={name} nameVariant="yellow" description={desp} tag={tag} hover={hover} class={className} />
