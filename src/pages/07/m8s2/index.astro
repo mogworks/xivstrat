@@ -32,16 +32,6 @@ const navList = [
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
   <Fragment slot="operation">
-    <CheatsheetDialog client:idle>
-      <AreaBox class="h-full w-fit">
-        <Image
-          src={CheatsheetsImage}
-          alt="m8s后半 副本小抄"
-          loading="lazy"
-          class="h-full w-fit object-contain object-left-top"
-        />
-      </AreaBox>
-    </CheatsheetDialog>
     <a href="/07/m8s2/p1">
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
@@ -57,6 +47,21 @@ const navList = [
       </button>
     </a>
   </Fragment>
+  <CollapsibleBox id="cheatsheet" client:idle class="w-full">
+    <Fragment slot="header">
+      <span>小抄速览</span>
+    </Fragment>
+    <AreaBox>
+      <CheatsheetDialog client:idle>
+        <Image
+          src={CheatsheetsImage}
+          alt="m8s后半 副本小抄"
+          loading="lazy"
+          class="h-full w-fit object-contain object-left-top"
+        />
+      </CheatsheetDialog>
+    </AreaBox>
+  </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
     <div class="w-sm">
       <AreaBox>

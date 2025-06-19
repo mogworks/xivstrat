@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import ScannerSVG from '@/assets/svg/scanner.svg?component'
 import {
   Dialog,
   DialogContent,
@@ -25,17 +24,88 @@ withDefaults(
 )
 
 const scale = ref(1)
+const translateOrigin = ref({
+  x: 0,
+  y: 0
+})
+const dragPosition = ref({
+  x: 0,
+  y: 0
+})
+const imgRef = ref()
+const isDragging = ref(false)
+
+const handleScroll = (event: WheelEvent) => {
+  if (event.shiftKey) {
+    return
+  }
+  event.preventDefault()
+  const rect = imgRef.value.getBoundingClientRect()
+  const mouseX = event.clientX - rect.left
+  const mouseY = event.clientY - rect.top
+  const imgX = mouseX / scale.value
+  const imgY = mouseY / scale.value
+  const oldScale = scale.value
+  const delta = -event.deltaY
+  const newScale = Math.min(Math.max(scale.value + delta * 0.001, 0.1), 3)
+  if (newScale < 0.01 || newScale > 3) {
+    return
+  }
+  scale.value = newScale
+  translateOrigin.value = {
+    x: translateOrigin.value.x -= imgX * (newScale - oldScale),
+    y: translateOrigin.value.y -= imgY * (newScale - oldScale),
+  }
+}
+
+const handleReset = () => {
+  scale.value = 1
+  translateOrigin.value = {
+    x: 0,
+    y: 0
+  }
+}
+
+const startDrag = (e: MouseEvent) => {
+  e.preventDefault()
+  // 只响应左键
+  if (e.button !== 0) {
+    return
+  }
+
+  isDragging.value = true
+  dragPosition.value = {
+    x: e.clientX - translateOrigin.value.x,
+    y: e.clientY - translateOrigin.value.y,
+  }
+}
+
+const onDrag = (e: MouseEvent) => {
+  e.preventDefault()
+  if (!isDragging.value) {
+    return
+  }
+
+  translateOrigin.value = {
+    x: e.clientX - dragPosition.value.x,
+    y: e.clientY - dragPosition.value.y,
+  }
+}
+
+const stopDrag = (e: MouseEvent) => {
+  e.preventDefault()
+  if (!isDragging.value) {
+    return
+  }
+
+  isDragging.value = false
+}
 </script>
 
 <template>
   <Dialog>
     <DialogTrigger as-child>
-      <button
-        class="flex w-max min-w-33 cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
-      >
-        <ScannerSVG />
-        小抄速览
-      </button>
+      <slot />
     </DialogTrigger>
     <DialogContent class="w-[80%]">
       <DialogHeader>
@@ -43,13 +113,9 @@ const scale = ref(1)
           <slot name="title">
             {{ title }}
           </slot>
-          <div v-if="useScale" class="flex items-center gap-4">
+          <div v-if="useScale" class="flex items-center gap-4 h-20">
             <input
-              v-model="scale"
-              type="range"
-              min="0.1"
-              max="3"
-              step="0.01"
+              v-model="scale" type="range" min="0.1" max="3" step="0.01"
               class="slider inline-flex h-2 max-w-50 flex-grow-1 appearance-none rounded-[4px] bg-[#e0e0e0] outline-none"
             >
             <div class="inline-flex min-w-[100px] text-center font-bold">
@@ -58,7 +124,7 @@ const scale = ref(1)
             <div v-if="scale !== 1">
               <button
                 class="flex w-max cursor-pointer items-center justify-between gap-1 rounded-sm border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
-                @click="scale = 1"
+                @click="handleReset"
               >
                 重置
               </button>
@@ -73,20 +139,16 @@ const scale = ref(1)
       </DialogHeader>
       <div class="h-[75vh] overflow-auto">
         <div
-          class="flex h-full w-full max-w-[80vw] flex-row gap-4 transition-all duration-150"
+          ref="imgRef" class="flex h-full w-full max-w-[80vw] flex-row gap-4 will-change-transform select-none"
           :style="{
-            transform: `scale(${scale})`,
+            cursor: isDragging ? 'grabbing' : 'grab',
+            transform: `translate3d(${translateOrigin.x}px, ${translateOrigin.y}px, 0) scale(${scale})`,
             transformOrigin: 'top left',
-          }"
+          }" @mousewheel="handleScroll" @mousedown="startDrag" @mousemove="onDrag" @mouseup="stopDrag"
+          @mouseleave="stopDrag"
         >
           <slot>
-            <img
-              v-if="src"
-              :src="src"
-              loading="lazy"
-              alt="副本小抄"
-              class="block h-full object-contain object-left-top"
-            >
+            <img v-if="src" :src="src" loading="lazy" alt="副本小抄" class="block h-full object-contain object-left-top">
           </slot>
         </div>
       </div>
@@ -115,6 +177,7 @@ const scale = ref(1)
   background: #42b883;
   border-radius: 50%;
   cursor: pointer;
-  border: none; /* 移除Firefox默认边框 */
+  border: none;
+  /* 移除Firefox默认边框 */
 }
 </style>
