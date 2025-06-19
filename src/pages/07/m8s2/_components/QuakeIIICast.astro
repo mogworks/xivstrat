@@ -7,6 +7,8 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
+import { translations } from '../_translations'
+
 interface Props {
   start: Time
   base?: Time
@@ -14,7 +16,7 @@ interface Props {
 
 const { start, base = 0 }: Props = Astro.props
 
-const quakeIII = 'クエイガ'
+const quakeIII = translations.quakeIII
 ---
 
 <CastSection
