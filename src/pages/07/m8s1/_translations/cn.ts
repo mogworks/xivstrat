@@ -32,4 +32,6 @@ export const translations = {
   windborneEnd: '风之咒痕',
   windborneEndDesp: '受到了风属性的诅咒，效果时间结束时陷入无法战斗状态。该状态在接触风以太块时解除',
   packPredation: '光狼阵',
+  forlornStone: '土之狼吼',
+  forlornWind: '风之狼吼',
 }

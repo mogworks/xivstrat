@@ -34,4 +34,6 @@ export const translations = {
   windborneEndDesp:
     '風属性の呪いを受けた状態。効果時間が終了すると戦闘不能になるが、風のエーテル塊に接触することで解除できる',
   packPredation: '光狼陣',
+  forlornStone: '土の狼吼',
+  forlornWind: '風の狼吼',
 }

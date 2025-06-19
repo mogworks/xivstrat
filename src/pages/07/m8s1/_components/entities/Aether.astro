@@ -1,0 +1,27 @@
+---
+import EntityIcon from '@/components/EntityIcon.astro'
+import EntityText from '@/components/EntityText.astro'
+import Span from '@/components/Span.vue'
+
+import wind_icon from '@/assets/07/m8s1/entity_icons/font_of_wind_aether.png'
+import stone_icon from '@/assets/07/m8s1/entity_icons/font_of_earth_aether.png'
+
+interface Props {
+  type: 'wind' | 'stone'
+}
+
+const { type }: Props = Astro.props
+const icon = type === 'wind' ? wind_icon : stone_icon
+const name = type === 'wind' ? '风以太' : '土以太'
+---
+
+<EntityIcon icon={icon} iconClass="translate-y-[calc(-50%-1em*2/18)] scale-175 drop-shadow-xs drop-shadow-black">
+  <slot>
+    <Span variant="rose">{name}</Span>
+  </slot>
+</EntityIcon>
+<EntityText>
+  <slot>
+    <Span variant="default">{name}</Span>
+  </slot>
+</EntityText>

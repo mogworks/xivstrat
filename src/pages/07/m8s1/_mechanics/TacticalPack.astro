@@ -11,6 +11,8 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import EventSection from '@/components/section/EventSection.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
+import Skill from '@/components/typography/Skill.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
@@ -28,6 +30,8 @@ import ClearEarthborneEndEvent from '../_components/ClearEarthborneEndEvent.astr
 import ClearWindborneEndEvent from '../_components/ClearWindborneEndEvent.astro'
 import ForlornWindCast from '../_components/ForlornWindCast.astro'
 import ForlornStoneCast from '../_components/ForlornStoneCast.astro'
+import FontOfWindAether from '../_components/entities/FontOfWindAether.astro'
+import FontOfEarthAether from '../_components/entities/FontOfEarthAether.astro'
 
 import { translations } from '../_translations'
 
@@ -63,17 +67,38 @@ const { base = 0 }: Props = Astro.props
   的圆形区域变为即死区
 </EventSection>
 
-<PackPredationCast start="03:13.586" base={base} />
-<ClearEarthborneEndEvent time="03:20.000" base={base} />
-<ClearWindborneEndEvent time="03:24.000" base={base} />
+<CollapseSection wider>
+  <Fragment slot="summary">
+    <WolfOfWind />
+    <WolfOfStone />
+    读条
+    <Skill name={packPredation} />
+    ，
+    <RoleIcon role="healer|dps" />
+    触碰
+    <FontOfWindAether />
+    /
+    <FontOfEarthAether />
+    以消除
+    <WindborneEnd hover />
+    /
+    <EarthborneEnd hover />
+    ，重复3轮
+  </Fragment>
+  <Fragment slot="details">
+    <PackPredationCast start="03:13.586" base={base} />
+    <ClearEarthborneEndEvent time="03:20.000" base={base} />
+    <ClearWindborneEndEvent time="03:24.000" base={base} />
 
-<PackPredationCast start="03:27.703" base={base} />
-<ClearEarthborneEndEvent time="03:34.000" base={base} />
-<ClearWindborneEndEvent time="03:38.000" base={base} />
+    <PackPredationCast start="03:27.703" base={base} />
+    <ClearEarthborneEndEvent time="03:34.000" base={base} />
+    <ClearWindborneEndEvent time="03:38.000" base={base} />
 
-<PackPredationCast start="03:41.8422" base={base} />
-<ClearEarthborneEndEvent time="03:48.000" base={base} />
-<ClearWindborneEndEvent time="03:52.000" base={base} />
+    <PackPredationCast start="03:41.8422" base={base} />
+    <ClearEarthborneEndEvent time="03:48.000" base={base} />
+    <ClearWindborneEndEvent time="03:52.000" base={base} />
+  </Fragment>
+</CollapseSection>
 
 <ForlornWindCast start="04:01.992" base={base} />
 <ForlornStoneCast start="04:01.992" base={base} />
