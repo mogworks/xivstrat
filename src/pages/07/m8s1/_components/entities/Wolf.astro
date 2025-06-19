@@ -1,0 +1,36 @@
+---
+import EntityIcon from '@/components/EntityIcon.astro'
+import EntityText from '@/components/EntityText.astro'
+import Span from '@/components/Span.vue'
+
+import wind_icon from '@/assets/07/m8s1/entity_icons/wolf_of_wind_1.png'
+import stone_icon from '@/assets/07/m8s1/entity_icons/wolf_of_stone_1.png'
+
+interface Props {
+  type: 'wind' | 'stone'
+  order?: number
+}
+
+const { type, order = 0 }: Props = Astro.props
+const icon = type === 'wind' ? wind_icon : stone_icon
+const name = type === 'wind' ? '风狼首' : '土狼首'
+---
+
+<EntityIcon icon={icon} class="-mx-px" iconClass="scale-120 drop-shadow-xs drop-shadow-black">
+  <slot>
+    <Span variant="rose">{name}</Span>
+    {
+      order !== 0 && (
+        <Span variant="rose" class="-ml-1">
+          #{order}
+        </Span>
+      )
+    }
+  </slot>
+</EntityIcon>
+<EntityText>
+  <slot>
+    <Span variant="default">{name}</Span>
+    {order !== 0 && <Span variant="default">#{order}</Span>}
+  </slot>
+</EntityText>

@@ -4,30 +4,22 @@ import type { Time } from '@/lib/utils'
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
-import StoneWolfheadIcon from '../_components/StoneWolfheadIcon.astro'
+import WolfOfStone from '../_components/entities/WolfOfStone.astro'
+
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
   base?: Time
-  [key: string]: any
 }
 
-const ability = 'Forlorn Stone'
+const ability = translations.forlornStone
 
-const { start, base = 0, ...rest }: Props = Astro.props
+const { start, base = 0 }: Props = Astro.props
 ---
 
-<CastSection
-  start={start}
-  base={base}
-  duration={7.7}
-  ability={ability}
-  target
-  damage="9999999"
-  damageType="special"
-  {...rest}
->
-  <StoneWolfheadIcon slot="source" />
+<CastSection start={start} base={base} duration={7.7} ability={ability} target damage="9999999" damageType="special">
+  <WolfOfStone slot="source" />
   <Badge variant="fuchsia">狂暴</Badge>
   <Badge variant="red">团灭</Badge>
 </CastSection>

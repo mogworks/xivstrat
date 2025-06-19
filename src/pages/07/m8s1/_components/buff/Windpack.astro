@@ -1,6 +1,8 @@
 ---
 import Buff from '@/components/Buff.astro'
 
+import { translations } from '../../_translations'
+
 import windpack from '@/assets/buff/07/m8s1/214264.png'
 
 interface Props {
@@ -9,17 +11,10 @@ interface Props {
   class?: string
 }
 
-const name = 'Windpack' //"風の戒め"
-
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+
+const name = translations.windpack
+const desp = translations.windpackDesp
 ---
 
-<Buff
-  icon={windpack}
-  name={name}
-  nameVariant="yellow"
-  description="Bound by wind aether and unable to deal damage to the wolf of wind."
-  tag={tag}
-  hover={hover}
-  class={className}
-/>
+<Buff icon={windpack} name={name} nameVariant="yellow" description={desp} tag={tag} hover={hover} class={className} />

@@ -6,27 +6,19 @@ import CastSection from '@/components/section/CastSection.astro'
 
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 
+import { translations } from '../_translations'
+
 interface Props {
   start: Time
   base?: Time
-  [key: string]: any
 }
 
-const ability = 'Forlorn Wind'
+const ability = translations.forlornWind
 
-const { start, base = 0, ...rest }: Props = Astro.props
+const { start, base = 0 }: Props = Astro.props
 ---
 
-<CastSection
-  start={start}
-  base={base}
-  duration={7.7}
-  ability={ability}
-  target
-  damage="9999999"
-  damageType="special"
-  {...rest}
->
+<CastSection start={start} base={base} duration={7.7} ability={ability} target damage="9999999" damageType="special">
   <WolfOfWind slot="source" />
   <Badge variant="fuchsia">狂暴</Badge>
   <Badge variant="red">团灭</Badge>
