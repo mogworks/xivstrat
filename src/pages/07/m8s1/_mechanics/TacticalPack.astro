@@ -36,6 +36,7 @@ import { translations } from '../_translations'
 
 import img_1 from '@/assets/07/m8s1/tactical_pack/1.png'
 import img_3 from '@/assets/07/m8s1/tactical_pack/3.png'
+import img_4 from '@/assets/07/m8s1/tactical_pack/4.png'
 
 interface Props {
   base?: Time
@@ -293,6 +294,16 @@ const { base = 0 }: Props = Astro.props
         <MagicVulnerabilityUp tag="1" hover />
       </P>
     </Quote>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: img_4,
+          alt: '光狼陣',
+        },
+      ]}
+    />
 
     <T class="mt-8">
       <Span variant="green">风以太</Span>
