@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <!-- 手柄部分 -->
+    <g transform="translate(56.5 56.5) rotate(45)">
+        <rect x="0" y="-4" width="32" height="8" rx="2" fill="currentColor"/>
+    </g>
+    <!-- 镜片外层 -->
+    <circle cx="40" cy="40" r="25" fill="#f8f9fa20" stroke="currentColor" stroke-width="2"/>
+    <!-- 镜片内层 -->
+    <circle cx="40" cy="40" r="20" fill="#f8f9fa20" stroke="#495057" stroke-width="0.8" stroke-dasharray="3"/>
+     <!-- 加号 -->
+    <line x1="30" y1="40" x2="50" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <line x1="40" y1="30" x2="40" y2="50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg>
+               

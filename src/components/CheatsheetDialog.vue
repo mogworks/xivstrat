@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, useTemplateRef, watch } from 'vue'
 
+import MagnifierSVG from '@/assets/svg/magnifier.svg?component'
 import {
   Dialog,
   DialogContent,
@@ -23,24 +24,26 @@ withDefaults(
   }
 )
 
+const isOpen = ref(false)
+
 const scale = ref(1)
 const translateOrigin = ref({
   x: 0,
-  y: 0
+  y: 0,
 })
 const dragPosition = ref({
   x: 0,
-  y: 0
+  y: 0,
 })
-const imgRef = ref()
+const imageContentRef = useTemplateRef<HTMLDivElement>('imageContent')
 const isDragging = ref(false)
 
 const handleScroll = (event: WheelEvent) => {
-  if (event.shiftKey) {
+  if (event.shiftKey || !imageContentRef.value) {
     return
   }
   event.preventDefault()
-  const rect = imgRef.value.getBoundingClientRect()
+  const rect = imageContentRef.value.getBoundingClientRect()
   const mouseX = event.clientX - rect.left
   const mouseY = event.clientY - rect.top
   const imgX = mouseX / scale.value
@@ -53,8 +56,8 @@ const handleScroll = (event: WheelEvent) => {
   }
   scale.value = newScale
   translateOrigin.value = {
-    x: translateOrigin.value.x -= imgX * (newScale - oldScale),
-    y: translateOrigin.value.y -= imgY * (newScale - oldScale),
+    x: (translateOrigin.value.x -= imgX * (newScale - oldScale)),
+    y: (translateOrigin.value.y -= imgY * (newScale - oldScale)),
   }
 }
 
@@ -62,14 +65,14 @@ const handleReset = () => {
   scale.value = 1
   translateOrigin.value = {
     x: 0,
-    y: 0
+    y: 0,
   }
 }
 
 const startDrag = (e: MouseEvent) => {
   e.preventDefault()
-  // 只响应左键
-  if (e.button !== 0) {
+  // 只响应左键及中键
+  if (e.button !== 0 && e.button !== 1) {
     return
   }
 
@@ -100,12 +103,30 @@ const stopDrag = (e: MouseEvent) => {
 
   isDragging.value = false
 }
+
+watch(
+  () => isOpen.value,
+  (open) => {
+    if (open) {
+      scale.value = 1
+      translateOrigin.value = { x: 0, y: 0 }
+      isDragging.value = false
+    }
+  }
+)
 </script>
 
 <template>
-  <Dialog>
+  <Dialog v-model:open="isOpen">
     <DialogTrigger as-child>
-      <slot />
+      <div class="group relative cursor-pointer">
+        <div class="transition-opacity duration-50 group-hover:opacity-30 dark:group-hover:opacity-10">
+          <slot />
+        </div>
+        <MagnifierSVG
+          class="absolute top-[50%] left-[50%] z-10 w-10 -translate-x-[50%] -translate-y-[50%] opacity-0 transition-opacity duration-50 group-hover:opacity-100"
+        />
+      </div>
     </DialogTrigger>
     <DialogContent class="w-[80%]">
       <DialogHeader>
@@ -113,15 +134,19 @@ const stopDrag = (e: MouseEvent) => {
           <slot name="title">
             {{ title }}
           </slot>
-          <div v-if="useScale" class="flex items-center gap-4 h-20">
+          <div v-if="useScale" class="flex h-20 items-center gap-4">
             <input
-              v-model="scale" type="range" min="0.1" max="3" step="0.01"
+              v-model="scale"
+              type="range"
+              min="0.1"
+              max="3"
+              step="0.01"
               class="slider inline-flex h-2 max-w-50 flex-grow-1 appearance-none rounded-[4px] bg-[#e0e0e0] outline-none"
             >
             <div class="inline-flex min-w-[100px] text-center font-bold">
               缩放比例: {{ Math.round(scale * 100) }}%
             </div>
-            <div v-if="scale !== 1">
+            <div v-if="scale !== 1 || translateOrigin.x || translateOrigin.y">
               <button
                 class="flex w-max cursor-pointer items-center justify-between gap-1 rounded-sm border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
                 @click="handleReset"
@@ -139,16 +164,27 @@ const stopDrag = (e: MouseEvent) => {
       </DialogHeader>
       <div class="h-[75vh] overflow-auto">
         <div
-          ref="imgRef" class="flex h-full w-full max-w-[80vw] flex-row gap-4 will-change-transform select-none"
+          ref="imageContent"
+          class="flex h-full w-full max-w-[80vw] flex-row gap-4 will-change-transform select-none"
           :style="{
             cursor: isDragging ? 'grabbing' : 'grab',
             transform: `translate3d(${translateOrigin.x}px, ${translateOrigin.y}px, 0) scale(${scale})`,
             transformOrigin: 'top left',
-          }" @mousewheel="handleScroll" @mousedown="startDrag" @mousemove="onDrag" @mouseup="stopDrag"
+          }"
+          @mousewheel="handleScroll"
+          @mousedown="startDrag"
+          @mousemove="onDrag"
+          @mouseup="stopDrag"
           @mouseleave="stopDrag"
         >
           <slot>
-            <img v-if="src" :src="src" loading="lazy" alt="副本小抄" class="block h-full object-contain object-left-top">
+            <img
+              v-if="src"
+              :src="src"
+              loading="lazy"
+              alt="副本小抄"
+              class="block h-full object-contain object-left-top"
+            >
           </slot>
         </div>
       </div>
