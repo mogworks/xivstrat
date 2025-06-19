@@ -1,6 +1,8 @@
 ---
 import Buff from '@/components/Buff.astro'
 
+import { translations } from '../../_translations'
+
 import stonepack from '@/assets/buff/07/m8s1/214265.png'
 
 interface Props {
@@ -10,14 +12,9 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+
+const name = translations.stonepack
+const desp = translations.stonepackDesp
 ---
 
-<Buff
-  icon={stonepack}
-  name="Stonepack"
-  nameVariant="yellow"
-  description="Bound by earth aether and unable to deal damage to the wolf of stone."
-  tag={tag}
-  hover={hover}
-  class={className}
-/>
+<Buff icon={stonepack} name={name} nameVariant="yellow" description={desp} tag={tag} hover={hover} class={className} />

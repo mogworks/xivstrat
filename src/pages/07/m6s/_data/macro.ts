@@ -1,6 +1,7 @@
 /* eslint-disable no-irregular-whitespace */
 /* eslint-disable style/no-tabs */
 
+// TODO: 需要检查游戏内格式
 export const macro = `/p ■基本分散 (北基准、TBOSS脚下)■击飞分摊（2:2:2:2）
 /p 　 D3 D4　 　 | 　 　 　　BOSS
 /p H1　☆　H2　| 　H1D1　MTD4　H2D2

@@ -1,9 +1,5 @@
 ---
-import EntityIcon from '@/components/EntityIcon.astro'
-import EntityText from '@/components/EntityText.astro'
-
-import icon from '@/assets/07/m8s1/entity_icons/wolf_of_wind_1.png'
-import Span from '@/components/Span.vue'
+import Wolf from './Wolf.astro'
 
 interface Props {
   order?: number
@@ -12,21 +8,4 @@ interface Props {
 const { order = 0 }: Props = Astro.props
 ---
 
-<EntityIcon icon={icon} class="-mx-px" iconClass="scale-120 drop-shadow-xs drop-shadow-black">
-  <slot>
-    <Span variant="rose">风狼首</Span>
-    {
-      order !== 0 && (
-        <Span variant="rose" class="-ml-1">
-          #{order}
-        </Span>
-      )
-    }
-  </slot>
-</EntityIcon>
-<EntityText>
-  <slot>
-    <Span variant="default">风狼首</Span>
-    {order !== 0 && <Span variant="default">#{order}</Span>}
-  </slot>
-</EntityText>
+<Wolf type="wind" order={order} />

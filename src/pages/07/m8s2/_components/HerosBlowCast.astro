@@ -6,6 +6,7 @@ import CastSection from '@/components/section/CastSection.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import GleamingFang from '../_components/entities/GleamingFang.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -14,7 +15,7 @@ interface Props {
 
 const { start, base = 0 }: Props = Astro.props
 
-const herosBlow = '鎧袖一触'
+const herosBlow = translations.herosBlow
 ---
 
 <CastSection start={start} base={base} duration={5.7} ability={herosBlow}>
