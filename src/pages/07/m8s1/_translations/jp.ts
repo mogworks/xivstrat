@@ -36,4 +36,10 @@ export const translations = {
   packPredation: '光狼陣',
   forlornStone: '土の狼吼',
   forlornWind: '風の狼吼',
+  alphaWind: '光狼の風',
+  alphaStone: '光狼の土',
+  stalkingWind: '光狼風烈波',
+  stalkingStone: '光狼地烈波',
+  windSurge: '風爆',
+  sandSurge: '土爆',
 }
