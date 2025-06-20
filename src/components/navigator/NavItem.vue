@@ -1,30 +1,39 @@
-<script setup>
-import { defineProps, onMounted, ref } from 'vue'
+<script lang="ts" setup>
+import { onMounted, ref } from 'vue'
 
-const props = defineProps({
-  name: {
-    type: String,
-    required: true
-  },
-  path: {
-    type: String,
-    default: null
-  },
-  children: {
-    type: Array,
-    default: () => []
+import RightArrowSVG from '@/assets/svg/right-arrow.svg?component'
+
+interface Route {
+  name: string
+  path?: string
+  children?: Route[]
+}
+
+const props = withDefaults(
+  defineProps<{
+    name: string
+    path?: string
+    children?: Route[]
+    deepIndex?: number
+  }>(),
+  {
+    path: undefined,
+    children: () => [],
+    deepIndex: 0,
   }
-})
+)
 
 const expanded = ref(false)
 const toggle = () => {
-  if (props.children.length) {
+  if (props.children?.length) {
     expanded.value = !expanded.value
   }
 }
 const isCurrent = ref(false)
 onMounted(() => {
-  isCurrent.value = (props.path !== '/' && window.location.pathname.startsWith(props.path)) || (props.path === '/' && window.location.pathname === props.path)
+  isCurrent.value =
+    (props.path !== '/' && props.path && window.location.pathname.startsWith(props.path)) ||
+    (props.path === '/' && window.location.pathname === props.path)
 })
 </script>
 
@@ -32,27 +41,22 @@ onMounted(() => {
   <li>
     <div
       v-if="children.length"
-      class="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-indigo-100 dark:hover:bg-indigo-900 rounded-xl"
+      class="flex cursor-pointer items-center justify-between px-4 py-3 hover:bg-indigo-100 dark:hover:bg-indigo-900"
       @click="toggle"
     >
-      <span class="text-gray-800 dark:text-gray-200">{{ name }}</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        class="w-4 h-4 transition-transform"
-        :class="{ 'rotate-180': expanded }"
-      >
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-      </svg>
+      <span class="pr-8 text-gray-800 dark:text-gray-200">{{ name }}</span>
+      <RightArrowSVG class="rotate-90 overflow-visible transition-transform" :class="{ 'rotate-270': expanded }" />
     </div>
 
     <component
       :is="isCurrent ? 'span' : 'a'"
       v-else
       :href="isCurrent ? undefined : path"
-      :class="isCurrent ? 'rounded-xl block px-4 py-3 text-indigo-600 dark:text-indigo-400 transition-colors cursor-default' : 'rounded-xl block px-4 py-3 text-gray-800 dark:text-gray-200 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors cursor-pointer'"
+      :class="
+        isCurrent
+          ? 'block cursor-default px-4 py-3 text-indigo-600 transition-colors dark:text-indigo-400'
+          : 'block cursor-pointer px-4 py-3 text-gray-800 transition-colors hover:bg-indigo-100 dark:text-gray-200 dark:hover:bg-indigo-900'
+      "
     >
       {{ name }}
     </component>
@@ -64,7 +68,7 @@ onMounted(() => {
     >
       <ul
         v-if="children.length && expanded"
-        class="pl-4 mt-1 space-y-1 border-l divide-y divide-gray-200 dark:divide-gray-500 dark:border-gray-500"
+        class="space-y-0 divide-y divide-gray-200 border-l-10 border-gray-500/40 dark:divide-gray-500 dark:border-gray-400"
       >
         <NavItem
           v-for="(child, index) in children"
@@ -72,6 +76,7 @@ onMounted(() => {
           :name="child.name"
           :path="child.path"
           :children="child.children"
+          :deep-index="deepIndex + 1"
         />
       </ul>
     </Transition>
