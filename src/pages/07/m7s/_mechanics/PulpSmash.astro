@@ -24,6 +24,8 @@ import Skill from '@/components/typography/Skill.astro'
 import { translations } from '../_translations'
 import Span from '@/components/Span.vue'
 import P from '@/components/typography/P.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import NoteSection from '@/components/section/NoteSection.astro'
 
 interface Props {
   base: Time
@@ -33,6 +35,18 @@ const { base = 0 }: Props = Astro.props
 const pulpSmash = translations.pulpSmash
 const ITCD = translations.itCameFromTheDirt
 const theUnpotted = translations.theUnpotted
+
+const solutions = [
+  {
+    id: 'PulpSmash-game8',
+    title: '解法：Game8原版',
+  },
+  {
+    id: 'PulpSmash-EU',
+    title: '解法：欧野主流',
+  },
+]
+const defaultSolution = '解法：Game8原版'
 ---
 
 <PulpSmashCast start="02:01.981" base={base} />
@@ -55,7 +69,7 @@ const theUnpotted = translations.theUnpotted
         <Skill name={ITCD} />
       </T>
       <P>
-        <Skill name={pulpSmash} />对全员伤害生效<Span variant="pink">1.5秒</Span>后，<BruteAbombinator
+        <Skill name={pulpSmash} />对全员伤害生效<Span variant="pink">1.5s</Span>后，<BruteAbombinator
         />脚底释放半径<Span variant="pink">6m</Span>的钢铁（<RoleIcon role="boss" tag="boss" /><Span variant="pink"
           >目标圈内环</Span
         >），
@@ -74,40 +88,60 @@ const theUnpotted = translations.theUnpotted
     </div>
   </div>
 </MechanicSection>
-<SolutionSection title="解法">
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">分摊预兆出现后，<RoleIcon role="all" tag="所有人" />前往场中等待分摊</div>
-    <div class="paragraph">
-      在<BruteAbombinator />跳向<RoleIcon role="healer" />分摊后：
+
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：Game8原版">
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        分摊预兆出现后，<RoleIcon role="all" tag="所有人" />前往<RoleIcon role="healer" tag="点名" /><Span
+          variant="pink">处</Span
+        >集合
+      </div>
+      <div class="paragraph">
+        在<BruteAbombinator />跳向<RoleIcon role="healer" />分摊后，以<RoleIcon role="boss" tag="boss" /><Span
+          variant="pink">面向</Span
+        >为基准，<Span variant="pink">八方分散</Span>
+      </div>
+      <div class="paragraph">分散示意图如下：</div>
+      <ImgRow
+        wrapperClass="max-w-100"
+        bordered={false}
+        imgs={[{ src: pulp_smash, alt: '以BOSS面向为准', title: '面基' }]}
+      />
     </div>
-    <div class="paragraph">
-      <ListDot />可以以<RoleIcon role="boss" tag="boss" /><Span variant="pink">面向</Span>为基准，<Span variant="pink"
-        >八方分散</Span
-      >
-    </div>
-    <div class="paragraph">
-      <ListDot />也可以以<Span variant="pink">场地</Span>为基准，<Span variant="pink">八方分散</Span>
-    </div>
-    <div class="paragraph">
-      分摊伤害生效后，扇形AOE的判定时间约为出动画时间的一半，故请在<BruteAbombinator />
-      跳完后<Span variant="pink">立刻离开原地</Span>并<Span variant="pink">分散</Span>
-    </div>
-    <div class="paragraph">分散示意图如下：</div>
-    <ImgRow
-      wrapperClass="max-w-100"
-      bordered={false}
-      imgs={[
-        {
-          src: pulp_smash,
-          alt: '以BOSS面向为准',
-          title: '面基',
-        },
-        {
-          src: pulp_smash_arena_base,
-          alt: '以场地方向为准',
-          title: '场基',
-        },
-      ]}
-    />
   </div>
-</SolutionSection>
+  <div slot="解法：欧野主流">
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        分摊预兆出现后，<RoleIcon role="all" tag="所有人" />前往<Span variant="pink">场中</Span>等待分摊
+      </div>
+      <div class="paragraph">
+        在<BruteAbombinator />跳向<RoleIcon role="healer" />分摊后，以<Span variant="pink">场地</Span>为基准，<Span
+          variant="pink">八方分散</Span
+        >
+      </div>
+
+      <div class="paragraph">分散示意图如下：</div>
+      <ImgRow
+        wrapperClass="max-w-100"
+        bordered={false}
+        imgs={[
+          {
+            src: pulp_smash_arena_base,
+            alt: '以场地方向为准',
+            title: '场基',
+          },
+        ]}
+      />
+    </div>
+  </div>
+</MultiSolutionSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">分摊伤害生效后，小钢铁和扇形AoE的判定时间约为出动画时间的一半</div>
+    <div class="paragraph">
+      故请在<BruteAbombinator />
+      跳完（分摊伤害生效）<Span variant="pink">后立刻离开原地</Span>并<Span variant="pink">分散</Span>
+    </div>
+  </div>
+</NoteSection>
