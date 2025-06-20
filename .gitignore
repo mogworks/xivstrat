@@ -35,6 +35,5 @@ src-tauri/target/
 src-tauri/gen/
 
 # electron
-electron/node_modules/
 electron-dist/
 

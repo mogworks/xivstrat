@@ -19,13 +19,8 @@
     "tauri:build": "tauri build",
     "tauri:icon": "node cli/generate-icons.js",
     "build:electron": "astro build --config astro.config.electron.mts",
-    "electron:start": "electron electron/main.js",
     "electron:dev": "node electron/dev.js",
-    "electron:test": "node electron/test-prod.js",
-    "electron:debug": "electron electron/debug.js",
-    "electron:check": "node electron/check-dist.js",
-    "electron:build": "pnpm build:electron && electron-builder --config electron/electron-builder.json",
-    "electron:icons": "node electron/generate-icons.js"
+    "electron:build": "pnpm build:electron && electron-builder --config electron/electron-builder.json"
   },
   "dependencies": {
     "@astrojs/vue": "5.1.0",
