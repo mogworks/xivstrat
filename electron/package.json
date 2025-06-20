@@ -1,0 +1,9 @@
+{
+  "name": "xivstrat",
+  "version": "0.0.1",
+  "description": "XivStrat - FFXIV Strategy Guide",
+  "author": "XivStrat Team",
+  "license": "MIT",
+  "main": "main.js",
+  "dependencies": {}
+}

@@ -1,0 +1,11 @@
+# Electron 构建产物
+electron-dist/
+
+# 图标文件（由脚本生成）
+build/*.png
+build/*.ico
+build/*.icns
+
+# 临时文件
+*.log
+.DS_Store

@@ -35,3 +35,7 @@ src-tauri/target/
 src-tauri/icons/
 src-tauri/gen/
 
+# electron
+electron/node_modules/
+electron-dist/
+
