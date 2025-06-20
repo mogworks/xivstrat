@@ -9,14 +9,13 @@ import StratSettings from '@/components/StratSettings.vue'
 
 interface Props {
   dutyId: string
-  phase: number
 }
 
-const { dutyId, phase }: Props = Astro.props
+const { dutyId }: Props = Astro.props
 const duty = (await getEntry('duties', dutyId))!.data
 ---
 
-<DutyLayout dutyId={dutyId} phase={phase}>
+<DutyLayout dutyId={dutyId}>
   <main class="max-w-strat-max min-w-strat-min relative mx-auto mb-20 grid grid-cols-[1fr_16rem] p-4">
     <article class="flex flex-col gap-(--article-row-gap) tracking-wide">
       <slot />

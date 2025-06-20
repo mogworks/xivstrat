@@ -19,11 +19,11 @@ import SugarscapeP4 from './_mechanics/SugarscapeP4.astro'
 import { translations } from './_translations'
 
 const dutyId = '07/m6s'
-const phase = 4
+
 const base = '07:07.286'
 ---
 
-<DutyStratLayout dutyId={dutyId} phase={phase}>
+<DutyStratLayout dutyId={dutyId}>
   <MoveToNorthEvent time="07:07.286" base={base} />
   <SeparatorSection id="sugarscape" title={translations.Sugarscape} />
   <SugarscapeP4 base={base} />
