@@ -2,7 +2,6 @@
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
 import Badge from '@/components/Badge.astro'
-import CastSection from '@/components/section/CastSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
@@ -17,9 +16,6 @@ import XReignCast from './_components/XReignCast.astro'
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
 import HowlingBlade from './_components/entities/HowlingBlade.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
-import RetargetableEvent from './_components/RetargetableEvent.astro'
-import WolfOfWind from './_components/entities/WolfOfWind.astro'
-import BareFangsEvent from './_components/BareFangsEvent.astro'
 
 import BeckonMoonlight from './_mechanics/BeckonMoonlight.astro'
 import Shadowchase from './_mechanics/Shadowchase.astro'
@@ -47,13 +43,6 @@ const base = '04:27.478'
   />
   <Shadowchase base={base} />
   <SeparatorSection />
-
-  <RetargetableEvent time="04:55.0" base={base} />
-  <CastSection start="04:55.0" base={base} duration={2.2}>
-    <WolfOfWind slot="source" />
-    <Skill name="風狼豪波" />
-    <Badge variant="yellow">直线AoE</Badge>
-  </CastSection>
 
   <!-- 群狼剑+土龙头 -->
   <SeparatorSection id="wolves-reign-weal-of-stone" title="地烈波" />

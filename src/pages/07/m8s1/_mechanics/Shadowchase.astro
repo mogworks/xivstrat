@@ -4,6 +4,7 @@ import type { Time } from '@/lib/utils'
 import { Image } from 'astro:assets'
 
 import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
@@ -21,6 +22,7 @@ import ShadowchaseCast from '../_components/ShadowchaseCast.astro'
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 import BareFangsEvent from '../_components/BareFangsEvent.astro'
+import RetargetableEvent from '../_components/RetargetableEvent.astro'
 
 import { translations } from '../_translations'
 
@@ -45,7 +47,13 @@ const ability = translations.terrestrialRage
 <ShadowchaseCast start="04:45.454" base={base} />
 <!-- 7秒15帧后：分身 Shadowchase 1.7秒 -->
 <TerrestrialRageActivate time="04:54.399" base={base} order="2" />
-<!-- 04:56.667 Roaring Wind  -->
+<!-- TODO -->
+<RetargetableEvent time="04:55.0" base={base} />
+<CastSection start="04:56.667" base={base} duration={2.2}>
+  <WolfOfWind slot="source" />
+  <Skill name="風狼豪波" />
+  <Badge variant="yellow">直线AoE</Badge>
+</CastSection>
 
 <!-- TODO -->
 <MechanicSection>
