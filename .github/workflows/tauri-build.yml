@@ -108,21 +108,18 @@ jobs:
           cd ..
 
       # Electron 构建部分
-      - name: Build Electron app
-        shell: bash
-        run: |
-          cd electron
-          pnpm install
-          pnpm build
-
+      # - name: Build Electron app
+      #   shell: bash
+      #   run: |
+      #     pnpm install
+      #     pnpm build
       - name: Package Electron app (Windows)
         if: matrix.platform == 'windows-latest'
         shell: bash
         run: |
-          cd electron
           # 构建便携版
-          pnpm exec electron-builder --win portable
-
+          pnpm build:electron
+          pnpm exec electron-builder --config electron/electron-builder.json --win portable
           # 找到生成的 exe 文件
           PORTABLE_PATH=$(find electron-dist -name "*.exe" | grep -i portable | head -1)
           echo "Found portable exe: $PORTABLE_PATH"
@@ -138,9 +135,8 @@ jobs:
         if: matrix.platform == 'macos-latest'
         shell: bash
         run: |
-          cd electron
-          # 构建 dir 格式（解压后可直接运行）
-          pnpm exec electron-builder --mac dir
+          pnpm build:electron
+          pnpm exec electron-builder --config electron/electron-builder.json --mac dir
 
           # 找到生成的 app 文件夹
           APP_PATH=$(find electron-dist/mac* -name "*.app" -type d | head -1)
