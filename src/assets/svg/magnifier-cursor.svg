@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+    <!-- 旋转矩形的黑色描边 -->
+    <path d="M56.5 62.5v-8a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-28a2 2 0 0 1-2-2z"
+        transform="rotate(45 56.5 56.5)" fill="none" stroke="#000" stroke-width="4" />
+
+    <!-- 外部大圆环的黑色描边 -->
+    <circle cx="40" cy="40" r="25" fill="none" stroke="#000" stroke-width="10" />
+
+    <!-- 十字线的黑色描边 -->
+    <line x1="26" y1="40" x2="54" y2="40" stroke="#000" stroke-width="8" />
+    <line x1="40" y1="26" x2="40" y2="54" stroke="#000" stroke-width="8" />
+
+    <!-- 原始元素绘制在黑色描边之上 -->
+    <path d="M56.5 62.5v-8a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-28a2 2 0 0 1-2-2z"
+        transform="rotate(45 56.5 56.5)" fill="#fff" />
+    <circle cx="40" cy="40" r="25" fill="none" stroke="#fff" stroke-width="6" />
+    <line x1="28" y1="40" x2="52" y2="40" stroke="#fff" stroke-width="4" />
+    <line x1="40" y1="28" x2="40" y2="52" stroke="#fff" stroke-width="4" />
+
+    <!-- 添加标记点指示指针热点位置 -->
+    <circle cx="40" cy="40" r="16" stroke="#ffffff" fill="#ffffff80" stroke-width="4" />
+</svg>
