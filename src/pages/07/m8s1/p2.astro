@@ -1,11 +1,13 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
+import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
+import EventSection from '@/components/section/EventSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
-import DraftWarning from '@/components/DraftWarning.astro'
 
-import RavenousSaberCast from './_components/RavenousSaberCast.astro'
 import MoveToNorthEvent from './_components/MoveToNorthEvent.astro'
+import RavenousSaberActivate from './_components/RavenousSaberActivate.astro'
+import HowlingBlade from './_components/entities/HowlingBlade.astro'
 
 import TacticalPack from './_mechanics/TacticalPack.astro'
 
@@ -16,19 +18,23 @@ const base = '02:53.751'
 ---
 
 <DutyStratLayout dutyId={dutyId}>
-  <SeparatorSection />
-  <DraftWarning />
-  <SeparatorSection />
-
   <MoveToNorthEvent time="02:53.751" base={base} />
 
   <SeparatorSection id="tactical-pack" title={translations.tacticalPack} />
   <TacticalPack base={base} />
 
-  <SeparatorSection id="ravenous-saber" title="風塵光狼斬" />
-  <RavenousSaberCast start="04:14.555" damage="60000" duration={3.1} />
-  <RavenousSaberCast start="04:14.555" damage="60000" duration={3.3} />
-  <RavenousSaberCast start="04:14.555" damage="60000" duration={3.6} />
-  <RavenousSaberCast start="04:14.555" damage="100000" duration={5.7} />
-  <RavenousSaberCast start="04:14.555" damage="210000" duration={7.0} />
+  <SeparatorSection id="ravenous-saber" title={translations.ravenousSaber} />
+  <RavenousSaberActivate time="04:17.941" base={base} damage="60000" />
+  <RavenousSaberActivate time="04:18.120" base={base} damage="60000" />
+  <RavenousSaberActivate time="04:18.433" base={base} damage="60000" />
+  <RavenousSaberActivate time="04:20.531" base={base} damage="100000" />
+  <RavenousSaberActivate time="04:21.826" base={base} damage="200000" />
+
+  <SeparatorSection />
+  <EventSection time="04:27.478" base={base}>
+    <HowlingBlade />
+    失去
+    <DirectionalDisregard hover />
+    ，目标圈恢复身位限制
+  </EventSection>
 </DutyStratLayout>
