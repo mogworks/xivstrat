@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css'
+import Navigation from '@/components/navigator/Navigation.vue'
 
 interface Props {
   lang?: string
@@ -11,6 +12,26 @@ const defaultTitle = 'XivStrat | 最终幻想14中文攻略站'
 const defaultDescription = '从7.2开始的最终幻想14中文攻略站'
 
 const { lang = 'zh-CN', title = defaultTitle, description = defaultDescription }: Props = Astro.props
+const routes = [
+  { name: '首页', path: '/' },
+  { name: '关于', path: '/about' },
+  {
+    name: '阿卡狄亚零式登天斗技场 中量级',
+    children: [
+      { name: '中量级1', path: '/07/m5s' },
+      { name: '中量级2', path: '/07/m6s' },
+      { name: '中量级3', path: '/07/m7s' },
+      {
+        name: '中量级4',
+        children: [
+          { name: '前半', path: '/07/m8s1' },
+          { name: '后半', path: '/07/m8s2' },
+        ],
+      },
+    ],
+  },
+  { name: '泽莲尼娅歼殛战', path: '/07/zelenia' },
+]
 ---
 
 <!doctype html>
@@ -26,6 +47,7 @@ const { lang = 'zh-CN', title = defaultTitle, description = defaultDescription }
   </head>
   <body>
     <slot />
+    <Navigation client:load routes={routes} />
   </body>
 </html>
 
