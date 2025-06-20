@@ -12,31 +12,32 @@ import P from '@/components/typography/P.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import Skill from '@/components/typography/Skill.astro'
 import DraftWarning from '@/components/DraftWarning.astro'
+import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
 
 import Attack from './_components/Attack.astro'
-import BeckonMoonlight from './_mechanics/BeckonMoonlight.astro'
+import XReignCast from './_components/XReignCast.astro'
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
 import HowlingBlade from './_components/entities/HowlingBlade.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 import RetargetableEvent from './_components/RetargetableEvent.astro'
+import WolfOfWind from './_components/entities/WolfOfWind.astro'
+
+import BeckonMoonlight from './_mechanics/BeckonMoonlight.astro'
 import TerrestrialRage from './_mechanics/TerrestrialRage.astro'
 import TrackingTremors from './_mechanics/TrackingTremors.astro'
 import WealOfStone from './_mechanics/WealOfStone.astro'
-import XReignCast from './_components/XReignCast.astro'
-import WolfOfWind from './_components/entities/WolfOfWind.astro'
 import Xfang from './_mechanics/Xfang.astro'
 import GreatDivide from './_mechanics/GreatDivide.astro'
 import ShadowChase from './_mechanics/ShadowChase.astro'
 
 const dutyId = '07/m8s1'
-const base = '04:19.898'
+const base = '04:27.478'
 ---
 
 <DutyStratLayout dutyId={dutyId}>
   <SeparatorSection />
   <DraftWarning />
   <SeparatorSection />
-  <Attack time="04:29.0" base={base} />
   <MoveToCenterEvent time="04:31.622" base={base} />
 
   <SeparatorSection id="terrestrial-rage" title="大地の怒り" />

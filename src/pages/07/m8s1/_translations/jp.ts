@@ -44,4 +44,5 @@ export const translations = {
   sandSurge: '土爆',
   galeSurge: '大風爆',
   stoneSurge: '大土爆',
+  ravenousSaber: '風塵光狼斬',
 }
