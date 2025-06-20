@@ -13,14 +13,21 @@ const props = withDefaults(
     name: string
     link?: string
     gameName?: string
+    breakNames?: string[]
   }>(),
   {
     link: '#',
   }
 )
 
-const breakNames = computed(() => {
-  return props.name?.split('/').map(item => item?.trim())
+const displayNames = computed(() => {
+  if (props.breakNames && props.breakNames.length) {
+    return props.breakNames
+  }
+  if (props.name) {
+    return [props.name]
+  }
+  return void 0
 })
 
 const specialAlignAvatarClass = computed(() => {
@@ -46,18 +53,18 @@ const specialAlignDetailAvatarClass = computed(() => {
       <a
         :href="link"
         target="_blank"
-        class="inline-flex w-fit cursor-pointer flex-col items-center gap-0.5 transition-all duration-150 hover:scale-105"
+        class="inline-flex w-fit min-w-17 cursor-pointer flex-col items-center gap-0.5 transition-all duration-150 hover:scale-105"
       >
         <div :class="`flex ${specialAlignAvatarClass} mr-1 items-center justify-center overflow-hidden rounded-full`">
           <slot />
         </div>
 
         <div
-          v-if="breakNames"
+          v-if="displayNames && displayNames.length > 0"
           class="flex min-h-6 scale-80 flex-col items-center justify-center text-center text-xs leading-3 font-medium text-gray-400 dark:text-white/90"
         >
-          <template v-for="item in breakNames" :key="item">
-            <p>
+          <template v-for="item in displayNames" :key="item">
+            <p class="w-17 break-all">
               {{ item }}
             </p>
           </template>

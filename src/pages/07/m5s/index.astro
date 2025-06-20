@@ -6,7 +6,7 @@ import Separator from '@/components/Separator.astro'
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import AreaBox from '@/components/AreaBox.astro'
 
-import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
+import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
 import Macro from '@/components/Macro.astro'
 import ReferenceItem from '@/components/ReferenceItem.astro'
 import Thanks from '@/components/thanks/Thanks.astro'
@@ -21,6 +21,7 @@ import { thanksList } from './_data/thanks'
 
 const dutyId = '07/m5s'
 const navList = [
+  { label: '小抄速览', id: 'cheatsheet' },
   { label: '场地标点', id: 'waymark' },
   { label: '宏', id: 'macro' },
   { label: '简易时间轴', id: 'timeline' },
@@ -44,9 +45,9 @@ const navList = [
       <span>小抄速览</span>
     </Fragment>
     <AreaBox>
-      <CheatsheetDialog client:idle>
+      <ResizableImageDialog client:idle>
         <Image src={CheatsheetsImage} alt="m5s 副本小抄" loading="lazy" class="h-full object-contain object-left-top" />
-      </CheatsheetDialog>
+      </ResizableImageDialog>
     </AreaBox>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
@@ -59,7 +60,9 @@ const navList = [
           下载标点文件
         </button>
         <Separator class="my-2 mb-3" />
-        <Image src={WaymarkImage} alt="m5s 场地标点" class="w-full" />
+        <ResizableImageDialog client:idle>
+          <Image src={WaymarkImage} alt="m5s 场地标点" class="w-full object-contain object-left-top" />
+        </ResizableImageDialog>
       </AreaBox>
     </div>
     <Fragment slot="header">
@@ -74,7 +77,9 @@ const navList = [
   </CollapsibleBox>
   <CollapsibleBox id="timeline" client:idle class="w-full">
     <AreaBox>
-      <Image src={TimelineImage} alt="m5s 简易时间轴" class="w-full" />
+      <ResizableImageDialog client:idle>
+        <Image src={TimelineImage} alt="m5s 简易时间轴" class="w-full object-contain object-left-top" />
+      </ResizableImageDialog>
     </AreaBox>
     <Fragment slot="header">
       <span>简易时间轴</span>
