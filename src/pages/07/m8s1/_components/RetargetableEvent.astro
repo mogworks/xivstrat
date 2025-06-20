@@ -1,7 +1,6 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import Boss from '@/components/Boss.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
@@ -15,5 +14,5 @@ const { time, base = 0 }: Props = Astro.props
 
 <EventSection time={time} base={base}>
   <HowlingBlade />
-  落地，可以选中
+  落地现身，重新变为可选中状态
 </EventSection>
