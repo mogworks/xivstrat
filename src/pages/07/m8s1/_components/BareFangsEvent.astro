@@ -3,16 +3,31 @@ import type { Time } from '@/lib/utils'
 
 import EventSection from '@/components/section/EventSection.astro'
 import GleamingFang from './entities/GleamingFang.astro'
+import HowlingBlade from './entities/HowlingBlade.astro'
 
 interface Props {
   time: Time
   base?: Time
+  phase?: 'P1' | 'P3'
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time, base = 0, phase = 'P1' }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}>
-  场地剩余的一对正点各出现一组十字形和X字形
-  <GleamingFang />
-</EventSection>
+{
+  phase === 'P1' ? (
+    <EventSection time={time} base={base}>
+      场地剩余的一对正点各出现一组十字形和X字形
+      <GleamingFang />
+    </EventSection>
+  ) : (
+    <EventSection time={time} base={base}>
+      <HowlingBlade />
+      卸除背后的
+      <GleamingFang />
+      并使其上天，稍后会将
+      <GleamingFang />
+      布置在场地上形成斜向的条纹AoE
+    </EventSection>
+  )
+}

@@ -11,6 +11,8 @@ import AreaBox from '@/components/AreaBox.astro'
 import DevSimpleProfile from '@/components/thanks/DevSimpleProfile.astro'
 import Separator from '@/components/Separator.astro'
 
+import XivStratLightLogo from '@/assets/developer/group/XivStrat_light.png'
+import XivStratDarkLogo from '@/assets/developer/group/XivStrat_dark.png'
 import MMWLogo from '@/assets/developer/group/MMW.png'
 import MGLLogo from '@/assets/developer/group/MGL.png'
 import SPJPLogo from '@/assets/developer/SuperJump.png'
@@ -27,6 +29,7 @@ interface Props {
 
 const { groupList, devList, other }: Props = Astro.props
 
+const hasXivStrat = groupList?.map((item) => item.toUpperCase())?.includes('XIVSTRAT')
 const hasMGL = groupList?.map((item) => item.toUpperCase())?.includes('MGL')
 const hasMMW = groupList?.map((item) => item.toUpperCase())?.includes('MMW')
 const hasSPJP = groupList?.map((item) => item.toUpperCase())?.includes('SPJP')
@@ -41,12 +44,20 @@ const hasSPJP = groupList?.map((item) => item.toUpperCase())?.includes('SPJP')
     <Separator class="my-2 mb-0" />
     <div class="-mb-4 flex items-center">
       {
+        hasXivStrat && (
+          <div class="w-32 first:-ml-3">
+            <Image src={XivStratLightLogo} draggable="false" alt="XivStrat" class="dark:hidden" />
+            <Image src={XivStratDarkLogo} draggable="false" alt="XivStrat" class="hidden dark:block" />
+          </div>
+        )
+      }
+      {
         hasMMW && (
           <Image
             src={MMWLogo}
             draggable="false"
             alt="MMW"
-            class={cn('blur-20 -ml-5 w-36 pt-2 first:-ml-5', hasMGL && '-mr-8')}
+            class={cn('blur-20 w-36 pt-2 first:-ml-5', hasMGL && '-mr-8')}
           />
         )
       }

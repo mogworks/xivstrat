@@ -1,0 +1,25 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+const ability = translations.terrestrialRage
+---
+
+<CastSection start={start} base={base} duration={2.7} ability={ability}>
+  <HowlingBlade slot="source" />
+  ，稍后分两轮按职能点名全员分散/分摊
+  <Badge variant="emerald">延迟判定</Badge>
+  <Badge variant="yellow">职能分散+职能分摊</Badge>
+</CastSection>
