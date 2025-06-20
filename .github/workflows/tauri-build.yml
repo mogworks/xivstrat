@@ -2,8 +2,8 @@ name: Build Tauri App
 
 on:
   push:
-    branches:
-      - release
+    tags:
+      - 'v*.*.*' # 匹配 v1.0.0 格式的tag
 
 jobs:
   build:
@@ -19,6 +19,15 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 获取完整的git历史
+
+      - name: Merge from main branch
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git fetch origin main
+          git merge origin/main --no-edit || echo "Merge completed or no changes to merge"
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -53,8 +62,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tagName: v__VERSION__
-          releaseName: XivStrat Desktop v__VERSION__
+          tagName: ${{ github.ref_name }}
+          releaseName: XivStrat Desktop ${{ github.ref_name }}
           releaseBody: See the assets to download this version and install.
           releaseDraft: true
           prerelease: false
@@ -87,12 +96,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Get version from tauri.conf.json
-        id: get_version
-        run: |
-          VERSION=$(cat src-tauri/tauri.conf.json | jq -r '.version')
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-
       - name: Download all artifacts
         uses: actions/download-artifact@v4
         with:
@@ -104,8 +107,8 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ steps.get_version.outputs.version }}
-          name: XivStrat Desktop v${{ steps.get_version.outputs.version }}
+          tag_name: ${{ github.ref_name }}
+          name: XivStrat Desktop ${{ github.ref_name }}
           body: |
             ## 下载说明
 
