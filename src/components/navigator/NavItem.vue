@@ -32,7 +32,7 @@ onMounted(() => {
   <li>
     <div
       v-if="children.length"
-      class="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-indigo-100 dark:hover:bg-indigo-900"
+      class="flex items-center justify-between px-4 py-3 cursor-pointer hover:bg-indigo-100 dark:hover:bg-indigo-900 rounded-xl"
       @click="toggle"
     >
       <span class="text-gray-800 dark:text-gray-200">{{ name }}</span>
@@ -52,22 +52,28 @@ onMounted(() => {
       :is="isCurrent ? 'span' : 'a'"
       v-else
       :href="isCurrent ? undefined : path"
-      :class="isCurrent ? 'block px-4 py-3 text-indigo-600 dark:text-indigo-400 transition-colors cursor-default' : 'block px-4 py-3 text-gray-800 dark:text-gray-200 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors cursor-pointer'"
+      :class="isCurrent ? 'rounded-xl block px-4 py-3 text-indigo-600 dark:text-indigo-400 transition-colors cursor-default' : 'rounded-xl block px-4 py-3 text-gray-800 dark:text-gray-200 hover:bg-indigo-100 dark:hover:bg-indigo-900 transition-colors cursor-pointer'"
     >
       {{ name }}
     </component>
-
-    <ul
-      v-if="children.length && expanded"
-      class="pl-4 mt-1 space-y-1 border-l divide-y divide-gray-200 dark:divide-gray-500 dark:border-gray-500"
+    <Transition
+      enter-active-class="transition-all duration-100 ease-out"
+      leave-active-class="transition-all duration-100 ease-in"
+      enter-from-class="opacity-0 scale-95"
+      leave-to-class="opacity-0 scale-95"
     >
-      <NavItem
-        v-for="(child, index) in children"
-        :key="index"
-        :name="child.name"
-        :path="child.path"
-        :children="child.children"
-      />
-    </ul>
+      <ul
+        v-if="children.length && expanded"
+        class="pl-4 mt-1 space-y-1 border-l divide-y divide-gray-200 dark:divide-gray-500 dark:border-gray-500"
+      >
+        <NavItem
+          v-for="(child, index) in children"
+          :key="index"
+          :name="child.name"
+          :path="child.path"
+          :children="child.children"
+        />
+      </ul>
+    </Transition>
   </li>
 </template>
