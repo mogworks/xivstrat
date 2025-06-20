@@ -20,6 +20,7 @@ import TerrestrialRageActivate from '../_components/TerrestrialRageActivate.astr
 import ShadowchaseCast from '../_components/ShadowchaseCast.astro'
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
+import BareFangsEvent from '../_components/BareFangsEvent.astro'
 
 import { translations } from '../_translations'
 
@@ -36,10 +37,15 @@ const { base = 0 }: Props = Astro.props
 const ability = translations.terrestrialRage
 ---
 
+<BareFangsEvent time="04:34.250" base={base} phase="P3" />
 <TerrestrialRageCast start="04:36.338" base={base} />
+<!-- 6秒8帧后：fangedCharge 3.7秒 -->
+<!-- 再2秒26帧后：fangedCharge 3.7秒 -->
 <TerrestrialRageActivate time="04:47.680" base={base} order="1" />
 <ShadowchaseCast start="04:45.454" base={base} />
+<!-- 7秒15帧后：分身 Shadowchase 1.7秒 -->
 <TerrestrialRageActivate time="04:54.399" base={base} order="2" />
+<!-- 04:56.667 Roaring Wind  -->
 
 <!-- TODO -->
 <MechanicSection>
