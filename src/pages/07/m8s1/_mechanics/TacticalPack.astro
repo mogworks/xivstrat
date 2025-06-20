@@ -38,6 +38,11 @@ import img_1 from '@/assets/07/m8s1/tactical_pack/1.png'
 import img_2 from '@/assets/07/m8s1/tactical_pack/2.png'
 import img_3 from '@/assets/07/m8s1/tactical_pack/3.png'
 import img_4 from '@/assets/07/m8s1/tactical_pack/4.png'
+import img_5 from '@/assets/07/m8s1/tactical_pack/5.png'
+import img_6 from '@/assets/07/m8s1/tactical_pack/6.png'
+import img_7 from '@/assets/07/m8s1/tactical_pack/7.png'
+import img_8 from '@/assets/07/m8s1/tactical_pack/8.png'
+import img_9 from '@/assets/07/m8s1/tactical_pack/9.png'
 
 interface Props {
   base?: Time
@@ -494,12 +499,35 @@ const { base = 0 }: Props = Astro.props
       <EarthborneEnd hover />
     </P>
     <P>
+      按照倒计时顺序，依次处理
+      <Span variant="default">21s</Span>
+      、
+      <Span variant="default">37s</Span>
+      、
+      <Span variant="default">54s</Span>
+      的debuff
+    </P>
+    <P>
       第一轮时，初始获得
       <Stonepack hover /><WindborneEnd tag="21" hover />
       的人反向（图示情况即逆时针）穿过
       <FontOfWindAether />
       与另一组人汇合：
     </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: img_5,
+          alt: '风buff穿过以太1',
+        },
+        {
+          src: img_6,
+          alt: '风buff穿过以太2',
+        },
+      ]}
+    />
 
     <P>
       穿过
@@ -523,17 +551,35 @@ const { base = 0 }: Props = Astro.props
     <P>
       接下来轮到初始
       <Windpack hover /><EarthborneEnd tag="21" hover />
-      的人消除debuff：
+      的人穿过
+      <FontOfEarthAether />
+      消除debuff，并与另一组人汇合，继续输出
+      <WolfOfWind />
+      ：
     </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: img_7,
+          alt: '土buff穿过以太1',
+        },
+        {
+          src: img_8,
+          alt: '土buff穿过以太2',
+        },
+      ]}
+    />
 
     <P>
-      由于消除
+      由于前一人消除
       <WindborneEnd hover />
       时产生的
       <Skill name={windSurge} />
       会造成
       <Span variant="cyan">4s</Span>
-      易伤，请不要着急行动，务必等易伤消除
+      易伤，请不要着急，务必等易伤消除后再行动
     </P>
     <P>
       但也不能耽搁太久，因为下一轮
@@ -555,11 +601,33 @@ const { base = 0 }: Props = Astro.props
     <P>
       <FontOfWindAether />
       <FontOfEarthAether />
-      每撞一次就会变小一些，三轮撞完就会消失，
-      <RoleIcon role="tank" />
-      可将狼首拉到
+      每撞一次就会变小一些，三轮撞完就会消失
+    </P>
+    <P>
+      此时
+      <RoleIcon role="tank" tag="双T" />
+      可将
+      <WolfOfWind />
+      <WolfOfStone />
+      拉到
       <Span variant="red">A</Span>
       ，方便转火：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: img_9,
+          alt: '狼首拉到A点',
+        },
+      ]}
+    />
+    <P>
+      最后，在
+      <WolfOfWind />
+      <WolfOfStone />
+      狂暴前，将它们击杀即可
     </P>
   </div>
 </SolutionSection>
