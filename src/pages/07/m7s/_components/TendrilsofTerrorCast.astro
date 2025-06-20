@@ -1,0 +1,28 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+const tendrilsofTerror = translations.tendrilsOfTerror
+---
+
+<CastSection start={start} base={base} duration={2.7} ability={tendrilsofTerror}>
+  <Fragment slot="source">
+    <RoleIcon role="enemy_level1">
+      <Span variant="rose">BOSS分身[不可视]×12</Span>
+    </RoleIcon>
+    对4名<RoleIcon role="any" tag="点名" />
+  </Fragment>
+  <Badge variant="emerald">米字形AoE</Badge>
+</CastSection>

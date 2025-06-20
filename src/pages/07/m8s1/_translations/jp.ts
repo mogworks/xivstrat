@@ -54,4 +54,5 @@ export const translations = {
   suspendedStone: '大岩石',
   roaringWind: '風狼豪波',
   roaringStone: '土狼豪波',
+  fangedCharge: '突進光牙',
 }

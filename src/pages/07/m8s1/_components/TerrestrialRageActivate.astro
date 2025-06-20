@@ -1,0 +1,36 @@
+---
+import type { Time } from '@/lib/utils'
+
+import EventSection from '@/components/section/EventSection.astro'
+import Skill from '@/components/typography/Skill.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Badge from '@/components/Badge.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+  base?: Time
+  order?: '1' | '2'
+}
+
+const { time, base = 0, order = '1' }: Props = Astro.props
+const ability = translations.terrestrialRage
+const heavensearth = translations.heavensearth
+const suspendedStone = translations.suspendedStone
+---
+
+<EventSection time={time} base={base}>
+  <Skill name={ability} />
+  第{order}轮点名判定，
+  <RoleIcon role="all" tag="全员" />
+  受到
+  <Skill name={heavensearth} />
+  /
+  <Skill name={suspendedStone} />
+  <DamageInfo damage="110000" type="magical" />
+  <MagicVulnerabilityUp tag="1" hover />
+  <Badge variant="yellow">职能分散+职能分摊</Badge>
+</EventSection>

@@ -3,6 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@10.12.1",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "prebuild": "pnpm minify && astro check",
@@ -48,7 +51,7 @@
     "lint-staged": "16.1.2",
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "0.6.12",
+    "prettier-plugin-tailwindcss": "0.6.13",
     "sharp": "0.34.2",
     "typescript": "5.8.3",
     "vite-svg-loader": "5.1.0"
