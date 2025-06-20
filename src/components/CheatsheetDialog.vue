@@ -136,7 +136,7 @@ watch(
           </slot>
           <div v-if="useScale" class="flex h-20 items-center gap-4">
             <input
-              v-model="scale"
+              v-model.number="scale"
               type="range"
               min="0.1"
               max="3"
