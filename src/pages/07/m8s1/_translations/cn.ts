@@ -40,4 +40,7 @@ export const translations = {
   stalkingStone: '光狼地烈波',
   windSurge: '风爆',
   sandSurge: '土爆',
+  galeSurge: '风轰',
+  stoneSurge: '土轰',
+  ravenousSaber: '风尘光狼斩',
 }

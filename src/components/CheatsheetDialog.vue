@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, useTemplateRef, watch } from 'vue'
 
-import ScannerSVG from '@/assets/svg/scanner.svg?component'
+import MagnifierSVG from '@/assets/svg/magnifier.svg?component'
 import {
   Dialog,
   DialogContent,
@@ -24,18 +24,109 @@ withDefaults(
   }
 )
 
+const isOpen = ref(false)
+
 const scale = ref(1)
+const translateOrigin = ref({
+  x: 0,
+  y: 0,
+})
+const dragPosition = ref({
+  x: 0,
+  y: 0,
+})
+const imageContentRef = useTemplateRef<HTMLDivElement>('imageContent')
+const isDragging = ref(false)
+
+const handleScroll = (event: WheelEvent) => {
+  if (event.shiftKey || !imageContentRef.value) {
+    return
+  }
+  event.preventDefault()
+  const rect = imageContentRef.value.getBoundingClientRect()
+  const mouseX = event.clientX - rect.left
+  const mouseY = event.clientY - rect.top
+  const imgX = mouseX / scale.value
+  const imgY = mouseY / scale.value
+  const oldScale = scale.value
+  const delta = -event.deltaY
+  const newScale = Math.min(Math.max(scale.value + delta * 0.001, 0.1), 3)
+  if (newScale < 0.01 || newScale > 3) {
+    return
+  }
+  scale.value = newScale
+  translateOrigin.value = {
+    x: (translateOrigin.value.x -= imgX * (newScale - oldScale)),
+    y: (translateOrigin.value.y -= imgY * (newScale - oldScale)),
+  }
+}
+
+const handleReset = () => {
+  scale.value = 1
+  translateOrigin.value = {
+    x: 0,
+    y: 0,
+  }
+}
+
+const startDrag = (e: MouseEvent) => {
+  e.preventDefault()
+  // 只响应左键及中键
+  if (e.button !== 0 && e.button !== 1) {
+    return
+  }
+
+  isDragging.value = true
+  dragPosition.value = {
+    x: e.clientX - translateOrigin.value.x,
+    y: e.clientY - translateOrigin.value.y,
+  }
+}
+
+const onDrag = (e: MouseEvent) => {
+  e.preventDefault()
+  if (!isDragging.value) {
+    return
+  }
+
+  translateOrigin.value = {
+    x: e.clientX - dragPosition.value.x,
+    y: e.clientY - dragPosition.value.y,
+  }
+}
+
+const stopDrag = (e: MouseEvent) => {
+  e.preventDefault()
+  if (!isDragging.value) {
+    return
+  }
+
+  isDragging.value = false
+}
+
+watch(
+  () => isOpen.value,
+  (open) => {
+    if (open) {
+      scale.value = 1
+      translateOrigin.value = { x: 0, y: 0 }
+      isDragging.value = false
+    }
+  }
+)
 </script>
 
 <template>
-  <Dialog>
+  <Dialog v-model:open="isOpen">
     <DialogTrigger as-child>
-      <button
-        class="flex w-max min-w-33 cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
-      >
-        <ScannerSVG />
-        小抄速览
-      </button>
+      <div class="group relative cursor-pointer">
+        <div class="transition-opacity duration-50 group-hover:opacity-30 dark:group-hover:opacity-10">
+          <slot />
+        </div>
+        <MagnifierSVG
+          class="absolute top-[50%] left-[50%] z-10 w-10 -translate-x-[50%] -translate-y-[50%] opacity-0 transition-opacity duration-50 group-hover:opacity-100"
+        />
+      </div>
     </DialogTrigger>
     <DialogContent class="w-[80%]">
       <DialogHeader>
@@ -43,9 +134,9 @@ const scale = ref(1)
           <slot name="title">
             {{ title }}
           </slot>
-          <div v-if="useScale" class="flex items-center gap-4">
+          <div v-if="useScale" class="flex h-20 items-center gap-4">
             <input
-              v-model="scale"
+              v-model.number="scale"
               type="range"
               min="0.1"
               max="3"
@@ -55,10 +146,10 @@ const scale = ref(1)
             <div class="inline-flex min-w-[100px] text-center font-bold">
               缩放比例: {{ Math.round(scale * 100) }}%
             </div>
-            <div v-if="scale !== 1">
+            <div v-if="scale !== 1 || translateOrigin.x || translateOrigin.y">
               <button
                 class="flex w-max cursor-pointer items-center justify-between gap-1 rounded-sm border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
-                @click="scale = 1"
+                @click="handleReset"
               >
                 重置
               </button>
@@ -73,11 +164,18 @@ const scale = ref(1)
       </DialogHeader>
       <div class="h-[75vh] overflow-auto">
         <div
-          class="flex h-full w-full max-w-[80vw] flex-row gap-4 transition-all duration-150"
+          ref="imageContent"
+          class="flex h-full w-full max-w-[80vw] flex-row gap-4 will-change-transform select-none"
           :style="{
-            transform: `scale(${scale})`,
+            cursor: isDragging ? 'grabbing' : 'grab',
+            transform: `translate3d(${translateOrigin.x}px, ${translateOrigin.y}px, 0) scale(${scale})`,
             transformOrigin: 'top left',
           }"
+          @mousewheel="handleScroll"
+          @mousedown="startDrag"
+          @mousemove="onDrag"
+          @mouseup="stopDrag"
+          @mouseleave="stopDrag"
         >
           <slot>
             <img
@@ -115,6 +213,7 @@ const scale = ref(1)
   background: #42b883;
   border-radius: 50%;
   cursor: pointer;
-  border: none; /* 移除Firefox默认边框 */
+  border: none;
+  /* 移除Firefox默认边框 */
 }
 </style>

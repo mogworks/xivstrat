@@ -1,0 +1,22 @@
+---
+import CastSection from '@/components/section/CastSection.astro'
+import type { Time } from '@/lib/utils'
+
+import HowlingBlade from './entities/HowlingBlade.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+const duration = 6.7
+
+const riseOfTheHowlingWind = translations.riseOfTheHowlingWind
+---
+
+<CastSection start={start} base={base} duration={duration} ability={riseOfTheHowlingWind}>
+  <HowlingBlade slot="source" />
+  ，干扰传送装置并延长其冷却时间
+</CastSection>
