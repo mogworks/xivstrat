@@ -120,14 +120,15 @@ jobs:
           # 构建便携版
           pnpm build:electron
           pnpm exec electron-builder --config electron/electron-builder.json --win portable
+
           # 找到生成的 exe 文件
-          PORTABLE_PATH=$(find electron-dist -name "*.exe" | grep -i portable | head -1)
+          PORTABLE_PATH=$(find electron-dist -name "*.exe" | head -1)
           echo "Found portable exe: $PORTABLE_PATH"
 
           # 创建 zip 包
-          mkdir -p ../electron-zips
-          cp "$PORTABLE_PATH" "../electron-zips/XivStrat.exe"
-          cd ../electron-zips
+          mkdir -p electron-zips
+          cp "$PORTABLE_PATH" "electron-zips/XivStrat.exe"
+          cd electron-zips
           powershell Compress-Archive -Path "XivStrat.exe" -DestinationPath "../XivStrat-electron-Windows.zip"
           cd ..
 
@@ -143,9 +144,9 @@ jobs:
           echo "Found app: $APP_PATH"
 
           # 创建 zip 包
-          mkdir -p ../electron-zips
-          cp -r "$APP_PATH" "../electron-zips/XivStrat.app"
-          cd ../electron-zips
+          mkdir -p electron-zips
+          cp -r "$APP_PATH" "electron-zips/XivStrat.app"
+          cd electron-zips
           zip -r ../XivStrat-electron-macOS.zip XivStrat.app
           cd ..
 
