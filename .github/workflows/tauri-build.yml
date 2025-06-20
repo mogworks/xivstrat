@@ -22,12 +22,26 @@ jobs:
         with:
           fetch-depth: 0 # 获取完整的git历史
 
-      - name: Merge from main branch
+      - name: Setup git config
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+
+      - name: Try to merge main branch (optional)
+        id: merge_main
+        continue-on-error: true
+        run: |
           git fetch origin main
-          git merge origin/main --no-edit || echo "Merge completed or no changes to merge"
+          echo "Attempting to merge main branch..."
+          if git merge origin/main --no-edit --no-ff; then
+            echo "Successfully merged main branch"
+            echo "merge_success=true" >> $GITHUB_OUTPUT
+          else
+            echo "Merge conflicts detected, aborting merge"
+            git merge --abort
+            echo "merge_success=false" >> $GITHUB_OUTPUT
+            echo "::warning::Could not merge main branch due to conflicts. Building from current branch state."
+          fi
 
       - name: Setup Node
         uses: actions/setup-node@v4
