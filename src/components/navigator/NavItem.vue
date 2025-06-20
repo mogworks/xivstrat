@@ -1,37 +1,38 @@
 <script lang="ts" setup>
-import { defineProps, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 import RightArrowSVG from '@/assets/svg/right-arrow.svg?component'
 
-const props = defineProps({
-  name: {
-    type: String,
-    required: true,
-  },
-  path: {
-    type: String,
-    default: null,
-  },
-  children: {
-    type: Array,
-    default: () => [],
-  },
-  deepIndex: {
-    type: Number,
-    default: 0,
-  },
-})
+interface Route {
+  name: string
+  path?: string
+  children?: Route[]
+}
+
+const props = withDefaults(
+  defineProps<{
+    name: string
+    path?: string
+    children?: Route[]
+    deepIndex?: number
+  }>(),
+  {
+    path: undefined,
+    children: () => [],
+    deepIndex: 0,
+  }
+)
 
 const expanded = ref(false)
 const toggle = () => {
-  if (props.children.length) {
+  if (props.children?.length) {
     expanded.value = !expanded.value
   }
 }
 const isCurrent = ref(false)
 onMounted(() => {
   isCurrent.value =
-    (props.path !== '/' && window.location.pathname.startsWith(props.path)) ||
+    (props.path !== '/' && props.path && window.location.pathname.startsWith(props.path)) ||
     (props.path === '/' && window.location.pathname === props.path)
 })
 </script>
