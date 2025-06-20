@@ -23,6 +23,7 @@ import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 import BareFangsEvent from '../_components/BareFangsEvent.astro'
 import RetargetableEvent from '../_components/RetargetableEvent.astro'
 import RoaringWindCast from '../_components/RoaringWindCast.astro'
+import FangedChargeCast from '../_components/FangedChargeCast.astro'
 
 import { translations } from '../_translations'
 
@@ -41,8 +42,8 @@ const ability = translations.terrestrialRage
 
 <BareFangsEvent time="04:34.250" base={base} phase="P3" />
 <TerrestrialRageCast start="04:36.338" base={base} />
-<!-- 6秒8帧后：fangedCharge 3.7秒 -->
-<!-- 再2秒26帧后：fangedCharge 3.7秒 -->
+<FangedChargeCast start="04:42.471" base={base} />
+<FangedChargeCast start="04:44.904" base={base} />
 <TerrestrialRageActivate time="04:47.680" base={base} order="1" />
 <ShadowchaseCast start="04:45.454" base={base} />
 <ShadowchaseCast start="04:52.704" base={base} shadow={true} />
