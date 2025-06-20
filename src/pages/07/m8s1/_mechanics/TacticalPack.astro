@@ -473,5 +473,93 @@ const { base = 0 }: Props = Astro.props
         },
       ]}
     />
+
+    <P>
+      接着，
+      <FontOfWindAether />
+      <FontOfEarthAether />
+      会朝对应属性的狼首移动，按图示情况也就是顺时针方向
+    </P>
+    <P>
+      <RoleIcon role="tank" />
+      需要带着狼首紧跟在
+      <Span variant="cyan">异色的</Span>
+      以太之后，以免被同色以太追上
+    </P>
+    <P>
+      <RoleIcon role="healer|dps" />
+      则需要消除debuff，我们规定，每轮都先消除
+      <WindborneEnd hover />
+      ，再消除
+      <EarthborneEnd hover />
+    </P>
+    <P>
+      第一轮时，初始获得
+      <Stonepack hover /><WindborneEnd tag="21" hover />
+      的人反向（图示情况即逆时针）穿过
+      <FontOfWindAether />
+      与另一组人汇合：
+    </P>
+
+    <P>
+      穿过
+      <FontOfWindAether />
+      时，其
+      <Stonepack hover /><WindborneEnd hover />
+      会变为
+      <Windpack hover />
+      ，因此可以继续输出
+      <WolfOfStone />
+    </P>
+    <P>
+      由于
+      <Skill name={packPredation} />
+      的易伤只有
+      <Span variant="default">1s</Span>
+      ，因此穿
+      <FontOfWindAether />
+      的人无需等待，死刑/直线判定后请立刻行动
+    </P>
+    <P>
+      接下来轮到初始
+      <Windpack hover /><EarthborneEnd tag="21" hover />
+      的人消除debuff：
+    </P>
+
+    <P>
+      由于消除
+      <WindborneEnd hover />
+      时产生的
+      <Skill name={windSurge} />
+      会造成
+      <Span variant="cyan">4s</Span>
+      易伤，请不要着急行动，务必等易伤消除
+    </P>
+    <P>
+      但也不能耽搁太久，因为下一轮
+      <Skill name={packPredation} />
+      也快来了
+    </P>
+    <P>
+      <Skill name={packPredation} />
+      间隔
+      <Span variant="cyan">14s</Span>
+      ，本身有
+      <Span variant="default">1s</Span>
+      易伤，消除两次debuff各有
+      <Span variant="default">4s</Span>
+      易伤，故共有
+      <Span variant="default">5s</Span>
+      时间冗余，还是挺紧张的
+    </P>
+    <P>
+      <FontOfWindAether />
+      <FontOfEarthAether />
+      每撞一次就会变小一些，三轮撞完就会消失，
+      <RoleIcon role="tank" />
+      可将狼首拉到
+      <Span variant="red">A</Span>
+      ，方便转火：
+    </P>
   </div>
 </SolutionSection>
