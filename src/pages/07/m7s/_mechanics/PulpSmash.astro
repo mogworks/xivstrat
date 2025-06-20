@@ -19,15 +19,20 @@ import PulpSmashActivate from '../_components/PulpSmashActivate.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import ListDot from '@/components/ListDot.astro'
 import ICftDActivate from '../_components/ICftDActivate.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
 import { translations } from '../_translations'
-
 import Span from '@/components/Span.vue'
+import P from '@/components/typography/P.astro'
 
 interface Props {
   base: Time
 }
 
 const { base = 0 }: Props = Astro.props
+const pulpSmash = translations.pulpSmash
+const ITCD = translations.itCameFromTheDirt
+const theUnpotted = translations.theUnpotted
 ---
 
 <PulpSmashCast start="02:01.981" base={base} />
@@ -36,18 +41,36 @@ const { base = 0 }: Props = Astro.props
 <TheUnpottedActivate time="02:09.025" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      <BruteAbombinator />跳向<RoleIcon role="healer" />释放可分摊伤害,总伤害约
-      <DamageInfo damage="880000" type="physical" />，8人分摊时每人受到<DamageInfo damage="110000" type="physical" />
+    <div class="flex flex-col gap-4">
+      <T>
+        <Skill name={pulpSmash} />
+      </T>
+      <div class="paragraph">
+        <BruteAbombinator />跳向<RoleIcon role="healer" />释放可分摊伤害,总伤害约
+        <DamageInfo damage="880000" type="physical" />，8人分摊时每人受到<DamageInfo damage="110000" type="physical" />
+      </div>
     </div>
-    <div class="paragraph">
-      全员伤害生效<Span variant="pink">1.5秒</Span>后，<BruteAbombinator />脚底释放半径<Span variant="pink">6m</Span
-      >的钢铁AOE<Span variant="yellow">It Came from the Dirt</Span>，造成<DamageInfo damage="123000" type="magical" />
+    <div class="flex flex-col gap-4">
+      <T class="gap-strat mt-8 inline-flex">
+        <Skill name={ITCD} />
+      </T>
+      <P>
+        <Skill name={pulpSmash} />对全员伤害生效<Span variant="pink">1.5秒</Span>后，<BruteAbombinator
+        />脚底释放半径<Span variant="pink">6m</Span>的钢铁（<RoleIcon role="boss" tag="boss" /><Span variant="pink"
+          >目标圈内环</Span
+        >），
+      </P>
+      <P>对范围内的玩家造成<DamageInfo damage="123000" type="magical" /></P>
     </div>
-    <div class="paragraph">
-      几乎同时，释放以8人为目标的<Span variant="pink">25°</Span>扇形AOE，造成
-      <DamageInfo damage="78000" type="magical" />
-      <MagicVulnerabilityUp tag="2" hover />，<Span variant="pink">重合即死</Span>
+    <div class="flex flex-col gap-4">
+      <T class="gap-strat mt-8 inline-flex">
+        <Skill name={theUnpotted} />
+      </T>
+      <P>
+        <Skill name={ITCD} />几乎同时，释放以8人为目标的<Span variant="pink">25°</Span>扇形AOE，造成
+        <DamageInfo damage="78000" type="magical" />
+        <MagicVulnerabilityUp tag="2" hover />，<Span variant="pink">重合即死</Span>
+      </P>
     </div>
   </div>
 </MechanicSection>

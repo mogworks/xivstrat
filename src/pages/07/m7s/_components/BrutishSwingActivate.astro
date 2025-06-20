@@ -2,10 +2,7 @@
 import type { Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import Span from '@/components/Span.vue'
-import DamageDown from '@/components/buff/DamageDown.astro'
-
+import Skill from '@/components/typography/Skill.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import { translations } from '../_translations'
 
@@ -19,9 +16,7 @@ const brutishswing = translations.brutishSwing
 ---
 
 <EventSection time={time} base={base}>
-  <Span variant="yellow">{brutishswing}</Span>
+  <Skill name={brutishswing} />
   伤害判定
-  <DamageInfo damage="134000" type="physical" />
-  <DamageDown tag="30" hover />
   <Badge variant="yellow">钢铁/月环</Badge>
 </EventSection>
