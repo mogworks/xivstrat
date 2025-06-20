@@ -68,10 +68,6 @@ jobs:
       - name: Install frontend dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Generate Tauri icons
-        run: |
-          pnpm tauri icon src-tauri/icons/icon.png || true
-
       - name: Build Tauri app
         uses: tauri-apps/tauri-action@v0
         env:
