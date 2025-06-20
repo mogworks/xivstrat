@@ -33,7 +33,7 @@ const { base = 0, activateTimes }: Props = Astro.props
         <MagicVulnerabilityUp tag="9" hover />
         <Badge variant="emerald">6m圆形</Badge>
         <Badge variant="red">扩散毒圈</Badge>
-        <Badge variant="yellow">二二分摊</Badge>
+        <Badge variant="yellow">分组分摊</Badge>
       </P>
       <P>
         对
@@ -44,7 +44,7 @@ const { base = 0, activateTimes }: Props = Astro.props
         <DamageInfo damage="101000×2" type="magical" />
         <MagicVulnerabilityUp tag="9" hover />
         <Badge variant="emerald">16m宽直线</Badge>
-        <Badge variant="yellow">二二分摊</Badge>
+        <Badge variant="yellow">分组分摊</Badge>
       </P>
     </Quote>
   </Fragment>
@@ -52,7 +52,7 @@ const { base = 0, activateTimes }: Props = Astro.props
     {
       activateTimes.map((time, index) => (
         <EventSection time={time} base={base}>
-          第<Span variant="pink">{index + 1}</Span>次伤害的
+          第<Span variant="pink">{index + 1}</Span>组
           <Quote variant="zinc">
             <P>
               <Span variant="teal">圆形分摊</Span>
