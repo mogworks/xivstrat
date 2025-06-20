@@ -9,6 +9,7 @@ import Span from '@/components/Span.vue'
 
 import TwofoldTempestActivate from '../_components/TwofoldTempestActivate.astro'
 import TwofoldTempestCast from '../_components/TwofoldTempestCast.astro'
+import mechanic_img from '@/assets/07/m8s2/p2/twofoldTempest_mech.png'
 import img from '@/assets/07/m8s2/tmp.png'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import T from '@/components/typography/T.astro'
@@ -45,9 +46,9 @@ const { start, base = 0, activateTimes }: Props = Astro.props
     <P>
       <Span variant="teal">圆形分摊</Span>
       的毒圈初始半径为
-      <Span variant="rose">3m</Span>
+      <Span variant="rose">5m</Span>
       ，落地3秒后开始逐渐扩大至
-      <Span variant="rose">9m</Span>
+      <Span variant="rose">10m</Span>
       ，略大于平台半径
     </P>
     <P>
@@ -55,7 +56,7 @@ const { start, base = 0, activateTimes }: Props = Astro.props
       的攻击范围会覆盖整个平台
     </P>
     <T variant="yellow" text="范围示意" />
-    <Image src={img} alt="" class="max-w-100 border-2 border-cyan-600 dark:border-cyan-100" />
+    <Image src={mechanic_img} alt="双牙暴风击范围" class="max-w-100 drop-shadow-sm drop-shadow-black" />
   </div>
 </MechanicSection>
 <SolutionSection>

@@ -42,10 +42,11 @@ const base = '04:27.478'
     title={`${translations.terrestrialRage} + ${translations.shadowchase}`}
   />
   <Shadowchase base={base} />
-  <SeparatorSection />
 
-  <!-- 群狼剑+土龙头 -->
-  <SeparatorSection id="wolves-reign-weal-of-stone" title="地烈波" />
+  <SeparatorSection
+    id="wolves-reign-weal-of-stone"
+    title={`${translations.wolvesReign} + ${translations.wealOfStone}`}
+  />
   <XReignCast start="04:58.712" base={base} />
   <WealOfStone start="05:10.290" base={base} />
   <Attack time="05:16.0" base={base} />
@@ -56,7 +57,10 @@ const base = '04:27.478'
   <MoveToCenterEvent time="05:32.835" base={base} />
 
   <!-- 四连刀 -->
-  <SeparatorSection id="beckon-moonlight" title="幻狼招来 " />
+  <SeparatorSection
+    id="terrestrial-rage-beckon-moonlight"
+    title={`${translations.terrestrialRage} + ${translations.beckonMoonlight}`}
+  />
   <BeckonMoonlight start="05:34.657" base={base} />
   <MoveToCenterEvent time="06:00.224" base={base} />
   <!-- TODO: 随机两个相邻斜点出土狼头 四个正点固定安全 这里我没写来个好哥哥补一下 -->

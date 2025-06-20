@@ -4,13 +4,15 @@ import MenuSVG from '@/assets/svg/menu.svg?component'
 
 import NavItem from './NavItem.vue'
 
-defineProps({
-  routes: {
-    type: Array,
-    required: false,
-    default: () => [],
-  },
-})
+interface Route {
+  name: string
+  path?: string
+  children?: Route[]
+}
+
+const props = defineProps<{
+  routes?: Route[]
+}>()
 
 const isOpen = defineModel<boolean>({ default: false })
 
@@ -53,7 +55,7 @@ const toggleMenu = () => {
       >
         <ul class="divide-y divide-gray-200 dark:divide-gray-500">
           <NavItem
-            v-for="(route, index) in routes"
+            v-for="(route, index) in props.routes"
             :key="index"
             :name="route.name"
             :path="route.path"
