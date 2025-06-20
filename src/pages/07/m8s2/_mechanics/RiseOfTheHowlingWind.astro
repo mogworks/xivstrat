@@ -12,7 +12,6 @@ import teleport2_img from '@/assets/07/m8s2/teleport2.png'
 
 import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
 import RiseOfTheHowlingWindCast from '../_components/RiseOfTheHowlingWindCast.astro'
-import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -21,7 +20,6 @@ interface Props {
 
 const { start, base = 0 }: Props = Astro.props
 
-const riseOfTheHowlingWind = translations.riseOfTheHowlingWind
 const howlingBlade = '啸刃'
 ---
 
@@ -42,7 +40,7 @@ const howlingBlade = '啸刃'
     <P>延长生效还有以下提示：</P>
     <P>
       <ListDot />
-      读条结束后，屏幕中出现类似下列文字提示：
+      读条结束后，屏幕中出现文字提示
     </P>
     <Quote variant="slate">
       <Span variant="stone">

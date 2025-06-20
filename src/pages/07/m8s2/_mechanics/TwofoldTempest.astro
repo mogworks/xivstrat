@@ -11,6 +11,7 @@ import TwofoldTempestActivate from '../_components/TwofoldTempestActivate.astro'
 import TwofoldTempestCast from '../_components/TwofoldTempestCast.astro'
 import img from '@/assets/07/m8s2/tmp.png'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import T from '@/components/typography/T.astro'
 
 interface Props {
   start: Time
@@ -31,13 +32,15 @@ const { start, base = 0, activateTimes }: Props = Astro.props
     <P>
       由于
       <MagicVulnerabilityUp tag="9" hover />
-      的存在而每组伤害之间仅间隔
+      的存在而每组伤害仅间隔
       <Span variant="rose">7秒</Span>
       左右，玩家需要合理分配分摊顺序
     </P>
     <P>
       <Span variant="teal">圆形分摊</Span>
-      的连线是可以被其他玩家接取
+      的连线是可以被其他玩家接取，伤害判定时会留下以
+      <Span variant="pink">连线目标</Span>
+      为中心的毒圈
     </P>
     <P>
       <Span variant="teal">圆形分摊</Span>
@@ -49,8 +52,9 @@ const { start, base = 0, activateTimes }: Props = Astro.props
     </P>
     <P>
       <Span variant="lime">直线分摊</Span>
-      的攻击范围会覆盖整个平台：
+      的攻击范围会覆盖整个平台
     </P>
+    <T variant="yellow" text="范围示意" />
     <Image src={img} alt="" class="max-w-100 border-2 border-cyan-600 dark:border-cyan-100" />
   </div>
 </MechanicSection>
