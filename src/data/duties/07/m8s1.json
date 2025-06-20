@@ -18,9 +18,9 @@
       "mechanics": [
         {
           "href": "#stonefang-or-windfang",
-          "name": "土の魔技 | 风の魔技",
+          "name": "土の魔技 | 風の魔技",
           "name_en": "Stonefang | Windfang",
-          "name_ja": "土の魔技 | 风の魔技",
+          "name_ja": "土の魔技 | 風の魔技",
           "name_ch": "土之魔技 | 风之魔技"
         },
         {
@@ -64,28 +64,14 @@
           "name": "光狼招来",
           "name_en": "Luminous Lupine Call",
           "name_ja": "光狼招来",
-          "name_ch": "光狼招来"
+          "name_ch": "光狼召唤"
         },
         {
-          "href": "#howling-havoc",
-          "name": "風塵の咆哮",
-          "name_en": "Howling Havoc",
-          "name_ja": "風塵の咆哮",
-          "name_ch": "风尘咆哮"
-        },
-        {
-          "href": "#pack-predation",
-          "name": "光狼陣",
-          "name_en": "Lupine Formation",
-          "name_ja": "光狼陣",
-          "name_ch": "光狼阵"
-        },
-        {
-          "href": "#forlorn-wind-and-forlorn-stone",
-          "name": "風の狼吼 & 土の狼吼",
-          "name_en": "Howl of Windwolf & Howl of Stonewolf",
-          "name_ja": "風の狼吼 & 土の狼吼",
-          "name_ch": "风狼咆哮 & 土狼咆哮"
+          "href": "#ravenous-saber",
+          "name": "風塵光狼斬",
+          "name_en": "Ravenous Saber",
+          "name_ja": "風塵光狼斬",
+          "name_ch": "风尘光狼斩"
         }
       ]
     },
@@ -104,7 +90,7 @@
         },
         {
           "href": "#shadowchase",
-          "name": "殘影劍",
+          "name": "残影剣",
           "name_en": "Shadowchase",
           "name_ja": "残影剣",
           "name_ch": "残影剑"
@@ -119,16 +105,16 @@
         {
           "href": "#beckon-moonlight",
           "name": "幻狼招来",
-          "name_en": "Phantasmal Lupine Call",
+          "name_en": "Beckon Moonlight",
           "name_ja": "幻狼招来",
-          "name_ch": "幻狼招来"
+          "name_ch": "幻狼召唤"
         },
         {
           "href": "#extraplanar-feast",
           "name": "空間斬り·終",
           "name_en": "Extraplanar Feast",
-          "name_ja": "空間斬り・終",
-          "name_ch": "空间斩·终"
+          "name_ja": "空間斬り・滅",
+          "name_ch": "空间灭斩"
         }
       ]
     }

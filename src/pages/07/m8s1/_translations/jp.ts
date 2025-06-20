@@ -45,4 +45,13 @@ export const translations = {
   galeSurge: '大風爆',
   stoneSurge: '大土爆',
   ravenousSaber: '風塵光狼斬',
+  terrestrialRage: '大地の怒り',
+  wealOfStone: '地烈波',
+  beckonMoonlight: '幻狼招来',
+  extraplanarFeast: '空間斬り・滅',
+  shadowchase: '残影剣',
+  heavensearth: '大震撃',
+  suspendedStone: '大岩石',
+  roaringWind: '風狼豪波',
+  roaringStone: '土狼豪波',
 }
