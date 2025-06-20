@@ -24,7 +24,7 @@ const toggle = () => {
 }
 const isCurrent = ref(false)
 onMounted(() => {
-  isCurrent.value = (window.location.pathname.startsWith(props.path) && props.path !== '/') || (props.path === '/' && window.location.pathname === props.path)
+  isCurrent.value = (props.path !== '/' && window.location.pathname.startsWith(props.path)) || (props.path === '/' && window.location.pathname === props.path)
 })
 </script>
 
