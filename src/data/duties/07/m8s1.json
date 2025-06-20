@@ -18,9 +18,9 @@
       "mechanics": [
         {
           "href": "#stonefang-or-windfang",
-          "name": "土の魔技 | 风の魔技",
+          "name": "土の魔技 | 風の魔技",
           "name_en": "Stonefang | Windfang",
-          "name_ja": "土の魔技 | 风の魔技",
+          "name_ja": "土の魔技 | 風の魔技",
           "name_ch": "土之魔技 | 风之魔技"
         },
         {
@@ -64,28 +64,14 @@
           "name": "光狼招来",
           "name_en": "Luminous Lupine Call",
           "name_ja": "光狼招来",
-          "name_ch": "光狼招来"
+          "name_ch": "光狼召唤"
         },
         {
-          "href": "#howling-havoc",
-          "name": "風塵の咆哮",
-          "name_en": "Howling Havoc",
-          "name_ja": "風塵の咆哮",
-          "name_ch": "风尘咆哮"
-        },
-        {
-          "href": "#pack-predation",
-          "name": "光狼陣",
-          "name_en": "Lupine Formation",
-          "name_ja": "光狼陣",
-          "name_ch": "光狼阵"
-        },
-        {
-          "href": "#forlorn-wind-and-forlorn-stone",
-          "name": "風の狼吼 & 土の狼吼",
-          "name_en": "Howl of Windwolf & Howl of Stonewolf",
-          "name_ja": "風の狼吼 & 土の狼吼",
-          "name_ch": "风狼咆哮 & 土狼咆哮"
+          "href": "#ravenous-saber",
+          "name": "風塵光狼斬",
+          "name_en": "Ravenous Saber",
+          "name_ja": "風塵光狼斬",
+          "name_ch": "风尘光狼斩"
         }
       ]
     },
