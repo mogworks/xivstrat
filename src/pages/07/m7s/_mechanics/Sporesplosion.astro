@@ -26,6 +26,14 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import Badge from '@/components/Badge.astro'
 import RevengeOfTheVinesActivate from '../_components/RevengeOfTheVinesActivate.astro'
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import Tmp0 from '@/assets/07/m7s/Tmp.png'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import StratLink from '@/components/StratLink.astro'
+import Quote from '@/components/typography/Quote.astro'
 
 interface Props {
   start: Time
@@ -35,6 +43,7 @@ const { start, base = 0 }: Props = Astro.props
 const brutishSwing = translations.brutishSwing
 const glowerPower = translations.glowerPower
 const electrogeneticForce = translations.electrogeneticForce
+const sporesplosion = translations.sporesplosion
 ---
 
 <EventSection time="03:47.100">
@@ -64,14 +73,21 @@ const electrogeneticForce = translations.electrogeneticForce
 <RevengeOfTheVinesActivate time="04:17.078" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      生成三组
-      <Span variant="rose">圆形AoE</Span>
-      覆盖全场，每组生成6个位置随机的孢子，按照生成顺序造成伤害。受到伤害则会被附加
-      <DamageDown tag="30" hover />
-    </div>
+    <T>
+      <Skill name={sporesplosion} />
+    </T>
+    <P>
+      <BruteAbombinator />读条完毕后<Span variant="pink">1s</Span>，场地上<Span variant="pink">分3组</Span
+      >依次出现半径<Span variant="pink">8m</Span>的黄圈AoE（孢子）, 每组生成<Span variant="pink">6</Span>个，位置随机</P
+    >
+    <P
+      >孢子出现<Span variant="pink">4s</Span>后对范围内的玩家造成<DamageInfo damage="121000" type="magical" />，并附加 <DamageDown
+        tag="30"
+        hover
+      />
+    </P>
     <h4 class="mt-4 text-2xl">
-      <Span variant="yellow">生成分布</Span>
+      <Span variant="yellow">孢子全部可能点位和出现示意</Span>
     </h4>
     <div class="grid grid-cols-2 gap-x-2 gap-y-4">
       <div class="flex flex-col items-center gap-1">
@@ -82,26 +98,40 @@ const electrogeneticForce = translations.electrogeneticForce
       </div>
     </div>
   </div>
-</MechanicSection>
-<SolutionSection title="解法">
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      在后续区域等待第一组判定生效后，穿到安全区
-      <Span variant="rose">圆形AoE</Span>
-    </div>
+  <div class="mt-8 flex flex-col gap-4">
+    <P>
+      <StratLink variant="yellow" href="#SBGR">SBGR的组合技</StratLink>与之前完全相同
+    </P>
   </div>
-</SolutionSection>
+</MechanicSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      同时观察Boss手中的武器和连线墙，注意站位，紧接着需要躲避
-      <Span variant="yellow">{brutishSwing}</Span>
-      ，
-      <Span variant="yellow">{glowerPower}</Span>
-      和
-      <Span variant="yellow">{electrogeneticForce}</Span>
-      的组合技
-    </div>
+    <P
+      >这一次<BruteAbombinator />永远连线其对面的墙壁，由于P2第一次<StratLink variant="yellow" href="#SBGR"
+        >SBGR</StratLink
+      ><BruteAbombinator />一定连线场地长边的墙，故此处也一定连长边</P
+    >
+  </div>
+</NoteSection>
+<SolutionSection title="解法">
+  <div class="flex flex-col gap-4">
+    <P />
+  </div>
+</SolutionSection>
+
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <P
+      >观察黄圈预兆的范围，可以发现：
+
+      <Quote variant="rose">
+        <P> 场中每个黄圈的<Span variant="pink">圆心</Span>附近约<Span variant="pink">1m x 1m</Span>的近似正方形区域</P>
+        <P>
+          场边每个黄圈的<Span variant="pink">圆心</Span>沿垂直于场地边缘半径，向场地外方向附近的区域
+        </P>
+      </Quote>
+    </P>
+    <P />只会被黄圈覆盖1次
   </div>
 </NoteSection>
 

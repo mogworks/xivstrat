@@ -15,6 +15,12 @@ import solution1 from '@/assets/07/m7s/explosion/solution_1.png'
 import solution2 from '@/assets/07/m7s/explosion/solution_2.png'
 import solution3 from '@/assets/07/m7s/explosion/solution_3.png'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import ExplosionCast from '../_components/ExplosionCast.astro'
+import ExplosionActivate from '../_components/ExplosionActivate.astro'
+import StoneringerCast from '../_components/StoneringerCast.astro'
+import SmashActivate from '../_components/SmashActivate.astro'
+import SmashHereCast from '../_components/SmashHereCast.astro'
+import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
 
 interface Props {
   base: Time
@@ -23,12 +29,22 @@ interface Props {
 const { base = 0 }: Props = Astro.props
 ---
 
+<ExplosionCast time="01:36.275" base={base} num={1} />
+<ExplosionCast time="01:38.818" base={base} num={2} />
+<ExplosionCast time="01:41.314" base={base} num={3} />
+<ExplosionActivate time="01:45.234" base={base} num={1} />
+<StoneringerCast start="01:46.61" base={base} />
+<ExplosionActivate time="01:47.815" base={base} num={2} />
+<ExplosionActivate time="01:50.309" base={base} num={3} />
+<SmashHereCast start="01:54.42" base={base} />
+<BrutishSwingActivate time="01:58.147" base={base} />
+<SmashActivate time="01:59.304" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
       <BruteAbombinator />召唤三颗
       <Span variant="amber">陨石</Span>
-      ，依次落地，扩散光效闪烁<Span variant="pink">9</Span>下后造成
+      ，依次落地，扩散光效闪烁<Span variant="pink">9</Span>下<Span variant="pink">（9秒）</Span>后造成
       <Span variant="rose">距离衰减</Span>
       伤害
     </div>
@@ -46,20 +62,20 @@ const { base = 0 }: Props = Astro.props
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph"><Span variant="red">第1颗</Span>陨石出现后，前往其对面方向</div>
+    <div class="paragraph"><Span variant="red">第1颗</Span>陨石出现后，前往其<Span variant="pink">对面</Span>方向</div>
     <div class="paragraph">
-      <Span variant="yellow">第2颗</Span>陨石出现后，前往<Span variant="blue">第3颗</Span>陨石附近等待
+      <Span variant="orange">第2颗</Span>陨石出现后，前往<Span variant="blue">第3颗</Span>陨石附近等待
     </div>
     <div class="paragraph">
       <Span variant="red">第1颗</Span>
       陨石爆炸后，<Span variant="pink">远离</Span>
-      <Span variant="yellow">第2颗</Span>
+      <Span variant="orange">第2颗</Span>
       陨石并<Span variant="pink">远离</Span>
       <Span variant="blue">第3颗</Span>
       陨石
     </div>
     <div class="paragraph">
-      <Span variant="yellow">第2颗</Span>陨石爆炸后，<Span variant="pink">远离</Span>
+      <Span variant="orange">第2颗</Span>陨石爆炸后，<Span variant="pink">远离</Span>
       <Span variant="blue">第3颗</Span>陨石
     </div>
     <ImgRow

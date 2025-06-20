@@ -1,24 +1,25 @@
 ---
-import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
-import RiseOfTheHowlingWind from './_mechanics/RiseOfTheHowlingWind.astro'
-import TwofoldTempest from './_mechanics/TwofoldTempest.astro'
-import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import DraftWarning from '@/components/DraftWarning.astro'
-import BareFangsCast from './_components/BareFangsCast.astro'
-
-import { translations } from './_translations'
-import ChampionsCircuit from './_mechanics/ChampionsCircuit.astro'
-import QuakeIII from './_mechanics/QuakeIII.astro'
-import QuakeIIICast from './_components/QuakeIIICast.astro'
-import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
-import TwinbiteCast from './_components/TwinbiteCast.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import EventSection from '@/components/section/EventSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import P from '@/components/typography/P.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import StratLink from '@/components/StratLink.astro'
-import EventSection from '@/components/section/EventSection.astro'
+
+import ChampionsCircuit from './_mechanics/ChampionsCircuit.astro'
 import ImmobileSuitDebuff from './_components/ImmobileSuitDebuff.astro'
+import QuakeIIICast from './_components/QuakeIIICast.astro'
+import RiseOfTheHowlingWind from './_mechanics/RiseOfTheHowlingWind.astro'
+import TwinbiteCast from './_components/TwinbiteCast.astro'
+import TwofoldTempest from './_mechanics/TwofoldTempest.astro'
+import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
+
+import { translations } from './_translations'
+import Badge from '@/components/Badge.astro'
 
 const dutyId = '07/m8s2'
+
 const base = '09:17.549'
 
 const twofoldTempest = translations.twofoldTempest
@@ -38,7 +39,10 @@ const twinbite = translations.twinbite
   <TwofoldTempest start="09:26.675" base={base} activateTimes={['09:33.725', '09:40.823', '09:47.925', '09:54.982']} />
 
   <SeparatorSection id="bare-fangs" title=`${bareFangs} + ${championsCircuit}` />
-  <EventSection time="10:0.0" base={bareFangs}> 初始平台恢复 </EventSection>
+  <EventSection time="10:0.0" base={bareFangs}>
+    初始浮岛被修复，并可以被传送到该平台
+    <Badge variant="emerald">平台恢复</Badge>
+  </EventSection>
   <ChampionsCircuit
     start="10:03.132"
     base={base}
@@ -47,6 +51,7 @@ const twinbite = translations.twinbite
 
   <EventSection time="10:40.0" base={bareFangs}>
     传送冷却时长恢复至<ImmobileSuitDebuff tag="2" />
+    <Badge variant="emerald">传送间隔-</Badge>
   </EventSection>
   <QuakeIIICast start="10:41.608" base={base} />
   <UltraviolentRayCast start="10:54.772" base={base} />
