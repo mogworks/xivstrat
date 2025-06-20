@@ -6,7 +6,7 @@ import Separator from '@/components/Separator.astro'
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import AreaBox from '@/components/AreaBox.astro'
 
-import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
+import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
 import Macro from '@/components/Macro.astro'
 import ReferenceItem from '@/components/ReferenceItem.astro'
 import Thanks from '@/components/thanks/Thanks.astro'
@@ -47,9 +47,9 @@ const navList = [
       <span>小抄速览</span>
     </Fragment>
     <AreaBox>
-      <CheatsheetDialog client:idle>
+      <ResizableImageDialog client:idle>
         <Image src={CheatsheetsImage} alt="m7s 副本小抄" loading="lazy" class="h-full object-contain object-left-top" />
-      </CheatsheetDialog>
+      </ResizableImageDialog>
     </AreaBox>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
