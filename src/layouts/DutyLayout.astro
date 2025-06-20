@@ -17,9 +17,9 @@ const href = (() => {
   return undefined
 })()
 const phaseIndex = (() => {
-  const pathname = Astro.url.pathname?.trim()
+  const pathname = Astro.url.pathname?.trim() ?? ''
   const dutyPhases = duty.phases
-  return dutyPhases.findIndex((item) => item.href?.trim() === pathname) + 1
+  return dutyPhases.findIndex((item) => pathname.includes(item.href?.trim())) + 1
 })()
 const phaseTitle = phaseIndex > 0 ? ` - P${phaseIndex}` : ` - 首页`
 ---
