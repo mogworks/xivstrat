@@ -20,6 +20,7 @@ import XReign from './_mechanics/XReign.astro'
 import { translations } from './_translations'
 
 const dutyId = '07/m8s1'
+const phase = 1
 const base = 0
 
 const stonefang = translations.stonefang
@@ -28,7 +29,7 @@ const revolutionaryReign = translations.revolutionaryReign
 const eminentReign = translations.eminentReign
 ---
 
-<DutyStratLayout dutyId={dutyId}>
+<DutyStratLayout dutyId={dutyId} phase={phase}>
   <EventSection time="00:00.0" base={base}>
     <RoleIcon role="tank" tag="MT" />
     开怪，将

@@ -20,10 +20,11 @@ import FunkyFloorP3 from './_mechanics/FunkyFloorP3.astro'
 import { translations } from './_translations'
 
 const dutyId = '07/m5s'
+const phase = 3
 const base = '07:14.7'
 ---
 
-<DutyStratLayout dutyId={dutyId}>
+<DutyStratLayout dutyId={dutyId} phase={phase}>
   <EventSection time="07:14.7" base={base}>
     <Boss />
     失去

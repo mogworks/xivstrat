@@ -23,10 +23,11 @@ import DoubleStyleP2 from './_mechanics/DoubleStyleP2.astro'
 import { translations } from './_translations'
 
 const dutyId = '07/m6s'
+const phase = 2
 const base = '01:29.093'
 ---
 
-<DutyStratLayout dutyId={dutyId}>
+<DutyStratLayout dutyId={dutyId} phase={phase}>
   <MoveToNorthEvent time="01:29.093" base={base} />
   <AttackSection time="01:29.897" base={base} damage="57000" damageType="magical" />
   <SeparatorSection id="sugarscape" title={translations.Sugarscape} />

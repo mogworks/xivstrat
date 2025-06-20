@@ -19,6 +19,7 @@ import { translations } from './_translations'
 import Badge from '@/components/Badge.astro'
 
 const dutyId = '07/m8s2'
+const phase = 2
 const base = '09:17.549'
 
 const twofoldTempest = translations.twofoldTempest
@@ -29,7 +30,7 @@ const ultraviolentRay = translations.ultraviolentRay
 const twinbite = translations.twinbite
 ---
 
-<DutyStratLayout dutyId={dutyId}>
+<DutyStratLayout dutyId={dutyId} phase={phase}>
   <SeparatorSection />
   <DraftWarning />
   <SeparatorSection />

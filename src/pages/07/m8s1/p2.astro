@@ -14,10 +14,11 @@ import TacticalPack from './_mechanics/TacticalPack.astro'
 import { translations } from './_translations'
 
 const dutyId = '07/m8s1'
+const phase = 2
 const base = '02:53.751'
 ---
 
-<DutyStratLayout dutyId={dutyId}>
+<DutyStratLayout dutyId={dutyId} phase={phase}>
   <MoveToNorthEvent time="02:53.751" base={base} />
 
   <SeparatorSection id="tactical-pack" title={translations.tacticalPack} />

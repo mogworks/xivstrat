@@ -7,18 +7,20 @@ import StratHeader from '@/components/StratHeader.astro'
 
 interface Props {
   dutyId: string
+  phase?: number
 }
 
-const { dutyId }: Props = Astro.props
+const { dutyId, phase }: Props = Astro.props
 const duty = (await getEntry('duties', dutyId))!.data
 const href = (() => {
   if (duty.status === 'upcoming') return undefined
   if (duty.indexAvailable) return duty.href
   return undefined
 })()
+const phaseTitle = phase ? ` - P${phase}` : ` - 首页`
 ---
 
-<Layout lang="zh-CN" title={duty.title} description={duty.description}>
+<Layout lang="zh-CN" title={duty.title + phaseTitle} description={duty.description}>
   <div class="min-w-strat-min relative min-h-dvh">
     <StratHeader baseUrl={href} name={duty.name} phases={duty.phases} />
     <slot />
