@@ -1,0 +1,19 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+---
+
+<CastSection start={start} base={base} ability="残影剣" duration={2.7}>
+  <HowlingBlade slot="source" />
+  ，读条后消失且不可选中
+</CastSection>

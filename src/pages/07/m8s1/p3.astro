@@ -2,11 +2,9 @@
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
 import Badge from '@/components/Badge.astro'
-import CastSection from '@/components/section/CastSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import P from '@/components/typography/P.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
@@ -18,16 +16,15 @@ import XReignCast from './_components/XReignCast.astro'
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
 import HowlingBlade from './_components/entities/HowlingBlade.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
-import RetargetableEvent from './_components/RetargetableEvent.astro'
-import WolfOfWind from './_components/entities/WolfOfWind.astro'
 
 import BeckonMoonlight from './_mechanics/BeckonMoonlight.astro'
-import TerrestrialRage from './_mechanics/TerrestrialRage.astro'
+import Shadowchase from './_mechanics/Shadowchase.astro'
 import TrackingTremors from './_mechanics/TrackingTremors.astro'
 import WealOfStone from './_mechanics/WealOfStone.astro'
 import Xfang from './_mechanics/Xfang.astro'
 import GreatDivide from './_mechanics/GreatDivide.astro'
-import ShadowChase from './_mechanics/ShadowChase.astro'
+
+import { translations } from './_translations'
 
 const dutyId = '07/m8s1'
 
@@ -40,34 +37,15 @@ const base = '04:27.478'
   <SeparatorSection />
   <MoveToCenterEvent time="04:31.622" base={base} />
 
-  <SeparatorSection id="terrestrial-rage" title="大地の怒り" />
-  <!-- 运动会读条 -->
-  <TerrestrialRage start="04:34.950" base={base} />
-  <EventSection time="04:45.483" base={base}>
-    <Skill name={['大震撃', '大岩石']} />
-    <DamageInfo damage="110000" type="magical" />
-    <MagicVulnerabilityUp tag="2" hover />
-    判定
-  </EventSection>
-
-  <!-- 上天 -->
-  <SeparatorSection id="shadowchase" title="残影剣" />
-  <ShadowChase start="04:44.0" base={base} />
-  <EventSection time="04:52.9" base={base}>
-    <Skill name={['大震撃', '大岩石']} />
-    <DamageInfo damage="110000" type="magical" />
-    <MagicVulnerabilityUp tag="2" hover />
-    判定
-  </EventSection>
-  <RetargetableEvent time="04:55.0" base={base} />
-  <CastSection start="04:55.0" base={base} duration={2.2}>
-    <WolfOfWind slot="source" />
-    <Skill name="風狼豪波" />
-    <Badge variant="yellow">直线AoE</Badge>
-  </CastSection>
+  <SeparatorSection
+    id="terrestrial-rage-shadowchase"
+    title={`${translations.terrestrialRage} + ${translations.shadowchase}`}
+  />
+  <Shadowchase base={base} />
+  <SeparatorSection />
 
   <!-- 群狼剑+土龙头 -->
-  <SeparatorSection id="weal-of-stone" title="地烈波" />
+  <SeparatorSection id="wolves-reign-weal-of-stone" title="地烈波" />
   <XReignCast start="04:58.712" base={base} />
   <WealOfStone start="05:10.290" base={base} />
   <Attack time="05:16.0" base={base} />

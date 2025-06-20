@@ -24,11 +24,11 @@
           "name_ch": "土之魔技 | 风之魔技"
         },
         {
-          "href": "#revolutionary-reign-or-eminent-reign",
-          "name": "廻の群狼剣 | 薙の群狼剣",
-          "name_en": "Revolutionary Reign | Eminent Reign",
-          "name_ja": "廻の群狼剣 | 薙の群狼剣",
-          "name_ch": "旋击群狼剑 | 扫击群狼剑"
+          "href": "#wolves-reign",
+          "name": "群狼剣",
+          "name_en": "Wolves' Reign",
+          "name_ja": "群狼剣",
+          "name_ch": "群狼剑"
         },
         {
           "href": "#millennial-decay",
@@ -62,7 +62,7 @@
         {
           "href": "#tactical-pack",
           "name": "光狼招来",
-          "name_en": "Luminous Lupine Call",
+          "name_en": "Tactical Pack",
           "name_ja": "光狼招来",
           "name_ch": "光狼召唤"
         },
@@ -82,32 +82,25 @@
       "name": "P3 - 残影幻狼",
       "mechanics": [
         {
-          "href": "#terrestrial-rage",
-          "name": "大地の怒り",
-          "name_en": "Terrestrial Rage",
-          "name_ja": "大地の怒り",
-          "name_ch": "大地之怒"
+          "href": "#terrestrial-rage-shadowchase",
+          "name": "大地の怒り + 残影剣",
+          "name_en": "Terrestrial Rage + Shadowchase",
+          "name_ja": "大地の怒り + 残影剣",
+          "name_ch": "大地之怒 + 残影剑"
         },
         {
-          "href": "#shadowchase",
-          "name": "残影剣",
-          "name_en": "Shadowchase",
-          "name_ja": "残影剣",
-          "name_ch": "残影剑"
+          "href": "#wolves-reign-weal-of-stone",
+          "name": "群狼剣 + 地烈波",
+          "name_en": "Wolves' Reign + Weal of Stone",
+          "name_ja": "群狼剣 + 地烈波",
+          "name_ch": "群狼剑 + 地烈波"
         },
         {
-          "href": "#weal-of-stone",
-          "name": "地烈波",
-          "name_en": "Weal of Stone",
-          "name_ja": "地烈波",
-          "name_ch": "地烈波"
-        },
-        {
-          "href": "#beckon-moonlight",
-          "name": "幻狼招来",
-          "name_en": "Beckon Moonlight",
-          "name_ja": "幻狼招来",
-          "name_ch": "幻狼召唤"
+          "href": "#terrestrial-rage-beckon-moonlight",
+          "name": "大地の怒り + 幻狼招来",
+          "name_en": "Terrestrial Rage + Beckon Moonlight",
+          "name_ja": "大地の怒り + 幻狼招来",
+          "name_ch": "大地之怒 + 幻狼召唤"
         },
         {
           "href": "#extraplanar-feast",
