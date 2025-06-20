@@ -69,35 +69,50 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Build Tauri app
-        uses: tauri-apps/tauri-action@v0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tagName: ${{ github.ref_name }}
-          releaseName: XivStrat Desktop ${{ github.ref_name }}
-          releaseBody: See the assets to download this version and install.
-          releaseDraft: true
-          prerelease: false
-          args: ${{ matrix.args }}
+        shell: bash
+        run: |
+          if [ "${{ matrix.platform }}" = "macos-latest" ]; then
+            pnpm tauri build --target universal-apple-darwin
+          else
+            pnpm tauri build
+          fi
 
-      - name: Upload build artifacts (Windows)
+      - name: Package and Upload artifacts (Windows)
         if: matrix.platform == 'windows-latest'
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ matrix.platform }}-build
-          path: |
-            src-tauri/target/release/bundle/**/*.msi
-            src-tauri/target/release/bundle/**/*.exe
-          retention-days: 5
+        shell: bash
+        run: |
+          # 找到生成的 exe 文件
+          EXE_PATH=$(find src-tauri/target/release -name "*.exe" -not -path "*/deps/*" -not -path "*/build/*" | head -1)
+          echo "Found exe: $EXE_PATH"
 
-      - name: Upload build artifacts (macOS)
+          # 创建 zip 包
+          mkdir -p dist
+          cp "$EXE_PATH" "dist/XivStrat.exe"
+          cd dist
+          powershell Compress-Archive -Path "XivStrat.exe" -DestinationPath "../XivStrat-Windows.zip"
+          cd ..
+
+      - name: Package and Upload artifacts (macOS)
         if: matrix.platform == 'macos-latest'
+        shell: bash
+        run: |
+          # 找到生成的 app 文件夹
+          APP_PATH=$(find src-tauri/target -name "*.app" -type d | head -1)
+          echo "Found app: $APP_PATH"
+
+          # 创建 zip 包
+          mkdir -p dist
+          cp -r "$APP_PATH" "dist/XivStrat.app"
+          cd dist
+          zip -r ../XivStrat-macOS.zip XivStrat.app
+          cd ..
+
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.platform }}-build
           path: |
-            src-tauri/target/*/release/bundle/**/*.dmg
-            src-tauri/target/*/release/bundle/**/*.app.tar.gz
+            XivStrat-*.zip
           retention-days: 5
 
   release:
@@ -123,17 +138,14 @@ jobs:
           body: |
             ## 下载说明
 
-            - **Windows**: 下载 `.msi` 或 `.exe` 文件
-            - **macOS**: 下载 `.dmg` 文件
+            - **Windows**: 下载 `XivStrat-Windows.zip`，解压后运行 `XivStrat.exe`
+            - **macOS**: 下载 `XivStrat-macOS.zip`，解压后运行 `XivStrat.app`
 
             ### 更新内容
             - 查看提交历史了解详细更新
           draft: false
           prerelease: false
           files: |
-            artifacts/**/*.dmg
-            artifacts/**/*.msi
-            artifacts/**/*.exe
-            artifacts/**/*.app.tar.gz
+            artifacts/**/*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
