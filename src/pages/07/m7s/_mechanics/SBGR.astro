@@ -56,7 +56,7 @@ const solutions = [
     title: '解法：三五分散',
   },
 ]
-const defaultSolution = '解法：Game8原版'
+const defaultSolution = '解法：三五分散'
 ---
 
 <StoneringerCast start="02:48.01" base={base} />
@@ -77,11 +77,13 @@ const defaultSolution = '解法：Game8原版'
         <Skill name={stoneringer} />
       </T>
       <P>
-        <BruteAbombinator />落地后伸出藤蔓，吸附在P1 场地对面的墙上，读条<Span variant="yellow">{stoneringer}</Span
+        <BruteAbombinator />落地后伸出藤蔓，吸附在P1场地对面的墙上，读条<Span variant="yellow">{stoneringer}</Span
         >拔出武器
       </P>
       <P>
-        然后读条<Span variant="yellow">{brutishswing}</Span>，连线其他墙壁，同时武器<Span variant="pink">发光</Span>
+        然后读条<Span variant="yellow">{brutishswing}</Span>，连线<Span variant="pink">其他</Span>墙壁，同时武器<Span
+          variant="pink">发光</Span
+        >
       </P>
       <P>随后<Span variant="pink">移动至连线墙壁</Span>，读条结束后发动对应<Span variant="yellow">钢铁/月环</Span></P>
       <P>
@@ -143,20 +145,11 @@ const defaultSolution = '解法：Game8原版'
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
   <div slot="解法：Game8原版">
     <div class="flex flex-col gap-4">
-      <P>
-        先观察<RoleIcon role="boss" tag="boss" />掏出的<Span variant="pink">武器</Span>，判断接下来是躲钢铁还是月环
-      </P>
-      <P>
-        再观察<RoleIcon role="boss" tag="boss" />连线的<Span variant="pink">墙壁</Span>，<RoleIcon
-          role="all"
-          tag="所有人"
-        />在<Span variant="pink">读条结束前</Span>前往对应安全区躲避钢铁月环
-      </P>
-      <P>之后全员按照图示站位，躲避直线AOE并分散</P>
-      <P><Skill name={RvOftVines} />读条时<Span variant="pink">集合</Span>刷血</P>
-      <P>
-        直线AOE范围与<RoleIcon role="all" tag="全员" />站位如下所示：
-      </P>
+      <P
+        >与<StratLink variant="lime" href="#SBGR-35">解法：三五分散</StratLink>仅仅只是<BruteAbombinator />在<Span
+          variant="pink">场地长边</Span
+        >时的分散站位不同，如图所示：</P
+      >
       <ImgRow
         class="game-img"
         wrapperClass="max-w-150"
@@ -176,13 +169,23 @@ const defaultSolution = '解法：Game8原版'
       />
     </div>
   </div>
+
   <div slot="解法：三五分散">
     <div class="flex flex-col gap-4">
-      <P
-        >与<StratLink variant="lime" href="#SBGR-game8">解法：Game8原版</StratLink>仅仅只是<BruteAbombinator />在<Span
-          variant="pink">场地长边</Span
-        >时的分散站位不同，如图所示：</P
-      >
+      <P>
+        先观察<RoleIcon role="boss" tag="boss" />掏出的<Span variant="pink">武器</Span>，判断接下来是躲钢铁还是月环
+      </P>
+      <P>
+        再观察<RoleIcon role="boss" tag="boss" />连线的<Span variant="pink">墙壁</Span>，<RoleIcon
+          role="all"
+          tag="所有人"
+        />在<Span variant="pink">读条结束前</Span>前往对应安全区躲避钢铁月环
+      </P>
+      <P>之后全员按照图示站位，躲避直线AOE并分散</P>
+      <P><Skill name={RvOftVines} />读条时<Span variant="pink">集合</Span>刷血</P>
+      <P>
+        直线AOE范围与<RoleIcon role="all" tag="全员" />站位如下所示：
+      </P>
       <ImgRow
         class="game-img"
         wrapperClass="max-w-150"

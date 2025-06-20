@@ -25,7 +25,6 @@ import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
 import ExplosionCast from './_components/ExplosionCast.astro'
 import ExplosionActivate from './_components/ExplosionActivate.astro'
 import SmashActivate from './_components/SmashActivate.astro'
-import BrutishSwingActivate from './_components/BrutishSwingActivate.astro'
 import { translations } from './_translations'
 
 const dutyId = '07/m7s'
@@ -79,17 +78,6 @@ const neoBombarianSpecial = translations.neoBombarianSpecial
   <SinisterSeeds base={base} />
 
   <SeparatorSection id="explosion" title={explosion} />
-
-  <ExplosionCast time="01:36.275" base={base} num={1} />
-  <ExplosionCast time="01:38.818" base={base} num={2} />
-  <ExplosionCast time="01:41.314" base={base} num={3} />
-  <ExplosionActivate time="01:45.234" base={base} num={1} />
-  <StoneringerCast start="01:46.61" base={base} />
-  <ExplosionActivate time="01:47.815" base={base} num={2} />
-  <ExplosionActivate time="01:50.309" base={base} num={3} />
-  <SmashHereCast start="01:54.42" base={base} />
-  <BrutishSwingActivate time="01:58.147" base={base} />
-  <SmashActivate time="01:59.304" base={base} />
 
   <Explosion base={base} />
 
