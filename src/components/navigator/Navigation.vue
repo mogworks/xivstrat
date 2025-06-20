@@ -1,50 +1,33 @@
-<script setup>
-import { ref } from 'vue'
+<script lang="ts" setup>
+import CloseSVG from '@/assets/svg/close.svg?component'
+import MenuSVG from '@/assets/svg/menu.svg?component'
 
 import NavItem from './NavItem.vue'
 
-// eslint-disable-next-line unused-imports/no-unused-vars
-const props = defineProps({
+defineProps({
   routes: {
     type: Array,
     required: false,
-    default: () => []
-  }
+    default: () => [],
+  },
 })
 
-const emit = defineEmits(['menu-toggle'])
-
-const isOpen = ref(false)
+const isOpen = defineModel<boolean>({ default: false })
 
 const toggleMenu = () => {
   isOpen.value = !isOpen.value
-  // eslint-disable-next-line vue/custom-event-name-casing
-  emit('menu-toggle', isOpen.value)
 }
 </script>
 
-<script>
-export default {}
-</script>
-
 <template>
-  <div class="fixed z-50 bottom-24 left-12">
+  <div class="fixed bottom-24 left-12 z-50 max-sm:hidden">
     <!-- Floating Button ovo -->
     <button
       aria-label="Toggle navigation menu"
-      class="bg-card text-card-foreground hover:bg-primary hover:text-primary-foreground fixed bottom-24 left-12 flex cursor-pointer items-center rounded-full border p-2 shadow-md transition-colors"
+      class="bg-card text-card-foreground hover:bg-primary hover:text-primary-foreground fixed bottom-24 left-12 z-50 flex cursor-pointer items-center rounded-full border p-2 shadow-md transition-colors"
       @click="toggleMenu"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        class="w-6 h-6"
-      >
-        <path v-if="!isOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
+      <component :is="!isOpen ? MenuSVG : CloseSVG" class="h-6 w-6" />
     </button>
 
     <!-- Overlay ovo -->
@@ -54,11 +37,7 @@ export default {}
       enter-from-class="opacity-0"
       leave-to-class="opacity-0"
     >
-      <div
-        v-show="isOpen"
-        class="fixed inset-0 bg-transparent z-40"
-        @click.self="toggleMenu"
-      />
+      <div v-show="isOpen" class="fixed inset-0 z-40 bg-transparent" @click.self="toggleMenu" />
     </transition>
 
     <!-- Menu ovo -->
@@ -70,7 +49,7 @@ export default {}
     >
       <div
         v-show="isOpen"
-        class="fixed bottom-36 left-24 w-64 bg-white dark:bg-zinc-700 rounded-lg shadow-xl overflow-hidden z-50"
+        class="fixed bottom-35 left-23 z-50 max-h-115 w-64 overflow-hidden overflow-y-auto rounded-lg bg-white shadow-xl dark:bg-zinc-700"
       >
         <ul class="divide-y divide-gray-200 dark:divide-gray-500">
           <NavItem
