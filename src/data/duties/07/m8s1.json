@@ -90,7 +90,7 @@
         },
         {
           "href": "#shadowchase",
-          "name": "殘影劍",
+          "name": "残影剣",
           "name_en": "Shadowchase",
           "name_ja": "残影剣",
           "name_ch": "残影剑"
@@ -105,16 +105,16 @@
         {
           "href": "#beckon-moonlight",
           "name": "幻狼招来",
-          "name_en": "Phantasmal Lupine Call",
+          "name_en": "Beckon Moonlight",
           "name_ja": "幻狼招来",
-          "name_ch": "幻狼招来"
+          "name_ch": "幻狼召唤"
         },
         {
           "href": "#extraplanar-feast",
           "name": "空間斬り·終",
           "name_en": "Extraplanar Feast",
-          "name_ja": "空間斬り・終",
-          "name_ch": "空间斩·终"
+          "name_ja": "空間斬り・滅",
+          "name_ch": "空间灭斩"
         }
       ]
     }
