@@ -1,4 +1,6 @@
 ---
+import Span from '@/components/Span.vue'
+
 import Wolf from './Wolf.astro'
 
 interface Props {
@@ -8,4 +10,15 @@ interface Props {
 const { order = 0 }: Props = Astro.props
 ---
 
-<Wolf type="stone" order={order} />
+<Wolf type="stone" order={order}>
+  <slot>
+    <Span variant="orange">土狼首</Span>
+    {
+      order !== 0 && (
+        <Span variant="orange" class="-ml-1">
+          #{order}
+        </Span>
+      )
+    }
+  </slot>
+</Wolf>

@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css'
+import Navigation from '@/components/navigator/Navigation.vue'
 
 interface Props {
   lang?: string
@@ -7,26 +8,51 @@ interface Props {
   description?: string
 }
 
-const {
-  lang = 'zh-CN',
-  title = 'XivStrat | 最终幻想14中文攻略站',
-  description = '从7.2开始的最终幻想14中文攻略站',
-}: Props = Astro.props
+const defaultTitle = 'XivStrat | 最终幻想14中文攻略站'
+const defaultDescription = '从7.2开始的最终幻想14中文攻略站'
+
+const { lang = 'zh-CN', title = defaultTitle, description = defaultDescription }: Props = Astro.props
+const routes = [
+  { name: '首页', path: '/' },
+  { name: '关于', path: '/about' },
+  {
+    name: 'Patch 7.2',
+    children: [
+      {
+        name: '阿卡狄亚零式登天斗技场 中量级',
+        children: [
+          { name: 'M5S', path: '/07/m5s' },
+          { name: 'M6S', path: '/07/m6s' },
+          { name: 'M7S', path: '/07/m7s' },
+          {
+            name: 'M8S',
+            children: [
+              { name: '前半', path: '/07/m8s1' },
+              { name: '后半', path: '/07/m8s2' },
+            ],
+          },
+        ],
+      },
+      { name: '泽莲尼娅歼殛战', path: '/07/zelenia' },
+    ],
+  },
+]
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
+    <title>{title?.trim() === defaultTitle ? defaultTitle : `${title} - XivStrat`}</title>
     <meta charset="UTF-8" />
-    <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <script is:inline src="/scripts/initTheme.min.js"></script>
   </head>
   <body>
     <slot />
+    <Navigation client:load routes={routes} />
   </body>
 </html>
 

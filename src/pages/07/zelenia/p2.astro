@@ -7,17 +7,14 @@ import PerfumedQuietus from './_components/PerfumedQuietusCast.astro'
 import BlessedBarricade from './_mechanics/BlessedBarricade.astro'
 
 const dutyId = '07/zelenia'
+
 const base = 0
 ---
 
 <DutyStratLayout dutyId={dutyId}>
-
-  
-  <BlessedBarricade start="01:31.034" base = {base}/>
+  <BlessedBarricade start="01:31.034" base={base} />
   <SeparatorSection id="explosion" title="Explosion" />
 
   <SeparatorSection id="perfumed-quietus" title="Perfumed Quietus" />
   <PerfumedQuietus start="02:27.331" base={base} />
-  
-
 </DutyStratLayout>
