@@ -15,7 +15,6 @@ interface Props {
 }
 
 const { dutyId, navList }: Props = Astro.props
-const duty = (await getEntry('duties', dutyId))!.data
 ---
 
 <DutyLayout dutyId={dutyId}>

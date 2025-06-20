@@ -7,22 +7,21 @@ interface Props {
   description?: string
 }
 
-const {
-  lang = 'zh-CN',
-  title = 'XivStrat | 最终幻想14中文攻略站',
-  description = '从7.2开始的最终幻想14中文攻略站',
-}: Props = Astro.props
+const defaultTitle = 'XivStrat | 最终幻想14中文攻略站'
+const defaultDescription = '从7.2开始的最终幻想14中文攻略站'
+
+const { lang = 'zh-CN', title = defaultTitle, description = defaultDescription }: Props = Astro.props
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
+    <title>{title?.trim() === defaultTitle ? defaultTitle : `${title} - XivStrat`}</title>
     <meta charset="UTF-8" />
-    <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <script is:inline src="/scripts/initTheme.min.js"></script>
   </head>
   <body>
