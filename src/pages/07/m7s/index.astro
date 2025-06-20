@@ -63,9 +63,13 @@ const navList = [
         </button>
         <Separator class="my-2 mb-3" />
         <strong class="text-sm opacity-60">P2场地</strong>
-        <Image src={WaymarkImage1} alt="m7s 场地标点 1" class="mb-2 w-full" />
+        <ResizableImageDialog client:idle>
+          <Image src={WaymarkImage1} alt="m7s 场地标点 1" class="mb-2 w-full object-contain object-left-top" />
+        </ResizableImageDialog>
         <strong class="text-sm opacity-60">P3场地</strong>
-        <Image src={WaymarkImage2} alt="m7s 场地标点 2" class="w-full" />
+        <ResizableImageDialog client:idle>
+          <Image src={WaymarkImage2} alt="m7s 场地标点 2" class="w-full object-contain object-left-top" />
+        </ResizableImageDialog>
       </AreaBox>
     </div>
     <Fragment slot="header">
@@ -80,7 +84,9 @@ const navList = [
   </CollapsibleBox>
   <CollapsibleBox id="timeline" client:idle class="w-full">
     <AreaBox>
-      <Image src={TimelineImage} alt="m7s 简易时间轴" class="w-full" />
+      <ResizableImageDialog client:idle>
+        <Image src={TimelineImage} alt="m7s 简易时间轴" class="w-full object-contain object-left-top" />
+      </ResizableImageDialog>
     </AreaBox>
     <Fragment slot="header">
       <span>简易时间轴</span>

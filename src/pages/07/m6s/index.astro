@@ -72,7 +72,9 @@ const navList = [
           下载标点文件
         </button>
         <Separator class="my-2 mb-3" />
-        <Image src={WaymarkImage} alt="m6s 场地标点" class="w-full" />
+        <ResizableImageDialog client:idle>
+          <Image src={WaymarkImage} alt="m6s 场地标点" class="w-full object-contain object-left-top" />
+        </ResizableImageDialog>
       </AreaBox>
     </div>
     <Fragment slot="header">
@@ -87,7 +89,9 @@ const navList = [
   </CollapsibleBox>
   <CollapsibleBox id="timeline" client:idle class="w-full">
     <AreaBox>
-      <Image src={TimelineImage} alt="m6s 简易时间轴" class="w-full" />
+      <ResizableImageDialog client:idle>
+        <Image src={TimelineImage} alt="m6s 简易时间轴" class="w-full object-contain object-left-top" />
+      </ResizableImageDialog>
     </AreaBox>
     <Fragment slot="header">
       <span>简易时间轴</span>
