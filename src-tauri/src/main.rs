@@ -408,7 +408,7 @@ fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
         .setup(move |app| {
-            let window = tauri::WebviewWindowBuilder::new(
+            let _window = tauri::WebviewWindowBuilder::new(
                 app,
                 "main",
                 tauri::WebviewUrl::App("index.html".into())
@@ -421,7 +421,7 @@ fn main() {
             // 添加一个开发者工具的快捷键
             #[cfg(debug_assertions)]
             {
-                window.open_devtools();
+                _window.open_devtools();
             }
             
             Ok(())

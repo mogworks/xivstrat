@@ -24,6 +24,8 @@ pnpm-debug.log*
 .idea/
 *~
 
+# datamining
+datamining/
 
 # ai
 .claude/
