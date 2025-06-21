@@ -12,11 +12,15 @@ interface Props {
   num?: number
 }
 
-const { start, base = 0, duration = 3.7, num = 4 }: Props = Astro.props
-const pollen = translations.pollen
+const { start, base = 0, duration = 3.7, num }: Props = Astro.props
+const sporesplosion = translations.sporesplosion
 ---
 
-<CastSection start={start} base={base} duration={duration} ability={pollen}>
-  <Span variant="green" slot="source">孢子×{num}</Span>
+<CastSection start={start} base={base} duration={4.7} ability={sporesplosion}>
+  <Fragment slot="source"
+    >第<Span variant="pink">{num}</Span>轮
+    <Span variant="green">孢子×6</Span></Fragment
+  >
+  <Fragment slot="cast">黄圈出现，消失后释放</Fragment>
   <Badge variant="emerald">8m圆形</Badge>
 </CastSection>
