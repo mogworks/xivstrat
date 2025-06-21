@@ -65,6 +65,12 @@ const { base = 0 }: Props = Astro.props
       <RoleIcon role="tank|healer" />
       分摊，反之亦然
     </P>
+    <P>
+      注意该机制的分散会
+      <Span variant="cyan">点够4人</Span>
+      ，所以如果中途有分散点名死了，就会点到分摊的人群中，导致团灭
+    </P>
+    <!-- TODO -->
 
     <T text={translations.fangedCharge} variant="yellow" class="mt-8" />
     <P>
