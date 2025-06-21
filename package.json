@@ -34,6 +34,7 @@
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "lucide-vue-next": "0.515.0",
+    "mime-types": "^3.0.1",
     "motion": "12.18.1",
     "motion-v": "1.2.1",
     "nanostores": "1.0.1",
