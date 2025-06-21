@@ -374,7 +374,7 @@ import StratBoard from '@/components/StratBoard.astro'
 
     // -- 新增状态变量 --
     const N = fanOrder.length // 通常这里应该是6或更多，但需求只说前三组
-    const fanVisible = Array.from({ length: N }).fill(false)
+    const fanVisible = Array.from({ length: N }, () => false)
 
     // 记录钢铁/月环的两阶段显示（均只显示一回）
     let steelFirstVisible = false
