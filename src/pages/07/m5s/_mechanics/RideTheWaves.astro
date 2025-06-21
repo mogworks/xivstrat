@@ -15,6 +15,7 @@ import CastSection from '@/components/section/CastSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import P from '@/components/typography/P.astro'
 
 import QuarterOrEighthBeatsAbility from '../_components/QuarterOrEighthBeatsAbility.astro'
 import QuarterOrEighthBeatsCast from '../_components/QuarterOrEighthBeatsCast.astro'
@@ -34,6 +35,7 @@ import ride_the_waves_optimize_1 from '@/assets/07/m5s/ride_the_waves/optimize_1
 import ride_the_waves_optimize_2 from '@/assets/07/m5s/ride_the_waves/optimize_2.png'
 import ride_the_waves_optimize_3 from '@/assets/07/m5s/ride_the_waves/optimize_3.png'
 import ride_the_waves_optimize_4 from '@/assets/07/m5s/ride_the_waves/optimize_4.png'
+
 import { translations } from '../_translations'
 
 interface Props {
@@ -384,7 +386,21 @@ const defaultSolution = '解法：近战优化'
         </div>
       </div>
     </div>
-    <div class="paragraph">
+    <P>
+      近战注意：第2次
+      <QuarterOrEighthBeatsAbility />
+      到
+      <Boss />
+      跳回场中有
+      <Span variant="cyan">3s</Span>
+      的间隔
+    </P>
+    <P>
+      图中
+      <Span variant="red">红框</Span>
+      标注的格子下一轮是安全的，分散/分摊判定后可以直接去，这样就不会被卡GCD了
+    </P>
+    <div class="paragraph mt-4">
       对比
       <StratLink variant="lime" href="#ride-the-waves-solution-jp">解法：日野主流</StratLink>
       ，由于安全区的拐点尚未到来，无需调整
