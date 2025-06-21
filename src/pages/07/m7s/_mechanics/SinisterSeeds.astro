@@ -64,8 +64,7 @@ import PollenActivate from '../_components/PollenActivate.astro'
 import SinisterSeedsMode2Activate from '../_components/SinisterSeedsMode2Activate.astro'
 import SinisterSeedsMode1Cast from '../_components/SinisterSeedsMode1Cast.astro'
 import TendrilsofTerrorAppear2 from '../_components/TendrilsofTerrorAppear2.astro'
-import TendrilsofTerrorActivate2 from '../_components/TendrilsofTerrorActivate2.astro'
-import TendrilsofTerrorCast from '../_components/TendrilsofTerrorCast.astro'
+import Separator from '@/components/Separator.astro'
 
 interface Props {
   base: Time
@@ -106,7 +105,6 @@ const tendrilsofTerror = translations.tendrilsOfTerror
   <Badge variant="emerald">6m圆形</Badge>
   <Badge variant="yellow">四四分摊</Badge>
 </EventSection>
-<TendrilsofTerrorActivate2 time="01:05.142" base={base} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
@@ -120,13 +118,13 @@ const tendrilsofTerror = translations.tendrilsOfTerror
     </P>
     <P>
       随后在提示范围内落下
-      <Span variant="green">种子</Span>
+      <Span variant="green">孢子</Span>
       ，对范围内的玩家造成
       <DamageInfo damage="110000" type="magical" />
       <DamageDown tag="30" hover />
     </P>
     <P>
-      <Span variant="green">种子</Span>
+      <Span variant="green">孢子</Span>
       的范围仅有以下两种情况：
     </P>
     <ImgRow
@@ -144,11 +142,12 @@ const tendrilsofTerror = translations.tendrilsOfTerror
       <Span variant="yellow">{pollen}</Span>
     </h4>
     <div class="paragraph">
-      <Span variant="green">种子</Span>
-      向两个正点方向分别长出两根藤蔓
+      <Span variant="green">孢子</Span>
+      向自身两个正点方向分别长出两根藤蔓
     </div>
     <div class="paragraph">
-      随后以<Span variant="green">种子</Span>和藤蔓的终点为中心释放半径<Span variant="pink">8m</Span
+      随后以<Span variant="green">孢子</Span>和藤蔓的<Span variant="pink">终点</Span>为中心释放半径<Span variant="pink"
+        >8m</Span
       >的圆形AoE，对范围内的玩家造成
       <DamageInfo damage="130000" type="magical" />
       <DamageDown tag="30" hover />
@@ -179,12 +178,13 @@ const tendrilsofTerror = translations.tendrilsOfTerror
     </div>
     <div class="paragraph">
       <Span variant="yellow">{pollen}</Span>伤害判定后，在
-      <Span variant="green">种子</Span>
-      落下的地方会生成<BloomingAbominationSimplified />
+      <Span variant="green">孢子</Span>
+      落下的地方会生成<BloomingAbominationSimplified />共计4只，
     </div>
     <div class="paragraph">
-      <BloomingAbominationSimplified />，会每3s1次释放对
-      <RoleIcon role="any" tag="一仇" />的普通攻击，
+      每3s释放对
+      <RoleIcon role="any" tag="一仇" />的普通攻击，每只
+      <Separator orientation="vertical" class="bg-default h-16 w-1" />
       <Quote variant="rose">
         <P>
           对<RoleIcon role="tank" />造成<DamageInfo damage="28000" type="physical" />
@@ -274,7 +274,7 @@ const tendrilsofTerror = translations.tendrilsOfTerror
     </h4>
     <div class="shrink-0 grow space-y-4">
       <div class="paragraph">
-        在<Span variant="green">种子</Span>落下后，
+        在<Span variant="green">孢子</Span>落下后，
         <RoleIcon role="all" tag="所有人" />根据职能与位置，如下图所示进行预站位：
       </div>
     </div>
@@ -461,7 +461,7 @@ const tendrilsofTerror = translations.tendrilsOfTerror
       <T text="拉住小怪" variant="lime" class="mt-8" />
       <P>
         在放置<Span variant="pink">冰花</Span>或<Span variant="yellow">追踪AoE</Span>的过程中，
-        <BloomingAbomination num={4} />会生成在<Span variant="green">种子</Span>落下的地方
+        <BloomingAbomination num={4} />会生成在<Span variant="green">孢子</Span>落下的地方
       </P>
       <div class="paragraph">
         我们规定：
@@ -513,8 +513,8 @@ const tendrilsofTerror = translations.tendrilsOfTerror
     <div class="paragraph">
       分别前往场中的指定位置，躲避
       <Span variant="pink">冰花</Span>
-      的同时参与点名 2
-      <RoleIcon role="healer" />的分摊
+      的同时参与自己分组
+      <RoleIcon role="healer" tag="治疗" />的分摊
       <Span variant="yellow">{impact}</Span>
     </div>
     <Image src={impact_solution} alt="" class="w-96" />
@@ -689,10 +689,6 @@ const tendrilsofTerror = translations.tendrilsOfTerror
       <RoleIcon role="tank" tag="ST" /><Span variant="pink">从下往上</Span>打断
     </div>
     <div class="paragraph">
-      此外，<RoleIcon role="ranged" tag="D3" />也可以使用<Span variant="pink">伤头</Span>
-      帮助队友进行打断
-    </div>
-    <div class="paragraph">
       例如，当仇恨列表如下图所示时，
       <Quote variant="rose">
         <P><RoleIcon role="tank" tag="MT" />应当打断第二只<BloomingAbominationSimplified /></P>
@@ -700,6 +696,10 @@ const tendrilsofTerror = translations.tendrilsOfTerror
       </Quote>
     </div>
     <Image src={bloomings} alt="" class="w-62 rounded border-2 border-yellow-800 dark:border-yellow-100" />
+    <div class="paragraph">
+      此外，<RoleIcon role="ranged" tag="D3" />也可以使用<Span variant="pink">伤头</Span>
+      帮助队友进行打断
+    </div>
     <div class="paragraph">
       同时，<RoleIcon role="all" tag="所有人" />集火<BloomingAbominationSimplified />， 在其狂暴之前将其全部击杀
       <span class="pl-2 line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700"
@@ -711,7 +711,7 @@ const tendrilsofTerror = translations.tendrilsOfTerror
       <RoleIcon role="tank" tag="MT" />将<BruteAbombinator />
       拉到<BloomingAbominationSimplified />的尸体附近，
     </div>
-    <P>利用小怪尸体阻挡石化</P>
+    <P><RoleIcon role="all" tag="所有人" />利用小怪尸体阻挡石化视线</P>
     <Image src={quarry_swamp} alt="" class="w-96" />
   </div>
 </SolutionSection>

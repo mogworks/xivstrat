@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets'
+
+import AreaBox from '@/components/AreaBox.astro'
+import Separator from '@/components/Separator.astro'
+import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
+import T from '@/components/typography/T.astro'
+
+interface Props {
+  href: string
+  img?: ImageMetadata
+}
+
+const { href, img }: Props = Astro.props
+---
+
+<div class="flex gap-6">
+  <div class="w-lg">
+    <AreaBox>
+      <a
+        href={href}
+        class="!disabled:hover:bg-purple-700/60 inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white disabled:cursor-not-allowed disabled:opacity-50 dark:border-purple-500 dark:bg-purple-700/75"
+      >
+        下载标点文件
+      </a>
+      <slot>
+        {
+          img && (
+            <>
+              <Separator class="my-2 mb-3" />
+              <ResizableImageDialog client:idle>
+                <Image src={img} alt="场地标点" class="w-full object-contain object-left-top" />
+              </ResizableImageDialog>
+            </>
+          )
+        }
+      </slot>
+    </AreaBox>
+  </div>
+  <div class="shrink space-y-4">
+    <T variant="yellow" text="使用说明" />
+    <p>0. 请在游戏更新后，相应副本开启后再操作，否则可能会炸掉游戏</p>
+    <p>1. 下载标点文件（UISAVE.DAT）</p>
+    <p>2. 退出游戏，先备份自己 My Games 目录下角色文件夹 FFXIV_CHRXXXXXXXXXXXXXXXX 中的 UISAVE.DAT 文件</p>
+    <p>3. 用下载的 UISAVE.DAT 覆盖</p>
+    <p>4. 进入游戏相应副本并标点（标点信息储存在第3页的11号槽位~14号槽位），让队友保存标点信息</p>
+    <p>5. 退出游戏，恢复自己备份的 UISAVE.DAT 文件</p>
+  </div>
+</div>
