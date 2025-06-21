@@ -7,6 +7,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import Bleeding from '@/components/buff/Bleeding.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import CastSection from '@/components/section/CastSection.astro'
+import { translations } from '../_translations/index'
 
 interface Props {
   start: Time
@@ -16,7 +17,15 @@ interface Props {
 const { start, base = 0 }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={4.7} ability="Deep Cut" target damage="300000" damageType="magical">
+<CastSection
+  start={start}
+  base={base}
+  duration={4.7}
+  ability={translations.deepCut}
+  target
+  damage="300000"
+  damageType="magical"
+>
   <Fragment slot="target">
     <RoleIcon role="tank" tag="一仇" />
     <RoleIcon role="tank" tag="二仇" />

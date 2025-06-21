@@ -2,6 +2,7 @@
 import Buff from '@/components/Buff.astro'
 
 import spotlightless from '@/assets/buff/07/m5s/214285.png'
+import { translations } from '../_translations'
 
 interface Props {
   tag?: string
@@ -14,9 +15,9 @@ const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 
 <Buff
   icon={spotlightless}
-  name="Spotlightless"
+  name={translations.spotlightless}
   nameVariant="yellow"
-  description="Publicly failed to strike a groovy pose. Ego injury is resulting in greatly increased magic damage taken."
+  description={translations.spotlightlessDesc}
   tag={tag}
   hover={hover}
   class={className}

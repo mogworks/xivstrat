@@ -8,6 +8,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import Badge from '@/components/Badge.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -16,7 +17,7 @@ interface Props {
 
 const { start, base = 0 }: Props = Astro.props
 
-const huntersHarvest = "Hunter's Harvest"
+const huntersHarvest = translations.huntersHarvest
 ---
 
 <EventSection time={start} base={base}>

@@ -1,248 +1,634 @@
 ---
-import { Image } from 'astro:assets'
-
 import type { Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import P from '@/components/typography/P.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
+import Quote from '@/components/typography/Quote.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
-import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
-import StoneWolfheadIcon from '../_components/StoneWolfheadIcon.astro'
+import WolfOfStone from '../_components/entities/WolfOfStone.astro'
+import TacticalPackCast from '../_components/TacticalPackCast.astro'
+import WolvesAppearEvent from '../_components/WolvesAppearEvent.astro'
+import UntargetbaleEvent from '../_components/UntargetableEvent.astro'
+import HowlingHavocCast from '../_components/HowlingHavocCast.astro'
+import PackPredationCast from '../_components/PackPredationCast.astro'
+import ClearBorneEndEvent from '../_components/ClearBorneEndEvent.astro'
+import FontOfWindAether from '../_components/entities/FontOfWindAether.astro'
+import FontOfEarthAether from '../_components/entities/FontOfEarthAether.astro'
+import ForlornCast from '../_components/ForlornCast.astro'
+import WindborneEnd from '../_components/buff/WindborneEnd.astro'
+import EarthborneEnd from '../_components/buff/EarthborneEnd.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import Windpack from '../_components/buff/Windpack.astro'
+import Stonepack from '../_components/buff/Stonepack.astro'
 
-import WindpackDebuff from '../_components/WindpackDebuff.astro'
-import StonepackDebuff from '../_components/StonepackDebuff.astro'
-import WindborneEndDebuff from '../_components/WindborneEndDebuff.astro'
-import EarthborneEndDebuff from '../_components/EarthborneEndDebuff.astro'
+import { translations } from '../_translations'
 
-import img from '@/assets/07/m8s1/tmp.png'
+import img_1 from '@/assets/07/m8s1/tactical_pack/1.png'
+import img_2 from '@/assets/07/m8s1/tactical_pack/2.png'
+import img_3 from '@/assets/07/m8s1/tactical_pack/3.png'
+import img_4 from '@/assets/07/m8s1/tactical_pack/4.png'
+import img_5 from '@/assets/07/m8s1/tactical_pack/5.png'
+import img_6 from '@/assets/07/m8s1/tactical_pack/6.png'
+import img_7 from '@/assets/07/m8s1/tactical_pack/7.png'
+import img_8 from '@/assets/07/m8s1/tactical_pack/8.png'
+import img_9 from '@/assets/07/m8s1/tactical_pack/9.png'
 
 interface Props {
-  time: Time
   base?: Time
 }
 
-const tracticalPack = '光狼招来'
-const howlingHoavoc = '風麈の咆哮'
-const packPredation = '光狼陣'
+const tacticalPack = translations.tacticalPack
+const howlingHavoc = translations.howlingHavoc
+const packPredation = translations.packPredation
+const alphaWind = translations.alphaWind
+const alphaStone = translations.alphaStone
+const stalkingWind = translations.stalkingWind
+const stalkingStone = translations.stalkingStone
+const windSurge = translations.windSurge
+const sandSurge = translations.sandSurge
+const galeSurge = translations.galeSurge
+const stoneSurge = translations.stoneSurge
 
-//TODO: 找俩icon把这玩意替换掉
-const greenBall = '绿球'
-const yellowCude = '黄方块'
-
-const { time, base = 0 }: Props = Astro.props
+const { base = 0 }: Props = Astro.props
 ---
+
+<TacticalPackCast start="02:56.110" base={base} />
+<UntargetbaleEvent time="03:01.224" base={base} />
+<EventSection time="03:03.400">
+  场中出现半径
+  <Span variant="pink">8m</Span>
+  的圆形范围提示
+</EventSection>
+<WolvesAppearEvent time="03:03.400" base={base} />
+<HowlingHavocCast start="03:03.400" base={base} />
+<EventSection time="03:09.002">
+  场中半径
+  <Span variant="pink">8m</Span>
+  的圆形区域变为即死区
+</EventSection>
+
+<CollapseSection wider>
+  <Fragment slot="summary">
+    <WolfOfWind />
+    <WolfOfStone />
+    读条
+    <Skill name={packPredation} />
+    ，
+    <RoleIcon role="healer|dps" />
+    触碰
+    <FontOfWindAether />
+    /
+    <FontOfEarthAether />
+    以消除
+    <WindborneEnd hover />
+    /
+    <EarthborneEnd hover />
+    ，重复3轮
+  </Fragment>
+  <Fragment slot="details">
+    <PackPredationCast start="03:13.586" base={base} />
+    <ClearBorneEndEvent time="03:21.086" base={base} buffTime="21" type="wind" />
+    <ClearBorneEndEvent time="03:26.086" base={base} buffTime="21" type="stone" />
+
+    <PackPredationCast start="03:27.703" base={base} />
+    <ClearBorneEndEvent time="03:35.203" base={base} buffTime="37" type="wind" />
+    <ClearBorneEndEvent time="03:40.203" base={base} buffTime="37" type="stone" />
+
+    <PackPredationCast start="03:41.842" base={base} />
+    <ClearBorneEndEvent time="03:49.342" base={base} buffTime="54" type="wind" />
+    <ClearBorneEndEvent time="03:54.342" base={base} buffTime="54" type="stone" />
+  </Fragment>
+</CollapseSection>
+
+<ForlornCast start="04:01.992" base={base} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
-      <Span variant="yellow">{tracticalPack} </Span>
-    </div>
-
-    <div class="paragraph">
-      <HowlingBlade />上天，预示着小怪阶段开始。 此时场地东西侧会出现
+    <T variant="yellow" text={tacticalPack} />
+    <P>
+      读条后不久，
+      <HowlingBlade />
+      变为不可选中状态
+    </P>
+    <P>
+      稍后，场中出现圆形范围提示，
       <WolfOfWind />
-      <StoneWolfheadIcon />
-      并连线玩家。
-    </div>
-
-    <div class="paragraph">
-      会有 1<RoleIcon role="tank" />
-      1<RoleIcon role="healer" />
-      2<RoleIcon role="dps" />
-      获得绿色连线，其余人获得黄色连线。
-    </div>
-
-    <div class="paragraph">
-      在
-      <Span variant="yellow">{howlingHoavoc}</Span>
-      伤害判定之后，场地南北侧会出现{greenBall}和{yellowCude}。 玩家获得debuff如下：
-    </div>
-
-    <div class="paragraph pl-6">
-      <WindpackDebuff hover />：无法对<WolfOfWind />造成伤害。
-    </div>
-
-    <div class="paragraph pl-6">
-      <StonepackDebuff hover />：无法对<StoneWolfheadIcon />造成伤害。
-    </div>
-
-    <div class="paragraph pl-6">
-      <WindborneEndDebuff hover tag="21" />
-      <WindborneEndDebuff hover tag="37" />
-      <WindborneEndDebuff hover tag="54" />
-      ：倒计时结束前需要穿过场上{greenBall}以消除该debuff，否则团灭。
-    </div>
-
-    <div class="paragraph pl-6">
-      <EarthborneEndDebuff hover tag="21" />
-      <EarthborneEndDebuff hover tag="37" />
-      <EarthborneEndDebuff hover tag="54" />
-      ：倒计时结束前需要穿过场上{yellowCude}以消除该debuff，否则团灭。
-    </div>
-
-    <div class="paragraph">
-      <EarthborneEndDebuff hover />
-      <WindborneEndDebuff hover />
-      被消除会对全团造成一个微量的魔法伤害，并且赋予
-      <MagicVulnerabilityUp tag="4" hover />
-      ，若是在有
-      <MagicVulnerabilityUp hover />
-      时消除debuff会导致团灭。
-    </div>
-
-    <div class="paragraph">
-      消除debuff还会对
-      <EarthborneEndDebuff hover />
-      <WindborneEndDebuff hover />
-      造成约
-      <DamageInfo damage="2100000" type="special" />的伤害，15%。
-    </div>
-
-    <div class="paragraph">绿色的球和黄色正方体开始顺时针或逆时针绕场地旋转。</div>
-
-    <div class="paragraph">
-      随后，<WolfOfWind /><StoneWolfheadIcon />开始读条
-      <Span variant="yellow">{packPredation}</Span>
-      分别对当前
+      <WolfOfStone />
+      出现并各自连线
+      <Span variant="default">1</Span>
       <RoleIcon role="tank" />
-      释放扇形死刑，并且附加
-      <MagicVulnerabilityUp tag="1" hover />
-    </div>
+      <Span variant="default">1</Span>
+      <RoleIcon role="healer" />
+      <Span variant="default">2</Span>
+      <RoleIcon role="dps" />
+      ，如下图：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: img_1,
+          alt: '狼首出现并连线玩家',
+        },
+      ]}
+    />
+    <P>
+      其中，
+      <WolfOfWind />
+      固定出现在场地西侧，
+      <WolfOfStone />
+      则固定出现在场地东侧
+    </P>
 
-    <div class="paragraph">
-      同时会各点名一个拥有<WindpackDebuff /><StonepackDebuff />的玩家释放直线AoE，并且附加
-      <MagicVulnerabilityUp tag="1" hover />
-    </div>
+    <T class="mt-8" variant="yellow" text={howlingHavoc} />
+    <P>
+      <WolfOfWind />
+      <WolfOfStone />
+      一出现就会立刻读条
+      <Skill name={howlingHavoc} />
+      ，对
+      <RoleIcon role="all" tag="全员" />
+      造成
+      <DamageInfo damage="110000" type="magical" />
+    </P>
+    <P>
+      伤害判定后，连线消失，
+      <WolfOfWind />
+      <WolfOfStone />
+      会变为可选中状态，无身位要求，
+      <Span variant="green">HP 10,518,438</Span>
+    </P>
+    <P>
+      同时，场地北侧和南侧会刷新
+      <FontOfWindAether />
+      和
+      <FontOfEarthAether />
+      ，如下图：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: img_3,
+          alt: '风土以太出现',
+        },
+      ]}
+    />
+    <P>
+      <FontOfWindAether />
+      和
+      <FontOfEarthAether />
+      的刷新模式是随机的
+    </P>
+    <P>
+      也就是说，既有可能像上图这样分布，也有可能
+      <FontOfWindAether />
+      在北，
+      <FontOfEarthAether />
+      在南
+    </P>
+    <P>
+      <Skill name={howlingHavoc} />
+      判定后，先前被
+      <WolfOfWind />
+      连线的
+      <Span variant="default">4</Span>
+      人获得
+      <Windpack hover />
+      ，被
+      <WolfOfStone />
+      连线的
+      <Span variant="default">4</Span>
+      人则获得
+      <Stonepack hover />
+      ：
+    </P>
+    <Quote variant="yellow">
+      <P>
+        持有
+        <Windpack hover />
+        的人无法对
+        <WolfOfWind />
+        造成伤害
+      </P>
+      <P>
+        持有
+        <Stonepack hover />
+        的人无法对
+        <WolfOfStone />
+        造成伤害
+      </P>
+    </Quote>
+    <P>
+      同时，除
+      <RoleIcon role="tank" />
+      外，被
+      <WolfOfWind />
+      连线的人会获得
+      <EarthborneEnd tag="21" hover />
+      <EarthborneEnd tag="37" hover />
+      <EarthborneEnd tag="54" hover />
+      之一，反之则会获得
+      <WindborneEnd tag="21" hover />
+      <WindborneEnd tag="37" hover />
+      <WindborneEnd tag="54" hover />
+      之一：
+    </P>
+    <Quote variant="yellow">
+      <P>
+        持有
+        <WindborneEnd hover />
+        的人在倒计时结束时会死亡，可通过触碰
+        <FontOfWindAether />
+        消除（同时会把
+        <Stonepack hover />
+        变为
+        <Windpack hover />
+        ）
+      </P>
+      <P>
+        持有
+        <EarthborneEnd hover />
+        的人在倒计时结束时会死亡，可通过触碰
+        <FontOfEarthAether />
+        消除（同时会把
+        <Windpack hover />
+        变为
+        <Stonepack hover />
+        ）
+      </P>
+    </Quote>
+    <P>
+      以
+      <RoleIcon role="all" />
+      <Windpack hover /><EarthborneEnd tag="XX" hover />
+      为例，其触碰
+      <FontOfEarthAether />
+      后会变为
+      <Stonepack hover />
+    </P>
+    <P>
+      另外，虽然
+      <RoleIcon role="healer" tag="双奶" />
+      持有的debuff种类不同，但时长必然相同，全员初始debuff情况如下：
+    </P>
+    <Quote variant="yellow">
+      <P><RoleIcon role="tank" />：<Windpack hover /></P>
+      <P><RoleIcon role="tank" />：<Stonepack hover /></P>
+      <P>
+        <RoleIcon role="healer" />：<Windpack hover /><EarthborneEnd tag="21" hover />
+        （以<RoleIcon role="healer" tag="双奶" /><Span variant="default">21s</Span>为例）
+      </P>
+      <P>
+        <RoleIcon role="healer" />：<Stonepack hover /><WindborneEnd tag="21" hover />
+        （以<RoleIcon role="healer" tag="双奶" /><Span variant="default">21s</Span>为例）
+      </P>
+      <P><RoleIcon role="dps" />：<Windpack hover /><EarthborneEnd tag="37" hover /></P>
+      <P><RoleIcon role="dps" />：<Stonepack hover /><WindborneEnd tag="37" hover /></P>
+      <P><RoleIcon role="dps" />：<Windpack hover /><EarthborneEnd tag="54" hover /></P>
+      <P><RoleIcon role="dps" />：<Stonepack hover /><WindborneEnd tag="54" hover /></P>
+    </Quote>
+    <P>正确触碰以太时，还会削减另一属性狼首20%的HP</P>
 
-    <div class="paragraph">
-      <Span variant="yellow">{packPredation}</Span>
-      总计会有三次，每次间隔约14s。
-    </div>
+    <P>最后，场中黄色范围提示的区域会变为即死区，请不要站进去</P>
+
+    <T class="mt-8" variant="yellow" text={packPredation} />
+    <P>
+      <WolfOfWind />
+      <WolfOfStone />
+      会每隔
+      <Span variant="pink">14s</Span>
+      读条一次
+      <Skill name={packPredation} />
+      ：
+    </P>
+    <Quote variant="yellow">
+      <P>
+        对
+        <RoleIcon role="all" tag="一仇" />
+        释放扇形死刑
+        <Skill name={[alphaWind, alphaStone]} />
+        ，可对
+        <Span variant="blue">防护职业</Span>造成
+        <DamageInfo damage="270000" type="magical" />
+        <MagicVulnerabilityUp tag="1" hover />
+      </P>
+      <P>
+        点名随机不重复
+        <RoleIcon role="healer|dps" />
+        （头上有标记提示）释放直线AoE
+        <Skill name={[stalkingWind, stalkingStone]} />
+        <DamageInfo damage="170000" type="magical" />
+        <MagicVulnerabilityUp tag="1" hover />
+      </P>
+    </Quote>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: img_4,
+          alt: '光狼陣',
+        },
+      ]}
+    />
+
+    <T class="mt-8">
+      <Span variant="green">风以太</Span>
+      &
+      <Span variant="orange">土以太</Span>
+    </T>
+    <P>
+      首次
+      <Skill name={packPredation} />
+      后，
+      <FontOfWindAether />
+      和
+      <FontOfEarthAether />
+      会向对应属性的狼首方向，沿安全区缓慢转动
+    </P>
+    <P>
+      每次玩家触碰会使其停止移动约
+      <Span variant="default">3s</Span>
+    </P>
+    <P>
+      持有
+      <WindborneEnd hover />
+      和
+      <EarthborneEnd hover />
+      的人触碰对应属性的
+      <FontOfWindAether />
+      和
+      <FontOfEarthAether />
+      时，会对
+      <RoleIcon role="all" tag="全员" />
+      造成
+      <Skill name={[windSurge, sandSurge]} />
+      <DamageInfo damage="15000" type="magical" />
+      <MagicVulnerabilityUp tag="4" hover />
+    </P>
+    <P>
+      未持有相应debuff时，若触碰
+      <FontOfWindAether />
+      或
+      <FontOfEarthAether />
+      ，则会对
+      <RoleIcon role="all" tag="全员" />
+      造成
+      <Skill name={[galeSurge, stoneSurge]} />
+      <DamageInfo damage="9999999" type="special" />
+    </P>
   </div>
 </MechanicSection>
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      连线出现，我们首先把连线拉长，去对面的
-      <WolfOfWind />
-      <StoneWolfheadIcon />
-      等待
-      <Span variant="green">{greenBall}</Span>
+    <P>
+      <HowlingBlade />
+      读条
+      <Skill name={tacticalPack} />
+      后，全员分散站位，确认自己的连线
+    </P>
+    <P>
+      由于连线会赋予相应属性的
+      <Windpack hover />
       和
-      <Span variant="yellow">{yellowCude}</Span>
-      出现。
-    </div>
+      <Stonepack hover />
+      ，无法对相应属性的狼首造成伤害，因此全员去非连线狼首一侧：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: img_1,
+          alt: '狼首出现并连线玩家',
+        },
+        {
+          src: img_2,
+          alt: '全员去非连线狼首一侧',
+        },
+      ]}
+    />
 
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-      <div>应该是狼头+线的图片</div>
-    </div>
-
-    <div class="paragraph">
-      之后，
-      <RoleIcon role="tank" />将
+    <P>
       <WolfOfWind />
-      <StoneWolfheadIcon />
-      面向同色的方向，跟随
-      <Span variant="green">{greenBall}</Span>
-      和
-      <Span variant="yellow">{yellowCude}</Span>
-      旋转。
-    </div>
-
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={img} alt="shadowchase_case1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-      <div>狼头+两个球+所有人的图片</div>
-    </div>
-
-    <div class="paragraph">注意此处可以在不撞到他们的前提下尽量靠近。</div>
-
-    <div class="paragraph pl-6">
-      因为
+      <WolfOfStone />
+      读条
+      <Skill name={howlingHavoc} />
+      <DamageInfo damage="110000" type="magical" />
+      ，注意减伤和回复
+    </P>
+    <P>
+      <FontOfWindAether />
+      <FontOfEarthAether />
+      出现，同时
       <WolfOfWind />
-      <StoneWolfheadIcon />
-      开始读条
-      <Span variant="yellow">{packPredation}</Span>
-      之后会停止移动，但是
-      <Span variant="green">{greenBall}</Span>
-      和
-      <Span variant="yellow">{yellowCude}</Span>
-      还会继续移动。
-    </div>
-
-    <div class="paragraph">
-      人群站在
+      <WolfOfStone />
+      变为可选中状态，
+      <RoleIcon role="tank" />
+      迅速建立仇恨
+    </P>
+    <P>
+      同时，全员调整站位，
+      <RoleIcon role="tank" />
+      站在
+      <Span variant="cyan">异色的</Span>
+      狼首和以太之间，
+      <RoleIcon role="healer|dps" />
+      则站在
+      <Span variant="cyan">同色的</Span>
+      狼首和以太之间
+    </P>
+    <P>
+      随后，
       <WolfOfWind />
-      <StoneWolfheadIcon />
-      后面，等待点名出现。伤害判定后，等
-      <MagicVulnerabilityUp tag="1" hover />
-      消失，
-    </div>
+      <WolfOfStone />
+      读条
+      <Skill name={packPredation} />
+      ，对
+      <RoleIcon role="tank" tag="一仇" />
+      释放扇形死刑，并点名
+      <RoleIcon role="healer|dps" />
+      释放直线AoE：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: img_3,
+          alt: '风土以太出现，全员调整站位',
+        },
+        {
+          src: img_4,
+          alt: '光狼陣',
+        },
+      ]}
+    />
 
-    <div class="paragraph">
-      <EarthborneEndDebuff hover tag="21" />
-      向后走穿过
-      <Span variant="yellow">{yellowCude}</Span>
-      消除debuff，此时全员获得
-      <MagicVulnerabilityUp tag="4" hover />
-      。
-    </div>
+    <P>
+      接着，
+      <FontOfWindAether />
+      <FontOfEarthAether />
+      会朝对应属性的狼首移动，按图示情况也就是顺时针方向
+    </P>
+    <P>
+      <RoleIcon role="tank" />
+      需要带着狼首紧跟在
+      <Span variant="cyan">异色的</Span>
+      以太之后，以免被同色以太追上
+    </P>
+    <P>
+      <RoleIcon role="healer|dps" />
+      则需要消除debuff，我们规定，每轮都先消除
+      <WindborneEnd hover />
+      ，再消除
+      <EarthborneEnd hover />
+    </P>
+    <P>
+      按照倒计时顺序，依次处理
+      <Span variant="default">21s</Span>
+      、
+      <Span variant="default">37s</Span>
+      、
+      <Span variant="default">54s</Span>
+      的debuff
+    </P>
+    <P>
+      第一轮时，初始获得
+      <Stonepack hover /><WindborneEnd tag="21" hover />
+      的人反向（图示情况即逆时针）穿过
+      <FontOfWindAether />
+      与另一组人汇合：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: img_5,
+          alt: '风buff穿过以太1',
+        },
+        {
+          src: img_6,
+          alt: '风buff穿过以太2',
+        },
+      ]}
+    />
 
-    <div class="paragraph">
-      <WindborneEndDebuff hover tag="21" />
-      等
-      <MagicVulnerabilityUp tag="4" hover />
-      消失后向后走穿过
-      <Span variant="green">{greenBall}</Span>
-      消除debuff，全员获得
-      <MagicVulnerabilityUp tag="4" hover />
-      。
-    </div>
-
-    <div class="paragraph">
-      此时应该距离下一次
-      <Span variant="yellow">{packPredation}</Span>
-      伤害判定应该还有至少4s，
-      <MagicVulnerabilityUp tag="4" hover />
-      在伤害之前消失。
-    </div>
-
-    <div class="paragraph">
-      再重复两次，分别消除
-      <WindborneEndDebuff hover tag="37" />
-      <WindborneEndDebuff hover tag="54" />
-      <EarthborneEndDebuff hover tag="37" />
-      <EarthborneEndDebuff hover tag="54" />
-      。
-    </div>
-
-    <div class="paragraph">
-      所有debuff消除后，
+    <P>
+      穿过
+      <FontOfWindAether />
+      时，其
+      <Stonepack hover /><WindborneEnd hover />
+      会变为
+      <Windpack hover />
+      ，因此可以继续输出
+      <WolfOfStone />
+    </P>
+    <P>
+      由于
+      <Skill name={packPredation} />
+      的易伤只有
+      <Span variant="default">1s</Span>
+      ，因此穿
+      <FontOfWindAether />
+      的人无需等待，死刑/直线判定后请立刻行动
+    </P>
+    <P>
+      接下来轮到初始
+      <Windpack hover /><EarthborneEnd tag="21" hover />
+      的人穿过
+      <FontOfEarthAether />
+      消除debuff，并与另一组人汇合，继续输出
       <WolfOfWind />
-      <StoneWolfheadIcon />
-      开始读条狂暴，请尽快击杀。
-    </div>
+      ：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: img_7,
+          alt: '土buff穿过以太1',
+        },
+        {
+          src: img_8,
+          alt: '土buff穿过以太2',
+        },
+      ]}
+    />
+
+    <P>
+      由于前一人消除
+      <WindborneEnd hover />
+      时产生的
+      <Skill name={windSurge} />
+      会造成
+      <Span variant="cyan">4s</Span>
+      易伤，请不要着急，务必等易伤消除后再行动
+    </P>
+    <P>
+      但也不能耽搁太久，因为下一轮
+      <Skill name={packPredation} />
+      也快来了
+    </P>
+    <P>
+      <Skill name={packPredation} />
+      间隔
+      <Span variant="cyan">14s</Span>
+      ，本身有
+      <Span variant="default">1s</Span>
+      易伤，消除两次debuff各有
+      <Span variant="default">4s</Span>
+      易伤，故共有
+      <Span variant="default">5s</Span>
+      时间冗余，还是挺紧张的
+    </P>
+    <P>
+      <FontOfWindAether />
+      <FontOfEarthAether />
+      每撞一次就会变小一些，三轮撞完就会消失
+    </P>
+    <P>
+      此时
+      <RoleIcon role="tank" tag="双T" />
+      可将
+      <WolfOfWind />
+      <WolfOfStone />
+      拉到
+      <Span variant="red">A</Span>
+      ，方便转火：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: img_9,
+          alt: '狼首拉到A点',
+        },
+      ]}
+    />
+    <P>
+      最后，在
+      <WolfOfWind />
+      <WolfOfStone />
+      狂暴前，将它们击杀即可
+    </P>
   </div>
 </SolutionSection>
-
-<NoteSection>
-  <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      <EarthborneEndDebuff hover />
-      在AoE判定后应该尽快去消除，给
-      <WindborneEndDebuff hover />
-      留出充足的时间 。1s的易伤走过去差不多基本消失了。
-    </div>
-
-    <div class="paragraph">场中不能踩，但是因为场地大小的缘故，请离场中尽可能近一些方便奶。</div>
-
-    <div class="paragraph">虽然消除buff的伤害很低，但是如果减伤/血量不足还是有可能会出事，请注意。</div>
-  </div>
-</NoteSection>

@@ -1,5 +1,6 @@
 ---
 import '@/styles/global.css'
+import Navigation from '@/components/navigator/Navigation.vue'
 
 interface Props {
   lang?: string
@@ -7,26 +8,96 @@ interface Props {
   description?: string
 }
 
-const {
-  lang = 'zh-CN',
-  title = 'XivStrat | 最终幻想14中文攻略站',
-  description = '从7.2开始的最终幻想14中文攻略站',
-}: Props = Astro.props
+const defaultTitle = 'XivStrat | 最终幻想14中文攻略站'
+const defaultDescription = '从7.2开始的最终幻想14中文攻略站'
+const keywords = [
+  // Generated
+  'FF14',
+  '最终幻想14',
+  'FFXIV',
+  'FF14攻略',
+  '最终幻想14攻略',
+  'FF14端游',
+  '最终幻想14端游',
+  'FF14攻略站',
+  'FF14中文攻略站',
+  'FF14零式',
+  'FF14副本',
+  'FF14机制图解',
+  '最终幻想14零式',
+  '副本机制图解',
+  'FF14战术',
+  '苏帕酱噗',
+  'xivstrat',
+  '莫古力工坊',
+  'MMW攻略组',
+  '高难副本',
+  '中文游戏攻略',
+  '玩家社区',
+  '艾欧泽亚',
+  '零式开荒',
+  '绝本攻略',
+  'FF14高难',
+  '副本时间轴',
+  '时间轴攻略',
+  '零式副本',
+  '零式首周',
+  'FF14国服',
+  '国际服攻略',
+  'FF14攻略组',
+  '攻略协作',
+  '副本攻略',
+  '机制教学',
+  'FF14宏',
+  '副本站位',
+  '时间轴练习',
+  '零式通关',
+  '阿卡狄亚',
+]
+
+const { lang = 'zh-CN', title = defaultTitle, description = defaultDescription }: Props = Astro.props
+const routes = [
+  { name: '首页', path: '/' },
+  { name: '关于', path: '/about' },
+  {
+    name: 'Patch 7.2',
+    children: [
+      {
+        name: '阿卡狄亚零式登天斗技场 中量级',
+        children: [
+          { name: 'M5S', path: '/07/m5s' },
+          { name: 'M6S', path: '/07/m6s' },
+          { name: 'M7S', path: '/07/m7s' },
+          {
+            name: 'M8S',
+            children: [
+              { name: '前半', path: '/07/m8s1' },
+              { name: '后半', path: '/07/m8s2' },
+            ],
+          },
+        ],
+      },
+      { name: '泽莲尼娅歼殛战', path: '/07/zelenia' },
+    ],
+  },
+]
 ---
 
 <!doctype html>
 <html lang={lang}>
   <head>
+    <title>{title?.trim() === defaultTitle ? defaultTitle : `${title} - XivStrat`}</title>
     <meta charset="UTF-8" />
-    <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="keywords" content={keywords.join(',')} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <script is:inline src="/scripts/initTheme.min.js"></script>
   </head>
   <body>
     <slot />
+    <Navigation client:load routes={routes} />
   </body>
 </html>
 

@@ -2,6 +2,7 @@
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
+import DraftWarning from '@/components/DraftWarning.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import SBGR from './_mechanics/SBGR.astro'
 import Sporesplosion from './_mechanics/Sporesplosion.astro'
@@ -32,6 +33,7 @@ import BrutishSwingMoveActivate from './_components/BrutishSwingMoveActivate.ast
 import { translations } from './_translations'
 
 const dutyId = '07/m7s'
+
 const base = '02:38.206'
 const stoneringer = translations.stoneringer
 const brutishSwing = translations.brutishSwing
@@ -46,6 +48,9 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
 ---
 
 <DutyStratLayout dutyId={dutyId}>
+  <SeparatorSection />
+  <DraftWarning />
+  <SeparatorSection />
   <GrapplingIvy time="02:38.206" base={base} />
   <EventSection time="02:42.841">
     <BruteAbombinator />挂墙完毕，可选中

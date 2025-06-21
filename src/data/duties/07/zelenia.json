@@ -1,14 +1,14 @@
 {
-  "name": "泽莱妮娅歼殛战",
+  "name": "泽莲尼娅歼殛战",
   "short": "Zelenia",
   "type": "trial",
-  "title": "泽莱妮娅歼殛战 攻略",
-  "description": "最终幻想14 泽莱妮娅歼殛战 超详解动态图文攻略",
+  "title": "泽莲尼娅歼殛战 攻略",
+  "description": "最终幻想14 泽莲尼娅歼殛战 超详解动态图文攻略",
   "banner": "@/assets/banners/07/zelenia.png",
   "date": "25/06/07 20:00",
   "href": "/07/zelenia",
-  "status": "upcoming",
-  "indexAvailable": false,
+  "status": "live",
+  "indexAvailable": true,
   "phases": [
     {
       "href": "/07/zelenia/p1",

@@ -1,0 +1,111 @@
+---
+import type { Time } from '@/lib/utils'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import P from '@/components/typography/P.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import Quote from '@/components/typography/Quote.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+
+import TerrestrialRageCast from '../_components/TerrestrialRageCast.astro'
+import GleamingFang from '../_components/entities/GleamingFang.astro'
+import TerrestrialRageActivate from '../_components/TerrestrialRageActivate.astro'
+import ShadowchaseCast from '../_components/ShadowchaseCast.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
+import BareFangsEvent from '../_components/BareFangsEvent.astro'
+import RetargetableEvent from '../_components/RetargetableEvent.astro'
+import RoaringWindCast from '../_components/RoaringWindCast.astro'
+import FangedChargeCast from '../_components/FangedChargeCast.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  base?: Time
+}
+
+const { base = 0 }: Props = Astro.props
+---
+
+<BareFangsEvent time="04:34.250" base={base} phase="P3" />
+<TerrestrialRageCast start="04:36.338" base={base} />
+<FangedChargeCast start="04:42.471" base={base} />
+<TerrestrialRageActivate time="04:47.680" base={base} order="1" />
+<ShadowchaseCast start="04:45.454" base={base} />
+<FangedChargeCast start="04:44.904" base={base} />
+<TerrestrialRageActivate time="04:54.399" base={base} order="2" />
+<ShadowchaseCast start="04:52.704" base={base} shadow={true} />
+<RetargetableEvent time="04:56.667" base={base} />
+<RoaringWindCast start="04:56.667" base={base} />
+
+<!-- TODO -->
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <Quote variant="yellow" class="opacity-80">
+      <P>注意：以下图示为各个机制单独拆解，实际战斗中机制会组合出现，发动顺序可参考上方时间轴</P>
+    </Quote>
+
+    <T text={translations.terrestrialRage} variant="yellow" class="mt-8" />
+    <P>
+      读条后，
+      <HowlingBlade />
+      会延时发动两轮分散/分摊，分散/分摊会点名不同职能，哪个职能先分散/分摊是随机的
+    </P>
+    <P>
+      如第一轮是
+      <RoleIcon role="tank|healer" />
+      分散 +
+      <RoleIcon role="dps" />
+      分摊，那么第二轮就是
+      <RoleIcon role="dps" />
+      分散 +
+      <RoleIcon role="tank|healer" />
+      分摊，反之亦然
+    </P>
+    <P>
+      注意该机制的分散会
+      <Span variant="cyan">点够4人</Span>
+      ，所以如果中途有分散点名死了，就会点到分摊的人群中，导致团灭
+    </P>
+    <!-- TODO -->
+
+    <T text={translations.fangedCharge} variant="yellow" class="mt-8" />
+    <P>
+      场地上会先后刷新两组
+      <GleamingFang />
+      释放斜向的直线AoE，呈条纹状间隔分布，如下图：
+    </P>
+    <!-- TODO -->
+
+    <T text={translations.shadowchase} variant="yellow" class="mt-8" />
+    <P>
+      读条后，
+      <HowlingBlade />
+      消失，稍后场上出现5个分身，读条释放
+      <Span variant="pink">8m</Span>
+      宽直线AoE，分身有两种刷新模式，如下图：
+    </P>
+    <!-- TODO -->
+    <P>分身一定是和之后的狼首交错刷新的</P>
+
+    <T text={translations.roaringWind} variant="yellow" class="mt-8" />
+    <P>
+      和
+      <Skill name={translations.shadowchase} />
+      类似，场上出现5个
+      <WolfOfWind />
+      ，读条释放
+      <Span variant="pink">8m</Span>
+      宽直线AoE，同样有两种刷新模式，如下图：
+    </P>
+    <!-- TODO -->
+    <P>狼首一定是和之前的分身交错刷新的</P>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">TODO</div>
+</SolutionSection>

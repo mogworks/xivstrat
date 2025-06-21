@@ -3,12 +3,19 @@ import { Image } from 'astro:assets'
 import { type Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
+import RoleIcon from '@/components/RoleIcon.astro'
+import JobIcon from '@/components/JobIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import Quote from '@/components/typography/Quote.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import TwinbiteCast from '../_components/TwinbiteCast.astro'
 
-import img from '@/assets/07/m8s2/tmp.png'
+import twinbiteImg from '@/assets/07/m8s2/p1/twinbite.png'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -17,27 +24,55 @@ interface Props {
 
 const { start, base = 0 }: Props = Astro.props
 
-const twinbite = '雙牙擊'
+const twinbite = translations.twinbite
 ---
 
 <TwinbiteCast start={start} base={base} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
+    <T>
       <Span variant="yellow">{twinbite}</Span>
-    </div>
-    <div class="paragraph">对T死刑，范围依旧是一个平台，重叠即死。</div>
+    </T>
+    <P>
+      <RoleIcon role="all" tag="一仇" />
+      和
+      <RoleIcon role="all" tag="二仇" />
+      释放死刑，范围是一个平台，重叠即死。
+    </P>
   </div>
 </MechanicSection>
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">按照之前的分组规律，MT去左下平台，ST去右下平台，其余人去最南边的平台待机。</div>
+    <P>
+      按照之前的规则，以BOSS面前的平台为基准，
+      <RoleIcon role="tank" tag="MT" />
+      在左侧，
+      <RoleIcon role="tank" tag="ST" />
+      在右侧
+    </P>
+    <P>
+      需要开启
+      <Span variant="pink">40%</Span>的减伤处理。
+    </P>
+    <Quote variant="lime">
+      <P>
+        <JobIcon job="DRK" />或<JobIcon job="WAR" />可以开启无敌处理。
+      </P>
+    </Quote>
 
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={img} alt="quake1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-      <div>双T死刑，人群在南边</div>
-    </div>
+    <P> 人群在BOSS面前的平台待机。 </P>
+
+    <ImgRow
+      bordered={false}
+      imgClass="max-w-110"
+      imgs={[
+        {
+          src: twinbiteImg,
+          alt: '双牙击',
+        },
+      ]}
+    />
   </div>
 </SolutionSection>

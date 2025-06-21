@@ -9,7 +9,7 @@ import DeveloperCard from '@/components/DeveloperCard.astro'
 const developers = await getCollection('developers')
 ---
 
-<Layout>
+<Layout title="关于我们">
   <div class="@container relative flex min-h-dvh min-w-sm flex-col items-center">
     <div class="bg-dots fade-b absolute inset-x-0 top-0 h-48"></div>
     <LinkIcons class="fixed top-8 right-8 z-50 px-0" />
@@ -18,7 +18,7 @@ const developers = await getCollection('developers')
       <p class="mt-7 text-lg leading-relaxed font-medium text-zinc-400">成员名单</p>
     </header>
     <main class="mb-24 w-full px-8 py-16 @md:max-w-md @3xl:max-w-4xl @7xl:max-w-7xl">
-      <div class="grid grid-cols-[repeat(auto-fill,minmax(min(20rem,100%),1fr))] gap-6">
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(min(16em,100%),1fr))] gap-6">
         {developers.sort().map((developer) => <DeveloperCard developer={developer.data} />)}
       </div>
     </main>

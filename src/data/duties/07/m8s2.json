@@ -5,10 +5,10 @@
   "title": "阿卡狄亚零式登天斗技场 中量级4 后半 攻略",
   "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级4 后半 超详解动态图文攻略",
   "banner": "@/assets/banners/07/m8s.png",
-  "date": "25/05/25 08:30",
+  "date": "25/06/18 18:20",
   "href": "/07/m8s2",
-  "status": "upcoming",
-  "indexAvailable": false,
+  "status": "live",
+  "indexAvailable": true,
   "phases": [
     {
       "href": "/07/m8s2/p1",
@@ -69,7 +69,7 @@
     },
     {
       "href": "/07/m8s2/p2",
-      "title": "Part 5",
+      "title": "Part 2",
       "subtitle": "一运",
       "name": "P2 - 一运",
       "mechanics": [
@@ -89,10 +89,10 @@
         },
         {
           "href": "#bare-fangs",
-          "name": "光牙招来",
-          "name_en": "Bare Fangs",
-          "name_ja": "光牙招来",
-          "name_ch": "光牙招来"
+          "name": "光牙招来 + 廻天動地",
+          "name_en": "Bare Fangs + Champion's Circuit",
+          "name_ja": "光牙招来 + 廻天動地",
+          "name_ch": "光牙招来 + 回天动地"
         },
         {
           "href": "#champions-circuit",
@@ -147,15 +147,24 @@
       "mechanics": [
         {
           "href": "#howling-eight",
-          "name": "八連光彈"
+          "name": "八連光彈",
+          "name_en": "Howling Eight",
+          "name_ja": "八連光弾",
+          "name_ch": "八连光弹"
         },
         {
           "href": "#mooncleaver",
-          "name": "剛刃一閃"
+          "name": "剛刃一閃",
+          "name_en": "Mooncleaver",
+          "name_ja": "剛刃一閃",
+          "name_ch": "刚刃一闪"
         },
         {
           "href": "#starcleaver",
-          "name": "剛刃一閃·終"
+          "name": "剛刃一閃·終",
+          "name_en": "Starcleaver",
+          "name_ja": "剛刃一閃・終",
+          "name_ch": "刚刃一闪・终"
         }
       ]
     }

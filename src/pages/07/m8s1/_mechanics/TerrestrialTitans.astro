@@ -3,19 +3,31 @@ import type { Time } from '@/lib/utils'
 
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import Span from '@/components/Span.vue'
+import ListDot from '@/components/ListDot.astro'
 
 import T from '@/components/typography/T.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 import Skill from '@/components/typography/Skill.astro'
 import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
 
 import TerrestrialTitansCast from '../_components/TerrestrialTitansCast.astro'
 import TitanicPursuitCast from '../_components/TitanicPursuitCast.astro'
 import BareFangsEvent from '../_components/BareFangsEvent.astro'
 import TowerfallActivate from '../_components/TowerfallActivate.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import FangedCrossingCast from '../_components/FangedCrossingCast.astro'
 
 import { translations } from '../_translations'
 
-import FangedCrossingCast from '../_components/FangedCrossingCast.astro'
+import terrestrial_titans_1 from '@/assets/07/m8s1/terrestrial_titans/1.png'
+import terrestrial_titans_2 from '@/assets/07/m8s1/terrestrial_titans/2.png'
+import titanic_pursuit from '@/assets/07/m8s1/terrestrial_titans/titanic_pursuit.png'
+import fanged_crossing from '@/assets/07/m8s1/terrestrial_titans/fanged_crossing.png'
+import solution from '@/assets/07/m8s1/terrestrial_titans/solution.png'
 
 interface Props {
   base?: Time
@@ -41,20 +53,116 @@ const { base = 0 }: Props = Astro.props
     <T>
       <Skill name={terrestrialTitans} />
     </T>
-    <P>TODO</P>
+    <P>
+      <HowlingBlade />
+      读条后，场地一组相对的正点会隆起两根石柱，站进范围内会受到
+      <DamageInfo damage="160000" type="magical" />
+      <DamageDown tag="30" hover percent={50} />
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: terrestrial_titans_1,
+          alt: '石柱隆起前',
+          title: '石柱隆起前',
+        },
+        {
+          src: terrestrial_titans_2,
+          alt: '石柱隆起后',
+          title: '石柱隆起后',
+        },
+      ]}
+    />
 
     <T class="mt-8">
       <Skill name={titanicPursuit} />
     </T>
-    <P>TODO</P>
+    <P>全屏AoE，同时会把柱子斜劈开，以【左上-右下】斜劈为例，稍后柱子会崩塌，形成直线AoE：</P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: terrestrial_titans_2,
+          alt: '石柱隆起后',
+          title: '【左上-右下】斜劈',
+        },
+        {
+          src: titanic_pursuit,
+          alt: '全屏AoE + 斜劈石柱',
+          title: '石柱崩塌（已略去光牙的AoE）',
+        },
+      ]}
+    />
 
     <T class="mt-8">
       <Skill name={fangedCrossing} />
     </T>
-    <P>TODO</P>
+    <P>没有石柱的剩余那组正点，各会刷新一组十字/X字形光牙，读条发动十字/X字形AoE：</P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: terrestrial_titans_2,
+          alt: '石柱隆起后',
+          title: 'AC光牙',
+        },
+        { src: fanged_crossing, alt: '十字/X字形光牙', title: '十字/X字形AoE（已略去石柱崩塌）' },
+      ]}
+    />
   </div>
 </MechanicSection>
 
 <SolutionSection>
-  <div class="flex flex-col gap-4">TODO</div>
+  <div class="flex flex-col gap-4">
+    <P>
+      还是以
+      <Span variant="yellow">B</Span>
+      /
+      <Span variant="purple">D</Span>
+      石柱，
+      <Span variant="red">A</Span>
+      /
+      <Span variant="sky">C</Span>
+      光牙为例：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: terrestrial_titans_2,
+          alt: '石柱隆起后',
+        },
+        { src: solution, alt: '石柱和光牙AoE叠加' },
+      ]}
+    />
+    <P>
+      显然上图这种情况只有左上角数字标点
+      <Span variant="red">1</Span>
+      的场边安全，具体来说，找安全区的方法为：
+    </P>
+    <Quote variant="lime">
+      <P>
+        <ListDot />先看劈刀方向，其正对的数字标点即是备选安全区，如上图劈刀方向对应的是数字标点
+        <Span variant="red">1</Span>
+        /
+        <Span variant="sky">3</Span>
+      </P>
+      <P>
+        <ListDot />再找X字形光牙的刷新位置，其旁边的数字点也是备选安全区，如上图即为数字标点
+        <Span variant="red">1</Span>
+        /
+        <Span variant="yellow">2</Span>
+      </P>
+      <P>
+        <ListDot />结合两者，确定最终的安全区，如上图即为数字标点
+        <Span variant="red">1</Span>
+      </P>
+    </Quote>
+    <P>总结一下就是：先找劈刀方向对应的两个数字点，再选择其中离X字形光牙更近的那个，贴场边即可</P>
+  </div>
 </SolutionSection>

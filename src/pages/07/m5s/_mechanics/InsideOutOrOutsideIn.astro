@@ -14,6 +14,7 @@ import InsideOutOrOutsideInCast from '../_components/InsideOutOrOutsideInCast.as
 
 import in_img from '@/assets/07/m5s/inside_out_or_outside_in/in.png'
 import out_img from '@/assets/07/m5s/inside_out_or_outside_in/out.png'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -27,7 +28,7 @@ const { start, base = 0 }: Props = Astro.props
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Inside Out</Span>
+      <Span variant="yellow">{translations.insideOut}</Span>
     </h4>
     <div class="flex flex-col gap-4">
       <div class="paragraph">
@@ -40,7 +41,7 @@ const { start, base = 0 }: Props = Astro.props
       </div>
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Outside In</Span>
+      <Span variant="yellow">{translations.outSideIn}</Span>
     </h4>
     <div class="flex flex-col gap-4">
       <div class="paragraph">
@@ -84,7 +85,7 @@ const { start, base = 0 }: Props = Astro.props
     <div class="paragraph">
       <ListDot />
       此时
-      <StratLink variant="yellow" href="#funky-floor">Funky Floor</StratLink>
+      <StratLink variant="yellow" href="#funky-floor">{translations.funkyFloor}</StratLink>
       的效果还未结束，注意同时躲避
       <Span variant="rose">地面AoE</Span>
     </div>

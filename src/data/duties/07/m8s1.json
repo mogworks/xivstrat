@@ -5,10 +5,10 @@
   "title": "阿卡狄亚零式登天斗技场 中量级4 前半 攻略",
   "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级4 前半 超详解动态图文攻略",
   "banner": "@/assets/banners/07/m8s.png",
-  "date": "25/05/25 08:30",
+  "date": "25/06/20 12:00",
   "href": "/07/m8s1",
-  "status": "upcoming",
-  "indexAvailable": false,
+  "status": "live",
+  "indexAvailable": true,
   "phases": [
     {
       "href": "/07/m8s1/p1",
@@ -18,17 +18,17 @@
       "mechanics": [
         {
           "href": "#stonefang-or-windfang",
-          "name": "土の魔技 | 风の魔技",
+          "name": "土の魔技 | 風の魔技",
           "name_en": "Stonefang | Windfang",
-          "name_ja": "土の魔技 | 风の魔技",
+          "name_ja": "土の魔技 | 風の魔技",
           "name_ch": "土之魔技 | 风之魔技"
         },
         {
-          "href": "#revolutionary-reign-or-eminent-reign",
-          "name": "廻の群狼剣 | 薙の群狼剣",
-          "name_en": "Revolutionary Reign | Eminent Reign",
-          "name_ja": "廻の群狼剣 | 薙の群狼剣",
-          "name_ch": "旋击群狼剑 | 扫击群狼剑"
+          "href": "#wolves-reign",
+          "name": "群狼剣",
+          "name_en": "Wolves' Reign",
+          "name_ja": "群狼剣",
+          "name_ch": "群狼剑"
         },
         {
           "href": "#millennial-decay",
@@ -62,30 +62,16 @@
         {
           "href": "#tactical-pack",
           "name": "光狼招来",
-          "name_en": "Luminous Lupine Call",
+          "name_en": "Tactical Pack",
           "name_ja": "光狼招来",
-          "name_ch": "光狼招来"
+          "name_ch": "光狼召唤"
         },
         {
-          "href": "#howling-havoc",
-          "name": "風塵の咆哮",
-          "name_en": "Howling Havoc",
-          "name_ja": "風塵の咆哮",
-          "name_ch": "风尘咆哮"
-        },
-        {
-          "href": "#pack-predation",
-          "name": "光狼陣",
-          "name_en": "Lupine Formation",
-          "name_ja": "光狼陣",
-          "name_ch": "光狼阵"
-        },
-        {
-          "href": "#forlorn-wind-and-forlorn-stone",
-          "name": "風の狼吼 & 土の狼吼",
-          "name_en": "Howl of Windwolf & Howl of Stonewolf",
-          "name_ja": "風の狼吼 & 土の狼吼",
-          "name_ch": "风狼咆哮 & 土狼咆哮"
+          "href": "#ravenous-saber",
+          "name": "風塵光狼斬",
+          "name_en": "Ravenous Saber",
+          "name_ja": "風塵光狼斬",
+          "name_ch": "风尘光狼斩"
         }
       ]
     },
@@ -96,39 +82,32 @@
       "name": "P3 - 残影幻狼",
       "mechanics": [
         {
-          "href": "#terrestrial-rage",
-          "name": "大地の怒り",
-          "name_en": "Terrestrial Rage",
-          "name_ja": "大地の怒り",
-          "name_ch": "大地之怒"
+          "href": "#terrestrial-rage-shadowchase",
+          "name": "大地の怒り + 残影剣",
+          "name_en": "Terrestrial Rage + Shadowchase",
+          "name_ja": "大地の怒り + 残影剣",
+          "name_ch": "大地之怒 + 残影剑"
         },
         {
-          "href": "#shadowchase",
-          "name": "殘影劍",
-          "name_en": "Shadowchase",
-          "name_ja": "残影剣",
-          "name_ch": "残影剑"
+          "href": "#wolves-reign-weal-of-stone",
+          "name": "群狼剣 + 地烈波",
+          "name_en": "Wolves' Reign + Weal of Stone",
+          "name_ja": "群狼剣 + 地烈波",
+          "name_ch": "群狼剑 + 地烈波"
         },
         {
-          "href": "#weal-of-stone",
-          "name": "地烈波",
-          "name_en": "Weal of Stone",
-          "name_ja": "地烈波",
-          "name_ch": "地烈波"
-        },
-        {
-          "href": "#beckon-moonlight",
-          "name": "幻狼招来",
-          "name_en": "Phantasmal Lupine Call",
-          "name_ja": "幻狼招来",
-          "name_ch": "幻狼招来"
+          "href": "#terrestrial-rage-beckon-moonlight",
+          "name": "大地の怒り + 幻狼招来",
+          "name_en": "Terrestrial Rage + Beckon Moonlight",
+          "name_ja": "大地の怒り + 幻狼招来",
+          "name_ch": "大地之怒 + 幻狼召唤"
         },
         {
           "href": "#extraplanar-feast",
           "name": "空間斬り·終",
           "name_en": "Extraplanar Feast",
-          "name_ja": "空間斬り・終",
-          "name_ch": "空间斩·终"
+          "name_ja": "空間斬り・滅",
+          "name_ch": "空间灭斩"
         }
       ]
     }

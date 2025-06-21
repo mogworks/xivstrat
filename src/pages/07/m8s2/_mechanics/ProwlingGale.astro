@@ -11,6 +11,7 @@ import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import QuakeIIICast from '../_components/QuakeIIICast.astro'
 
 import img from '@/assets/07/m8s2/tmp.png'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -19,7 +20,7 @@ interface Props {
 
 const { start, base = 0 }: Props = Astro.props
 
-const prowlingGale = '風狼陣'
+const prowlingGale = translations.prowlingGale
 ---
 
 <QuakeIIICast start={start} base={base} />
