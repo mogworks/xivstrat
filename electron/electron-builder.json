@@ -32,7 +32,7 @@
         "arch": ["x64"]
       }
     ],
-    "sign": false,
+    "forceCodeSigning": false,
     "verifyUpdateCodeSignature": false
   },
   "linux": {

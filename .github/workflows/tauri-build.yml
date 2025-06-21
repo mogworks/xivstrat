@@ -122,7 +122,7 @@ jobs:
 
           # 找到win-unpacked目录
           UNPACKED_DIR=$(find electron-dist -name "win-unpacked" -type d | head -1)
-          
+
           if [ -d "$UNPACKED_DIR" ]; then
             echo "Found unpacked dir: $UNPACKED_DIR"
             # 创建zip包 - 使用解压版
@@ -133,7 +133,6 @@ jobs:
             echo "Error: win-unpacked directory not found!"
             exit 1
           fi
-          
 
       - name: Package Electron app (macOS)
         if: matrix.platform == 'macos-latest'
