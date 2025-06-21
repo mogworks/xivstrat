@@ -33,7 +33,7 @@ CLAUDE.md
 #tauri
 src-tauri/target/
 src-tauri/gen/
-
+src-tauri/Cargo.lock
 # electron
 electron-dist/
 

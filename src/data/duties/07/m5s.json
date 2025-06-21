@@ -8,7 +8,7 @@
   "date": "25/06/21 16:00",
   "href": "/07/m5s",
   "status": "done",
-  "indexAvailable": false,
+  "indexAvailable": true,
   "phases": [
     {
       "href": "/07/m5s/p1",
