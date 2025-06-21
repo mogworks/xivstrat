@@ -7,10 +7,11 @@ import BilibiliSVG from '@/assets/svg/bilibili.svg'
 import GitHubSVG from '@/assets/svg/github.svg'
 
 interface Props {
+  bilibili?: string
   class?: string
 }
 
-const { class: className = '' }: Props = Astro.props
+const { class: className = '', bilibili = 'https://space.bilibili.com/25787773' }: Props = Astro.props
 ---
 
 <section class={cn('flex items-center gap-2 px-4', className)}>
@@ -18,7 +19,7 @@ const { class: className = '' }: Props = Astro.props
   <a class="h-5 w-5 text-current/75 hover:text-current" href="https://github.com/mogworks/xivstrat" target="_blank">
     <GitHubSVG />
   </a>
-  <a class="h-5 w-5 text-current/75 hover:text-current" href="https://space.bilibili.com/25787773" target="_blank">
+  <a class="h-5 w-5 text-current/75 hover:text-current" href={bilibili} target="_blank">
     <BilibiliSVG />
   </a>
 </section>
