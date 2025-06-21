@@ -9,6 +9,7 @@ import ListDot from '@/components/ListDot.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import Bind from '@/components/buff/Bind.astro'
+import P from '@/components/typography/P.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
@@ -27,6 +28,8 @@ import AttackSection from '../_components/SugarRiotAttackSection.astro'
 import UnlimitedCravingActivate from '../_components/UnlimitedCravingActivate.astro'
 import Yan from '../_components/Yan.astro'
 
+import { translations } from '../_translations'
+
 import wave4 from '@/assets/07/m6s/paint_mark/wave4@3x.png'
 import wave4_solution_1 from '@/assets/07/m6s/soul_sugar/wave4_solution_1.png'
 import wave4_solution_2 from '@/assets/07/m6s/soul_sugar/wave4_solution_2.png'
@@ -37,7 +40,6 @@ import wave4_solution_6 from '@/assets/07/m6s/soul_sugar/wave4_solution_6.png'
 import wave4_solution_7 from '@/assets/07/m6s/soul_sugar/wave4_solution_7.png'
 import wave4_solution_8 from '@/assets/07/m6s/soul_sugar/wave4_solution_8.png'
 import wave4_solution_9 from '@/assets/07/m6s/soul_sugar/wave4_solution_9.png'
-import { translations } from '../_translations'
 
 interface Props {
   base?: Time
@@ -446,6 +448,18 @@ const { ICraveViolence, ReadyOreNot, OreRigato, MousseMural } = translations
         />
       </div>
     </div>
+    <P>
+      <ListDot />
+      击杀
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      后，
+      <RoleIcon role="melee" />
+      继续留在右边打松鼠，由远程转火
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      即可
+    </P>
     <div class="paragraph">
       <ListDot />
       <SugarRiot />
