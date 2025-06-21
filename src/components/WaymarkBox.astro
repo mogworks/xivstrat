@@ -6,38 +6,44 @@ import Separator from '@/components/Separator.astro'
 import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
 import T from '@/components/typography/T.astro'
 
+import { cn } from '@/lib/utils'
+
 interface Props {
-  href: string
+  href?: string
+  downloadLabel?: string
   img?: ImageMetadata
 }
 
-const { href, img }: Props = Astro.props
+const { href, img, downloadLabel = '下载标点文件' }: Props = Astro.props
 ---
 
 <div class="flex gap-6">
-  <div class="w-lg">
-    <AreaBox>
-      <waymark-download-button
-        href={href}
-        class="!disabled:hover:bg-purple-700/60 inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white disabled:cursor-not-allowed disabled:opacity-50 dark:border-purple-500 dark:bg-purple-700/75"
-      >
-        下载标点文件
-      </waymark-download-button>
-      <slot>
-        {
-          img && (
-            <>
-              <Separator class="my-2 mb-3" />
-              <ResizableImageDialog client:idle>
-                <Image src={img} alt="场地标点" class="w-full object-contain object-left-top" />
-              </ResizableImageDialog>
-            </>
-          )
-        }
-      </slot>
-    </AreaBox>
-  </div>
-  <AreaBox>
+  <AreaBox class="w-lg">
+    <waymark-download-button
+      href={href}
+      disabled={!href}
+      class={cn(
+        'inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white dark:border-purple-500 dark:bg-purple-700/75',
+        !href ? 'select-none cursor-not-allowed opacity-50' : 'hover:bg-purple-700/60',
+      )}
+    >
+      {downloadLabel}
+    </waymark-download-button>
+    <slot>
+      {
+        img && (
+          <>
+            <Separator class="my-2 mb-3" />
+            <ResizableImageDialog client:idle>
+              <Image src={img} alt="场地标点" class="w-full object-contain object-left-top" />
+            </ResizableImageDialog>
+          </>
+        )
+      }
+    </slot>
+  </AreaBox>
+
+  <AreaBox class="flex-1">
     <div class="shrink space-y-4">
       <T variant="yellow" text="使用说明" />
       <p class="font-extrabold">0. 请在游戏更新后，相应副本开启后再操作，否则可能会炸掉游戏</p>
@@ -229,15 +235,6 @@ const { href, img }: Props = Astro.props
                   }
 
                   /* 暗色模式样式 */
-                  :host-context(.dark) .download-btn {
-                      border-color: #7e22ce;
-                      background-color: rgba(126, 34, 206, 0.75);
-                  }
-
-                  :host-context(.dark) .download-btn:hover:not(:disabled) {
-                      background-color: rgba(109, 40, 217, 0.9);
-                  }
-
                   :host-context(.dark) .confirm-dialog {
                       background: #1f2937;
                       border-color: #374151;
