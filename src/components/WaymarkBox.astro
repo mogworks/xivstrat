@@ -6,44 +6,279 @@ import Separator from '@/components/Separator.astro'
 import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
 import T from '@/components/typography/T.astro'
 
+import { cn } from '@/lib/utils'
+
 interface Props {
-  href: string
+  href?: string
+  downloadLabel?: string
   img?: ImageMetadata
 }
 
-const { href, img }: Props = Astro.props
+const { href, img, downloadLabel = '下载标点文件' }: Props = Astro.props
 ---
 
 <div class="flex gap-6">
-  <div class="w-lg">
-    <AreaBox>
-      <a
-        href={href}
-        class="!disabled:hover:bg-purple-700/60 inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white disabled:cursor-not-allowed disabled:opacity-50 dark:border-purple-500 dark:bg-purple-700/75"
-      >
-        下载标点文件
-      </a>
-      <slot>
-        {
-          img && (
-            <>
-              <Separator class="my-2 mb-3" />
-              <ResizableImageDialog client:idle>
-                <Image src={img} alt="场地标点" class="w-full object-contain object-left-top" />
-              </ResizableImageDialog>
-            </>
-          )
-        }
-      </slot>
-    </AreaBox>
-  </div>
-  <div class="shrink space-y-4">
-    <T variant="yellow" text="使用说明" />
-    <p>0. 请在游戏更新后，相应副本开启后再操作，否则可能会炸掉游戏</p>
-    <p>1. 下载标点文件（UISAVE.DAT）</p>
-    <p>2. 退出游戏，先备份自己 My Games 目录下角色文件夹 FFXIV_CHRXXXXXXXXXXXXXXXX 中的 UISAVE.DAT 文件</p>
-    <p>3. 用下载的 UISAVE.DAT 覆盖</p>
-    <p>4. 进入游戏相应副本并标点（标点信息储存在第3页的11号槽位~14号槽位），让队友保存标点信息</p>
-    <p>5. 退出游戏，恢复自己备份的 UISAVE.DAT 文件</p>
-  </div>
+  <AreaBox class="w-lg">
+    <waymark-download-button
+      href={href}
+      disabled={!href}
+      class={cn(
+        'inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white dark:border-purple-500 dark:bg-purple-700/75',
+        !href ? 'select-none cursor-not-allowed opacity-50' : 'hover:bg-purple-700/60',
+      )}
+    >
+      {downloadLabel}
+    </waymark-download-button>
+    <slot>
+      {
+        img && (
+          <>
+            <Separator class="my-2 mb-3" />
+            <ResizableImageDialog client:idle>
+              <Image src={img} alt="场地标点" class="w-full object-contain object-left-top" />
+            </ResizableImageDialog>
+          </>
+        )
+      }
+    </slot>
+  </AreaBox>
+
+  <AreaBox class="flex-1">
+    <div class="shrink space-y-4">
+      <T variant="yellow" text="使用说明" />
+      <p class="font-extrabold">0. 请在游戏更新后，相应副本开启后再操作，否则可能会炸掉游戏</p>
+      <p>1. 下载标点文件（UISAVE.DAT）</p>
+      <p>
+        2. 退出游戏，<span class="font-extrabold">先备份</span>自己 My Games 目录下角色文件夹 FFXIV_CHRXXXXXXXXXXXXXXXX
+        中的 UISAVE.DAT 文件
+      </p>
+      <p>3. 用下载的 UISAVE.DAT 覆盖</p>
+      <p>
+        4. 进入游戏相应副本并标点（标点信息储存在第3页的11号槽位~14号槽位），<span class="font-extrabold"
+          >让队友保存标点信息</span
+        >
+      </p>
+      <p>5. 退出游戏，恢复自己备份的 UISAVE.DAT 文件</p>
+    </div>
+  </AreaBox>
 </div>
+<script>
+  class WaymarkDownloadButton extends HTMLElement {
+    static get observedAttributes() {
+      return ['href', 'disabled', 'filename']
+    }
+
+    constructor() {
+      super()
+      this.attachShadow({ mode: 'open' })
+      this.handleDocumentClick = this.handleDocumentClick.bind(this)
+    }
+
+    #confirmOpen = false
+
+    connectedCallback() {
+      this.render()
+      this.setupEventListeners()
+    }
+
+    disconnectedCallback() {
+      document.removeEventListener('click', this.handleDocumentClick)
+    }
+
+    attributeChangedCallback(name: 'href' | 'disabled' | 'filename') {
+      if (name === 'disabled') {
+        this.render()
+      }
+    }
+
+    get disabled() {
+      return this.hasAttribute('disabled')
+    }
+
+    handleDocumentClick(e: MouseEvent) {
+      if (!e.composedPath().includes(this)) {
+        this.closeConfirm()
+      }
+    }
+
+    openConfirm() {
+      if (this.#confirmOpen || this.disabled) {
+        return
+      }
+
+      this.#confirmOpen = true
+      this.render()
+
+      setTimeout(() => {
+        document.addEventListener('click', this.handleDocumentClick)
+      })
+    }
+
+    closeConfirm() {
+      this.#confirmOpen = false
+      document.removeEventListener('click', this.handleDocumentClick)
+      this.render()
+    }
+
+    triggerDownload() {
+      const href = this.getAttribute('href')
+      const filename = 'UISAVE.DAT'
+      if (href) {
+        const link = document.createElement('a')
+        link.href = href
+        link.download = filename
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      }
+
+      this.closeConfirm()
+    }
+
+    setupEventListeners() {
+      const button = this.shadowRoot?.querySelector('.download-btn')
+      if (button) {
+        button.addEventListener('click', () => this.openConfirm())
+      }
+
+      const confirmYes = this.shadowRoot?.querySelector('.confirm-btn-yes')
+      if (confirmYes) {
+        confirmYes.addEventListener('click', () => this.triggerDownload())
+      }
+
+      const confirmNo = this.shadowRoot?.querySelector('.confirm-btn-no')
+      if (confirmNo) {
+        confirmNo.addEventListener('click', () => this.closeConfirm())
+      }
+    }
+
+    render() {
+      const customClasses = Array.from(this.classList).join(' ')
+      if (!this.shadowRoot) {
+        this.attachShadow({ mode: 'open' })
+      } else {
+        this.shadowRoot.innerHTML = `
+              <style>
+                  :host {
+                      display: inline-flex;
+                      position: relative;
+                  }
+
+                  .confirm-dialog {
+                      position: absolute;
+                      left: 0;
+                      top: calc(100% + 10px);
+                      background: white;
+                      min-width: 240px;
+                      border-radius: 0.5rem;
+                      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+                      padding: 1em;
+                      z-index: 40;
+                      border: 1px solid #e5e7eb;
+                      animation: fadeInDown 0.2s ease-out;
+                      cursor: default;
+                  }
+
+                  .confirm-message {
+                      color: #4b5563;
+                      font-size: 0.875rem;
+                      text-align: center;
+                      margin-bottom: 1rem;
+                  }
+
+                  .confirm-buttons {
+                      display: flex;
+                      gap: 0.75rem;
+                  }
+
+                  .confirm-btn {
+                      flex: 1;
+                      margin: 0 auto;
+                      padding: 0.25em;
+                      max-width: 80px;
+                      border-radius: 0.375rem;
+                      font-size: 0.875rem;
+                      font-weight: 500;
+                      cursor: pointer;
+                      border: 1px solid transparent;
+                      transition: all 0.15s ease;
+                  }
+
+                  .confirm-btn-yes {
+                      background-color: #8b5cf6;
+                      color: white;
+                  }
+
+                  .confirm-btn-yes:hover {
+                      background-color: #7e22ce;
+                  }
+
+                  .confirm-btn-no {
+                      background-color: white;
+                      color: #4b5563;
+                      border: 1px solid #e5e7eb;
+                  }
+
+                  .confirm-btn-no:hover {
+                      background-color: #f9fafb;
+                  }
+
+                  @keyframes fadeInDown {
+                      from {
+                          opacity: 0;
+                          transform: translateY(-10px);
+                      }
+                      to {
+                          opacity: 1;
+                          transform: translateY(0);
+                      }
+                  }
+
+                  /* 暗色模式样式 */
+                  :host-context(.dark) .confirm-dialog {
+                      background: #1f2937;
+                      border-color: #374151;
+                  }
+
+                  :host-context(.dark) .confirm-message {
+                      color: #e5e7eb;
+                  }
+
+                  :host-context(.dark) .confirm-btn-no {
+                      background-color: #374151;
+                      color: #f3f4f6;
+                      border-color: #4b5563;
+                  }
+
+                  :host-context(.dark) .confirm-btn-no:hover {
+                      background-color: #4b5563;
+                  }
+              </style>
+
+              <div class="container ${customClasses}">
+                  <span class="download-btn" ${this.disabled ? 'disabled' : ''}>
+                      <slot></slot>
+                  </span>
+
+                  ${
+                    this.#confirmOpen
+                      ? `
+                      <div class="confirm-dialog">
+                          <p class="confirm-message">是否已仔细阅读使用说明？</p>
+                          <div class="confirm-buttons">
+                              <button class="confirm-btn confirm-btn-yes">是</button>
+                              <button class="confirm-btn confirm-btn-no">否</button>
+                          </div>
+                      </div>
+                  `
+                      : ''
+                  }
+              </div>
+          `
+      }
+      this.setupEventListeners()
+    }
+  }
+
+  customElements.define('waymark-download-button', WaymarkDownloadButton)
+</script>
