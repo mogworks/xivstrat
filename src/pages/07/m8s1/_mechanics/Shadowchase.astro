@@ -25,6 +25,8 @@ import FangedChargeCast from '../_components/FangedChargeCast.astro'
 import { translations } from '../_translations'
 
 import terrestrial_rage from '@/assets/07/m8s1/shadowchase/terrestrial_rage.png'
+import fanged_charge_1 from '@/assets/07/m8s1/shadowchase/fanged_charge_1.png'
+import fanged_charge_2 from '@/assets/07/m8s1/shadowchase/fanged_charge_2.png'
 
 interface Props {
   base?: Time
@@ -85,11 +87,26 @@ const { base = 0 }: Props = Astro.props
 
     <T text={translations.fangedCharge} variant="yellow" class="mt-8" />
     <P>
-      场地上会先后刷新两组
+      场地上会分两轮先后刷新两组
       <GleamingFang />
       释放斜向的直线AoE，呈条纹状间隔分布，如下图：
     </P>
-    <!-- TODO -->
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: fanged_charge_1,
+          alt: '突进光牙1',
+          title: '第一轮',
+        },
+        {
+          src: fanged_charge_2,
+          alt: '突进光牙2',
+          title: '第二轮',
+        },
+      ]}
+    />
 
     <T text={translations.shadowchase} variant="yellow" class="mt-8" />
     <P>
