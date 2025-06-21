@@ -27,6 +27,10 @@ import { translations } from '../_translations'
 import terrestrial_rage from '@/assets/07/m8s1/shadowchase/terrestrial_rage.png'
 import fanged_charge_1 from '@/assets/07/m8s1/shadowchase/fanged_charge_1.png'
 import fanged_charge_2 from '@/assets/07/m8s1/shadowchase/fanged_charge_2.png'
+import shadowchase_1 from '@/assets/07/m8s1/shadowchase/1.png'
+import shadowchase_2 from '@/assets/07/m8s1/shadowchase/2.png'
+import roaring_wind_1 from '@/assets/07/m8s1/shadowchase/roaring_wind_1.png'
+import roaring_wind_2 from '@/assets/07/m8s1/shadowchase/roaring_wind_2.png'
 
 interface Props {
   base?: Time
@@ -116,7 +120,22 @@ const { base = 0 }: Props = Astro.props
       <Span variant="pink">8m</Span>
       宽直线AoE，分身有两种刷新模式，如下图：
     </P>
-    <!-- TODO -->
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: shadowchase_1,
+          alt: '残影剑1',
+          title: '模式一',
+        },
+        {
+          src: shadowchase_2,
+          alt: '残影剑2',
+          title: '模式二',
+        },
+      ]}
+    />
     <P>分身一定是和之后的狼首交错刷新的</P>
 
     <T text={translations.roaringWind} variant="yellow" class="mt-8" />
@@ -129,7 +148,22 @@ const { base = 0 }: Props = Astro.props
       <Span variant="pink">8m</Span>
       宽直线AoE，同样有两种刷新模式，如下图：
     </P>
-    <!-- TODO -->
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: roaring_wind_1,
+          alt: '风狼豪波1',
+          title: '模式一',
+        },
+        {
+          src: roaring_wind_2,
+          alt: '风狼豪波2',
+          title: '模式二',
+        },
+      ]}
+    />
     <P>狼首一定是和之前的分身交错刷新的</P>
   </div>
 </MechanicSection>
