@@ -21,12 +21,17 @@ import StoneringerCast from '../_components/StoneringerCast.astro'
 import SmashActivate from '../_components/SmashActivate.astro'
 import SmashHereCast from '../_components/SmashHereCast.astro'
 import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
+import Stoneringer from './Stoneringer.astro'
+import Skill from '@/components/typography/Skill.astro'
+import { translations } from '../_translations'
+import StratLink from '@/components/StratLink.astro'
 
 interface Props {
   base: Time
 }
 
 const { base = 0 }: Props = Astro.props
+const stoneringer = translations.stoneringer
 ---
 
 <ExplosionCast time="01:36.275" base={base} num={1} />
@@ -42,14 +47,15 @@ const { base = 0 }: Props = Astro.props
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
-      <BruteAbombinator />召唤三颗
+      <BruteAbombinator />召唤3颗
       <Span variant="amber">陨石</Span>
-      ，依次落地，扩散光效闪烁<Span variant="pink">9</Span>下<Span variant="pink">（9秒）</Span>后造成
+      ，依次落地，扩散光效闪烁<Span variant="pink">9</Span>下（<Span variant="pink">9s</Span>）后造成
       <Span variant="rose">距离衰减</Span>
       伤害
     </div>
+    <div class="paragraph">陨石刷新模式共两种</div>
     <h4 class="mt-4 text-2xl">
-      <Span variant="yellow">陨石刷新</Span>
+      <Span variant="yellow">陨石刷新模式</Span>
     </h4>
     <ImgRow
       bordered={false}
@@ -86,5 +92,8 @@ const { base = 0 }: Props = Astro.props
         { src: solution3, alt: '陨石躲避步骤3', title: '步骤3' },
       ]}
     />
+    <div class="paragraph">
+      第三下陨石伤害生效后，躲避<StratLink variant="yellow" href="#stoneringer">{stoneringer}组合技</StratLink>
+    </div>
   </div>
 </SolutionSection>
