@@ -7,8 +7,8 @@
   "banner": "@/assets/banners/07/zelenia.png",
   "date": "25/06/07 20:00",
   "href": "/07/zelenia",
-  "status": "live",
-  "indexAvailable": true,
+  "status": "upcoming",
+  "indexAvailable": false,
   "phases": [
     {
       "href": "/07/zelenia/p1",
