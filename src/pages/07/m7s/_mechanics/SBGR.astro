@@ -72,18 +72,17 @@ const defaultSolution = '解法：三五分散'
   <div class="flex flex-col gap-4">
     <P>P2 场地共有三面墙，除了击飞过来的方向（也就是P1场地方向），每侧各有一面</P>
     <P>场地长边的两面墙位置中心对称</P>
+    <P><BruteAbombinator />落地后先伸出藤蔓，吸附在P1场地对面的墙上</P>
     <div class="flex flex-col gap-4">
-      <T class="mt-8 scroll-mt-[calc(5rem+1px)]">
+      <T class="mt-8 scroll-mt-[calc(5rem+1px)]" id="stoneringerP2">
         <Skill name={stoneringer} />
       </T>
       <P>
-        <BruteAbombinator />落地后伸出藤蔓，吸附在P1场地对面的墙上，读条<Span variant="yellow">{stoneringer}</Span
-        >拔出武器
+        <BruteAbombinator />读条<Span variant="yellow">{stoneringer}</Span>，拔出武器
       </P>
       <P>
-        然后读条<Span variant="yellow">{brutishswing}</Span>，连线<Span variant="pink">其他</Span>墙壁，同时武器<Span
-          variant="pink">发光</Span
-        >
+        然后读条<Span variant="yellow">{brutishswing}</Span>，连线所在墙<Span variant="pink">除外</Span
+        >的墙壁，同时武器<Span variant="pink">发光</Span>
       </P>
       <P>随后<Span variant="pink">移动至连线墙壁</Span>，读条结束后发动对应<Span variant="yellow">钢铁/月环</Span></P>
       <P>
@@ -192,14 +191,14 @@ const defaultSolution = '解法：三五分散'
         bordered={false}
         imgs={[
           {
-            src: glowerPowerVertical35_1,
-            alt: 'H1前往较大的安全区分散',
-            title: 'H1前往较大的安全区分散',
-          },
-          {
             src: glowerPowerVertical35_2,
             alt: 'D3前往较大的安全区分散',
             title: 'D3前往较大的安全区分散',
+          },
+          {
+            src: glowerPowerVertical35_1,
+            alt: 'H1前往较大的安全区分散',
+            title: 'H1前往较大的安全区分散',
           },
         ]}
       />
