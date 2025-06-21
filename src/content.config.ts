@@ -15,6 +15,7 @@ const duties = defineCollection({
       href: z.string(),
       status: z.union([z.literal('upcoming'), z.literal('live'), z.literal('done')]),
       indexAvailable: z.boolean(),
+      bilibili: z.string().optional(),
       phases: z.array(
         z.object({
           href: z.string(),

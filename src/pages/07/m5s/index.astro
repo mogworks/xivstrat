@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import { getEntry } from 'astro:content'
 
 import ScannerSVG from '@/assets/svg/scanner.svg'
 import BiliBiliSVG from '@/assets/svg/bilibili.svg'
@@ -22,6 +23,7 @@ import { referenceList } from './_data/reference'
 import { thanksList } from './_data/thanks'
 
 const dutyId = '07/m5s'
+const duty = (await getEntry('duties', dutyId))!.data
 const navList = [
   { label: '小抄速览', id: 'cheatsheet' },
   { label: '场地标点', id: 'waymark' },
@@ -30,7 +32,7 @@ const navList = [
   { label: '参考资料', id: 'reference' },
   { label: '鸣谢', id: 'thanks' },
 ]
-const videoLink = 'https://www.bilibili.com/video/BV1pNNyzxEh6'
+const videoLink = duty.bilibili ?? undefined
 ---
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
