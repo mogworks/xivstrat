@@ -1,6 +1,6 @@
 export const thanksList = {
   groupList: ['XivStrat', 'MMW', 'SPJP'],
-  devList: ['SuperJump', 'Hikaru', 'DavidKitano', 'BaiXi', 'LuoLuoKe', 'YuKa'],
+  devList: ['SuperJump', 'Hikaru', 'DavidKitano', 'BaiXi', 'LuoLuoKe', 'YuKa', 'Demon'],
   other: [
     {
       type: '宏整合',
