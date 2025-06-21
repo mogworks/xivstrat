@@ -27,36 +27,33 @@ import rose2 from '@/assets/07/zelenia/P3-3/P3-3-rose2.png'
 import o from '@/assets/07/zelenia/P3-3/P3-3-o.png'
 import q from '@/assets/07/zelenia/P3-3/P3-3-q.png'
 import { quotelessJson } from 'astro:schema'
-
 ---
-
 
 <MechanicSection>
   <div class="flex gap-4">
     <ImageRow
-        class="game-img"
-        wrapperClass="max-w-88"
-        borderVariant="cyan"
-        rounded
-        imgs={[
-          {
-            src: o,
-            alt: 'Zelenia：P3-3 机制',
-            // title: '先钢铁',
-          },
-        ]}
-      />
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: o,
+          alt: 'Zelenia：P3-3 机制',
+          // title: '先钢铁',
+        },
+      ]}
+    />
     <div class="flex flex-col gap-4">
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
-          <div class="paragraph">
-            <Zelenia/>点名<RoleIcon role="tank|healer" />
-            或<RoleIcon role="dps" />
-            附加🌹标记，携带🌹的玩家会把无色地板染成<Span variant="red">红色地板</Span>
-          </div>
-          <div class="paragraph">
-            同时，在场中召唤<Span variant="blue">塔x4</Span>
-          </div>
-          
+        <div class="paragraph">
+          <Zelenia />点名<RoleIcon role="tank|healer" />
+          或<RoleIcon role="dps" />
+          附加🌹标记，携带🌹的玩家会把无色地板染成<Span variant="red">红色地板</Span>
+        </div>
+        <div class="paragraph">
+          同时，在场中召唤<Span variant="blue">塔x4</Span>
+        </div>
       </div>
       <ImageRow
         class="game-img"
@@ -73,16 +70,13 @@ import { quotelessJson } from 'astro:schema'
             alt: 'Zelenia：P3-3 机制',
             // title: '先钢铁',
           },
-          
         ]}
       />
     </div>
   </div>
 </MechanicSection>
 <SolutionSection>
-  <div class="flex flex-col gap-6"> 
-    
-    
+  <div class="flex flex-col gap-6">
     <!-- <div class="max-w-88 flex-1">
       <Image src={ga} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     </div>
@@ -90,14 +84,14 @@ import { quotelessJson } from 'astro:schema'
       <Image src={ya} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     </div> -->
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
-        <div class="paragraph">
-          <Span variant="yellow">Step 1</Span>
-          以这个形状为新的十二点
-        </div>
-        <div class="paragraph">
-          <Span variant="yellow">Step 2</Span>
-          根据点名的不同，放花🌹和踩塔站位如下所示
-        </div>
+      <div class="paragraph">
+        <Span variant="yellow">Step 1</Span>
+        以这个形状为新的十二点
+      </div>
+      <div class="paragraph">
+        <Span variant="yellow">Step 2</Span>
+        根据点名的不同，放花🌹和踩塔站位如下所示
+      </div>
     </div>
     <ImageRow
       class="game-img"
@@ -117,8 +111,6 @@ import { quotelessJson } from 'astro:schema'
         },
       ]}
     />
-    
-    
   </div>
 </SolutionSection>
 <NoteSection>
@@ -134,7 +126,6 @@ import { quotelessJson } from 'astro:schema'
           alt: 'Zelenia：P3-3 正确处理机制图',
           title: '正确处理',
         },
-        
       ]}
     />
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
@@ -144,9 +135,7 @@ import { quotelessJson } from 'astro:schema'
       <div class="paragraph">
         所以不能让<Span variant="red">红色地板</Span>将塔连接起来
       </div>
-      <div class="paragraph">
-        否则会团灭
-      </div>
+      <div class="paragraph">否则会团灭</div>
     </div>
   </div>
 </NoteSection>

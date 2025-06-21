@@ -39,7 +39,7 @@ const floorMap: Record<number, typeof floor1> = {
   3: floor3,
   4: floor4,
   5: floor5,
-  6: floor6
+  6: floor6,
 }
 
 const { start, base = 0, num }: Props = Astro.props
@@ -50,19 +50,18 @@ const { start, base = 0, num }: Props = Astro.props
 <MechanicSection>
   <div class="flex gap-4">
     <ImageRow
-        class="game-img"
-        wrapperClass="max-w-88"
-        borderVariant="cyan"
-        rounded
-        imgs={[
-          {
-            src: floorMap[num] ?? img,
-            alt: 'Zelenia：P3 场地图',
-            // title: '先钢铁',
-          },
-          
-        ]}
-      />
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: floorMap[num] ?? img,
+          alt: 'Zelenia：P3 场地图',
+          // title: '先钢铁',
+        },
+      ]}
+    />
     <!-- <div class="max-w-88 flex-1">
       <Image src={floorMap[num] ?? img} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     </div> -->
