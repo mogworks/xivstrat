@@ -1,4 +1,4 @@
-:80 {
+xivstrat.com {
 	root * /srv
 	file_server
 

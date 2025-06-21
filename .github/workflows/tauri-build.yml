@@ -3,7 +3,7 @@ name: Build Tauri App
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*.*.*' # 匹配 v1.0.0 格式的tag
 
 jobs:
   build:
@@ -19,25 +19,35 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # 获取完整的git历史
 
-      - name: Get version from tag
-        id: get_version
+      - name: Setup git config
         run: |
-          raw_tag="${GITHUB_REF#refs/tags/}"
-          clean_version="${raw_tag#v}"
-          echo "version=$clean_version" >> "$GITHUB_OUTPUT"
-        shell: bash
+          git config user.name github-actions
+          git config user.email github-actions@github.com
 
-      - name: Update Tauri Config Version
-        run: |
-          echo "Updating Tauri config version to ${{ steps.get_version.outputs.version }}"
-          jq --arg v "${{ steps.get_version.outputs.version }}" '.version = $v' src-tauri/tauri.conf.json > tmp.json && mv tmp.json src-tauri/tauri.conf.json
+      - name: Try to merge main branch (optional)
+        id: merge_main
+        continue-on-error: true
         shell: bash
+        run: |
+          git fetch origin main
+          echo "Attempting to merge main branch..."
+          if git merge origin/main --no-edit --no-ff; then
+            echo "Successfully merged main branch"
+            echo "merge_success=true" >> $GITHUB_OUTPUT
+          else
+            echo "Merge conflicts detected, aborting merge"
+            git merge --abort
+            echo "merge_success=false" >> $GITHUB_OUTPUT
+            echo "::warning::Could not merge main branch due to conflicts. Building from current branch state."
+          fi
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Install pnpm
         uses: pnpm/action-setup@v3
@@ -58,35 +68,96 @@ jobs:
       - name: Install frontend dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Generate Tauri icons
-        run: |
-          pnpm tauri icon src-tauri/icons/icon.png || true
-
       - name: Build Tauri app
-        uses: tauri-apps/tauri-action@v0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          args: ${{ matrix.args }}
+        shell: bash
+        run: |
+          if [ "${{ matrix.platform }}" = "macos-latest" ]; then
+            pnpm tauri build --target universal-apple-darwin
+          else
+            pnpm tauri build
+          fi
 
-      - name: Upload build artifacts (Windows)
+      - name: Package and Upload artifacts (Windows)
         if: matrix.platform == 'windows-latest'
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ matrix.platform }}-build
-          path: |
-            src-tauri/target/release/bundle/**/*.msi
-            src-tauri/target/release/bundle/**/*.exe
-          retention-days: 5
+        shell: bash
+        run: |
+          # 找到生成的 exe 文件
+          EXE_PATH=$(find src-tauri/target/release -name "*.exe" -not -path "*/deps/*" -not -path "*/build/*" | head -1)
+          echo "Found exe: $EXE_PATH"
 
-      - name: Upload build artifacts (macOS)
+          # 创建 zip 包
+          mkdir -p dist
+          cp "$EXE_PATH" "dist/XivStrat.exe"
+          cd dist
+          powershell Compress-Archive -Path "XivStrat.exe" -DestinationPath "../XivStrat-tauri-Windows.zip"
+          cd ..
+
+      - name: Package and Upload artifacts (macOS)
         if: matrix.platform == 'macos-latest'
+        shell: bash
+        run: |
+          # 找到生成的 app 文件夹
+          APP_PATH=$(find src-tauri/target -name "*.app" -type d | head -1)
+          echo "Found app: $APP_PATH"
+
+          # 创建 zip 包
+          mkdir -p dist
+          cp -r "$APP_PATH" "dist/XivStrat.app"
+          cd dist
+          zip -r ../XivStrat-tauri-macOS.zip XivStrat.app
+          cd ..
+
+      # Electron 构建部分
+      # - name: Build Electron app
+      #   shell: bash
+      #   run: |
+      #     pnpm install
+      #     pnpm build
+      - name: Package Electron app (Windows)
+        if: matrix.platform == 'windows-latest'
+        shell: bash
+        run: |
+          pnpm build:electron
+          pnpm exec electron-builder --config electron/electron-builder.json --win dir
+
+          # 找到win-unpacked目录
+          UNPACKED_DIR=$(find electron-dist -name "win-unpacked" -type d | head -1)
+
+          if [ -d "$UNPACKED_DIR" ]; then
+            echo "Found unpacked dir: $UNPACKED_DIR"
+            # 创建zip包 - 使用解压版
+            cd "$UNPACKED_DIR"
+            powershell Compress-Archive -Path "*" -DestinationPath "../../XivStrat-electron-Windows.zip"
+            cd ../..
+          else
+            echo "Error: win-unpacked directory not found!"
+            exit 1
+          fi
+
+      - name: Package Electron app (macOS)
+        if: matrix.platform == 'macos-latest'
+        shell: bash
+        run: |
+          pnpm build:electron
+          pnpm exec electron-builder --config electron/electron-builder.json --mac dir
+
+          # 找到生成的 app 文件夹
+          APP_PATH=$(find electron-dist/mac* -name "*.app" -type d | head -1)
+          echo "Found app: $APP_PATH"
+
+          # 创建 zip 包
+          mkdir -p electron-zips
+          cp -r "$APP_PATH" "electron-zips/XivStrat.app"
+          cd electron-zips
+          zip -r ../XivStrat-electron-macOS.zip XivStrat.app
+          cd ..
+
+      - name: Upload all build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.platform }}-build
           path: |
-            src-tauri/target/*/release/bundle/**/*.dmg
-            src-tauri/target/*/release/bundle/**/*.app.tar.gz
+            XivStrat-*.zip
           retention-days: 5
 
   release:
@@ -95,10 +166,6 @@ jobs:
     if: success()
     steps:
       - uses: actions/checkout@v4
-
-      - name: Get version from tag
-        id: get_version
-        run: echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4
@@ -111,22 +178,24 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.get_version.outputs.version }}
-          name: XivStrat Desktop ${{ steps.get_version.outputs.version }}
+          tag_name: ${{ github.ref_name }}
+          name: XivStrat Desktop ${{ github.ref_name }}
           body: |
             ## 下载说明
 
-            - **Windows**: 下载 `.msi` 或 `.exe` 文件
-            - **macOS**: 下载 `.dmg` 文件
+            ### Tauri 版本
+            - **Windows**: 下载 `XivStrat-tauri-Windows.zip`，解压后运行 `XivStrat.exe`
+            - **macOS**: 下载 `XivStrat-tauri-macOS.zip`，解压后运行 `XivStrat.app`
+
+            ### Electron 版本（备用选择）
+            - **Windows**: 下载 `XivStrat-electron-Windows.zip`，解压后运行 `XivStrat.exe`
+            - **macOS**: 下载 `XivStrat-electron-macOS.zip`，解压后运行 `XivStrat.app`
 
             ### 更新内容
             - 查看提交历史了解详细更新
           draft: false
           prerelease: false
           files: |
-            artifacts/**/*.dmg
-            artifacts/**/*.msi
-            artifacts/**/*.exe
-            artifacts/**/*.app.tar.gz
+            artifacts/**/*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

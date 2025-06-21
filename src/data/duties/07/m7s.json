@@ -8,7 +8,7 @@
   "date": "25/06/18 18:20",
   "href": "/07/m7s",
   "status": "live",
-  "indexAvailable": false,
+  "indexAvailable": true,
   "phases": [
     {
       "href": "/07/m7s/p1",

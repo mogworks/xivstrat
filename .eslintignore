@@ -1,0 +1,14 @@
+# 忽略构建产物
+dist/
+electron-dist/
+.astro/
+src-tauri/target/
+
+# 忽略配置文件
+*.config.js
+*.config.mjs
+*.config.ts
+
+# 忽略特定文件
+electron/.gitignore
+pnpm-lock.yaml
