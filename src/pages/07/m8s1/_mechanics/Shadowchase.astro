@@ -9,6 +9,7 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import Quote from '@/components/typography/Quote.astro'
 import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import TerrestrialRageCast from '../_components/TerrestrialRageCast.astro'
 import GleamingFang from '../_components/entities/GleamingFang.astro'
@@ -22,6 +23,10 @@ import RoaringWindCast from '../_components/RoaringWindCast.astro'
 import FangedChargeCast from '../_components/FangedChargeCast.astro'
 
 import { translations } from '../_translations'
+
+import terrestrial_rage from '@/assets/07/m8s1/shadowchase/terrestrial_rage.png'
+import fanged_charge_1 from '@/assets/07/m8s1/shadowchase/fanged_charge_1.png'
+import fanged_charge_2 from '@/assets/07/m8s1/shadowchase/fanged_charge_2.png'
 
 interface Props {
   base?: Time
@@ -41,7 +46,6 @@ const { base = 0 }: Props = Astro.props
 <RetargetableEvent time="04:56.667" base={base} />
 <RoaringWindCast start="04:56.667" base={base} />
 
-<!-- TODO -->
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <Quote variant="yellow" class="opacity-80">
@@ -65,20 +69,44 @@ const { base = 0 }: Props = Astro.props
       <RoleIcon role="tank|healer" />
       分摊，反之亦然
     </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: terrestrial_rage,
+          alt: '大地之怒',
+        },
+      ]}
+    />
     <P>
       注意该机制的分散会
       <Span variant="cyan">点够4人</Span>
       ，所以如果中途有分散点名死了，就会点到分摊的人群中，导致团灭
     </P>
-    <!-- TODO -->
 
     <T text={translations.fangedCharge} variant="yellow" class="mt-8" />
     <P>
-      场地上会先后刷新两组
+      场地上会分两轮先后刷新两组
       <GleamingFang />
       释放斜向的直线AoE，呈条纹状间隔分布，如下图：
     </P>
-    <!-- TODO -->
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: fanged_charge_1,
+          alt: '突进光牙1',
+          title: '第一轮',
+        },
+        {
+          src: fanged_charge_2,
+          alt: '突进光牙2',
+          title: '第二轮',
+        },
+      ]}
+    />
 
     <T text={translations.shadowchase} variant="yellow" class="mt-8" />
     <P>
