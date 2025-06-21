@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets'
 
+import ScannerSVG from '@/assets/svg/scanner.svg'
+import BiliBiliSVG from '@/assets/svg/bilibili.svg'
+
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
 import WaymarkBox from '@/components/WaymarkBox.astro'
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
@@ -27,6 +30,7 @@ const navList = [
   { label: '参考资料', id: 'reference' },
   { label: '鸣谢', id: 'thanks' },
 ]
+const videoLink = 'https://www.bilibili.com/video/BV1pNNyzxEh6'
 ---
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
@@ -35,9 +39,20 @@ const navList = [
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
       >
+        <ScannerSVG class="mr-2 h-5 w-5" />
         查看正文
       </button>
     </a>
+    {
+      videoLink && (
+        <a href={videoLink}>
+          <button class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75">
+            <BiliBiliSVG class="mr-2 h-5 w-5" />
+            查看视频攻略
+          </button>
+        </a>
+      )
+    }
   </Fragment>
   <CollapsibleBox id="cheatsheet" client:idle class="w-full">
     <Fragment slot="header">
