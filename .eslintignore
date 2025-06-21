@@ -12,6 +12,3 @@ src-tauri/target/
 # 忽略特定文件
 electron/.gitignore
 pnpm-lock.yaml
-
-# 忽略 Zelenia 组件（临时）
-src/pages/07/zelenia/_components/RoseBloodBloom2Dynamic.astro
