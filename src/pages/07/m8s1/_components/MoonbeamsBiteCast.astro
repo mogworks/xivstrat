@@ -19,7 +19,7 @@ const index = [...Array(4).keys()]
 {
   index.map((i) => (
     <>
-      <CastSection ability="幻狼剣" start={timeToSeconds(start) + i * 2} duration={8.7}>
+      <CastSection ability="幻狼剣" start={timeToSeconds(start) + i * 2} duration={8.7} base={base}>
         <div slot="source">
           <HowlingBlade />
           分身
