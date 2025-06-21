@@ -28,11 +28,7 @@
     "icon": "electron/build/icon.ico",
     "target": [
       {
-        "target": "nsis",
-        "arch": ["x64"]
-      },
-      {
-        "target": "portable",
+        "target": "dir",
         "arch": ["x64"]
       }
     ]

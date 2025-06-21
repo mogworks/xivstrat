@@ -121,16 +121,36 @@ jobs:
           pnpm build:electron
           pnpm exec electron-builder --config electron/electron-builder.json --win portable
 
-          # 找到生成的 exe 文件
-          PORTABLE_PATH=$(find electron-dist -name "*.exe" | head -1)
-          echo "Found portable exe: $PORTABLE_PATH"
+          # 找到生成的便携版exe文件
+          PORTABLE_EXE=$(find electron-dist -name "*.exe" | grep -i portable | head -1)
+          echo "Found portable exe: $PORTABLE_EXE"
 
-          # 创建 zip 包
-          mkdir -p electron-zips
-          cp "$PORTABLE_PATH" "electron-zips/XivStrat.exe"
-          cd electron-zips
-          powershell Compress-Archive -Path "XivStrat.exe" -DestinationPath "../XivStrat-electron-Windows.zip"
-          cd ..
+          # 获取exe所在目录
+          PORTABLE_DIR=$(dirname "$PORTABLE_EXE")
+          APP_NAME=$(basename "$PORTABLE_EXE" .exe)
+
+          # 如果是便携版，electron-builder会把所有资源打包进exe
+          # 但我们也构建一个解压版以防万一
+          pnpm exec electron-builder --config electron/electron-builder.json --win dir
+
+          # 找到win-unpacked目录
+          UNPACKED_DIR=$(find electron-dist -name "win-unpacked" -type d | head -1)
+
+          if [ -d "$UNPACKED_DIR" ]; then
+            echo "Found unpacked dir: $UNPACKED_DIR"
+            # 创建zip包 - 使用解压版
+            cd "$UNPACKED_DIR"
+            powershell Compress-Archive -Path "*" -DestinationPath "../../XivStrat-electron-Windows.zip"
+            cd ../..
+          else
+            # 如果没有找到解压版，使用便携版
+            echo "Using portable exe for zip"
+            mkdir -p electron-zips
+            cp "$PORTABLE_EXE" "electron-zips/XivStrat-portable.exe"
+            cd electron-zips
+            powershell Compress-Archive -Path "XivStrat-portable.exe" -DestinationPath "../XivStrat-electron-Windows-portable.zip"
+            cd ..
+          fi
 
       - name: Package Electron app (macOS)
         if: matrix.platform == 'macos-latest'
@@ -181,7 +201,7 @@ jobs:
           body: |
             ## 下载说明
 
-            ### Tauri 版本（推荐，体积更小）
+            ### Tauri 版本
             - **Windows**: 下载 `XivStrat-tauri-Windows.zip`，解压后运行 `XivStrat.exe`
             - **macOS**: 下载 `XivStrat-tauri-macOS.zip`，解压后运行 `XivStrat.app`
 
