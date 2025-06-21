@@ -31,7 +31,9 @@
         "target": "dir",
         "arch": ["x64"]
       }
-    ]
+    ],
+    "sign": false,
+    "verifyUpdateCodeSignature": false
   },
   "linux": {
     "icon": "electron/build/icon.png",

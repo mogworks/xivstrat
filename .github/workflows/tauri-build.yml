@@ -117,25 +117,12 @@ jobs:
         if: matrix.platform == 'windows-latest'
         shell: bash
         run: |
-          # 构建便携版
           pnpm build:electron
-          pnpm exec electron-builder --config electron/electron-builder.json --win portable
-
-          # 找到生成的便携版exe文件
-          PORTABLE_EXE=$(find electron-dist -name "*.exe" | grep -i portable | head -1)
-          echo "Found portable exe: $PORTABLE_EXE"
-
-          # 获取exe所在目录
-          PORTABLE_DIR=$(dirname "$PORTABLE_EXE")
-          APP_NAME=$(basename "$PORTABLE_EXE" .exe)
-
-          # 如果是便携版，electron-builder会把所有资源打包进exe
-          # 但我们也构建一个解压版以防万一
           pnpm exec electron-builder --config electron/electron-builder.json --win dir
 
           # 找到win-unpacked目录
           UNPACKED_DIR=$(find electron-dist -name "win-unpacked" -type d | head -1)
-
+          
           if [ -d "$UNPACKED_DIR" ]; then
             echo "Found unpacked dir: $UNPACKED_DIR"
             # 创建zip包 - 使用解压版
@@ -143,14 +130,10 @@ jobs:
             powershell Compress-Archive -Path "*" -DestinationPath "../../XivStrat-electron-Windows.zip"
             cd ../..
           else
-            # 如果没有找到解压版，使用便携版
-            echo "Using portable exe for zip"
-            mkdir -p electron-zips
-            cp "$PORTABLE_EXE" "electron-zips/XivStrat-portable.exe"
-            cd electron-zips
-            powershell Compress-Archive -Path "XivStrat-portable.exe" -DestinationPath "../XivStrat-electron-Windows-portable.zip"
-            cd ..
+            echo "Error: win-unpacked directory not found!"
+            exit 1
           fi
+          
 
       - name: Package Electron app (macOS)
         if: matrix.platform == 'macos-latest'
