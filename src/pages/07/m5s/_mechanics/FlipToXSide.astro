@@ -31,6 +31,7 @@ import FlipToXSideCast from '../_components/FlipToXSideCast.astro'
 import PlayXSideCast from '../_components/PlayXSideCast.astro'
 import XSnapTwistAndDropTheNeedleAbility from '../_components/XSnapTwistAndDropTheNeedleAbility.astro'
 import XSnapTwistAndDropTheNeedleCast from '../_components/XSnapTwistAndDropTheNeedleCast.astro'
+import { translations } from '../_translations/index'
 
 interface Props {
   base?: Time
@@ -73,7 +74,7 @@ const defaultSolution = '解法：日野主流'
       <Image src={flip_to_a_side_img} alt="Flip to A-side" class="border-2 border-amber-800/75 dark:border-amber-100" />
       <div class="relative flex flex-col gap-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
-          <Span variant="yellow">Flip to A-side</Span>
+          <Span variant="yellow">{translations.flipToA}</Span>
         </h4>
         <div class="paragraph">
           点名随机
@@ -96,7 +97,7 @@ const defaultSolution = '解法：日野主流'
       <Image src={flip_to_b_side_img} alt="Flip to B-side" class="border-2 border-amber-800/75 dark:border-amber-100" />
       <div class="relative flex flex-col gap-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
-          <Span variant="yellow">Flip to B-side</Span>
+          <Span variant="yellow">{translations.flipToB}</Span>
         </h4>
         <div class="paragraph">
           点名
@@ -220,7 +221,7 @@ const defaultSolution = '解法：日野主流'
         />
         <div class="paragraph">
           情形1：
-          <Span variant="yellow">Flip to A-side</Span>
+          <Span variant="yellow">{translations.flipToA}</Span>
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
@@ -231,16 +232,16 @@ const defaultSolution = '解法：日野主流'
         />
         <div class="paragraph">
           情形2：
-          <Span variant="yellow">Flip to B-side</Span>
+          <Span variant="yellow">{translations.flipToB}</Span>
         </div>
       </div>
     </div>
     <div class="paragraph">由于扇形分散的角度较窄，而直线分摊的宽度较宽</div>
     <div class="paragraph">
       因此，只要按上图站位，无论之前读条是
-      <Span variant="yellow">Flip to A-side</Span>
+      <Span variant="yellow">{translations.flipToA}</Span>
       还是
-      <Span variant="yellow">Flip to B-side</Span>
+      <Span variant="yellow">{translations.flipToB}</Span>
       ，都可
       <Span variant="pink">直接无视</Span>
     </div>
@@ -286,7 +287,7 @@ const defaultSolution = '解法：日野主流'
         />
         <div class="paragraph">
           情形1：
-          <Span variant="yellow">Flip to A-side</Span>
+          <Span variant="yellow">{translations.flipToA}</Span>
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
@@ -297,7 +298,7 @@ const defaultSolution = '解法：日野主流'
         />
         <div class="paragraph">
           情形2：
-          <Span variant="yellow">Flip to B-side</Span>
+          <Span variant="yellow">{translations.flipToB}</Span>
         </div>
       </div>
     </div>

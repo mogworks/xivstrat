@@ -1,0 +1,31 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+const sinisterseeds = translations.sinisterSeeds
+---
+
+<CastSection start={start} base={base} duration={2.7} ability={sinisterseeds}>
+  <Fragment slot="source">
+    <RoleIcon role="enemy_level1">
+      <Span variant="rose">BOSS分身[不可视]×4</Span>
+    </RoleIcon></Fragment
+  >
+  <Fragment slot="cast">
+    对最近/最远4名<RoleIcon role="any" />释放
+  </Fragment>
+  <Badge variant="emerald">7m圆形</Badge>
+  <Badge variant="yellow">点名AoE</Badge>
+</CastSection>

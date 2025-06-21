@@ -16,20 +16,22 @@ import DoubleStyleP4 from './_mechanics/DoubleStyleP4.astro'
 import Layer3 from './_mechanics/Layer3.astro'
 import Layer4 from './_mechanics/Layer4.astro'
 import SugarscapeP4 from './_mechanics/SugarscapeP4.astro'
+import { translations } from './_translations'
 
 const dutyId = '07/m6s'
+
 const base = '07:07.286'
 ---
 
 <DutyStratLayout dutyId={dutyId}>
   <MoveToNorthEvent time="07:07.286" base={base} />
-  <SeparatorSection id="sugarscape" title="Sugarscape" />
+  <SeparatorSection id="sugarscape" title={translations.Sugarscape} />
   <SugarscapeP4 base={base} />
-  <SeparatorSection id="double-style" title="Double Style" />
+  <SeparatorSection id="double-style" title={translations.DoubleStyle} />
   <DoubleStyleP4 base={base} />
-  <SeparatorSection id="layer-3" title="Layer #3" />
+  <SeparatorSection id="layer-3" title={`${translations.Layer} #3`} />
   <Layer3 base={base} />
-  <SeparatorSection id="layer-4" title="Layer #4" />
+  <SeparatorSection id="layer-4" title={`${translations.Layer} #4`} />
   <Layer4 base={base} />
   <SeparatorSection />
   <MousseMuralCast id="mousse-mural" start="09:53.472" base={base} />

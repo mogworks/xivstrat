@@ -1,39 +1,16 @@
 ---
-import type { Time } from '@/lib/utils'
-
-import { Image } from 'astro:assets'
-
-import Boss from '@/components/Boss.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import DotInfo from '@/components/DotInfo.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
-import Bleeding from '@/components/buff/Bleeding.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import ImageRow from '@/components/typography/ImgRow.astro'
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
 
-
 import StratBoard from '@/components/StratBoard.astro'
-
-import Badge from '@/components/Badge.astro'
-import CastSection from '@/components/section/CastSection.astro'
-
-import Zelenia from './Zelenia.astro'
-
-import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
-
-
-
-
 ---
+
 <SolutionSection>
   <h4 class="mt-8 text-2xl">
     <Span variant="lime">动态演示</Span>
   </h4>
-  
+
   <div class="flex gap-4">
     <div class="flex shrink flex-col items-center gap-4">
       <StratBoard
@@ -46,11 +23,7 @@ import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
       <div
         class="flex items-center justify-start gap-2 rounded-full border border-lime-200 bg-lime-100/90 px-3 py-1 backdrop-blur-sm dark:border-lime-800/80 dark:bg-lime-900/80 dark:shadow-lime-900/30"
       >
-        <button
-          id="solution-dynamic-play-button"
-          class="group flex items-center gap-2"
-          title="开始演示"
-        >
+        <button id="solution-dynamic-play-button" class="group flex items-center gap-2" title="开始演示">
           <div
             class="flex h-6 w-6 items-center justify-center rounded-full bg-lime-500 text-white shadow-inner shadow-lime-400/30 transition-all group-hover:scale-110 group-hover:bg-lime-600 group-hover:shadow group-active:scale-95 dark:bg-lime-600 dark:shadow-lime-500/10 dark:group-hover:bg-lime-500"
           >
@@ -71,53 +44,39 @@ import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
             class="text-sm font-medium text-lime-900 transition-all group-hover:scale-110 group-hover:text-lime-700 group-active:scale-95 dark:text-lime-100 dark:group-hover:text-white"
             >开始演示</span
           >
-
         </button>
         <div class="paragraph">
-          <ToggleSwitch id="stell-moon-switch"
-            lVariant="yellow"
-            rVariant="pink"
-            lLabel="先钢铁"
-            rLabel="先月环" />
+          <ToggleSwitch id="stell-moon-switch" lVariant="yellow" rVariant="pink" lLabel="先钢铁" rLabel="先月环" />
         </div>
       </div>
     </div>
-    
-
   </div>
 </SolutionSection>
 
-
 <script>
-  // 1. 类型和第三方库引用
-  import type { Application } from 'pixi.js'
-  import { AnimatedSprite, Assets, Container, Graphics, Sprite, Texture } from 'pixi.js'
-  import { animate } from 'motion'
   import { listenKeys } from 'nanostores'
-
-  // 2. 业务相关自定义库
-  import type { RoleType } from '@/lib/role'
-  import { Role } from '@/pixi/role'
-  import { getScale, YmToPx ,YmToPxMap} from '@/pixi/utils'
-  import { setWaymark } from '@/pixi/waymark'
-  import { $stratBoards } from '@/stores/stratBoards'
-  // import { waymarkData } from '../_data/waymark'
-  // import { $roleOrders, shuffleRoleOrder } from '../_stores/getDownOrder'
+  // 1. 类型和第三方库引用
+  import { Assets, Container, Graphics, Sprite } from 'pixi.js'
 
   import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
+  // 2. 业务相关自定义库
+  import { YmToPx, YmToPxMap } from '@/pixi/utils'
+  // import { waymarkData } from '../_data/waymark'
+  // import { $roleOrders, shuffleRoleOrder } from '../_stores/getDownOrder'
+  import { $stratBoards } from '@/stores/stratBoards'
 
   // 3. 配置常量
   // const roleTypeMap = { ... }
   // const radianMap = { ... }
   const ratio = 1.25
-  const circleRadius = 8 * YmToPx * ratio
+  const _circleRadius = 8 * YmToPx * ratio
   // 其他动画参数...
 
   // 4. 状态变量
-  
-  let removeTickerFn = null
-  let removeAnimFn = null
-  let skillOrder = "steelFirst";
+
+  const _removeTickerFn = null
+  const _removeAnimFn = null
+  let skillOrder = 'steelFirst'
 
   // ==================== 新增：技能扇形角度配置 =======================
   // 共三组，每组是60°扇区+180°同宽扇区
@@ -125,24 +84,26 @@ import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
     // { id: 0, angles: [ {start:60, end:120}, {start:150, end:210} ] },
     // { id: 1, angles: [ {start:120, end:180}, {start:210, end:270} ] },
     // { id: 2, angles: [ {start:0, end:60}, {start:270, end:330} ] },
-    { id: 0, angles: [ {start:60, end:120}] },
-    { id: 1, angles: [ {start:120, end:180}] },
-    { id: 2, angles: [ {start:0, end:60}] },
-  ];
+    { id: 0, angles: [{ start: 60, end: 120 }] },
+    { id: 1, angles: [{ start: 120, end: 180 }] },
+    { id: 2, angles: [{ start: 0, end: 60 }] },
+  ]
   // 动画释放顺序，动态可变
-  let fanOrder = [0,1,2,3,4,5]; // 可根据实际场次顺序指定
+  const fanOrder = [0, 1, 2, 3, 4, 5] // 可根据实际场次顺序指定
 
   // 场地圆环半径
-  const innerR = 5 * YmToPx * ratio;
-  const outerR = 10 * YmToPx * ratio;
+  const innerR = 5 * YmToPx * ratio
+  const outerR = 10 * YmToPx * ratio
 
-  const innerA = innerR*0.75
-  const outerA = outerR*0.75
+  const innerA = innerR * 0.75
+  const outerA = outerR * 0.75
 
   // ==================== 新增：绘制圆环和扇形的函数 =======================
 
   // 工具：度转弧度
-  function deg2rad(d: number) { return d * Math.PI / 180; }
+  function deg2rad(d: number) {
+    return (d * Math.PI) / 180
+  }
 
   // 绘制1个扇形(环形片段, 支持覆盖内外半径)
   function drawPie(
@@ -157,19 +118,18 @@ import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
     const startDeg2 = startDeg + 180
     const endDeg2 = endDeg + 180
 
-    console.log("drawPie: start")
-    g.clear();
+    console.log('drawPie: start')
+    g.clear()
 
-    g.moveTo(0, 0);
-    g.arc(0,0,r2, deg2rad(startDeg), deg2rad(endDeg));
-    g.closePath();
-    g.fill({ color, alpha });
+    g.moveTo(0, 0)
+    g.arc(0, 0, r2, deg2rad(startDeg), deg2rad(endDeg))
+    g.closePath()
+    g.fill({ color, alpha })
 
-    g.moveTo(0, 0);
-    g.arc(0,0,r2, deg2rad(startDeg2), deg2rad(endDeg2));
-    g.closePath();
-    g.fill({ color, alpha });
-    
+    g.moveTo(0, 0)
+    g.arc(0, 0, r2, deg2rad(startDeg2), deg2rad(endDeg2))
+    g.closePath()
+    g.fill({ color, alpha })
   }
 
   function drawRing2(
@@ -179,69 +139,70 @@ import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
     color: number = 0xffff00,
     alpha: number = 0.6,
     startDeg: 0,
-    endDeg: 360,
+    endDeg: 360
   ): void {
-    console.log("drawPie: start")
-    g.clear();
-    
-    g.moveTo(r1 * Math.cos(deg2rad(startDeg)), r1 * Math.sin(deg2rad(startDeg)));
-    g.arc(0,0,r2, deg2rad(startDeg), deg2rad(endDeg));
-    g.lineTo(r1 * Math.cos(deg2rad(endDeg)), r1 * Math.sin(deg2rad(endDeg)));
-    g.arc(0,0,r1, deg2rad(endDeg), deg2rad(startDeg), true);
-    g.closePath();
-    g.fill({ color, alpha });
+    console.log('drawPie: start')
+    g.clear()
+
+    g.moveTo(r1 * Math.cos(deg2rad(startDeg)), r1 * Math.sin(deg2rad(startDeg)))
+    g.arc(0, 0, r2, deg2rad(startDeg), deg2rad(endDeg))
+    g.lineTo(r1 * Math.cos(deg2rad(endDeg)), r1 * Math.sin(deg2rad(endDeg)))
+    g.arc(0, 0, r1, deg2rad(endDeg), deg2rad(startDeg), true)
+    g.closePath()
+    g.fill({ color, alpha })
   }
 
   // 绘制满圆环(钢铁/月环)
-  function drawRing(
-    g: Graphics, 
-    r1: number,
-    r2: number, 
-    color=0x3388ff, 
-    alpha=0.6
-  ) : void {
-    g.clear();
+  function drawRing(g: Graphics, r1: number, r2: number, color = 0x3388ff, alpha = 0.6): void {
+    g.clear()
 
     // 外圆
-    g.moveTo(r2, 0);
-    g.arc(0, 0, r2, 0, Math.PI * 2);
+    g.moveTo(r2, 0)
+    g.arc(0, 0, r2, 0, Math.PI * 2)
 
     // 连到内圆
-    g.moveTo(r1, 0);
-    g.arc(0, 0, r1, 0, Math.PI * 2, true);
+    g.moveTo(r1, 0)
+    g.arc(0, 0, r1, 0, Math.PI * 2, true)
 
-    g.closePath();
-    g.fill({ color, alpha });
+    g.closePath()
+    g.fill({ color, alpha })
   }
 
   // ==================== 新增：扇形组实例 ========================
-  let bossFanGs: Graphics[] = []; // [Graphics, Graphics, Graphics]
-  let steelG: Graphics;
-  let moonG: Graphics;
-  let roleSprite: Sprite;
-  
+  let bossFanGs: Graphics[] = [] // [Graphics, Graphics, Graphics]
+  let steelG: Graphics
+  let moonG: Graphics
+  let roleSprite: Sprite
 
   // ==================== 新增：初始化技能扇形图层函数 ===============
   function initSkillGraphics(container: Container) {
     // 移除旧的
-    bossFanGs.forEach(g => g.destroy && g.destroy());
-    bossFanGs = [];
-    if (steelG) steelG.destroy();
-    if (moonG) moonG.destroy();
+    bossFanGs.forEach((g) => g.destroy && g.destroy())
+    bossFanGs = []
+    if (steelG) {
+      steelG.destroy()
+    }
+    if (moonG) {
+      moonG.destroy()
+    }
 
     // 三组黄色扇形（默认隐藏）
-    for(let i=0; i<3; i++) {
-      const g = new Graphics();
-      g.position.set(0,0);
-      g.visible = false;
-      container.addChild(g);
-      bossFanGs.push(g);
+    for (let i = 0; i < 3; i++) {
+      const g = new Graphics()
+      g.position.set(0, 0)
+      g.visible = false
+      container.addChild(g)
+      bossFanGs.push(g)
     }
     // 钢铁、月环是蓝色
-    steelG = new Graphics(); steelG.visible = false; container.addChild(steelG);
-    moonG = new Graphics(); moonG.visible = false; container.addChild(moonG);
-    
-    console.log("initSkillGraphics ok")
+    steelG = new Graphics()
+    steelG.visible = false
+    container.addChild(steelG)
+    moonG = new Graphics()
+    moonG.visible = false
+    container.addChild(moonG)
+
+    console.log('initSkillGraphics ok')
   }
 
   // 5. 初始化舞台和角色
@@ -259,7 +220,7 @@ import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
     const floorTexture = await Assets.load(floorpic)
     const floor = Sprite.from(floorTexture)
     floor.anchor.set(0.5, 0.5)
-    
+
     // 计算适应mask的缩放
     // 宽高一致用 width，否则用 min 宽高
     const imgW = floorTexture.width
@@ -269,57 +230,56 @@ import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
     // 按比例缩放层图片以适应mask正方形区域
     const scale = Math.min(maskSize / imgW, maskSize / imgH)
     floor.scale.set(scale)
-    
+
     // 位置设为 mask 中心（你的mask也是以(0,0)为中心）
     floor.position.set(0, 0)
-    
+
     container.addChild(floor)
 
     // await setWaymark(container, waymarkData, 0.5)
 
-    console.log('ratio:', ratio);
-    container.scale.set(ratio);
-}
-
+    console.log('ratio:', ratio)
+    container.scale.set(ratio)
+  }
 
   // 6. 初始化角色
   async function initPlayerContainer(container: Container) {
     // 如果之前有角色，先删除
     if (roleSprite) {
-      roleSprite.destroy();
+      roleSprite.destroy()
       // roleSprite = Sprite;
     }
 
     // 1. 加载角色图片
-    const roleTexture = await Assets.load('role/all.png');
-    const role = Sprite.from(roleTexture);
-    role.anchor.set(0.5, 0.5);
+    const roleTexture = await Assets.load('role/all.png')
+    const role = Sprite.from(roleTexture)
+    role.anchor.set(0.5, 0.5)
 
     // 2. 设置初始位置，例如居中
-    role.position.set(innerA * Math.cos(deg2rad(90)), innerA * Math.sin(deg2rad(90)));
+    role.position.set(innerA * Math.cos(deg2rad(90)), innerA * Math.sin(deg2rad(90)))
 
     // 3. 缩放至合适大小（如1米高）
-    const roleSize = YmToPx; // 或你自己的角色像素大小
-    const scale =2* roleSize / Math.max(roleTexture.width, roleTexture.height);
-    role.scale.set(scale);
+    const roleSize = YmToPx // 或你自己的角色像素大小
+    const scale = (2 * roleSize) / Math.max(roleTexture.width, roleTexture.height)
+    role.scale.set(scale)
 
     // 4. 始终在最顶层（比如地板与技能特效之上）
-    role.zIndex = 10;
+    role.zIndex = 10
 
     // 5. 加入Container
-    container.addChild(role);
+    container.addChild(role)
 
     // 6. 暴露到全局
-    roleSprite = role;
+    roleSprite = role
 
-    console.log('角色Role已加载');
+    console.log('角色Role已加载')
   }
 
   // 7. 定义主播放动画过程
   async function play() {
     // 资源加载和动画流程
     // 按当前 $roleOrders 的顺序移动角色/显示特效
-    showBossSkills();
+    showBossSkills()
   }
 
   // 8. 重置角色
@@ -328,24 +288,21 @@ import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
   // }
 
   // 9. 按钮事件处理
-  document.getElementById('solution-dynamic-play-button')
-    ?.addEventListener('click', () => {
-      play()
-    })
-  document.getElementById('solution-dynamic-random-button')
-    ?.addEventListener('click', () => {
-      // shuffleRoleOrder()
-      play()
-    })
-  document.getElementById('stell-moon-switch')
-    ?.addEventListener('change', function () {
-      const checkbox = this as HTMLInputElement;
-      if (checkbox.checked) {
-        skillOrder = "moonFirst";
-      } else {
-        skillOrder = "steelFirst";
-      }
-      console.log('skillOrder:', skillOrder);
+  document.getElementById('solution-dynamic-play-button')?.addEventListener('click', () => {
+    play()
+  })
+  document.getElementById('solution-dynamic-random-button')?.addEventListener('click', () => {
+    // shuffleRoleOrder()
+    play()
+  })
+  document.getElementById('stell-moon-switch')?.addEventListener('change', function () {
+    const checkbox = this as HTMLInputElement
+    if (checkbox.checked) {
+      skillOrder = 'moonFirst'
+    } else {
+      skillOrder = 'steelFirst'
+    }
+    console.log('skillOrder:', skillOrder)
   })
 
   // 10. 监听StratBoard画布实例变化，根据画布初始化舞台一次
@@ -359,7 +316,7 @@ import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
     floorContainer.position.set(app.screen.width / 2, app.screen.height / 2)
 
     // 初始化地板和mask
-    await initFloorContainer(floorContainer)   // 只初始化地板
+    await initFloorContainer(floorContainer) // 只初始化地板
 
     // 初始化技能图层，确保在地板之上
     initSkillGraphics(floorContainer)
@@ -371,159 +328,168 @@ import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
     console.log(floorContainer.children)
   })
 
-  function moveSpriteTo(
-    sprite: Sprite, 
-    targetX: number, 
-    targetY: number, 
-    duration = 1500, 
-    onComplete?: () => void
-  ) {  
-    const startX = sprite.x, startY = sprite.y;
-    const dx = targetX - startX, dy = targetY - startY;
-    const startTime = performance.now();
+  function moveSpriteTo(sprite: Sprite, targetX: number, targetY: number, duration = 1500, onComplete?: () => void) {
+    const startX = sprite.x
+    const startY = sprite.y
+    const dx = targetX - startX
+    const dy = targetY - startY
+    const startTime = performance.now()
 
     function animate(now: number) {
-      const t = Math.min((now - startTime) / duration, 1);
-      sprite.x = startX + dx * t;
-      sprite.y = startY + dy * t;
+      const t = Math.min((now - startTime) / duration, 1)
+      sprite.x = startX + dx * t
+      sprite.y = startY + dy * t
       if (t < 1) {
-        requestAnimationFrame(animate);
+        requestAnimationFrame(animate)
       } else {
-        sprite.x = targetX; sprite.y = targetY;
-        if (onComplete) onComplete();
+        sprite.x = targetX
+        sprite.y = targetY
+        if (onComplete) {
+          onComplete()
+        }
       }
     }
-    requestAnimationFrame(animate);
+    requestAnimationFrame(animate)
   }
-  
+
   // ==================== 新增：播放boss技能的流程动画 =======================
 
   // 用于当前播放序号
-  let currentAnimIdx = 0;
-  let removeSkillAnim = null;
+  let _currentAnimIdx = 0
+  let removeSkillAnim = null
 
-  function showBossSkills(){
-
-    console.log("showBossSkills: start")
+  function showBossSkills() {
+    console.log('showBossSkills: start')
     // 必须有 bossFanGs/steelG/moonG
-    bossFanGs.forEach(g=>{g.visible=false; g.clear()});
-    steelG.visible = false; steelG.clear();
-    moonG.visible = false; moonG.clear();
+    bossFanGs.forEach((g) => {
+      g.visible = false
+      g.clear()
+    })
+    steelG.visible = false
+    steelG.clear()
+    moonG.visible = false
+    moonG.clear()
 
-    currentAnimIdx = 0;
+    _currentAnimIdx = 0
 
     // -- 新增状态变量 --
-    const N = fanOrder.length;   // 通常这里应该是6或更多，但需求只说前三组
-    let fanVisible = Array(N).fill(false);
+    const N = fanOrder.length // 通常这里应该是6或更多，但需求只说前三组
+    const fanVisible = Array.from({ length: N }, () => false)
 
     // 记录钢铁/月环的两阶段显示（均只显示一回）
-    let steelFirstVisible=false, steelSecondVisible=false;
-    let moonFirstVisible=false, moonSecondVisible=false;
+    let steelFirstVisible = false
+    let steelSecondVisible = false
+    let moonFirstVisible = false
+    let moonSecondVisible = false
 
     function playFanStep(i: number) {
-      if(i>=N) {
+      if (i >= N) {
         // 结束时清理
-        setTimeout(()=> {
-          bossFanGs.forEach(g=>{g.visible=false; g.clear()});
-          steelG.visible=false; steelG.clear();
-          moonG.visible=false; moonG.clear();
-        }, 1000);
-        return;
+        setTimeout(() => {
+          bossFanGs.forEach((g) => {
+            g.visible = false
+            g.clear()
+          })
+          steelG.visible = false
+          steelG.clear()
+          moonG.visible = false
+          moonG.clear()
+        }, 1000)
+        return
       }
 
       // 可见性逻辑
-      if(i <= 2) {
+      if (i <= 2) {
         // 前三次，累加显示
-        fanVisible[fanOrder[i]] = true;
+        fanVisible[fanOrder[i]] = true
 
-        if(i === 0) {
-          if(skillOrder === "steelFirst") {
-            steelFirstVisible = true;
-            moonFirstVisible = false;
-            moveSpriteTo(roleSprite, outerA * Math.sin(deg2rad(-70)),outerA* Math.cos(deg2rad(-70)));
-          }else{
-            steelFirstVisible = false;
-            moonFirstVisible = true;
-            moveSpriteTo(roleSprite, innerA * Math.sin(deg2rad(70)),innerA* Math.cos(deg2rad(70)));
+        if (i === 0) {
+          if (skillOrder === 'steelFirst') {
+            steelFirstVisible = true
+            moonFirstVisible = false
+            moveSpriteTo(roleSprite, outerA * Math.sin(deg2rad(-70)), outerA * Math.cos(deg2rad(-70)))
+          } else {
+            steelFirstVisible = false
+            moonFirstVisible = true
+            moveSpriteTo(roleSprite, innerA * Math.sin(deg2rad(70)), innerA * Math.cos(deg2rad(70)))
           }
-          steelSecondVisible = false;
-          moonSecondVisible = false;
+          steelSecondVisible = false
+          moonSecondVisible = false
         }
       }
-      if(i === 3) {
+      if (i === 3) {
         // 第四轮（第二次钢铁/月环出现）
-        fanVisible[fanOrder[0]] = false;    // 第一个扇形消失
-        steelFirstVisible = false;
-        moonFirstVisible = false;
+        fanVisible[fanOrder[0]] = false // 第一个扇形消失
+        steelFirstVisible = false
+        moonFirstVisible = false
         // === 现在显示第二次钢铁/月环 ===
-        if(skillOrder === "steelFirst") {
-          steelSecondVisible = false;
-          moonSecondVisible = true;
-          moveSpriteTo(roleSprite, innerA * Math.sin(deg2rad(-110)),innerA* Math.cos(deg2rad(-110)));
-        }else{
-          steelSecondVisible = true;
-          moonSecondVisible = false;
-          moveSpriteTo(roleSprite, outerA * Math.sin(deg2rad(70)),outerA* Math.cos(deg2rad(70)));
+        if (skillOrder === 'steelFirst') {
+          steelSecondVisible = false
+          moonSecondVisible = true
+          moveSpriteTo(roleSprite, innerA * Math.sin(deg2rad(-110)), innerA * Math.cos(deg2rad(-110)))
+        } else {
+          steelSecondVisible = true
+          moonSecondVisible = false
+          moveSpriteTo(roleSprite, outerA * Math.sin(deg2rad(70)), outerA * Math.cos(deg2rad(70)))
         }
       }
-      if(i === 4) {
+      if (i === 4) {
         // 第五次，把第二组扇形和第二次钢铁/月环都隐藏
-        fanVisible[fanOrder[1]] = false;
-        steelSecondVisible = false;
-        moonSecondVisible = false;
-        if(skillOrder === "steelFirst") {
-          moveSpriteTo(roleSprite, innerA * Math.sin(deg2rad(-70)),innerA* Math.cos(deg2rad(-70)));
-        }else{
-          moveSpriteTo(roleSprite, outerA * Math.sin(deg2rad(110)),outerA* Math.cos(deg2rad(110)));
+        fanVisible[fanOrder[1]] = false
+        steelSecondVisible = false
+        moonSecondVisible = false
+        if (skillOrder === 'steelFirst') {
+          moveSpriteTo(roleSprite, innerA * Math.sin(deg2rad(-70)), innerA * Math.cos(deg2rad(-70)))
+        } else {
+          moveSpriteTo(roleSprite, outerA * Math.sin(deg2rad(110)), outerA * Math.cos(deg2rad(110)))
         }
       }
-      if(i === 5) {
+      if (i === 5) {
         // 第六次，第三组扇形消失
-        fanVisible[fanOrder[2]] = false;
+        fanVisible[fanOrder[2]] = false
       }
 
       // 2. redraw所有技能扇形
       bossFanGs.forEach((g, idx) => {
-        g.clear();
-        g.visible = fanVisible[idx];
-        if(fanVisible[idx]){
-          const conf = fanConfigs[idx];
-          g.position.set(0,0);
-          conf.angles.forEach(a=>drawPie(g, a.start, a.end, innerR, outerR, 0xffcc00, 0.8));
+        g.clear()
+        g.visible = fanVisible[idx]
+        if (fanVisible[idx]) {
+          const conf = fanConfigs[idx]
+          g.position.set(0, 0)
+          conf.angles.forEach((a) => drawPie(g, a.start, a.end, innerR, outerR, 0xffcc00, 0.8))
         }
-      });
+      })
 
       // 3. 控制钢铁/月环两阶段的可见
       // steelG: 只有第一轮/第二轮轮到才显示
-      steelG.clear();
-      if(steelFirstVisible || steelSecondVisible){
-        steelG.visible = true;
-        drawRing(steelG, 0, innerR, 0x3388ff, 0.5);
-      }else{
-        steelG.visible = false;
+      steelG.clear()
+      if (steelFirstVisible || steelSecondVisible) {
+        steelG.visible = true
+        drawRing(steelG, 0, innerR, 0x3388ff, 0.5)
+      } else {
+        steelG.visible = false
       }
       // moonG
-      moonG.clear();
-      if(moonFirstVisible || moonSecondVisible){
-        moonG.visible = true;
-        drawRing2(moonG, innerR, outerR, 0x3388ff, 0.6, 0, 360);
-      }else{
-        moonG.visible = false;
+      moonG.clear()
+      if (moonFirstVisible || moonSecondVisible) {
+        moonG.visible = true
+        drawRing2(moonG, innerR, outerR, 0x3388ff, 0.6, 0, 360)
+      } else {
+        moonG.visible = false
       }
 
       // 4. 下一步
       removeSkillAnim = setTimeout(() => {
-        playFanStep(i+1);
-      }, 3000);
+        playFanStep(i + 1)
+      }, 3000)
     }
 
-    playFanStep(0);
+    playFanStep(0)
   }
-
 
   // ==================== 新增：监控舞台和重置动画 ====================
 
-  listenKeys($stratBoards, ['solution-dynamic'], async (stratBoards) => {
+  listenKeys($stratBoards, ['solution-dynamic'], async (_stratBoards) => {
     // ...获取app & container等
     // 可以自动运行一次
     // play();
@@ -533,8 +499,7 @@ import floorpic from '@/assets/07/zelenia/dynamic/RoseBlood_floor_2.png'
 
   // ==================== 清理动画定时器 ====================
 
-  if(removeSkillAnim) clearTimeout(removeSkillAnim);
-
-
+  if (removeSkillAnim) {
+    clearTimeout(removeSkillAnim)
+  }
 </script>
-

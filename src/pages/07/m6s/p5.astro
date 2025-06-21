@@ -25,8 +25,10 @@ import ArtisticAnarchy from './_mechanics/ArtisticAnarchy.astro'
 
 import explosion_3 from '@/assets/07/m6s/layer_4/explosion_3.png'
 import sticky_mousse from '@/assets/07/m6s/layer_4/sticky_mousse.png'
+import { translations } from './_translations'
 
 const dutyId = '07/m6s'
+
 const base = '10:03.635'
 ---
 
@@ -34,13 +36,13 @@ const base = '10:03.635'
   <ContentSection>
     <div class="paragraph opacity-80">P5均为P1机制的复读，故重复内容不再赘述</div>
   </ContentSection>
-  <SeparatorSection id="sticky-mousse" title="Sticky Mousse" />
+  <SeparatorSection id="sticky-mousse" title={translations.StickyMousse} />
   <StickyMousseCast start="10:03.635" end="10:09.421" base={base} />
   <SolutionSection>
     <div class="flex flex-col gap-4">
       <div class="paragraph">
         基本解法参考
-        <StratLink variant="lime" href="/07/m6s/p1#sticky-mousse">P1: Sticky Mousse</StratLink>
+        <StratLink variant="lime" href="/07/m6s/p1#sticky-mousse">P1: {translations.StickyMousse}</StratLink>
         ，但本次有一些注意事项
       </div>
       <div class="paragraph mt-8">
@@ -87,7 +89,7 @@ const base = '10:03.635'
       </div>
     </div>
   </SolutionSection>
-  <SeparatorSection id="color-riot" title="Color Riot" />
+  <SeparatorSection id="color-riot" title={translations.ColorRiot} />
   <ColorRiotCast start="10:15.792" base={base} />
   <NoteSection>
     <div class="flex flex-col gap-4">
@@ -106,7 +108,10 @@ const base = '10:03.635'
   <SeparatorSection />
   <AttackSection time="10:25.856" base={base} damage="57000" damageType="magical" />
   <MoveToCenterEvent time="10:28.130" base={base} />
-  <SeparatorSection id="w-cc-ds" title="Wingmark + Color Clash + Double Style" />
+  <SeparatorSection
+    id="w-cc-ds"
+    title={`${translations.Wingmark} + ${translations.ColorClash} + ${translations.DoubleStyle}`}
+  />
   <WingmarkCast start="10:29.467" base={base} />
   <ColorClashCast start="10:36.593" base={base} />
   <DoubleStyleCast start="10:44.077" base={base} duration={12.6} />
@@ -114,17 +119,17 @@ const base = '10:03.635'
   <NoteSection>
     <div class="paragraph">
       参考
-      <StratLink variant="yellow" href="/07/m6s/p1#wingmark">P1: Wingmark</StratLink>
+      <StratLink variant="yellow" href="/07/m6s/p1#wingmark">{`P1: ${translations.Wingmark}`}</StratLink>
       ，
-      <StratLink variant="yellow" href="/07/m6s/p1#color-clash">P1: Color Clash</StratLink>
+      <StratLink variant="yellow" href="/07/m6s/p1#color-clash">{`P1: ${translations.ColorClash}`}</StratLink>
       ，
-      <StratLink variant="yellow" href="/07/m6s/p1#double-style">P1: Double Style</StratLink>
+      <StratLink variant="yellow" href="/07/m6s/p1#double-style">{`P1: ${translations.DoubleStyle}`}</StratLink>
     </div>
   </NoteSection>
   <SeparatorSection />
   <AttackSection time="11:03.143" base={base} damage="57000" damageType="magical" />
   <AttackSection time="11:06.172" base={base} damage="57000" damageType="magical" />
   <MoveToCenterEvent time="11:08.179" base={base} />
-  <SeparatorSection id="artistic-anarchy" title="Artistic Anarchy" />
+  <SeparatorSection id="artistic-anarchy" title={translations.ArtisticAnarchy} />
   <ArtisticAnarchy base={base} />
 </DutyStratLayout>

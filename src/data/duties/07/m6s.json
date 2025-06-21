@@ -5,7 +5,7 @@
   "title": "阿卡狄亚零式登天斗技场 中量级2 攻略",
   "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级2 超详解动态图文攻略",
   "banner": "@/assets/banners/07/m6s.png",
-  "date": "25/05/19 19:00",
+  "date": "25/06/21 18:00",
   "href": "/07/m6s",
   "status": "done",
   "indexAvailable": true,
@@ -18,38 +18,38 @@
       "mechanics": [
         {
           "href": "#color-riot",
-          "name": "Color Riot",
+          "name": "色彩狂热",
           "name_en": "Color Riot",
           "name_ja": "",
-          "name_ch": "色彩暴动"
+          "name_ch": "色彩狂热"
         },
         {
           "href": "#wingmark",
-          "name": "Wingmark",
+          "name": "翅膀标记",
           "name_en": "Wingmark",
           "name_ja": "",
-          "name_ch": "翼痕"
+          "name_ch": "翅膀标记"
         },
         {
           "href": "#color-clash",
-          "name": "Color Clash",
+          "name": "色彩冲击",
           "name_en": "Color Clash",
           "name_ja": "",
-          "name_ch": "色彩冲突"
+          "name_ch": "色彩冲击"
         },
         {
           "href": "#double-style",
-          "name": "Double Style",
+          "name": "双手涂鸦",
           "name_en": "Double Style",
           "name_ja": "",
-          "name_ch": "双重风格"
+          "name_ch": "双手涂鸦"
         },
         {
           "href": "#sticky-mousse",
-          "name": "Sticky Mousse",
+          "name": "黏黏慕斯怪",
           "name_en": "Sticky Mousse",
           "name_ja": "",
-          "name_ch": "粘稠慕斯"
+          "name_ch": "黏黏慕斯怪"
         }
       ]
     },
@@ -61,31 +61,31 @@
       "mechanics": [
         {
           "href": "#sugarscape",
-          "name": "Sugarscape",
+          "name": "糖心绘景",
           "name_en": "Sugarscape",
           "name_ja": "",
-          "name_ch": "糖原幻境"
+          "name_ch": "糖心绘景"
         },
         {
           "href": "#layer-1",
-          "name": "Layer #1",
+          "name": "添笔 #1",
           "name_en": "Layer #1",
           "name_ja": "",
-          "name_ch": "第一层"
+          "name_ch": "添笔 #1"
         },
         {
           "href": "#layer-2",
-          "name": "Layer #2",
+          "name": "添笔 #2",
           "name_en": "Layer #2",
           "name_ja": "",
-          "name_ch": "第二层"
+          "name_ch": "添笔 #2"
         },
         {
           "href": "#double-style",
-          "name": "Double Style",
+          "name": "双手涂鸦",
           "name_en": "Double Style",
           "name_ja": "",
-          "name_ch": "双重风格"
+          "name_ch": "双手涂鸦"
         }
       ]
     },
@@ -97,38 +97,38 @@
       "mechanics": [
         {
           "href": "#soul-sugar",
-          "name": "Soul Sugar",
+          "name": "糖糖之魂",
           "name_en": "Soul Sugar",
           "name_ja": "",
-          "name_ch": "灵魂砂糖"
+          "name_ch": "糖糖之魂"
         },
         {
           "href": "#wave-1",
           "name": "Wave #1",
           "name_en": "Wave #1",
           "name_ja": "",
-          "name_ch": "第一波"
+          "name_ch": "波次 #1"
         },
         {
           "href": "#wave-2",
           "name": "Wave #2",
           "name_en": "Wave #2",
           "name_ja": "",
-          "name_ch": "第二波"
+          "name_ch": "波次 #2"
         },
         {
           "href": "#wave-3",
           "name": "Wave #3",
           "name_en": "Wave #3",
           "name_ja": "",
-          "name_ch": "第三波"
+          "name_ch": "波次 #3"
         },
         {
           "href": "#wave-4",
           "name": "Wave #4",
           "name_en": "Wave #4",
           "name_ja": "",
-          "name_ch": "第四波"
+          "name_ch": "波次 #4"
         },
         {
           "href": "#roasted-whole-lamb",
@@ -139,10 +139,10 @@
         },
         {
           "href": "#single-style",
-          "name": "Single Style",
+          "name": "单手涂鸦",
           "name_en": "Single Style",
           "name_ja": "",
-          "name_ch": "单一风格"
+          "name_ch": "单手涂鸦"
         }
       ]
     },
@@ -154,31 +154,31 @@
       "mechanics": [
         {
           "href": "#sugarscape",
-          "name": "Sugarscape",
+          "name": "糖心绘景",
           "name_en": "Sugarscape",
           "name_ja": "",
-          "name_ch": "糖原幻境"
+          "name_ch": "糖心绘景"
         },
         {
           "href": "#double-style",
-          "name": "Double Style",
+          "name": "双手涂鸦",
           "name_en": "Double Style",
           "name_ja": "",
-          "name_ch": "双重风格"
+          "name_ch": "双手涂鸦"
         },
         {
           "href": "#layer-3",
-          "name": "Layer #3",
+          "name": "添笔 #3",
           "name_en": "Layer #3",
           "name_ja": "",
-          "name_ch": "第三层"
+          "name_ch": "添笔 #3"
         },
         {
           "href": "#layer-4",
-          "name": "Layer #4",
+          "name": "添笔 #4",
           "name_en": "Layer #4",
           "name_ja": "",
-          "name_ch": "第四层"
+          "name_ch": "添笔 #4"
         }
       ]
     },
@@ -190,31 +190,31 @@
       "mechanics": [
         {
           "href": "#sticky-mousse",
-          "name": "Sticky Mousse",
+          "name": "黏黏慕斯怪",
           "name_en": "Sticky Mousse",
           "name_ja": "",
-          "name_ch": "粘稠慕斯"
+          "name_ch": "黏黏慕斯怪"
         },
         {
           "href": "#color-riot",
-          "name": "Color Riot",
+          "name": "色彩狂热",
           "name_en": "Color Riot",
           "name_ja": "",
-          "name_ch": "色彩暴动"
+          "name_ch": "色彩狂热"
         },
         {
           "href": "#w-cc-ds",
-          "name": "W. + CC. + DS.",
+          "name": "色彩冲击 + 双手涂鸦",
           "name_en": "W. + CC. + DS.",
           "name_ja": "",
-          "name_ch": "W. + CC. + DS."
+          "name_ch": "色彩冲击 + 双手涂鸦"
         },
         {
           "href": "#artistic-anarchy",
-          "name": "Artistic Anarchy",
+          "name": "艺术大乱斗",
           "name_en": "Artistic Anarchy",
           "name_ja": "",
-          "name_ch": "艺术狂潮"
+          "name_ch": "艺术大乱斗"
         }
       ]
     }

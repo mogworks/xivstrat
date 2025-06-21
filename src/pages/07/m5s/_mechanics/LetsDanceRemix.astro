@@ -16,6 +16,7 @@ import lets_dance_left from '@/assets/07/m5s/lets_dance/left.png'
 import lets_dance_right from '@/assets/07/m5s/lets_dance/right.png'
 import lets_dance_front from '@/assets/07/m5s/lets_dance/front.png'
 import lets_dance_back from '@/assets/07/m5s/lets_dance/back.png'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -25,13 +26,13 @@ interface Props {
 const { start, base = 0 }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={5.5} ability="Let's Dance! Remix">
+<CastSection start={start} base={base} duration={5.5} ability={translations.letsDanceRemix}>
   <Badge variant="yellow">连续半场刀</Badge>
 </CastSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
-      <StratLink variant="yellow" href="/07/m5s/p1#lets-dance">Let's Dance!</StratLink>
+      <StratLink variant="yellow" href="/07/m5s/p1#lets-dance">{translations.letsDance}</StratLink>
       返场，本次无需处理
       <Wavelength type="α" hover />
       和
@@ -82,7 +83,7 @@ const { start, base = 0 }: Props = Astro.props
     </div>
     <div class="paragraph">
       算上
-      <StratLink variant="yellow" href="#arcady-night-encore">Arcady Night Encore</StratLink>
+      <StratLink variant="yellow" href="#arcady-night-encore">{translations.arcadyNightEncore}</StratLink>
       阶段正确处理累积的
       <Span variant="pink">66</Span>
       点，恰好可以攒满计量槽

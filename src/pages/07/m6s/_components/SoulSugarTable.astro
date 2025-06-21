@@ -23,6 +23,24 @@ import gimme_cat from '@/assets/07/m6s/adds/gimme_cat.png'
 import jabberwock from '@/assets/07/m6s/adds/jabberwock.png'
 import mu from '@/assets/07/m6s/adds/mu.png'
 import yan from '@/assets/07/m6s/adds/yan.png'
+import { translations } from '../_translations'
+
+const {
+  MuName,
+  YanName,
+  GimmeCatName,
+  FeatherRayName,
+  JabberwockyName,
+  ReadyOreNot,
+  OreRigato,
+  MousseMural,
+  UnlimitedCraving,
+  HangryHiss,
+  ICraveViolence,
+  ManxomeWindersnatch,
+  SlayousSnickerSnack,
+  Wave,
+} = translations
 ---
 
 <div class="grid grid-cols-[minmax(0,15rem)_minmax(36rem,1fr)] rounded-md border border-dashed">
@@ -31,7 +49,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
   </div>
   <div class="flex flex-col gap-4 border-b border-dashed p-4">
     <h4 class="text-xl">
-      <Span variant="yellow">Mu</Span>
+      <Span variant="yellow">{MuName}</Span>
     </h4>
     <div class="paragraph">
       后文以【
@@ -54,9 +72,9 @@ import yan from '@/assets/07/m6s/adds/yan.png'
       在
       <SugarRiot />
       释放
-      <Span variant="yellow">Ready Ore Not</Span>
+      <Span variant="yellow">{ReadyOreNot}</Span>
       后会开始读条
-      <Span variant="yellow">Ore-rigato</Span>
+      <Span variant="yellow">{OreRigato}</Span>
     </div>
     <div class="paragraph">
       可造成全屏伤害
@@ -67,12 +85,12 @@ import yan from '@/assets/07/m6s/adds/yan.png'
     <div class="paragraph">该DoT伤害不受T职被动减免，且可叠加层数</div>
     <div class="paragraph">
       若有≥2只同时释放
-      <Span variant="yellow">Ore-rigato</Span>
+      <Span variant="yellow">{OreRigato}</Span>
       基本意味着团灭
     </div>
     <div class="paragraph">
       会在
-      <Span variant="default">Wave</Span>
+      <Span variant="default">{Wave}</Span>
       <Span variant="red">#1</Span>
       <Span variant="orange">#2</Span>
       <Span variant="purple">#4</Span>
@@ -84,12 +102,9 @@ import yan from '@/assets/07/m6s/adds/yan.png'
   </div>
   <div class="flex flex-col gap-4 border-b border-dashed p-4">
     <h4 class="text-xl">
-      <Span variant="yellow">Yan</Span>
+      <Span variant="yellow">{YanName}</Span>
     </h4>
     <div class="paragraph">
-      后文以【
-      <Span variant="yellow">羊</Span>
-      】代称，
       <Span variant="green">HP 2,835,798</Span>
       ，对
       <RoleIcon role="tank" />
@@ -107,7 +122,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
       若未在本阶段末尾
       <SugarRiot />
       读条AoE
-      <Span variant="yellow">Mousse Mural</Span>
+      <Span variant="yellow">{MousseMural}</Span>
       前击杀
     </div>
     <div class="paragraph">
@@ -117,7 +132,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
     </div>
     <div class="paragraph">
       会在
-      <Span variant="default">Wave</Span>
+      <Span variant="default">{Wave}</Span>
       <Span variant="red">#1</Span>
       <Span variant="blue">#3</Span>
       <Span variant="purple">#4</Span>
@@ -129,7 +144,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
   </div>
   <div class="flex flex-col gap-4 border-b border-dashed p-4">
     <h4 class="text-xl">
-      <Span variant="yellow">Gimme Cat</Span>
+      <Span variant="yellow">{GimmeCatName}</Span>
     </h4>
     <div class="paragraph">
       后文以【
@@ -139,12 +154,12 @@ import yan from '@/assets/07/m6s/adds/yan.png'
     </div>
     <div class="paragraph">
       一出场就会释放
-      <Span variant="yellow">Unlimited Craving</Span>
+      <Span variant="yellow">{UnlimitedCraving}</Span>
       偷取LB，接着满场乱跳
     </div>
     <div class="paragraph">
       每跳6次后，第7次会随机跳到一名玩家处读条
-      <Span variant="yellow">I Crave Violence</Span>
+      <Span variant="yellow">{ICraveViolence}</Span>
     </div>
     <div class="paragraph">
       半径
@@ -164,7 +179,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
     </div>
     <div class="paragraph">
       叠到3层后会读条狂暴技能
-      <Span variant="yellow">Hangry Hiss</Span>
+      <Span variant="yellow">{HangryHiss}</Span>
       ，造成团灭级全屏AoE
     </div>
     <div class="paragraph">
@@ -176,7 +191,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
     </div>
     <div class="paragraph">
       会在
-      <Span variant="default">Wave</Span>
+      <Span variant="default">{Wave}</Span>
       <Span variant="red">#1</Span>
       <Span variant="blue">#3</Span>
       <Span variant="purple">#4</Span>
@@ -188,7 +203,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
   </div>
   <div class="flex flex-col gap-4 border-b border-dashed p-4">
     <h4 class="text-xl">
-      <Span variant="yellow">Feather Ray</Span>
+      <Span variant="yellow">{FeatherRayName}</Span>
     </h4>
     <div class="paragraph">
       后文以【
@@ -200,7 +215,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
       连线最先攻击它的玩家，每隔约
       <Span variant="pink">9s</Span>
       对连线玩家读条
-      <Span variant="yellow">Water III</Span>
+      <Span variant="yellow">{translations.WaterIII}</Span>
       喷水
     </div>
     <div class="paragraph">
@@ -222,7 +237,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
     <div class="paragraph">长时间不击杀会导致水圈铺满全场，最终站无可站</div>
     <div class="paragraph">
       会在
-      <Span variant="default">Wave</Span>
+      <Span variant="default">{Wave}</Span>
       <Span variant="orange">#2</Span>
       <Span variant="purple">#4</Span>
       各刷新2只
@@ -233,7 +248,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
   </div>
   <div class="flex flex-col gap-4 p-4">
     <h4 class="text-xl">
-      <Span variant="yellow">Jabberwock</Span>
+      <Span variant="yellow">{JabberwockyName}</Span>
     </h4>
     <div class="paragraph">
       后文以【
@@ -245,7 +260,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
       出场后对随机
       <RoleIcon role="healer" />
       释放
-      <Span variant="yellow">Manxome Windersnatch</Span>
+      <Span variant="yellow">{ManxomeWindersnatch}</Span>
       <DamageInfo damage="120000" type="magical" />
       <Bind hover />
     </div>
@@ -257,7 +272,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
     </div>
     <div class="paragraph">
       （伤害名
-      <Span variant="yellow">Slayous Snicker-snack</Span>
+      <Span variant="yellow">{SlayousSnickerSnack}</Span>
       <DamageInfo damage="9999999" type="special" />
       ）
     </div>
@@ -273,7 +288,7 @@ import yan from '@/assets/07/m6s/adds/yan.png'
     </div>
     <div class="paragraph">
       会在
-      <Span variant="default">Wave</Span>
+      <Span variant="default">{Wave}</Span>
       <Span variant="blue">#3</Span>
       <Span variant="purple">#4</Span>
       各刷新1只

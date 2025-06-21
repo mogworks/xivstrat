@@ -1,0 +1,26 @@
+---
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import type { Time } from '@/lib/utils'
+
+import HowlingBlade from './entities/HowlingBlade.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+const duration = 6.7
+
+const twofoldTempest = translations.twofoldTempest
+---
+
+<CastSection start={start} base={base} duration={duration} ability={twofoldTempest}>
+  <HowlingBlade slot="source" />
+  <MagicVulnerabilityUp tag="9" hover />
+  <Badge variant="purple">分摊组合</Badge>
+  <Badge variant="red">扩散毒圈</Badge>
+</CastSection>

@@ -9,10 +9,9 @@ import Zelenia from './Zelenia.astro'
 interface Props {
   start: Time
   base?: Time
-  [key: string]: any
 }
 
-const { start, base = 0, ...rest }: Props = Astro.props
+const { start, base = 0 }: Props = Astro.props
 ---
 
 <CastSection
@@ -23,7 +22,6 @@ const { start, base = 0, ...rest }: Props = Astro.props
   target
   damage="100000"
   damageType="magical"
-  {...rest}
 >
   <Zelenia slot="source" />
   <Badge variant="purple">AoE</Badge>

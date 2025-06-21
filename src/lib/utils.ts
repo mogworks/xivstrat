@@ -63,3 +63,16 @@ export function copyToClipboard(text?: string | null) {
     document.body.removeChild(textArea)
   }
 }
+
+/* eslint-disable no-new */
+export function isValidURL(str: string): boolean {
+  try {
+    new URL(str)
+    return true
+  } catch (
+    _ // eslint-disable-line unused-imports/no-unused-vars
+  ) {
+    return false
+  }
+}
+/* eslint-enable no-new */

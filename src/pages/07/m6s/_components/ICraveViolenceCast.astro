@@ -8,6 +8,7 @@ import HPPenalty from '@/components/buff/HPPenalty.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
 import GimmeCat from './GimmeCat.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -16,9 +17,10 @@ interface Props {
 }
 
 const { start, base = 0, wave }: Props = Astro.props
+const ICraveViolence = translations.ICraveViolence
 ---
 
-<CastSection start={start} base={base} duration={2.7} ability="I Crave Violence">
+<CastSection start={start} base={base} duration={2.7} ability={ICraveViolence}>
   <GimmeCat slot="source" wave={wave} />
   <Fragment slot="cast">跳向随机玩家，读条</Fragment>
   <Span variant="pink" class="text-decimal">MP-9900</Span>

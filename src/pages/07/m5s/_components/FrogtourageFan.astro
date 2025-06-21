@@ -2,6 +2,7 @@
 import Buff from '@/components/Buff.astro'
 
 import frogtourage_fan from '@/assets/buff/07/m5s/214286.png'
+import { translations } from '../_translations'
 
 interface Props {
   tag?: string
@@ -14,9 +15,9 @@ const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 
 <Buff
   icon={frogtourage_fan}
-  name="Frogtourage Fan"
+  name={translations.frogtourageFan}
   nameVariant="yellow"
-  description="Back-up Dance resistance is significantly reduced."
+  description={translations.frogtourageFanDesc}
   tag={tag}
   hover={hover}
   class={className}

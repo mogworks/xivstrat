@@ -7,6 +7,7 @@ import HPPenalty from '@/components/buff/HPPenalty.astro'
 import VulnerabilityUp from '@/components/buff/VulnerabilityUp.astro'
 import ContentSection from '@/components/section/ContentSection.astro'
 
+import { translations } from '../_translations'
 import Mu from './Mu.astro'
 import Yan from './Yan.astro'
 import GimmeCat from './GimmeCat.astro'
@@ -17,6 +18,7 @@ interface Props {
 }
 
 const { class: className }: Props = Astro.props
+const { ICraveViolence, WaterIII } = translations
 ---
 
 <ContentSection class={className}>
@@ -39,7 +41,7 @@ const { class: className }: Props = Astro.props
     <div class="paragraph">
       <GimmeCat />
       每14.5秒1次跳向随机玩家读条
-      <Span variant="yellow">I Crave Violence</Span>
+      <Span variant="yellow">{ICraveViolence}</Span>
       <Span variant="pink" class="text-decimal">MP-9900</Span>
       <DamageDown tag="30" hover />
       <Span variant="rose" class="text-decimal">30%↓</Span>
@@ -49,7 +51,7 @@ const { class: className }: Props = Astro.props
     <div class="paragraph">
       <FeatherRay />
       每9秒1次对连线玩家读条
-      <Span variant="yellow">Water III</Span>
+      <Span variant="yellow">{WaterIII}</Span>
       <DamageInfo damage="45000" type="magical" />
       <VulnerabilityUp tag="8" hover />
       <Span variant="rose" class="text-decimal">3100%↑</Span>

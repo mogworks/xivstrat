@@ -26,8 +26,10 @@ import FunkyFloor from './_mechanics/FunkyFloor.astro'
 import InsideOutOrOutsideIn from './_mechanics/InsideOutOrOutsideIn.astro'
 import LetsDance from './_mechanics/LetsDance.astro'
 import LetsPose from './_mechanics/LetsPose.astro'
+import { translations } from './_translations/index'
 
 const dutyId = '07/m5s'
+
 const base = 0
 ---
 
@@ -41,13 +43,13 @@ const base = 0
   <AttackSection time="00:03.0" base={base} damage="55000" damageType="physical" />
   <AttackSection time="00:06.1" base={base} damage="55000" damageType="physical" />
   <AttackSection time="00:09.1" base={base} damage="55000" damageType="physical" />
-  <SeparatorSection id="deep-cut" title="Deep Cut" />
+  <SeparatorSection id="deep-cut" title={translations.deepCut} />
   <DeepCut start="00:09.173" base={base} />
   <SeparatorSection />
   <AttackSection time="00:17.2" base={base} damage="55000" damageType="physical" />
   <AttackSection time="00:20.2" base={base} damage="55000" damageType="physical" />
   <MoveToCenterEvent time="00:20.362" base={base} />
-  <SeparatorSection id="flip-to-x-side" title="Flip to (A|B) Side" />
+  <SeparatorSection id="flip-to-x-side" title={translations.flipToAOrB} />
   <FlipToXSide base={base} />
   <SeparatorSection />
   <FlipToXSideCast start="00:41.873" base={base} />
@@ -64,11 +66,11 @@ const base = 0
   <AttackSection time="01:07.2" base={base} damage="55000" damageType="physical" />
   <AttackSection time="01:10.2" base={base} damage="55000" damageType="physical" />
   <MoveToCenterEvent time="01:10.395" base={base} />
-  <SeparatorSection id="disco-infernal" title="Disco Infernal" />
+  <SeparatorSection id="disco-infernal" title={translations.discoInfernal} />
   <DiscoInfernalP1 base={base} />
-  <SeparatorSection id="funky-floor" title="Funky Floor" />
+  <SeparatorSection id="funky-floor" title={translations.funkyFloor} />
   <FunkyFloor start="01:18.684" base={base} />
-  <SeparatorSection id="inside-out-or-outside-in" title="Inside Out | Outside In" />
+  <SeparatorSection id="inside-out-or-outside-in" title={`${translations.insideOut} | ${translations.outSideIn}`} />
   <InsideOutOrOutsideIn start="01:24.837" base={base} />
   <SeparatorSection />
   <FlipToXSideCast start="01:34.821" base={base} />
@@ -80,13 +82,13 @@ const base = 0
   <NoteSection>
     <div class="paragraph">
       此时
-      <StratLink variant="yellow" href="#funky-floor">Funky Floor</StratLink>
+      <StratLink variant="yellow" href="#funky-floor">{translations.funkyFloor}</StratLink>
       的效果还未结束，注意同时躲避
       <Span variant="rose">地面AoE</Span>
     </div>
   </NoteSection>
   <EventSection time="01:59.483" base={base}>
-    <Span variant="yellow">Funky Floor</Span>
+    <Span variant="yellow">{translations.funkyFloor}</Span>
     效果结束
   </EventSection>
   <PlayXSideCast time="02:01.642" base={base} />
@@ -96,7 +98,7 @@ const base = 0
   <AttackSection time="02:19.8" base={base} damage="55000" damageType="physical" />
   <MoveToCenterEvent time="02:20.891" base={base} />
   <EnsembleAssembleCast start="02:23.300" base={base} />
-  <SeparatorSection id="arcady-night-fever" title="Arcady Night Fever" />
+  <SeparatorSection id="arcady-night-fever" title={translations.arcadyNightFever} />
   <ArcadyNightFever
     start="02:29.450"
     base={base}
@@ -111,8 +113,8 @@ const base = 0
       '02:52.120',
     ]}
   />
-  <SeparatorSection id="lets-dance" title="Let's Dance!" />
+  <SeparatorSection id="lets-dance" title={translations.letsDance} />
   <LetsDance start="02:56.259" base={base} wavelengthStart="03:05.533" />
-  <SeparatorSection id="lets-pose" title="Let's Pose!" />
+  <SeparatorSection id="lets-pose" title={translations.letsPose} />
   <LetsPose phase="p1" start="03:23.445" base={base} />
 </DutyStratLayout>

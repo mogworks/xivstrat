@@ -15,6 +15,7 @@ import CastSection from '@/components/section/CastSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import P from '@/components/typography/P.astro'
 
 import QuarterOrEighthBeatsAbility from '../_components/QuarterOrEighthBeatsAbility.astro'
 import QuarterOrEighthBeatsCast from '../_components/QuarterOrEighthBeatsCast.astro'
@@ -35,6 +36,8 @@ import ride_the_waves_optimize_2 from '@/assets/07/m5s/ride_the_waves/optimize_2
 import ride_the_waves_optimize_3 from '@/assets/07/m5s/ride_the_waves/optimize_3.png'
 import ride_the_waves_optimize_4 from '@/assets/07/m5s/ride_the_waves/optimize_4.png'
 
+import { translations } from '../_translations'
+
 interface Props {
   base?: Time
 }
@@ -54,7 +57,7 @@ const solutions = [
 const defaultSolution = '解法：近战优化'
 ---
 
-<CastSection start="03:48.804" base={base} duration={3.2} ability="Ride the Waves">
+<CastSection start="03:48.804" base={base} duration={3.2} ability={translations.rideTheWaves}>
   <Badge variant="yellow">步进式地火</Badge>
 </CastSection>
 <NoteSection>
@@ -85,7 +88,7 @@ const defaultSolution = '解法：近战优化'
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Ride the Waves</Span>
+      <Span variant="yellow">{translations.rideTheWaves}</Span>
     </h4>
     <div class="paragraph">
       场地
@@ -130,7 +133,7 @@ const defaultSolution = '解法：近战优化'
       </div>
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Quarter Beats</Span>
+      <Span variant="yellow">{translations.quarterBeats}</Span>
     </h4>
     <div class="paragraph">
       点名
@@ -147,7 +150,7 @@ const defaultSolution = '解法：近战优化'
       <MagicVulnerabilityUp tag="2" hover />
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Eighth Beats</Span>
+      <Span variant="yellow">{translations.eighthBeats}</Span>
     </h4>
     <div class="paragraph">
       点名
@@ -163,7 +166,7 @@ const defaultSolution = '解法：近战优化'
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
-      <Span variant="yellow">Ride the Waves</Span>
+      <Span variant="yellow">{translations.rideTheWaves}</Span>
       期间会有两次不同的
       <QuarterOrEighthBeatsAbility />
     </div>
@@ -248,7 +251,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形1：
-          <Span variant="yellow">Quarter Beats</Span>
+          <Span variant="yellow">{translations.quarterBeats}</Span>
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
@@ -259,7 +262,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形2：
-          <Span variant="yellow">Eighth Beats</Span>
+          <Span variant="yellow">{translations.eighthBeats}</Span>
         </div>
       </div>
     </div>
@@ -277,7 +280,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形1：
-          <Span variant="yellow">Quarter Beats</Span>
+          <Span variant="yellow">{translations.quarterBeats}</Span>
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
@@ -288,7 +291,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形2：
-          <Span variant="yellow">Eighth Beats</Span>
+          <Span variant="yellow">{translations.eighthBeats}</Span>
         </div>
       </div>
     </div>
@@ -325,7 +328,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形1：
-          <Span variant="yellow">Quarter Beats</Span>
+          <Span variant="yellow">{translations.quarterBeats}</Span>
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
@@ -336,7 +339,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形2：
-          <Span variant="yellow">Eighth Beats</Span>
+          <Span variant="yellow">{translations.eighthBeats}</Span>
         </div>
       </div>
     </div>
@@ -368,7 +371,7 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形1：
-          <Span variant="yellow">Quarter Beats</Span>
+          <Span variant="yellow">{translations.quarterBeats}</Span>
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
@@ -379,11 +382,25 @@ const defaultSolution = '解法：近战优化'
         />
         <div class="paragraph">
           情形2：
-          <Span variant="yellow">Eighth Beats</Span>
+          <Span variant="yellow">{translations.eighthBeats}</Span>
         </div>
       </div>
     </div>
-    <div class="paragraph">
+    <P>
+      近战注意：第2次
+      <QuarterOrEighthBeatsAbility />
+      到
+      <Boss />
+      跳回场中有
+      <Span variant="cyan">3s</Span>
+      的间隔
+    </P>
+    <P>
+      图中
+      <Span variant="red">红框</Span>
+      标注的格子下一轮是安全的，分散/分摊判定后可以直接去，这样就不会被卡GCD了
+    </P>
+    <div class="paragraph mt-4">
       对比
       <StratLink variant="lime" href="#ride-the-waves-solution-jp">解法：日野主流</StratLink>
       ，由于安全区的拐点尚未到来，无需调整

@@ -1,0 +1,20 @@
+export const thanksList = {
+  groupList: ['XivStrat', 'MMW', 'MGL', 'SPJP'],
+  devList: [
+    'SuperJump',
+    'Hikaru',
+    'DavidKitano',
+    'BaiXi',
+    'LuoLuoKe',
+    'TiramisuE',
+    'Ling',
+    'Saleri',
+    'Demon',
+    'Javsen',
+    'DaGongYou',
+    'NaiSeR',
+    'YouChai',
+    'CongYun',
+  ],
+  other: [],
+}

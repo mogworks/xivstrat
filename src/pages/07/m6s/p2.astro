@@ -20,25 +20,27 @@ import Layer1 from './_mechanics/Layer1.astro'
 import Layer2 from './_mechanics/Layer2.astro'
 import SugarscapeP2 from './_mechanics/SugarscapeP2.astro'
 import DoubleStyleP2 from './_mechanics/DoubleStyleP2.astro'
+import { translations } from './_translations'
 
 const dutyId = '07/m6s'
+
 const base = '01:29.093'
 ---
 
 <DutyStratLayout dutyId={dutyId}>
   <MoveToNorthEvent time="01:29.093" base={base} />
   <AttackSection time="01:29.897" base={base} damage="57000" damageType="magical" />
-  <SeparatorSection id="sugarscape" title="Sugarscape" />
+  <SeparatorSection id="sugarscape" title={translations.Sugarscape} />
   <SugarscapeP2 base={base} />
   <AttackSection time="01:39.351" base={base} damage="57000" damageType="magical" />
   <AttackSection time="01:42.384" base={base} damage="57000" damageType="magical" />
   <AttackSection time="01:45.418" base={base} damage="57000" damageType="magical" />
-  <SeparatorSection id="layer-1" title="Layer #1" />
+  <SeparatorSection id="layer-1" title={`${translations.Layer} #1`} />
   <Layer1 base={base} />
   <SeparatorSection />
   <MoveToCenterEvent time="02:22.765" base={base} />
   <StickyMousseCast start="02:24.104" end="02:29.898" base={base} />
-  <SeparatorSection id="layer-2" title="Layer #2" />
+  <SeparatorSection id="layer-2" title={`${translations.Layer} #2`} />
   <Layer2 base={base} />
   <SeparatorSection />
   <AttackSection time="02:53.567" base={base} damage="57000" damageType="magical" />
@@ -47,7 +49,7 @@ const base = '01:29.093'
   >
   <AttackSection time="02:59.634" base={base} damage="57000" damageType="magical" />
   <MoveToCenterEvent time="02:59.768" base={base} />
-  <SeparatorSection id="double-style" title="Double Style" />
+  <SeparatorSection id="double-style" title={translations.DoubleStyle} />
   <DoubleStyleP2 base={base} />
   <SeparatorSection />
   <MousseMuralCast start="03:14.202" base={base} />

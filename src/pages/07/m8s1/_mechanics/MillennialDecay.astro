@@ -19,6 +19,7 @@ import Skill from '@/components/typography/Skill.astro'
 import Quote from '@/components/typography/Quote.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import ImgGrid from '@/components/typography/ImgGrid.astro'
+import StratLink from '@/components/StratLink.astro'
 
 import MillennialDecayCast from '../_components/MillennialDecayCast.astro'
 import BreathOfDecayCast from '../_components/BreathOfDecayCast.astro'
@@ -59,10 +60,8 @@ import solution_14 from '@/assets/07/m8s1/millennial_decay/solution_14.png'
 import solution_15 from '@/assets/07/m8s1/millennial_decay/solution_15.png'
 import solution_16 from '@/assets/07/m8s1/millennial_decay/solution_16.png'
 import solution_op from '@/assets/07/m8s1/millennial_decay/solution_op.png'
-import StratLink from '@/components/StratLink.astro'
 
 interface Props {
-  time: Time
   base?: Time
 }
 
@@ -74,7 +73,7 @@ const prowlingGale = translations.prowlingGale
 const windsOfDecay = translations.windsOfDecay
 const greatWhirlwind = translations.greatWhirlwind
 
-const { time, base = 0 }: Props = Astro.props
+const { base = 0 }: Props = Astro.props
 
 const solutions = [
   {
@@ -89,7 +88,7 @@ const solutions = [
 const defaultSolution = '解法：IQ6000【改】'
 ---
 
-<MillennialDecayCast start={time} base={base} />
+<MillennialDecayCast start="01:01.456" base={base} />
 <AeroIIICast start="01:12.135" base={base} />
 <BreathOfDecayCast start="01:10.623" base={base} order={1} />
 <GustEvent time="01:19.081" base={base} />
@@ -259,7 +258,7 @@ const defaultSolution = '解法：IQ6000【改】'
         距离不足时，对玩家造成
         <DamageInfo damage="700000" type="magical" />
         <MagicVulnerabilityUp tag="1" hover />
-        <DamageDown tag="30" />
+        <DamageDown tag="30" hover />
         <Span variant="rose" class="text-decimal">50%↓</Span>
       </P>
       <P>

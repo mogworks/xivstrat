@@ -1,0 +1,32 @@
+---
+import CastSection from '@/components/section/CastSection.astro'
+import type { Time } from '@/lib/utils'
+
+import HowlingBlade from './entities/HowlingBlade.astro'
+import { translations } from '../_translations'
+import GleamingFang from './entities/GleamingFang.astro'
+import Span from '@/components/Span.vue'
+import Badge from '@/components/Badge.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+
+interface Props {
+  start: Time
+  base?: Time
+}
+
+const { start, base = 0 }: Props = Astro.props
+const duration = 3.7
+
+const bareFangs = translations.bareFangs
+---
+
+<CastSection start={start} base={base} duration={duration} ability={bareFangs}>
+  <HowlingBlade slot="source" />
+  召唤
+  <GleamingFang />
+  <Span variant="rose">×10</Span>
+  <DamageInfo damage="170000" type="magical" />
+  <DamageDown tag="30" />
+  <Badge variant="yellow">半平台AoE</Badge>
+</CastSection>

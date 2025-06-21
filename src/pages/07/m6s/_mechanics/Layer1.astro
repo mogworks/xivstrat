@@ -49,6 +49,7 @@ import pattern4_6 from '@/assets/07/m6s/layer_1/pattern_4/6.png'
 import solution_1 from '@/assets/07/m6s/layer_1/solution_1.png'
 import solution_2 from '@/assets/07/m6s/layer_1/solution_2.png'
 import solution_3 from '@/assets/07/m6s/layer_1/solution_3.png'
+import { translations } from '../_translations'
 
 interface Props {
   base: Time
@@ -66,6 +67,8 @@ const patternGroups = [
   { title: '模式三', images: [pattern3_1, pattern3_2, pattern3_3, pattern3_4, pattern3_5, pattern3_6] },
   { title: '模式四', images: [pattern4_1, pattern4_2, pattern4_3, pattern4_4, pattern4_5, pattern4_6] },
 ]
+
+const { Layer, Brûlée, CrowdBrûlée, SprayPain } = translations
 ---
 
 <LayerCast start={start} end={end} base={base} />
@@ -92,7 +95,7 @@ const patternGroups = [
   <Span variant="default">1</Span>
   <RoleIcon role="dps" />
   受到
-  <Span variant="yellow">Brûlée</Span>
+  <Span variant="yellow">{Brûlée}</Span>
   <DamageInfo damage="100000" type="magical" />
   <FireResistanceDownII tag="3" hover />
   <Badge variant="emerald">15m圆形</Badge>
@@ -103,7 +106,7 @@ const patternGroups = [
   倒计时结束判定伤害，余下
   <Span variant="default">6</Span>
   人受到
-  <Span variant="yellow">Crowd Brûlée</Span>
+  <Span variant="yellow">{CrowdBrûlée}</Span>
   <DamageInfo damage="100000" type="magical" />
   <Badge variant="emerald">6m圆形</Badge>
   <Badge variant="yellow">分摊</Badge>
@@ -111,7 +114,7 @@ const patternGroups = [
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Layer</Span>
+      <Span variant="yellow">{Layer}</Span>
       {' '}
       <Span variant="zinc">#1</Span>
     </h4>
@@ -136,10 +139,10 @@ const patternGroups = [
       秒后释放半径
       <Span variant="pink">10m</Span>
       的圆形AoE
-      <Span variant="yellow">Spray Pain</Span>
+      <Span variant="yellow">{SprayPain}</Span>
     </div>
     <h4 class="mt-8 text-2xl">
-      <Span variant="yellow">Spray Pain</Span>
+      <Span variant="yellow">{SprayPain}</Span>
     </h4>
     <div class="paragraph">
       半径
@@ -226,6 +229,10 @@ const patternGroups = [
       从场边出发，
       <Span variant="pink">以面向场中为12点</Span>
       ，<RoleIcon role="tank" />向左前、<RoleIcon role="dps" />向右前远离人群分散
+    </div>
+    <div class="paragraph pl-6 opacity-80">
+      <ListDot />
+      注意：此处和日野主流不同，日服打法是场地基准，<RoleIcon role="tank" />左/西、<RoleIcon role="dps" />右/东
     </div>
     <div class="paragraph">
       <ListDot />
