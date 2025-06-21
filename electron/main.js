@@ -1,10 +1,10 @@
-const { app, dialog, protocol, shell, BrowserWindow, Menu } = require('electron')
+const { app, protocol, shell, BrowserWindow, Menu } = require('electron')
 const mime = require('mime-types')
 const fs = require('node:fs')
 const path = require('node:path')
 const process = require('node:process')
 
-const { compareVersion, getVersionFrom } = require('./version')
+// const { compareVersion, getVersionFrom } = require('./version')
 
 // 判断是否是开发模式
 const isDev = process.env.NODE_ENV === 'development' || process.argv.includes('--dev')
@@ -47,7 +47,7 @@ function createWindow() {
     })
 
     // 第一次加载页面完成后检查更新
-    mainWindow.webContents.once('did-finish-load', checkUpdate)
+    // mainWindow.webContents.once('did-finish-load', checkUpdate)
   }
 
   // 设置 CSP
@@ -248,43 +248,43 @@ function registerProtocol() {
   })
 }
 
-async function checkUpdate() {
-  // 服务器地址
-  const server = ''
-  if (server === '') {
-    return
-  }
+// async function checkUpdate() {
+//   // 服务器地址
+//   const server = ''
+//   if (server === '') {
+//     return
+//   }
 
-  try {
-    const { version, timestamp, update_info, download_url } = await getVersionFrom(server)
-    // BUG: 为啥这里 app.getVersion() 返回的是 electron 的版本？
-    if (compareVersion(version, app.getVersion())) {
-      const ret = await dialog.showMessageBox(mainWindow, {
-        type: 'info',
-        title: '发现更新',
-        message: `新版本： XivStrat ${version} - ${timestamp}`,
-        detail: `更新内容： \n${update_info}\n要前往下载吗？`,
-        buttons: ['是', '否'],
-        defaultId: 0,
-        cancelId: 1,
-      })
-      // 用户点击确认
-      if (ret.response === 0) {
-        shell.openExternal(download_url)
-      }
-    }
-  } catch (err) {
-    console.error('Error:', err)
-    dialog.showMessageBox(mainWindow, {
-      type: 'error',
-      title: '错误',
-      message: '检查更新时出现错误',
-      detail: `详细信息： ${err}`,
-      buttons: ['确定'],
-      cancelId: 0,
-    })
-  }
-}
+//   try {
+//     const { version, timestamp, update_info, download_url } = await getVersionFrom(server)
+//     // BUG: 为啥这里 app.getVersion() 返回的是 electron 的版本？
+//     if (compareVersion(version, app.getVersion())) {
+//       const ret = await dialog.showMessageBox(mainWindow, {
+//         type: 'info',
+//         title: '发现更新',
+//         message: `新版本： XivStrat ${version} - ${timestamp}`,
+//         detail: `更新内容： \n${update_info}\n要前往下载吗？`,
+//         buttons: ['是', '否'],
+//         defaultId: 0,
+//         cancelId: 1,
+//       })
+//       // 用户点击确认
+//       if (ret.response === 0) {
+//         shell.openExternal(download_url)
+//       }
+//     }
+//   } catch (err) {
+//     console.error('Error:', err)
+//     dialog.showMessageBox(mainWindow, {
+//       type: 'error',
+//       title: '错误',
+//       message: '检查更新时出现错误',
+//       detail: `详细信息： ${err}`,
+//       buttons: ['确定'],
+//       cancelId: 0,
+//     })
+//   }
+// }
 
 // 应用准备就绪
 app.whenReady().then(() => {
