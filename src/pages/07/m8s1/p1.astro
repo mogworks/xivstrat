@@ -20,12 +20,11 @@ import XReign from './_mechanics/XReign.astro'
 import { translations } from './_translations'
 
 const dutyId = '07/m8s1'
+
 const base = 0
 
 const stonefang = translations.stonefang
 const windfang = translations.windfang
-const revolutionaryReign = translations.revolutionaryReign
-const eminentReign = translations.eminentReign
 ---
 
 <DutyStratLayout dutyId={dutyId}>
@@ -39,7 +38,7 @@ const eminentReign = translations.eminentReign
   <MoveToCenterEvent time="00:20.019" base={base} />
   <SeparatorSection id="stonefang-or-windfang" title={`${stonefang} | ${windfang}`} />
   <Xfang start="00:23.131" base={base} />
-  <SeparatorSection id="revolutionary-reign-or-eminent-reign" title={`${revolutionaryReign} | ${eminentReign}`} />
+  <SeparatorSection id="wolves-reign" title={translations.wolvesReign} />
   <XReign start="00:34.289" base={base} />
   <SeparatorSection />
   <ExtraplanarPursuitCast start="00:49.014" base={base} />

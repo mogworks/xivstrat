@@ -15,9 +15,8 @@ import ListDot from '@/components/ListDot.astro'
 import { translations } from '../_translations'
 import StratLink from '@/components/StratLink.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
-import AblinkImg1 from '@/assets/07/m7s/tdab/AbBlink_flare1.png'
-import AblinkImg2 from '@/assets/07/m7s/tdab/AbBlink_flare2.png'
 import Tmp0 from '@/assets/07/m7s/Tmp.png'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 interface Props {
   base: Time
@@ -30,6 +29,18 @@ const sporesplosion = translations.sporesplosion
 const brutishswing = translations.brutishSwing
 const stoneringer = translations.stoneringer
 const ThornsOfDeath = translations.thornsOfDeath
+
+const solutions = [
+  {
+    id: 'TDAB-game8',
+    title: '解法：Game8原版',
+  },
+  {
+    id: 'TDAB-spjp',
+    title: '解法：本站攻略',
+  },
+]
+const defaultSolution = '解法：本站攻略'
 ---
 
 <MechanicSection>
@@ -49,7 +60,7 @@ const ThornsOfDeath = translations.thornsOfDeath
         <Skill name={ThornsOfDeath} />
       </T>
       <P>
-        每<Span variant="pink">3</Span>秒一跳的<Span variant="orange">持续伤害（DoT）</Span>，只有盾减生效，<RoleIcon
+        每<Span variant="pink">3</Span>s一跳的<Span variant="orange">持续伤害（DoT）</Span>，只有盾减生效，<RoleIcon
           role="tank"
         />与<RoleIcon role="healer|dps" />承伤无明显差别
       </P>
@@ -128,5 +139,66 @@ const ThornsOfDeath = translations.thornsOfDeath
         tag="点名"
       /></P
     >
+    <P>
+      以下给出<StratLink variant="lime" href="#TDAB-spjp">本站攻略</StratLink>和<StratLink
+        variant="lime"
+        href="#TDAB-game8">Game8原版</StratLink
+      >处理方式：
+    </P>
   </div>
 </SolutionSection>
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：本站攻略">
+    <div class="flex flex-col gap-4">
+      <P
+        ><ListDot />无论核爆点名如何，<Span variant="pink">固定让</Span><RoleIcon role="tank" tag="MT" /><Span
+          variant="pink">拉线</Span
+        >，核爆<RoleIcon role="tank" tag="点名" />前往场地<Span variant="pink">左上角</Span></P
+      >
+      <P
+        ><ListDot /><RoleIcon role="all" tag="其他人" />前往场地<Span variant="pink">中轴线</Span
+        >附近集合，交群减处理</P
+      >
+      <P>站位示意图如下：</P>
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-150"
+        bordered={false}
+        imgs={[
+          {
+            src: Tmp0,
+            alt: '',
+            title: '本站攻略',
+          },
+        ]}
+      />
+    </div>
+  </div>
+  <div slot="解法：Game8原版">
+    <div class="flex flex-col gap-4">
+      <P
+        ><ListDot /><Span variant="pink">未被核爆点名</Span>的<RoleIcon role="tank" />挑衅成为一仇拉线，核爆<RoleIcon
+          role="tank"
+          tag="点名"
+        />前往场地<Span variant="pink">右上角</Span></P
+      >
+      <P
+        ><ListDot /><RoleIcon role="all" tag="其他人" />前往场地<Span variant="pink">左上角</Span
+        >附近集合，交群减处理</P
+      >
+      <P>站位示意图如下：</P>
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-150"
+        bordered={false}
+        imgs={[
+          {
+            src: Tmp0,
+            alt: '',
+            title: 'Game8原版',
+          },
+        ]}
+      />
+    </div>
+  </div>
+</MultiSolutionSection>

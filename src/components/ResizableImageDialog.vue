@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, useTemplateRef, watch } from 'vue'
 
-import MagnifierSVG from '@/assets/svg/magnifier.svg?component'
+import MagnifierCursorSVGRaw from '@/assets/svg/magnifier-cursor.svg?raw'
 import {
   Dialog,
   DialogContent,
@@ -67,6 +67,8 @@ const handleReset = () => {
     x: 0,
     y: 0,
   }
+  dragPosition.value = { x: 0, y: 0 }
+  isDragging.value = false
 }
 
 const startDrag = (e: MouseEvent) => {
@@ -108,9 +110,7 @@ watch(
   () => isOpen.value,
   (open) => {
     if (open) {
-      scale.value = 1
-      translateOrigin.value = { x: 0, y: 0 }
-      isDragging.value = false
+      handleReset()
     }
   }
 )
@@ -119,13 +119,13 @@ watch(
 <template>
   <Dialog v-model:open="isOpen">
     <DialogTrigger as-child>
-      <div class="group relative cursor-pointer">
-        <div class="transition-opacity duration-50 group-hover:opacity-30 dark:group-hover:opacity-10">
-          <slot />
-        </div>
-        <MagnifierSVG
-          class="absolute top-[50%] left-[50%] z-10 w-10 -translate-x-[50%] -translate-y-[50%] opacity-0 transition-opacity duration-50 group-hover:opacity-100"
-        />
+      <div
+        class="group relative"
+        :style="{
+          cursor: `url('data:image/svg+xml;utf8,${encodeURIComponent(MagnifierCursorSVGRaw)}') 16 16, pointer`,
+        }"
+      >
+        <slot />
       </div>
     </DialogTrigger>
     <DialogContent class="w-[80%]">
@@ -134,7 +134,7 @@ watch(
           <slot name="title">
             {{ title }}
           </slot>
-          <div v-if="useScale" class="flex h-20 items-center gap-4">
+          <div v-if="useScale" class="inline-flex h-20 items-center gap-4">
             <input
               v-model.number="scale"
               type="range"
@@ -178,13 +178,7 @@ watch(
           @mouseleave="stopDrag"
         >
           <slot>
-            <img
-              v-if="src"
-              :src="src"
-              loading="lazy"
-              alt="副本小抄"
-              class="block h-full object-contain object-left-top"
-            >
+            <img v-if="src" :src="src" loading="lazy" alt="图片" class="block h-full object-contain object-left-top">
           </slot>
         </div>
       </div>

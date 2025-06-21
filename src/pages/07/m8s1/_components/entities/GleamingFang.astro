@@ -7,6 +7,10 @@ import gleaming_fang from '@/assets/07/m8s1/entity_icons/gleaming_fang.png'
 ---
 
 <EntityIcon icon={gleaming_fang} alt="Gleaming Fang Icon" iconClass="scale-120 drop-shadow-xs drop-shadow-black">
-  <Span variant="rose" class="ml-1">光牙</Span>
+  <slot>
+    <Span variant="rose" class="ml-0.5">光牙</Span>
+  </slot>
 </EntityIcon>
-<EntityText>光牙</EntityText>
+<EntityText>
+  光牙<slot />
+</EntityText>

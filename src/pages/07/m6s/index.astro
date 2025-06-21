@@ -6,7 +6,7 @@ import Separator from '@/components/Separator.astro'
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import AreaBox from '@/components/AreaBox.astro'
 
-import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
+import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
 import Macro from '@/components/Macro.astro'
 import ReferenceItem from '@/components/ReferenceItem.astro'
 import Thanks from '@/components/thanks/Thanks.astro'
@@ -16,12 +16,13 @@ import CheatsheetsZooImage from '@/assets/cheatsheets/07/m6s_p3.png'
 import WaymarkImage from '@/assets/waymarks/07/m6s.png'
 import TimelineImage from '@/assets/timelines/07/m6s.png'
 
-import { macro } from './_data/macro'
+import { macro1, macro2, macro3 } from './_data/macro'
 import { referenceList } from './_data/reference'
 import { thanksList } from './_data/thanks'
 
 const dutyId = '07/m6s'
 const navList = [
+  { label: '小抄速览', id: 'cheatsheet' },
   { label: '场地标点', id: 'waymark' },
   { label: '宏', id: 'macro' },
   { label: '简易时间轴', id: 'timeline' },
@@ -45,7 +46,7 @@ const navList = [
       <span>小抄速览</span>
     </Fragment>
     <AreaBox>
-      <CheatsheetDialog client:idle>
+      <ResizableImageDialog client:idle>
         <Image
           src={CheatsheetsImage}
           alt="m6s 副本小抄"
@@ -58,20 +59,22 @@ const navList = [
           loading="lazy"
           class="h-full w-fit object-contain object-left-top"
         />
-      </CheatsheetDialog>
+      </ResizableImageDialog>
     </AreaBox>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
     <div class="w-sm">
       <AreaBox>
-        <button
+        <a
+          href="/waymarks/07/AacCruiserweight/UISAVE.DAT"
           class="!disabled:hover:bg-purple-700/60 inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white disabled:cursor-not-allowed disabled:opacity-50 dark:border-purple-500 dark:bg-purple-700/75"
-          disabled="true"
         >
           下载标点文件
-        </button>
+        </a>
         <Separator class="my-2 mb-3" />
-        <Image src={WaymarkImage} alt="m6s 场地标点" class="w-full" />
+        <ResizableImageDialog client:idle>
+          <Image src={WaymarkImage} alt="m6s 场地标点" class="w-full object-contain object-left-top" />
+        </ResizableImageDialog>
       </AreaBox>
     </div>
     <Fragment slot="header">
@@ -79,14 +82,18 @@ const navList = [
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="macro" client:idle class="w-full">
-    <Macro text={macro} />
+    <Macro text={macro1} class="mb-4" title="M6S - 站位1" />
+    <Macro text={macro3} class="mb-4" title="M6S - 站位2" />
+    <Macro text={macro2} title="M6S - 动物园" />
     <Fragment slot="header">
       <span>宏</span>
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="timeline" client:idle class="w-full">
     <AreaBox>
-      <Image src={TimelineImage} alt="m6s 简易时间轴" class="w-full" />
+      <ResizableImageDialog client:idle>
+        <Image src={TimelineImage} alt="m6s 简易时间轴" class="w-full object-contain object-left-top" />
+      </ResizableImageDialog>
     </AreaBox>
     <Fragment slot="header">
       <span>简易时间轴</span>

@@ -9,16 +9,23 @@ import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import ImgGrid from '@/components/typography/ImgGrid.astro'
+import ListDot from '@/components/ListDot.astro'
 
-import chn1 from '@/assets/07/m7s/sporesplosion/DemoDM_chn1.png'
-import chn2 from '@/assets/07/m7s/sporesplosion/DemoDM_chn2.png'
-import flare1 from '@/assets/07/m7s/sporesplosion/AbBlink_flare1.png'
-import flare2 from '@/assets/07/m7s/sporesplosion/AbBlink_flare2.png'
+import chn1 from '@/assets/07/m7s/ddab/DemoDM_chn_1.png'
+import chn2 from '@/assets/07/m7s/ddab/DemoDM_chn_2.png'
+import DDAB_solution_1 from '@/assets/07/m7s/ddab/DDAB_solution_1.png'
+import DDAB_solution_2 from '@/assets/07/m7s/ddab/DDAB_solution_2.png'
+import DDAB_solution_3 from '@/assets/07/m7s/ddab/DDAB_solution_3.png'
+import DDAB_solution_4 from '@/assets/07/m7s/ddab/DDAB_solution_4.png'
 
 import AbominableBlinkCast from '../_components/AbominableBlinkCast.astro'
 import DemolitionDeathmatchCast from '../_components/DemolitionDeathmatchCast.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import T from '@/components/typography/T.astro'
+import P from '@/components/typography/P.astro'
 
 interface Props {
   base?: Time
@@ -40,10 +47,10 @@ const { base = 0 }: Props = Astro.props
       <RoleIcon role="any" />
       受到的DoT伤害与连线墙的
       <Span variant="pink">距离成正比</Span>
-      <ThornsOfDeathDebuff />
-      <ThornsOfDeathDebuff level={2} />
-      <ThornsOfDeathDebuff level={3} />
-      <ThornsOfDeathDebuff level={4} />
+      <ThornsOfDeathDebuff hover />
+      <ThornsOfDeathDebuff level={2} hover />
+      <ThornsOfDeathDebuff level={3} hover />
+      <ThornsOfDeathDebuff level={4} hover />
     </div>
     <div class="paragraph">
       同时，
@@ -57,53 +64,70 @@ const { base = 0 }: Props = Astro.props
 </MechanicSection>
 <SolutionSection title="解法：萨利式">
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      <RoleIcon role="dps" tag="D3" />
-      接短边的DoT线， <RoleIcon role="dps" tag="D4" />
-      接长边的DoT线
-    </div>
-    <div class="paragraph">
-      被点名核爆的
-      <RoleIcon role="tank" />
-      尽可能远离人群
-    </div>
-    <h4 class="mt-4 text-2xl">
-      <Span variant="yellow">接线参考</Span>
-    </h4>
+    <T text="接线规则" variant="lime" class="text-2xl" />
+    <P>
+      我们规定，<RoleIcon role="tank" tag="MT" />接<BruteAbombinator />所在墙壁的DoT线，
+    </P>
+    <P>
+      剩下的两面墙中，
+      <RoleIcon role="ranged" tag="D3" />接场地短边墙上的DoT线，
+      <RoleIcon role="magic" tag="D4" />接场地长边墙上的DoT线
+    </P>
+    <P> 如下图所示： </P>
     <ImgRow
-      class="game-img"
-      wrapperClass="max-w-150"
-      bordered={false}
+      wrapperClass="max-w-100"
+      borderVariant="cyan"
       imgs={[
-        {
-          src: chn1,
-          alt: '接线情况1',
-          class: 'drop-shadow-sm drop-shadow-black',
-        },
-        {
-          src: chn2,
-          alt: '接线情况2',
-          class: 'drop-shadow-sm drop-shadow-black',
-        },
+        { src: chn1, alt: '接线时BOSS位于左上方墙面', title: 'BOSS在左上方' },
+        { src: chn2, alt: '接线时BOSS位于右下方墙面', title: 'BOSS在右下方' },
       ]}
     />
-    <h4 class="mt-4 text-2xl">
-      <Span variant="yellow">核爆参考</Span>
-    </h4>
-    <ImgRow
-      class="game-img"
-      wrapperClass="max-w-150"
-      bordered={false}
-      imgs={[
+
+    <T text="核爆站位" variant="lime" class="mt-4 text-2xl" />
+    <P>
+      处理核爆时，为了增加<RoleIcon role="tank" />与<RoleIcon role="melee" />的uptime，我们规定：
+    </P>
+    <P>
+      <ListDot />
+      被点名核爆的<RoleIcon role="tank" />前往BOSS目标圈穿过的场地角落
+    </P>
+    <P>
+      <ListDot />
+      <RoleIcon role="ranged" tag="D3" />与<RoleIcon role="magic" tag="D4" />
+      在保证DeBuff的层数在1-2层（即<ThornsOfDeathDebuff hover />或<ThornsOfDeathDebuff level={2} hover />）的情况下，
+      尽可能地远离核爆<RoleIcon role="tank" />
+    </P>
+    <P>
+      <ListDot />
+      其余人在BOSS目标圈的另一侧输出，务必不要越过场地中轴线，防止太靠近核爆<RoleIcon role="tank" />直接暴毙
+    </P>
+    <P>
+      此外，我们提倡当核爆<RoleIcon role="tank" />位于场地左上角落时， 给接线的<RoleIcon
+        role="ranged"
+        tag="D3"
+      />一个支援减，减少其受到的伤害
+    </P>
+    <ImgGrid
+      cols={[{ title: 'BOSS位于左上墙壁' }, { title: 'BOSS位于右下墙壁' }]}
+      defaultImgWrapperStyle={{
+        bordered: false,
+        rounded: false,
+        borderVariant: 'cyan',
+      }}
+      rows={[
         {
-          src: flare1,
-          alt: '核爆情况1',
-          class: 'drop-shadow-sm drop-shadow-black',
+          title: '核爆点MT',
+          cells: [
+            { img: { src: DDAB_solution_1, alt: 'BOSS位于左上墙壁且核爆点MT' } },
+            { img: { src: DDAB_solution_2, alt: 'BOSS位于右下墙壁且核爆点MT' } },
+          ],
         },
         {
-          src: flare2,
-          alt: '核爆情况2',
-          class: 'drop-shadow-sm drop-shadow-black',
+          title: '核爆点ST',
+          cells: [
+            { img: { src: DDAB_solution_3, alt: 'BOSS位于左上墙壁且核爆点ST' } },
+            { img: { src: DDAB_solution_4, alt: 'BOSS位于右下墙壁且核爆点ST' } },
+          ],
         },
       ]}
     />

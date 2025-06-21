@@ -10,19 +10,12 @@ import Zelenia from './Zelenia.astro'
 interface Props {
   start: Time
   base?: Time
-  [key: string]: any
 }
 
-const { start, base = 0, ...rest }: Props = Astro.props
+const { start, base = 0 }: Props = Astro.props
 ---
 
-<CastSection
-  start={start}
-  base={base}
-  duration={4.7}
-  target
-  ability="Alexandrian Thunder III"
->
+<CastSection start={start} base={base} duration={4.7} target ability="Alexandrian Thunder III">
   <Zelenia slot="source" />
   <Fragment slot="target">
     <RoleIcon role="all" tag="全员" />
@@ -30,4 +23,3 @@ const { start, base = 0, ...rest }: Props = Astro.props
   <Badge variant="emerald">分散</Badge>
   <Badge variant="yellow">圆形Aoe</Badge>
 </CastSection>
-

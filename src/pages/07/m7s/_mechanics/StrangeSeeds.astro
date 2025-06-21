@@ -18,13 +18,14 @@ import { translations } from '../_translations'
 import StrangeSeedsAppear from '../_components/StrangeSeedsAppear.astro'
 import StoneringerCast from '../_components/StoneringerCast.astro'
 import TendrilsofTerrorAppear from '../_components/TendrilsofTerrorAppear.astro'
-import TendrilsofTerrorActivate from '../_components/TendrilsofTerrorActivate.astro'
 import KillerSeedsAppear from '../_components/KillerSeedsAppear.astro'
 import KillerSeedsActivate from '../_components/KillerSeedsActivate.astro'
 import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import ListDot from '@/components/ListDot.astro'
 
 interface Props {
   base?: Time
@@ -40,18 +41,14 @@ const stoneringer = translations.stoneringer
 <StrangeSeedsActivate time="04:53.975" base={base} num={1} />
 <StrangeSeedsAppear time="04:54.021" base={base} num={2} />
 <TendrilsofTerrorAppear time="04:55.624" base={base} num={1} />
-<TendrilsofTerrorActivate time="04:58.613" base={base} num={1} />
 <StrangeSeedsActivate time="04:59.013" base={base} num={2} />
 <StrangeSeedsAppear time="04:59.013" base={base} num={3} />
 <TendrilsofTerrorAppear time="05:00.664" base={base} num={2} />
-<TendrilsofTerrorActivate time="05:03.653" base={base} num={2} />
 <StrangeSeedsActivate time="05:04.009" base={base} num={3} />
 <StrangeSeedsAppear time="05:04.009" base={base} num={4} />
 <TendrilsofTerrorAppear time="05:05.658" base={base} num={3} />
-<TendrilsofTerrorActivate time="05:08.642" base={base} num={3} />
 <StrangeSeedsActivate time="05:08.997" base={base} num={4} />
 <TendrilsofTerrorAppear time="05:10.647" base={base} num={4} />
-<TendrilsofTerrorActivate time="05:13.631" base={base} num={4} />
 <KillerSeedsAppear time="05:13.853" base={base} />
 <KillerSeedsActivate time="05:18.842" base={base} />
 <EventSection time="05:20.310">
@@ -61,7 +58,6 @@ const stoneringer = translations.stoneringer
 </EventSection>
 <TendrilsofTerrorAppear time="05:20.532" base={base} num={5} />
 <BrutishSwingCast start="05:20.887" base={base} />
-<TendrilsofTerrorActivate time="05:23.516" base={base} num={5} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="flex w-4/6 flex-col gap-4">
@@ -111,41 +107,37 @@ const stoneringer = translations.stoneringer
   <div class="flex flex-col gap-4">
     <!-- 安全区 -->
     <div class="items-left flex flex-col gap-4">
-      <div class="flex flex-row gap-4">
-        <div class="flex w-4/6 flex-col items-center gap-2">
-          <Image src={strange_seeds_safe_point} alt="" />
-          <div class="paragraph">未被点名时待在安全区内</div>
-        </div>
+      <div class="flex w-4/6 flex-col items-center gap-2">
+        <Image src={strange_seeds_safe_point} alt="" />
+        <P>未被点名时待在安全区内</P>
       </div>
-      <div class="gap-strat flex-col">
-        <div>首先</div>
-        <div>短边dot线由<RoleIcon role="dps" tag="D3" />负责</div>
-        <div>长边dot线必定由<RoleIcon role="dps" tag="D4" />负责</div>
-      </div>
+      <P>首先</P>
+      <P>
+        <ListDot />
+        短边dot线由<RoleIcon role="dps" tag="D3" />负责
+      </P>
+      <P>
+        <ListDot />
+        长边dot线必定由<RoleIcon role="dps" tag="D4" />负责
+      </P>
     </div>
 
     <!-- 1/3 -->
     <div class="items-left flex flex-col gap-4">
-      <div class="flex flex-row gap-4">
-        <div class="flex w-4/6 flex-col items-center gap-2">
-          <Image src={strange_seeds_13_point} alt="" />
-          <div class="paragraph">奇数 1/3轮,放角落或中央点</div>
-        </div>
+      <div class="flex w-4/6 flex-col items-center gap-2">
+        <Image src={strange_seeds_13_point} alt="" />
+        <P>奇数 1/3轮,放角落或中央点</P>
       </div>
-      <div class="gap-strat flex-col">
-        <div class="gap-strat flex">站位尽量分开,保证被点名时</div>
-        <div class="gap-strat mt-2 flex">可以直接判断是谁被点名</div>
-        <div class="gap-strat mt-2 flex">注意中央点位的放置需要相当准确</div>
-      </div>
+      <P>站位尽量分开,保证被点名时</P>
+      <P>可以直接判断是谁被点名</P>
+      <P>注意中央点位的放置需要相当准确</P>
     </div>
 
     <!-- 2/4 -->
     <div class="items-left flex flex-row gap-2">
       <div class="flex w-4/6 flex-col items-center gap-2">
         <Image src={strange_seeds_24_point} alt="" />
-        <div class="gap-strat flex flex-col items-center">
-          <div>偶数 2/4轮,放标点或标记位</div>
-        </div>
+        <P>偶数 2/4轮,放标点或标记位</P>
       </div>
     </div>
 
@@ -153,25 +145,23 @@ const stoneringer = translations.stoneringer
     <div class="flex flex-row gap-4">
       <div class="flex w-4/6 flex-col items-center gap-2">
         <Image src={strange_seeds_killer_seeds_point} alt="" />
-        <div class="paragraph">
+        <P>
           第4轮种子落下后,<RoleIcon role="tank" /><RoleIcon role="healer" />组或<RoleIcon role="dps" />组分摊站位
-        </div>
+        </P>
       </div>
     </div>
-    <div class="gap-strat flex-col">
+    <P><Span variant="pink">注意:</Span></P>
+    <P>
       <Span variant="pink">
-        <div class="gap-strat flex">注意:</div>
-        <div class="gap-strat flex">
-          如果<RoleIcon role="dps" tag="D3" />处在左侧半场,则<RoleIcon role="healer" tag="H1" />跑到<RoleIcon
-            role="dps"
-            tag="D3"
-          />位置的距离会变长
-        </div>
+        如果<RoleIcon role="dps" tag="D3" />处在左侧半场,则<RoleIcon role="healer" tag="H1" />跑到<RoleIcon
+          role="dps"
+          tag="D3"
+        />位置的距离会变长
       </Span>
-      <div class="gap-strat flex">
-        这里建议,如果在前几轮已经放完<Span variant="yellow"> {strangeSeeds} </Span>的情况下去
-      </div>
-      <div class="gap-strat flex"><Span variant="pink">左侧安全位</Span>进行躲避.缩短下次跑去分摊的距离</div>
-    </div>
+    </P>
+    <P>
+      这里建议,如果在前几轮已经放完<Span variant="yellow"> {strangeSeeds} </Span>的情况下去
+    </P>
+    <P><Span variant="pink">左侧安全位</Span>进行躲避.缩短下次跑去分摊的距离</P>
   </div>
 </SolutionSection>
