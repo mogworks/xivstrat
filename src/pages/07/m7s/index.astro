@@ -5,7 +5,7 @@ import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
 import Separator from '@/components/Separator.astro'
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import AreaBox from '@/components/AreaBox.astro'
-
+import WaymarkBox from '@/components/WaymarkBox.astro'
 import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
 import Macro from '@/components/Macro.astro'
 import ReferenceItem from '@/components/ReferenceItem.astro'
@@ -53,25 +53,17 @@ const navList = [
     </AreaBox>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
-    <div class="w-sm">
-      <AreaBox>
-        <button
-          class="!disabled:hover:bg-purple-700/60 inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white disabled:cursor-not-allowed disabled:opacity-50 dark:border-purple-500 dark:bg-purple-700/75"
-          disabled="true"
-        >
-          下载标点文件
-        </button>
-        <Separator class="my-2 mb-3" />
-        <strong class="text-sm opacity-60">P2场地</strong>
-        <ResizableImageDialog client:idle>
-          <Image src={WaymarkImage1} alt="m7s 场地标点 1" class="mb-2 w-full object-contain object-left-top" />
-        </ResizableImageDialog>
-        <strong class="text-sm opacity-60">P3场地</strong>
-        <ResizableImageDialog client:idle>
-          <Image src={WaymarkImage2} alt="m7s 场地标点 2" class="w-full object-contain object-left-top" />
-        </ResizableImageDialog>
-      </AreaBox>
-    </div>
+    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT">
+      <Separator class="my-2 mb-3" />
+      <strong class="text-sm opacity-60">P2场地</strong>
+      <ResizableImageDialog client:idle>
+        <Image src={WaymarkImage1} alt="m7s 场地标点 1" class="mb-2 w-full object-contain object-left-top" />
+      </ResizableImageDialog>
+      <strong class="text-sm opacity-60">P3场地</strong>
+      <ResizableImageDialog client:idle>
+        <Image src={WaymarkImage2} alt="m7s 场地标点 2" class="w-full object-contain object-left-top" />
+      </ResizableImageDialog>
+    </WaymarkBox>
     <Fragment slot="header">
       <span>场地标点</span>
     </Fragment>

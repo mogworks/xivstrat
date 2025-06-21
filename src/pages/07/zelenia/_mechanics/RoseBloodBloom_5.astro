@@ -1,23 +1,10 @@
 ---
-import type { Time } from '@/lib/utils'
-
 import { Image } from 'astro:assets'
 
-import Boss from '@/components/Boss.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import DotInfo from '@/components/DotInfo.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
-import Bleeding from '@/components/buff/Bleeding.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
-import ImageRow from '@/components/typography/ImgRow.astro'
 
-import RoseBloodBloomCast from '../_components/RoseBloodBloomCast.astro'
-
-import img from '@/assets/07/zelenia/Tmp.png'
 import Zelenia from '../_components/Zelenia.astro'
 
 import a1g from '@/assets/07/zelenia/P3-5/P3-5-1a-g.png'
@@ -56,7 +43,7 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
       <div class="paragraph">
         <Span variant="yellow">释放顺序说明</Span>
       </div>
-      <table class="min-w-full border mt-4">
+      <table class="mt-4 min-w-full border">
         <thead>
           <tr>
             <th class="border px-3 py-2">次序</th>
@@ -112,34 +99,34 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
     </div>
     <div id="six-damage-grid" class="grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-2">
       {/* 第一行第一列 */}
-      <div class="px-3 py-2 flex justify-center">
+      <div class="flex justify-center px-3 py-2">
         <Image src={a1g} alt="sixdamage: 1" class="omen-img border-cyan-700 dark:border-cyan-100" />
         <Image src={a1} alt="sixdamage: 3" class="activate-img hidden border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第一行第二列 */}
-      <div class="px-3 py-2 flex justify-center">
+      <div class="flex justify-center px-3 py-2">
         <Image src={a2} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第一行第三列 */}
-      <div class="px-3 py-2 flex justify-center">
+      <div class="flex justify-center px-3 py-2">
         <Image src={a3} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第二行第一列 */}
-      <div class="px-3 py-2 flex justify-center">
+      <div class="flex justify-center px-3 py-2">
         <Image src={a4g} alt="Windfang: 1" class="omen-img border-cyan-700 dark:border-cyan-100" />
         <Image src={a4} alt="Windfang: 3" class="activate-img hidden border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第二行第二列 */}
-      <div class="px-3 py-2 flex justify-center">
+      <div class="flex justify-center px-3 py-2">
         <Image src={a5} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第二行第三列 */}
-      <div class="px-3 py-2 flex justify-center">
+      <div class="flex justify-center px-3 py-2">
         <Image src={a6} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
     </div>

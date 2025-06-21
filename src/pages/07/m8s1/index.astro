@@ -19,6 +19,7 @@ import TimelineImage from '@/assets/timelines/07/m8s.png'
 import { macro } from './_data/macro'
 import { referenceList } from './_data/reference'
 import { thanksList } from './_data/thanks'
+import WaymarkBox from '@/components/WaymarkBox.astro'
 
 const dutyId = '07/m8s1'
 const navList = [
@@ -64,20 +65,7 @@ const navList = [
     </AreaBox>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
-    <div class="w-sm">
-      <AreaBox>
-        <button
-          class="!disabled:hover:bg-purple-700/60 inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white disabled:cursor-not-allowed disabled:opacity-50 dark:border-purple-500 dark:bg-purple-700/75"
-          disabled="true"
-        >
-          下载标点文件
-        </button>
-        <Separator class="my-2 mb-3" />
-        <ResizableImageDialog client:idle>
-          <Image src={WaymarkImage} alt="m8s 场地标点" class="w-full object-contain object-left-top" />
-        </ResizableImageDialog>
-      </AreaBox>
-    </div>
+    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT" img={WaymarkImage} />
     <Fragment slot="header">
       <span>场地标点</span>
     </Fragment>

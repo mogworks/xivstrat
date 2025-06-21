@@ -9,11 +9,14 @@ export const translations = {
   burnBabyBurn: 'Burn Baby Burn',
   playASide: 'Play A-side',
   playBSide: 'Play B-side',
-  burnBabyBurnDesc: 'Consumed by the Disco Infernal and condemned to strike a groovy pose when this effect expires. Failure to stand alone in the spotlight when posing will result in damage taken.',
+  burnBabyBurnDesc:
+    'Consumed by the Disco Infernal and condemned to strike a groovy pose when this effect expires. Failure to stand alone in the spotlight when posing will result in damage taken.',
   inTheSpotLight: 'In the Spotlight',
-  inTheSpotLightDesc: 'Struck a groovy pose to the adulation of all on the dance floor. Cannot stop thinking about it, resulting in increased magic damage taken.',
+  inTheSpotLightDesc:
+    'Struck a groovy pose to the adulation of all on the dance floor. Cannot stop thinking about it, resulting in increased magic damage taken.',
   spotlightless: 'Spotlightless',
-  spotlightlessDesc: 'Publicly failed to strike a groovy pose. Ego injury is resulting in greatly increased magic damage taken.',
+  spotlightlessDesc:
+    'Publicly failed to strike a groovy pose. Ego injury is resulting in greatly increased magic damage taken.',
   shame: 'Shame',
   insideOut: 'InSide Out',
   outSideIn: 'OutSide In',
@@ -21,7 +24,8 @@ export const translations = {
   arcadyNightFever: 'Arcady Night Fever',
   getDown: 'Get Down!',
   wavelength: 'Wavelength α',
-  waveLengthDesc: 'A sound bomb will detonate when this effect expires. Its damage can be reduced by sound of a different wavelength. However, mixing two sounds of the same wavelength, or more than two sounds total, will result in cacophonous explosion.',
+  waveLengthDesc:
+    'A sound bomb will detonate when this effect expires. Its damage can be reduced by sound of a different wavelength. However, mixing two sounds of the same wavelength, or more than two sounds total, will result in cacophonous explosion.',
   freakOut: 'Freak Out',
   majorFreakOut: 'Major Freak Out',
   minorFreakOut: 'Minor Freak Out',
@@ -38,7 +42,8 @@ export const translations = {
   arcadyNightEncore: 'Arcady Night Encore',
   letsDanceRemix: 'Let\'s Dance! Remix',
   perfectGroove: 'Perfect Groove',
-  perfectGrooveDesc: 'An impeccable Arcady Night Fever performance is inspiring excessive confidence. Damage dealt is increased.',
+  perfectGrooveDesc:
+    'An impeccable Arcady Night Fever performance is inspiring excessive confidence. Damage dealt is increased.',
   doTheHustle: 'Do the Hustle',
   frogtourageFinale: 'Frogtourage Finale',
   HiNRGFever: 'Hi-NRG Fever',
