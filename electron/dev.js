@@ -10,7 +10,7 @@ console.log('Starting Astro dev server...')
 const astroProcess = spawn('pnpm', ['dev'], {
   cwd: path.join(__dirname, '..'),
   stdio: 'inherit',
-  shell: true
+  shell: true,
 })
 
 // 等待一段时间让 Astro 启动
@@ -20,7 +20,7 @@ setTimeout(() => {
   // 启动 Electron
   const electronProcess = spawn('electron', [path.join(__dirname, 'main.js'), '--dev'], {
     stdio: 'inherit',
-    shell: true
+    shell: true,
   })
 
   electronProcess.on('close', () => {

@@ -1,7 +1,10 @@
-const { app, BrowserWindow, protocol } = require('electron')
+const { app, dialog, protocol, shell, BrowserWindow, Menu } = require('electron')
+const mime = require('mime-types')
 const fs = require('node:fs')
 const path = require('node:path')
 const process = require('node:process')
+
+const { compareVersion, getVersionFrom } = require('./version')
 
 // 判断是否是开发模式
 const isDev = process.env.NODE_ENV === 'development' || process.argv.includes('--dev')
@@ -11,7 +14,7 @@ let mainWindow = null
 
 // 注册自定义协议（必须在 app.ready 之前）
 protocol.registerSchemesAsPrivileged([
-  { scheme: 'app', privileges: { secure: true, standard: true, corsEnabled: true, supportFetchAPI: true } }
+  { scheme: 'app', privileges: { secure: true, standard: true, corsEnabled: true, supportFetchAPI: true } },
 ])
 
 // 创建主窗口
@@ -23,8 +26,8 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
-      preload: path.join(__dirname, 'preload.js')
-    }
+      preload: path.join(__dirname, 'preload.js'),
+    },
   })
 
   // 开发模式下连接到 Astro 开发服务器
@@ -32,7 +35,8 @@ function createWindow() {
     mainWindow.loadURL('http://localhost:4321')
     mainWindow.webContents.openDevTools()
   } else {
-    // 生产模式下使用自定义协议
+    // 生产环境下禁用菜单栏
+    Menu.setApplicationMenu(null)
     mainWindow.loadURL('app://localhost/index.html')
 
     // 生产环境下也可以通过快捷键打开开发工具（用于调试）
@@ -41,6 +45,9 @@ function createWindow() {
         mainWindow.webContents.openDevTools()
       }
     })
+
+    // 第一次加载页面完成后检查更新
+    mainWindow.webContents.once('did-finish-load', checkUpdate)
   }
 
   // 设置 CSP
@@ -48,8 +55,10 @@ function createWindow() {
     callback({
       responseHeaders: {
         ...details.responseHeaders,
-        'Content-Security-Policy': ['default-src \'self\' app: \'unsafe-inline\' \'unsafe-eval\'; img-src \'self\' app: data: blob:; style-src \'self\' app: \'unsafe-inline\'; script-src \'self\' app: \'unsafe-inline\' \'unsafe-eval\';']
-      }
+        'Content-Security-Policy': [
+          'default-src \'self\' app: \'unsafe-inline\' \'unsafe-eval\'; img-src \'self\' app: data: blob:; style-src \'self\' app: \'unsafe-inline\'; script-src \'self\' app: \'unsafe-inline\' \'unsafe-eval\';',
+        ],
+      },
     })
   })
 
@@ -62,6 +71,12 @@ function createWindow() {
       const pathname = new URL(url).pathname
       mainWindow.loadURL(`app://localhost${pathname}`)
     }
+  })
+
+  // 外链使用浏览器打开
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    shell.openExternal(url)
+    return { action: 'deny' }
   })
 
   // 注入脚本（与 Tauri 相同的功能）
@@ -167,20 +182,6 @@ function createWindow() {
         
         // 初始化
         updateBackButton();
-        
-        // 处理外部链接
-        document.addEventListener('click', (e) => {
-          const target = e.target.closest('a');
-          if (target && target.href) {
-            const url = new URL(target.href);
-            if (url.protocol === 'http:' || url.protocol === 'https:') {
-              if (url.host !== window.location.host) {
-                e.preventDefault();
-                window.electronAPI.openExternal(target.href);
-              }
-            }
-          }
-        });
       })();
     `)
   })
@@ -193,7 +194,7 @@ function createWindow() {
 
 // 注册自定义协议处理
 function registerProtocol() {
-  protocol.registerFileProtocol('app', (request, callback) => {
+  protocol.handle('app', async (request) => {
     let url = request.url.replace('app://localhost/', '')
 
     // 解码 URL
@@ -232,13 +233,57 @@ function registerProtocol() {
       // 尝试返回 404 页面或首页
       const fallbackPath = path.join(__dirname, '../dist/404.html')
       if (fs.existsSync(fallbackPath)) {
-        callback({ path: fallbackPath })
-        return
+        return new Response(fs.readFileSync(fallbackPath), {
+          headers: { 'Content-Type': 'text/html' },
+        })
       }
+      return new Response('Not Found', { status: 404 })
     }
 
-    callback({ path: filePath })
+    // 获取文件MIME
+    const mimeType = mime.lookup(filePath) || 'application/octet-stream'
+    return new Response(fs.readFileSync(filePath), {
+      headers: { 'Content-Type': mimeType },
+    })
   })
+}
+
+async function checkUpdate() {
+  // 服务器地址
+  const server = ''
+  if (server === '') {
+    return
+  }
+
+  try {
+    const { version, timestamp, update_info, download_url } = await getVersionFrom(server)
+    // BUG: 为啥这里 app.getVersion() 返回的是 electron 的版本？
+    if (compareVersion(version, app.getVersion())) {
+      const ret = await dialog.showMessageBox(mainWindow, {
+        type: 'info',
+        title: '发现更新',
+        message: `新版本： XivStrat ${version} - ${timestamp}`,
+        detail: `更新内容： \n${update_info}\n要前往下载吗？`,
+        buttons: ['是', '否'],
+        defaultId: 0,
+        cancelId: 1,
+      })
+      // 用户点击确认
+      if (ret.response === 0) {
+        shell.openExternal(download_url)
+      }
+    }
+  } catch (err) {
+    console.error('Error:', err)
+    dialog.showMessageBox(mainWindow, {
+      type: 'error',
+      title: '错误',
+      message: '检查更新时出现错误',
+      detail: `详细信息： ${err}`,
+      buttons: ['确定'],
+      cancelId: 0,
+    })
+  }
 }
 
 // 应用准备就绪
