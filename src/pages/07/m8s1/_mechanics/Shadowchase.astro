@@ -1,18 +1,15 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
-
-import Badge from '@/components/Badge.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import P from '@/components/typography/P.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import Skill from '@/components/typography/Skill.astro'
+import Quote from '@/components/typography/Quote.astro'
 import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import TerrestrialRageCast from '../_components/TerrestrialRageCast.astro'
 import GleamingFang from '../_components/entities/GleamingFang.astro'
@@ -27,184 +24,116 @@ import FangedChargeCast from '../_components/FangedChargeCast.astro'
 
 import { translations } from '../_translations'
 
-import terrestrial_rage_img from '@/assets/07/m8s1/Tmp.png'
-import shadowchase_case1_img from '@/assets/07/m8s1/Tmp.png'
-import shadowchase_case2_img from '@/assets/07/m8s1/Tmp.png'
-import shadowchase_solution_img from '@/assets/07/m8s1/Tmp.png'
+import terrestrial_rage from '@/assets/07/m8s1/shadowchase/terrestrial_rage.png'
+import fanged_charge_1 from '@/assets/07/m8s1/shadowchase/fanged_charge_1.png'
+import fanged_charge_2 from '@/assets/07/m8s1/shadowchase/fanged_charge_2.png'
 
 interface Props {
   base?: Time
 }
 
 const { base = 0 }: Props = Astro.props
-const ability = translations.terrestrialRage
 ---
 
 <BareFangsEvent time="04:34.250" base={base} phase="P3" />
 <TerrestrialRageCast start="04:36.338" base={base} />
 <FangedChargeCast start="04:42.471" base={base} />
-<FangedChargeCast start="04:44.904" base={base} />
 <TerrestrialRageActivate time="04:47.680" base={base} order="1" />
 <ShadowchaseCast start="04:45.454" base={base} />
-<ShadowchaseCast start="04:52.704" base={base} shadow={true} />
+<FangedChargeCast start="04:44.904" base={base} />
 <TerrestrialRageActivate time="04:54.399" base={base} order="2" />
+<ShadowchaseCast start="04:52.704" base={base} shadow={true} />
 <RetargetableEvent time="04:56.667" base={base} />
 <RoaringWindCast start="04:56.667" base={base} />
 
-<!-- TODO -->
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <T text={ability} variant="yellow" />
-    <div class="flex gap-4">
-      <div class="max-w-90 shrink">
-        <Image
-          src={terrestrial_rage_img}
-          alt="Terrestrial Rage Mechanics"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
-      </div>
-      <div class="shrink-0 grow space-y-4">
-        <P>
-          随机点名
-          <RoleIcon role="tank|healer" />4人或<RoleIcon role="dps" />4人
-          <Skill name="大岩石" /><Badge variant="yellow">分散</Badge>。
-        </P>
-        <P>
-          其余4人中点名一人
-          <Skill name="大震撃" /><Badge variant="yellow">分摊</Badge>
-          。
-        </P>
-        <P>
-          分散分摊稍后判定，造成
-          <DamageInfo damage="110000" type="magical" /><MagicVulnerabilityUp tag="2" hover />。
-        </P>
-        <br />
-        <P>
-          点名出现后，场上分2组出现4个斜着的<GleamingFang />。
-        </P>
-        <P>
-          短暂延迟后按出现顺序释放
-          <Skill name="突進光牙" /><Badge variant="yellow">直线AoE</Badge>。
-        </P>
-        <br />
-        <P>
-          判定顺序：1轮<GleamingFang /> - 分摊分散 - 2轮<GleamingFang />。
-        </P>
-        <br />
-        <P>后续的机制中还会进行一轮点名相反的分散分摊。</P>
-      </div>
-    </div>
+    <Quote variant="yellow" class="opacity-80">
+      <P>注意：以下图示为各个机制单独拆解，实际战斗中机制会组合出现，发动顺序可参考上方时间轴</P>
+    </Quote>
+
+    <T text={translations.terrestrialRage} variant="yellow" class="mt-8" />
+    <P>
+      读条后，
+      <HowlingBlade />
+      会延时发动两轮分散/分摊，分散/分摊会点名不同职能，哪个职能先分散/分摊是随机的
+    </P>
+    <P>
+      如第一轮是
+      <RoleIcon role="tank|healer" />
+      分散 +
+      <RoleIcon role="dps" />
+      分摊，那么第二轮就是
+      <RoleIcon role="dps" />
+      分散 +
+      <RoleIcon role="tank|healer" />
+      分摊，反之亦然
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: terrestrial_rage,
+          alt: '大地之怒',
+        },
+      ]}
+    />
+    <P>
+      注意该机制的分散会
+      <Span variant="cyan">点够4人</Span>
+      ，所以如果中途有分散点名死了，就会点到分摊的人群中，导致团灭
+    </P>
+
+    <T text={translations.fangedCharge} variant="yellow" class="mt-8" />
+    <P>
+      场地上会分两轮先后刷新两组
+      <GleamingFang />
+      释放斜向的直线AoE，呈条纹状间隔分布，如下图：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: fanged_charge_1,
+          alt: '突进光牙1',
+          title: '第一轮',
+        },
+        {
+          src: fanged_charge_2,
+          alt: '突进光牙2',
+          title: '第二轮',
+        },
+      ]}
+    />
+
+    <T text={translations.shadowchase} variant="yellow" class="mt-8" />
+    <P>
+      读条后，
+      <HowlingBlade />
+      消失，稍后场上出现5个分身，读条释放
+      <Span variant="pink">8m</Span>
+      宽直线AoE，分身有两种刷新模式，如下图：
+    </P>
+    <!-- TODO -->
+    <P>分身一定是和之后的狼首交错刷新的</P>
+
+    <T text={translations.roaringWind} variant="yellow" class="mt-8" />
+    <P>
+      和
+      <Skill name={translations.shadowchase} />
+      类似，场上出现5个
+      <WolfOfWind />
+      ，读条释放
+      <Span variant="pink">8m</Span>
+      宽直线AoE，同样有两种刷新模式，如下图：
+    </P>
+    <!-- TODO -->
+    <P>狼首一定是和之前的分身交错刷新的</P>
   </div>
 </MechanicSection>
+
 <SolutionSection>
-  <div class="flex gap-4">
-    <div class="max-w-90 shrink">
-      <Image
-        src={terrestrial_rage_img}
-        alt="Terrestrial Rage Solution"
-        class="border-2 border-amber-800/75 dark:border-amber-100"
-      />
-    </div>
-    <div class="shrink-0 grow space-y-4">
-      <P>光牙方向一定与标点 13/24 连线平行。</P>
-      <P>
-        不难发现
-        <Span variant="lime">4个正点</Span>
-        附近一定有安全点。
-      </P>
-      <br />
-      <P>
-        <Span variant="yellow">分摊点名</Span>
-        和无点名玩家前往场中附近调整位置；
-      </P>
-      <P>
-        <Span variant="yellow">分散点名</Span>
-        按图示前往自己的正点，调整位置躲避光牙。
-      </P>
-      <P>二穿一躲避AoE的同时处理分摊/分散。</P>
-    </div>
-  </div>
-</SolutionSection>
-<MechanicSection>
-  <div class="flex flex-col gap-4">
-    <T text="残影剣" variant="yellow" />
-    <div class="flex flex-col gap-4">
-      <div class="flex gap-4">
-        <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-          <Image
-            src={shadowchase_case1_img}
-            alt="shadowchase_case1"
-            class="border-2 border-amber-800/75 dark:border-amber-100"
-          />
-          <P>可能情况1</P>
-        </div>
-        <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-          <Image
-            src={shadowchase_case2_img}
-            alt="shadowchase_case2"
-            class="border-2 border-amber-800/75 dark:border-amber-100"
-          />
-          <P>可能情况2</P>
-        </div>
-      </div>
-      <P>
-        <HowlingBlade />
-        在场上召唤出5个分身，读条向前方释放
-        <Skill name="残影剣" />
-        <Badge variant="yellow">直线AoE</Badge>
-        。
-      </P>
-      <P>
-        点名与先前的
-        <Skill name="大地の怒り" />
-        相反的分摊/分散
-        <Skill name={['大震撃', '大岩石']} />
-        <DamageInfo damage="110000" type="magical" />
-        <MagicVulnerabilityUp tag="2" hover />
-        。
-      </P>
-      <P>
-        分摊/分散判定后，分身夹缝中出现5个
-        <WolfOfWind />
-        风狼头，读条向前方释放
-        <Skill name="風狼豪波" />
-        <Badge variant="yellow">直线AoE</Badge>
-        。
-      </P>
-    </div>
-  </div>
-</MechanicSection>
-<SolutionSection>
-  <div class="flex gap-4">
-    <div class="max-w-90 shrink">
-      <Image
-        src={shadowchase_solution_img}
-        alt="Shadowchase Solution"
-        class="border-2 border-amber-800/75 dark:border-amber-100"
-      />
-    </div>
-    <div class="shrink-0 grow space-y-4">
-      <P>分身与风狼头的AoE安全点都在后方。</P>
-      <P />
-      <P>
-        将视角转向
-        <Span variant="lime">A点开始顺时针第一个分身</Span>
-        作为12点处理该机制。
-      </P>
-      <P>
-        <Span variant="yellow">分摊点名</Span>
-        和无点名前往12点集合分摊；
-      </P>
-      <P>
-        <Span variant="yellow">分散点名</Span>
-        按图示前往自己的分散位置。
-      </P>
-      <P />
-      <P>
-        分摊分散判定，去
-        <WolfOfWind />
-        后方躲避直线AoE。
-      </P>
-    </div>
-  </div>
+  <div class="flex flex-col gap-4">TODO</div>
 </SolutionSection>
