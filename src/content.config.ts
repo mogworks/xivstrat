@@ -52,6 +52,7 @@ const developers = defineCollection({
   schema: ({ image }) =>
     z.object({
       name: z.string(),
+      breakNames: z.optional(z.array(z.string()), z.undefined()),
       gameName: z.string(),
       avatar: image(),
       link: z.string(),

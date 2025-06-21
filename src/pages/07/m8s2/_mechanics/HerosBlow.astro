@@ -5,12 +5,19 @@ import { type Time } from '@/lib/utils'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import HerosBlowCast from '../_components/HerosBlowCast.astro'
 import GleamingFang from '../_components/entities/GleamingFang.astro'
 
-import img from '@/assets/07/m8s2/tmp.png'
+import HerosBlow1 from '@/assets/07/m8s2/p1/herosBlow1.png'
+import HerosBlow2 from '@/assets/07/m8s2/p1/herosBlow2.png'
+import HerosBlow3 from '@/assets/07/m8s2/p1/herosBlow3.png'
+import HerosBlow4 from '@/assets/07/m8s2/p1/herosBlow4.png'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -19,40 +26,71 @@ interface Props {
 
 const { start, base = 0 }: Props = Astro.props
 
-const herosBlow = '鎧袖一触'
+const herosBlow = translations.herosBlow
 ---
 
 <HerosBlowCast start={start} base={base} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
+    <T>
       <Span variant="yellow">{herosBlow}</Span>
-    </div>
+    </T>
 
-    <div class="paragraph">
-      <HowlingBlade />会举起剑，对随机左/右半场释放半场刀。
-    </div>
+    <P>
+      <HowlingBlade />会举起剑，点名一个
+      <Span variant="pink"> 有玩家的平台 </Span>
+      ，对随机左/右半场释放半场刀。
+    </P>
 
-    <div class="paragraph">
+    <P>
       与此同时，会有一圈
       <GleamingFang />向内圈或者外圈发光，释放钢铁或者月环。
-    </div>
+    </P>
   </div>
 </MechanicSection>
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">在该机制之前，所有人应该在南边平台，也就是初始平台待机。</div>
+    <P>
+      在该机制之前，所有玩家应该在<HowlingBlade />面前的平台引导半场刀。
+    </P>
 
-    <div class="paragraph">
+    <P>
       随后<HowlingBlade />举起刀，观察安全半场，然后确认
       <GleamingFang />是钢铁还是月环，进行躲避。
-    </div>
+    </P>
 
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={img} alt="quake1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-      <div>双T死刑，人群在南边</div>
-    </div>
+    <ImgRow
+      bordered={false}
+      imgClass="max-w-110"
+      class="gap-20"
+      imgs={[
+        {
+          src: HerosBlow1,
+          alt: '钢铁+右半场刀',
+        },
+        {
+          src: HerosBlow2,
+          alt: '钢铁+左半场刀',
+        },
+      ]}
+    />
+
+    <ImgRow
+      bordered={false}
+      imgClass="max-w-110"
+      class="gap-20"
+      imgs={[
+        {
+          src: HerosBlow3,
+          alt: '月环+右半场刀',
+        },
+        {
+          src: HerosBlow4,
+          alt: '月环+左半场刀',
+        },
+      ]}
+    />
   </div>
 </SolutionSection>

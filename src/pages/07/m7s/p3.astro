@@ -5,6 +5,7 @@ import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import Span from '@/components/Span.vue'
+import DraftWarning from '@/components/DraftWarning.astro'
 
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
@@ -26,6 +27,7 @@ import DebrisDeathmatch from './_mechanics/DebrisDeathmatch.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 
 const dutyId = '07/m7s'
+
 const base = '06:16.310'
 const sinisterSeeds = translations.sinisterSeeds
 const specialBombarianSpecial = translations.specialBombarianSpecial
@@ -36,10 +38,13 @@ const brutalImpact = translations.brutalImpact
 const stoneringer = translations.stoneringer
 const debrisDeathmatch = translations.debrisDeathmatch
 const strangeSeeds = translations.strangeSeeds
-const sporeSac = translations.sporeSac
+const sporesac = translations.sporeSac
 ---
 
 <DutyStratLayout dutyId={dutyId}>
+  <SeparatorSection />
+  <DraftWarning />
+  <SeparatorSection />
   <EventSection time="06:09.273">
     <BruteAbombinator />可选中
   </EventSection>
@@ -52,7 +57,7 @@ const sporeSac = translations.sporeSac
     <Fragment slot="summary">
       <BruteAbombinator />
       连续释放<Span variant="pink">7</Span>次AoE，每轮伤害
-      <DamageInfo damage="55000" type="physical" />
+      <DamageInfo damage="57000" type="physical" />
     </Fragment>
     <Fragment slot="details">
       <BrutalImpactActivate time="06:21.518" base={base} num={1} />
@@ -77,7 +82,7 @@ const sporeSac = translations.sporeSac
     <Fragment slot="summary">
       <BruteAbombinator />
       连续释放<Span variant="pink">8</Span>次AoE，每轮伤害
-      <DamageInfo damage="55000" type="physical" />
+      <DamageInfo damage="57000" type="physical" />
     </Fragment>
     <Fragment slot="details">
       <BrutalImpactActivate time="07:21.535" base={base} num={1} />
@@ -99,10 +104,10 @@ const sporeSac = translations.sporeSac
   <AttackSection time="07:47.962" base={base} damage="57000" damageType="physical" />
   <AttackSection time="07:50.993" base={base} damage="57000" damageType="physical" />
 
-  <SeparatorSection id="debris-deathmatch-sporesac" title={`${debrisDeathmatch} + {$sporeSac}`} />
+  <SeparatorSection id="debris-deathmatch-sporesac" title=`${debrisDeathmatch} + ${sporesac}` />
   <DebrisDeathmatch base={base} />
 
-  <SeparatorSection id="sinister-seeds" title={sinisterSeeds} />
+  <SeparatorSection id="sinister-seeds" title="Sinister Seeds" />
   <SinisterSeedsP3 base={base} />
 
   <SeparatorSection title={brutalImpact} />
@@ -111,7 +116,7 @@ const sporeSac = translations.sporeSac
     <Fragment slot="summary">
       <BruteAbombinator />
       连续释放<Span variant="pink">8</Span>次AoE，每轮伤害
-      <DamageInfo damage="55000" type="physical" />
+      <DamageInfo damage="57000" type="physical" />
     </Fragment>
     <Fragment slot="details">
       <BrutalImpactActivate time="09:10.574" base={base} num={1} />
@@ -144,7 +149,7 @@ const sporeSac = translations.sporeSac
     <Fragment slot="summary">
       <BruteAbombinator />
       连续释放<Span variant="pink">8</Span>次AoE，每轮伤害
-      <DamageInfo damage="55000" type="physical" />
+      <DamageInfo damage="57000" type="physical" />
     </Fragment>
     <Fragment slot="details">
       <BrutalImpactActivate time="10:38.459" base={base} num={1} />

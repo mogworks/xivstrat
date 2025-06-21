@@ -1,23 +1,10 @@
 ---
-import type { Time } from '@/lib/utils'
-
 import { Image } from 'astro:assets'
 
-import Boss from '@/components/Boss.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import DotInfo from '@/components/DotInfo.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
-import Bleeding from '@/components/buff/Bleeding.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
-import ImageRow from '@/components/typography/ImgRow.astro'
 
-import RoseBloodBloomCast from '../_components/RoseBloodBloomCast.astro'
-
-import img from '@/assets/07/zelenia/Tmp.png'
 import Zelenia from '../_components/Zelenia.astro'
 
 import a1g from '@/assets/07/zelenia/P3-5/P3-5-1a-g.png'
@@ -30,44 +17,39 @@ import a5 from '@/assets/07/zelenia/P3-5/P3-5-5a.png'
 import a6 from '@/assets/07/zelenia/P3-5/P3-5-6a.png'
 
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
-
-
 ---
-
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-      <div class="paragraph">
-        <Zelenia/>
-        同时召唤以下aoe预兆：
-      </div>
-      
-      <div class="paragraph">
-        <Span variant="yellow">场外刀：</Span>在对应半场释放直线aoe
-      </div>
-      <div class="paragraph">
-        <Span variant="orange">六连劈：</Span>六组扇形aoe
-      </div>
-      <div class="paragraph">
-        <Span variant="blue">钢铁/月环：</Span>圆形/月环aoe，会引爆<Span variant="red">红色地板</Span>
-      </div>
+    <div class="paragraph">
+      <Zelenia />
+      同时召唤以下aoe预兆：
+    </div>
+
+    <div class="paragraph">
+      <Span variant="yellow">场外刀：</Span>在对应半场释放直线aoe
+    </div>
+    <div class="paragraph">
+      <Span variant="orange">六连劈：</Span>六组扇形aoe
+    </div>
+    <div class="paragraph">
+      <Span variant="blue">钢铁/月环：</Span>圆形/月环aoe，会引爆<Span variant="red">红色地板</Span>
+    </div>
   </div>
-  
 </MechanicSection>
 <SolutionSection>
-  <div class="flex flex-col gap-6"> 
+  <div class="flex flex-col gap-6">
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
       <div class="paragraph">
         <Span variant="yellow">释放顺序说明</Span>
-        
       </div>
-      <table class="min-w-full border mt-4">
+      <table class="mt-4 min-w-full border">
         <thead>
           <tr>
-              <th class="border px-3 py-2">次序</th>
-              <th class="border px-3 py-2">六连劈</th>
-              <th class="border px-3 py-2">钢铁/月环</th>
-              <th class="border px-3 py-2">场外刀</th>
+            <th class="border px-3 py-2">次序</th>
+            <th class="border px-3 py-2">六连劈</th>
+            <th class="border px-3 py-2">钢铁/月环</th>
+            <th class="border px-3 py-2">场外刀</th>
           </tr>
         </thead>
         <tbody>
@@ -107,84 +89,52 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
       </table>
     </div>
     <div class="paragraph">
-      每轮伤害判定示意图<ToggleSwitch id="damage-toggle" lVariant="blue" rVariant="yellow" lLabel="先钢铁" rLabel="先月环" />
+      每轮伤害判定示意图<ToggleSwitch
+        id="damage-toggle"
+        lVariant="blue"
+        rVariant="yellow"
+        lLabel="先钢铁"
+        rLabel="先月环"
+      />
     </div>
-    <div
-      id="six-damage-grid"
-      class="grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-2"
-    >
+    <div id="six-damage-grid" class="grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-2">
       {/* 第一行第一列 */}
-      <div class="px-3 py-2 flex justify-center">
-        <Image
-          src={a1g}
-          alt="sixdamage: 1"
-          class="omen-img border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={a1}
-          alt="sixdamage: 3"
-          class="activate-img hidden border-cyan-700 dark:border-cyan-100"
-        />
+      <div class="flex justify-center px-3 py-2">
+        <Image src={a1g} alt="sixdamage: 1" class="omen-img border-cyan-700 dark:border-cyan-100" />
+        <Image src={a1} alt="sixdamage: 3" class="activate-img hidden border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第一行第二列 */}
-      <div class="px-3 py-2 flex justify-center">
-        <Image
-          src={a2}
-          alt="sixdamage: 2"
-          class="border-cyan-700 dark:border-cyan-100"
-        />
-        
+      <div class="flex justify-center px-3 py-2">
+        <Image src={a2} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第一行第三列 */}
-      <div class="px-3 py-2 flex justify-center">
-        <Image
-          src={a3}
-          alt="sixdamage: 2"
-          class="border-cyan-700 dark:border-cyan-100"
-        />
+      <div class="flex justify-center px-3 py-2">
+        <Image src={a3} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第二行第一列 */}
-      <div class="px-3 py-2 flex justify-center">
-        <Image
-          src={a4g}
-          alt="Windfang: 1"
-          class="omen-img border-cyan-700 dark:border-cyan-100"
-        />
-        <Image
-          src={a4}
-          alt="Windfang: 3"
-          class="activate-img hidden border-cyan-700 dark:border-cyan-100"
-        />
+      <div class="flex justify-center px-3 py-2">
+        <Image src={a4g} alt="Windfang: 1" class="omen-img border-cyan-700 dark:border-cyan-100" />
+        <Image src={a4} alt="Windfang: 3" class="activate-img hidden border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第二行第二列 */}
-      <div class="px-3 py-2 flex justify-center">
-        <Image
-          src={a5}
-          alt="sixdamage: 2"
-          class="border-cyan-700 dark:border-cyan-100"
-        />
+      <div class="flex justify-center px-3 py-2">
+        <Image src={a5} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第二行第三列 */}
-      <div class="px-3 py-2 flex justify-center">
-        <Image
-          src={a6}
-          alt="sixdamage: 2"
-          class="border-cyan-700 dark:border-cyan-100"
-        />
+      <div class="flex justify-center px-3 py-2">
+        <Image src={a6} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
     </div>
   </div>
 </SolutionSection>
 
-
 <script>
-
-  const mechanicToggle = document.getElementById('damage-toggle') as HTMLInputElement;
+  const mechanicToggle = document.getElementById('damage-toggle') as HTMLInputElement
 
   function toggleImages(id: string, activate: boolean) {
     const section = document.getElementById(id)
@@ -202,12 +152,9 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
       }
     }
   }
-
-  
   if (mechanicToggle) {
     mechanicToggle.addEventListener('change', function () {
-      toggleImages('six-damage-grid', this.checked);
-    });
+      toggleImages('six-damage-grid', this.checked)
+    })
   }
-
 </script>

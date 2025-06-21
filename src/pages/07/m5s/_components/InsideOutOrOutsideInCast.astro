@@ -7,6 +7,7 @@ import Span from '@/components/Span.vue'
 import StratInterval from '@/components/StratInterval.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import Badge from '@/components/Badge.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start?: Time
@@ -30,13 +31,13 @@ const adjustedDuration = duration + 0.3
       <li class="flex items-center gap-1 text-lg">
         <Boss />
         读条
-        <Span variant="yellow">Inside Out</Span>
+        <Span variant="yellow">{translations.insideOut}</Span>
         <Badge variant="yellow">钢铁+月环</Badge>
       </li>
       <li class="flex items-center gap-1 text-lg">
         <Boss />
         读条
-        <Span variant="yellow">Outside In</Span>
+        <Span variant="yellow">{translations.outSideIn}</Span>
         <Badge variant="yellow">月环+钢铁</Badge>
       </li>
     </ul>

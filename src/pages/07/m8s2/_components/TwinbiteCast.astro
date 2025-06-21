@@ -7,6 +7,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -15,16 +16,16 @@ interface Props {
 
 const { start, base = 0 }: Props = Astro.props
 
-const twinbite = '雙牙擊'
+const twinbite = translations.twinbite
 ---
 
 <CastSection start={start} base={base} duration={6.7} ability={twinbite} target damage="600000" damageType="magical">
   <HowlingBlade slot="source" />
 
   <div slot="target">
-    <RoleIcon role="all" tag="一仇" />
+    <RoleIcon role="tank" tag="一仇" />
     和
-    <RoleIcon role="all" tag="二仇" />
+    <RoleIcon role="tank" tag="二仇" />
   </div>
 
   <MagicVulnerabilityUp tag="9" />

@@ -1,0 +1,44 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import Skill from '@/components/typography/Skill.astro'
+
+import EarthborneEnd from '../_components/buff/EarthborneEnd.astro'
+import WindborneEnd from '../_components/buff/WindborneEnd.astro'
+import FontOfWindAether from '../_components/entities/FontOfWindAether.astro'
+import FontOfEarthAether from '../_components/entities/FontOfEarthAether.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+  base?: Time
+  buffTime: '21' | '37' | '54'
+  type: 'wind' | 'stone'
+}
+
+const { time, base = 0, buffTime, type }: Props = Astro.props
+---
+
+<EventSection time={time} base={base}>
+  初始持有
+  {type === 'wind' ? <WindborneEnd tag={buffTime} hover /> : <EarthborneEnd tag={buffTime} hover />}
+  的
+  <RoleIcon role="healer|dps" />
+  触碰
+  {type === 'wind' ? <FontOfWindAether /> : <FontOfEarthAether />}
+  ，消除
+  {type === 'wind' ? <WindborneEnd hover /> : <EarthborneEnd hover />}
+  ，对
+  <RoleIcon role="all" tag="全员" />
+  造成
+  <Skill name={type === 'wind' ? translations.windSurge : translations.sandSurge} />
+  <DamageInfo damage="15000" type="magical" />
+  <MagicVulnerabilityUp tag="4" hover />
+  <Badge variant="green">AoE</Badge>
+</EventSection>

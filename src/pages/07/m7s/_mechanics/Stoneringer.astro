@@ -24,6 +24,9 @@ import SmashActivate from '../_components/SmashActivate.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import ListDot from '@/components/ListDot.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
 
 interface Props {
   base: Time
@@ -43,9 +46,9 @@ const brutishswing = translations.brutishSwing
 <SmashActivate time="00:33.860" base={base} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <h4 class="text-2xl">
-      <Span variant="yellow">{stoneringer}</Span>
-    </h4>
+    <T>
+      <Skill name={stoneringer} />
+    </T>
     <div class="paragraph">
       <Span variant="yellow">{stoneringer}</Span> 读条期间，<BruteAbombinator />掏出<Span variant="pink">一把</Span>武器
     </div>
@@ -56,19 +59,20 @@ const brutishswing = translations.brutishSwing
     </div>
     <div class="flex gap-4">
       <div class="max-w-88 flex-1">
-        <Image src={stoneringer_1} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <Image src={stoneringer_1} alt="" class="rounded border-2 border-yellow-800 dark:border-yellow-100" />
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
           <Span variant="yellow">情形1</Span>
         </h4>
         <div class="paragraph">
-          <BruteAbombinator />掏出一根<Span variant="pink">石制棍棒</Span>，发光后释放半径<Span variant="pink">12m</Span
+          <BruteAbombinator />掏出一根石制<Span variant="pink">棍棒</Span>，发光后释放半径<Span variant="pink">12m</Span
           >的<Span variant="yellow">钢铁</Span>
         </div>
         <div>范围<Span variant="pink">大于</Span>最大近战攻击距离</div>
         <div>
-          吃到后会被赋予
+          对范围内的玩家造成
+          <DamageInfo damage="134000" type="physical" />
           <DamageDown tag="30" hover />
           <Span variant="rose" class="text-decimal">35%↓</Span>
         </div>
@@ -76,29 +80,31 @@ const brutishswing = translations.brutishSwing
     </div>
     <div class="flex gap-4">
       <div class="max-w-88 flex-1">
-        <Image src={stoneringer_2} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <Image src={stoneringer_2} alt="" class="rounded border-2 border-yellow-800 dark:border-yellow-100" />
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
           <Span variant="yellow">情形2</Span>
         </h4>
         <div class="paragraph">
-          <BruteAbombinator />掏出一把<Span variant="pink">石制长刀</Span>，发光后释放<Span variant="yellow">月环</Span>
+          <BruteAbombinator />掏出一把石制<Span variant="pink">长刀</Span>，发光后释放<Span variant="yellow">月环</Span>
         </div>
         <div>中间安全场地半径 <Span variant="pink">9m</Span></div>
         <div>
-          吃到后会被赋予
+          对范围内的玩家造成
+          <DamageInfo damage="134000" type="physical" />
           <DamageDown tag="30" hover />
           <Span variant="rose" class="text-decimal">35%↓</Span>
         </div>
       </div>
     </div>
-    <h4 class="mt-8 text-2xl">
+
+    <T class="mt-8">
       <Span variant="yellow">钢铁月环范围如图所示</Span>
-    </h4>
+    </T>
     <ImgRow
       wrapperClass="max-w-100"
-      borderVariant="cyan"
+      bordered={false}
       imgs={[
         {
           src: stoneringer_circle,
@@ -126,27 +132,32 @@ const brutishswing = translations.brutishSwing
 
     <div class="flex gap-4">
       <div class="flex-1 shrink">
-        <Image src={smash_here} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <Image src={smash_here} alt=`${smashHere}` />
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
           <Span variant="yellow">情形1：{smashHere}</Span>
         </h4>
         <div class="paragraph">
-          读条{smashHere}，对距离<Span variant="pink">最近</Span>的玩家释放<Span variant="pink">范围</Span>死刑
+          <!--想保留读条文字高亮色强调，又想中英文可切换 -->
+          读条 <Span variant="pink">近侧</Span>挥打，对距离<Span variant="pink">最近</Span>的玩家释放<Span
+            variant="pink">范围</Span
+          >死刑
         </div>
       </div>
     </div>
     <div class="flex gap-4">
       <div class="flex-1 shrink">
-        <Image src={smash_there} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <Image src={smash_there} alt=`${smashThere}` />
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
           <Span variant="yellow">情形2：{smashThere}</Span>
         </h4>
         <div class="paragraph">
-          读条{smashThere}，对距离<Span variant="pink">最远</Span>的玩家释放<Span variant="pink">范围</Span>死刑
+          读条<Span variant="pink">远侧</Span>挥打，对距离<Span variant="pink">最远</Span>的玩家释放<Span variant="pink"
+            >范围</Span
+          >死刑
         </div>
       </div>
     </div>
@@ -162,7 +173,7 @@ const brutishswing = translations.brutishSwing
     <div class="gap-strat flex items-center">
       <ListDot />
       <RoleIcon role="tank" tag="引导T" />
-      引导对应的<Span variant="pink">最近</Span>/<Span variant="pink">最远</Span>死刑，开好减伤分摊或无敌处理
+      引导对应的<Span variant="pink">最近</Span>/<Span variant="pink">最远</Span>死刑，无敌处理
     </div>
     <div class="gap-strat flex items-center">
       <ListDot />

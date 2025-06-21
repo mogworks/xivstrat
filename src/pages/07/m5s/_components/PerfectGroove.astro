@@ -2,6 +2,7 @@
 import Buff from '@/components/Buff.astro'
 
 import perfect_groove from '@/assets/buff/07/m5s/214283.png'
+import { translations } from '../_translations'
 
 interface Props {
   tag?: string
@@ -14,9 +15,9 @@ const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 
 <Buff
   icon={perfect_groove}
-  name="Perfect Groove"
+  name={translations.perfectGroove}
   nameVariant="yellow"
-  description="An impeccable Arcady Night Fever performance is inspiring excessive confidence. Damage dealt is increased."
+  description={translations.perfectGrooveDesc}
   tag={tag}
   hover={hover}
   class={className}
