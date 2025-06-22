@@ -9,14 +9,13 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 const powerslam = translations.powerslam
 ---
 
-<CastSection start={time} base={base} duration={5.7} ability={powerslam}>
+<CastSection start={time} duration={5.7} ability={powerslam}>
   <BruteAbombinator slot="source" />
   <Badge variant="emerald">场地切换</Badge>
   <Badge variant="purple">AoE</Badge>

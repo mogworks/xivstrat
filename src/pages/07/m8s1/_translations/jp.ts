@@ -55,4 +55,5 @@ export const translations = {
   roaringWind: '風狼豪波',
   roaringStone: '土狼豪波',
   fangedCharge: '突進光牙',
+  moonbeamsBite: '幻狼剣',
 }

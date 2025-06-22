@@ -37,10 +37,9 @@ import SlaminatorActivate from '../_components/SlaminatorActivate.astro'
 
 interface Props {
   time: Time
-  base: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 const brutishSwing = translations.brutishSwing
 const electrogeneticForce = translations.electrogeneticForce
 const glowerPower = translations.glowerPower
@@ -50,22 +49,22 @@ const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
 const slaminator = translations.slaminator
 ---
 
-<Stoneringer2Cast start={time} base={base} />
-<BrutishSwingCast start="06:41.085" base={base} />
-<BrutishSwingMoveActivate time="06:46.790" base={base} />
-<BrutishSwingActivate time="06:47.813" base={base} />
+<Stoneringer2Cast start={time} />
+<BrutishSwingCast start="06:41.085" />
+<BrutishSwingMoveActivate time="06:46.790" />
+<BrutishSwingActivate time="06:47.813" />
 
-<RevengeOfTheVinesActivate time="06:48.882" base={base} />
-<LashingLariatCast start="06:50.973" base={base} />
-<LashingLariatActivate time="06:54.942" base={base} />
-<BrutishSwingCast start="06:56.589" base={base} />
-<BrutishSwingMoveActivate time="07:02.289" base={base} />
-<BrutishSwingActivate time="07:03.268" base={base} />
-<GlowerPowerCast start="07:04.383" base={base} duartion={1.7} />
-<ElectrogeneticForceActivate time="07:06.209" base={base} />
-<GlowerPowerActivate time="07:06.345" base={base} />
-<SlaminatorCast start="07:07.188" base={base} />
-<SlaminatorActivate time="07:12.172" base={base} />
+<RevengeOfTheVinesActivate time="06:48.882" />
+<LashingLariatCast start="06:50.973" />
+<LashingLariatActivate time="06:54.942" />
+<BrutishSwingCast start="06:56.589" />
+<BrutishSwingMoveActivate time="07:02.289" />
+<BrutishSwingActivate time="07:03.268" />
+<GlowerPowerCast start="07:04.383" duartion={1.7} />
+<ElectrogeneticForceActivate time="07:06.209" />
+<GlowerPowerActivate time="07:06.345" />
+<SlaminatorCast start="07:07.188" />
+<SlaminatorActivate time="07:12.172" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T>

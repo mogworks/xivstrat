@@ -14,6 +14,7 @@ interface Props {
   class?: string
   wrapperClass?: string
   imgClass?: string
+  borderClass?: string
   titleClass?: string
   [key: string]: any
 }
@@ -26,6 +27,7 @@ const {
   class: className = '',
   wrapperClass = '',
   imgClass = '',
+  borderClass = '',
   titleClass = '',
   ...rest
 } = Astro.props
@@ -41,6 +43,7 @@ const {
         rounded={img.rounded ?? rounded}
         class={img.class ?? wrapperClass}
         imgClass={img.imgClass ?? imgClass}
+        borderClass={img.borderClass ?? borderClass}
         titleClass={img.titleClass ?? titleClass}
       />
     ))

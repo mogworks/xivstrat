@@ -19,13 +19,12 @@ import DeepCutCast from '../_components/DeepCutCast.astro'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<DeepCutCast start={start} base={base} />
+<DeepCutCast start={start} />
 <MechanicSection>
   <div class="paragraph">
     点名

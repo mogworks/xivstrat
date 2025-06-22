@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, useTemplateRef, watch } from 'vue'
+import { nextTick, ref, useTemplateRef, watch } from 'vue'
 
 import MagnifierCursorSVGRaw from '@/assets/svg/magnifier-cursor.svg?raw'
 import {
@@ -63,12 +63,35 @@ const handleScroll = (event: WheelEvent) => {
 
 const handleReset = () => {
   scale.value = 1
-  translateOrigin.value = {
-    x: 0,
-    y: 0,
-  }
   dragPosition.value = { x: 0, y: 0 }
   isDragging.value = false
+  const imageContent = imageContentRef.value
+  const images = imageContent?.querySelectorAll('img')
+  if (!imageContent || !images) {
+    return
+  }
+  const imagesArr = Array.from(images) as HTMLImageElement[]
+  if (imagesArr.length > 1) {
+    // 多图片不居中
+    translateOrigin.value = {
+      x: 0,
+      y: 0,
+    }
+  } else {
+    const image = imagesArr[0]
+    const containerWidth = imageContent.clientWidth
+    const containerHeight = imageContent.clientHeight
+    const imageWidth = image.naturalWidth
+    const imageHeight = image.naturalHeight
+    const scaleRatio = Math.min(containerWidth / imageWidth, containerHeight / imageHeight)
+    const displayWidth = imageWidth * scaleRatio * scale.value
+    const displayHeight = imageHeight * scaleRatio * scale.value
+
+    translateOrigin.value = {
+      x: (containerWidth - displayWidth) / 2,
+      y: (containerHeight - displayHeight) / 2,
+    }
+  }
 }
 
 const startDrag = (e: MouseEvent) => {
@@ -108,8 +131,9 @@ const stopDrag = (e: MouseEvent) => {
 
 watch(
   () => isOpen.value,
-  (open) => {
+  async (open) => {
     if (open) {
+      await nextTick() // 确保 DOM 渲染完成再居中
       handleReset()
     }
   }

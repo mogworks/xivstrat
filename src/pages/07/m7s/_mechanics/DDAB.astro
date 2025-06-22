@@ -37,11 +37,6 @@ import StratLink from '@/components/StratLink.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import Tmp from '@/assets/07/m7s/Tmp.png'
 
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 const demolitionDeathmatch = translations.demolitionDeathmatch
 const thornyDeathmatch = translations.thornyDeathmatch
 const thornsofDeath = translations.thornsOfDeath
@@ -62,8 +57,8 @@ const solutions = [
 const defaultSolution = '解法：萨利式核爆改'
 ---
 
-<DemolitionDeathmatchCast start="04:23.274" base={base} />
-<AttackSection time="04:28.850" base={base} damage="57000" damageType="physical" />
+<DemolitionDeathmatchCast start="04:23.274" />
+<AttackSection time="04:28.850" damage="57000" damageType="physical" />
 <EventSection time="04:27.332"
   >对
   <RoleIcon role="any" tag="一仇" />
@@ -76,9 +71,9 @@ const defaultSolution = '解法：萨利式核爆改'
   >对<RoleIcon role="any" tag="虚线" />施加连线<ThornsOfDeathDebuff hover /><Span variant="orange">9000/3s</Span>
   <Badge variant="orange">DoT</Badge></EventSection
 >
-<AttackSection time="04:31.880" base={base} damage="57000" damageType="physical" />
-<AbominableBlinkCast start="04:34.422" base={base} />
-<AbominableBlinkActivate time="04:40.745" base={base} />
+<AttackSection time="04:31.880" damage="57000" damageType="physical" />
+<AbominableBlinkCast start="04:34.422" />
+<AbominableBlinkActivate time="04:40.745" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T><Skill name={demolitionDeathmatch} /></T>

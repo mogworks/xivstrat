@@ -38,12 +38,6 @@ import ride_the_waves_optimize_4 from '@/assets/07/m5s/ride_the_waves/optimize_4
 
 import { translations } from '../_translations'
 
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
-
 const solutions = [
   {
     id: 'ride-the-waves-solution-jp',
@@ -57,7 +51,7 @@ const solutions = [
 const defaultSolution = '解法：近战优化'
 ---
 
-<CastSection start="03:48.804" base={base} duration={3.2} ability={translations.rideTheWaves}>
+<CastSection start="03:48.804" duration={3.2} ability={translations.rideTheWaves}>
   <Badge variant="yellow">步进式地火</Badge>
 </CastSection>
 <NoteSection>
@@ -80,11 +74,11 @@ const defaultSolution = '解法：近战优化'
     </div>
   </div>
 </NoteSection>
-<AttackSection time="03:53.2" base={base} damage="55000" damageType="physical" />
-<AttackSection time="03:56.2" base={base} damage="55000" damageType="physical" />
-<QuarterOrEighthBeatsCast start="03:57.454" base={base} />
-<AttackSection time="04:04.3" base={base} damage="55000" damageType="physical" />
-<QuarterOrEighthBeatsCast start="04:05.611" base={base} />
+<AttackSection time="03:53.2" damage="55000" damageType="physical" />
+<AttackSection time="03:56.2" damage="55000" damageType="physical" />
+<QuarterOrEighthBeatsCast start="03:57.454" />
+<AttackSection time="04:04.3" damage="55000" damageType="physical" />
+<QuarterOrEighthBeatsCast start="04:05.611" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">

@@ -12,15 +12,15 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
+
   wave: number
 }
 
-const { time, base = 0, wave }: Props = Astro.props
+const { time, wave }: Props = Astro.props
 const ManxomeWindersnatch = translations.ManxomeWindersnatch
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <Jabberwock wave={wave} />
   对随机
   <RoleIcon role="healer" />

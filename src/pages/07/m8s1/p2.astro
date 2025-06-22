@@ -18,21 +18,21 @@ const dutyId = '07/m8s1'
 const base = '02:53.751'
 ---
 
-<DutyStratLayout dutyId={dutyId}>
-  <MoveToNorthEvent time="02:53.751" base={base} />
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <MoveToNorthEvent time="02:53.751" />
 
   <SeparatorSection id="tactical-pack" title={translations.tacticalPack} />
-  <TacticalPack base={base} />
+  <TacticalPack />
 
   <SeparatorSection id="ravenous-saber" title={translations.ravenousSaber} />
-  <RavenousSaberActivate time="04:17.941" base={base} damage="60000" />
-  <RavenousSaberActivate time="04:18.120" base={base} damage="60000" />
-  <RavenousSaberActivate time="04:18.433" base={base} damage="60000" />
-  <RavenousSaberActivate time="04:20.531" base={base} damage="100000" />
-  <RavenousSaberActivate time="04:21.826" base={base} damage="200000" />
+  <RavenousSaberActivate time="04:17.941" damage="60000" />
+  <RavenousSaberActivate time="04:18.120" damage="60000" />
+  <RavenousSaberActivate time="04:18.433" damage="60000" />
+  <RavenousSaberActivate time="04:20.531" damage="100000" />
+  <RavenousSaberActivate time="04:21.826" damage="200000" />
 
   <SeparatorSection />
-  <EventSection time="04:27.478" base={base}>
+  <EventSection time="04:27.478">
     <HowlingBlade />
     失去
     <DirectionalDisregard hover />

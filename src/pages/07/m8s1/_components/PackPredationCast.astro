@@ -16,7 +16,6 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
 const ability = translations.packPredation
@@ -27,10 +26,10 @@ const stalkingStone = translations.stalkingStone // 土狼头对人群直线
 
 const duration = 4.7
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={duration} ability={ability}>
+<CastSection start={start} duration={duration} ability={ability}>
   <WolfOfWind slot="source" />
   <WolfOfStone slot="source" />
   <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />

@@ -16,18 +16,17 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
+
   activateTimes: Time[]
 }
 
-const { start, base = 0, activateTimes }: Props = Astro.props
+const { start, activateTimes }: Props = Astro.props
 const duration = 4.7
 const ability = translations.trackingTremors
 ---
 
 <CastSection
   start={start}
-  base={base}
   duration={duration}
   ability={ability}
   target

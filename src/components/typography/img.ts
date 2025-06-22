@@ -9,6 +9,7 @@ export interface Img {
   rounded?: boolean
   class?: string
   imgClass?: string
+  borderClass?: string
   titleClass?: string
 }
 

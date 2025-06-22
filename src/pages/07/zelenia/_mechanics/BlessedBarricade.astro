@@ -16,13 +16,12 @@ import P2_a from '@/assets/07/zelenia/P2/P2_a.png'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<BlessedBarricadeCast start={start} base={base} />
+<BlessedBarricadeCast start={start} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

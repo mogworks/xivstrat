@@ -10,11 +10,11 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
+
   num: number
 }
 
-const { time, base = 0, num }: Props = Astro.props
+const { time, num }: Props = Astro.props
 const strangeseeds = translations.strangeSeeds
 
 const color: Record<number, VariantType> = {
@@ -25,7 +25,7 @@ const color: Record<number, VariantType> = {
 }
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   第<Span variant={color[num]}>{num}</Span>轮
   <Skill name={strangeseeds} />
   预兆出现

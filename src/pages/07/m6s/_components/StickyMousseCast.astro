@@ -16,14 +16,13 @@ import { translations } from '../_translations'
 interface Props {
   start: Time
   end: Time
-  base?: Time
 }
 
-const { start, end, base = 0 }: Props = Astro.props
+const { start, end }: Props = Astro.props
 const { Burst, StickyMousse, MousseMine } = translations
 ---
 
-<CastSection start={start} end={end} base={base} ability={StickyMousse} target damage="95000" damageType="magical">
+<CastSection start={start} end={end} ability={StickyMousse} target damage="95000" damageType="magical">
   <SugarRiot slot="source" />
   <div slot="target" class="paragraph">
     随机
@@ -36,13 +35,13 @@ const { Burst, StickyMousse, MousseMine } = translations
   <Badge variant="emerald">4m圆形</Badge>
   <Badge variant="yellow">分散</Badge>
 </CastSection>
-<EventSection time={timeToSeconds(end) + 0.9} base={base}>
+<EventSection time={timeToSeconds(end) + 0.9}>
   被
   <Span variant="yellow">{StickyMousse}</Span>
   命中的玩家被赋予
   <MousseMineDebuff tag="5" hover />
 </EventSection>
-<EventSection time={timeToSeconds(end) + 0.9 + 5.0} base={base}>
+<EventSection time={timeToSeconds(end) + 0.9 + 5.0}>
   <Span variant="yellow">{MousseMine}</Span>
   <MousseMineDebuff hover />
   伤害判定
