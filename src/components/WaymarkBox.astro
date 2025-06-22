@@ -72,57 +72,74 @@ const { href, img, downloadLabel = '下载标点文件' }: Props = Astro.props
       super()
       this.attachShadow({ mode: 'open' })
       this.handleDocumentClick = this.handleDocumentClick.bind(this)
+      this.handleClick = this.handleClick.bind(this)
     }
 
     #confirmOpen = false
-
-    connectedCallback() {
-      this.render()
-      this.setupEventListeners()
-    }
-
-    disconnectedCallback() {
-      document.removeEventListener('click', this.handleDocumentClick)
-    }
-
-    attributeChangedCallback(name: 'href' | 'disabled' | 'filename') {
-      if (name === 'disabled') {
-        this.render()
-      }
-    }
 
     get disabled() {
       return this.hasAttribute('disabled')
     }
 
-    handleDocumentClick(e: MouseEvent) {
-      if (!e.composedPath().includes(this)) {
-        this.closeConfirm()
+    connectedCallback() {
+      this.#render()
+      this.#setupEventListeners()
+      this.addEventListener('click', this.handleClick)
+    }
+
+    disconnectedCallback() {
+      document.removeEventListener('click', this.handleDocumentClick)
+      this.removeEventListener('click', this.handleClick)
+    }
+
+    attributeChangedCallback(name: string) {
+      if (name === 'disabled') {
+        this.#render()
       }
     }
 
-    openConfirm() {
+    handleClick(e: { composedPath: () => any[] }) {
+      const isClickInDialog = !!e
+        .composedPath()
+        .find((el: { classList: { contains: (arg0: string) => any } }) => el.classList?.contains('confirm-dialog'))
+
+      if (!this.disabled && !this.#confirmOpen && !isClickInDialog) {
+        this.#openConfirm()
+      }
+    }
+
+    handleDocumentClick(e: MouseEvent) {
+      if (!e.composedPath().includes(this)) {
+        this.#closeConfirm()
+      }
+    }
+
+    #openConfirm() {
       if (this.#confirmOpen || this.disabled) {
         return
       }
 
       this.#confirmOpen = true
-      this.render()
+      this.#render()
 
       setTimeout(() => {
         document.addEventListener('click', this.handleDocumentClick)
       })
     }
 
-    closeConfirm() {
+    #closeConfirm() {
+      if (!this.#confirmOpen) {
+        return
+      }
+
       this.#confirmOpen = false
       document.removeEventListener('click', this.handleDocumentClick)
-      this.render()
+      this.#render()
     }
 
-    triggerDownload() {
+    #triggerDownload() {
       const href = this.getAttribute('href')
-      const filename = 'UISAVE.DAT'
+      const filename = this.getAttribute('filename') || 'UISAVE.DAT'
       if (href) {
         const link = document.createElement('a')
         link.href = href
@@ -131,152 +148,160 @@ const { href, img, downloadLabel = '下载标点文件' }: Props = Astro.props
         link.click()
         document.body.removeChild(link)
       }
-
-      this.closeConfirm()
+      this.#closeConfirm()
     }
 
-    setupEventListeners() {
-      const button = this.shadowRoot?.querySelector('.download-btn')
-      if (button) {
-        button.addEventListener('click', () => this.openConfirm())
-      }
-
+    #setupEventListeners() {
       const confirmYes = this.shadowRoot?.querySelector('.confirm-btn-yes')
       if (confirmYes) {
-        confirmYes.addEventListener('click', () => this.triggerDownload())
+        confirmYes.addEventListener('click', () => this.#triggerDownload())
       }
 
       const confirmNo = this.shadowRoot?.querySelector('.confirm-btn-no')
       if (confirmNo) {
-        confirmNo.addEventListener('click', () => this.closeConfirm())
+        confirmNo.addEventListener('click', () => this.#closeConfirm())
       }
     }
 
-    render() {
+    #render() {
       const customClasses = Array.from(this.classList).join(' ')
-      if (!this.shadowRoot) {
-        this.attachShadow({ mode: 'open' })
-      } else {
+      if (this.shadowRoot) {
         this.shadowRoot.innerHTML = `
-              <style>
-                  :host {
-                      display: inline-flex;
-                      position: relative;
-                  }
+        <style>
+          :host {
+            display: inline-flex;
+            position: relative;
+            cursor: pointer;
+          }
 
-                  .confirm-dialog {
-                      position: absolute;
-                      left: 0;
-                      top: calc(100% + 10px);
-                      background: white;
-                      min-width: 240px;
-                      border-radius: 0.5rem;
-                      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-                      padding: 1em;
-                      z-index: 40;
-                      border: 1px solid #e5e7eb;
-                      animation: fadeInDown 0.2s ease-out;
-                      cursor: default;
-                  }
+          :host([disabled]) {
+            cursor: not-allowed;
+            opacity: 0.6;
+          }
 
-                  .confirm-message {
-                      color: #4b5563;
-                      font-size: 0.875rem;
-                      text-align: center;
-                      margin-bottom: 1rem;
-                  }
+          .container {
+            position: relative;
+            width: 100%;
+          }
 
-                  .confirm-buttons {
-                      display: flex;
-                      gap: 0.75rem;
-                  }
+          .download-area {
+            display: block;
+            width: 100%;
+            height: 100%;
+          }
 
-                  .confirm-btn {
-                      flex: 1;
-                      margin: 0 auto;
-                      padding: 0.25em;
-                      max-width: 80px;
-                      border-radius: 0.375rem;
-                      font-size: 0.875rem;
-                      font-weight: 500;
-                      cursor: pointer;
-                      border: 1px solid transparent;
-                      transition: all 0.15s ease;
-                  }
+          .confirm-dialog {
+            position: absolute;
+            left: 0;
+            top: calc(100% + 10px);
+            background: white;
+            min-width: 240px;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding: 1em;
+            z-index: 40;
+            border: 1px solid #e5e7eb;
+            animation: fadeInDown 0.2s ease-out;
+            cursor: default;
+          }
 
-                  .confirm-btn-yes {
-                      background-color: #8b5cf6;
-                      color: white;
-                  }
+          .confirm-message {
+            color: #4b5563;
+            font-size: 0.875rem;
+            text-align: center;
+            margin-bottom: 1rem;
+          }
 
-                  .confirm-btn-yes:hover {
-                      background-color: #7e22ce;
-                  }
+          .confirm-buttons {
+            display: flex;
+            gap: 0.75rem;
+          }
 
-                  .confirm-btn-no {
-                      background-color: white;
-                      color: #4b5563;
-                      border: 1px solid #e5e7eb;
-                  }
+          .confirm-btn {
+            flex: 1;
+            margin: 0 auto;
+            padding: 0.25em;
+            max-width: 80px;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.15s ease;
+          }
 
-                  .confirm-btn-no:hover {
-                      background-color: #f9fafb;
-                  }
+          .confirm-btn-yes {
+            background-color: #8b5cf6;
+            color: white;
+          }
 
-                  @keyframes fadeInDown {
-                      from {
-                          opacity: 0;
-                          transform: translateY(-10px);
-                      }
-                      to {
-                          opacity: 1;
-                          transform: translateY(0);
-                      }
-                  }
+          .confirm-btn-yes:hover {
+            background-color: #7e22ce;
+          }
 
-                  /* 暗色模式样式 */
-                  :host-context(.dark) .confirm-dialog {
-                      background: #1f2937;
-                      border-color: #374151;
-                  }
+          .confirm-btn-no {
+            background-color: white;
+            color: #4b5563;
+            border: 1px solid #e5e7eb;
+          }
 
-                  :host-context(.dark) .confirm-message {
-                      color: #e5e7eb;
-                  }
+          .confirm-btn-no:hover {
+            background-color: #f9fafb;
+          }
 
-                  :host-context(.dark) .confirm-btn-no {
-                      background-color: #374151;
-                      color: #f3f4f6;
-                      border-color: #4b5563;
-                  }
+          @keyframes fadeInDown {
+            from {
+              opacity: 0;
+              transform: translateY(-10px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
 
-                  :host-context(.dark) .confirm-btn-no:hover {
-                      background-color: #4b5563;
-                  }
-              </style>
+          :host-context(.dark) .confirm-dialog {
+            background: #1f2937;
+            border-color: #374151;
+          }
 
-              <div class="container ${customClasses}">
-                  <span class="download-btn" ${this.disabled ? 'disabled' : ''}>
-                      <slot></slot>
-                  </span>
+          :host-context(.dark) .confirm-message {
+            color: #e5e7eb;
+          }
 
-                  ${
-                    this.#confirmOpen
-                      ? `
-                      <div class="confirm-dialog">
-                          <p class="confirm-message">是否已仔细阅读使用说明？</p>
-                          <div class="confirm-buttons">
-                              <button class="confirm-btn confirm-btn-yes">是</button>
-                              <button class="confirm-btn confirm-btn-no">否</button>
-                          </div>
-                      </div>
-                  `
-                      : ''
-                  }
+          :host-context(.dark) .confirm-btn-no {
+            background-color: #374151;
+            color: #f3f4f6;
+            border-color: #4b5563;
+          }
+
+          :host-context(.dark) .confirm-btn-no:hover {
+            background-color: #4b5563;
+          }
+        </style>
+
+        <div class="container ${customClasses}">
+          <div class="download-area">
+            <slot></slot>
+          </div>
+
+          ${
+            this.#confirmOpen
+              ? `
+            <div class="confirm-dialog">
+              <p class="confirm-message">是否已仔细阅读使用说明？</p>
+              <div class="confirm-buttons">
+                <button class="confirm-btn confirm-btn-yes">是</button>
+                <button class="confirm-btn confirm-btn-no">否</button>
               </div>
+            </div>
           `
+              : ''
+          }
+        </div>
+      `
+        this.#setupEventListeners()
       }
-      this.setupEventListeners()
     }
   }
 
