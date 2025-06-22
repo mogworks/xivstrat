@@ -1,12 +1,11 @@
 ---
-import { Image } from 'astro:assets'
 import type { Time } from '@/lib/utils'
-import { timeToSeconds } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
 
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
-import EventSection from '@/components/section/EventSection.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import P from '@/components/typography/P.astro'
@@ -17,41 +16,28 @@ import T from '@/components/typography/T.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import MoonbeamsBiteCast from '../_components/MoonbeamsBiteCast.astro'
+import TerrestrialRageCast from '../_components/TerrestrialRageCast.astro'
+import TerrestrialRageActivate from '../_components/TerrestrialRageActivate.astro'
+
+import { translations } from '../_translations'
 
 import beckon_moonlight_solution_img from '@/assets/07/m8s1/Tmp.png'
 
 interface Props {
-  start: Time
   base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
-
-const terrestrial_rage_start = timeToSeconds(start) + 7.2
-const moonbeams_bite_start = terrestrial_rage_start + 1
-const terrestrial_rage_1 = moonbeams_bite_start + 9
-const terrestrial_rage_2 = terrestrial_rage_1 + 7
+const { base = 0 }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} ability="幻狼招来" duration={2.7}>
+<CastSection start="05:35.950" base={base} ability={translations.beckonMoonlight} duration={2.7}>
   <HowlingBlade slot="source" />
+  <Badge variant="emerald">复合机制</Badge>
 </CastSection>
-<CastSection start={terrestrial_rage_start} base={base} ability="大地の怒り" duration={2.7}>
-  <HowlingBlade slot="source" />
-</CastSection>
-<EventSection time={terrestrial_rage_1} base={base}>
-  <Skill name={['大震撃', '大岩石']} />
-  <DamageInfo damage="110000" type="magical" />
-  <MagicVulnerabilityUp tag="2" hover />
-  判定
-</EventSection>
-<MoonbeamsBiteCast start={moonbeams_bite_start} base={base} />
-<EventSection time={terrestrial_rage_2} base={base}>
-  <Skill name={['大震撃', '大岩石']} />
-  <DamageInfo damage="110000" type="magical" />
-  <MagicVulnerabilityUp tag="2" hover />
-  判定
-</EventSection>
+<TerrestrialRageCast start="05:43.064" base={base} />
+<TerrestrialRageActivate time="05:51.615" base={base} />
+<MoonbeamsBiteCast start="05:44.064" base={base} />
+<TerrestrialRageActivate time="06:00.136" base={base} order="2" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T text="幻狼招来" variant="yellow" />
