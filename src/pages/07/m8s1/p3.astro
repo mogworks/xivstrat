@@ -13,6 +13,7 @@ import XReignCast from './_components/XReignCast.astro'
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
 import HowlingBlade from './_components/entities/HowlingBlade.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+import BossAttackSection from './_components/BossAttackSection.astro'
 
 import BeckonMoonlight from './_mechanics/BeckonMoonlight.astro'
 import Shadowchase from './_mechanics/Shadowchase.astro'
@@ -47,6 +48,9 @@ const base = '04:31.622'
   <WealOfStone1 />
   <SeparatorSection />
 
+  <BossAttackSection time="05:14.573" damage="60000" damageType="physical" />
+  <BossAttackSection time="05:17.612" damage="60000" damageType="physical" />
+
   <GreatDivide start="05:19.593" phase="P3" />
   <NoteSection>
     <P>
@@ -54,6 +58,10 @@ const base = '04:31.622'
       <LimitBreak role="melee" stage={3} />
     </P>
   </NoteSection>
+
+  <BossAttackSection time="05:26.037" damage="60000" damageType="physical" />
+  <BossAttackSection time="05:29.055" damage="60000" damageType="physical" />
+
   <MoveToCenterEvent time="05:32.835" />
 
   <SeparatorSection
@@ -71,6 +79,8 @@ const base = '04:31.622'
   <WealOfStone2 />
   <SeparatorSection />
 
+  <BossAttackSection time="06:12.599" damage="60000" damageType="physical" />
+
   <TrackingTremors
     start="06:13.522"
     activateTimes={[
@@ -85,8 +95,17 @@ const base = '04:31.622'
     ]}
   />
 
+  <BossAttackSection time="06:20.649" damage="60000" damageType="physical" />
+  <BossAttackSection time="06:23.669" damage="60000" damageType="physical" />
+  <BossAttackSection time="06:26.692" damage="60000" damageType="physical" />
+
   <ExtraplanarPursuitCast start="06:28.725" />
   <NoteSection>如果P2阶段打太慢，会跳过这次AoE</NoteSection>
+
+  <BossAttackSection time="06:32.814" damage="60000" damageType="physical" />
+  <BossAttackSection time="06:35.839" damage="60000" damageType="physical" />
+  <BossAttackSection time="06:38.862" damage="60000" damageType="physical" />
+  <BossAttackSection time="06:41.884" damage="60000" damageType="physical" />
 
   <ExtraplanarPursuitCast start="06:43.514" />
 

@@ -10,6 +10,7 @@ import HowlingBlade from './_components/entities/HowlingBlade.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 import TrackingTremors from './_mechanics/TrackingTremors.astro'
 import XReignCast from './_components/XReignCast.astro'
+import BossAttackSection from './_components/BossAttackSection.astro'
 
 import GreatDivide from './_mechanics/GreatDivide.astro'
 import MillennialDecay from './_mechanics/MillennialDecay.astro'
@@ -34,7 +35,16 @@ const windfang = translations.windfang
     <HowlingBlade />
     固定在场中偏南一点的位置
   </EventSection>
+
+  <BossAttackSection time="00:03.023" damage="60000" damageType="physical" />
+  <BossAttackSection time="00:06.048" damage="60000" damageType="physical" />
+  <BossAttackSection time="00:09.075" damage="60000" damageType="physical" />
+
   <ExtraplanarPursuitCast start="00:10.195" />
+
+  <BossAttackSection time="00:14.850" damage="60000" damageType="physical" />
+  <BossAttackSection time="00:17.874" damage="60000" damageType="physical" />
+
   <MoveToCenterEvent time="00:20.019" />
   <SeparatorSection id="stonefang-or-windfang" title={`${stonefang} | ${windfang}`} />
   <Xfang start="00:23.131" />
@@ -42,6 +52,10 @@ const windfang = translations.windfang
   <XReign start="00:34.289" />
   <SeparatorSection />
   <ExtraplanarPursuitCast start="00:49.014" />
+
+  <BossAttackSection time="00:53.660" damage="60000" damageType="physical" />
+  <BossAttackSection time="00:56.683" damage="60000" damageType="physical" />
+
   <MoveToCenterEvent time="00:58.834" />
   <SeparatorSection id="millennial-decay" title={translations.millennialDecay} />
   <MillennialDecay />
@@ -59,13 +73,27 @@ const windfang = translations.windfang
       '01:49.297',
     ]}
   />
+
+  <BossAttackSection time="01:43.933" damage="60000" damageType="physical" />
+  <BossAttackSection time="01:46.956" damage="60000" damageType="physical" />
+  <BossAttackSection time="01:49.976" damage="60000" damageType="physical" />
+
   <ExtraplanarPursuitCast start="01:51.126" />
+
+  <BossAttackSection time="01:55.666" damage="60000" damageType="physical" />
+
   <SeparatorSection id="great-divide" title={translations.greatDivide} />
   <GreatDivide start="01:58.873" phase="P1" />
   <SeparatorSection />
+
+  <BossAttackSection time="02:06.874" damage="60000" damageType="physical" />
+  <BossAttackSection time="02:09.897" damage="60000" damageType="physical" />
+
   <MoveToCenterEvent time="02:12.198" />
   <SeparatorSection id="terrestrial-titans" title={translations.terrestrialTitans} />
   <TerrestrialTitans />
   <SeparatorSection />
   <XReignCast start="02:34.300" />
+
+  <BossAttackSection time="02:50.945" damage="60000" damageType="physical" />
 </DutyStratLayout>
