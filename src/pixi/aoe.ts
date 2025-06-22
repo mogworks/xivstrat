@@ -14,6 +14,13 @@ export const AOE_COLORS = {
     innerShadow: '#ff751f',
     outerGlow: '#fffc79',
   },
+  tailwind: {
+    emerald: {
+      aoe: '#34d399',
+      innerShadow: '#047857',
+      outerGlow: '#6ee7b7',
+    },
+  },
 }
 
 export type AoEColors = typeof AOE_COLORS.default
@@ -47,6 +54,7 @@ export class AoE extends Container {
     type: AoEType,
     resolution: number,
     fn: (style?: FillInput) => Graphics,
+    colors?: Partial<AoEColors>,
   ) {
     super()
 
@@ -55,15 +63,15 @@ export class AoE extends Container {
 
     const innerShadow = AoE.createInnerShadow(
       fn,
-      { color: AOE_COLORS.default.innerShadow },
+      { color: colors?.innerShadow ?? AOE_COLORS.default.innerShadow },
       resolution,
     )
     const outerGlow = AoE.createOuterGlow(
       fn,
-      { color: AOE_COLORS.default.outerGlow },
+      { color: colors?.outerGlow ?? AOE_COLORS.default.outerGlow },
       resolution,
     )
-    const aoe = fn({ color: AOE_COLORS.default.aoe, alpha: 0.25 })
+    const aoe = fn({ color: colors?.aoe ?? AOE_COLORS.default.aoe, alpha: 0.25 })
 
     innerShadow.label = 'inner_shadow'
     outerGlow.label = 'outer_glow'
@@ -97,14 +105,39 @@ export class AoE extends Container {
   /**
    * 创建矩形AoE效果
    */
-  static createRect(width: number, height: number): AoE {
+  static createRect(width: number, height: number, color?: Partial<AoEColors>): AoE {
     const resolution = DEFAULT_AOE_RESOLUTION
 
     return new AoE(
       'rect',
       resolution,
       style => G.createRectGraphics(width, height, style, resolution),
+      color ?? AOE_COLORS.default
     )
+  }
+
+  /**
+   * 批量创建矩形AoE效果
+   */
+  static createRects(
+    app: Application,
+    params: { position?: { x: number; y: number }; rotation?: number; width?: number; height?: number; color: Partial<AoEColors> }[],
+    defaultWidth: number = 0,
+    defaultHeight: number = 0,
+    defaultColor: Partial<AoEColors> = AOE_COLORS.default,
+  ) {
+    const c = new Container()
+    params.forEach((param) => {
+      const rect = AoE.createRect(
+        param.width ?? defaultWidth,
+        param.height ?? defaultHeight,
+        param.color ?? defaultColor,
+      ).toSprite(app)
+      rect.position = param.position ? { x: param.position.x * YmToPx, y: param.position.y * YmToPx } : { x: 0, y: 0 }
+      rect.rotation = param.rotation ? (param.rotation * Math.PI) / 180 : 0
+      c.addChild(rect)
+    })
+    return c
   }
 
   /**

@@ -64,8 +64,8 @@ const championsCircuit = translations.championsCircuit
     <div class="flex gap-4">
       <div class="flex shrink flex-col items-center gap-4">
         <StratBoard
-          width={740}
-          height={740}
+          width={800}
+          height={800}
           key="champions-circuit-mechanic-dynamic"
           class="max-h-120 max-w-120"
           canvasClass="h-full w-full drop-shadow-sm drop-shadow-black"
@@ -122,9 +122,11 @@ const championsCircuit = translations.championsCircuit
   import { Assets, Container, Graphics, Sprite } from 'pixi.js'
 
   import floor_img from '@/assets/07/m8s2/p2/floor_2@3x.png'
-  import { AoE } from '@/pixi/aoe'
+  import { AoE, AOE_COLORS } from '@/pixi/aoe'
   import { getScale, YmToPx } from '@/pixi/utils'
   import { $stratBoards } from '@/stores/stratBoards'
+
+  import { addFangs } from '../_fangs'
 
   const scaleSize = 1.25
   const YmToPxLarge = YmToPx * scaleSize
@@ -141,7 +143,6 @@ const championsCircuit = translations.championsCircuit
   function polarRadianToCartesian(ppos: { r: number; rad: number }): { x: number; y: number } {
     const x = ppos.r * Math.cos(ppos.rad)
     const y = ppos.r * Math.sin(ppos.rad)
-
     return { x, y }
   }
 
@@ -221,35 +222,66 @@ const championsCircuit = translations.championsCircuit
     // Champion's Circuit
     const aoeContainer = new Container()
     container.addChild(aoeContainer)
+    // Bare Fangs
+    const fangsContainer = new Container()
+    container.addChild(fangsContainer)
 
     // dyanmic
-    const interval = 4000
+    const interval = 4000 // time control
     let rotateDir = 1
     let offset = Math.floor(Math.random() * 5)
     let tickerFn: ((ticker: Ticker) => void) | null = null
+
+    // init
     generateAoes(app, aoeContainer, rotateArray(aoePos, offset))
+    const inactiveFangs = await addFangs(app, { multiplefangs: true, aoeColor: AOE_COLORS.tailwind.emerald })
+    inactiveFangs.label = 'inactive-fangs'
+    let activatedFangs = await addFangs(app, {
+      multiplefangs: true,
+      activate: true,
+      random: true,
+      aoeColor: AOE_COLORS.tailwind.emerald,
+    })
+    fangsContainer.addChild(inactiveFangs)
 
     async function play() {
-      aoeContainer.removeChildren().forEach((child) => {
-        child.destroy({ children: true, texture: true })
-      })
       let elapsed = 0
 
       if (tickerFn) {
         app.ticker.remove(tickerFn)
         tickerFn = null
       }
-      tickerFn = (ticker) => {
+      tickerFn = async (ticker) => {
         elapsed += ticker.elapsedMS
         if (elapsed >= interval / 2) {
           aoeContainer.removeChildren().forEach((child) => {
             child.destroy({ children: true, texture: true })
           })
+          fangsContainer
+            .removeChildren()
+            .filter((child) => child.label !== 'inactive-fangs')
+            .forEach((child) => {
+              child.destroy({ children: true, texture: true })
+            })
+          fangsContainer.addChild(inactiveFangs)
+          activatedFangs = await addFangs(app, {
+            multiplefangs: true,
+            activate: true,
+            random: true,
+            aoeColor: AOE_COLORS.tailwind.emerald,
+          }) // 预载
         }
         if (elapsed >= interval) {
           elapsed = 0
           offset += rotateDir // +1为顺时针
 
+          fangsContainer
+            .removeChildren()
+            .filter((child) => child.label !== 'inactive-fangs')
+            .forEach((child) => {
+              child.destroy({ children: true, texture: true })
+            })
+          fangsContainer.addChild(activatedFangs)
           generateAoes(app, aoeContainer, rotateArray(aoePos, offset))
         }
       }
@@ -270,7 +302,18 @@ const championsCircuit = translations.championsCircuit
         span.textContent = rotateDir > 0 ? '顺时针' : '逆时针'
       }
 
+      aoeContainer.removeChildren().forEach((child) => {
+        child.destroy({ children: true, texture: true })
+      })
+      fangsContainer
+        .removeChildren()
+        .filter((child) => child.label !== 'inactive-fangs')
+        .forEach((child) => {
+          child.destroy({ children: true, texture: true })
+        })
+
       generateAoes(app, aoeContainer, rotateArray(aoePos, offset))
+      fangsContainer.addChild(inactiveFangs)
     }
 
     document.getElementById('champions-circuit-mechanic-dynamic-play-button')?.addEventListener('click', () => {
