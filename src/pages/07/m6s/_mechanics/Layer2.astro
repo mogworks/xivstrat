@@ -28,12 +28,6 @@ import solution_jp from '@/assets/07/m6s/layer_2/solution_jp.png'
 import solution_op from '@/assets/07/m6s/layer_2/solution_op.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
-
 const start = '02:36.461'
 const duration = 6.7
 const adjustedDuration = duration + 0.3
@@ -58,12 +52,12 @@ const defaultSolution = '解法：仙人掌基准（危险角基准）'
 const { Layer, SprayPain, Brûlée } = translations
 ---
 
-<LayerCast start={start} end={end} base={base} />
-<AttackSection time="02:44.489" base={base} damage="57000" damageType="magical" />
-<EventSection time={quicksandStart} base={base}><Span variant="zinc">场中出现大范围流沙</Span></EventSection>
-<AttackSection time="02:47.515" base={base} damage="57000" damageType="magical" />
-<AttackSection time="02:50.540" base={base} damage="57000" damageType="magical" />
-<EventSection time={heatingUpTime} base={base}>
+<LayerCast start={start} end={end} />
+<AttackSection time="02:44.489" damage="57000" damageType="magical" />
+<EventSection time={quicksandStart}><Span variant="zinc">场中出现大范围流沙</Span></EventSection>
+<AttackSection time="02:47.515" damage="57000" damageType="magical" />
+<AttackSection time="02:50.540" damage="57000" damageType="magical" />
+<EventSection time={heatingUpTime}>
   <HeatingUpDebuff tag="74" hover />
   倒计时结束判定伤害，
   <RoleIcon role="healer" tag="H1" />
@@ -75,8 +69,8 @@ const { Layer, SprayPain, Brûlée } = translations
   <Badge variant="emerald">15m圆形</Badge>
   <Badge variant="yellow">分散</Badge>
 </EventSection>
-<SprayPainCast start={sprayPainStart} base={base} duration={8.2} num={9} />
-<EventSection time={quicksandActivate} base={base}><Span variant="zinc">场中流沙开始下沉</Span></EventSection>
+<SprayPainCast start={sprayPainStart} duration={8.2} num={9} />
+<EventSection time={quicksandActivate}><Span variant="zinc">场中流沙开始下沉</Span></EventSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">

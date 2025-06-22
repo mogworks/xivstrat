@@ -11,6 +11,6 @@ export const macro = `/p  【职能分摊分散】|  【钢铁月环八方】   
 /p       【地板蓝火】              |          【诱导扇形】
 /p            D3     D4    　 　   | 　        TH→DPS
 /p 　D3 MT　 ST D4    　 　|
-/p 　            ★        　　　　|　     MTD3　　H2D4
+/p 　            ★        　　　　|　     MTD3　　STD4
 /p 　H1 D1　 D2 H2  　　  |　　　　  　★
-/p 　      H1　 H2       　　   |　　 H1D1　　 STD2`
+/p 　      H1　 H2       　　   |　　 H1D1　　 H2D2`

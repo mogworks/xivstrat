@@ -9,15 +9,15 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
+
   wave: number
 }
 
-const { start, base = 0, wave }: Props = Astro.props
+const { start, wave }: Props = Astro.props
 const HangryHiss = translations.HangryHiss
 ---
 
-<CastSection start={start} base={base} duration={4.7} ability={HangryHiss}>
+<CastSection start={start} duration={4.7} ability={HangryHiss}>
   <GimmeCat slot="source" wave={wave} />
   <Badge variant="fuchsia">狂暴</Badge>
   <Badge variant="red">团灭</Badge>

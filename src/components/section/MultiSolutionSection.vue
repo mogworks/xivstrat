@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { type HTMLAttributes, onMounted, onUnmounted, ref } from 'vue'
+import type { HTMLAttributes } from 'vue'
+
+import { onMounted, onUnmounted, ref } from 'vue'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/shadcn-vue/tabs'
 import { $stratSettings } from '@/stores/stratSettings'

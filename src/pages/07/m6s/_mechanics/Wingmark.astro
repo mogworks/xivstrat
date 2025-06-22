@@ -19,16 +19,10 @@ import hane from '@/assets/07/m6s/paint_mark/hane@3x.png'
 import wingmark from '@/assets/07/m6s/wingmark.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
-
 const DoubleStyle = translations.DoubleStyle
 ---
 
-<WingmarkCast start="00:30.879" base={base} />
+<WingmarkCast start="00:30.879" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph -my-4">

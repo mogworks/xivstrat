@@ -3,20 +3,24 @@ import type { Time } from '@/lib/utils'
 
 import CastSection from '@/components/section/CastSection.astro'
 import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
 
-import WolfOfStone from './entities/WolfOfStone.astro'
+import WolfOfStone from '../_components/entities/WolfOfStone.astro'
+
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
-const abilityName = '地烈波'
+const ability = translations.wealOfStone
 ---
 
-<CastSection ability={abilityName} start={start} duration={2.2} base={base}>
-  <WolfOfStone slot="source" />
-  <Badge variant="yellow">直线AoE</Badge>
+<CastSection ability={ability} start={start} duration={2.2}>
+  <WolfOfStone slot="source">
+    <Span variant="orange">土狼首×2</Span>
+  </WolfOfStone>
+  <Badge variant="emerald">6m宽直线</Badge>
 </CastSection>

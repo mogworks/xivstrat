@@ -7,16 +7,16 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
+
   duration?: Time
   num?: number
 }
 
-const { start, base = 0, duration = 3.7, num = 4 }: Props = Astro.props
+const { start, duration = 3.7, num = 4 }: Props = Astro.props
 const pollen = translations.pollen
 ---
 
-<CastSection start={start} base={base} duration={duration} ability={pollen}>
+<CastSection start={start} duration={duration} ability={pollen}>
   <Span variant="green" slot="source">孢子×{num}</Span>
   <Badge variant="emerald">8m圆形</Badge>
 </CastSection>

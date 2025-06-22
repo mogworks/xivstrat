@@ -1,8 +1,11 @@
 ---
 import { Image } from 'astro:assets'
 
+import ScannerSVG from '@/assets/svg/scanner.svg'
+import BiliBiliSVG from '@/assets/svg/bilibili.svg'
+
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
-import Separator from '@/components/Separator.astro'
+import WaymarkBox from '@/components/WaymarkBox.astro'
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import AreaBox from '@/components/AreaBox.astro'
 
@@ -29,6 +32,7 @@ const navList = [
   { label: '参考资料', id: 'reference' },
   { label: '鸣谢', id: 'thanks' },
 ]
+const videoLink = ''
 ---
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
@@ -37,9 +41,20 @@ const navList = [
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
       >
+        <ScannerSVG class="mr-2 h-5 w-5" />
         查看正文
       </button>
     </a>
+    {
+      videoLink && (
+        <a href={videoLink} target="_blank">
+          <button class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75">
+            <BiliBiliSVG class="mr-2 h-5 w-5" />
+            查看视频攻略
+          </button>
+        </a>
+      )
+    }
     <a href="/07/m8s1">
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
@@ -64,20 +79,7 @@ const navList = [
     </AreaBox>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
-    <div class="w-sm">
-      <AreaBox>
-        <a
-          href="/waymarks/07/AacCruiserweight/UISAVE.DAT"
-          class="!disabled:hover:bg-purple-700/60 inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white disabled:cursor-not-allowed disabled:opacity-50 dark:border-purple-500 dark:bg-purple-700/75"
-        >
-          下载标点文件
-        </a>
-        <Separator class="my-2 mb-3" />
-        <ResizableImageDialog client:idle>
-          <Image src={WaymarkImage} alt="m8s 场地标点" class="w-full object-contain object-left-top" />
-        </ResizableImageDialog>
-      </AreaBox>
-    </div>
+    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT" img={WaymarkImage} downloadLabel="下载5~8层标点文件" />
     <Fragment slot="header">
       <span>场地标点</span>
     </Fragment>

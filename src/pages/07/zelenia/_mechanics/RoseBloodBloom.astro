@@ -18,7 +18,7 @@ import floor6 from '@/assets/07/zelenia/RoseBloodFloor/RoseBlood_floor_6.png'
 
 interface Props {
   start: Time
-  base?: Time
+
   num: number
 }
 
@@ -31,10 +31,10 @@ const floorMap: Record<number, typeof floor1> = {
   6: floor6,
 }
 
-const { start, base = 0, num }: Props = Astro.props
+const { start, num }: Props = Astro.props
 ---
 
-<RoseBloodBloomCast start={start} base={base} num={num} />
+<RoseBloodBloomCast start={start} num={num} />
 
 <MechanicSection>
   <div class="flex gap-4">

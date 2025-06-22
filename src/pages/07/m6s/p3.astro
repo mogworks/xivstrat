@@ -30,8 +30,8 @@ const dutyId = '07/m6s'
 const base = '03:22.353'
 ---
 
-<DutyStratLayout dutyId={dutyId}>
-  <ColorRiotCast start="03:22.353" base={base} />
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <ColorRiotCast start="03:22.353" />
   <NoteSection>
     <div class="flex flex-col gap-4">
       <div class="paragraph">
@@ -46,28 +46,28 @@ const base = '03:22.353'
       </div>
     </div>
   </NoteSection>
-  <AttackSection time="03:32.407" base={base} damage="57000" damageType="magical" />
+  <AttackSection time="03:32.407" damage="57000" damageType="magical" />
   <SeparatorSection id="soul-sugar" title={translations.SoulSugar} class="mt-8" />
-  <SoulSugar base={base} />
+  <SoulSugar />
   <SeparatorSection />
   <AttentionSection class="mt-8 opacity-80" />
   <SeparatorSection id="wave-1" title={`${translations.Wave} #1`} variant="red" class="mt-8" />
-  <Wave1 base={base} />
+  <Wave1 />
   <SeparatorSection id="wave-2" title={`${translations.Wave} #2`} variant="orange" class="mt-8" />
-  <Wave2 base={base} />
+  <Wave2 />
   <SeparatorSection id="wave-3" title={`${translations.Wave} #3`} variant="blue" class="mt-8" />
-  <Wave3 base={base} />
+  <Wave3 />
   <SeparatorSection id="wave-4" title={`${translations.Wave} #4`} variant="purple" class="mt-8" />
-  <Wave4 base={base} />
+  <Wave4 />
   <SeparatorSection id="roasted-whole-lamb" title="补充：双T无敌烤全羊" class="mt-8" />
   <RoastedWholeLamb />
   <SeparatorSection id="single-style" title={translations.SingleStyle} class="mt-8" />
-  <SingleStyle base={base} />
+  <SingleStyle />
   <SeparatorSection />
-  <AttackSection time="06:39.969" base={base} damage="57000" damageType="magical" />
-  <AttackSection time="06:43.000" base={base} damage="57000" damageType="magical" />
-  <AttackSection time="06:46.029" base={base} damage="57000" damageType="magical" />
-  <ColorRiotCast start="06:46.876" base={base} />
+  <AttackSection time="06:39.969" damage="57000" damageType="magical" />
+  <AttackSection time="06:43.000" damage="57000" damageType="magical" />
+  <AttackSection time="06:46.029" damage="57000" damageType="magical" />
+  <ColorRiotCast start="06:46.876" />
   <NoteSection>
     <div class="flex flex-col gap-4">
       <div class="paragraph">
@@ -84,7 +84,7 @@ const base = '03:22.353'
       </div>
     </div>
   </NoteSection>
-  <EventSection time="06:54.938" base={base}>
+  <EventSection time="06:54.938">
     <Yan wave={1} />
     <Yan wave={3} />
     <Yan wave={4} />
@@ -95,7 +95,7 @@ const base = '03:22.353'
     <Span variant="lime" class="text-decimal">900%↑</Span>
     <Badge variant="fuchsia">狂暴</Badge>
   </EventSection>
-  <MousseMuralCast start="06:55.028" base={base} />
-  <AttackSection time="07:03.095" base={base} damage="57000" damageType="magical" />
-  <AttackSection time="07:06.127" base={base} damage="57000" damageType="magical" />
+  <MousseMuralCast start="06:55.028" />
+  <AttackSection time="07:03.095" damage="57000" damageType="magical" />
+  <AttackSection time="07:06.127" damage="57000" damageType="magical" />
 </DutyStratLayout>

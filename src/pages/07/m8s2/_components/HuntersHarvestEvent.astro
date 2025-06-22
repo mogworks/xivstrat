@@ -12,15 +12,14 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
 const huntersHarvest = translations.huntersHarvest
 ---
 
-<EventSection time={start} base={base}>
+<EventSection time={start}>
   <HowlingBlade />
   对
   <RoleIcon role="all" tag="一仇" />

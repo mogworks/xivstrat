@@ -4,57 +4,78 @@ import { Image } from 'astro:assets'
 import { type Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Separator from '@/components/Separator.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import UltraviolentRayCast from '../_components/UltraviolentRayCast.astro'
 import GleamingFang from '../_components/entities/GleamingFang.astro'
 
-import img from '@/assets/07/m8s2/tmp.png'
+import ultraviolentRay1 from '@/assets/07/m8s2/p1/ultraviolentRay1.png'
+import ultraviolentRay2 from '@/assets/07/m8s2/p1/ultraviolentRay2.png'
 
 import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
 const ultraviolentRay = translations.ultraviolentRay
 ---
 
-<UltraviolentRayCast start={start} base={base} />
+<UltraviolentRayCast start={start} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
+    <T>
       <Span variant="yellow">{ultraviolentRay}</Span>
-    </div>
-    <div class="paragraph">
+    </T>
+
+    <P>
       <HowlingBlade />
-      点名随机
+      随机点名
+      <Span variant="pink">4</Span>
+      <RoleIcon role="tank|healer" />
+      <Span variant="pink">1</Span>
+      <RoleIcon role="dps" />
+      或
+      <Span variant="pink">4</Span>
+      <RoleIcon role="dps" />
+      <Span variant="pink">1</Span>
+      <RoleIcon role="tank|healer" />
       <RoleIcon role="any" tag="5人" />
-      分散，范围是一个平台。 需要判定时五个人在不同的平台上。
-    </div>
-    <div class="paragraph">
+    </P>
+    <P>
+      被点名的玩家头上会出现蓝色标记，代表随后会对该玩家
+      <Span variant="pink"> 所在的平台 </Span>
+      造成伤害。
+    </P>
+    <P>
+      因此每个平台上只能有
+      <Span variant="pink"> 一个 </Span>
+      点名。
+    </P>
+    <P>
       与此同时，每个平台后方会出现一个
       <GleamingFang />
-      随机覆盖左半或右半平台。需要分散的同时躲开。
-    </div>
+      随机覆盖左半或右半平台。需要分散的同时躲开半场刀。
+    </P>
   </div>
 </MechanicSection>
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      该机制有五人获得点名，刚好场上有五个平台，因此需要五个点名各自去一个平台，其他人可以自由行动。
-    </div>
-    <div class="paragraph">我们将所有人分为MT组和ST组，MT组去左下平台，ST组去右下平台。</div>
-    <div class="paragraph">
+    <P> 该机制有五人获得点名，刚好场上有五个平台，因此需要五个点名各自去一个平台，其他人可以自由行动。 </P>
+    <P> 以BOSS当前目标圈为基准，MT组在左半场处理，ST组在右半场处理。 </P>
+    <P>
       然后按照
       <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
       <ul class="list-none space-y-4">
@@ -72,32 +93,93 @@ const ultraviolentRay = translations.ultraviolentRay
           <RoleIcon role="healer" tag="H1" />
         </li>
       </ul>
-      的顺序从北至南排队，
-    </div>
+      的顺序在平台上排队。
+    </P>
 
-    <div class="paragraph">
-      每组的第一个点名标记向北传送一个平台，第二个点名标记不动，第三个点名标记向南传送一个平台。
-    </div>
+    <P>
+      每组都是
+      <Span variant="pink">2</Span>
+      <RoleIcon role="dps" />
+      <Span variant="pink">2</Span>
+      <RoleIcon role="tank|healer" />
+      ，因此本组内只会有两个或者三个蓝标
+    </P>
 
-    <div class="paragraph">
+    <P>
+      <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-yellow-500" />
+      <ul class="list-none space-y-4">
+        <li>
+          <P> 若本组内有两个蓝标，则靠近BOSS背后的玩家往BOSS身后移动一个平台，靠近正面的玩家保持不动。 </P>
+        </li>
+
+        <li>
+          <P> 若本组内有三个蓝标，则靠近BOSS正面的玩家往BOSS身前移动一个平台，其余同上。 </P>
+        </li>
+      </ul>
+    </P>
+
+    <P>
       随后所有人看平台后面的
       <GleamingFang />
       去安全的半场，这里注意每个平台的安全半场是不一样的。
-    </div>
+      <ToggleSwitch
+        id="ultraviolentray-solution-toggle"
+        lVariant="yellow"
+        rVariant="pink"
+        lLabel="预兆"
+        rLabel="判定"
+      />
+    </P>
 
-    <div class="paragraph">会有一组有三个点名，另一组只有两个点名。</div>
-
-    <div class="flex gap-4">
-      <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-        <Image src={img} alt="ur1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>排队+点名出现</div>
-      </div>
-
-      <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-        <Image src={img} alt="ur2" class="border-2 border-amber-800/75 dark:border-amber-100" />
-        <div>分散后</div>
-      </div>
-      <div class="flex gap-4"></div>
-    </div>
+    <ImgRow
+      id="ultraviolentray-solution-omen"
+      bordered={false}
+      borderVariant="cyan"
+      imgClass="max-w-110"
+      imgs={[
+        {
+          src: ultraviolentRay1,
+          alt: '魔光点名出现',
+        },
+      ]}
+    />
+    <ImgRow
+      id="ultraviolentray-solution-activate"
+      class="hidden"
+      imgClass="max-w-120"
+      bordered={false}
+      borderVariant="cyan"
+      imgs={[
+        {
+          src: ultraviolentRay2,
+          alt: '魔光分散后',
+        },
+      ]}
+    />
   </div>
 </SolutionSection>
+
+<script>
+  function toggleTables(omenId: string, activateId: string, showActivate: boolean) {
+    const omenTable = document.getElementById(omenId)
+    const activateTable = document.getElementById(activateId)
+
+    if (omenTable && activateTable) {
+      if (showActivate) {
+        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', true))
+        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', false))
+      } else {
+        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', true))
+        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', false))
+      }
+    }
+  }
+
+  document.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement
+
+    if (target && target.id === 'ultraviolentray-solution-toggle') {
+      toggleTables('ultraviolentray-solution-omen', 'ultraviolentray-solution-activate', target.checked)
+    }
+  })
+</script>

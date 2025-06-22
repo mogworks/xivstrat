@@ -31,24 +31,18 @@ import frogtourage_p3_part2_solution_1 from '@/assets/07/m5s/frogtourage_p3/part
 import frogtourage_p3_part2_solution_2 from '@/assets/07/m5s/frogtourage_p3/part_2_solution_2.png'
 import frogtourage_p3_part3 from '@/assets/07/m5s/frogtourage_p3/part_3.png'
 import { translations } from '../_translations'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<FrogtourageCast phase="p3" start="07:26.025" base={base} />
+<FrogtourageCast phase="p3" start="07:26.025" />
 <ContentSection id="frogtourage-part-1" class="mt-8">
   <Span variant="zinc" class="border-l-4 pl-2 text-2xl">{translations.frogtourage} Part 1</Span>
 </ContentSection>
-<AttackSection time="07:31.1" base={base} damage="55000" damageType="physical" />
-<AttackSection time="07:34.1" base={base} damage="55000" damageType="physical" />
-<FrogDoTheHustleCast start="07:31.194" base={base} />
-<AttackSection time="07:37.1" base={base} damage="55000" damageType="physical" />
-<FrogDoTheHustleCast start="07:35.293" base={base} />
-<CastSection start="07:39.255" base={base} duration={4.7} ability={translations.doTheHustle}>
+<AttackSection time="07:31.1" damage="55000" damageType="physical" />
+<AttackSection time="07:34.1" damage="55000" damageType="physical" />
+<FrogDoTheHustleCast start="07:31.194" />
+<AttackSection time="07:37.1" damage="55000" damageType="physical" />
+<FrogDoTheHustleCast start="07:35.293" />
+<CastSection start="07:39.255" duration={4.7} ability={translations.doTheHustle}>
   <Badge variant="yellow">左右刀</Badge>
 </CastSection>
 <MechanicSection>
@@ -132,31 +126,31 @@ const { base = 0 }: Props = Astro.props
 <ContentSection id="frogtourage-part-2" class="mt-8">
   <Span variant="zinc" class="border-l-4 pl-2 text-2xl">{translations.frogtourage} Part 2</Span>
 </ContentSection>
-<AttackSection time="07:46.3" base={base} damage="55000" damageType="physical" />
-<AttackSection time="07:49.3" base={base} damage="55000" damageType="physical" />
-<EventSection time="07:50.574" base={base}>
+<AttackSection time="07:46.3" damage="55000" damageType="physical" />
+<AttackSection time="07:49.3" damage="55000" damageType="physical" />
+<EventSection time="07:50.574">
   随机正点场边出现
   <RoleIcon role="enemy_level1">
     <Span variant="rose">青蛙×2</Span>
   </RoleIcon>
   对场地划线
 </EventSection>
-<AttackSection time="07:52.4" base={base} damage="55000" damageType="physical" />
-<AttackSection time="07:55.4" base={base} damage="55000" damageType="physical" />
-<BackUpDanceCast start="07:51.688" end="08:01.188" base={base} />
-<AttackSection time="08:02.5" base={base} damage="55000" damageType="physical" />
-<AttackSection time="08:05.6" base={base} damage="55000" damageType="physical" />
-<EventSection time="08:06.578" base={base}>
+<AttackSection time="07:52.4" damage="55000" damageType="physical" />
+<AttackSection time="07:55.4" damage="55000" damageType="physical" />
+<BackUpDanceCast start="07:51.688" end="08:01.188" />
+<AttackSection time="08:02.5" damage="55000" damageType="physical" />
+<AttackSection time="08:05.6" damage="55000" damageType="physical" />
+<EventSection time="08:06.578">
   随机正点场边出现
   <RoleIcon role="enemy_level1">
     <Span variant="rose">青蛙×2</Span>
   </RoleIcon>
   对场地划线
 </EventSection>
-<AttackSection time="08:08.6" base={base} damage="55000" damageType="physical" />
-<AttackSection time="08:11.6" base={base} damage="55000" damageType="physical" />
-<AttackSection time="08:14.6" base={base} damage="55000" damageType="physical" />
-<BackUpDanceCast start="08:07.689" end="08:17.178" base={base} />
+<AttackSection time="08:08.6" damage="55000" damageType="physical" />
+<AttackSection time="08:11.6" damage="55000" damageType="physical" />
+<AttackSection time="08:14.6" damage="55000" damageType="physical" />
+<BackUpDanceCast start="08:07.689" end="08:17.178" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
@@ -230,11 +224,11 @@ const { base = 0 }: Props = Astro.props
 <ContentSection id="frogtourage-part-3" class="mt-8">
   <Span variant="zinc" class="border-l-4 pl-2 text-2xl">{translations.frogtourage} Part 3</Span>
 </ContentSection>
-<AttackSection time="08:17.7" base={base} damage="55000" damageType="physical" />
-<CastSection start="08:21.584" base={base} duration={4.7} ability="Do the Hustle">
+<AttackSection time="08:17.7" damage="55000" damageType="physical" />
+<CastSection start="08:21.584" duration={4.7} ability={translations.doTheHustle}>
   <Badge variant="yellow">左右刀</Badge>
 </CastSection>
-<FrogDoTheHustleCast start="08:21.674" base={base} />
+<FrogDoTheHustleCast start="08:21.674" />
 <SolutionSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">

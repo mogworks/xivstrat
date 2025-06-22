@@ -7,21 +7,21 @@ import HowlingBlade from './entities/HowlingBlade.astro'
 
 interface Props {
   time: Time
-  base?: Time
+
   phase?: 'P1' | 'P3'
 }
 
-const { time, base = 0, phase = 'P1' }: Props = Astro.props
+const { time, phase = 'P1' }: Props = Astro.props
 ---
 
 {
   phase === 'P1' ? (
-    <EventSection time={time} base={base}>
+    <EventSection time={time}>
       场地剩余的一对正点各出现一组十字形和X字形
       <GleamingFang />
     </EventSection>
   ) : (
-    <EventSection time={time} base={base}>
+    <EventSection time={time}>
       <HowlingBlade />
       卸除背后的
       <GleamingFang />

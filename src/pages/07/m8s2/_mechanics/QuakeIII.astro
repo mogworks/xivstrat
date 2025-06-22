@@ -6,49 +6,67 @@ import Span from '@/components/Span.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import Quote from '@/components/typography/Quote.astro'
+import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import QuakeIIICast from '../_components/QuakeIIICast.astro'
 
-import img from '@/assets/07/m8s2/tmp.png'
+import quake_iii from '@/assets/07/m8s2/p1/quakeIII.png'
 
 import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
 const quakeIII = translations.quakeIII
 ---
 
-<QuakeIIICast start={start} base={base} />
+<QuakeIIICast start={start} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
-      <Span variant="yellow">{quakeIII}</Span>
-    </div>
-    <div class="paragraph">
+    <T>
+      <Skill name={quakeIII} />
+    </T>
+    <P>
       <HowlingBlade />
+      读条
+      <Skill name={quakeIII} />
       点名
-      <RoleIcon role="healer" tag="双奶" />
-      分摊，需要判定时四个人在在同一个平台上。
-    </div>
+      <RoleIcon role="healer" tag="H1" />
+      和
+      <RoleIcon role="healer" tag="H2" />
+      释放范围为一个平台的分摊，附带<Span variant="pink">4人的人数检测</Span>
+    </P>
+    <P>需要判定时四个人站在同一个平台上。 </P>
   </div>
 </MechanicSection>
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">我们将所有人分为MT组和ST组，MT组去左下平台，ST组去右下平台。</div>
+    <P>如图，所有人分为MT组和ST组，以南平台为基准，MT组去左平台，ST组去右平台。</P>
 
-    <div class="paragraph">注意靠近场中，方便团辅和奶。</div>
+    <P>注意靠近场中分摊，避免吃不到减伤和抬血。</P>
 
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={img} alt="quake1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-      <div>双奶分组分摊</div>
-    </div>
+    <ImgRow
+      bordered={false}
+      borderVariant="cyan"
+      imgs={[
+        {
+          src: quake_iii,
+          alt: '爆震',
+          imgClass: 'max-w-110',
+        },
+      ]}
+    />
   </div>
 </SolutionSection>

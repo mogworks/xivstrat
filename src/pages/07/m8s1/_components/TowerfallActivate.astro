@@ -5,10 +5,9 @@ import EventSection from '@/components/section/EventSection.astro'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}>石柱崩塌，造成直线范围伤害</EventSection>
+<EventSection time={time}>石柱崩塌，造成直线范围伤害</EventSection>

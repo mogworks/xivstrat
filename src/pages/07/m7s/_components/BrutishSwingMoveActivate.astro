@@ -7,12 +7,11 @@ import BruteAbombinator from './BruteAbombinator.astro'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <BruteAbombinator /> 开始移动至墙壁
 </EventSection>

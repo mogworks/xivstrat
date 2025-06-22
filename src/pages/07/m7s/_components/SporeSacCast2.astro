@@ -18,17 +18,16 @@ import ThornsOfDeathDebuff from './ThornsOfDeathDebuff.astro'
 interface Props {
   start: Time
   end: Time
-  base?: Time
 }
 
-const { start, end, base = 0 }: Props = Astro.props
+const { start, end }: Props = Astro.props
 const seedsAppear = '08:02.581'
 const moveToCenter = '08:03.560'
 const seedFallen = '08:06.542'
 const sporeSac = translations.sporeSac
 ---
 
-<CastSection start={start} base={base} duration={2.7} ability={sporeSac}>
+<CastSection start={start} duration={2.7} ability={sporeSac}>
   <BruteAbombinator slot="source" />
 </CastSection>
 <EventSection time="08:02.492"
@@ -39,8 +38,8 @@ const sporeSac = translations.sporeSac
   <Span variant="green">种子×4</Span>黄圈预兆出现
 </EventSection>
 
-<MoveToCenterEvent time={moveToCenter} base={base} />
-<EventSection time={seedFallen} base={base}>
+<MoveToCenterEvent time={moveToCenter} />
+<EventSection time={seedFallen}>
   <Span variant="green">种子×4</Span>
   落下，对范围内的玩家造成
   <DamageInfo damage="110000" type="magical" />
