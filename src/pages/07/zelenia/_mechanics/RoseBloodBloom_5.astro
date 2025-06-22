@@ -24,6 +24,8 @@ import ya2 from '@/assets/07/zelenia/P3-5/P3-5-ya2.png'
 import ya3 from '@/assets/07/zelenia/P3-5/P3-5-ya3.png'
 
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 ---
 
 <MechanicSection>
@@ -44,8 +46,7 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
     </div>
   </div>
 
-    <div class="flex flex-col gap-6"> 
-
+  <div class="flex flex-col gap-6">
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
       <div class="paragraph">
         <Span variant="yellow">释放顺序说明</Span>
@@ -138,77 +139,71 @@ import ToggleSwitch from '@/components/ToggleSwitch.astro'
       </div>
     </div>
   </div>
-  
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      根据技能的释放顺序，只需要按照以下方法跑路即可：
-    </div>
+    <div class="paragraph">根据技能的释放顺序，只需要按照以下方法跑路即可：</div>
     <div class="paragraph">
       <Span variant="yellow">Step 1：</Span>
-      <RoleIcon role="all" tag="全员" />到<Span variant="red">第二次场外刀</Span>覆盖的灰色地板集合，并根据<Span variant="blue">钢铁/月环</Span>的提示站到外圈/内圈
+      <RoleIcon role="all" tag="全员" />到<Span variant="red">第二次场外刀</Span>覆盖的灰色地板集合，并根据<Span
+        variant="blue">钢铁/月环</Span
+      >的提示站到外圈/内圈
     </div>
     <div class="paragraph">
       <Span variant="yellow">Step 2：</Span>
-      第一轮伤害判定后，<RoleIcon role="all" tag="全员" />顺时针前往<Zelenia/><Span variant="yellow">一劈扇形范围</Span>的灰色地板，并穿内外圈躲避<Span variant="blue">第二轮钢铁/月环</Span>
+      第一轮伤害判定后，<RoleIcon role="all" tag="全员" />顺时针前往<Zelenia /><Span variant="yellow">一劈扇形范围</Span
+      >的灰色地板，并穿内外圈躲避<Span variant="blue">第二轮钢铁/月环</Span>
     </div>
-    <div class="paragraph">
-      起点和终点的安全区示意图如下
-    </div>
-    <div class="paragraph">
-      只分为两种情况，需要在第四刀前从起点跑到终点（可以跑直线，记得穿内外圈）
-    </div>
+    <div class="paragraph">起点和终点的安全区示意图如下</div>
+    <div class="paragraph">只分为两种情况，需要在第四刀前从起点跑到终点（可以跑直线，记得穿内外圈）</div>
     <div class="paragraph">
       <Span variant="yellow">先钢铁</Span>
     </div>
-    <ImageRow
-        class="game-img"
-        wrapperClass="max-w-88"
-        
-        imgs={[
-          {
-            src: ga1,
-            alt: 'Zelenia：P3-5 先钢铁起点',
-            title: '起点（1-3刀安全）',
-          },
-          {
-            src: ga2,
-            alt: 'Zelenia：P3-5 先钢铁终点',
-            title: '终点（2-6刀安全）',
-          },
-          {
-            src: ga3,
-            alt: 'Zelenia：P3-5 先钢铁路径',
-            title: '跑路示意路径',
-          },
-        ]}
-      />
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      imgs={[
+        {
+          src: ga1,
+          alt: 'Zelenia：P3-5 先钢铁起点',
+          title: '起点（1-3刀安全）',
+        },
+        {
+          src: ga2,
+          alt: 'Zelenia：P3-5 先钢铁终点',
+          title: '终点（2-6刀安全）',
+        },
+        {
+          src: ga3,
+          alt: 'Zelenia：P3-5 先钢铁路径',
+          title: '跑路示意路径',
+        },
+      ]}
+    />
     <div class="paragraph">
       <Span variant="yellow">先月环</Span>
     </div>
     <ImageRow
-        class="game-img"
-        wrapperClass="max-w-88"
-        
-        imgs={[
-          {
-            src: ya1,
-            alt: 'Zelenia：P3-5 先月环起点',
-            title: '起点（1-3刀安全）',
-          },
-          {
-            src: ya2,
-            alt: 'Zelenia：P3-5 先月环终点',
-            title: '终点（2-6刀安全）',
-          },
-          {
-            src: ya3,
-            alt: 'Zelenia：P3-5 先月环路径',
-            title: '跑路示意路径',
-          },
-        ]}
-      />
+      class="game-img"
+      wrapperClass="max-w-88"
+      imgs={[
+        {
+          src: ya1,
+          alt: 'Zelenia：P3-5 先月环起点',
+          title: '起点（1-3刀安全）',
+        },
+        {
+          src: ya2,
+          alt: 'Zelenia：P3-5 先月环终点',
+          title: '终点（2-6刀安全）',
+        },
+        {
+          src: ya3,
+          alt: 'Zelenia：P3-5 先月环路径',
+          title: '跑路示意路径',
+        },
+      ]}
+    />
     <div class="paragraph">
       <Span variant="yellow">注意：</Span>
       跑路示意路径图为了看清重点，故显示了第一劈的扇形范围和场外刀，并不代表实际伤害（例如钢铁月环未标注）
