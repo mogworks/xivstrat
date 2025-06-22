@@ -14,13 +14,12 @@ import img from '@/assets/07/zelenia/Tmp.png'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<EscelonsFallCast start={start} base={base} />
+<EscelonsFallCast start={start} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

@@ -66,11 +66,6 @@ import SinisterSeedsMode1Cast from '../_components/SinisterSeedsMode1Cast.astro'
 import TendrilsofTerrorAppear2 from '../_components/TendrilsofTerrorAppear2.astro'
 import Separator from '@/components/Separator.astro'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
 const impact = translations.impact
 const sinisterSeeds = translations.sinisterSeeds
 const windingWildwinds = translations.windingWildwinds
@@ -84,19 +79,19 @@ const rootsOfEvil = translations.rootsOfEvil
 const tendrilsofTerror = translations.tendrilsOfTerror
 ---
 
-<SporeSacCast start="00:40.052" end="00:43.039" base={base} />
-<SinisterSeedsCast start="00:48.384" base={base} />
+<SporeSacCast start="00:40.052" end="00:43.039" />
+<SinisterSeedsCast start="00:48.384" />
 <PollenCast start="00:49.812" />
-<PollenActivate time="00:53.780" base={base} />
-<SinisterSeedsMode1Cast start="00:53.511" base={base} />
-<SinisterSeedsMode1Cast start="00:55.515" base={base} />
+<PollenActivate time="00:53.780" />
+<SinisterSeedsMode1Cast start="00:53.511" />
+<SinisterSeedsMode1Cast start="00:55.515" />
 <EventSection time="00:55.917">
   <BloomingAbomination num={4} />可选中
 </EventSection>
-<SinisterSeedsMode1Cast start="00:57.521" base={base} />
-<SinisterSeedsMode1Cast start="00:59.527" base={base} />
-<SinisterSeedsMode2Activate time="01:00.508" base={base} />
-<TendrilsofTerrorAppear2 time="01:02.155" base={base} />
+<SinisterSeedsMode1Cast start="00:57.521" />
+<SinisterSeedsMode1Cast start="00:59.527" />
+<SinisterSeedsMode2Activate time="01:00.508" />
+<TendrilsofTerrorAppear2 time="01:02.155" />
 <EventSection time="01:05.052">
   <Span variant="yellow">{impact}</Span>
   判定
@@ -543,19 +538,19 @@ const tendrilsofTerror = translations.tendrilsOfTerror
   <Span variant="yellow">{rootsOfEvil}</Span>伤害判定
   <Badge variant="emerald">12m圆形</Badge>
 </EventSection>
-<WindingWildwindsCast start="01:11.201" num={2} base={base} />
-<CrossingCrosswindsCast start="01:11.201" num={2} base={base} />
-<AttackSection time="01:15.925" base={base} damage="57000" damageType="physical" />
-<AttackSection time="01:18.951" base={base} damage="57000" damageType="physical" />
-<AttackSection time="01:21.979" base={base} damage="57000" damageType="physical" />
-<HurricaneForceCast start="01:24.200" base={base} />
-<AttackSection time="01:25.008" base={base} damage="57000" damageType="physical" />
-<AttackSection time="01:28.037" base={base} damage="57000" damageType="physical" />
-<QuarrySwampCast start="01:29.48" base={base} />
-<AttackSection time="01:35.074" base={base} damage="57000" damageType="physical" />
-<AttackSection time="01:38.103" base={base} damage="57000" damageType="physical" />
-<AttackSection time="01:41.133" base={base} damage="57000" damageType="physical" />
-<AttackSection time="01:44.162" base={base} damage="57000" damageType="physical" />
+<WindingWildwindsCast start="01:11.201" num={2} />
+<CrossingCrosswindsCast start="01:11.201" num={2} />
+<AttackSection time="01:15.925" damage="57000" damageType="physical" />
+<AttackSection time="01:18.951" damage="57000" damageType="physical" />
+<AttackSection time="01:21.979" damage="57000" damageType="physical" />
+<HurricaneForceCast start="01:24.200" />
+<AttackSection time="01:25.008" damage="57000" damageType="physical" />
+<AttackSection time="01:28.037" damage="57000" damageType="physical" />
+<QuarrySwampCast start="01:29.48" />
+<AttackSection time="01:35.074" damage="57000" damageType="physical" />
+<AttackSection time="01:38.103" damage="57000" damageType="physical" />
+<AttackSection time="01:41.133" damage="57000" damageType="physical" />
+<AttackSection time="01:44.162" damage="57000" damageType="physical" />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

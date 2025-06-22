@@ -33,11 +33,11 @@ const elementalPurge = translations.elementalPurge
 const prowlingGale = translations.prowlingGale
 ---
 
-<DutyStratLayout dutyId={dutyId}>
+<DutyStratLayout dutyId={dutyId} base={base}>
   <SeparatorSection />
   <DraftWarning />
   <SeparatorSection />
-  <EventSection time={base} base={base}>
+  <EventSection time={base}>
     <RoleIcon role="all" tag="全员" />
     身上的
     <DownForTheCount hover />消失，场地变为五个平台，进入战斗的后半阶段
@@ -50,28 +50,28 @@ const prowlingGale = translations.prowlingGale
   </NoteSection>
 
   <SeparatorSection id="quake-iii" title=`${quakeIII}` />
-  <QuakeIII start="07:40.930" base={base} />
+  <QuakeIII start="07:40.930" />
 
   <SeparatorSection id="ultraviolent-ray" title=`${ultraviolentRay}` />
-  <UltraviolentRay start="07:55.096" base={base} />
+  <UltraviolentRay start="07:55.096" />
 
   <SeparatorSection id="twinbite" title=`${twinbite}` />
-  <Twinbite start="08:02.234" base={base} />
+  <Twinbite start="08:02.234" />
 
   <SeparatorSection id="heros-blow" title=`${herosBlow}` />
-  <HerosBlow start="08:14.462" base={base} />
+  <HerosBlow start="08:14.462" />
 
   <NoteSection> 以上四个机制会在整场战斗重复多次。 </NoteSection>
 
-  <UltraviolentRay start="08:25.583" base={base} />
-  <QuakeIII start="08:37.727" base={base} />
+  <UltraviolentRay start="08:25.583" />
+  <QuakeIII start="08:37.727" />
 
   <SeparatorSection id="mooncleaver" title=`${mooncleaver}` />
-  <MooncleaverCast start="08:50.987" base={base} />
+  <MooncleaverCast start="08:50.987" />
 
   <SeparatorSection id="elemental-purge" title=`${elementalPurge}` />
-  <ElementalPurge start="08:58.105" base={base} />
+  <ElementalPurge start="08:58.105" />
 
   <SeparatorSection id="prowling-gale" title=`${prowlingGale}` />
-  <ProwlingGale start="09:14.167" base={base} />
+  <ProwlingGale start="09:14.167" />
 </DutyStratLayout>

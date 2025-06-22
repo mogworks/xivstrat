@@ -10,14 +10,13 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const hurricaneForce = translations.hurricaneForce
 ---
 
-<CastSection start={start} duration={5.7} base={base} damage="9999999" damageType="special">
+<CastSection start={start} duration={5.7} damage="9999999" damageType="special">
   <BloomingAbomination slot="source" num={4} />
   <Span slot="ability" variant="fuchsia">{hurricaneForce}</Span>
   <Badge variant="fuchsia">狂暴</Badge>

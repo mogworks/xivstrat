@@ -17,13 +17,12 @@ import o from '@/assets/07/zelenia/P3-4/P3-4-o.png'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<AlexandrianBanish3Cast start={start} base={base} />
+<AlexandrianBanish3Cast start={start} />
 
 <MechanicSection>
   <div class="flex gap-4">

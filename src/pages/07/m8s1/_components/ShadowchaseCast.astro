@@ -11,17 +11,17 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
+
   shadow?: boolean
 }
 
-const { start, base = 0, shadow = false }: Props = Astro.props
+const { start, shadow = false }: Props = Astro.props
 const ability = translations.shadowchase
 ---
 
 {
   shadow ? (
-    <CastSection start={start} base={base} ability={ability} duration={1.7}>
+    <CastSection start={start} ability={ability} duration={1.7}>
       <HowlingBlade slot="source">
         <Span variant="rose" class="ml-1">
           分身×5
@@ -30,7 +30,7 @@ const ability = translations.shadowchase
       <Badge variant="emerald">8m宽直线</Badge>
     </CastSection>
   ) : (
-    <CastSection start={start} base={base} ability={ability} duration={2.7}>
+    <CastSection start={start} ability={ability} duration={2.7}>
       <HowlingBlade slot="source" />
       ，读条后消失且不可选中
     </CastSection>

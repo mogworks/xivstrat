@@ -39,12 +39,6 @@ import color_clash_22 from '@/assets/07/m6s/double_style/color_clash_22.png'
 import color_clash_22_optimize from '@/assets/07/m6s/double_style/color_clash_22_optimize.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
-
 const solutions = [
   {
     id: 'double-style-p1-solution-common',
@@ -60,23 +54,23 @@ const defaultSolution = '解法：常规站位'
 const { ColorClash, DoubleStyle } = translations
 ---
 
-<DoubleStyleCast start="00:45.493" base={base} duration={12.6} />
+<DoubleStyleCast start="00:45.493" duration={12.6} />
 <EventSection>
-  <StratInterval slot="time" start="00:56.883" end="00:59.904" base={base} />
+  <StratInterval slot="time" start="00:56.883" end="00:59.904" />
   <Fragment>
     <RoleIcon role="all" tag="全员" />
     眩晕
   </Fragment>
 </EventSection>
 <EventSection>
-  <StratInterval slot="time" start="00:58.093" end="00:59.904" base={base} />
+  <StratInterval slot="time" start="00:58.093" end="00:59.904" />
   <Fragment>
     <RoleIcon role="all" tag="全员" />
     强制向面向方向飞行34m
   </Fragment>
 </EventSection>
 <EventSection>
-  <StratInterval slot="time" start="01:00.659" end="01:01.636" base={base} />
+  <StratInterval slot="time" start="01:00.659" end="01:01.636" />
   <Fragment>
     <RoleIcon role="enemy_level1">
       <Span variant="rose">绘画图案</Span>
@@ -84,7 +78,7 @@ const { ColorClash, DoubleStyle } = translations
     读条，发动相应图案效果
   </Fragment>
 </EventSection>
-<ColorClashActivate time="01:02.127" base={base} />
+<ColorClashActivate time="01:02.127" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">

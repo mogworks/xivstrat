@@ -27,11 +27,6 @@ import P from '@/components/typography/P.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import NoteSection from '@/components/section/NoteSection.astro'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
 const pulpSmash = translations.pulpSmash
 const ITCD = translations.itCameFromTheDirt
 const theUnpotted = translations.theUnpotted
@@ -49,10 +44,10 @@ const solutions = [
 const defaultSolution = '解法：Game8原版'
 ---
 
-<PulpSmashCast start="02:01.981" base={base} />
-<PulpSmashActivate time="02:07.019" base={base} />
-<ICftDActivate time="02:08.978" base={base} />
-<TheUnpottedActivate time="02:09.025" base={base} />
+<PulpSmashCast start="02:01.981" />
+<PulpSmashActivate time="02:07.019" />
+<ICftDActivate time="02:08.978" />
+<TheUnpottedActivate time="02:09.025" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-4">

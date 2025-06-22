@@ -9,17 +9,16 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const demolitionDeathmatch = translations.demolitionDeathmatch
 // 连线dot伤害参考：
 // https://www.fflogs.com/reports/1wmf3zgKVaFyGJ2X?fight=6
 // https://www.fflogs.com/reports/yftNGbrFxadJQkH8?fight=7
 ---
 
-<CastSection start={start} base={base} duration={2.7} ability={demolitionDeathmatch}>
+<CastSection start={start} duration={2.7} ability={demolitionDeathmatch}>
   <BruteAbombinator slot="source" />
   <Badge variant="emerald">连线</Badge>
   <Badge variant="orange">DoT</Badge>

@@ -44,10 +44,6 @@ import img_7 from '@/assets/07/m8s1/tactical_pack/7.png'
 import img_8 from '@/assets/07/m8s1/tactical_pack/8.png'
 import img_9 from '@/assets/07/m8s1/tactical_pack/9.png'
 
-interface Props {
-  base?: Time
-}
-
 const tacticalPack = translations.tacticalPack
 const howlingHavoc = translations.howlingHavoc
 const packPredation = translations.packPredation
@@ -59,19 +55,17 @@ const windSurge = translations.windSurge
 const sandSurge = translations.sandSurge
 const galeSurge = translations.galeSurge
 const stoneSurge = translations.stoneSurge
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<TacticalPackCast start="02:56.110" base={base} />
-<UntargetbaleEvent time="03:01.224" base={base} />
+<TacticalPackCast start="02:56.110" />
+<UntargetbaleEvent time="03:01.224" />
 <EventSection time="03:03.400">
   场中出现半径
   <Span variant="pink">8m</Span>
   的圆形范围提示
 </EventSection>
-<WolvesAppearEvent time="03:03.400" base={base} />
-<HowlingHavocCast start="03:03.400" base={base} />
+<WolvesAppearEvent time="03:03.400" />
+<HowlingHavocCast start="03:03.400" />
 <EventSection time="03:09.002">
   场中半径
   <Span variant="pink">8m</Span>
@@ -97,21 +91,21 @@ const { base = 0 }: Props = Astro.props
     ，重复3轮
   </Fragment>
   <Fragment slot="details">
-    <PackPredationCast start="03:13.586" base={base} />
-    <ClearBorneEndEvent time="03:21.086" base={base} buffTime="21" type="wind" />
-    <ClearBorneEndEvent time="03:26.086" base={base} buffTime="21" type="stone" />
+    <PackPredationCast start="03:13.586" />
+    <ClearBorneEndEvent time="03:21.086" buffTime="21" type="wind" />
+    <ClearBorneEndEvent time="03:26.086" buffTime="21" type="stone" />
 
-    <PackPredationCast start="03:27.703" base={base} />
-    <ClearBorneEndEvent time="03:35.203" base={base} buffTime="37" type="wind" />
-    <ClearBorneEndEvent time="03:40.203" base={base} buffTime="37" type="stone" />
+    <PackPredationCast start="03:27.703" />
+    <ClearBorneEndEvent time="03:35.203" buffTime="37" type="wind" />
+    <ClearBorneEndEvent time="03:40.203" buffTime="37" type="stone" />
 
-    <PackPredationCast start="03:41.842" base={base} />
-    <ClearBorneEndEvent time="03:49.342" base={base} buffTime="54" type="wind" />
-    <ClearBorneEndEvent time="03:54.342" base={base} buffTime="54" type="stone" />
+    <PackPredationCast start="03:41.842" />
+    <ClearBorneEndEvent time="03:49.342" buffTime="54" type="wind" />
+    <ClearBorneEndEvent time="03:54.342" buffTime="54" type="stone" />
   </Fragment>
 </CollapseSection>
 
-<ForlornCast start="04:01.992" base={base} />
+<ForlornCast start="04:01.992" />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

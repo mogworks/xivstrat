@@ -36,11 +36,6 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import RevengeOfTheVinesActivate from '../_components/RevengeOfTheVinesActivate.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
 const stoneringer = translations.stoneringer
 const brutishswing = translations.brutishSwing
 const glowerPower = translations.glowerPower
@@ -59,15 +54,15 @@ const solutions = [
 const defaultSolution = '解法：三五分散'
 ---
 
-<StoneringerCast start="02:48.01" base={base} />
-<BrutishSwingCast start="02:55.84" base={base} />
-<BrutishSwingMoveActivate time="02:59.81" base={base} />
-<BrutishSwingActivate time="03:03.909" base={base} />
-<GlowerPowerCast start="03:04.80" base={base} />
-<ElectrogeneticForceActivate time="03:08.635" base={base} />
-<GlowerPowerActivate time="03:08.767" base={base} />
-<RevengeOfTheVinesCast start="03:09.61" base={base} />
-<RevengeOfTheVinesActivate time="03:14.611" base={base} />
+<StoneringerCast start="02:48.01" />
+<BrutishSwingCast start="02:55.84" />
+<BrutishSwingMoveActivate time="02:59.81" />
+<BrutishSwingActivate time="03:03.909" />
+<GlowerPowerCast start="03:04.80" />
+<ElectrogeneticForceActivate time="03:08.635" />
+<GlowerPowerActivate time="03:08.767" />
+<RevengeOfTheVinesCast start="03:09.61" />
+<RevengeOfTheVinesActivate time="03:14.611" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <P>P2 场地共有三面墙，除了击飞过来的方向（也就是P1场地方向），每侧各有一面</P>

@@ -1,29 +1,36 @@
 ---
 import type { Time } from '@/lib/utils'
+
 import { timeToSeconds } from '@/lib/utils'
 
 import CastSection from '@/components/section/CastSection.astro'
+import Span from '@/components/Span.vue'
+import Badge from '@/components/Badge.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
+import { translations } from '../_translations'
+
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
+const startSeconds = timeToSeconds(start)
 const index = [...Array(4).keys()]
 ---
 
 {
   index.map((i) => (
     <>
-      <CastSection ability="幻狼剣" start={timeToSeconds(start) + i * 2} duration={8.7} base={base}>
-        <div slot="source">
-          <HowlingBlade />
-          分身
-        </div>
+      <CastSection ability={translations.moonbeamsBite} start={startSeconds + i * 2} duration={8.7}>
+        <HowlingBlade slot="source">
+          <Span variant="rose" class="ml-1">
+            分身{`#${i + 1}`}
+          </Span>
+        </HowlingBlade>
+        <Badge variant="emerald">半场刀</Badge>
       </CastSection>
     </>
   ))

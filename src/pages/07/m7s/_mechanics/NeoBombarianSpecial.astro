@@ -11,15 +11,9 @@ import NeoBombarianSpecialCast from '../_components/NeoBombarianSpecialCast.astr
 import Span from '@/components/Span.vue'
 
 import img from '@/assets/07/m7s/NeoBS.png'
-
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<NeoBombarianSpecialCast start="02:20.14" base={base} />
+<NeoBombarianSpecialCast start="02:20.14" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">

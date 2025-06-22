@@ -23,19 +23,19 @@ const dutyId = '07/m6s'
 const base = '07:07.286'
 ---
 
-<DutyStratLayout dutyId={dutyId}>
-  <MoveToNorthEvent time="07:07.286" base={base} />
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <MoveToNorthEvent time="07:07.286" />
   <SeparatorSection id="sugarscape" title={translations.Sugarscape} />
-  <SugarscapeP4 base={base} />
+  <SugarscapeP4 />
   <SeparatorSection id="double-style" title={translations.DoubleStyle} />
-  <DoubleStyleP4 base={base} />
+  <DoubleStyleP4 />
   <SeparatorSection id="layer-3" title={`${translations.Layer} #3`} />
-  <Layer3 base={base} />
+  <Layer3 />
   <SeparatorSection id="layer-4" title={`${translations.Layer} #4`} />
-  <Layer4 base={base} />
+  <Layer4 />
   <SeparatorSection />
-  <MousseMuralCast id="mousse-mural" start="09:53.472" base={base} />
-  <EventSection time="09:59.0" base={base}>
+  <MousseMuralCast id="mousse-mural" start="09:53.472" />
+  <EventSection time="09:59.0">
     <Span variant="zinc">场地复原</Span>
   </EventSection>
   <NoteSection>
@@ -47,6 +47,6 @@ const base = '07:07.286'
       往场中带位，方便处理后续机制
     </div>
   </NoteSection>
-  <AttackSection time="10:00.469" base={base} damage="57000" damageType="magical" />
-  <AttackSection time="10:03.501" base={base} damage="57000" damageType="magical" />
+  <AttackSection time="10:00.469" damage="57000" damageType="magical" />
+  <AttackSection time="10:03.501" damage="57000" damageType="magical" />
 </DutyStratLayout>

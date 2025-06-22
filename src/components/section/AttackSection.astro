@@ -11,7 +11,7 @@ import EventSection from '@/components/section/EventSection.astro'
 
 interface Props {
   time?: Time
-  base?: Time
+
   name?: string
   nameVariant?: VariantType
   damage: string
@@ -19,10 +19,10 @@ interface Props {
   [key: string]: any
 }
 
-const { time = 0, base = 0, name = '攻击', nameVariant = 'yellow', damage, damageType, ...rest }: Props = Astro.props
+const { time = 0, name = '攻击', nameVariant = 'yellow', damage, damageType, ...rest }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base} class="attack-section hidden" {...rest}>
+<EventSection time={time} class="attack-section hidden" {...rest}>
   <slot name="source">
     <Boss />
   </slot>

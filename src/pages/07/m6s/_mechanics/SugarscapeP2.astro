@@ -23,12 +23,6 @@ import paint_1 from '@/assets/07/m6s/paint/1.png'
 import floor_p2 from '@/assets/07/m6s/floor_p2.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
-
 const start = '01:30.298'
 const duration = 7.7
 const adjustedDuration = duration + 0.3
@@ -37,14 +31,14 @@ const end = timeToSeconds(start) + adjustedDuration
 const { Sugarscape, HeatingUp, BurningUp, Brûlée, CrowdBrûlée } = translations
 ---
 
-<SugarscapeCast start={start} end={end} base={base}>
+<SugarscapeCast start={start} end={end}>
   ，场地变换为沙漠，
   <RoleIcon role="all" tag="全员" />
   被赋予
   <SwelteringDebuff hover />
   <DotInfo damage="15000" />
 </SugarscapeCast>
-<EventSection time={end} base={base}>
+<EventSection time={end}>
   <RoleIcon role="healer" tag="H1" />
   <RoleIcon role="healer" tag="H2" />
   被赋予

@@ -7,13 +7,12 @@ import Span from '@/components/Span.vue'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <BruteAbombinator />
   <Span variant="zinc">移动至墙面，进入挂墙阶段</Span>
 </EventSection>

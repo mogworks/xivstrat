@@ -10,13 +10,12 @@ import Span from '@/components/Span.vue'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <WolfOfWind />
   <WolfOfStone />
   出现，各连线
