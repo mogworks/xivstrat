@@ -6,146 +6,210 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import Badge from '@/components/Badge.astro'
-import floor_p2_3 from '@/assets/07/m7s/floor_p2_3.png'
 import strange_seeds_safe_point from '@/assets/07/m7s/strange_seeds/strange_seeds_safe_point.png'
 import strange_seeds_13_point from '@/assets/07/m7s/strange_seeds/strange_seeds_13_point.png'
 import strange_seeds_24_point from '@/assets/07/m7s/strange_seeds/strange_seeds_24_point.png'
 import strange_seeds_killer_seeds_point from '@/assets/07/m7s/strange_seeds/strange_seeds_killer_seeds_point.png'
 import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
-import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import StrangeSeedsActivate from '../_components/StrangeSeedsActivate.astro'
 import { translations } from '../_translations'
 import StrangeSeedsAppear from '../_components/StrangeSeedsAppear.astro'
 import StoneringerCast from '../_components/StoneringerCast.astro'
 import TendrilsofTerrorAppear from '../_components/TendrilsofTerrorAppear.astro'
-import TendrilsofTerrorActivate from '../_components/TendrilsofTerrorActivate.astro'
 import KillerSeedsAppear from '../_components/KillerSeedsAppear.astro'
 import KillerSeedsActivate from '../_components/KillerSeedsActivate.astro'
 import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import T from '@/components/typography/T.astro'
+import P from '@/components/typography/P.astro'
+import ListDot from '@/components/ListDot.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import Skill from '@/components/typography/Skill.astro'
+import StratLink from '@/components/StratLink.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import Tmp from '@/assets/07/m7s/Tmp.png'
 
-interface Props {
-  base?: Time
-}
-const { base = 0 }: Props = Astro.props
 const strangeSeeds = translations.strangeSeeds
-const stoneringer = translations.stoneringer
+const demolitionDeathmatch = translations.demolitionDeathmatch
+const killerseeds = translations.killerSeeds
+const tendrilsofTerror = translations.tendrilsOfTerror
+const brutishSwing = translations.brutishSwing
+
+const solutions = [
+  {
+    id: 'strangeseeds-sari-m',
+    title: '解法：萨利式',
+  },
+  {
+    id: 'strangeseeds-fixedseeds',
+    title: '解法：Fixed Seeds',
+  },
+]
+const defaultSolution = '解法：萨利式'
 ---
 
-<StrangeSeedsCast start="04:43.863" base={base} />
-<StrangeSeedsAppear time="04:48.986" base={base} num={1} />
-<StoneringerCast start="04:52.997" base={base} />
-<StrangeSeedsActivate time="04:53.975" base={base} num={1} />
-<StrangeSeedsAppear time="04:54.021" base={base} num={2} />
-<TendrilsofTerrorAppear time="04:55.624" base={base} num={1} />
-<TendrilsofTerrorActivate time="04:58.613" base={base} num={1} />
-<StrangeSeedsActivate time="04:59.013" base={base} num={2} />
-<StrangeSeedsAppear time="04:59.013" base={base} num={3} />
-<TendrilsofTerrorAppear time="05:00.664" base={base} num={2} />
-<TendrilsofTerrorActivate time="05:03.653" base={base} num={2} />
-<StrangeSeedsActivate time="05:04.009" base={base} num={3} />
-<StrangeSeedsAppear time="05:04.009" base={base} num={4} />
-<TendrilsofTerrorAppear time="05:05.658" base={base} num={3} />
-<TendrilsofTerrorActivate time="05:08.642" base={base} num={3} />
-<StrangeSeedsActivate time="05:08.997" base={base} num={4} />
-<TendrilsofTerrorAppear time="05:10.647" base={base} num={4} />
-<TendrilsofTerrorActivate time="05:13.631" base={base} num={4} />
-<KillerSeedsAppear time="05:13.853" base={base} />
-<KillerSeedsActivate time="05:18.842" base={base} />
+<StrangeSeedsCast start="04:43.863" />
+<StrangeSeedsAppear time="04:48.986" num={1} />
+<StoneringerCast start="04:52.997" />
+<StrangeSeedsActivate time="04:53.975" num={1} />
+<StrangeSeedsAppear time="04:54.021" num={2} />
+<TendrilsofTerrorAppear time="04:55.624" num={1} />
+<StrangeSeedsActivate time="04:59.013" num={2} />
+<StrangeSeedsAppear time="04:59.013" num={3} />
+<TendrilsofTerrorAppear time="05:00.664" num={2} />
+<StrangeSeedsActivate time="05:04.009" num={3} />
+<StrangeSeedsAppear time="05:04.009" num={4} />
+<TendrilsofTerrorAppear time="05:05.658" num={3} />
+<StrangeSeedsActivate time="05:08.997" num={4} />
+<TendrilsofTerrorAppear time="05:10.647" num={4} />
+<KillerSeedsAppear time="05:13.853" />
+<KillerSeedsActivate time="05:18.842" />
 <EventSection time="05:20.310">
   墙与<RoleIcon role="any" />
   连线
   <ThornsOfDeathDebuff hover />消失
 </EventSection>
-<TendrilsofTerrorAppear time="05:20.532" base={base} num={5} />
-<BrutishSwingCast start="05:20.887" base={base} />
-<TendrilsofTerrorActivate time="05:23.516" base={base} num={5} />
+<TendrilsofTerrorAppear time="05:20.532" num={5} />
+<BrutishSwingCast start="05:20.887" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="flex w-4/6 flex-col gap-4">
-      <Image src={floor_p2_3} alt="" />
-      <div class="shrink-0 grow space-y-4">
-        <div class="gap-strat flex-col items-center">
-          <div>
-            <span class="inline-flex items-center gap-px">
-              <RoleIcon role="tank" />
-              <RoleIcon role="healer" />组或
-              <RoleIcon role="dps" />组,个一人被点名
-              <Span variant="yellow"> {strangeSeeds} </Span>
-              <Span variant="yellow">(圆形AOE)</Span>
-            </span>
-          </div>
-          <div class="paragraph mt-6">
-            随后在<Span variant="yellow">圆形AOE</Span>处会释放<Span variant="yellow">8方直线AOE</Span>
-          </div>
-          <div class="paragraph mt-6 border border-dashed p-4">
-            <span class="inline-flex items-center gap-px">
-              其间<BruteAbombinator /> 还会读条<Span variant="yellow">{stoneringer}</Span><Badge variant="green"
-                >延迟生效</Badge
-              >到分摊后进行处理
-            </span>
-          </div>
-          <div class="paragraph mt-6">
-            <span class="inline-flex items-center gap-px">
-              <RoleIcon role="tank" />
-              <RoleIcon role="healer" />组和<RoleIcon role="dps" />组个被点名一次一共4轮
-            </span>
-          </div>
-          <div class="paragraph mt-6">
-            <span class="inline-flex items-center gap-px">
-              第四轮结束后,各点名
-              <RoleIcon role="tank" />
-              <RoleIcon role="healer" />组和<RoleIcon role="dps" />
-              组需要双人处理的分摊机制
-            </span>
-          </div>
-        </div>
-      </div>
+    <div class="flex flex-col gap-4">
+      <T><Skill name={strangeSeeds} /></T>
+      <P>
+        共计<Span variant="pink">4轮</Span>，每轮点名<Span variant="pink">1名</Span><RoleIcon
+          role="tank|healer"
+          tag="T奶"
+        />和<Span variant="pink">1名</Span><RoleIcon role="dps" tag="DPS" />的<Span variant="yellow">圆形AoE</Span
+        >，半径<Span variant="pink">6m</Span>，对点名玩家造成<DamageInfo
+          damage="90500"
+          type="magical"
+        />，并附加<MagicVulnerabilityUp tag="7" hover />
+      </P>
+      <P
+        >伤害判定约<Span variant="pink">1.6s</Span>后，在<Span variant="pink">判定位置</Span>出现<StratLink
+          variant="yellow"
+          href="./p1#tendrilsofTerror">{tendrilsofTerror}</StratLink
+        >的米字形AoE预兆</P
+      >
+      <P>上一轮点名伤害判定的<Span variant="pink">同时</Span>，下一轮点名出现</P>
+    </div>
+    <div class="flex flex-col gap-4">
+      <T class="mt-4"><Skill name={killerseeds} /></T>
+      <P
+        >点名所有<RoleIcon role="tank|healer" tag="T奶" />或<RoleIcon role="dps" tag="DPS" />的<Span variant="yellow"
+          >双人分摊AoE</Span
+        >，半径<Span variant="pink">6m</Span>，造成<DamageInfo
+          damage="100000"
+          type="magical"
+        />，并附加<MagicVulnerabilityUp tag="2" hover /></P
+      >
+      <P
+        >伤害判定约<Span variant="pink">1.6s</Span>后，在<Span variant="pink">判定位置</Span>出现<StratLink
+          variant="yellow"
+          href="./p1#tendrilsofTerror">{tendrilsofTerror}</StratLink
+        >的米字形AoE预兆</P
+      >
     </div>
   </div>
 </MechanicSection>
-
-<SolutionSection title="解法：萨利式">
+<NoteSection>
   <div class="flex flex-col gap-4">
-    <!-- 安全区 -->
-    <div class="items-left flex flex-col gap-4">
-      <div class="flex flex-row gap-4">
-        <div class="flex w-4/6 flex-col items-center gap-2">
-          <Image src={strange_seeds_safe_point} alt="" />
-          <div class="paragraph">未被点名时待在安全区内</div>
-        </div>
+    <P>此处由于荆棘连线的存在，被连线者的活动范围受限，同时持续掉血，需要<RoleIcon role="healer" tag="治疗" />抬血</P>
+    <P>同时被连线者注意走位，尽可能保持DoT伤害不超过<ThornsOfDeathDebuff level={2} hover /> </P>
+  </div>
+</NoteSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P>在<Skill name={strangeSeeds} />阶段，<RoleIcon role="all" tag="所有人" />处理机制需要做的事只有两种情况：</P>
+    <P><ListDot />如果<Span variant="pink">没被点名</Span>放置冰花，站在<Span variant="pink">安全区</Span>躲避冰花</P>
+    <P
+      ><ListDot />如果<Span variant="pink">被点名</Span>放置冰花，在<Span variant="pink">相应的点位</Span
+      >上放置冰花，然后<Span variant="pink">躲避</Span>冰花</P
+    >
+    <P
+      ><Skill name={killerseeds} />分摊预兆出现后，<RoleIcon role="tank|healer" tag="T奶" />和<RoleIcon
+        role="dps"
+        tag="DPS"
+      />两两配对，处理双人分摊</P
+    >
+    <P
+      >双人分摊判定后，观察<RoleIcon role="boss" tag="boss" />武器，<Span variant="pink">靠近</Span><Skill
+        name={brutishSwing}
+      /><Span variant="pink">安全区</Span>躲避最后的冰花</P
+    >
+    <P class="mt-4"
+      >根据之前<StratLink variant="yellow" href="#DDAB">{demolitionDeathmatch}</StratLink>接线方式的选择，继续介绍<Span
+        variant="lime">萨利式</Span
+      >和<Span variant="lime">Fixed Seeds</Span>两种站位</P
+    >
+  </div>
+</SolutionSection>
+
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：萨利式">
+    <div class="flex flex-col gap-4">
+      <div class="items-left flex flex-col gap-4">
+        <P
+          ><Span variant="lime">萨利式</Span>解法的特点是，<Skill name={strangeSeeds} />点名区分<Span variant="pink"
+            >奇数</Span
+          >次和<Span variant="pink">偶数</Span>次，分别在<Span variant="pink">不同</Span>的位置放置冰花</P
+        >
+        <P
+          >并且区分<RoleIcon role="tank|healer" />、<RoleIcon role="melee" />、<RoleIcon
+            role="dps"
+            tag="拉线"
+          />，不同组的放置点和安全区不同</P
+        >
+        <P>所有冰花放置点和绝对安全区如图所示：</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          borderVariant="rose"
+          imgs={[{ src: Tmp, alt: '萨利式冰花', title: '萨利式冰花全点位' }]}
+        />
+        <ImgRow
+          wrapperClass="max-w-100"
+          borderVariant="rose"
+          imgs={[{ src: strange_seeds_safe_point, alt: '绝对安全区', title: '绝对安全区' }]}
+        />
+        <P>对于<RoleIcon role="tank|healer" /></P>
+        <P><ListDot />如果自己未被点名，则前往绝对安全区</P>
+        <P><ListDot />如果自己未被点名，则前往绝对安全区</P>
       </div>
-      <div class="gap-strat flex-col">
-        <div>首先</div>
-        <div>短边dot线由<RoleIcon role="dps" tag="D3" />负责</div>
-        <div>长边dot线必定由<RoleIcon role="dps" tag="D4" />负责</div>
+      <div class="flex w-4/6 flex-col items-center gap-2">
+        <Image src={strange_seeds_safe_point} alt="" />
+        <P>未被点名时待在安全区内</P>
       </div>
+      <P>首先</P>
+      <P>
+        <ListDot />
+        短边dot线由<RoleIcon role="dps" tag="D3" />负责
+      </P>
+      <P>
+        <ListDot />
+        长边dot线必定由<RoleIcon role="dps" tag="D4" />负责
+      </P>
     </div>
 
     <!-- 1/3 -->
     <div class="items-left flex flex-col gap-4">
-      <div class="flex flex-row gap-4">
-        <div class="flex w-4/6 flex-col items-center gap-2">
-          <Image src={strange_seeds_13_point} alt="" />
-          <div class="paragraph">奇数 1/3轮,放角落或中央点</div>
-        </div>
+      <div class="flex w-4/6 flex-col items-center gap-2">
+        <Image src={strange_seeds_13_point} alt="" />
+        <P>奇数 1/3轮,放角落或中央点</P>
       </div>
-      <div class="gap-strat flex-col">
-        <div class="gap-strat flex">站位尽量分开,保证被点名时</div>
-        <div class="gap-strat mt-2 flex">可以直接判断是谁被点名</div>
-        <div class="gap-strat mt-2 flex">注意中央点位的放置需要相当准确</div>
-      </div>
+      <P>站位尽量分开,保证被点名时</P>
+      <P>可以直接判断是谁被点名</P>
+      <P>注意中央点位的放置需要相当准确</P>
     </div>
 
     <!-- 2/4 -->
     <div class="items-left flex flex-row gap-2">
       <div class="flex w-4/6 flex-col items-center gap-2">
         <Image src={strange_seeds_24_point} alt="" />
-        <div class="gap-strat flex flex-col items-center">
-          <div>偶数 2/4轮,放标点或标记位</div>
-        </div>
+        <P>偶数 2/4轮,放标点或标记位</P>
       </div>
     </div>
 
@@ -153,25 +217,40 @@ const stoneringer = translations.stoneringer
     <div class="flex flex-row gap-4">
       <div class="flex w-4/6 flex-col items-center gap-2">
         <Image src={strange_seeds_killer_seeds_point} alt="" />
-        <div class="paragraph">
+        <P>
           第4轮种子落下后,<RoleIcon role="tank" /><RoleIcon role="healer" />组或<RoleIcon role="dps" />组分摊站位
-        </div>
+        </P>
       </div>
     </div>
-    <div class="gap-strat flex-col">
+    <P><Span variant="pink">注意:</Span></P>
+    <P>
       <Span variant="pink">
-        <div class="gap-strat flex">注意:</div>
-        <div class="gap-strat flex">
-          如果<RoleIcon role="dps" tag="D3" />处在左侧半场,则<RoleIcon role="healer" tag="H1" />跑到<RoleIcon
-            role="dps"
-            tag="D3"
-          />位置的距离会变长
-        </div>
+        如果<RoleIcon role="dps" tag="D3" />处在左侧半场,则<RoleIcon role="healer" tag="H1" />跑到<RoleIcon
+          role="dps"
+          tag="D3"
+        />位置的距离会变长
       </Span>
-      <div class="gap-strat flex">
-        这里建议,如果在前几轮已经放完<Span variant="yellow"> {strangeSeeds} </Span>的情况下去
-      </div>
-      <div class="gap-strat flex"><Span variant="pink">左侧安全位</Span>进行躲避.缩短下次跑去分摊的距离</div>
-    </div>
+    </P>
+    <P>
+      这里建议,如果在前几轮已经放完<Span variant="yellow"> {strangeSeeds} </Span>的情况下去
+    </P>
+    <P><Span variant="pink">左侧安全位</Span>进行躲避.缩短下次跑去分摊的距离</P>
   </div>
-</SolutionSection>
+</MultiSolutionSection>
+<div slot="解法：Fixed Seeds">
+  <div class="flex flex-col gap-4">
+    <P>
+      正如解法名字所说的那样，此解法指<RoleIcon role="any" tag="每人" />放置<Skill
+        name={strangeSeeds}
+      />和躲避冰花的位置相对固定
+    </P>
+  </div>
+</div>
+
+<NoteSection>
+  <div class="items-left flex flex-col gap-4">
+    <P> 无论哪种站位，放置点位附近都存在一定容错，但是为了稳健开荒，还请尽量精准放置冰花 </P>
+    <P>躲冰花的时候保险起见，请注意观察冰花预兆的位置，必要时在安全区附近微调，以防止被队友残害</P>
+    <P>尤其是自己轮次的冰花，因为<MagicVulnerabilityUp tag="7" hover />的存在，吃到冰花必死</P>
+  </div>
+</NoteSection>

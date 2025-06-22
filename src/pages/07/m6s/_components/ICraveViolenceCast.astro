@@ -12,15 +12,15 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
+
   wave: number
 }
 
-const { start, base = 0, wave }: Props = Astro.props
+const { start, wave }: Props = Astro.props
 const ICraveViolence = translations.ICraveViolence
 ---
 
-<CastSection start={start} base={base} duration={2.7} ability={ICraveViolence}>
+<CastSection start={start} duration={2.7} ability={ICraveViolence}>
   <GimmeCat slot="source" wave={wave} />
   <Fragment slot="cast">跳向随机玩家，读条</Fragment>
   <Span variant="pink" class="text-decimal">MP-9900</Span>

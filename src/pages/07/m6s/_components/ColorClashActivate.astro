@@ -10,14 +10,13 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 const ColorClash = translations.ColorClash
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <Span variant="yellow">{ColorClash}</Span>
   伤害判定
   <DamageInfo damage="180000" type="magical" />

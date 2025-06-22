@@ -11,19 +11,14 @@ import SpecialBombarianSpecialCast from '../_components/SpecialBombarianSpecialC
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import { translations } from '../_translations'
 
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 const specialBombarianSpecial = translations.specialBombarianSpecial
 ---
 
-<SpecialBombarianSpecialCast start="10:57.570" base={base} />
+<SpecialBombarianSpecialCast start="10:57.570" />
 <EventSection time="11:07.554">
   <BruteAbombinator />上天，不可选中
 </EventSection>
-<EventSection time="11:11.473" base={base}>
+<EventSection time="11:11.473">
   <Fragment>
     <Span variant="fuchsia">{specialBombarianSpecial}</Span>
     <DamageInfo damage="9999999" type="special" />

@@ -12,11 +12,11 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
 interface Props {
   time: Time
-  base?: Time
+
   num: number
 }
 
-const { time, base = 0, num }: Props = Astro.props
+const { time, num }: Props = Astro.props
 const strangeseeds = translations.strangeSeeds
 
 const color: Record<number, VariantType> = {
@@ -27,7 +27,7 @@ const color: Record<number, VariantType> = {
 }
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   第<Span variant={color[num]}>{num}</Span>轮
   <Skill name={strangeseeds} />
   伤害判定
@@ -35,5 +35,5 @@ const color: Record<number, VariantType> = {
   <MagicVulnerabilityUp tag="7" hover />
   <Badge variant="emerald">6m圆形</Badge>
   <Badge variant="yellow">分散</Badge>
-  <Badge variant="sky">放冰花</Badge>
+  <Badge variant="cyan">放冰花</Badge>
 </EventSection>

@@ -27,17 +27,11 @@ import ranged_lb from '@/assets/07/m6s/soul_sugar/ranged_lb.png'
 import magic_lb from '@/assets/07/m6s/soul_sugar/magic_lb.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
-
 const { LivePainting, ReadyOreNot, UnlimitedCraving, OreRigato, WaterIII, Wave } = translations
 const SoulSugarName = translations.SoulSugar
 ---
 
-<SoulSugarCast start="03:34.629" end="03:37.609" base={base} />
+<SoulSugarCast start="03:34.629" end="03:37.609" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph border-l-2 border-yellow-500 pl-2 opacity-80">
@@ -189,4 +183,4 @@ const SoulSugarName = translations.SoulSugar
     <div class="paragraph">释放时机需要大量的练习，因此作为锦上添花的选项吧，失败了也没关系！</div>
   </div>
 </SolutionSection>
-<AttackSection time="03:38.455" base={base} damage="57000" damageType="magical" />
+<AttackSection time="03:38.455" damage="57000" damageType="magical" />

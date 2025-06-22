@@ -17,22 +17,9 @@ import arrow from '@/assets/07/m6s/paint_mark/arrow@3x.png'
 import single_style_1 from '@/assets/07/m6s/single_style_1.png'
 import single_style_2 from '@/assets/07/m6s/single_style_2.png'
 import { translations } from '../_translations'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<CastSection
-  start="06:32.707"
-  base={base}
-  duration={6.6}
-  adjustDuration={false}
-  ability={translations.SingleStyle}
-  class="-my-8"
->
+<CastSection start="06:32.707" duration={6.6} adjustDuration={false} ability={translations.SingleStyle} class="-my-8">
   <SugarRiot slot="source" />
   绘制
   <Image src={arrow} alt="Paint Mark: Arrow" class="-mx-5.5 w-30 drop-shadow-sm drop-shadow-black" />

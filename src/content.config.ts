@@ -15,6 +15,7 @@ const duties = defineCollection({
       href: z.string(),
       status: z.union([z.literal('upcoming'), z.literal('live'), z.literal('done')]),
       indexAvailable: z.boolean(),
+      bilibili: z.string().optional(),
       phases: z.array(
         z.object({
           href: z.string(),
@@ -52,6 +53,7 @@ const developers = defineCollection({
   schema: ({ image }) =>
     z.object({
       name: z.string(),
+      breakNames: z.optional(z.array(z.string()), z.undefined()),
       gameName: z.string(),
       avatar: image(),
       link: z.string(),

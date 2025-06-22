@@ -4,30 +4,44 @@ import type { Time } from '@/lib/utils'
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
+import { translations } from '../_translations'
+
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
-const ultraviolentRay = '魔光'
+const ultraviolentRay = translations.ultraviolentRay
 ---
 
 <CastSection
   start={start}
-  base={base}
   duration={5.7}
   ability={ultraviolentRay}
-  target="any"
-  targetTag="5人"
+  target
   damage="100000"
   damageType="magical"
+  damageVariant="skywardLeap"
 >
   <HowlingBlade slot="source" />
+
+  <div slot="target">
+    <Span variant="pink">4</Span>
+    <RoleIcon role="tank|healer" />
+    <Span variant="pink">1</Span>
+    <RoleIcon role="dps" />
+    或
+    <Span variant="pink">4</Span>
+    <RoleIcon role="dps" />
+    <Span variant="pink">1</Span>
+    <RoleIcon role="tank|healer" />
+  </div>
 
   <MagicVulnerabilityUp tag="1" />
   <Badge variant="yellow">分散</Badge>

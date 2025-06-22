@@ -16,11 +16,17 @@ const href = (() => {
   if (duty.indexAvailable) return duty.href
   return undefined
 })()
+const phaseIndex = (() => {
+  const pathname = Astro.url.pathname?.trim() ?? ''
+  const dutyPhases = duty.phases
+  return dutyPhases.findIndex((item) => pathname.includes(item.href?.trim())) + 1
+})()
+const phaseTitle = phaseIndex > 0 ? ` - P${phaseIndex}` : ` - 首页`
 ---
 
-<Layout lang="zh-CN" title={duty.title} description={duty.description}>
+<Layout lang="zh-CN" title={duty.title + phaseTitle} description={duty.description}>
   <div class="min-w-strat-min relative min-h-dvh">
-    <StratHeader baseUrl={href} name={duty.name} phases={duty.phases} />
+    <StratHeader baseUrl={href} name={duty.name} phases={duty.phases} bilibili={duty.bilibili} />
     <slot />
   </div>
 </Layout>

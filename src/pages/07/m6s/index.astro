@@ -1,12 +1,14 @@
 ---
 import { Image } from 'astro:assets'
 
+import ScannerSVG from '@/assets/svg/scanner.svg'
+import BiliBiliSVG from '@/assets/svg/bilibili.svg'
+
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
-import Separator from '@/components/Separator.astro'
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import AreaBox from '@/components/AreaBox.astro'
-
-import CheatsheetDialog from '@/components/CheatsheetDialog.vue'
+import WaymarkBox from '@/components/WaymarkBox.astro'
+import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
 import Macro from '@/components/Macro.astro'
 import ReferenceItem from '@/components/ReferenceItem.astro'
 import Thanks from '@/components/thanks/Thanks.astro'
@@ -16,74 +18,85 @@ import CheatsheetsZooImage from '@/assets/cheatsheets/07/m6s_p3.png'
 import WaymarkImage from '@/assets/waymarks/07/m6s.png'
 import TimelineImage from '@/assets/timelines/07/m6s.png'
 
-import { macro } from './_data/macro'
+import { macro1, macro2, macro3 } from './_data/macro'
 import { referenceList } from './_data/reference'
 import { thanksList } from './_data/thanks'
 
 const dutyId = '07/m6s'
 const navList = [
+  { label: '小抄速览', id: 'cheatsheet' },
   { label: '场地标点', id: 'waymark' },
   { label: '宏', id: 'macro' },
   { label: '简易时间轴', id: 'timeline' },
   { label: '参考资料', id: 'reference' },
   { label: '鸣谢', id: 'thanks' },
 ]
+const videoLink = ''
 ---
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
   <Fragment slot="operation">
-    <CheatsheetDialog client:idle>
-      <AreaBox class="h-full w-fit">
+    <a href="/07/m6s/p1">
+      <button
+        class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
+      >
+        <ScannerSVG class="mr-2 h-5 w-5" />
+        查看正文
+      </button>
+    </a>
+    {
+      videoLink && (
+        <a href={videoLink} target="_blank">
+          <button class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75">
+            <BiliBiliSVG class="mr-2 h-5 w-5" />
+            查看视频攻略
+          </button>
+        </a>
+      )
+    }
+  </Fragment>
+  <CollapsibleBox id="cheatsheet" client:idle class="w-full">
+    <Fragment slot="header">
+      <span>小抄速览</span>
+    </Fragment>
+    <AreaBox>
+      <ResizableImageDialog client:idle>
         <Image
           src={CheatsheetsImage}
           alt="m6s 副本小抄"
           loading="lazy"
           class="h-full w-fit object-contain object-left-top"
         />
-      </AreaBox>
-      <AreaBox class="h-full w-fit">
+      </ResizableImageDialog>
+      <ResizableImageDialog client:idle>
         <Image
           src={CheatsheetsZooImage}
           alt="m6s 动物园小抄"
           loading="lazy"
           class="h-full w-fit object-contain object-left-top"
         />
-      </AreaBox>
-    </CheatsheetDialog>
-    <a href="/07/m6s/p1">
-      <button
-        class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
-      >
-        查看正文
-      </button>
-    </a>
-  </Fragment>
+      </ResizableImageDialog>
+    </AreaBox>
+  </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
-    <div class="w-sm">
-      <AreaBox>
-        <button
-          class="!disabled:hover:bg-purple-700/60 inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white disabled:cursor-not-allowed disabled:opacity-50 dark:border-purple-500 dark:bg-purple-700/75"
-          disabled="true"
-        >
-          下载标点文件
-        </button>
-        <Separator class="my-2 mb-3" />
-        <Image src={WaymarkImage} alt="m6s 场地标点" class="w-full" />
-      </AreaBox>
-    </div>
+    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT" img={WaymarkImage} downloadLabel="下载5~8层标点文件" />
     <Fragment slot="header">
       <span>场地标点</span>
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="macro" client:idle class="w-full">
-    <Macro text={macro} />
+    <Macro text={macro1} class="mb-4" title="M6S - 站位1" />
+    <Macro text={macro3} class="mb-4" title="M6S - 站位2" />
+    <Macro text={macro2} title="M6S - 动物园" />
     <Fragment slot="header">
       <span>宏</span>
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="timeline" client:idle class="w-full">
     <AreaBox>
-      <Image src={TimelineImage} alt="m6s 简易时间轴" class="w-full" />
+      <ResizableImageDialog client:idle>
+        <Image src={TimelineImage} alt="m6s 简易时间轴" class="w-full object-contain object-left-top" />
+      </ResizableImageDialog>
     </AreaBox>
     <Fragment slot="header">
       <span>简易时间轴</span>

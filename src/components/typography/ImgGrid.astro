@@ -29,6 +29,7 @@ interface Props {
     rounded?: boolean
     class?: string
     imgClass?: string
+    borderClass?: string
     titleClass?: string
   }
   [key: string]: any
@@ -86,6 +87,7 @@ const gridCols = cols.map((col) => `1px minmax(0, ${col.width || '24rem'})`).joi
                   rounded={cell.img.rounded ?? defaultImgWrapperStyle.rounded}
                   class={cell.img.class ?? defaultImgWrapperStyle.class}
                   imgClass={cell.img.imgClass ?? defaultImgWrapperStyle.imgClass}
+                  borderClass={cell.img.borderClass ?? defaultImgWrapperStyle.borderClass}
                   titleClass={cell.img.titleClass ?? defaultImgWrapperStyle.titleClass}
                 />
               )}

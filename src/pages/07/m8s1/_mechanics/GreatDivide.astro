@@ -14,14 +14,14 @@ import GreatDivideCast from '../_components/GreatDivideCast.astro'
 
 interface Props {
   start: Time
-  base?: Time
+
   phase: 'P1' | 'P3'
 }
 
-const { start, base = 0, phase }: Props = Astro.props
+const { start, phase }: Props = Astro.props
 ---
 
-<GreatDivideCast start={start} base={base} />
+<GreatDivideCast start={start} />
 {
   phase === 'P1' ? (
     <>

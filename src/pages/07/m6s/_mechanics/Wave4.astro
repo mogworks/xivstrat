@@ -9,6 +9,7 @@ import ListDot from '@/components/ListDot.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import Bind from '@/components/buff/Bind.astro'
+import P from '@/components/typography/P.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
@@ -27,6 +28,8 @@ import AttackSection from '../_components/SugarRiotAttackSection.astro'
 import UnlimitedCravingActivate from '../_components/UnlimitedCravingActivate.astro'
 import Yan from '../_components/Yan.astro'
 
+import { translations } from '../_translations'
+
 import wave4 from '@/assets/07/m6s/paint_mark/wave4@3x.png'
 import wave4_solution_1 from '@/assets/07/m6s/soul_sugar/wave4_solution_1.png'
 import wave4_solution_2 from '@/assets/07/m6s/soul_sugar/wave4_solution_2.png'
@@ -37,18 +40,11 @@ import wave4_solution_6 from '@/assets/07/m6s/soul_sugar/wave4_solution_6.png'
 import wave4_solution_7 from '@/assets/07/m6s/soul_sugar/wave4_solution_7.png'
 import wave4_solution_8 from '@/assets/07/m6s/soul_sugar/wave4_solution_8.png'
 import wave4_solution_9 from '@/assets/07/m6s/soul_sugar/wave4_solution_9.png'
-import { translations } from '../_translations'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 
 const { ICraveViolence, ReadyOreNot, OreRigato, MousseMural } = translations
 ---
 
-<LivePaintingCast start="05:11.333" base={base} class="-my-5">
+<LivePaintingCast start="05:11.333" class="-my-5">
   <Image src={wave4} alt="Paint Mark: Wave #4" class="-mx-2 w-30 drop-shadow-sm drop-shadow-black" />
   ，激活
   <Mu>
@@ -67,35 +63,35 @@ const { ICraveViolence, ReadyOreNot, OreRigato, MousseMural } = translations
     <Span variant="purple">×1</Span>
   </Jabberwock>
 </LivePaintingCast>
-<AttackSection time="05:17.213" base={base} damage="57000" damageType="magical" />
-<UnlimitedCravingActivate time="05:18.463" base={base} wave={4} />
-<AttackSection time="05:20.245" base={base} damage="57000" damageType="magical" />
-<AttackSection time="05:23.280" base={base} damage="57000" damageType="magical" />
-<ManxomeWindersnatchActivate time="05:23.505" base={base} wave={4} />
-<AttackSection time="05:26.314" base={base} damage="57000" damageType="magical" />
-<AttackSection time="05:29.342" base={base} damage="57000" damageType="magical" />
-<HangryHissCast start="05:24.666" base={base} wave={3} />
-<AttackSection time="05:32.374" base={base} damage="57000" damageType="magical" />
-<AttackSection time="05:35.403" base={base} damage="57000" damageType="magical" />
-<AttackSection time="05:38.432" base={base} damage="57000" damageType="magical" />
-<AttackSection time="05:41.456" base={base} damage="57000" damageType="magical" />
-<AttackSection time="05:44.486" base={base} damage="57000" damageType="magical" />
-<AttackSection time="05:47.515" base={base} damage="57000" damageType="magical" />
-<AttackSection time="05:50.547" base={base} damage="57000" damageType="magical" />
-<AttackSection time="05:53.577" base={base} damage="57000" damageType="magical" />
-<AttackSection time="05:56.608" base={base} damage="57000" damageType="magical" />
-<AttackSection time="05:59.637" base={base} damage="57000" damageType="magical" />
-<AttackSection time="06:02.663" base={base} damage="57000" damageType="magical" />
-<HangryHissCast start="06:03.946" base={base} wave={4} />
-<AttackSection time="06:05.691" base={base} damage="57000" damageType="magical" />
-<AttackSection time="06:08.726" base={base} damage="57000" damageType="magical" />
-<AttackSection time="06:11.757" base={base} damage="57000" damageType="magical" />
-<AttackSection time="06:14.787" base={base} damage="57000" damageType="magical" />
-<AttackSection time="06:17.820" base={base} damage="57000" damageType="magical" />
-<AttackSection time="06:20.850" base={base} damage="57000" damageType="magical" />
-<ReadyOreNotCast start="06:22.502" base={base} />
-<AttackSection time="06:30.923" base={base} damage="57000" damageType="magical" />
-<OreRigatoCast start="06:30.572" base={base}>
+<AttackSection time="05:17.213" damage="57000" damageType="magical" />
+<UnlimitedCravingActivate time="05:18.463" wave={4} />
+<AttackSection time="05:20.245" damage="57000" damageType="magical" />
+<AttackSection time="05:23.280" damage="57000" damageType="magical" />
+<ManxomeWindersnatchActivate time="05:23.505" wave={4} />
+<AttackSection time="05:26.314" damage="57000" damageType="magical" />
+<AttackSection time="05:29.342" damage="57000" damageType="magical" />
+<HangryHissCast start="05:24.666" wave={3} />
+<AttackSection time="05:32.374" damage="57000" damageType="magical" />
+<AttackSection time="05:35.403" damage="57000" damageType="magical" />
+<AttackSection time="05:38.432" damage="57000" damageType="magical" />
+<AttackSection time="05:41.456" damage="57000" damageType="magical" />
+<AttackSection time="05:44.486" damage="57000" damageType="magical" />
+<AttackSection time="05:47.515" damage="57000" damageType="magical" />
+<AttackSection time="05:50.547" damage="57000" damageType="magical" />
+<AttackSection time="05:53.577" damage="57000" damageType="magical" />
+<AttackSection time="05:56.608" damage="57000" damageType="magical" />
+<AttackSection time="05:59.637" damage="57000" damageType="magical" />
+<AttackSection time="06:02.663" damage="57000" damageType="magical" />
+<HangryHissCast start="06:03.946" wave={4} />
+<AttackSection time="06:05.691" damage="57000" damageType="magical" />
+<AttackSection time="06:08.726" damage="57000" damageType="magical" />
+<AttackSection time="06:11.757" damage="57000" damageType="magical" />
+<AttackSection time="06:14.787" damage="57000" damageType="magical" />
+<AttackSection time="06:17.820" damage="57000" damageType="magical" />
+<AttackSection time="06:20.850" damage="57000" damageType="magical" />
+<ReadyOreNotCast start="06:22.502" />
+<AttackSection time="06:30.923" damage="57000" damageType="magical" />
+<OreRigatoCast start="06:30.572">
   <Mu wave={4} />
 </OreRigatoCast>
 <SolutionSection title={`解法：${translations.Wave} #4`}>
@@ -446,6 +442,18 @@ const { ICraveViolence, ReadyOreNot, OreRigato, MousseMural } = translations
         />
       </div>
     </div>
+    <P>
+      <ListDot />
+      击杀
+      <Span variant="pink">右</Span>
+      <FeatherRay />
+      后，
+      <RoleIcon role="melee" />
+      继续留在右边打松鼠，由远程转火
+      <Span variant="pink">左</Span>
+      <FeatherRay />
+      即可
+    </P>
     <div class="paragraph">
       <ListDot />
       <SugarRiot />

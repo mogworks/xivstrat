@@ -7,13 +7,12 @@ import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <HowlingBlade />
-  上天，无法选中。
+  变为不可选中状态
 </EventSection>

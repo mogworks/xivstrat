@@ -40,12 +40,6 @@ import lightning_storm_2 from '@/assets/07/m6s/layer_3/lightning_storm_2.png'
 import lightning_storm_3 from '@/assets/07/m6s/layer_3/lightning_storm_3.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
-
 const start = '07:35.095'
 const duration = 6.7
 const adjustedDuration = duration + 0.3
@@ -54,50 +48,50 @@ const end = timeToSeconds(start) + adjustedDuration
 const { DoubleStyle, Layer, TasteofThunder, Highlightning, LightningBolt, LightningStorm, PuddingParty } = translations
 ---
 
-<LayerCast start={start} end={end} base={base} />
-<AttackSection time="07:43.160" base={base} damage="57000" damageType="magical" />
-<AttackSection time="07:46.188" base={base} damage="57000" damageType="magical" />
-<TasteOfThunderCast start="07:45.340" base={base} />
-<AttackSection time="07:49.217" base={base} damage="57000" damageType="magical" />
-<HighlightningCast start="07:48.235" base={base} />
-<AttackSection time="07:52.246" base={base} damage="57000" damageType="magical" />
-<LightningBoltCast start="07:51.755" base={base} />
-<AttackSection time="07:55.274" base={base} damage="57000" damageType="magical" />
-<LightningBoltCast start="07:54.297" base={base} />
-<AttackSection time="07:58.303" base={base} damage="57000" damageType="magical" />
-<LightningStormActivate time="08:00.796" base={base} />
-<HighlightningCast start="07:58.837" base={base} />
-<AttackSection time="08:01.330" base={base} damage="57000" damageType="magical" />
-<AttackSection time="08:04.365" base={base} damage="57000" damageType="magical" />
-<LightningBoltCast start="08:02.266" base={base} />
-<AttackSection time="08:07.395" base={base} damage="57000" damageType="magical" />
-<LightningBoltCast start="08:04.766" base={base} />
-<AttackSection time="08:10.425" base={base} damage="57000" damageType="magical" />
-<LightningStormActivate time="08:11.275" base={base} />
-<HighlightningCast start="08:09.445" base={base} />
-<AttackSection time="08:13.455" base={base} damage="57000" damageType="magical" />
-<LightningBoltCast start="08:12.787" base={base} />
-<AttackSection time="08:16.482" base={base} damage="57000" damageType="magical" />
-<LightningBoltCast start="08:15.326" base={base} />
-<AttackSection time="08:19.511" base={base} damage="57000" damageType="magical" />
-<LightningStormActivate time="08:21.823" base={base} />
-<HighlightningCast start="08:20.046" base={base} />
-<AttackSection time="08:22.536" base={base} damage="57000" damageType="magical" />
-<AttackSection time="08:25.563" base={base} damage="57000" damageType="magical" />
-<LightningBoltCast start="08:23.293" base={base} />
-<AttackSection time="08:28.594" base={base} damage="57000" damageType="magical" />
-<LightningBoltCast start="08:25.832" base={base} />
-<AttackSection time="08:31.622" base={base} damage="57000" damageType="magical" />
-<LightningStormActivate time="08:32.336" base={base} />
-<HighlightningCast start="08:30.644" base={base} />
-<PuddingPartyCast start="08:33.312" base={base} />
-<PuddingPartyActivate time="08:38.346" base={base} num={1} />
-<AttackSection time="08:38.658" base={base} damage="57000" damageType="magical" />
-<PuddingPartyActivate time="08:39.412" base={base} num={2} />
-<PuddingPartyActivate time="08:40.480" base={base} num={3} />
-<PuddingPartyActivate time="08:41.550" base={base} num={4} />
-<AttackSection time="08:41.684" base={base} damage="57000" damageType="magical" />
-<PuddingPartyActivate time="08:42.618" base={base} num={5} />
+<LayerCast start={start} end={end} />
+<AttackSection time="07:43.160" damage="57000" damageType="magical" />
+<AttackSection time="07:46.188" damage="57000" damageType="magical" />
+<TasteOfThunderCast start="07:45.340" />
+<AttackSection time="07:49.217" damage="57000" damageType="magical" />
+<HighlightningCast start="07:48.235" />
+<AttackSection time="07:52.246" damage="57000" damageType="magical" />
+<LightningBoltCast start="07:51.755" />
+<AttackSection time="07:55.274" damage="57000" damageType="magical" />
+<LightningBoltCast start="07:54.297" />
+<AttackSection time="07:58.303" damage="57000" damageType="magical" />
+<LightningStormActivate time="08:00.796" />
+<HighlightningCast start="07:58.837" />
+<AttackSection time="08:01.330" damage="57000" damageType="magical" />
+<AttackSection time="08:04.365" damage="57000" damageType="magical" />
+<LightningBoltCast start="08:02.266" />
+<AttackSection time="08:07.395" damage="57000" damageType="magical" />
+<LightningBoltCast start="08:04.766" />
+<AttackSection time="08:10.425" damage="57000" damageType="magical" />
+<LightningStormActivate time="08:11.275" />
+<HighlightningCast start="08:09.445" />
+<AttackSection time="08:13.455" damage="57000" damageType="magical" />
+<LightningBoltCast start="08:12.787" />
+<AttackSection time="08:16.482" damage="57000" damageType="magical" />
+<LightningBoltCast start="08:15.326" />
+<AttackSection time="08:19.511" damage="57000" damageType="magical" />
+<LightningStormActivate time="08:21.823" />
+<HighlightningCast start="08:20.046" />
+<AttackSection time="08:22.536" damage="57000" damageType="magical" />
+<AttackSection time="08:25.563" damage="57000" damageType="magical" />
+<LightningBoltCast start="08:23.293" />
+<AttackSection time="08:28.594" damage="57000" damageType="magical" />
+<LightningBoltCast start="08:25.832" />
+<AttackSection time="08:31.622" damage="57000" damageType="magical" />
+<LightningStormActivate time="08:32.336" />
+<HighlightningCast start="08:30.644" />
+<PuddingPartyCast start="08:33.312" />
+<PuddingPartyActivate time="08:38.346" num={1} />
+<AttackSection time="08:38.658" damage="57000" damageType="magical" />
+<PuddingPartyActivate time="08:39.412" num={2} />
+<PuddingPartyActivate time="08:40.480" num={3} />
+<PuddingPartyActivate time="08:41.550" num={4} />
+<AttackSection time="08:41.684" damage="57000" damageType="magical" />
+<PuddingPartyActivate time="08:42.618" num={5} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
@@ -422,8 +416,8 @@ const { DoubleStyle, Layer, TasteofThunder, Highlightning, LightningBolt, Lightn
     <div class="paragraph">以上建议仅供参考，请根据实际情况灵活调整</div>
   </div>
 </SolutionSection>
-<AttackSection time="08:44.714" base={base} damage="57000" damageType="magical" />
-<AttackSection time="08:47.746" base={base} damage="57000" damageType="magical" />
+<AttackSection time="08:44.714" damage="57000" damageType="magical" />
+<AttackSection time="08:47.746" damage="57000" damageType="magical" />
 
 <script>
   import type { AnimationSequence } from 'motion'

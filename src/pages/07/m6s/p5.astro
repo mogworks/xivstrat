@@ -28,15 +28,16 @@ import sticky_mousse from '@/assets/07/m6s/layer_4/sticky_mousse.png'
 import { translations } from './_translations'
 
 const dutyId = '07/m6s'
+
 const base = '10:03.635'
 ---
 
-<DutyStratLayout dutyId={dutyId}>
+<DutyStratLayout dutyId={dutyId} base={base}>
   <ContentSection>
     <div class="paragraph opacity-80">P5均为P1机制的复读，故重复内容不再赘述</div>
   </ContentSection>
   <SeparatorSection id="sticky-mousse" title={translations.StickyMousse} />
-  <StickyMousseCast start="10:03.635" end="10:09.421" base={base} />
+  <StickyMousseCast start="10:03.635" end="10:09.421" />
   <SolutionSection>
     <div class="flex flex-col gap-4">
       <div class="paragraph">
@@ -89,7 +90,7 @@ const base = '10:03.635'
     </div>
   </SolutionSection>
   <SeparatorSection id="color-riot" title={translations.ColorRiot} />
-  <ColorRiotCast start="10:15.792" base={base} />
+  <ColorRiotCast start="10:15.792" />
   <NoteSection>
     <div class="flex flex-col gap-4">
       <div class="paragraph">
@@ -105,16 +106,16 @@ const base = '10:03.635'
     </div>
   </NoteSection>
   <SeparatorSection />
-  <AttackSection time="10:25.856" base={base} damage="57000" damageType="magical" />
-  <MoveToCenterEvent time="10:28.130" base={base} />
+  <AttackSection time="10:25.856" damage="57000" damageType="magical" />
+  <MoveToCenterEvent time="10:28.130" />
   <SeparatorSection
     id="w-cc-ds"
     title={`${translations.Wingmark} + ${translations.ColorClash} + ${translations.DoubleStyle}`}
   />
-  <WingmarkCast start="10:29.467" base={base} />
-  <ColorClashCast start="10:36.593" base={base} />
-  <DoubleStyleCast start="10:44.077" base={base} duration={12.6} />
-  <ColorClashActivate time="11:00.695" base={base} />
+  <WingmarkCast start="10:29.467" />
+  <ColorClashCast start="10:36.593" />
+  <DoubleStyleCast start="10:44.077" duration={12.6} />
+  <ColorClashActivate time="11:00.695" />
   <NoteSection>
     <div class="paragraph">
       参考
@@ -126,9 +127,9 @@ const base = '10:03.635'
     </div>
   </NoteSection>
   <SeparatorSection />
-  <AttackSection time="11:03.143" base={base} damage="57000" damageType="magical" />
-  <AttackSection time="11:06.172" base={base} damage="57000" damageType="magical" />
-  <MoveToCenterEvent time="11:08.179" base={base} />
+  <AttackSection time="11:03.143" damage="57000" damageType="magical" />
+  <AttackSection time="11:06.172" damage="57000" damageType="magical" />
+  <MoveToCenterEvent time="11:08.179" />
   <SeparatorSection id="artistic-anarchy" title={translations.ArtisticAnarchy} />
-  <ArtisticAnarchy base={base} />
+  <ArtisticAnarchy />
 </DutyStratLayout>

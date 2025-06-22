@@ -16,25 +16,25 @@ import PatienceOfStoneDebuff from '../_components/PatienceOfStoneDebuff.astro'
 import PatienceOfWindDebuff from '../_components/PatienceOfWindDebuff.astro'
 
 import img from '@/assets/07/m8s2/tmp.png'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
-const elementalPurge = '風震の魔印'
+const elementalPurge = translations.elementalPurge
 
 // 该机制不会复用，直接写入时间
 const temporalBlastTime = '09:08.204'
 const huntersHarvestTime = '09:08.204'
 ---
 
-<ElementalPurgeCast start={start} base={base} />
-<GeotemporalBlast start={temporalBlastTime} base={base} />
-<AerotemporalBlast start={temporalBlastTime} base={base} />
-<HuntersHarvestEvent start={huntersHarvestTime} base={base} />
+<ElementalPurgeCast start={start} />
+<GeotemporalBlast start={temporalBlastTime} />
+<AerotemporalBlast start={temporalBlastTime} />
+<HuntersHarvestEvent start={huntersHarvestTime} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

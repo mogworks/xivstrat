@@ -1,76 +1,67 @@
 ---
 import type { Time } from '@/lib/utils'
-import { timeToSeconds } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
 
-import WindpackDebuff from '../_components/WindpackDebuff.astro'
-import StonepackDebuff from '../_components/StonepackDebuff.astro'
-import WindborneEndDebuff from '../_components/WindborneEndDebuff.astro'
-import EarthborneEndDebuff from '../_components/EarthborneEndDebuff.astro'
-
+import Windpack from '../_components/buff/Windpack.astro'
+import Stonepack from '../_components/buff/Stonepack.astro'
+import WindborneEnd from '../_components/buff/WindborneEnd.astro'
+import EarthborneEnd from '../_components/buff/EarthborneEnd.astro'
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
-import StoneWolfheadIcon from '../_components/StoneWolfheadIcon.astro'
+import WolfOfStone from '../_components/entities/WolfOfStone.astro'
+
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
-  [key: string]: any
 }
 
-const ability = '風麈の咆哮'
+const ability = translations.howlingHavoc
 const duration = 4.7
 
-const { start, base = 0, ...rest }: Props = Astro.props
-
-const damageApplyTime =
-  start !== undefined
-    ? timeToSeconds(start) + duration + 0.3 // 修正延迟，计算伤害生效时间
-    : undefined
+const { start }: Props = Astro.props
 ---
 
-<CastSection
-  start={start}
-  base={base}
-  duration={duration}
-  ability={ability}
-  target
-  damage="110000"
-  damageType="magical"
-  {...rest}
->
+<CastSection start={start} duration={duration} ability={ability} target damage="110000" damageType="magical">
   <WolfOfWind slot="source" />
-  <StoneWolfheadIcon slot="source" />
+  <WolfOfStone slot="source" />
   <Badge variant="yellow">AoE</Badge>
 </CastSection>
-
-<EventSection time={damageApplyTime}>
-  1<RoleIcon role="tank" />
-  1<RoleIcon role="healer" />
-  2<RoleIcon role="dps" />
-  获得
-  <WindpackDebuff hover />
-  ， 1<RoleIcon role="tank" />
-  1<RoleIcon role="healer" />
-  2<RoleIcon role="dps" />
-  获得
-  <StonepackDebuff hover />
+<EventSection time="03:09.002">
+  被
+  <WolfOfWind />
+  连线的
+  <Span variant="default">4</Span>
+  人获得
+  <Windpack hover />
+  ，
+  <Span variant="default">3</Span>
+  位
+  <RoleIcon role="healer|dps" />
+  各获得
+  <EarthborneEnd hover tag="21" />
+  <EarthborneEnd hover tag="37" />
+  <EarthborneEnd hover tag="54" />
+  中的一个
 </EventSection>
-
-<EventSection time={damageApplyTime}>
-  1<RoleIcon role="healer" />
-  2<RoleIcon role="dps" />
-  分别获得
-  <WindborneEndDebuff hover tag="21" />
-  <WindborneEndDebuff hover tag="37" />
-  <WindborneEndDebuff hover tag="54" />
-  ， 1<RoleIcon role="healer" />
-  2<RoleIcon role="dps" />
-  分别获得
-  <EarthborneEndDebuff hover tag="21" />
-  <EarthborneEndDebuff hover tag="37" />
-  <EarthborneEndDebuff hover tag="54" />
+<EventSection time="03:09.002">
+  被
+  <WolfOfStone />
+  连线的
+  <Span variant="default">4</Span>
+  人获得
+  <Stonepack hover />
+  ，
+  <Span variant="default">3</Span>
+  位
+  <RoleIcon role="healer|dps" />
+  各获得
+  <WindborneEnd hover tag="21" />
+  <WindborneEnd hover tag="37" />
+  <WindborneEnd hover tag="54" />
+  中的一个
 </EventSection>

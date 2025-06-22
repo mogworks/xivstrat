@@ -1,0 +1,71 @@
+---
+import { type Time } from '@/lib/utils'
+
+import ImgRow from '@/components/typography/ImgRow.astro'
+import ListDot from '@/components/ListDot.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import Span from '@/components/Span.vue'
+import teleport1_img from '@/assets/07/m8s2/teleport1.png'
+import teleport2_img from '@/assets/07/m8s2/teleport2.png'
+
+import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
+import RiseOfTheHowlingWindCast from '../_components/RiseOfTheHowlingWindCast.astro'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const howlingBlade = '啸刃'
+---
+
+<RiseOfTheHowlingWindCast start={start} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      传送时长限制是由
+      <ImmobileSuitDebuff hover />
+      作用于单个角色
+    </P>
+    <P>
+      该技能判定后，传送装置的冷却时间由
+      <ImmobileSuitDebuff tag="2" />
+      延长至
+      <ImmobileSuitDebuff tag="7" />
+    </P>
+    <P>延长生效还有以下提示：</P>
+    <P>
+      <ListDot />
+      读条结束后，屏幕中出现文字提示
+    </P>
+    <Quote variant="slate">
+      <Span variant="stone">
+        {howlingBlade}的干扰使得传送装置的冷却时间延长……
+      </Span>
+    </Quote>
+    <P>
+      <ListDot />
+      传送装置的颜色由
+      <Span variant="cyan">蓝色</Span>
+      变成
+      <Span variant="red">红色</Span>
+    </P>
+    <ImgRow
+      wrapperClass="max-w-20"
+      borderVariant="cyan"
+      imgs={[
+        {
+          src: teleport1_img,
+          alt: '传送装置样式1',
+        },
+        {
+          src: teleport2_img,
+          alt: '传送装置样式2',
+        },
+      ]}
+    />
+  </div>
+</MechanicSection>

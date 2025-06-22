@@ -8,7 +8,6 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import Stoneringer2Cast from '../_components/Stoneringer2Cast.astro'
 import { translations } from '../_translations'
 
-import img from '@/assets/07/m7s/Tmp.png'
 import pos1_img from '@/assets/07/m7s/stoneringer2/p3_strange_seeds_1.png'
 import pos2_img from '@/assets/07/m7s/stoneringer2/p3_strange_seeds_2.png'
 import pos3_img from '@/assets/07/m7s/stoneringer2/p3_strange_seeds_3.png'
@@ -29,51 +28,47 @@ import BrutishSwingMoveActivate from '../_components/BrutishSwingMoveActivate.as
 import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
 import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
 import MoveToCenterEvent from '../_components/MoveToCenterEvent.astro'
 import StrangeSeedsAppear from '../_components/StrangeSeedsAppear.astro'
 import StrangeSeedsActivate from '../_components/StrangeSeedsActivate.astro'
 import TendrilsofTerrorAppear from '../_components/TendrilsofTerrorAppear.astro'
-import TendrilsofTerrorActivate from '../_components/TendrilsofTerrorActivate.astro'
+import TendrilsofTerrorAppear2 from '../_components/TendrilsofTerrorAppear2.astro'
 import LashingLariatActivate from '../_components/LashingLariatActivate.astro'
 import SlaminatorActivate from '../_components/SlaminatorActivate.astro'
-import ImgGrid from '@/components/typography/ImgGrid.astro'
-import Boss from '@/components/Boss.astro'
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
 
 interface Props {
   time: Time
-  base: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 const lashingLariat = translations.lashingLariat
 const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
 const slaminator = translations.slaminator
 const strangeSeeds = translations.strangeSeeds
 ---
 
-<Stoneringer2Cast start={time} base={base} />
-<MoveToCenterEvent time="09:34.096" base={base} />
-<StrangeSeedsCast start="09:36.193" base={base} />
-<StrangeSeedsAppear time="09:41.315" num={1} base={base} />
-<BrutishSwingCast start="09:44.261" base={base} />
-<StrangeSeedsActivate time="09:46.310" num={1} base={base} />
-<TendrilsofTerrorAppear time="09:48.451" num={1} base={base} />
-<BrutishSwingMoveActivate time="09:49.923" base={base} />
-<BrutishSwingActivate time="09:50.949" base={base} />
-<TendrilsofTerrorActivate time="09:51.439" num={1} base={base} />
-<LashingLariatCast start="09:52.017" base={base} />
-<StrangeSeedsAppear time="09:55.541" num={2} base={base} />
-<LashingLariatActivate time="09:55.987" base={base} />
-<BrutishSwingCast start="09:58.661" base={base} />
-<StrangeSeedsActivate time="10:00.534" num={2} base={base} />
-<TendrilsofTerrorAppear time="10:02.6701" num={2} base={base} />
-<BrutishSwingMoveActivate time="10:04.362" base={base} />
-<BrutishSwingActivate time="10:05.342" base={base} />
-<TendrilsofTerrorActivate time="10:05.656" num={2} base={base} />
-<SlaminatorCast start="10:06.990" base={base} />
-<SlaminatorActivate time="10:11.986" base={base} />
+<Stoneringer2Cast start={time} />
+<MoveToCenterEvent time="09:34.096" />
+<StrangeSeedsCast start="09:36.193" />
+<StrangeSeedsAppear time="09:41.315" num={1} />
+<BrutishSwingCast start="09:44.261" />
+<StrangeSeedsActivate time="09:46.310" num={1} />
+<TendrilsofTerrorAppear time="09:48.451" num={1} />
+<BrutishSwingMoveActivate time="09:49.923" />
+<BrutishSwingActivate time="09:50.949" />
+<TendrilsofTerrorAppear2 time="09:51.439" num={1} />
+<LashingLariatCast start="09:52.017" />
+<StrangeSeedsAppear time="09:55.541" num={2} />
+<LashingLariatActivate time="09:55.987" />
+<BrutishSwingCast start="09:58.661" />
+<StrangeSeedsActivate time="10:00.534" num={2} />
+<TendrilsofTerrorAppear time="10:02.6701" num={2} />
+<BrutishSwingMoveActivate time="10:04.362" />
+<BrutishSwingActivate time="10:05.342" />
+<TendrilsofTerrorAppear2 time="10:05.656" num={2} />
+<SlaminatorCast start="10:06.990" />
+<SlaminatorActivate time="10:11.986" />
 
 <MechanicSection title=`第二次 ${stoneringer2Stoneringers}`>
   <div class="flex flex-col gap-4">

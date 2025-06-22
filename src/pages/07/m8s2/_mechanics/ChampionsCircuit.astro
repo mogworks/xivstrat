@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets'
+import { type Time } from '@/lib/utils'
+
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import Span from '@/components/Span.vue'
+import T from '@/components/typography/T.astro'
+
+import img from '@/assets/07/m8s2/tmp.png'
+
+import BareFangsCast from '../_components/BareFangsCast.astro'
+import ChampionsCircuitActivate from '../_components/ChampionsCircuitActivate.astro'
+import ChampionsCircuitCast from '../_components/ChampionsCircuitCast.astro'
+import GleamingFang from '../_components/entities/GleamingFang.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  activateTimes: Time[]
+}
+
+const { start, activateTimes }: Props = Astro.props
+
+const bareFangs = translations.bareFangs
+const championsCircuit = translations.championsCircuit
+
+// 伤害参考：
+// REF: https://www.fflogs.com/reports/GrMAphvBQfqLT9KJ?fight=4&type=casts&hostility=1&phase=2&view=events
+---
+
+<BareFangsCast start={start} />
+<ChampionsCircuitCast start="10:11.323" />
+<ChampionsCircuitActivate activateTimes={activateTimes} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <T variant="yellow" text=`${bareFangs}` />
+    <P>
+      在每个平台生成2个
+      <GleamingFang />
+      ，每次会有1个
+      <GleamingFang />
+      展开并对平台释放对应的半场AoE
+    </P>
+    <T variant="yellow" text=`${championsCircuit}` />
+    <P> 读条过程中，各平台出现5种不同但顺序固定的AoE范围提示和旋转提示 </P>
+    <P>
+      每次攻击判定后，AoE将根据提示进行顺时针或逆时针的旋转，每次旋转
+      <Span variant="emerald">72°</Span>
+      顺次移动到相邻平台
+    </P>
+    <Quote variant="cyan"> 注意：读条结束后范围提示和旋转方向都将消失，需要凭借记忆判断安全区 </Quote>
+
+    <P> 上述两种攻击将在每次判定时几乎同时释放 </P>
+    <Image src={img} alt="" class="max-w-100 border-2 border-cyan-600 dark:border-cyan-100" />
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P> 待补充 </P>
+    <P>
+      <RoleIcon role="all" tag="全员" />
+      在初始平台中线位置集合，便于后续移动到安全区
+    </P>
+  </div>
+</SolutionSection>

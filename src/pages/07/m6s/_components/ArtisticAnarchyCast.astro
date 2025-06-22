@@ -10,14 +10,13 @@ import SugarRiot from './SugarRiot.astro'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const ArtisticAnarchy = translations.ArtisticAnarchy
 ---
 
-<CastSection start={start} base={base} duration={7.7} ability={ArtisticAnarchy}>
+<CastSection start={start} duration={7.7} ability={ArtisticAnarchy}>
   <SugarRiot slot="source" />
   <Span slot="ability" variant="fuchsia">{ArtisticAnarchy}</Span>
   <Badge variant="fuchsia">狂暴</Badge>

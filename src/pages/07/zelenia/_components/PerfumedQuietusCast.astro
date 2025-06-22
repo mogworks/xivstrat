@@ -8,23 +8,12 @@ import Zelenia from './Zelenia.astro'
 
 interface Props {
   start: Time
-  base?: Time
-  [key: string]: any
 }
 
-const { start, base = 0, ...rest }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<CastSection
-  start={start}
-  base={base}
-  duration={2.7}
-  ability="Perfumed Quietus"
-  target
-  damage="100000"
-  damageType="magical"
-  {...rest}
->
+<CastSection start={start} duration={2.7} ability="Perfumed Quietus" target damage="100000" damageType="magical">
   <Zelenia slot="source" />
   <Badge variant="purple">AoE</Badge>
 </CastSection>

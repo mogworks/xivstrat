@@ -10,18 +10,18 @@ import PatienceOfStoneDebuff from '../_components/PatienceOfStoneDebuff.astro'
 import PatienceOfWindDebuff from '../_components/PatienceOfWindDebuff.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
-const elementalPurge = '風震の魔印'
+const elementalPurge = translations.elementalPurge
 ---
 
-<CastSection start={start} base={base} duration={4.7} ability={elementalPurge}>
+<CastSection start={start} duration={4.7} ability={elementalPurge}>
   <HowlingBlade slot="source" />
   给予 1 <RoleIcon role="tank" />
   <PatienceOfWindDebuff tag="5" />

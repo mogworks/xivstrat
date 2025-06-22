@@ -33,6 +33,7 @@ import BrutishSwingMoveActivate from './_components/BrutishSwingMoveActivate.ast
 import { translations } from './_translations'
 
 const dutyId = '07/m7s'
+
 const base = '02:38.206'
 const stoneringer = translations.stoneringer
 const brutishSwing = translations.brutishSwing
@@ -46,74 +47,57 @@ const powerslam = translations.powerslam
 const demolitionDeathmatch = translations.demolitionDeathmatch
 ---
 
-<DutyStratLayout dutyId={dutyId}>
+<DutyStratLayout dutyId={dutyId} base={base}>
   <SeparatorSection />
   <DraftWarning />
   <SeparatorSection />
-  <GrapplingIvy time="02:38.206" base={base} />
+  <GrapplingIvy time="02:38.206" />
   <EventSection time="02:42.841">
     <BruteAbombinator />挂墙完毕，可选中
   </EventSection>
-  <AttackSection time="02:43.372" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="02:46.402" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="02:43.372" damage="57000" damageType="physical" />
+  <AttackSection time="02:46.402" damage="57000" damageType="physical" />
 
   <SeparatorSection id="SBGR" title=`${stoneringer} + ${brutishSwing} + ${glowerPower} + ${revengeOfTheVines}` />
-  <SBGR base={base} />
-  <AttackSection time="03:17.190" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="03:20.219" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="03:43.624" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="03:46.656" base={base} damage="57000" damageType="physical" />
+  <SBGR />
+  <AttackSection time="03:17.190" damage="57000" damageType="physical" />
+  <AttackSection time="03:20.219" damage="57000" damageType="physical" />
+  <AttackSection time="03:43.624" damage="57000" damageType="physical" />
+  <AttackSection time="03:46.656" damage="57000" damageType="physical" />
 
   <SeparatorSection id="TDAB" title=`${thornyDeathmatch} + ${abominableBlink}` />
-  <ThornyDeathmatchCast start="03:22.806" base={base} />
-  <StoneringerCast start="03:27.928" base={base} />
-  <AbominableBlinkCast start="03:35.780" base={base} />
-  <AbominableBlinkActivate time="03:42.064" base={base} />
-  <TDAB base={base} />
+  <ThornyDeathmatchCast start="03:22.806" />
+  <StoneringerCast start="03:27.928" />
+  <AbominableBlinkCast start="03:35.780" />
+  <AbominableBlinkActivate time="03:42.064" />
+  <TDAB />
 
   <SeparatorSection id="sporesplosion" title={sporesplosion} />
-  <Sporesplosion start="03:47.190" base={base} />
+  <Sporesplosion start="03:47.190" />
 
-  <AttackSection time="04:19.661" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="04:22.696" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="04:19.661" damage="57000" damageType="physical" />
+  <AttackSection time="04:22.696" damage="57000" damageType="physical" />
 
   <SeparatorSection id="DDAB" title=`${demolitionDeathmatch} + ${abominableBlink}` />
-  <AttackSection time="04:28.850" base={base} damage="57000" damageType="physical" />
-  <DemolitionDeathmatchCast start="04:23.274" base={base} />
-  <EventSection time="04:27.332"
-    >对
-    <RoleIcon role="any" tag="一仇" />
-    施加连线
-    <ThornsOfDeathDebuff hover />
-    <Span variant="orange">9000/3s</Span>
-    <Badge variant="orange">DoT</Badge>，另外两面墙最近各一名<RoleIcon role="any" />身上出现虚线预兆</EventSection
-  >
-  <EventSection time="04:32.462"
-    >对<RoleIcon role="any" tag="虚线" />施加连线<ThornsOfDeathDebuff hover /><Span variant="orange">9000/3s</Span>
-    <Badge variant="orange">DoT</Badge></EventSection
-  >
-  <AttackSection time="04:31.880" base={base} damage="57000" damageType="physical" />
-  <AbominableBlinkCast start="04:34.422" base={base} />
-  <AbominableBlinkActivate time="04:40.745" base={base} />
-  <DDAB base={base} />
+  <DDAB />
 
-  <AttackSection time="04:42.302" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="04:42.302" damage="57000" damageType="physical" />
   <SeparatorSection id="strange-seeds" title={strangeSeeds} />
-  <StrangeSeeds base={base} />
+  <StrangeSeeds />
 
   <SeparatorSection title=`${stoneringer} + ${brutishSwing} + ${glowerPower} + ${revengeOfTheVines}` />
-  <BrutishSwingMoveActivate time="05:24.855" base={base} />
-  <BrutishSwingActivate time="05:28.947" base={base} />
-  <GlowerPowerCast start="05:29.839" base={base} />
-  <ElectrogeneticForceActivate time="05:33.672" base={base} />
-  <GlowerPowerActivate time="05:33.804" base={base} />
-  <RevengeOfTheVinesCast start="05:34.653" base={base} />
-  <RevengeOfTheVinesActivate time="05:39.643" base={base} />
+  <BrutishSwingMoveActivate time="05:24.855" />
+  <BrutishSwingActivate time="05:28.947" />
+  <GlowerPowerCast start="05:29.839" />
+  <ElectrogeneticForceActivate time="05:33.672" />
+  <GlowerPowerActivate time="05:33.804" />
+  <RevengeOfTheVinesCast start="05:34.653" />
+  <RevengeOfTheVinesActivate time="05:39.643" />
 
-  <AttackSection time="05:42.223" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="05:45.255" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="05:42.223" damage="57000" damageType="physical" />
+  <AttackSection time="05:45.255" damage="57000" damageType="physical" />
 
   <SeparatorSection title={powerslam} />
-  <PowerSlamCast time="05:51.804" base={base} />
-  <PowerSlamActivate time="05:51.804" base={base} />
+  <PowerSlamCast time="05:51.804" />
+  <PowerSlamActivate time="05:51.804" />
 </DutyStratLayout>

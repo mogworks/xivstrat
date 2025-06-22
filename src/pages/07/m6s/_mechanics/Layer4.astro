@@ -49,12 +49,6 @@ import explosion_3 from '@/assets/07/m6s/layer_4/explosion_3.png'
 import explosion_4 from '@/assets/07/m6s/layer_4/explosion_4.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
-
 const start = '08:50.781'
 const duration = 6.7
 const adjustedDuration = duration + 0.3
@@ -63,51 +57,51 @@ const end = timeToSeconds(start) + adjustedDuration
 const { Explosion, UnmitigatedExplosion, Layer, MousseDrip, TasteofThunder, Wingmark } = translations
 ---
 
-<LayerCast start={start} end={end} base={base} />
-<AttackSection time="08:58.848" base={base} damage="57000" damageType="magical" />
-<AttackSection time="09:01.879" base={base} damage="57000" damageType="magical" />
-<EventSection time="09:07.9" base={base}>
+<LayerCast start={start} end={end} />
+<AttackSection time="08:58.848" damage="57000" damageType="magical" />
+<AttackSection time="09:01.879" damage="57000" damageType="magical" />
+<EventSection time="09:07.9">
   <Span variant="zinc">场地生成单人塔×8：南岛×4，西北岛×2，东北岛×2</Span>
 </EventSection>
-<MousseDripCast start="09:02.948" base={base} />
-<AttackSection time="09:09.945" base={base} damage="57000" damageType="magical" />
-<AttackSection time="09:12.973" base={base} damage="57000" damageType="magical" />
+<MousseDripCast start="09:02.948" />
+<AttackSection time="09:09.945" damage="57000" damageType="magical" />
+<AttackSection time="09:12.973" damage="57000" damageType="magical" />
 {
   ['09:13.063', '09:15.109', '09:17.110', '09:19.148'].map((time, i) => {
-    return <MousseDripActivate time={time} base={base} num={i + 1} />
+    return <MousseDripActivate time={time} num={i + 1} />
   })
 }
-<MoussacreCast start="09:14.131" base={base} />
-<TasteOfThunderCast start="09:22.192" base={base} />
-<ExplosionActivate time="09:27.003" base={base} />
-<AttackSection time="09:27.181" base={base} damage="57000" damageType="magical" />
-<WingmarkCast start="09:27.270" base={base} debuffDuration="10" />
-<AttackSection time="09:34.227" base={base} damage="57000" damageType="magical" />
-<EventSection time="09:34.3" base={base}>
+<MoussacreCast start="09:14.131" />
+<TasteOfThunderCast start="09:22.192" />
+<ExplosionActivate time="09:27.003" />
+<AttackSection time="09:27.181" damage="57000" damageType="magical" />
+<WingmarkCast start="09:27.270" debuffDuration="10" />
+<AttackSection time="09:34.227" damage="57000" damageType="magical" />
+<EventSection time="09:34.3">
   <Span variant="zinc">场地生成单人塔×8：【南岛×8】 或 【南岛×2，西北岛×4/×2，东北岛×2/×4】</Span>
 </EventSection>
-<AttackSection time="09:37.255" base={base} damage="57000" damageType="magical" />
-<AttackSection time="09:40.287" base={base} damage="57000" damageType="magical" />
-<AttackSection time="09:43.319" base={base} damage="57000" damageType="magical" />
+<AttackSection time="09:37.255" damage="57000" damageType="magical" />
+<AttackSection time="09:40.287" damage="57000" damageType="magical" />
+<AttackSection time="09:43.319" damage="57000" damageType="magical" />
 <EventSection>
-  <StratInterval slot="time" start="09:42.250" end="09:45.277" base={base} />
+  <StratInterval slot="time" start="09:42.250" end="09:45.277" />
   <Fragment>
     <RoleIcon role="all" tag="全员" />
     眩晕
   </Fragment>
 </EventSection>
 <EventSection>
-  <StratInterval slot="time" start="09:43.460" end="09:45.277" base={base} />
+  <StratInterval slot="time" start="09:43.460" end="09:45.277" />
   <Fragment>
     <RoleIcon role="all" tag="全员" />
     强制向面向方向飞行34m
   </Fragment>
 </EventSection>
-<AttackSection time="09:46.345" base={base} damage="57000" damageType="magical" />
-<AttackSection time="09:49.375" base={base} damage="57000" damageType="magical" />
-<TasteOfThunderCast start="09:48.529" base={base} />
-<AttackSection time="09:52.403" base={base} damage="57000" damageType="magical" />
-<ExplosionActivate time="09:53.429" base={base} />
+<AttackSection time="09:46.345" damage="57000" damageType="magical" />
+<AttackSection time="09:49.375" damage="57000" damageType="magical" />
+<TasteOfThunderCast start="09:48.529" />
+<AttackSection time="09:52.403" damage="57000" damageType="magical" />
+<ExplosionActivate time="09:53.429" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">

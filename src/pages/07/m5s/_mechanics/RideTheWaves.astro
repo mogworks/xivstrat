@@ -15,6 +15,7 @@ import CastSection from '@/components/section/CastSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import P from '@/components/typography/P.astro'
 
 import QuarterOrEighthBeatsAbility from '../_components/QuarterOrEighthBeatsAbility.astro'
 import QuarterOrEighthBeatsCast from '../_components/QuarterOrEighthBeatsCast.astro'
@@ -34,13 +35,8 @@ import ride_the_waves_optimize_1 from '@/assets/07/m5s/ride_the_waves/optimize_1
 import ride_the_waves_optimize_2 from '@/assets/07/m5s/ride_the_waves/optimize_2.png'
 import ride_the_waves_optimize_3 from '@/assets/07/m5s/ride_the_waves/optimize_3.png'
 import ride_the_waves_optimize_4 from '@/assets/07/m5s/ride_the_waves/optimize_4.png'
+
 import { translations } from '../_translations'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 
 const solutions = [
   {
@@ -55,7 +51,7 @@ const solutions = [
 const defaultSolution = '解法：近战优化'
 ---
 
-<CastSection start="03:48.804" base={base} duration={3.2} ability={translations.rideTheWaves}>
+<CastSection start="03:48.804" duration={3.2} ability={translations.rideTheWaves}>
   <Badge variant="yellow">步进式地火</Badge>
 </CastSection>
 <NoteSection>
@@ -78,11 +74,11 @@ const defaultSolution = '解法：近战优化'
     </div>
   </div>
 </NoteSection>
-<AttackSection time="03:53.2" base={base} damage="55000" damageType="physical" />
-<AttackSection time="03:56.2" base={base} damage="55000" damageType="physical" />
-<QuarterOrEighthBeatsCast start="03:57.454" base={base} />
-<AttackSection time="04:04.3" base={base} damage="55000" damageType="physical" />
-<QuarterOrEighthBeatsCast start="04:05.611" base={base} />
+<AttackSection time="03:53.2" damage="55000" damageType="physical" />
+<AttackSection time="03:56.2" damage="55000" damageType="physical" />
+<QuarterOrEighthBeatsCast start="03:57.454" />
+<AttackSection time="04:04.3" damage="55000" damageType="physical" />
+<QuarterOrEighthBeatsCast start="04:05.611" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
@@ -384,7 +380,21 @@ const defaultSolution = '解法：近战优化'
         </div>
       </div>
     </div>
-    <div class="paragraph">
+    <P>
+      近战注意：第2次
+      <QuarterOrEighthBeatsAbility />
+      到
+      <Boss />
+      跳回场中有
+      <Span variant="cyan">3s</Span>
+      的间隔
+    </P>
+    <P>
+      图中
+      <Span variant="red">红框</Span>
+      标注的格子下一轮是安全的，分散/分摊判定后可以直接去，这样就不会被卡GCD了
+    </P>
+    <div class="paragraph mt-4">
       对比
       <StratLink variant="lime" href="#ride-the-waves-solution-jp">解法：日野主流</StratLink>
       ，由于安全区的拐点尚未到来，无需调整

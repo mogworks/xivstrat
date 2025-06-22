@@ -1,0 +1,378 @@
+---
+import type { Time } from '@/lib/utils'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import P from '@/components/typography/P.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import ListDot from '@/components/ListDot.astro'
+import Quote from '@/components/typography/Quote.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import ImgGrid from '@/components/typography/ImgGrid.astro'
+
+import TerrestrialRageCast from '../_components/TerrestrialRageCast.astro'
+import GleamingFang from '../_components/entities/GleamingFang.astro'
+import TerrestrialRageActivate from '../_components/TerrestrialRageActivate.astro'
+import ShadowchaseCast from '../_components/ShadowchaseCast.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
+import BareFangsEvent from '../_components/BareFangsEvent.astro'
+import RetargetableEvent from '../_components/RetargetableEvent.astro'
+import RoaringWindCast from '../_components/RoaringWindCast.astro'
+import FangedChargeCast from '../_components/FangedChargeCast.astro'
+
+import { translations } from '../_translations'
+
+import terrestrial_rage from '@/assets/07/m8s1/shadowchase/terrestrial_rage.png'
+import fanged_charge_1 from '@/assets/07/m8s1/shadowchase/fanged_charge_1.png'
+import fanged_charge_2 from '@/assets/07/m8s1/shadowchase/fanged_charge_2.png'
+import shadowchase_1 from '@/assets/07/m8s1/shadowchase/1.png'
+import shadowchase_2 from '@/assets/07/m8s1/shadowchase/2.png'
+import roaring_wind_1 from '@/assets/07/m8s1/shadowchase/roaring_wind_1.png'
+import roaring_wind_2 from '@/assets/07/m8s1/shadowchase/roaring_wind_2.png'
+import solution_1 from '@/assets/07/m8s1/shadowchase/solution_1.png'
+import solution_2 from '@/assets/07/m8s1/shadowchase/solution_2.png'
+import solution_3 from '@/assets/07/m8s1/shadowchase/solution_3.png'
+import solution_4 from '@/assets/07/m8s1/shadowchase/solution_4.png'
+import solution_5 from '@/assets/07/m8s1/shadowchase/solution_5.png'
+import solution_6 from '@/assets/07/m8s1/shadowchase/solution_6.png'
+import solution_7 from '@/assets/07/m8s1/shadowchase/solution_7.png'
+import solution_8 from '@/assets/07/m8s1/shadowchase/solution_8.png'
+import solution_9 from '@/assets/07/m8s1/shadowchase/solution_9.png'
+import solution_10 from '@/assets/07/m8s1/shadowchase/solution_10.png'
+import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
+---
+
+<BareFangsEvent time="04:34.250" phase="P3" />
+<TerrestrialRageCast start="04:36.338" />
+<FangedChargeCast start="04:42.471" />
+<TerrestrialRageActivate time="04:47.680" order="1" />
+<ShadowchaseCast start="04:45.454" />
+<FangedChargeCast start="04:44.904" />
+<TerrestrialRageActivate time="04:54.399" order="2" />
+<ShadowchaseCast start="04:52.704" shadow={true} />
+<RetargetableEvent time="04:56.667" />
+<RoaringWindCast start="04:56.667" />
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <Quote variant="yellow" class="opacity-80">
+      <P>注意：以下图示为各个机制单独拆解，实际战斗中机制会组合出现，发动顺序可参考上方时间轴</P>
+    </Quote>
+
+    <T text={translations.terrestrialRage} variant="yellow" class="mt-8" />
+    <P>
+      读条后，
+      <HowlingBlade />
+      会延时发动两轮分散/分摊，分散/分摊会点名不同职能，哪个职能先分散/分摊是随机的
+    </P>
+    <P>
+      如第一轮是
+      <RoleIcon role="tank|healer" />
+      分散 +
+      <RoleIcon role="dps" />
+      分摊，那么第二轮就是
+      <RoleIcon role="dps" />
+      分散 +
+      <RoleIcon role="tank|healer" />
+      分摊，反之亦然
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: terrestrial_rage,
+          alt: '大地之怒',
+        },
+      ]}
+    />
+    <P>
+      注意该机制的分散会
+      <Span variant="cyan">点够4人</Span>
+      ，所以如果中途有分散点名死了，就会点到分摊的人群中，导致团灭
+    </P>
+
+    <T text={translations.fangedCharge} variant="yellow" class="mt-8" />
+    <P>
+      场地上会分两轮先后刷新两组
+      <GleamingFang />
+      释放斜向的直线AoE，呈条纹状间隔分布，如下图：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: fanged_charge_1,
+          alt: '突进光牙1',
+          title: '第一轮',
+        },
+        {
+          src: fanged_charge_2,
+          alt: '突进光牙2',
+          title: '第二轮',
+        },
+      ]}
+    />
+
+    <T text={translations.shadowchase} variant="yellow" class="mt-8" />
+    <P>
+      读条后，
+      <HowlingBlade />
+      消失，稍后场上出现5个分身，读条释放
+      <Span variant="pink">8m</Span>
+      宽直线AoE，分身有两种刷新模式，如下图：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: shadowchase_1,
+          alt: '残影剑1',
+          title: '模式一',
+        },
+        {
+          src: shadowchase_2,
+          alt: '残影剑2',
+          title: '模式二',
+        },
+      ]}
+    />
+    <P>分身一定是和之后的狼首交错刷新的</P>
+
+    <T text={translations.roaringWind} variant="yellow" class="mt-8" />
+    <P>
+      和
+      <Skill name={translations.shadowchase} />
+      类似，场上出现5个
+      <WolfOfWind />
+      ，读条释放
+      <Span variant="pink">8m</Span>
+      宽直线AoE，同样有两种刷新模式，如下图：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: roaring_wind_1,
+          alt: '风狼豪波1',
+          title: '模式一',
+        },
+        {
+          src: roaring_wind_2,
+          alt: '风狼豪波2',
+          title: '模式二',
+        },
+      ]}
+    />
+    <P>狼首一定是和之前的分身交错刷新的</P>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <T>
+      <Skill name={translations.terrestrialRage} variant="lime" />
+      +
+      <Skill name={translations.fangedCharge} variant="lime" />
+    </T>
+    <P>
+      <HowlingBlade />
+      读条后，分散/分摊点名出现，无论
+      <GleamingFang />
+      如何刷新，我们都可以按下表站位：
+    </P>
+    <ImgGrid
+      cols={[{ title: 'TH分散 + DPS分摊' }, { title: 'DPS分散 + TH分摊' }]}
+      defaultImgWrapperStyle={{
+        bordered: true,
+        rounded: true,
+        borderVariant: 'cyan',
+      }}
+      rows={[
+        {
+          title: '第一轮光牙',
+          cells: [
+            {
+              img: {
+                src: solution_1,
+                alt: '解法示意图1: TH分散DPS分摊 第一轮光牙',
+              },
+            },
+            {
+              img: {
+                src: solution_2,
+                alt: '解法示意图2: DPS分散TH分摊 第一轮光牙',
+              },
+            },
+          ],
+        },
+        {
+          title: '第二轮光牙',
+          cells: [
+            {
+              img: {
+                src: solution_3,
+                alt: '解法示意图3: TH分散DPS分摊 第二轮光牙',
+              },
+            },
+            {
+              img: {
+                src: solution_4,
+                alt: '解法示意图4: DPS分散TH分摊 第二轮光牙',
+              },
+            },
+          ],
+        },
+      ]}
+    />
+    <P>具体来说：</P>
+    <Quote variant="lime">
+      <P>
+        <ListDot />
+        没被点分散的人，去场中晚刷新的
+        <GleamingFang />
+        处集合，等第一轮
+        <Skill name={translations.fangedCharge} />
+        判定后，穿过去
+      </P>
+      <P>
+        <ListDot />
+        被点分散的人，去自己的正点场边躲避两轮
+        <Skill name={translations.fangedCharge} />
+      </P>
+      <P class="pl-6">
+        <ListDot />
+        <RoleIcon role="tank" tag="MT" />
+        <RoleIcon role="ranged" tag="D3" />
+        去
+        <Span variant="red">A</Span>，
+        <RoleIcon role="tank" tag="ST" />
+        <RoleIcon role="magic" tag="D4" />
+        去
+        <Span variant="yellow">B</Span>，
+        <RoleIcon role="healer" tag="H2" />
+        <RoleIcon role="dps" tag="D2" />
+        去
+        <Span variant="sky">C</Span>，
+        <RoleIcon role="healer" tag="H1" />
+        <RoleIcon role="melee" tag="D1" />
+        去
+        <Span variant="purple">D</Span>
+      </P>
+    </Quote>
+
+    <P>
+      如果近战被点分散，可以在标点的两个边缘点横穿，每轮
+      <Skill name={translations.fangedCharge} />
+      必定只会覆盖标点的一半，如下图：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      borderClass="rounded-b-full"
+      imgs={[
+        {
+          src: solution_5,
+          alt: '解法示意图5: 近战贪点',
+        },
+        {
+          src: solution_6,
+          alt: '解法示意图6: 近战贪点',
+        },
+      ]}
+    />
+    <P>这两个边缘点同时也是最大近战距离点，因此可以无损输出</P>
+
+    <T class="mt-8">
+      <Skill name={translations.terrestrialRage} variant="lime" />
+      +
+      <Skill name={translations.shadowchase} variant="lime" />
+    </T>
+    <P>
+      随后
+      <HowlingBlade />
+      上天消失，第二轮
+      <Skill name={translations.terrestrialRage} />
+      会和
+      <Skill name={translations.shadowchase} />
+      组合出现，我们按下表站位：
+    </P>
+    <ImgGrid
+      cols={[{ title: 'TH分摊 + DPS分散' }, { title: 'DPS分摊 + TH分散' }]}
+      defaultImgWrapperStyle={{
+        bordered: true,
+        rounded: true,
+        borderVariant: 'cyan',
+      }}
+      rows={[
+        {
+          title: '模式一',
+          cells: [
+            {
+              img: {
+                src: solution_7,
+                alt: '解法示意图7: TH分摊DPS分散 模式一',
+              },
+            },
+            {
+              img: {
+                src: solution_8,
+                alt: '解法示意图8: DPS分摊TH分散 模式一',
+              },
+            },
+          ],
+        },
+        {
+          title: '模式二',
+          cells: [
+            {
+              img: {
+                src: solution_9,
+                alt: '解法示意图9: TH分摊DPS分散 模式二',
+              },
+            },
+            {
+              img: {
+                src: solution_10,
+                alt: '解法示意图10: DPS分摊TH分散 模式二',
+              },
+            },
+          ],
+        },
+      ]}
+    />
+    <P>分摊固定去北，分散则是按开场八方的大致方位；如果是模式二就整体顺时针转36°</P>
+
+    <T text={translations.roaringWind} variant="lime" class="mt-8" />
+    <P>
+      最后再去任意
+      <WolfOfWind />
+      背后躲一下直线AoE，整个机制就处理完了：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_11,
+          alt: '解法示意图11: 躲避风狼豪波',
+        },
+      ]}
+    />
+    <P>
+      这里
+      <HowlingBlade />
+      会落地现身，由于
+      <WolfOfWind />
+      读条需要
+      <Span variant="cyan">2.5s</Span>
+      时间，近战可以先去场中贪一刀再躲避
+    </P>
+  </div>
+</SolutionSection>

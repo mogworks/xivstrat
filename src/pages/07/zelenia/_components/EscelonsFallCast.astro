@@ -1,20 +1,17 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
 import Zelenia from './Zelenia.astro'
 
 interface Props {
   start: Time
-  base?: Time
-  [key: string]: any
 }
 
-const { start, base = 0, ...rest }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={12.7} ability="Escelons' Fall">
+<CastSection start={start} duration={12.7} ability="Escelons' Fall">
   <Zelenia slot="source" />
 </CastSection>

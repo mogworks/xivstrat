@@ -10,17 +10,16 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 const pulpSmash = translations.pulpSmash
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <Span variant="yellow">{pulpSmash}</Span>
   伤害判定
-  <DamageInfo damage="100000" type="physical" />
+  <DamageInfo damage="110000" type="physical" />
   <Badge variant="emerald">6m圆形</Badge>
   <Badge variant="yellow">8人分摊</Badge>
 </EventSection>

@@ -1,0 +1,38 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Span from '@/components/Span.vue'
+import Badge from '@/components/Badge.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  shadow?: boolean
+}
+
+const { start, shadow = false }: Props = Astro.props
+const ability = translations.shadowchase
+---
+
+{
+  shadow ? (
+    <CastSection start={start} ability={ability} duration={1.7}>
+      <HowlingBlade slot="source">
+        <Span variant="rose" class="ml-1">
+          分身×5
+        </Span>
+      </HowlingBlade>
+      <Badge variant="emerald">8m宽直线</Badge>
+    </CastSection>
+  ) : (
+    <CastSection start={start} ability={ability} duration={2.7}>
+      <HowlingBlade slot="source" />
+      ，读条后消失且不可选中
+    </CastSection>
+  )
+}

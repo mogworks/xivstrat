@@ -20,36 +20,34 @@ import XReign from './_mechanics/XReign.astro'
 import { translations } from './_translations'
 
 const dutyId = '07/m8s1'
+
 const base = 0
 
 const stonefang = translations.stonefang
 const windfang = translations.windfang
-const revolutionaryReign = translations.revolutionaryReign
-const eminentReign = translations.eminentReign
 ---
 
-<DutyStratLayout dutyId={dutyId}>
-  <EventSection time="00:00.0" base={base}>
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <EventSection time="00:00.0">
     <RoleIcon role="tank" tag="MT" />
     开怪，将
     <HowlingBlade />
     固定在场中偏南一点的位置
   </EventSection>
-  <ExtraplanarPursuitCast start="00:10.195" base={base} />
-  <MoveToCenterEvent time="00:20.019" base={base} />
+  <ExtraplanarPursuitCast start="00:10.195" />
+  <MoveToCenterEvent time="00:20.019" />
   <SeparatorSection id="stonefang-or-windfang" title={`${stonefang} | ${windfang}`} />
-  <Xfang start="00:23.131" base={base} />
-  <SeparatorSection id="revolutionary-reign-or-eminent-reign" title={`${revolutionaryReign} | ${eminentReign}`} />
-  <XReign start="00:34.289" base={base} />
+  <Xfang start="00:23.131" />
+  <SeparatorSection id="wolves-reign" title={translations.wolvesReign} />
+  <XReign start="00:34.289" />
   <SeparatorSection />
-  <ExtraplanarPursuitCast start="00:49.014" base={base} />
-  <MoveToCenterEvent time="00:58.834" base={base} />
+  <ExtraplanarPursuitCast start="00:49.014" />
+  <MoveToCenterEvent time="00:58.834" />
   <SeparatorSection id="millennial-decay" title={translations.millennialDecay} />
-  <MillennialDecay base={base} />
+  <MillennialDecay />
   <SeparatorSection />
   <TrackingTremors
     start="01:35.945"
-    base={base}
     activateTimes={[
       '01:41.817',
       '01:42.886',
@@ -61,13 +59,13 @@ const eminentReign = translations.eminentReign
       '01:49.297',
     ]}
   />
-  <ExtraplanarPursuitCast start="01:51.126" base={base} />
+  <ExtraplanarPursuitCast start="01:51.126" />
   <SeparatorSection id="great-divide" title={translations.greatDivide} />
-  <GreatDivide start="01:58.873" base={base} phase="P1" />
+  <GreatDivide start="01:58.873" phase="P1" />
   <SeparatorSection />
-  <MoveToCenterEvent time="02:12.198" base={base} />
+  <MoveToCenterEvent time="02:12.198" />
   <SeparatorSection id="terrestrial-titans" title={translations.terrestrialTitans} />
-  <TerrestrialTitans base={base} />
+  <TerrestrialTitans />
   <SeparatorSection />
-  <XReignCast start="02:34.300" base={base} />
+  <XReignCast start="02:34.300" />
 </DutyStratLayout>
