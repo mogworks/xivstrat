@@ -59,12 +59,20 @@ const videoLink = ''
     <Fragment slot="header">
       <span>小抄速览</span>
     </Fragment>
-    <AreaBox>
-      <ResizableImageDialog client:idle>
-        <Image src={CheatsheetsImage} alt="m6s 副本小抄" loading="lazy" class="h-full w-fit object-contain" />
-        <Image src={CheatsheetsZooImage} alt="m6s 动物园小抄" loading="lazy" class="h-full w-fit object-contain" />
-      </ResizableImageDialog>
-    </AreaBox>
+    <div class="flex flex-row gap-4">
+      <AreaBox>
+        <strong class="mb-2 inline-block text-sm opacity-60">总体机制</strong>
+        <ResizableImageDialog client:idle>
+          <Image src={CheatsheetsImage} alt="m6s 副本小抄" loading="lazy" class="h-full object-contain" />
+        </ResizableImageDialog>
+      </AreaBox>
+      <AreaBox>
+        <strong class="mb-2 inline-block text-sm opacity-60">动物园</strong>
+        <ResizableImageDialog client:idle>
+          <Image src={CheatsheetsZooImage} alt="m6s 动物园小抄" loading="lazy" class="h-full object-contain" />
+        </ResizableImageDialog>
+      </AreaBox>
+    </div>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
     <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT" img={WaymarkImage} downloadLabel="下载5~8层标点文件" />
