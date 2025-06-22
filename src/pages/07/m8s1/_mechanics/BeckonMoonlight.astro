@@ -1,18 +1,13 @@
 ---
-import type { Time } from '@/lib/utils'
-
-import { Image } from 'astro:assets'
-
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import P from '@/components/typography/P.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import Skill from '@/components/typography/Skill.astro'
 import Span from '@/components/Span.vue'
 import T from '@/components/typography/T.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import MoonbeamsBiteCast from '../_components/MoonbeamsBiteCast.astro'
@@ -21,7 +16,9 @@ import TerrestrialRageActivate from '../_components/TerrestrialRageActivate.astr
 
 import { translations } from '../_translations'
 
-import beckon_moonlight_solution_img from '@/assets/07/m8s1/Tmp.png'
+import beckon_moonlight from '@/assets/07/m8s1/beckon_moonlight/1.png'
+import solution_1 from '@/assets/07/m8s1/beckon_moonlight/solution_1.png'
+import solution_2 from '@/assets/07/m8s1/beckon_moonlight/solution_2.png'
 ---
 
 <CastSection start="05:35.950" ability={translations.beckonMoonlight} duration={2.7}>
@@ -32,51 +29,73 @@ import beckon_moonlight_solution_img from '@/assets/07/m8s1/Tmp.png'
 <TerrestrialRageActivate time="05:51.615" />
 <MoonbeamsBiteCast start="05:44.064" />
 <TerrestrialRageActivate time="06:00.136" order="2" />
+
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <T text="幻狼招来" variant="yellow" />
-    <div class="flex flex-col gap-4">
-      <P>
-        四个分身按顺/逆时针从
-        <HowlingBlade />
-        身上飞向正点场边。按出现顺序读条
-        <Skill name="幻狼剣" />
-        <Badge variant="yellow">半场AoE</Badge>
-        ，向拿剑一侧冲锋。
-      </P>
-      <P>
-        同时
-        <Skill name="大地の怒り" />
-        进行两轮按职能点名的分摊/分散
-        <DamageInfo damage="110000" type="magical" />
-        <MagicVulnerabilityUp tag="2" hover />
-        。
-      </P>
-      <P>第一轮分摊分散与第一次冲锋同时判定；第二轮分摊分散略晚于第四次冲锋判定。</P>
-    </div>
+    <P>
+      <Skill name={translations.terrestrialRage} />
+      和之前一样，但这次会和
+      <Skill name={translations.beckonMoonlight} />
+      组合发动
+    </P>
+
+    <T text={translations.beckonMoonlight} variant="yellow" class="mt-8" />
+    <P>
+      <HowlingBlade />
+      依次分出四个分身到场地正点边缘，分身从随机正点开始按顺时针或逆时针分布
+    </P>
+    <P>
+      分身出现后，会间隔
+      <Span variant="cyan">2s</Span>
+      依次读条
+      <Skill name={translations.moonbeamsBite} />
+      ，释放半场刀，攻击自身亮起武器的一侧：
+    </P>
+    <ImgRow
+      class="mt-6 ml-6"
+      borderVariant="cyan"
+      rounded
+      imgClass="scale-150"
+      titleClass="mt-3"
+      imgs={[
+        {
+          src: beckon_moonlight,
+          alt: '幻狼召唤示例',
+          title: '以分身从A点顺时针出现为例',
+        },
+      ]}
+    />
   </div>
 </MechanicSection>
-<SolutionSection>
-  <div class="flex gap-4">
-    <div class="max-w-90 shrink">
-      <Image
-        src={beckon_moonlight_solution_img}
-        alt="Beckon Moonlight Solution"
-        class="border-2 border-amber-800/75 dark:border-amber-100"
-      />
-    </div>
-    <div class="shrink-0 grow space-y-4">
-      <P>由于机制速度非常快，请提前看好冲锋的安全区。</P>
-      <P>以每一轮半场刀的危险半场为12点，基础分摊分散站位如图。</P>
-      <br />
-      <P>首先前往第一次冲锋安全区，按图站位等待分摊分散判定。</P>
-      <P>
-        判定后
-        <Span variant="lime">开启冲刺</Span>
-        ，快速前往
-        <Span variant="lime">二、三次冲锋的公共安全区</Span>。
-      </P>
-      <P>最后前往第四次冲锋安全区，按图站位处理第二次分摊分散。</P>
-    </div>
+
+<SolutionSection title="解法：Quad Moonlight（美野主流）">
+  <div class="flex flex-col gap-4">
+    <P>
+      如下图所示，任意四分之一半场刚好可以放下
+      <Skill name={translations.terrestrialRage} />
+      的所有分散/分摊点名：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgClass="scale-120"
+      titleClass="mt-3"
+      imgs={[
+        {
+          src: solution_1,
+          alt: 'TH分散 + DPS分摊',
+          title: 'TH分散 + DPS分摊',
+        },
+        {
+          src: solution_2,
+          alt: 'TH分摊 + DPS分散',
+          title: 'TH分摊 + DPS分散',
+        },
+      ]}
+    />
+    <P>因此，我们可以先在前两个分身的四分之一半场安全区处理第一轮分散/分摊</P>
+    <P>等前两个分身半场刀判定后，再穿到后两个分身的四分之一半场安全区处理第二轮分散/分摊</P>
+    <P><Span variant="cyan">也就是【一二刀安全区】穿【三四刀安全区】</Span></P>
+    <P>注意：两次的安全区可能完全相同，不要想当然</P>
   </div>
 </SolutionSection>
