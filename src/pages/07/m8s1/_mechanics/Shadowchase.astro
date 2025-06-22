@@ -39,6 +39,11 @@ import solution_3 from '@/assets/07/m8s1/shadowchase/solution_3.png'
 import solution_4 from '@/assets/07/m8s1/shadowchase/solution_4.png'
 import solution_5 from '@/assets/07/m8s1/shadowchase/solution_5.png'
 import solution_6 from '@/assets/07/m8s1/shadowchase/solution_6.png'
+import solution_7 from '@/assets/07/m8s1/shadowchase/solution_7.png'
+import solution_8 from '@/assets/07/m8s1/shadowchase/solution_8.png'
+import solution_9 from '@/assets/07/m8s1/shadowchase/solution_9.png'
+import solution_10 from '@/assets/07/m8s1/shadowchase/solution_10.png'
+import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
 
 interface Props {
   base?: Time
@@ -178,14 +183,19 @@ const { base = 0 }: Props = Astro.props
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
+    <T>
+      <Skill name={translations.terrestrialRage} variant="lime" />
+      +
+      <Skill name={translations.fangedCharge} variant="lime" />
+    </T>
     <P>
       <HowlingBlade />
       读条后，分散/分摊点名出现，无论
       <GleamingFang />
-      如何刷新，我们都可以按下图站位：
+      如何刷新，我们都可以按下表站位：
     </P>
     <ImgGrid
-      cols={[{ title: 'TH分散DPS分摊' }, { title: 'DPS分散TH分摊' }]}
+      cols={[{ title: 'TH分散 + DPS分摊' }, { title: 'DPS分散 + TH分摊' }]}
       defaultImgWrapperStyle={{
         bordered: true,
         rounded: true,
@@ -263,6 +273,7 @@ const { base = 0 }: Props = Astro.props
         <Span variant="purple">D</Span>
       </P>
     </Quote>
+
     <P>
       如果近战被点分散，可以在标点的两个边缘点横穿，每轮
       <Skill name={translations.fangedCharge} />
@@ -283,5 +294,91 @@ const { base = 0 }: Props = Astro.props
       ]}
     />
     <P>这两个边缘点同时也是最大近战距离点，因此可以无损输出</P>
+
+    <T class="mt-8">
+      <Skill name={translations.terrestrialRage} variant="lime" />
+      +
+      <Skill name={translations.shadowchase} variant="lime" />
+    </T>
+    <P>
+      随后
+      <HowlingBlade />
+      上天消失，第二轮
+      <Skill name={translations.terrestrialRage} />
+      会和
+      <Skill name={translations.shadowchase} />
+      组合出现，我们按下表站位：
+    </P>
+    <ImgGrid
+      cols={[{ title: 'TH分摊 + DPS分散' }, { title: 'DPS分摊 + TH分散' }]}
+      defaultImgWrapperStyle={{
+        bordered: true,
+        rounded: true,
+        borderVariant: 'cyan',
+      }}
+      rows={[
+        {
+          title: '模式一',
+          cells: [
+            {
+              img: {
+                src: solution_7,
+                alt: '解法示意图7: TH分摊DPS分散 模式一',
+              },
+            },
+            {
+              img: {
+                src: solution_8,
+                alt: '解法示意图8: DPS分摊TH分散 模式一',
+              },
+            },
+          ],
+        },
+        {
+          title: '模式二',
+          cells: [
+            {
+              img: {
+                src: solution_9,
+                alt: '解法示意图9: TH分摊DPS分散 模式二',
+              },
+            },
+            {
+              img: {
+                src: solution_10,
+                alt: '解法示意图10: DPS分摊TH分散 模式二',
+              },
+            },
+          ],
+        },
+      ]}
+    />
+    <P>分摊固定去北，分散则是按开场八方的大致方位；如果是模式二就整体顺时针转36°</P>
+
+    <T text={translations.roaringWind} variant="lime" class="mt-8" />
+    <P>
+      最后再去任意
+      <WolfOfWind />
+      背后躲一下直线AoE，整个机制就处理完了：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: solution_11,
+          alt: '解法示意图11: 躲避风狼豪波',
+        },
+      ]}
+    />
+    <P>
+      这里
+      <HowlingBlade />
+      会落地现身，由于
+      <WolfOfWind />
+      读条需要
+      <Span variant="cyan">2.5s</Span>
+      时间，近战可以先去场中贪一刀再躲避
+    </P>
   </div>
 </SolutionSection>
