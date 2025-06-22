@@ -22,11 +22,12 @@ const { time = 0, base = 0, class: className = '' }: Props = Astro.props
   import { timeToSeconds } from '@/lib/utils'
   import { $stratSettings } from '@/stores/stratSettings'
 
+  const base = document.getElementById('strat-article')?.dataset.base ?? '0'
+
   subscribeKeys($stratSettings, ['timelineOrigin', 'timeFormat'], (stratSettings) => {
     document.querySelectorAll('span.strat-time').forEach((ele) => {
       const span = ele as HTMLSpanElement
       const time = span.dataset.time ?? '0'
-      const base = span.dataset.base ?? '0'
       const seconds = timeToSeconds(time)
       const baseSeconds = timeToSeconds(base)
       const showSeconds = stratSettings.timelineOrigin === 'phase' ? seconds - baseSeconds : seconds
