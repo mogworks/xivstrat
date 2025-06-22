@@ -16,9 +16,10 @@ const {
   bordered = true,
   borderVariant = 'default',
   rounded = false,
-  class: className = '',
-  imgClass = '',
-  titleClass = '',
+  class: className = '', // 根 div 的类
+  imgClass = '', // Image 本身的类
+  borderClass = '', // Image 父 div 的类，该 div 用来作边框，这样可以让图片内容超出边框，更灵活
+  titleClass = '', // 下标题的类
   ...rest
 } = Astro.props
 
@@ -26,10 +27,10 @@ const borderColorClass = borderColorMap[borderVariant]
 ---
 
 <div class={cn(title && 'flex flex-col items-center gap-2', 'max-w-90', className)} {...rest}>
-  <Image
-    src={src}
-    alt={alt}
-    class={cn(bordered && 'border-2', bordered && rounded && 'rounded-full', bordered && borderColorClass, imgClass)}
-  />
+  <div
+    class={cn(bordered && 'border-2', bordered && rounded && 'rounded-full', bordered && borderColorClass, borderClass)}
+  >
+    <Image src={src} alt={alt} class={imgClass} />
+  </div>
   {title && <div class={titleClass}>{title}</div>}
 </div>

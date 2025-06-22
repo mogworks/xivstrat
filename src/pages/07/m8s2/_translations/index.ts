@@ -1,1 +1,1 @@
-export * from './jp'
+export * from './cn'
