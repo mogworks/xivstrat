@@ -35,7 +35,7 @@ const { href, img, downloadLabel = '下载标点文件' }: Props = Astro.props
           <>
             <Separator class="my-2 mb-3" />
             <ResizableImageDialog client:idle>
-              <Image src={img} alt="场地标点" class="w-full object-contain object-left-top" />
+              <Image src={img} alt="场地标点" class="w-full object-contain" />
             </ResizableImageDialog>
           </>
         )
