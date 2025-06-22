@@ -20,15 +20,9 @@ import wave1 from '@/assets/07/m6s/paint_mark/wave1@3x.png'
 import wave1_solution_1 from '@/assets/07/m6s/soul_sugar/wave1_solution_1.png'
 import wave1_solution_2 from '@/assets/07/m6s/soul_sugar/wave1_solution_2.png'
 import { translations } from '../_translations'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<LivePaintingCast start="03:40.768" base={base} class="-my-5">
+<LivePaintingCast start="03:40.768" class="-my-5">
   <Image src={wave1} alt="Paint Mark: Wave #1" class="-mx-2 w-30 drop-shadow-sm drop-shadow-black" />
   ，激活
   <Mu>
@@ -41,8 +35,8 @@ const { base = 0 }: Props = Astro.props
     <Span variant="red">×1</Span>
   </GimmeCat>
 </LivePaintingCast>
-<AttackSection time="03:45.487" base={base} damage="57000" damageType="magical" />
-<UnlimitedCravingActivate time="03:47.892" base={base} wave={1} />
+<AttackSection time="03:45.487" damage="57000" damageType="magical" />
+<UnlimitedCravingActivate time="03:47.892" wave={1} />
 <SolutionSection title={`${translations.Wave} #1`}>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
@@ -270,11 +264,11 @@ const { base = 0 }: Props = Astro.props
     </div>
   </div>
 </SolutionSection>
-<AttackSection time="03:48.517" base={base} damage="57000" damageType="magical" />
-<AttackSection time="03:51.544" base={base} damage="57000" damageType="magical" />
-<AttackSection time="03:54.573" base={base} damage="57000" damageType="magical" />
-<AttackSection time="03:57.599" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:00.625" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:03.651" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:06.681" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:09.712" base={base} damage="57000" damageType="magical" />
+<AttackSection time="03:48.517" damage="57000" damageType="magical" />
+<AttackSection time="03:51.544" damage="57000" damageType="magical" />
+<AttackSection time="03:54.573" damage="57000" damageType="magical" />
+<AttackSection time="03:57.599" damage="57000" damageType="magical" />
+<AttackSection time="04:00.625" damage="57000" damageType="magical" />
+<AttackSection time="04:03.651" damage="57000" damageType="magical" />
+<AttackSection time="04:06.681" damage="57000" damageType="magical" />
+<AttackSection time="04:09.712" damage="57000" damageType="magical" />

@@ -29,24 +29,18 @@ import titanic_pursuit from '@/assets/07/m8s1/terrestrial_titans/titanic_pursuit
 import fanged_crossing from '@/assets/07/m8s1/terrestrial_titans/fanged_crossing.png'
 import solution from '@/assets/07/m8s1/terrestrial_titans/solution.png'
 
-interface Props {
-  base?: Time
-}
-
 const {
   terrestrialTitans, // 召唤柱子 5m半径，离场中7m
   titanicPursuit, // 切断柱子+全屏aoe
   fangedCrossing,
 } = translations
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<TerrestrialTitansCast start="02:14.825" base={base} />
-<TitanicPursuitCast start="02:21.940" base={base} />
-<BareFangsEvent time="02:26.654" base={base} />
-<TowerfallActivate time="02:33.543" base={base} />
-<FangedCrossingCast start="02:29.940" base={base} />
+<TerrestrialTitansCast start="02:14.825" />
+<TitanicPursuitCast start="02:21.940" />
+<BareFangsEvent time="02:26.654" />
+<TowerfallActivate time="02:33.543" />
+<FangedCrossingCast start="02:29.940" />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

@@ -10,20 +10,19 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
 const herosBlow = translations.herosBlow
 ---
 
-<CastSection start={start} base={base} duration={5.7} ability={herosBlow}>
+<CastSection start={start} duration={5.7} ability={herosBlow}>
   <HowlingBlade slot="source" />
   <Badge variant="green">半场刀</Badge>
 </CastSection>
 
-<CastSection start={start} base={base} duration={6.7} ability={herosBlow}>
+<CastSection start={start} duration={6.7} ability={herosBlow}>
   <GleamingFang slot="source" />
   <Badge variant="green">钢铁/月环</Badge>
 </CastSection>

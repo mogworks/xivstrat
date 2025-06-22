@@ -16,15 +16,9 @@ import QuarterOrEighthBeatsCast from '../_components/QuarterOrEighthBeatsCast.as
 
 import funky_floor_p3_beats_solution from '@/assets/07/m5s/funky_floor/p3_beats_solution.png'
 import { translations } from '../_translations'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<CastSection start="08:42.080" base={base} duration={2.2} ability={translations.funkyFloor} />
+<CastSection start="08:42.080" duration={2.2} ability={translations.funkyFloor} />
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
@@ -39,7 +33,7 @@ const { base = 0 }: Props = Astro.props
     </div>
   </div>
 </NoteSection>
-<QuarterOrEighthBeatsCast start="08:47.737" base={base} />
+<QuarterOrEighthBeatsCast start="08:47.737" />
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
@@ -74,7 +68,7 @@ const { base = 0 }: Props = Astro.props
     </div>
   </div>
 </SolutionSection>
-<InsideOutOrOutsideInCast start="08:55.886" base={base} />
+<InsideOutOrOutsideInCast start="08:55.886" />
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
@@ -84,7 +78,7 @@ const { base = 0 }: Props = Astro.props
     </div>
   </div>
 </NoteSection>
-<QuarterOrEighthBeatsCast start="09:07.874" base={base} />
+<QuarterOrEighthBeatsCast start="09:07.874" />
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
@@ -94,7 +88,7 @@ const { base = 0 }: Props = Astro.props
     </div>
   </div>
 </NoteSection>
-<EventSection time="09:15.0" base={base}>
+<EventSection time="09:15.0">
   <Span variant="yellow">{translations.funkyFloor}</Span>
   效果结束
 </EventSection>

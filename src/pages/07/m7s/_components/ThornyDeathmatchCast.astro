@@ -10,14 +10,13 @@ import { translations } from '../_translations'
 import Span from '@/components/Span.vue'
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const thornyDeathmatch = translations.thornyDeathmatch
 ---
 
-<CastSection start={start} base={base} duration={2.7} ability={thornyDeathmatch}>
+<CastSection start={start} duration={2.7} ability={thornyDeathmatch}>
   <BruteAbombinator slot="source" />
   ，结束时对
   <RoleIcon role="any" tag="一仇" />

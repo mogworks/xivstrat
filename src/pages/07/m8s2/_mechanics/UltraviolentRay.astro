@@ -24,15 +24,14 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
 const ultraviolentRay = translations.ultraviolentRay
 ---
 
-<UltraviolentRayCast start={start} base={base} />
+<UltraviolentRayCast start={start} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

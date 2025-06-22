@@ -13,11 +13,10 @@ import DamageDown from '@/components/buff/DamageDown.astro'
 import { translations } from '../_translations'
 
 interface Props {
-  base?: Time
   activateTimes: Time[]
 }
 
-const { base = 0, activateTimes }: Props = Astro.props
+const { activateTimes }: Props = Astro.props
 
 const bareFangs = translations.bareFangs
 const championsCircuit = translations.championsCircuit
@@ -32,7 +31,7 @@ const championsCircuit = translations.championsCircuit
   <Fragment slot="details">
     {
       activateTimes.map((time, index) => (
-        <EventSection time={time} base={base}>
+        <EventSection time={time}>
           第<Span variant="pink">{index + 1}</Span>组AoE
           <Quote variant="zinc">
             <P>

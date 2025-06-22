@@ -9,17 +9,16 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const lashingLariat = translations.lashingLariat
 // debuff数据来源：
 // ref: https://www.fflogs.com/reports/hbRdpDkTtZBznHKY?fight=4&type=casts&phase=3&view=events&hostility=1
 // （谢谢你黑魔）
 ---
 
-<CastSection start={start} base={base} duration={3.2} ability={lashingLariat}>
+<CastSection start={start} duration={3.2} ability={lashingLariat}>
   <BruteAbombinator slot="source" />
   <Badge variant="emerald">27m宽半场刀</Badge>
 </CastSection>

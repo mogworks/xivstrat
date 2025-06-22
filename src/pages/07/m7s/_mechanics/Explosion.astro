@@ -26,24 +26,19 @@ import Skill from '@/components/typography/Skill.astro'
 import { translations } from '../_translations'
 import StratLink from '@/components/StratLink.astro'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
 const stoneringer = translations.stoneringer
 ---
 
-<ExplosionCast time="01:36.275" base={base} num={1} />
-<ExplosionCast time="01:38.818" base={base} num={2} />
-<ExplosionCast time="01:41.314" base={base} num={3} />
-<ExplosionActivate time="01:45.234" base={base} num={1} />
-<StoneringerCast start="01:46.61" base={base} />
-<ExplosionActivate time="01:47.815" base={base} num={2} />
-<ExplosionActivate time="01:50.309" base={base} num={3} />
-<SmashHereCast start="01:54.42" base={base} />
-<BrutishSwingActivate time="01:58.147" base={base} />
-<SmashActivate time="01:59.304" base={base} />
+<ExplosionCast time="01:36.275" num={1} />
+<ExplosionCast time="01:38.818" num={2} />
+<ExplosionCast time="01:41.314" num={3} />
+<ExplosionActivate time="01:45.234" num={1} />
+<StoneringerCast start="01:46.61" />
+<ExplosionActivate time="01:47.815" num={2} />
+<ExplosionActivate time="01:50.309" num={3} />
+<SmashHereCast start="01:54.42" />
+<BrutishSwingActivate time="01:58.147" />
+<SmashActivate time="01:59.304" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">

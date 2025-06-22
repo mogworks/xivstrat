@@ -17,15 +17,15 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
+
   buffTime: '21' | '37' | '54'
   type: 'wind' | 'stone'
 }
 
-const { time, base = 0, buffTime, type }: Props = Astro.props
+const { time, buffTime, type }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   初始持有
   {type === 'wind' ? <WindborneEnd tag={buffTime} hover /> : <EarthborneEnd tag={buffTime} hover />}
   的

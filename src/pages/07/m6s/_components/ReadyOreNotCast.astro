@@ -9,14 +9,13 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const ReadyOreNot = translations.ReadyOreNot
 ---
 
-<CastSection start={start} base={base} duration={6.7} ability={ReadyOreNot} target damage="200000" damageType="magical">
+<CastSection start={start} duration={6.7} ability={ReadyOreNot} target damage="200000" damageType="magical">
   <SugarRiot slot="source" />
   <Badge variant="purple">AoE</Badge>
 </CastSection>

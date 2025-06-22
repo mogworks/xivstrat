@@ -9,14 +9,14 @@ import ShockCast from '../_components/ShockCast.astro'
 
 interface Props {
   start: Time
-  base?: Time
+
   type: 'all' | 'half'
 }
 
-const { start, base = 0, type }: Props = Astro.props
+const { start, type }: Props = Astro.props
 ---
 
-<ShockCast start={start} base={base} />
+<ShockCast start={start} />
 {
   type === 'all' && (
     <MechanicSection>

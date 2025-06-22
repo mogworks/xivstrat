@@ -29,16 +29,10 @@ import wave2_solution_4 from '@/assets/07/m6s/soul_sugar/wave2_solution_4.png'
 import wave2_solution_5 from '@/assets/07/m6s/soul_sugar/wave2_solution_5.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
-
 const { WaterIII } = translations
 ---
 
-<LivePaintingCast start="04:09.934" base={base} class="-my-5">
+<LivePaintingCast start="04:09.934" class="-my-5">
   <Image src={wave2} alt="Paint Mark: Wave #2" class="-mr-3 -ml-2 w-30 drop-shadow-sm drop-shadow-black" />
   ，激活
   <Mu>
@@ -368,9 +362,9 @@ const { WaterIII } = translations
     </div>
   </div>
 </SolutionSection>
-<AttackSection time="04:16.750" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:19.775" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:22.803" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:25.830" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:28.861" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:31.891" base={base} damage="57000" damageType="magical" />
+<AttackSection time="04:16.750" damage="57000" damageType="magical" />
+<AttackSection time="04:19.775" damage="57000" damageType="magical" />
+<AttackSection time="04:22.803" damage="57000" damageType="magical" />
+<AttackSection time="04:25.830" damage="57000" damageType="magical" />
+<AttackSection time="04:28.861" damage="57000" damageType="magical" />
+<AttackSection time="04:31.891" damage="57000" damageType="magical" />

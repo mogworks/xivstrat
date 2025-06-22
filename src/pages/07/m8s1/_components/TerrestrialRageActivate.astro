@@ -12,17 +12,17 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
+
   order?: '1' | '2'
 }
 
-const { time, base = 0, order = '1' }: Props = Astro.props
+const { time, order = '1' }: Props = Astro.props
 const ability = translations.terrestrialRage
 const heavensearth = translations.heavensearth
 const suspendedStone = translations.suspendedStone
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <Skill name={ability} />
   第{order}轮点名判定，
   <RoleIcon role="all" tag="全员" />

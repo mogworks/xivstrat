@@ -10,16 +10,15 @@ import DamageDown from '@/components/buff/DamageDown.astro'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const duration = 6.7
 
 const championsCircuit = translations.championsCircuit
 ---
 
-<CastSection start={start} base={base} duration={duration} ability={championsCircuit}>
+<CastSection start={start} duration={duration} ability={championsCircuit}>
   <HowlingBlade slot="source" />
   <DamageInfo damage="150000" type="magical" />
   <DamageDown tag="30" />

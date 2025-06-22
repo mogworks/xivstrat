@@ -36,14 +36,14 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
+
   getDownTimes: Time[]
 }
-const { start, base = 0, getDownTimes = [] }: Props = Astro.props
+const { start, getDownTimes = [] }: Props = Astro.props
 const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '23']
 ---
 
-<CastSection start={start} base={base} duration={4.5} ability={translations.arcadyNightFever}>
+<CastSection start={start} duration={4.5} ability={translations.arcadyNightFever}>
   <Badge variant="yellow">连续钢铁月环</Badge>
 </CastSection>
 <CollapseSection>
@@ -61,7 +61,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
   <Fragment slot="details">
     {
       getDownTimes.map((time, index) => (
-        <EventSection time={time} base={base}>
+        <EventSection time={time}>
           <Boss />
           对随机不重复
           {index % 2 === 0 ? (

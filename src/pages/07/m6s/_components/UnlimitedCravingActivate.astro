@@ -9,15 +9,15 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
+
   wave: number
 }
 
-const { time, base = 0, wave }: Props = Astro.props
+const { time, wave }: Props = Astro.props
 const UnlimitedCraving = translations.UnlimitedCraving
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <GimmeCat wave={wave} />
   发动
   <Span variant="yellow">{UnlimitedCraving}</Span>
