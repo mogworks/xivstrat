@@ -215,43 +215,55 @@ const championsCircuit = translations.championsCircuit
     container.addChild(floor)
 
     // Champion's Circuit
-    let offset = Math.floor(Math.random() * 5)
+    const randStart = Math.floor(Math.random() * 5)
     const aoeContainer = new Container()
     container.addChild(aoeContainer)
-    const championsCircuitAoes: Container[] = [generateAoes(app, rotateArray(aoePos, offset))]
+    const championsCircuitAoes: Container[] = [generateAoes(app, rotateArray(aoePos, randStart))]
     aoeContainer.addChild(championsCircuitAoes[0])
 
     // Bare Fangs
     const fangsContainer = new Container()
     container.addChild(fangsContainer)
+    const fangsActivatedAoes: Container[] = []
+    const inactiveFangs = await addFangs(app, { multiplefangs: true, aoeColor: AOE_COLORS.tailwind.emerald })
+    inactiveFangs.label = 'inactive-fangs'
+    fangsContainer.addChild(inactiveFangs)
 
     // dyanmic
     const interval = 4000 // time control
+    let offset = 0
     let rotateDir = 1
     let tickerFn: ((ticker: Ticker) => void) | null = null
 
-    // init
-    const inactiveFangs = await addFangs(app, { multiplefangs: true, aoeColor: AOE_COLORS.tailwind.emerald })
-    inactiveFangs.label = 'inactive-fangs'
-    let activatedFangs = await addFangs(app, {
-      multiplefangs: true,
-      activate: true,
-      random: true,
-      aoeColor: AOE_COLORS.tailwind.emerald,
-    })
-    fangsContainer.addChild(inactiveFangs)
-
-    async function loadChampionsCircuit() {
-      for (let i = offset + 1; i < offset + 5; i++) {
-        championsCircuitAoes.push(generateAoes(app, rotateArray(aoePos, i)))
+    async function loadAoes() {
+      // Champion's Circuit
+      if (championsCircuitAoes.length <= 1) {
+        for (let i = randStart + 1; i < randStart + 5; i++) {
+          championsCircuitAoes.push(generateAoes(app, rotateArray(aoePos, i)))
+        }
       }
-      offset = 0
+
+      // Bare Fangs
+      if (fangsActivatedAoes.length === 0) {
+        for (let i = 0; i < 32; i++) {
+          const binaryString = i.toString(2).padStart(5, '0')
+          const patterns = Array.from(binaryString, Number)
+          fangsActivatedAoes.push(
+            await addFangs(app, {
+              multiplefangs: true,
+              activate: true,
+              patterns,
+              aoeColor: AOE_COLORS.tailwind.emerald,
+            }),
+          )
+        }
+      }
     }
 
     async function play() {
       let elapsed = 0
 
-      await loadChampionsCircuit()
+      await loadAoes()
 
       if (tickerFn) {
         app.ticker.remove(tickerFn)
@@ -261,31 +273,14 @@ const championsCircuit = translations.championsCircuit
         elapsed += ticker.elapsedMS
         if (elapsed >= interval / 2) {
           aoeContainer.removeChildren()
-          fangsContainer
-            .removeChildren()
-            .filter((child) => child.label !== 'inactive-fangs')
-            .forEach((child) => {
-              child.destroy({ children: true, texture: true })
-            })
+          fangsContainer.removeChildren()
           fangsContainer.addChild(inactiveFangs)
-          activatedFangs = await addFangs(app, {
-            multiplefangs: true,
-            activate: true,
-            random: true,
-            aoeColor: AOE_COLORS.tailwind.emerald,
-          }) // 预载
         }
         if (elapsed >= interval) {
           elapsed = 0
           offset += rotateDir // +1为顺时针
-
-          fangsContainer
-            .removeChildren()
-            .filter((child) => child.label !== 'inactive-fangs')
-            .forEach((child) => {
-              child.destroy({ children: true, texture: true })
-            })
-          fangsContainer.addChild(activatedFangs)
+          fangsContainer.removeChildren()
+          fangsContainer.addChild(fangsActivatedAoes[Math.floor(Math.random() * 32)])
           aoeContainer.addChild(rotateArray(championsCircuitAoes, offset)[0])
         }
       }
@@ -307,12 +302,7 @@ const championsCircuit = translations.championsCircuit
       }
 
       aoeContainer.removeChildren()
-      fangsContainer
-        .removeChildren()
-        .filter((child) => child.label !== 'inactive-fangs')
-        .forEach((child) => {
-          child.destroy({ children: true, texture: true })
-        })
+      fangsContainer.removeChildren()
 
       fangsContainer.addChild(inactiveFangs)
       aoeContainer.addChild(rotateArray(championsCircuitAoes, offset)[0])
