@@ -8,7 +8,7 @@ import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 
-import ImageRow from '@/components/typography/ImgRow.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import EscelonsFallCast from '../_components/EscelonsFallCast.astro'
 
@@ -61,19 +61,19 @@ const { start }: Props = Astro.props
 </MechanicSection>
 <SolutionSection>
   <div class="flex gap-4">
-    <ImageRow
-        class="game-img"
-        wrapperClass="max-w-88"
-        borderVariant="cyan"
-        rounded
-        imgs={[
-          {
-            src: first,
-            alt: 'Zelenia：P2 球与分身',
-            title: 'TN点月环（踩塔）',
-          },
-        ]}
-      />
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: first,
+          alt: 'Zelenia：P2 球与分身',
+          title: 'TN点月环（踩塔）',
+        },
+      ]}
+    />
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
       <div class="paragraph">按照图示位置进行初始站位，</div>
       <div class="paragraph">
@@ -122,7 +122,6 @@ const { start }: Props = Astro.props
         向内移动，来到<Span variant="pink">目标圈内</Span>一步。
       </div>
       <div class="paragraph">第三刀后保持不动</div>
-
     </div>
   </div>
 </SolutionSection>
