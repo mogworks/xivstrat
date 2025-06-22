@@ -11,7 +11,6 @@ import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import Skill from '@/components/typography/Skill.astro'
 import DraftWarning from '@/components/DraftWarning.astro'
 
-import Attack from './_components/Attack.astro'
 import XReignCast from './_components/XReignCast.astro'
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
 import HowlingBlade from './_components/entities/HowlingBlade.astro'
@@ -51,23 +50,24 @@ const base = '04:27.478'
   <WealOfStone start="05:11.624" base={base} />
   <SeparatorSection />
 
-  <Attack time="05:16.0" base={base} />
-  <Attack time="05:19.0" base={base} />
   <GreatDivide start="05:19.593" base={base} phase="P3" />
-  <Attack time="05:28.0" base={base} />
-  <Attack time="05:31.0" base={base} />
   <MoveToCenterEvent time="05:32.835" base={base} />
 
-  <!-- 四连刀 -->
   <SeparatorSection
     id="terrestrial-rage-beckon-moonlight"
     title={`${translations.terrestrialRage} + ${translations.beckonMoonlight}`}
   />
-  <BeckonMoonlight start="05:34.657" base={base} />
+  <BeckonMoonlight start="05:35.950" base={base} />
   <MoveToCenterEvent time="06:00.224" base={base} />
+
+  <SeparatorSection
+    id="weal-of-stone-xfang"
+    title={`${translations.wealOfStone} + ${translations.stonefang} | ${translations.windfang}`}
+  />
   <!-- TODO: 随机两个相邻斜点出土狼头 四个正点固定安全 这里我没写来个好哥哥补一下 -->
   <Xfang start="06:02.102" base={base} />
-  <Attack time="06:14.0" base={base} />
+  <SeparatorSection />
+
   <TrackingTremors
     start="06:13.522"
     base={base}
@@ -82,18 +82,12 @@ const base = '04:27.478'
       '06:26.898',
     ]}
   />
-  <Attack time="06:22.0" base={base} />
-  <Attack time="06:25.0" base={base} />
-  <Attack time="06:28.0" base={base} />
 
   <SeparatorSection id="extraplanar-feast" title="空間斬り・終" />
   <!-- 打的慢的话这个aoe会跳过 -->
   <ExtraplanarPursuitCast start="06:28.725" base={base} />
   <NoteSection> 如果小怪阶段打太慢，会跳过一次AoE。 </NoteSection>
-  <Attack time="06:34.0" base={base} />
-  <Attack time="06:37.0" base={base} />
-  <Attack time="06:40.0" base={base} />
-  <Attack time="06:43.0" base={base} />
+
   <ExtraplanarPursuitCast start="06:43.514" base={base} />
   <MoveToCenterEvent time="06:48.319" base={base} />
   <NoteSection>
