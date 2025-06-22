@@ -14,6 +14,9 @@ import TerrestrialRageCast from '../_components/TerrestrialRageCast.astro'
 import TerrestrialRageActivate from '../_components/TerrestrialRageActivate.astro'
 
 import { translations } from '../_translations'
+
+import beckon_moonlight from '@/assets/07/m8s1/beckon_moonlight/1.png'
+import ImgRow from '@/components/typography/ImgRow.astro'
 ---
 
 <CastSection start="05:35.950" ability={translations.beckonMoonlight} duration={2.7}>
@@ -33,6 +36,7 @@ import { translations } from '../_translations'
       <Skill name={translations.beckonMoonlight} />
       组合发动
     </P>
+
     <T text={translations.beckonMoonlight} variant="yellow" class="mt-8" />
     <P>
       <HowlingBlade />
@@ -43,8 +47,22 @@ import { translations } from '../_translations'
       <Span variant="cyan">2s</Span>
       依次读条
       <Skill name={translations.moonbeamsBite} />
-      ，释放半场刀，攻击自身亮起武器的一侧
+      ，释放半场刀，攻击自身亮起武器的一侧：
     </P>
+    <ImgRow
+      class="mt-6 ml-6"
+      borderVariant="cyan"
+      rounded
+      imgClass="scale-150"
+      titleClass="mt-3"
+      imgs={[
+        {
+          src: beckon_moonlight,
+          alt: '幻狼召唤示例',
+          title: '以分身从A点顺时针出现为例',
+        },
+      ]}
+    />
   </div>
 </MechanicSection>
 
