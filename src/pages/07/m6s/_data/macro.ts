@@ -1,6 +1,5 @@
 /* eslint-disable no-irregular-whitespace */
 
-// TODO: 需要正确性校验
 export const macro1 = `/p ■ 基本分散 (BOSS面基、TBOSS脚下)
 /p 　      D3  D4
 /p      H1　☆ 　H2

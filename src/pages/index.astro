@@ -1,10 +1,15 @@
 ---
+import { Image } from 'astro:assets'
 import { getCollection } from 'astro:content'
 
 import Layout from '@/layouts/Layout.astro'
 import Footer from '@/components/Footer.astro'
 import DutyGroup from '@/components/DutyGroup.astro'
 import LinkIcons from '@/components/LinkIcons.astro'
+
+import XivStratLightLogo from '@/assets/developer/group/XivStrat_light.png'
+import XivStratDarkLogo from '@/assets/developer/group/XivStrat_dark.png'
+import XivStratHoverLogo from '@/assets/developer/group/XivStrat_hover.png'
 
 const dutyGroups = await getCollection('dutyGroups')
 ---
@@ -14,8 +19,30 @@ const dutyGroups = await getCollection('dutyGroups')
     <div class="bg-dots fade-b absolute inset-x-0 top-0 h-48"></div>
     <LinkIcons class="fixed top-8 right-8 z-50 px-0" />
     <header class="mt-20 text-center">
-      <h1 class="text-5xl leading-tight font-semibold tracking-tight">XivStrat</h1>
-      <p class="mt-7 text-lg leading-relaxed font-medium text-zinc-400">从7.2开始的最终幻想14中文攻略站</p>
+      <div class="group flex items-center justify-center">
+        <Image
+          src={XivStratHoverLogo}
+          alt="XivStrat"
+          class="hidden h-18 w-auto scale-300 group-hover:block"
+          draggable="false"
+          loading="eager"
+        />
+        <Image
+          src={XivStratLightLogo}
+          alt="XivStrat"
+          class="h-18 w-auto scale-300 group-hover:hidden dark:hidden"
+          draggable="false"
+          loading="eager"
+        />
+        <Image
+          src={XivStratDarkLogo}
+          alt="XivStrat"
+          class="hidden h-18 w-auto scale-300 dark:block dark:group-hover:hidden"
+          draggable="false"
+          loading="eager"
+        />
+      </div>
+      <p class="mt-8 text-lg leading-relaxed font-medium text-zinc-400">从7.2开始的最终幻想14中文攻略站</p>
     </header>
     <main class="mb-24 w-full px-8 py-16 @md:max-w-md @3xl:max-w-4xl @7xl:max-w-7xl">
       <div class="space-y-16">

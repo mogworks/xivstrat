@@ -11,16 +11,17 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
+  num?: number
 }
 
-const { start }: Props = Astro.props
+const { start, num = 2 }: Props = Astro.props
 
 const ability = translations.wealOfStone
 ---
 
 <CastSection ability={ability} start={start} duration={2.2}>
   <WolfOfStone slot="source">
-    <Span variant="orange">土狼首×2</Span>
+    <Span variant="orange">土狼首×{num}</Span>
   </WolfOfStone>
   <Badge variant="emerald">6m宽直线</Badge>
 </CastSection>

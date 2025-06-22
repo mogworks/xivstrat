@@ -16,23 +16,76 @@ import ya from '@/assets/07/zelenia/P3-2/P3-2-ya.png'
 import ga2 from '@/assets/07/zelenia/P3-2/P3-2-ga-2.png'
 import ya2 from '@/assets/07/zelenia/P3-2/P3-2-ya-2.png'
 import j from '@/assets/07/zelenia/P3-2/P3-2-j.png'
+
+
+import j1 from '@/assets/07/zelenia/P3-2/P2-j1.png'
+import j2 from '@/assets/07/zelenia/P3-2/P2-j2.png'
+import j3 from '@/assets/07/zelenia/P3-2/P2-j3.png'
+import moon from '@/assets/07/zelenia/P3-2/P2-j-moon.png'
+import steel from '@/assets/07/zelenia/P3-2/P2-j-steel.png'
+
+
 ---
 
 <MechanicSection>
-  <div class="flex gap-4">
-    <div class="max-w-88 flex-1">
+  <div class="flex flex-col gap-4">
+    <!-- <div class="max-w-88 flex-1">
       <Image src={img} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     </div>
-    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
-      <div class="paragraph">
-        <Zelenia />读条<Span variant="blue">钢铁</Span>+<Span variant="yellow">月环</Span>
-        或
-        <Span variant="yellow">月环</Span>+<Span variant="blue">钢铁</Span>，会引爆<Span variant="pink">红色地板</Span>
-      </div>
-      <div class="paragraph">
-        <Zelenia />同时按顺序施放扇形刀，不会引爆红色地板
-      </div>
+
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4"> -->
+    <div class="paragraph">
+      <Zelenia/>读条<Span variant="blue">钢铁</Span>+<Span variant="yellow">月环</Span>
+      或
+      <Span variant="yellow">月环</Span>+<Span variant="blue">钢铁</Span>，会引爆<Span variant="pink">红色地板</Span>
+
     </div>
+    <div class="paragraph">
+      同时按顺序施放三组扇形刀，不会引爆红色地板
+    </div>
+    <ImageRow
+        class="game-img"
+        wrapperClass="max-w-60"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: j1,
+            alt: 'Zelenia：P3-2 第一组扇形刀',
+            title: '第一组扇形刀',
+          },
+          {
+            src: j2,
+            alt: 'Zelenia：P3-2 第二组扇形刀',
+            title: '第二组扇形刀',
+          },
+          {
+            src: j3,
+            alt: 'Zelenia：P3-2 第三组扇形刀',
+            title: '第三组扇形刀',
+          },
+        ]}
+      />
+      <ImageRow
+        class="game-img"
+        wrapperClass="max-w-60"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: steel,
+            alt: 'Zelenia：P3-2 钢铁范围',
+            title: '钢铁范围',
+          },
+          {
+            src: moon,
+            alt: 'Zelenia：P3-2 月环范围',
+            title: '月环范围',
+          },
+          
+        ]}
+      />
+    <!-- </div> -->
   </div>
 </MechanicSection>
 <SolutionSection>
