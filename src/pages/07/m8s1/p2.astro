@@ -4,10 +4,18 @@ import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
 
 import MoveToNorthEvent from './_components/MoveToNorthEvent.astro'
 import RavenousSaberActivate from './_components/RavenousSaberActivate.astro'
 import HowlingBlade from './_components/entities/HowlingBlade.astro'
+import WolfOfWind from './_components/entities/WolfOfWind.astro'
+import WolfOfStone from './_components/entities/WolfOfStone.astro'
+import BossAttackSection from './_components/BossAttackSection.astro'
 
 import TacticalPack from './_mechanics/TacticalPack.astro'
 
@@ -22,6 +30,25 @@ const base = '02:53.751'
   <MoveToNorthEvent time="02:53.751" />
 
   <SeparatorSection id="tactical-pack" title={translations.tacticalPack} />
+  <NoteSection>
+    <P>为保证时间轴简明，以下事件将被略去：</P>
+    <Quote variant="cyan" class="mt-4">
+      <P>
+        <WolfOfWind />
+        每3秒1次对
+        <RoleIcon role="tank" tag="一仇" />
+        的普通攻击
+        <DamageInfo damage="50000" type="physical" />
+      </P>
+      <P>
+        <WolfOfStone />
+        每3秒1次对
+        <RoleIcon role="tank" tag="一仇" />
+        的普通攻击
+        <DamageInfo damage="50000" type="physical" />
+      </P>
+    </Quote>
+  </NoteSection>
   <TacticalPack />
 
   <SeparatorSection id="ravenous-saber" title={translations.ravenousSaber} />
@@ -38,4 +65,6 @@ const base = '02:53.751'
     <DirectionalDisregard hover />
     ，目标圈恢复身位限制
   </EventSection>
+
+  <BossAttackSection time="04:28.464" damage="60000" damageType="physical" />
 </DutyStratLayout>
