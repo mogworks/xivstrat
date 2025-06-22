@@ -10,6 +10,7 @@ export const thanksList = {
     'Ling',
     'FlyFish',
     'cck',
+    'DaGongYou',
   ],
   other: [],
 }

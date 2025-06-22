@@ -295,6 +295,10 @@ const sporesplosion = translations.sporesplosion
       container.removeChild()
       let elapsed = 0
 
+      if (tickerFn) {
+        app.ticker.remove(tickerFn)
+        tickerFn = null
+      }
       tickerFn = (ticker) => {
         elapsed += ticker.elapsedMS
         const phase = Math.floor(elapsed / 1500) % 4

@@ -8,9 +8,12 @@ import Quote from '@/components/typography/Quote.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import Span from '@/components/Span.vue'
+import StratBoard from '@/components/StratBoard.astro'
 import T from '@/components/typography/T.astro'
 
 import img from '@/assets/07/m8s2/tmp.png'
+import ResetSVG from '@/assets/svg/reset.svg'
+import VideoPlaySVG from '@/assets/svg/video-play.svg'
 
 import BareFangsCast from '../_components/BareFangsCast.astro'
 import ChampionsCircuitActivate from '../_components/ChampionsCircuitActivate.astro'
@@ -57,7 +60,49 @@ const championsCircuit = translations.championsCircuit
     <Quote variant="cyan"> 注意：读条结束后范围提示和旋转方向都将消失，需要凭借记忆判断安全区 </Quote>
 
     <P> 上述两种攻击将在每次判定时几乎同时释放 </P>
-    <Image src={img} alt="" class="max-w-100 border-2 border-cyan-600 dark:border-cyan-100" />
+    <T variant="yellow" text="动态演示" />
+    <div class="flex gap-4">
+      <div class="flex shrink flex-col items-center gap-4">
+        <StratBoard
+          width={740}
+          height={740}
+          key="champions-circuit-mechanic-dynamic"
+          class="max-h-120 max-w-120"
+          canvasClass="h-full w-full drop-shadow-sm drop-shadow-black"
+        />
+        <div
+          class="flex items-center justify-start gap-2 rounded-full border border-lime-200 bg-lime-100/90 px-3 py-1 backdrop-blur-sm dark:border-lime-800/80 dark:bg-lime-900/80 dark:shadow-lime-900/30"
+        >
+          <button
+            id="champions-circuit-mechanic-dynamic-play-button"
+            class="group flex items-center gap-2"
+            title="开始演示"
+          >
+            <div
+              class="flex h-6 w-6 items-center justify-center rounded-full bg-lime-500 text-white shadow-inner shadow-lime-400/30 transition-all group-hover:scale-110 group-hover:bg-lime-600 group-hover:shadow group-active:scale-95 dark:bg-lime-600 dark:shadow-lime-500/10 dark:group-hover:bg-lime-500"
+            >
+              <VideoPlaySVG />
+            </div>
+            <span
+              class="text-sm font-medium text-lime-900 transition-all group-hover:scale-110 group-hover:text-lime-700 group-active:scale-95 dark:text-lime-100 dark:group-hover:text-white"
+              >开始演示</span
+            >
+          </button>
+          <span class="mx-0.5 h-5 border-l border-lime-400/80 dark:border-lime-400/60"></span>
+          <button id="champions-circuit-mechanic-reset-button" class="group flex items-center gap-2" title="旋转方向">
+            <div
+              class="flex h-6 w-6 items-center justify-center rounded-full bg-lime-500 text-white shadow-inner shadow-lime-400/30 transition-all group-hover:scale-110 group-hover:bg-lime-600 group-hover:shadow group-active:scale-95 dark:bg-lime-600 dark:shadow-lime-500/10 dark:group-hover:bg-lime-500"
+            >
+              <ResetSVG />
+            </div>
+            <span
+              class="text-sm font-medium text-lime-900 transition-all group-hover:scale-110 group-hover:text-lime-700 group-active:scale-95 dark:text-lime-100 dark:group-hover:text-white"
+              >顺时针</span
+            >
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </MechanicSection>
 <SolutionSection>
@@ -69,3 +114,171 @@ const championsCircuit = translations.championsCircuit
     </P>
   </div>
 </SolutionSection>
+
+<script>
+  import type { Application, Ticker } from 'pixi.js'
+
+  import { listenKeys } from 'nanostores'
+  import { Assets, Container, Graphics, Sprite } from 'pixi.js'
+
+  import floor_img from '@/assets/07/m8s2/p2/floor_2@3x.png'
+  import { AoE } from '@/pixi/aoe'
+  import { getScale, YmToPx } from '@/pixi/utils'
+  import { $stratBoards } from '@/stores/stratBoards'
+
+  const scaleSize = 1.25
+  const YmToPxLarge = YmToPx * scaleSize
+
+  // champions circuit position
+  const aoePos: { r: number; rad: number }[] = [
+    { r: 17.54 * YmToPxLarge, rad: Math.PI / 10 },
+    { r: 17.54 * YmToPxLarge, rad: Math.PI / 2 },
+    { r: 17.54 * YmToPxLarge, rad: (9 * Math.PI) / 10 },
+    { r: 17.54 * YmToPxLarge, rad: (-7 * Math.PI) / 10 },
+    { r: 17.54 * YmToPxLarge, rad: (-3 * Math.PI) / 10 },
+  ]
+
+  function polarRadianToCartesian(ppos: { r: number; rad: number }): { x: number; y: number } {
+    const x = ppos.r * Math.cos(ppos.rad)
+    const y = ppos.r * Math.sin(ppos.rad)
+
+    return { x, y }
+  }
+
+  function rotateArray<T>(arr: T[], offset: number = 1) {
+    const len = arr.length
+    const n = ((offset % len) + len) % len
+    return arr.slice(n).concat(arr.slice(0, n))
+  }
+
+  function generateAoes(
+    app: Application,
+    aoeContainer: Container,
+    aoePos: { r: number; rad: number }[],
+    scale: number = scaleSize,
+  ) {
+    aoeContainer.removeChildren().forEach((child) => {
+      child.destroy({ children: true, texture: true })
+    })
+
+    // aoe ring
+    const aoeSmallRing = AoE.createRing(4.5 * scale, 13 * scale).toSprite(app)
+    const pos1 = polarRadianToCartesian(aoePos[0])
+    aoeSmallRing.position.set(pos1.x, pos1.y)
+    aoeContainer.addChild(aoeSmallRing)
+
+    // aoe rect
+    const aoeRect = AoE.createRect(12 * scale, 20 * scale).toSprite(app)
+    const pos2 = polarRadianToCartesian(aoePos[1])
+    aoeRect.position.set(pos2.x, pos2.y)
+    aoeRect.rotation = aoePos[1].rad + Math.PI / 2
+    aoeContainer.addChild(aoeRect)
+
+    const aoeRectMask = new Graphics().circle(pos2.x, pos2.y, 8 * YmToPxLarge).fill({ color: 'white' })
+    aoeRect.mask = aoeRectMask
+    aoeContainer.addChild(aoeRectMask)
+
+    // aoe large circle fan
+    const aoeCircleFan = AoE.createFan(22 * scale, 60).toSprite(app)
+    aoeCircleFan.rotation = aoePos[3].rad
+    aoeCircleFan.position.set(0, 0)
+    aoeContainer.addChild(aoeCircleFan)
+
+    const pos4 = polarRadianToCartesian(aoePos[3])
+    const aoeCircleFanMask = new Graphics().circle(pos4.x, pos4.y, 8 * YmToPxLarge).fill({ color: 'white' })
+    aoeCircleFan.mask = aoeCircleFanMask
+    aoeContainer.addChild(aoeCircleFanMask)
+
+    // aoe large ring fan * 2
+    const aoeRingFan1 = AoE.createRingFan(15 * scale, 26 * scale, 60).toSprite(app)
+    const pos3 = polarRadianToCartesian({ r: 20.5 * YmToPxLarge, rad: aoePos[2].rad })
+    aoeRingFan1.position.set(pos3.x, pos3.y)
+    aoeRingFan1.rotation = aoePos[2].rad
+    aoeContainer.addChild(aoeRingFan1)
+
+    const aoeRingFan2 = AoE.createRingFan(15 * scale, 26 * scale, 60).toSprite(app)
+    const pos5 = polarRadianToCartesian({ r: 20.5 * YmToPxLarge, rad: aoePos[4].rad })
+    aoeRingFan2.position.set(pos5.x, pos5.y)
+    aoeRingFan2.rotation = aoePos[4].rad
+    aoeContainer.addChild(aoeRingFan2)
+  }
+
+  listenKeys($stratBoards, ['champions-circuit-mechanic-dynamic'], async (stratBoards) => {
+    const app = stratBoards['champions-circuit-mechanic-dynamic']
+
+    const container = new Container()
+    container.position.set(app.screen.width / 2, app.screen.height / 2)
+    app.stage.addChild(container)
+
+    const floorTexture = await Assets.load(floor_img)
+    const floor = Sprite.from(floorTexture)
+    const centerToNorth = 17.54 * Math.cos(Math.PI / 5) + 8
+    const centerToSouth = 17.54 + 8
+    floor.anchor.set(0.5, centerToNorth / (centerToNorth + centerToSouth))
+    floor.scale.set(getScale() * 1.25)
+    container.addChild(floor)
+
+    // Champion's Circuit
+    const aoeContainer = new Container()
+    container.addChild(aoeContainer)
+
+    // dyanmic
+    const interval = 4000
+    let rotateDir = 1
+    let offset = Math.floor(Math.random() * 5)
+    let tickerFn: ((ticker: Ticker) => void) | null = null
+    generateAoes(app, aoeContainer, rotateArray(aoePos, offset))
+
+    async function play() {
+      aoeContainer.removeChildren().forEach((child) => {
+        child.destroy({ children: true, texture: true })
+      })
+      let elapsed = 0
+
+      if (tickerFn) {
+        app.ticker.remove(tickerFn)
+        tickerFn = null
+      }
+      tickerFn = (ticker) => {
+        elapsed += ticker.elapsedMS
+        if (elapsed >= interval / 2) {
+          aoeContainer.removeChildren().forEach((child) => {
+            child.destroy({ children: true, texture: true })
+          })
+        }
+        if (elapsed >= interval) {
+          elapsed = 0
+          offset += rotateDir // +1为顺时针
+
+          generateAoes(app, aoeContainer, rotateArray(aoePos, offset))
+        }
+      }
+
+      app.ticker.add(tickerFn)
+    }
+
+    async function reset() {
+      if (tickerFn) {
+        app.ticker.remove(tickerFn)
+        tickerFn = null
+      }
+
+      rotateDir = -rotateDir
+      // 更新按钮文字
+      const span = document.querySelector('#champions-circuit-mechanic-reset-button span')
+      if (span) {
+        span.textContent = rotateDir > 0 ? '顺时针' : '逆时针'
+      }
+
+      generateAoes(app, aoeContainer, rotateArray(aoePos, offset))
+    }
+
+    document.getElementById('champions-circuit-mechanic-dynamic-play-button')?.addEventListener('click', () => {
+      play()
+    })
+
+    document.getElementById('champions-circuit-mechanic-reset-button')?.addEventListener('click', () => {
+      reset()
+    })
+  })
+</script>
