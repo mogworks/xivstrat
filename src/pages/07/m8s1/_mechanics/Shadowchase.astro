@@ -37,6 +37,8 @@ import solution_1 from '@/assets/07/m8s1/shadowchase/solution_1.png'
 import solution_2 from '@/assets/07/m8s1/shadowchase/solution_2.png'
 import solution_3 from '@/assets/07/m8s1/shadowchase/solution_3.png'
 import solution_4 from '@/assets/07/m8s1/shadowchase/solution_4.png'
+import solution_5 from '@/assets/07/m8s1/shadowchase/solution_5.png'
+import solution_6 from '@/assets/07/m8s1/shadowchase/solution_6.png'
 
 interface Props {
   base?: Time
@@ -266,6 +268,20 @@ const { base = 0 }: Props = Astro.props
       <Skill name={translations.fangedCharge} />
       必定只会覆盖标点的一半，如下图：
     </P>
+    <ImgRow
+      borderVariant="cyan"
+      imgClass="rounded-b-full"
+      imgs={[
+        {
+          src: solution_5,
+          alt: '解法示意图5: 近战贪点',
+        },
+        {
+          src: solution_6,
+          alt: '解法示意图6: 近战贪点',
+        },
+      ]}
+    />
     <P>这两个边缘点同时也是最大近战距离点，因此可以无损输出</P>
   </div>
 </SolutionSection>
