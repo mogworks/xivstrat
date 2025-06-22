@@ -39,6 +39,19 @@ const terrestrial_rage_2 = terrestrial_rage_1 + 7
 <CastSection start={terrestrial_rage_start} base={base} ability="大地の怒り" duration={2.7}>
   <HowlingBlade slot="source" />
 </CastSection>
+<EventSection time={terrestrial_rage_1} base={base}>
+  <Skill name={['大震撃', '大岩石']} />
+  <DamageInfo damage="110000" type="magical" />
+  <MagicVulnerabilityUp tag="2" hover />
+  判定
+</EventSection>
+<MoonbeamsBiteCast start={moonbeams_bite_start} base={base} />
+<EventSection time={terrestrial_rage_2} base={base}>
+  <Skill name={['大震撃', '大岩石']} />
+  <DamageInfo damage="110000" type="magical" />
+  <MagicVulnerabilityUp tag="2" hover />
+  判定
+</EventSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T text="幻狼招来" variant="yellow" />
@@ -87,16 +100,3 @@ const terrestrial_rage_2 = terrestrial_rage_1 + 7
     </div>
   </div>
 </SolutionSection>
-<EventSection time={terrestrial_rage_1} base={base}>
-  <Skill name={['大震撃', '大岩石']} />
-  <DamageInfo damage="110000" type="magical" />
-  <MagicVulnerabilityUp tag="2" hover />
-  判定
-</EventSection>
-<MoonbeamsBiteCast start={moonbeams_bite_start} base={base} />
-<EventSection time={terrestrial_rage_2} base={base}>
-  <Skill name={['大震撃', '大岩石']} />
-  <DamageInfo damage="110000" type="magical" />
-  <MagicVulnerabilityUp tag="2" hover />
-  判定
-</EventSection>
