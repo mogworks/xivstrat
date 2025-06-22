@@ -10,15 +10,15 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
 interface Props {
   time: Time
-  base?: Time
+
   num: number
   // toln: number
 }
 
-const { time, base = 0, num }: Props = Astro.props
+const { time, num }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <Span variant="yellow">Escelons' Fall</Span>
   第
   <Span variant="pink">{num}</Span>

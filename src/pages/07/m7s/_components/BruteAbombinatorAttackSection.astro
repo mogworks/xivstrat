@@ -7,14 +7,14 @@ import BruteAbombinator from './BruteAbombinator.astro'
 
 interface Props {
   time: Time
-  base?: Time
+
   damage: string
   damageType: 'physical' | 'magical' | 'special'
 }
 
-const { time, base = 0, damage, damageType }: Props = Astro.props
+const { time, damage, damageType }: Props = Astro.props
 ---
 
-<AttackSection time={time} base={base} damage={damage} damageType={damageType}>
+<AttackSection time={time} damage={damage} damageType={damageType}>
   <BruteAbombinator slot="source" />
 </AttackSection>

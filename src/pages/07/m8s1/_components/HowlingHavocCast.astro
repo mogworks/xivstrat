@@ -18,24 +18,15 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
 const ability = translations.howlingHavoc
 const duration = 4.7
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<CastSection
-  start={start}
-  base={base}
-  duration={duration}
-  ability={ability}
-  target
-  damage="110000"
-  damageType="magical"
->
+<CastSection start={start} duration={duration} ability={ability} target damage="110000" damageType="magical">
   <WolfOfWind slot="source" />
   <WolfOfStone slot="source" />
   <Badge variant="yellow">AoE</Badge>

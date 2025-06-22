@@ -22,22 +22,16 @@ import TerrestrialRageActivate from '../_components/TerrestrialRageActivate.astr
 import { translations } from '../_translations'
 
 import beckon_moonlight_solution_img from '@/assets/07/m8s1/Tmp.png'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<CastSection start="05:35.950" base={base} ability={translations.beckonMoonlight} duration={2.7}>
+<CastSection start="05:35.950" ability={translations.beckonMoonlight} duration={2.7}>
   <HowlingBlade slot="source" />
   <Badge variant="emerald">复合机制</Badge>
 </CastSection>
-<TerrestrialRageCast start="05:43.064" base={base} />
-<TerrestrialRageActivate time="05:51.615" base={base} />
-<MoonbeamsBiteCast start="05:44.064" base={base} />
-<TerrestrialRageActivate time="06:00.136" base={base} order="2" />
+<TerrestrialRageCast start="05:43.064" />
+<TerrestrialRageActivate time="05:51.615" />
+<MoonbeamsBiteCast start="05:44.064" />
+<TerrestrialRageActivate time="06:00.136" order="2" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T text="幻狼招来" variant="yellow" />

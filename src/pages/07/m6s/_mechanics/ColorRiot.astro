@@ -20,15 +20,10 @@ import color_riot_2 from '@/assets/07/m6s/color_riot_2.png'
 import color_riot_solution from '@/assets/07/m6s/color_riot_solution.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
 const { WarmBomb, CoolBomb } = translations
 ---
 
-<ColorRiotCast start="00:17.322" base={base} />
+<ColorRiotCast start="00:17.322" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">

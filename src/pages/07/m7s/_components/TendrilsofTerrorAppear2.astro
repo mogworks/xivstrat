@@ -7,16 +7,16 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
+
   duration?: Time
   num?: number
 }
 
-const { time, base = 0, num }: Props = Astro.props
+const { time, num }: Props = Astro.props
 const tendrilsofTerror = translations.tendrilsOfTerror
 ---
 
-<CastSection start={time} base={base} duration={2.7} ability={tendrilsofTerror}>
+<CastSection start={time} duration={2.7} ability={tendrilsofTerror}>
   <Fragment slot="source"> <Span variant="cyan">冰花</Span></Fragment>
   <Fragment slot="cast">预兆出现，消失后释放</Fragment>
   <Badge variant="emerald">米字形AoE</Badge>

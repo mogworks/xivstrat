@@ -11,14 +11,13 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 const LightningStorm = translations.LightningStorm
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <SugarRiot />
   对随机不重复
   <Span variant="default">1</Span>

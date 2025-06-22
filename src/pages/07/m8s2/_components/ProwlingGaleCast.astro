@@ -8,15 +8,14 @@ import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
 const prowlingGale = '風狼陣'
 ---
 
-<CastSection start={start} base={base} duration={7.7} ability={prowlingGale} damage="45000" damageType="magical">
+<CastSection start={start} duration={7.7} ability={prowlingGale} damage="45000" damageType="magical">
   <HowlingBlade slot="source" />
 
   <Badge variant="yellow">踩塔</Badge>

@@ -10,14 +10,13 @@ import BruteAbombinator from './BruteAbombinator.astro'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const specialBombarianSpecial = translations.specialBombarianSpecial
 ---
 
-<CastSection start={start} base={base} duration={9.7} ability={specialBombarianSpecial}>
+<CastSection start={start} duration={9.7} ability={specialBombarianSpecial}>
   <BruteAbombinator slot="source" />
   <Span slot="ability" variant="fuchsia">{specialBombarianSpecial}</Span>
   <Badge variant="fuchsia">狂暴</Badge>

@@ -33,10 +33,6 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import Tmp from '@/assets/07/m7s/Tmp.png'
 
-interface Props {
-  base?: Time
-}
-const { base = 0 }: Props = Astro.props
 const strangeSeeds = translations.strangeSeeds
 const demolitionDeathmatch = translations.demolitionDeathmatch
 const killerseeds = translations.killerSeeds
@@ -56,29 +52,29 @@ const solutions = [
 const defaultSolution = '解法：萨利式'
 ---
 
-<StrangeSeedsCast start="04:43.863" base={base} />
-<StrangeSeedsAppear time="04:48.986" base={base} num={1} />
-<StoneringerCast start="04:52.997" base={base} />
-<StrangeSeedsActivate time="04:53.975" base={base} num={1} />
-<StrangeSeedsAppear time="04:54.021" base={base} num={2} />
-<TendrilsofTerrorAppear time="04:55.624" base={base} num={1} />
-<StrangeSeedsActivate time="04:59.013" base={base} num={2} />
-<StrangeSeedsAppear time="04:59.013" base={base} num={3} />
-<TendrilsofTerrorAppear time="05:00.664" base={base} num={2} />
-<StrangeSeedsActivate time="05:04.009" base={base} num={3} />
-<StrangeSeedsAppear time="05:04.009" base={base} num={4} />
-<TendrilsofTerrorAppear time="05:05.658" base={base} num={3} />
-<StrangeSeedsActivate time="05:08.997" base={base} num={4} />
-<TendrilsofTerrorAppear time="05:10.647" base={base} num={4} />
-<KillerSeedsAppear time="05:13.853" base={base} />
-<KillerSeedsActivate time="05:18.842" base={base} />
+<StrangeSeedsCast start="04:43.863" />
+<StrangeSeedsAppear time="04:48.986" num={1} />
+<StoneringerCast start="04:52.997" />
+<StrangeSeedsActivate time="04:53.975" num={1} />
+<StrangeSeedsAppear time="04:54.021" num={2} />
+<TendrilsofTerrorAppear time="04:55.624" num={1} />
+<StrangeSeedsActivate time="04:59.013" num={2} />
+<StrangeSeedsAppear time="04:59.013" num={3} />
+<TendrilsofTerrorAppear time="05:00.664" num={2} />
+<StrangeSeedsActivate time="05:04.009" num={3} />
+<StrangeSeedsAppear time="05:04.009" num={4} />
+<TendrilsofTerrorAppear time="05:05.658" num={3} />
+<StrangeSeedsActivate time="05:08.997" num={4} />
+<TendrilsofTerrorAppear time="05:10.647" num={4} />
+<KillerSeedsAppear time="05:13.853" />
+<KillerSeedsActivate time="05:18.842" />
 <EventSection time="05:20.310">
   墙与<RoleIcon role="any" />
   连线
   <ThornsOfDeathDebuff hover />消失
 </EventSection>
-<TendrilsofTerrorAppear time="05:20.532" base={base} num={5} />
-<BrutishSwingCast start="05:20.887" base={base} />
+<TendrilsofTerrorAppear time="05:20.532" num={5} />
+<BrutishSwingCast start="05:20.887" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-4">

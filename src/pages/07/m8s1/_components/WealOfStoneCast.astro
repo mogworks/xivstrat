@@ -11,15 +11,14 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
 const ability = translations.wealOfStone
 ---
 
-<CastSection ability={ability} start={start} duration={2.2} base={base}>
+<CastSection ability={ability} start={start} duration={2.2}>
   <WolfOfStone slot="source">
     <Span variant="orange">土狼首×2</Span>
   </WolfOfStone>

@@ -39,23 +39,17 @@ import spread_to_stack_1 from '@/assets/07/m6s/double_style_p4/solution/spread_t
 import spread_to_stack_2 from '@/assets/07/m6s/double_style_p4/solution/spread_to_stack_2.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
-
 const { TasteofFire, TasteofThunder, Rush, DoubleStyle, SingleStyle, Sugarscape } = translations
 ---
 
-<DoubleStyleCast start="07:23.731" base={base} duration={6.6} />
-<CastSection start="07:32.868" base={base} duration={0.7} ability={Rush}>
+<DoubleStyleCast start="07:23.731" duration={6.6} />
+<CastSection start="07:32.868" duration={0.7} ability={Rush}>
   <RoleIcon slot="source" role="enemy_level1">
     <Span variant="rose">绘画图案：箭矢</Span>
   </RoleIcon>
   <Badge variant="emerald">7m宽井字切</Badge>
 </CastSection>
-<EventSection time="07:33.934" base={base}>
+<EventSection time="07:33.934">
   <span class="text-sm opacity-80">或</span>
   <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
   <ul class="list-none space-y-4">

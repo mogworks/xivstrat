@@ -44,24 +44,18 @@ import solution_8 from '@/assets/07/m8s1/shadowchase/solution_8.png'
 import solution_9 from '@/assets/07/m8s1/shadowchase/solution_9.png'
 import solution_10 from '@/assets/07/m8s1/shadowchase/solution_10.png'
 import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<BareFangsEvent time="04:34.250" base={base} phase="P3" />
-<TerrestrialRageCast start="04:36.338" base={base} />
-<FangedChargeCast start="04:42.471" base={base} />
-<TerrestrialRageActivate time="04:47.680" base={base} order="1" />
-<ShadowchaseCast start="04:45.454" base={base} />
-<FangedChargeCast start="04:44.904" base={base} />
-<TerrestrialRageActivate time="04:54.399" base={base} order="2" />
-<ShadowchaseCast start="04:52.704" base={base} shadow={true} />
-<RetargetableEvent time="04:56.667" base={base} />
-<RoaringWindCast start="04:56.667" base={base} />
+<BareFangsEvent time="04:34.250" phase="P3" />
+<TerrestrialRageCast start="04:36.338" />
+<FangedChargeCast start="04:42.471" />
+<TerrestrialRageActivate time="04:47.680" order="1" />
+<ShadowchaseCast start="04:45.454" />
+<FangedChargeCast start="04:44.904" />
+<TerrestrialRageActivate time="04:54.399" order="2" />
+<ShadowchaseCast start="04:52.704" shadow={true} />
+<RetargetableEvent time="04:56.667" />
+<RoaringWindCast start="04:56.667" />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

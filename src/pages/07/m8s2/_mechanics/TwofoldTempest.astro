@@ -15,18 +15,18 @@ import T from '@/components/typography/T.astro'
 
 interface Props {
   start: Time
-  base?: Time
+
   activateTimes: Time[]
 }
 
-const { start, base = 0, activateTimes }: Props = Astro.props
+const { start, activateTimes }: Props = Astro.props
 
 // Wind Surge踩毒伤害参考
 // REF: https://www.fflogs.com/reports/wgcP9KdBWDjq36fv?fight=27&type=casts&hostility=1&phase=2&view=events
 ---
 
-<TwofoldTempestCast start={start} base={base} />
-<TwofoldTempestActivate base={base} activateTimes={activateTimes} />
+<TwofoldTempestCast start={start} />
+<TwofoldTempestActivate activateTimes={activateTimes} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <P>

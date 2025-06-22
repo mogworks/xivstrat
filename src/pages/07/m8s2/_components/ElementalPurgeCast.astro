@@ -14,15 +14,14 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
 const elementalPurge = translations.elementalPurge
 ---
 
-<CastSection start={start} base={base} duration={4.7} ability={elementalPurge}>
+<CastSection start={start} duration={4.7} ability={elementalPurge}>
   <HowlingBlade slot="source" />
   给予 1 <RoleIcon role="tank" />
   <PatienceOfWindDebuff tag="5" />

@@ -20,13 +20,12 @@ import weal_of_stone_2 from '@/assets/07/m8s1/xreign/weal_of_stone_2.png'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<WealOfStoneCast start={start} base={base} />
+<WealOfStoneCast start={start} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T text={translations.wealOfStone} variant="yellow" />

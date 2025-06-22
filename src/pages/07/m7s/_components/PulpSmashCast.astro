@@ -10,14 +10,13 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const pulpSmash = translations.pulpSmash
 ---
 
-<CastSection start={start} base={base} duration={4.7} target ability={pulpSmash}>
+<CastSection start={start} duration={4.7} target ability={pulpSmash}>
   <BruteAbombinator slot="source" />
   <RoleIcon role="healer" slot="target" />
   <Badge variant="emerald">6m圆形</Badge>
