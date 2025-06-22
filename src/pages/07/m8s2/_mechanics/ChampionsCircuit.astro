@@ -152,15 +152,8 @@ const championsCircuit = translations.championsCircuit
     return arr.slice(n).concat(arr.slice(0, n))
   }
 
-  function generateAoes(
-    app: Application,
-    aoeContainer: Container,
-    aoePos: { r: number; rad: number }[],
-    scale: number = scaleSize,
-  ) {
-    aoeContainer.removeChildren().forEach((child) => {
-      child.destroy({ children: true, texture: true })
-    })
+  function generateAoes(app: Application, aoePos: { r: number; rad: number }[], scale: number = scaleSize): Container {
+    const aoeContainer = new Container()
 
     // aoe ring
     const aoeSmallRing = AoE.createRing(4.5 * scale, 13 * scale).toSprite(app)
@@ -202,6 +195,8 @@ const championsCircuit = translations.championsCircuit
     aoeRingFan2.position.set(pos5.x, pos5.y)
     aoeRingFan2.rotation = aoePos[4].rad
     aoeContainer.addChild(aoeRingFan2)
+
+    return aoeContainer
   }
 
   listenKeys($stratBoards, ['champions-circuit-mechanic-dynamic'], async (stratBoards) => {
@@ -220,8 +215,12 @@ const championsCircuit = translations.championsCircuit
     container.addChild(floor)
 
     // Champion's Circuit
+    let offset = Math.floor(Math.random() * 5)
     const aoeContainer = new Container()
     container.addChild(aoeContainer)
+    const championsCircuitAoes: Container[] = [generateAoes(app, rotateArray(aoePos, offset))]
+    aoeContainer.addChild(championsCircuitAoes[0])
+
     // Bare Fangs
     const fangsContainer = new Container()
     container.addChild(fangsContainer)
@@ -229,11 +228,9 @@ const championsCircuit = translations.championsCircuit
     // dyanmic
     const interval = 4000 // time control
     let rotateDir = 1
-    let offset = Math.floor(Math.random() * 5)
     let tickerFn: ((ticker: Ticker) => void) | null = null
 
     // init
-    generateAoes(app, aoeContainer, rotateArray(aoePos, offset))
     const inactiveFangs = await addFangs(app, { multiplefangs: true, aoeColor: AOE_COLORS.tailwind.emerald })
     inactiveFangs.label = 'inactive-fangs'
     let activatedFangs = await addFangs(app, {
@@ -244,8 +241,17 @@ const championsCircuit = translations.championsCircuit
     })
     fangsContainer.addChild(inactiveFangs)
 
+    async function loadChampionsCircuit() {
+      for (let i = offset + 1; i < offset + 5; i++) {
+        championsCircuitAoes.push(generateAoes(app, rotateArray(aoePos, i)))
+      }
+      offset = 0
+    }
+
     async function play() {
       let elapsed = 0
+
+      await loadChampionsCircuit()
 
       if (tickerFn) {
         app.ticker.remove(tickerFn)
@@ -254,9 +260,7 @@ const championsCircuit = translations.championsCircuit
       tickerFn = async (ticker) => {
         elapsed += ticker.elapsedMS
         if (elapsed >= interval / 2) {
-          aoeContainer.removeChildren().forEach((child) => {
-            child.destroy({ children: true, texture: true })
-          })
+          aoeContainer.removeChildren()
           fangsContainer
             .removeChildren()
             .filter((child) => child.label !== 'inactive-fangs')
@@ -282,7 +286,7 @@ const championsCircuit = translations.championsCircuit
               child.destroy({ children: true, texture: true })
             })
           fangsContainer.addChild(activatedFangs)
-          generateAoes(app, aoeContainer, rotateArray(aoePos, offset))
+          aoeContainer.addChild(rotateArray(championsCircuitAoes, offset)[0])
         }
       }
 
@@ -302,9 +306,7 @@ const championsCircuit = translations.championsCircuit
         span.textContent = rotateDir > 0 ? '顺时针' : '逆时针'
       }
 
-      aoeContainer.removeChildren().forEach((child) => {
-        child.destroy({ children: true, texture: true })
-      })
+      aoeContainer.removeChildren()
       fangsContainer
         .removeChildren()
         .filter((child) => child.label !== 'inactive-fangs')
@@ -312,8 +314,8 @@ const championsCircuit = translations.championsCircuit
           child.destroy({ children: true, texture: true })
         })
 
-      generateAoes(app, aoeContainer, rotateArray(aoePos, offset))
       fangsContainer.addChild(inactiveFangs)
+      aoeContainer.addChild(rotateArray(championsCircuitAoes, offset)[0])
     }
 
     document.getElementById('champions-circuit-mechanic-dynamic-play-button')?.addEventListener('click', () => {
