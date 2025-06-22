@@ -14,7 +14,7 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
-import ImageRow from '@/components/typography/ImgRow.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import RoseBloodBloomCast from '../_components/RoseBloodBloomCast.astro'
 
@@ -36,8 +36,6 @@ import tdps from '@/assets/07/zelenia/P3-6/P3-6-t-dps.png'
 import ttn from '@/assets/07/zelenia/P3-6/P3-6-t-tn.png'
 import tg from '@/assets/07/zelenia/P3-6/P3-6-t-group.png'
 
-
-
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
 
 const solutions = [
@@ -51,16 +49,9 @@ const solutions = [
   },
 ]
 const defaultSolution = '解法：减伤法（TLB）'
-
 ---
 
-
-<MechanicSection>
-
-</MechanicSection>
-
-
-
+<MechanicSection />
 
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
   <div slot="解法：减伤法（TLB）" class="flex flex-col gap-4">
@@ -68,60 +59,55 @@ const defaultSolution = '解法：减伤法（TLB）'
     <div class="paragraph">🌹玫瑰标记显示时，花点名前往组内塔的对角放置花。</div>
     <div class="paragraph">踩塔的人站在塔上踩塔</div>
     <div class="paragraph">扇形读条到一半时，可使用TLB或做好减伤处理</div>
-    <ImageRow
-        class="game-img"
-        wrapperClass="max-w-88"
-        borderVariant="cyan"
-        rounded
-        imgs={[
-          {
-            src: tg,
-            alt: 'Zelenia：P3-6 分组',
-            title: '分组',
-          },
-          {
-            src: ttn,
-            alt: 'Zelenia：P3-6 分组',
-            title: 'TN点花',
-          },
-          {
-            src: tdps,
-            alt: 'Zelenia：P3-6 分组',
-            title: 'DPS点花',
-          },
-        ]}
-      />
-    
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: tg,
+          alt: 'Zelenia：P3-6 分组',
+          title: '分组',
+        },
+        {
+          src: ttn,
+          alt: 'Zelenia：P3-6 分组',
+          title: 'TN点花',
+        },
+        {
+          src: tdps,
+          alt: 'Zelenia：P3-6 分组',
+          title: 'DPS点花',
+        },
+      ]}
+    />
   </div>
   <div slot="解法：正攻" class="flex flex-col gap-4">
     <div class="paragraph">
       <Span variant="yellow">原理：</Span>
     </div>
-    <div class="paragraph">
-      红色地板会传递踩塔效果，因此，只需要使用🌹玫瑰标记把扇形覆盖的塔补上即可
-    </div>
+    <div class="paragraph">红色地板会传递踩塔效果，因此，只需要使用🌹玫瑰标记把扇形覆盖的塔补上即可</div>
     <div class="paragraph">
       同样按照
-      
+
       <RoleIcon role="tank" tag="MT" /><RoleIcon role="dps" tag="D3" />
       AD扇形（左上角）
-      
+
       <RoleIcon role="tank" tag="ST" /><RoleIcon role="dps" tag="D4" />
       AB扇形（右上角）
-      
+
       <RoleIcon role="healer" tag="H2" /><RoleIcon role="dps" tag="D2" />
       BC扇形（右下角）
-      
-      <RoleIcon role="healer" tag="H1" /><RoleIcon role="dps" tag="D1" />
-      CD扇形（左下角）
 
-      分组
+      <RoleIcon role="healer" tag="H1" /><RoleIcon role="dps" tag="D1" />
+      CD扇形（左下角） 分组
     </div>
     <div class="paragraph">
       <Span variant="yellow">Step 1</Span>
-    </div> 
+    </div>
     <div class="paragraph">
-      <Zelenia/>赋予
+      <Zelenia />赋予
       <RoleIcon role="tank" />
       <RoleIcon role="healer" />
       或
@@ -129,117 +115,110 @@ const defaultSolution = '解法：减伤法（TLB）'
     </div>
     <div class="paragraph">
       <Span variant="yellow">Step 2</Span>
-    </div> 
+    </div>
     <div class="paragraph">
-      <Zelenia/>开始读条，并显示第一次扇形的预兆：完全盖住内塔/外塔
-    </div> 
-    <div class="paragraph">
-      不同人群行为如下，注意此处的踩内塔/外塔代表着自己负责的区域是内塔/外塔
-    </div> 
-    <table class="min-w-full border mt-4">
+      <Zelenia />开始读条，并显示第一次扇形的预兆：完全盖住内塔/外塔
+    </div>
+    <div class="paragraph">不同人群行为如下，注意此处的踩内塔/外塔代表着自己负责的区域是内塔/外塔</div>
+    <table class="mt-4 min-w-full border">
       <thead>
-          <tr>
-              <th class="border px-3 py-2"></th>
-              <th class="border px-3 py-2">🌹玫瑰点名</th>
-              <th class="border px-3 py-2">踩内塔</th>
-              <th class="border px-3 py-2">踩外塔</th>
-          </tr>
+        <tr>
+          <th class="border px-3 py-2"></th>
+          <th class="border px-3 py-2">🌹玫瑰点名</th>
+          <th class="border px-3 py-2">踩内塔</th>
+          <th class="border px-3 py-2">踩外塔</th>
+        </tr>
       </thead>
       <tbody>
-          <tr>
-              <td class="border px-3 py-2 text-center">覆盖内塔</td>
-              
-              <td class="border px-3 py-2 text-center">去外圈放花</td>
-              <td class="border px-3 py-2 text-center">不变</td>
-              <td class="border px-3 py-2 text-center">延伸踩</td>
-              
-          </tr>
-          <tr>
-              <td class="border px-3 py-2 text-center">覆盖外塔</td>
-              <td class="border px-3 py-2 text-center">去内圈放花</td>
-              <td class="border px-3 py-2 text-center">延伸踩</td>
-              <td class="border px-3 py-2 text-center">不变</td>
-          </tr>
+        <tr>
+          <td class="border px-3 py-2 text-center">覆盖内塔</td>
+
+          <td class="border px-3 py-2 text-center">去外圈放花</td>
+          <td class="border px-3 py-2 text-center">不变</td>
+          <td class="border px-3 py-2 text-center">延伸踩</td>
+        </tr>
+        <tr>
+          <td class="border px-3 py-2 text-center">覆盖外塔</td>
+          <td class="border px-3 py-2 text-center">去内圈放花</td>
+          <td class="border px-3 py-2 text-center">延伸踩</td>
+          <td class="border px-3 py-2 text-center">不变</td>
+        </tr>
       </tbody>
     </table>
-    <ImageRow
-        class="game-img"
-        wrapperClass="max-w-88"
-        borderVariant="cyan"
-        rounded
-        imgs={[
-          {
-            src: go0,
-            alt: 'Zelenia：P3-6 外花',
-            title: '盖内塔放外花',
-          },
-          {
-            src: gi0,
-            alt: 'Zelenia：P3-6 内花',
-            title: '盖外塔放内花',
-          },
-        ]}
-      />
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: go0,
+          alt: 'Zelenia：P3-6 外花',
+          title: '盖内塔放外花',
+        },
+        {
+          src: gi0,
+          alt: 'Zelenia：P3-6 内花',
+          title: '盖外塔放内花',
+        },
+      ]}
+    />
     <div class="paragraph">
       <Span variant="yellow">Step 3</Span>
-    </div> 
-    <div class="paragraph">
-      <Zelenia/>读条到一半，🌹玫瑰标记判定，花点名也去第一次扇形安全区。同时，显示第二次扇形预兆
     </div>
-    <ImageRow
-        class="game-img"
-        wrapperClass="max-w-88"
-        borderVariant="cyan"
-        rounded
-        imgs={[
-          {
-            src: go3,
-            alt: 'Zelenia：P3-6 外花',
-            title: '外花示意图&第二次预兆',
-          },
-          {
-            src: gi3,
-            alt: 'Zelenia：P3-6 内花',
-            title: '内花示意图&第二次预兆',
-          },
-        ]}
-      />
+    <div class="paragraph">
+      <Zelenia />读条到一半，🌹玫瑰标记判定，花点名也去第一次扇形安全区。同时，显示第二次扇形预兆
+    </div>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: go3,
+          alt: 'Zelenia：P3-6 外花',
+          title: '外花示意图&第二次预兆',
+        },
+        {
+          src: gi3,
+          alt: 'Zelenia：P3-6 内花',
+          title: '内花示意图&第二次预兆',
+        },
+      ]}
+    />
     <div class="paragraph">
       <Span variant="yellow">Step 4</Span>
-    </div> 
-    <div class="paragraph">
-      <Zelenia/>读条完毕，第一次扇形判定
     </div>
     <div class="paragraph">
-      没标记：准备踩塔，前往第二次扇形安全区和塔重合处
+      <Zelenia />读条完毕，第一次扇形判定
     </div>
-    <div class="paragraph">
-      其余：前往第二次扇形安全区，注意不要站在红色地板上
-    </div>
-    <ImageRow
-        class="game-img"
-        wrapperClass="max-w-88"
-        borderVariant="cyan"
-        rounded
-        imgs={[
-          {
-            src: go2,
-            alt: 'Zelenia：P3-6 外花',
-            title: '外花-第二次扇形判定&踩塔',
-          },
-          {
-            src: gi2,
-            alt: 'Zelenia：P3-6 内花',
-            title: '内花-第二次扇形判定&踩塔',
-          },
-        ]}
-      />
+    <div class="paragraph">没标记：准备踩塔，前往第二次扇形安全区和塔重合处</div>
+    <div class="paragraph">其余：前往第二次扇形安全区，注意不要站在红色地板上</div>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: go2,
+          alt: 'Zelenia：P3-6 外花',
+          title: '外花-第二次扇形判定&踩塔',
+        },
+        {
+          src: gi2,
+          alt: 'Zelenia：P3-6 内花',
+          title: '内花-第二次扇形判定&踩塔',
+        },
+      ]}
+    />
 
     <div class="paragraph">
       <Span variant="yellow">Step 5</Span>
-    </div> 
+    </div>
     <div class="paragraph">
-      <Zelenia/>第二次扇形判定，紧接着塔判定
+      <Zelenia />第二次扇形判定，紧接着塔判定
     </div>
   </div>
 </MultiSolutionSection>
