@@ -6,10 +6,12 @@ import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import P from '@/components/typography/P.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import ListDot from '@/components/ListDot.astro'
 import Quote from '@/components/typography/Quote.astro'
 import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import ImgGrid from '@/components/typography/ImgGrid.astro'
 
 import TerrestrialRageCast from '../_components/TerrestrialRageCast.astro'
 import GleamingFang from '../_components/entities/GleamingFang.astro'
@@ -31,6 +33,10 @@ import shadowchase_1 from '@/assets/07/m8s1/shadowchase/1.png'
 import shadowchase_2 from '@/assets/07/m8s1/shadowchase/2.png'
 import roaring_wind_1 from '@/assets/07/m8s1/shadowchase/roaring_wind_1.png'
 import roaring_wind_2 from '@/assets/07/m8s1/shadowchase/roaring_wind_2.png'
+import solution_1 from '@/assets/07/m8s1/shadowchase/solution_1.png'
+import solution_2 from '@/assets/07/m8s1/shadowchase/solution_2.png'
+import solution_3 from '@/assets/07/m8s1/shadowchase/solution_3.png'
+import solution_4 from '@/assets/07/m8s1/shadowchase/solution_4.png'
 
 interface Props {
   base?: Time
@@ -169,5 +175,97 @@ const { base = 0 }: Props = Astro.props
 </MechanicSection>
 
 <SolutionSection>
-  <div class="flex flex-col gap-4">TODO</div>
+  <div class="flex flex-col gap-4">
+    <P>
+      <HowlingBlade />
+      读条后，分散/分摊点名出现，无论
+      <GleamingFang />
+      如何刷新，我们都可以按下图站位：
+    </P>
+    <ImgGrid
+      cols={[{ title: 'TH分散DPS分摊' }, { title: 'DPS分散TH分摊' }]}
+      defaultImgWrapperStyle={{
+        bordered: true,
+        rounded: true,
+        borderVariant: 'cyan',
+      }}
+      rows={[
+        {
+          title: '第一轮光牙',
+          cells: [
+            {
+              img: {
+                src: solution_1,
+                alt: '解法示意图1: TH分散DPS分摊 第一轮光牙',
+              },
+            },
+            {
+              img: {
+                src: solution_2,
+                alt: '解法示意图2: DPS分散TH分摊 第一轮光牙',
+              },
+            },
+          ],
+        },
+        {
+          title: '第二轮光牙',
+          cells: [
+            {
+              img: {
+                src: solution_3,
+                alt: '解法示意图3: TH分散DPS分摊 第二轮光牙',
+              },
+            },
+            {
+              img: {
+                src: solution_4,
+                alt: '解法示意图4: DPS分散TH分摊 第二轮光牙',
+              },
+            },
+          ],
+        },
+      ]}
+    />
+    <P>具体来说：</P>
+    <Quote variant="lime">
+      <P>
+        <ListDot />
+        没被点分散的人，去场中晚刷新的
+        <GleamingFang />
+        处集合，等第一轮
+        <Skill name={translations.fangedCharge} />
+        判定后，穿过去
+      </P>
+      <P>
+        <ListDot />
+        被点分散的人，去自己的正点场边躲避两轮
+        <Skill name={translations.fangedCharge} />
+      </P>
+      <P class="pl-6">
+        <ListDot />
+        <RoleIcon role="tank" tag="MT" />
+        <RoleIcon role="ranged" tag="D3" />
+        去
+        <Span variant="red">A</Span>，
+        <RoleIcon role="tank" tag="ST" />
+        <RoleIcon role="magic" tag="D4" />
+        去
+        <Span variant="yellow">B</Span>，
+        <RoleIcon role="healer" tag="H2" />
+        <RoleIcon role="dps" tag="D2" />
+        去
+        <Span variant="sky">C</Span>，
+        <RoleIcon role="healer" tag="H1" />
+        <RoleIcon role="melee" tag="D1" />
+        去
+        <Span variant="purple">D</Span>
+      </P>
+    </Quote>
+    <P>
+      如果近战被点分散，可以在标点的两个边缘点横穿，每轮
+      <Skill name={translations.fangedCharge} />
+      必定只会覆盖标点的一半，如下图：
+    </P>
+    <P>这两个边缘点同时也是最大近战距离点，因此可以无损输出</P>
+  </div>
 </SolutionSection>
