@@ -1,6 +1,8 @@
 ---
 import type { Time } from '@/lib/utils'
 
+import LimitBreak from '@/components/action/LimitBreak.astro'
+
 import Span from '@/components/Span.vue'
 import EventSection from '@/components/section/EventSection.astro'
 
@@ -21,5 +23,5 @@ const UnlimitedCraving = translations.UnlimitedCraving
   <GimmeCat wave={wave} />
   发动
   <Span variant="yellow">{UnlimitedCraving}</Span>
-  偷取LB
+  偷取<LimitBreak stage="full" />
 </EventSection>

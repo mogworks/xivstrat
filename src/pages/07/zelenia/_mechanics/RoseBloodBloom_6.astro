@@ -15,6 +15,8 @@ import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import LimitBreak from '@/components/action/LimitBreak.astro'
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
 
 import RoseBloodBloomCast from '../_components/RoseBloodBloomCast.astro'
 
@@ -36,8 +38,6 @@ import tdps from '@/assets/07/zelenia/P3-6/P3-6-t-dps.png'
 import ttn from '@/assets/07/zelenia/P3-6/P3-6-t-tn.png'
 import tg from '@/assets/07/zelenia/P3-6/P3-6-t-group.png'
 
-import ToggleSwitch from '@/components/ToggleSwitch.astro'
-
 const solutions = [
   {
     id: 'RBB6-solution-tlb',
@@ -58,7 +58,7 @@ const defaultSolution = '解法：减伤法（TLB）'
     <div class="paragraph">无需关注扇形刀的预兆，按照如图所示位置进行分组。</div>
     <div class="paragraph">🌹玫瑰标记显示时，花点名前往组内塔的对角放置花。</div>
     <div class="paragraph">踩塔的人站在塔上踩塔</div>
-    <div class="paragraph">扇形读条到一半时，可使用TLB或做好减伤处理</div>
+    <div class="paragraph">扇形读条到一半时，可使用<LimitBreak role="tank" />或做好减伤处理</div>
     <ImgRow
       class="game-img"
       wrapperClass="max-w-88"
