@@ -1,11 +1,9 @@
-import type { Application } from 'pixi.js'
+import type { Application, Texture } from 'pixi.js'
 
-import { Assets, Container, Graphics, Sprite } from 'pixi.js'
+import { Container, Graphics, Sprite } from 'pixi.js'
 
 import type { AoEColors } from '@/pixi/aoe'
 
-import inactive_fang from '@/assets/07/m8s2/entity_icons/gleaming_fang_1.png'
-import active_fang from '@/assets/07/m8s2/entity_icons/gleaming_fang_4.png'
 import { AoE, AOE_COLORS } from '@/pixi/aoe'
 import { YmToPx } from '@/pixi/utils'
 
@@ -42,8 +40,10 @@ function cartesianToPolarRadian(cartesian: { x: number; y: number }): { r: numbe
 }
 
 // 以南侧为基准，pattern 0是右边激活，pattern 1是左边激活
-export async function addFangs(
+export function addFangs(
   app: Application,
+  activeFangTexture: Texture,
+  inactiveFangTexture: Texture,
   options: {
     multiplefangs?: boolean
     activate?: boolean
@@ -59,8 +59,7 @@ export async function addFangs(
     random = options.random ?? false,
     aoeColor = options.aoeColor ?? AOE_COLORS.default,
   } = options
-  const activeFangTexture = await Assets.load(active_fang)
-  const inactiveFangTexture = await Assets.load(inactive_fang)
+
   const fangs = new Container()
 
   // apply random left/right, default as 0
@@ -75,7 +74,7 @@ export async function addFangs(
 
     const fang = activate ? Sprite.from(activeFangTexture) : Sprite.from(inactiveFangTexture)
     fang.anchor.set(0.5, centerToNorth / (centerToNorth + centerToSouth))
-    fang.scale.set(0.025)
+    fang.scale.set(2)
 
     // rotation in degree, always facing center?
     // rotation first, then adjust position
@@ -91,7 +90,7 @@ export async function addFangs(
     if (multiplefangs) {
       const fang = Sprite.from(inactiveFangTexture)
       fang.anchor.set(0.5, centerToNorth / (centerToNorth + centerToSouth))
-      fang.scale.set(0.025)
+      fang.scale.set(2)
 
       // rotation in degree, always facing center?
       // rotation first, then adjust position

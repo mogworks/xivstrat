@@ -121,6 +121,8 @@ const championsCircuit = translations.championsCircuit
   import { listenKeys } from 'nanostores'
   import { Assets, Container, Graphics, Sprite } from 'pixi.js'
 
+  import inactiveFang_img from '@/assets/07/m8s2/entity_icons/gleaming_fang_1@4x.png'
+  import activeFang_img from '@/assets/07/m8s2/entity_icons/gleaming_fang_4@4x.png'
   import floor_img from '@/assets/07/m8s2/p2/floor_2@3x.png'
   import { AoE, AOE_COLORS } from '@/pixi/aoe'
   import { getScale, YmToPx } from '@/pixi/utils'
@@ -225,8 +227,12 @@ const championsCircuit = translations.championsCircuit
     const fangsContainer = new Container()
     container.addChild(fangsContainer)
     const fangsActivatedAoes: Container[] = []
-    const inactiveFangs = await addFangs(app, { multiplefangs: true, aoeColor: AOE_COLORS.tailwind.emerald })
-    inactiveFangs.label = 'inactive-fangs'
+    const activeFang = await Assets.load(activeFang_img)
+    const inactiveFang = await Assets.load(inactiveFang_img)
+    const inactiveFangs = addFangs(app, activeFang, inactiveFang, {
+      multiplefangs: true,
+      aoeColor: AOE_COLORS.tailwind.emerald,
+    })
     fangsContainer.addChild(inactiveFangs)
 
     // dyanmic
@@ -235,35 +241,58 @@ const championsCircuit = translations.championsCircuit
     let rotateDir = 1
     let tickerFn: ((ticker: Ticker) => void) | null = null
 
-    async function loadAoes() {
-      // Champion's Circuit
-      if (championsCircuitAoes.length <= 1) {
-        for (let i = randStart + 1; i < randStart + 5; i++) {
-          championsCircuitAoes.push(generateAoes(app, rotateArray(aoePos, i)))
-        }
+    async function loadBatchsOfFangs() {
+      const totalScenario = 32
+      const batchCount = 32
+      const scenarios: number[][][] = Array.from({ length: batchCount }, () => [])
+      for (let i = 0; i < totalScenario; i++) {
+        const binaryString = i.toString(2).padStart(5, '0')
+        const patterns = Array.from(binaryString, Number)
+        scenarios[Math.floor(i / (totalScenario / batchCount))].push(patterns)
       }
 
-      // Bare Fangs
-      if (fangsActivatedAoes.length === 0) {
-        for (let i = 0; i < 32; i++) {
-          const binaryString = i.toString(2).padStart(5, '0')
-          const patterns = Array.from(binaryString, Number)
+      const batchSeq = Array.from({ length: batchCount }, (_, i) => i).sort(() => Math.random() - 0.5)
+      for (const groupIndex of batchSeq) {
+        const patternsGroup = scenarios[groupIndex]
+
+        patternsGroup.forEach((patterns) => {
           fangsActivatedAoes.push(
-            await addFangs(app, {
+            addFangs(app, activeFang, inactiveFang, {
               multiplefangs: true,
               activate: true,
               patterns,
               aoeColor: AOE_COLORS.tailwind.emerald,
             }),
           )
-        }
+        })
+
+        await new Promise((res) => setTimeout(res, 500))
+      }
+    }
+
+    async function loadOneChampionsCircuit() {
+      const aoeSeq = Array.from({ length: 4 }, (_, i) => i)
+      for (const seq of aoeSeq) {
+        championsCircuitAoes.push(generateAoes(app, rotateArray(aoePos, randStart + seq + 1)))
+      }
+      await new Promise((res) => setTimeout(res, 999))
+    }
+
+    async function loadAoes() {
+      // Champion's Circuit
+      if (championsCircuitAoes.length <= 1) {
+        void loadOneChampionsCircuit()
+      }
+      // Bare Fangs
+      if (fangsActivatedAoes.length === 0) {
+        void loadBatchsOfFangs()
       }
     }
 
     async function play() {
       let elapsed = 0
 
-      await loadAoes()
+      void loadAoes()
 
       if (tickerFn) {
         app.ticker.remove(tickerFn)
@@ -280,8 +309,9 @@ const championsCircuit = translations.championsCircuit
           elapsed = 0
           offset += rotateDir // +1为顺时针
           fangsContainer.removeChildren()
-          fangsContainer.addChild(fangsActivatedAoes[Math.floor(Math.random() * 32)])
+          fangsContainer.addChild(fangsActivatedAoes[Math.floor(Math.random() * fangsActivatedAoes.length)])
           aoeContainer.addChild(rotateArray(championsCircuitAoes, offset)[0])
+          console.log('试试', 'direction: ', rotateDir, 'offset: ', offset)
         }
       }
 
