@@ -6,7 +6,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import CastSection from '@/components/section/CastSection.astro'
 
 import Zelenia from './Zelenia.astro'
-
+import { translations } from '../_translations'
 interface Props {
   start: Time
 }
@@ -14,7 +14,7 @@ interface Props {
 const { start }: Props = Astro.props
 ---
 
-<CastSection start={start} duration={6.7} ability="Stock Break" target damage="320000" damageType="magical">
+<CastSection start={start} duration={6.7} ability={translations.StockBreak} target damage="320000" damageType="magical">
   <Zelenia slot="source" />
   <Fragment slot="target">
     <RoleIcon role="all" tag="随机" />
