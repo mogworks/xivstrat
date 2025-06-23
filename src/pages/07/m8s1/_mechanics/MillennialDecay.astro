@@ -31,6 +31,7 @@ import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 import GustEffect from '../_components/GustEffect.astro'
 import BreathOfDecayEffect from '../_components/BreathOfDecayEffect.astro'
+import BossAttackSection from '../_components/BossAttackSection.astro'
 
 import { translations } from '../_translations'
 
@@ -86,10 +87,19 @@ const defaultSolution = '解法：IQ6000【改】'
 <AeroIIICast start="01:12.135" />
 <BreathOfDecayCast start="01:10.623" order={1} />
 <GustEvent time="01:19.081" />
+
+<BossAttackSection time="01:20.154" damage="60000" damageType="physical" />
+
 <BreathOfDecayCast start="01:12.625" order={2} />
 <BreathOfDecayCast start="01:14.628" order={3} />
+
+<BossAttackSection time="01:23.170" damage="60000" damageType="physical" />
+
 <GustEvent time="01:24.065" reverse />
 <BreathOfDecayCast start="01:16.630" order={4} />
+
+<BossAttackSection time="01:26.191" damage="60000" damageType="physical" />
+
 <BreathOfDecayCast start="01:18.635" order={5} />
 <AeroIIICast start="01:27.802" />
 <PowerlingGaleEvent time="01:35.055" />
