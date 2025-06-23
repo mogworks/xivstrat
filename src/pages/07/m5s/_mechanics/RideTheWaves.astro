@@ -37,6 +37,7 @@ import ride_the_waves_optimize_3 from '@/assets/07/m5s/ride_the_waves/optimize_3
 import ride_the_waves_optimize_4 from '@/assets/07/m5s/ride_the_waves/optimize_4.png'
 
 import { translations } from '../_translations'
+import JobIcon from '@/components/JobIcon.astro'
 
 const solutions = [
   {
@@ -294,6 +295,17 @@ const defaultSolution = '解法：近战优化'
       <Boss />
       位置很难调整，近战有可能会罚站
     </div>
+    <P class="mt-4">
+      考虑到
+      <Span variant="default">D3</Span>
+      <JobIcon job="DNC" />
+      和
+      <Span variant="default">D4</Span>
+      <JobIcon job="RDM" />
+      会有离
+      <Boss />
+      太远打不到的问题，这里远程组治疗和输出职业也可换位
+    </P>
   </div>
   <div slot="解法：近战优化" class="flex flex-col gap-4">
     <div class="paragraph border-l-2 border-lime-500 pl-2 opacity-80">以初始第2、5列安全为例</div>
@@ -393,6 +405,17 @@ const defaultSolution = '解法：近战优化'
       图中
       <Span variant="red">红框</Span>
       标注的格子下一轮是安全的，分散/分摊判定后可以直接去，这样就不会被卡GCD了
+    </P>
+    <P class="mt-4">
+      考虑到
+      <Span variant="default">D3</Span>
+      <JobIcon job="DNC" />
+      和
+      <Span variant="default">D4</Span>
+      <JobIcon job="RDM" />
+      会有离
+      <Boss />
+      太远打不到的问题，这里远程组治疗和输出职业也可换位
     </P>
     <div class="paragraph mt-4">
       对比
