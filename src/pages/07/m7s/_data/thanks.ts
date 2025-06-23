@@ -15,6 +15,7 @@ export const thanksList = {
     'NaiSeR',
     'YouChai',
     'CongYun',
+    'YuKa',
   ],
   other: [],
 }
