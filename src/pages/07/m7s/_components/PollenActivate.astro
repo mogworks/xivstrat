@@ -6,13 +6,14 @@ import EventSection from '@/components/section/EventSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import Skill from '@/components/typography/Skill.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
 }
 
 const { time }: Props = Astro.props
-const pollen = 'Pollen'
+const pollen = translations.pollen
 ---
 
 <EventSection time={time}>
