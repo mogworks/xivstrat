@@ -62,7 +62,7 @@ const videoLink = duty.bilibili ?? undefined
     </Fragment>
     <AreaBox>
       <ResizableImageDialog client:idle>
-        <Image src={CheatsheetsImage} alt="m5s 副本小抄" loading="lazy" class="h-full object-contain object-left-top" />
+        <Image src={CheatsheetsImage} alt="m5s 副本小抄" loading="lazy" class="h-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
   </CollapsibleBox>
@@ -73,7 +73,7 @@ const videoLink = duty.bilibili ?? undefined
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="macro" client:idle class="w-full">
-    <Macro text={macro} title="M5S - 站位" />
+    <Macro text={macro} title="M5S站位" />
     <Fragment slot="header">
       <span>宏</span>
     </Fragment>
@@ -81,7 +81,7 @@ const videoLink = duty.bilibili ?? undefined
   <CollapsibleBox id="timeline" client:idle class="w-full">
     <AreaBox>
       <ResizableImageDialog client:idle>
-        <Image src={TimelineImage} alt="m5s 简易时间轴" class="w-full object-contain object-left-top" />
+        <Image src={TimelineImage} alt="m5s 简易时间轴" class="w-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
     <Fragment slot="header">

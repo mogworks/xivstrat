@@ -5,7 +5,7 @@ import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import Span from '@/components/Span.vue'
-import DraftWarning from '@/components/DraftWarning.astro'
+import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
@@ -108,7 +108,7 @@ const sporesac = translations.sporeSac
   <SeparatorSection id="debris-deathmatch-sporesac" title=`${debrisDeathmatch} + ${sporesac}` />
   <DebrisDeathmatch />
 
-  <SeparatorSection id="sinister-seeds" title="Sinister Seeds" />
+  <SeparatorSection id="sinister-seeds" title={sinisterSeeds} />
   <SinisterSeedsP3 />
 
   <SeparatorSection title={brutalImpact} />

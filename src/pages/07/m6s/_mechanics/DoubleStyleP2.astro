@@ -32,7 +32,7 @@ const puddingGrafActivate = '03:10.063'
 const quicksandStart = '03:02.561'
 const quicksandActivate = timeToSeconds(start) + duration + 3
 
-const PuddingGraf = translations.PuddingGraf
+const { PuddingGraf, DoubleStyle } = translations
 ---
 
 <EventSection time={quicksandStart}><Span variant="zinc">场地北/南侧出现大范围流沙</Span></EventSection>
@@ -42,7 +42,7 @@ const PuddingGraf = translations.PuddingGraf
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Double Style</Span>
+      <Span variant="yellow">{DoubleStyle}</Span>
     </h4>
     <div class="paragraph -my-3">
       <SugarRiot />

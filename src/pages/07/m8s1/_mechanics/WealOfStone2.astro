@@ -1,0 +1,59 @@
+---
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import P from '@/components/typography/P.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import WealOfStoneCast from '../_components/WealOfStoneCast.astro'
+import XfangCast from '../_components/XfangCast.astro'
+
+import { translations } from '../_translations'
+
+import weal_of_stone from '@/assets/07/m8s1/xfang/weal_of_stone.png'
+import WolfOfStone from '../_components/entities/WolfOfStone.astro'
+---
+
+<WealOfStoneCast start="06:01.965" num={4} />
+<XfangCast start="06:03.347" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <T text={translations.wealOfStone} variant="yellow" />
+    <P>
+      这次固定在场地西北/东北刷新4只
+      <WolfOfStone />
+      ，读条释放直线AoE，如下图所示：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: weal_of_stone,
+          alt: '地烈波',
+        },
+      ]}
+    />
+    <P>
+      本次
+      <Skill name={translations.wealOfStone} />
+      后会紧接
+      <Skill name={translations.stonefang} variant="orange" />
+      |
+      <Skill name={translations.windfang} variant="green" />
+      机制
+    </P>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <P>
+    先去任意正点边缘躲避
+    <Skill name={translations.wealOfStone} />
+    ，再正常处理
+    <Skill name={translations.stonefang} variant="orange" />
+    |
+    <Skill name={translations.windfang} variant="green" />
+    即可
+  </P>
+</SolutionSection>

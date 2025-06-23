@@ -2,25 +2,24 @@
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
 import Badge from '@/components/Badge.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import P from '@/components/typography/P.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
-import Skill from '@/components/typography/Skill.astro'
-import DraftWarning from '@/components/DraftWarning.astro'
+import CastSection from '@/components/section/CastSection.astro'
 
 import XReignCast from './_components/XReignCast.astro'
 import ExtraplanarPursuitCast from './_components/ExtraplanarPursuitCast.astro'
 import HowlingBlade from './_components/entities/HowlingBlade.astro'
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+import BossAttackSection from './_components/BossAttackSection.astro'
 
 import BeckonMoonlight from './_mechanics/BeckonMoonlight.astro'
 import Shadowchase from './_mechanics/Shadowchase.astro'
 import TrackingTremors from './_mechanics/TrackingTremors.astro'
-import WealOfStone from './_mechanics/WealOfStone.astro'
-import Xfang from './_mechanics/Xfang.astro'
+import WealOfStone1 from './_mechanics/WealOfStone1.astro'
+import WealOfStone2 from './_mechanics/WealOfStone2.astro'
 import GreatDivide from './_mechanics/GreatDivide.astro'
 
 import { translations } from './_translations'
@@ -31,9 +30,8 @@ const base = '04:31.622'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <SeparatorSection />
-  <DraftWarning />
-  <SeparatorSection />
+  <NoteSection>P2阶段攻略的快慢会影响本阶段的时间节点，本页时间轴以P2攻略速度较慢为基准</NoteSection>
+
   <MoveToCenterEvent time="04:31.622" />
 
   <SeparatorSection
@@ -47,10 +45,23 @@ const base = '04:31.622'
     title={`${translations.wolvesReign} + ${translations.wealOfStone}`}
   />
   <XReignCast start="04:58.712" />
-  <WealOfStone start="05:11.624" />
+  <WealOfStone1 />
   <SeparatorSection />
 
+  <BossAttackSection time="05:14.573" damage="60000" damageType="physical" />
+  <BossAttackSection time="05:17.612" damage="60000" damageType="physical" />
+
   <GreatDivide start="05:19.593" phase="P3" />
+  <NoteSection>
+    <P>
+      LB槽可能会在死刑后充满，可酌情使用
+      <LimitBreak role="melee" stage={3} />
+    </P>
+  </NoteSection>
+
+  <BossAttackSection time="05:26.037" damage="60000" damageType="physical" />
+  <BossAttackSection time="05:29.055" damage="60000" damageType="physical" />
+
   <MoveToCenterEvent time="05:32.835" />
 
   <SeparatorSection
@@ -65,9 +76,10 @@ const base = '04:31.622'
     id="weal-of-stone-xfang"
     title={`${translations.wealOfStone} + ${translations.stonefang} | ${translations.windfang}`}
   />
-  <!-- TODO: 随机两个相邻斜点出土狼头 四个正点固定安全 这里我没写来个好哥哥补一下 -->
-  <Xfang start="06:02.102" />
+  <WealOfStone2 />
   <SeparatorSection />
+
+  <BossAttackSection time="06:12.599" damage="60000" damageType="physical" />
 
   <TrackingTremors
     start="06:13.522"
@@ -83,28 +95,35 @@ const base = '04:31.622'
     ]}
   />
 
-  <SeparatorSection id="extraplanar-feast" title="空間斬り・終" />
-  <!-- 打的慢的话这个aoe会跳过 -->
+  <BossAttackSection time="06:20.649" damage="60000" damageType="physical" />
+  <BossAttackSection time="06:23.669" damage="60000" damageType="physical" />
+  <BossAttackSection time="06:26.692" damage="60000" damageType="physical" />
+
   <ExtraplanarPursuitCast start="06:28.725" />
-  <NoteSection> 如果小怪阶段打太慢，会跳过一次AoE。 </NoteSection>
+  <NoteSection>如果P2阶段打太慢，会跳过这次AoE</NoteSection>
+
+  <BossAttackSection time="06:32.814" damage="60000" damageType="physical" />
+  <BossAttackSection time="06:35.839" damage="60000" damageType="physical" />
+  <BossAttackSection time="06:38.862" damage="60000" damageType="physical" />
+  <BossAttackSection time="06:41.884" damage="60000" damageType="physical" />
 
   <ExtraplanarPursuitCast start="06:43.514" />
-  <MoveToCenterEvent time="06:48.319" />
-  <NoteSection>
-    <P>
-      如果此时
-      <HowlingBlade />
-      剩余血量过多，请酌情使用
-      <LimitBreak role="melee" stage={3} />
-      。 输出充足的情况下可以留到转场后减轻dps压力。
-    </P>
-  </NoteSection>
-  <EventSection time="06:48.0">
+
+  <SeparatorSection id="extraplanar-feast" title={translations.extraplanarFeast} />
+  <EventSection time="06:48.104">
     <HowlingBlade />
-    不可选中，随后释放
-    <Skill name="空間斬り・終" variant="fuchsia" />
-    ，造成
-    <DamageInfo damage="9999999" type="special" />
-    <Badge variant="fuchsia">狂暴</Badge>
+    不可选中
   </EventSection>
+  <CastSection
+    start="06:48.204"
+    duration="3.7"
+    ability={translations.extraplanarFeast}
+    target
+    damage="9999999"
+    damageType="special"
+  >
+    <HowlingBlade slot="source" />
+    <Badge variant="fuchsia">狂暴</Badge>
+    <Badge variant="red">团灭</Badge>
+  </CastSection>
 </DutyStratLayout>
