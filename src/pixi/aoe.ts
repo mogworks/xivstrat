@@ -25,7 +25,7 @@ export const AOE_COLORS = {
 
 export type AoEColors = typeof AOE_COLORS.default
 
-export type AoEType = 'rect' | 'ray' | 'circle' | 'ring' | 'fan' | 'x' | 'ringFan'
+export type AoEType = 'rect' | 'circle' | 'ring' | 'ringFan'
 
 export class AoETexture extends Texture {
   type: AoEType
@@ -38,7 +38,7 @@ export class AoETexture extends Texture {
   }
 
   getCenterPivot() {
-    if (this.type === 'ray' || this.type === 'fan') {
+    if (this.type === 'ringFan') {
       return new Point(YmToPx * this.resolution, this.height / 2)
     } else {
       return new Point(this.width / 2, this.height / 2)
@@ -141,6 +141,19 @@ export class AoE extends Container {
   }
 
   /**
+   * 创建圆形AoE效果
+   */
+  static createCircle(radius: number): AoE {
+    const resolution = DEFAULT_AOE_RESOLUTION
+
+    return new AoE(
+      'circle',
+      resolution,
+      style => G.createCircleGraphics(radius, style, resolution),
+    )
+  }
+
+  /**
    * 创建环形AoE效果
    */
   static createRing(innerRadius: number, outerRadius: number): AoE {
@@ -155,20 +168,6 @@ export class AoE extends Container {
       resolution,
       style => G.createRingGraphics(innerRadius, outerRadius, style, resolution),
     )
-  }
-
-  /**
-   * 创建扇形AoE效果
-   */
-  static createFan(radius: number, angle: number): AoE {
-    const resolution = DEFAULT_AOE_RESOLUTION
-
-    const aoe = new AoE(
-      'fan',
-      resolution,
-      style => G.createFanGraphics(radius, angle, style, resolution),
-    )
-    return aoe
   }
 
   /**
