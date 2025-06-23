@@ -4,6 +4,7 @@ import type { Time } from '@/lib/utils'
 import CastSection from '@/components/section/CastSection.astro'
 
 import Zelenia from './Zelenia.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -12,6 +13,6 @@ interface Props {
 const { start }: Props = Astro.props
 ---
 
-<CastSection start={start} duration={2.7} ability="Alexandrian Holy">
+<CastSection start={start} duration={2.7} ability={translations.AlexandrianHoly}>
   <Zelenia slot="source" />
 </CastSection>
