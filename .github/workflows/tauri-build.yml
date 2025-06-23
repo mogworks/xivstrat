@@ -2,8 +2,8 @@ name: Build Tauri App
 
 on:
   push:
-    tags:
-      - 'v*.*.*' # 匹配 v1.0.0 格式的tag
+    branches:
+      - offline
 
 jobs:
   build:
