@@ -13,16 +13,13 @@ import PowerSlamActivate from './_components/PowerSlamActivate.astro'
 import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import GrapplingIvy from './_components/GrapplingIvy.astro'
-import DemolitionDeathmatchCast from './_components/DemolitionDeathmatchCast.astro'
+
 import AbominableBlinkCast from './_components/AbominableBlinkCast.astro'
 import AbominableBlinkActivate from './_components/AbominableBlinkActivate.astro'
 import ThornyDeathmatchCast from './_components/ThornyDeathmatchCast.astro'
 import TDAB from './_mechanics/TDAB.astro'
 import StoneringerCast from './_components/StoneringerCast.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
-import Span from '@/components/Span.vue'
-import ThornsOfDeathDebuff from './_components/ThornsOfDeathDebuff.astro'
-import Badge from '@/components/Badge.astro'
+
 import BrutishSwingActivate from './_components/BrutishSwingActivate.astro'
 import GlowerPowerCast from './_components/GlowerPowerCast.astro'
 import GlowerPowerActivate from './_components/GlowerPowerActivate.astro'
@@ -31,6 +28,10 @@ import RevengeOfTheVinesCast from './_components/RevengeOfTheVinesCast.astro'
 import RevengeOfTheVinesActivate from './_components/RevengeOfTheVinesActivate.astro'
 import BrutishSwingMoveActivate from './_components/BrutishSwingMoveActivate.astro'
 import { translations } from './_translations'
+import PowerSlam from './_mechanics/PowerSlam.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import P from '@/components/typography/P.astro'
+import StratLink from '@/components/StratLink.astro'
 
 const dutyId = '07/m7s'
 
@@ -93,6 +94,11 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
   <GlowerPowerActivate time="05:33.804" />
   <RevengeOfTheVinesCast start="05:34.653" />
   <RevengeOfTheVinesActivate time="05:39.643" />
+  <NoteSection>
+    <div class="flex flex-col gap-4">
+      <P><StratLink variant="yellow" href="#SBGR">SBGR组合技</StratLink>，处理方式与之前相同</P>
+    </div>
+  </NoteSection>
 
   <AttackSection time="05:42.223" damage="57000" damageType="physical" />
   <AttackSection time="05:45.255" damage="57000" damageType="physical" />
@@ -100,4 +106,5 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
   <SeparatorSection title={powerslam} />
   <PowerSlamCast time="05:51.804" />
   <PowerSlamActivate time="05:51.804" />
+  <PowerSlam />
 </DutyStratLayout>

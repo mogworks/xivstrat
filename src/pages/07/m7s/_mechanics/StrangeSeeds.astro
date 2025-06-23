@@ -32,6 +32,7 @@ import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import Tmp from '@/assets/07/m7s/Tmp.png'
+import Quote from '@/components/typography/Quote.astro'
 
 const strangeSeeds = translations.strangeSeeds
 const demolitionDeathmatch = translations.demolitionDeathmatch
@@ -80,60 +81,72 @@ const defaultSolution = '解法：萨利式'
     <div class="flex flex-col gap-4">
       <T><Skill name={strangeSeeds} /></T>
       <P>
-        共计<Span variant="pink">4轮</Span>，每轮点名<Span variant="pink">1名</Span><RoleIcon
-          role="tank|healer"
-          tag="T奶"
-        />和<Span variant="pink">1名</Span><RoleIcon role="dps" tag="DPS" />的<Span variant="yellow">圆形AoE</Span
-        >，半径<Span variant="pink">6m</Span>，对点名玩家造成<DamageInfo
+        点名<Span variant="pink">1</Span><RoleIcon role="tank|healer" />和<Span variant="pink">1</Span><RoleIcon
+          role="dps"
+        />的<Span variant="yellow">圆形AoE</Span>，半径<Span variant="pink">6m</Span>，对点名玩家造成<DamageInfo
           damage="90500"
           type="magical"
-        />，并附加<MagicVulnerabilityUp tag="7" hover />
-      </P>
-      <P
-        >伤害判定约<Span variant="pink">1.6s</Span>后，在<Span variant="pink">判定位置</Span>出现<StratLink
-          variant="yellow"
-          href="./p1#tendrilsofTerror">{tendrilsofTerror}</StratLink
-        >的米字形AoE预兆</P
+        />，并附加<MagicVulnerabilityUp tag="7" hover /></P
       >
-      <P>上一轮点名伤害判定的<Span variant="pink">同时</Span>，下一轮点名出现</P>
-    </div>
-    <div class="flex flex-col gap-4">
-      <T class="mt-4"><Skill name={killerseeds} /></T>
-      <P
-        >点名所有<RoleIcon role="tank|healer" tag="T奶" />或<RoleIcon role="dps" tag="DPS" />的<Span variant="yellow"
-          >双人分摊AoE</Span
-        >，半径<Span variant="pink">6m</Span>，造成<DamageInfo
-          damage="100000"
-          type="magical"
-        />，并附加<MagicVulnerabilityUp tag="2" hover /></P
-      >
-      <P
-        >伤害判定约<Span variant="pink">1.6s</Span>后，在<Span variant="pink">判定位置</Span>出现<StratLink
-          variant="yellow"
-          href="./p1#tendrilsofTerror">{tendrilsofTerror}</StratLink
-        >的米字形AoE预兆</P
+      <P>
+        共计<Span variant="pink">4轮</Span>，每轮间隔<Span variant="pink">5s</Span>，上一轮点名伤害判定的<Span
+          variant="pink">同时</Span
+        >，下一轮点名出现</P
       >
     </div>
+    <P
+      >伤害判定约<Span variant="pink">1.6s</Span>后，在<Span variant="pink">判定位置</Span>出现<StratLink
+        variant="yellow"
+        href="./p1#tendrilsofTerror">{tendrilsofTerror}</StratLink
+      >的米字形AoE预兆</P
+    >
+  </div>
+  <div class="flex flex-col gap-4">
+    <T class="mt-8"><Skill name={killerseeds} /></T>
+    <P
+      >点名所有<RoleIcon role="tank|healer" />或<RoleIcon role="dps" />的<Span variant="yellow">双人分摊AoE</Span
+      >，半径<Span variant="pink">6m</Span>，造成<DamageInfo
+        damage="100000"
+        type="magical"
+      />，并附加<MagicVulnerabilityUp tag="2" hover /></P
+    >
+    <P
+      >伤害判定约<Span variant="pink">1.6s</Span>后，在<Span variant="pink">判定位置</Span>出现<StratLink
+        variant="yellow"
+        href="./p1#tendrilsofTerror">{tendrilsofTerror}</StratLink
+      >的米字形AoE预兆</P
+    >
   </div>
 </MechanicSection>
+
 <NoteSection>
   <div class="flex flex-col gap-4">
-    <P>此处由于荆棘连线的存在，被连线者的活动范围受限，同时持续掉血，需要<RoleIcon role="healer" tag="治疗" />抬血</P>
-    <P>同时被连线者注意走位，尽可能保持DoT伤害不超过<ThornsOfDeathDebuff level={2} hover /> </P>
+    <P
+      >此处由于荆棘连线的存在，被连线者的<Span variant="pink">活动范围受限</Span>，同时<Span variant="pink"
+        >持续掉血</Span
+      >，需要<RoleIcon role="healer" />抬（guan）血（ai）</P
+    >
+    <P
+      >同时被连线者应<Span variant="pink">注意走位</Span>，尽可能保持DoT伤害不超过<ThornsOfDeathDebuff
+        level={2}
+        hover
+      />，必要时注意<Span variant="pink">自保</Span></P
+    >
   </div>
 </NoteSection>
+
 <SolutionSection>
   <div class="flex flex-col gap-4">
     <P>在<Skill name={strangeSeeds} />阶段，<RoleIcon role="all" tag="所有人" />处理机制需要做的事只有两种情况：</P>
-    <P><ListDot />如果<Span variant="pink">没被点名</Span>放置冰花，站在<Span variant="pink">安全区</Span>躲避冰花</P>
+    <P>如果<Span variant="pink">没被点名</Span>放置冰花，站在<Span variant="pink">安全区</Span>躲避冰花</P>
     <P
-      ><ListDot />如果<Span variant="pink">被点名</Span>放置冰花，在<Span variant="pink">相应的点位</Span
-      >上放置冰花，然后<Span variant="pink">躲避</Span>冰花</P
+      >如果<Span variant="pink">被点名</Span>放置冰花，在<Span variant="pink">相应的点位</Span>上放置冰花，然后<Span
+        variant="pink">躲避</Span
+      >冰花</P
     >
     <P
-      ><Skill name={killerseeds} />分摊预兆出现后，<RoleIcon role="tank|healer" tag="T奶" />和<RoleIcon
+      ><Skill name={killerseeds} />分摊预兆出现后，<RoleIcon role="tank|healer" />和<RoleIcon
         role="dps"
-        tag="DPS"
       />两两配对，处理双人分摊</P
     >
     <P
@@ -152,110 +165,301 @@ const defaultSolution = '解法：萨利式'
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
   <div slot="解法：萨利式">
     <div class="flex flex-col gap-4">
+      <T text="放置冰花" variant="lime" class="text-2xl" />
       <div class="flex flex-col gap-4">
-        <P
-          ><Span variant="lime">萨利式</Span>解法的特点是，<Skill name={strangeSeeds} />点名区分<Span variant="pink"
-            >奇数</Span
-          >次和<Span variant="pink">偶数</Span>次，分别在<Span variant="pink">不同</Span>的位置放置冰花</P
-        >
-        <P
-          >并且以<RoleIcon role="tank|healer" tag="T奶" />、<RoleIcon role="melee" tag="近战" />、<RoleIcon
-            role="dps"
-            tag="拉线"
-          />分组，不同组的放置点和安全区不同</P
-        >
-        <P>首先，所有冰花放置点和绝对安全区如图所示：</P>
-        <ImgRow
-          wrapperClass="max-w-100"
-          borderVariant="rose"
-          imgs={[{ src: Tmp, alt: '萨利式冰花', title: '萨利式冰花全点位' }]}
-        />
-        <ImgRow
-          wrapperClass="max-w-100"
-          borderVariant="rose"
-          imgs={[{ src: strange_seeds_safe_point, alt: '绝对安全区', title: '绝对安全区' }]}
-        />
-        <P>对于<RoleIcon role="tank" />和<RoleIcon role="healer" />：</P>
-        <P><ListDot />如果自己未被点名，则前往绝对安全区</P>
-        <P
-          ><ListDot />如果自己被点名奇数轮种子，则前往<Span variant=""
-            >靠近<RoleIcon role="boss" tag="boss" />的场地中轴线处放置</Span
+        <div class="flex flex-col gap-4">
+          <P
+            ><Span variant="lime">萨利式</Span>的特点是，<Skill name={strangeSeeds} />点名区分<Span variant="sky"
+              >奇数</Span
+            >次和<Span variant="orange">偶数</Span>次，分别在<Span variant="pink">不同</Span>的位置放置冰花</P
           >
-          <P><ListDot />如果自己被点名偶数轮种子，则前往靠近<RoleIcon role="boss" tag="boss" />的场地标点处放置</P>
-        </P>
-        <div class="flex w-4/6 flex-col items-center gap-2">
-          <Image src={strange_seeds_safe_point} alt="" />
-          <P>未被点名时待在安全区内</P>
+          <P
+            >并且以<RoleIcon role="tank|healer" />、<RoleIcon role="melee" />、<RoleIcon
+              role="ranged"
+              tag="D3"
+            />、<RoleIcon role="magic" tag="D4" />分组，不同组的放置点和安全区不同</P
+          >
+          <P>首先，所有冰花放置点和<Span variant="purple">绝对安全区</Span>如图所示：</P>
+          <ImgRow
+            wrapperClass="max-w-100"
+            borderVariant="rose"
+            imgs={[{ src: Tmp, alt: '萨利式冰花', title: '萨利式冰花全点位' }]}
+          />
+          <ImgRow
+            wrapperClass="max-w-100"
+            borderVariant="rose"
+            imgs={[{ src: strange_seeds_safe_point, alt: '绝对安全区', title: '绝对安全区' }]}
+          />
         </div>
-        <P>首先</P>
-        <P>
-          <ListDot />
-          短边dot线由<RoleIcon role="dps" tag="D3" />负责
-        </P>
-        <P>
-          <ListDot />
-          长边dot线必定由<RoleIcon role="dps" tag="D4" />负责
-        </P>
-      </div>
-
-      <!-- 1/3 -->
-      <div class="items-left flex flex-col gap-4">
-        <div class="flex w-4/6 flex-col items-center gap-2">
-          <Image src={strange_seeds_13_point} alt="" />
-          <P>奇数 1/3轮,放角落或中央点</P>
+        <div class="flex flex-col gap-4">
+          <P class="mt-4">对于<RoleIcon role="tank" />和<RoleIcon role="healer" />：</P>
+          <Quote variant="rose"
+            ><P>如果自己<Span variant="purple">未被</Span>点名，则前往<Span variant="purple">绝对安全区</Span></P>
+            <P
+              >如果自己被点名<Span variant="sky">奇数</Span>轮种子，则前往<Span variant="pink">靠近</Span><RoleIcon
+                role="boss"
+                tag="boss"
+              />的场地<Span variant="sky">中轴线</Span>处放置</P
+            >
+            <P
+              >如果自己被点名<Span variant="orange">偶数</Span>轮种子，则前往<Span variant="pink">靠近</Span><RoleIcon
+                role="boss"
+                tag="boss"
+              />的场地<Span variant="orange">标点</Span>处放置</P
+            ></Quote
+          >
         </div>
-        <P>站位尽量分开,保证被点名时</P>
-        <P>可以直接判断是谁被点名</P>
-        <P>注意中央点位的放置需要相当准确</P>
-      </div>
+        <div class="flex flex-col gap-4">
+          <P class="mt-4">对于<RoleIcon role="melee" />：</P>
+          <Quote variant="rose"
+            ><P
+              >如果自己<Span variant="purple">未被</Span>点名，则前往<RoleIcon role="boss" tag="boss" /><Span
+                variant="pink">面前</Span
+              >的<Span variant="purple">绝对安全区</Span></P
+            >
+            <P
+              >如果自己被点名<Span variant="sky">奇数</Span>轮种子，则前往<RoleIcon role="boss" tag="boss" /><Span
+                variant="pink">目标圈穿过</Span
+              >的场地<Span variant="sky">角落</Span>放置</P
+            >
+            <P
+              >如果自己被点名<Span variant="orange">偶数</Span>轮种子，则前往图中<Span variant="orange">橙色1点</Span
+              >处放置</P
+            ></Quote
+          >
+        </div>
+        <div class="flex flex-col gap-4">
+          <P class="mt-4">对于<RoleIcon role="magic" tag="D4" />：</P>
+          <P
+            ><Span variant="pink">无论</Span>是否被点名，<Quote variant="rose">
+              <P
+                ><Span variant="sky">奇数</Span>轮种子点名时，站在<Span variant="pink">远离</Span><RoleIcon
+                  role="boss"
+                  tag="boss"
+                />的场地<Span variant="sky">中轴线</Span>处</P
+              >
+              <P
+                ><Span variant="orange">偶数</Span>轮时，站在图中<Span variant="orange">橙色2点</Span
+                >（视角右侧螺丝正上方）处</P
+              ></Quote
+            ></P
+          >
+        </div>
+        <div class="flex flex-col gap-4">
+          <P class="mt-4">对于<RoleIcon role="ranged" tag="D3" />：</P>
+          <Quote variant="rose">
+            <P
+              ><Span variant="sky">奇数</Span>轮种子点名时，<Span variant="pink">无论</Span>是否被点名，站在视角<Span
+                variant="pink">右侧</Span
+              >的场地<Span variant="sky">角落</Span>处</P
+            >
+            <P
+              ><Span variant="orange">偶数</Span>轮时，
+              <Quote variant="rose">
+                <P
+                  >如果连线<RoleIcon role="boss" tag="boss" /><Span variant="pink">近侧</Span>墙：
+                  <Quote variant="rose">
+                    <P
+                      ><Span variant="orange">橙色1点</Span>处<Span variant="pink">有点名</Span>，则站在图中
+                      <Span variant="purple">紫色点</Span>
+                      处
+                    </P>
+                    <P>没有则站在<Span variant="orange">橙色1点</Span>处</P>
+                  </Quote>
+                </P>
 
-      <!-- 2/4 -->
-      <div class="items-left flex flex-row gap-2">
-        <div class="flex w-4/6 flex-col items-center gap-2">
-          <Image src={strange_seeds_24_point} alt="" />
-          <P>偶数 2/4轮,放标点或标记位</P>
+                <P
+                  >如果连线<RoleIcon role="boss" tag="boss" /><Span variant="pink">远侧</Span>墙，站在图中<Span
+                    variant="orange">橙色3点</Span
+                  >处
+                </P>
+              </Quote>
+            </P>
+          </Quote>
+        </div>
+        <div class="flex flex-col gap-4">
+          <T variant="lime" text="奇偶轮冰花AoE范围示意图" class="mt-4 text-2xl" />
+          <ImgRow
+            wrapperClass="max-w-100"
+            borderVariant="rose"
+            imgs={[{ src: Tmp, alt: '奇数轮冰花AoE', title: '奇数轮冰花AoE' }]}
+          />
+          <ImgRow
+            wrapperClass="max-w-100"
+            borderVariant="rose"
+            imgs={[{ src: Tmp, alt: '偶数轮冰花AoE', title: '偶数轮冰花AoE' }]}
+          />
+        </div>
+        <div class="flex flex-col gap-4">
+          <P><Span variant="cyan">注：人群在绝对安全区集合时可略微分散，便于看清点名</Span></P>
         </div>
       </div>
-
-      <!-- 分摊站位 -->
-      <div class="flex flex-row gap-4">
-        <div class="flex w-4/6 flex-col items-center gap-2">
-          <Image src={strange_seeds_killer_seeds_point} alt="" />
-          <P>
-            第4轮种子落下后,<RoleIcon role="tank" /><RoleIcon role="healer" />组或<RoleIcon role="dps" />组分摊站位
+    </div>
+    <div class="flex flex-col gap-4">
+      <T text="双人分摊" variant="lime" class="mt-8 text-2xl" />
+      <div class="flex flex-col gap-4">
+        <P>分摊预兆出现时：</P>
+        <Quote variant="rose">
+          <P class="pl-1">
+            <RoleIcon role="tank" tag="MT" /><RoleIcon role="melee" tag="D1" />前往<RoleIcon
+              role="boss"
+              tag="boss"
+            /><Span variant="pink">目标圈穿过</Span>的场地<Span variant="sky">角落</Span>，即<RoleIcon
+              role="melee"
+            /><Span variant="sky">奇数</Span>轮冰花点
           </P>
-        </div>
-      </div>
-      <P><Span variant="pink">注意:</Span></P>
-      <P>
-        <Span variant="pink">
-          如果<RoleIcon role="dps" tag="D3" />处在左侧半场,则<RoleIcon role="healer" tag="H1" />跑到<RoleIcon
-            role="dps"
+          <P class="pl-1">
+            <RoleIcon role="tank" tag="ST" /><RoleIcon role="melee" tag="D2" />前往<Span variant="pink">靠近</Span
+            ><RoleIcon role="boss" tag="boss" />的场地<Span variant="sky">中轴线</Span>处，即<RoleIcon
+              role="healer|tank"
+            /><Span variant="sky">奇数</Span>轮冰花点
+          </P>
+          <P class="pl-1">
+            <RoleIcon role="healer" tag="H1" /><RoleIcon role="ranged" tag="D3" />前往<RoleIcon
+              role="ranged"
+              tag="D3"
+            />视角<Span variant="pink">右侧</Span>的场地<Span variant="sky">角落</Span>处，即<RoleIcon
+              role="ranged"
+              tag="D3"
+            /><Span variant="sky">奇数</Span>轮冰花点
+          </P>
+          <P class="pl-1">
+            <RoleIcon role="healer" tag="H2" /><RoleIcon role="magic" tag="D4" />前往<Span variant="pink">远离</Span
+            ><RoleIcon role="boss" tag="boss" />的场地<Span variant="sky">中轴线</Span>处,即<RoleIcon
+              role="magic"
+              tag="D4"
+            /><Span variant="sky">奇数</Span>轮冰花点
+          </P>
+        </Quote>
+        <P>
+          <RoleIcon role="any" tag="点名" />将冰花放置在<Span variant="pink">上述点位</Span>上，其他人与点名分摊
+        </P>
+        <P>
+          可简记为：<RoleIcon role="melee" tag="D1" /><RoleIcon role="tank" tag="ST" /><RoleIcon
+            role="ranged"
             tag="D3"
-          />位置的距离会变长
-        </Span>
-      </P>
-      <P>
-        这里建议,如果在前几轮已经放完<Span variant="yellow"> {strangeSeeds} </Span>的情况下去
-      </P>
-      <P><Span variant="pink">左侧安全位</Span>进行躲避.缩短下次跑去分摊的距离</P>
+          /><RoleIcon role="magic" tag="D4" />去自己的奇数轮冰花点，搭档去找他们
+        </P>
+        <T text="萨利式分摊站位示意图" variant="lime" class="mt-4 text-2xl" />
+        <ImgRow
+          wrapperClass="max-w-100"
+          borderVariant="rose"
+          imgs={[{ src: Tmp, alt: '萨利式分摊', title: '萨利式分摊' }]}
+        />
+        <P>
+          <Span variant="cyan"
+            >注：<RoleIcon role="healer" tag="H1" />请根据<RoleIcon
+              role="ranged"
+              tag="D3"
+            />的连线情况，选择更加靠近<RoleIcon role="ranged" tag="D3" />的绝对安全区躲避第4轮冰花，及时和<RoleIcon
+              role="ranged"
+              tag="D3"
+            />分摊</Span
+          >
+        </P>
+      </div>
     </div>
   </div>
+
   <div slot="解法：Fixed Seeds">
     <div class="flex flex-col gap-4">
+      <T text="放置冰花" variant="lime" class="text-2xl" />
       <P>
-        正如解法名字所说的那样，此解法指<RoleIcon role="any" tag="每人" />放置<Skill
-          name={strangeSeeds}
-        />和躲避冰花的位置相对固定
+        正如其名，<Span variant="lime">Fixed Seeds</Span>放置<Skill name={strangeSeeds} />和躲避冰花的位置<Span
+          variant="pink">相对固定</Span
+        >
       </P>
+      <P>
+        具体来说，对于<RoleIcon role="all" tag="全员" />，<Span variant="pink">每人</Span>都有1个<Span variant="pink"
+          >专属</Span
+        >的点位：</P
+      >
+      <Quote variant="rose">
+        <P>如果<Span variant="pink">未被</Span>点名，在自己点位上躲冰花</P>
+        <P>如果被点名，将冰花放在自己点位上，然后<Span variant="pink">躲开这轮</Span>冰花</P>
+      </Quote>
+      <T variant="lime" text="Fixed Seeds点位图示" class="mt-4 text-2xl" />
+      <ImgRow
+        wrapperClass="max-w-100"
+        borderVariant="rose"
+        imgs={[{ src: Tmp, alt: 'Fixed Seeds点位', title: 'Fixed Seeds点位' }]}
+      />
+    </div>
+    <div class="mt-4 flex flex-col gap-4">
+      <P>躲开自己点名1轮冰花的方法有：</P>
+      <Quote variant="rose">
+        <P>对于未被连线的<RoleIcon role="any" />，可站在周围任一<Span variant="pink">未被点名</Span>者的点位</P>
+        <P
+          >对于<RoleIcon role="tank|dps" tag="拉线" />，<Span variant="pink">观察</Span>冰花预兆，<Span variant="pink"
+            >就近</Span
+          >躲避</P
+        >
+      </Quote>
+      <P>实际上，场中存在不止一处的安全区</P>
+      <P
+        >对于<RoleIcon role="tank" /><RoleIcon role="melee" />，<Span variant="pink">连续2轮</Span>点<RoleIcon
+          role="tank"
+        /><RoleIcon role="melee" />的情况下，要注意前往特殊的位置才能无损躲避冰花，具体如下图：</P
+      >
+      <ImgRow
+        wrapperClass="max-w-100"
+        borderVariant="rose"
+        imgs={[
+          { src: Tmp, alt: '双近战情况1', title: '双近战情况1' },
+          { src: Tmp, alt: '双近战情况2', title: '双近战情况2' },
+        ]}
+      />
+    </div>
+    <div class="flex flex-col gap-4">
+      <T text="双人分摊" variant="lime" class="mt-8 text-2xl" />
+      <div class="flex flex-col gap-4">
+        <P>分摊预兆出现时：</P>
+        <Quote variant="rose">
+          <P class="pl-1">
+            <RoleIcon role="tank" tag="ST" /><RoleIcon role="melee" tag="D1" />前往<RoleIcon
+              role="boss"
+              tag="boss"
+            /><Span variant="pink">目标圈穿过</Span>的场地<Span variant="pink">角落</Span>
+          </P>
+          <P class="pl-1">
+            <RoleIcon role="tank" tag="MT" /><RoleIcon role="melee" tag="D2" />前往<Span variant="pink">靠近</Span
+            ><RoleIcon role="boss" tag="boss" />的场地<Span variant="pink">中轴线</Span>处
+          </P>
+          <P class="pl-1">
+            <RoleIcon role="healer" tag="H1" /><RoleIcon role="magic" tag="D3" />前往<Span variant="pink">远离</Span
+            ><RoleIcon role="boss" tag="boss" />的场地<Span variant="pink">中轴线</Span>处
+          </P>
+          <P class="pl-1">
+            <RoleIcon role="healer" tag="H2" /><RoleIcon role="ranged" tag="D4" />前往<RoleIcon
+              role="ranged"
+              tag="D4"
+            />视角<Span variant="pink">右侧</Span>的场地<Span variant="pink">角落</Span>处
+          </P></Quote
+        >
+        <P>
+          <RoleIcon role="any" tag="点名" />将冰花放置在<Span variant="pink">上述点位</Span>上，其他人与点名分摊
+        </P>
+        <T text="Fixed Seeds分摊图示" variant="lime" class="mt-4 text-2xl" />
+        <ImgRow
+          wrapperClass="max-w-100"
+          borderVariant="rose"
+          imgs={[{ src: Tmp, alt: 'fixedseeds分摊', title: 'Fixed Seeds分摊' }]}
+        />
+      </div>
     </div>
   </div>
-
-  <NoteSection>
-    <div class="items-left flex flex-col gap-4">
-      <P> 无论哪种站位，放置点位附近都存在一定容错，但是为了稳健开荒，还请尽量精准放置冰花 </P>
-      <P>躲冰花的时候保险起见，请注意观察冰花预兆的位置，必要时在安全区附近微调，以防止被队友残害</P>
-      <P>尤其是自己轮次的冰花，因为<MagicVulnerabilityUp tag="7" hover />的存在，吃到冰花必死</P>
-    </div>
-  </NoteSection>
 </MultiSolutionSection>
+
+<NoteSection>
+  <div class="items-left flex flex-col gap-4">
+    <P>无论哪种站位，放置点位附近都存在一定容错，但是为了稳健开荒，还请尽量<Span variant="pink">精准</Span>放置冰花 </P>
+    <P
+      >躲冰花的时候保险起见，请注意<Span variant="pink">观察</Span>冰花预兆的<Span variant="pink">实际位置</Span
+      >，必要时在安全区附近微调，以防止被队友残害</P
+    >
+    <P
+      >尤其是自己轮次的冰花，因为<MagicVulnerabilityUp tag="7" hover />的存在，<Span variant="pink">吃到冰花必死</Span
+      >，还请注意</P
+    >
+  </div>
+</NoteSection>
