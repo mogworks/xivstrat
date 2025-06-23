@@ -4,7 +4,8 @@ import P from '@/components/typography/P.astro'
 import Span from '@/components/Span.vue'
 import WarningDialog from './WarningDialog.vue'
 
-const fakeArr = new Array(12).fill('')
+// 开发环境只放一个，提示这东西在就OK
+const fakeArr = new Array(import.meta.env.DEV ? 1 : 10).fill('')
 ---
 
 <div class="flex flex-col gap-4">
