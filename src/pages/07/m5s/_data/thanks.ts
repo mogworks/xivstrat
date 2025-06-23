@@ -1,5 +1,5 @@
 export const thanksList = {
-  groupList: ['XivStrat', 'MMW', 'SPJP'],
+  groupList: ['XivStrat', 'MMW', 'SuperJump'],
   devList: ['SuperJump', 'Hikaru', 'DavidKitano', 'BaiXi', 'LuoLuoKe', 'YuKa', 'Demon'],
   other: [
     {
