@@ -2,7 +2,7 @@
   "name": "xivstrat",
   "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@10.12.1",
+  "packageManager": "pnpm@10.12.2",
   "description": "XivStrat - FFXIV Strategy Guide",
   "author": "XivStrat Team",
   "engines": {
@@ -51,7 +51,7 @@
     "zod": "3.25.67"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "4.15.0",
+    "@antfu/eslint-config": "4.16.1",
     "@astrojs/check": "0.9.4",
     "@astrojs/ts-plugin": "1.10.4",
     "@tauri-apps/api": "2.5.0",
@@ -64,7 +64,7 @@
     "eslint-plugin-format": "1.0.1",
     "husky": "9.1.7",
     "lint-staged": "16.1.2",
-    "prettier": "3.5.3",
+    "prettier": "3.6.0",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.6.13",
     "sharp": "0.34.2",
