@@ -22,6 +22,11 @@ export function createRectGraphics(
   return rect
 }
 
+export function createCircleGraphics(radius: number, style?: FillInput, resolution = DEFAULT_AOE_RESOLUTION) {
+  const circle = new Graphics().circle(0, 0, radius * YmToPx * resolution).fill(style)
+  return circle
+}
+
 export function createRingGraphics(
   innerRadius: number,
   outerRadius: number,
@@ -34,20 +39,6 @@ export function createRingGraphics(
     .circle(0, 0, innerRadius * YmToPx * resolution)
     .cut()
   return ring
-}
-
-export function createFanGraphics(
-  radius: number,
-  angle: number,
-  style?: FillInput,
-  resolution = DEFAULT_AOE_RESOLUTION,
-) {
-  const fan = new Graphics()
-    .arc(0, 0, radius * YmToPx * resolution, (-angle * Math.PI) / 360, (angle * Math.PI) / 360)
-    .lineTo(0, 0)
-    .closePath()
-    .fill(style)
-  return fan
 }
 
 export function createRingFanGraphics(
