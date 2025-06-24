@@ -154,7 +154,8 @@ import ImgRow from '@/components/typography/ImgRow.astro'
     </div>
     <div class="paragraph">
       <Span variant="yellow">Step 2：</Span>
-      第一轮伤害判定后，<RoleIcon role="all" tag="全员" />顺时针（约120°）前往<Zelenia /><Span variant="yellow">一劈扇形范围</Span
+      第一轮伤害判定后，<RoleIcon role="all" tag="全员" />顺时针（约120°）前往<Zelenia /><Span variant="yellow"
+        >一劈扇形范围</Span
       >的灰色地板，并穿内外圈躲避<Span variant="blue">第二轮钢铁/月环</Span>
     </div>
     <div class="paragraph">起点和终点的安全区示意图如下</div>
@@ -162,6 +163,8 @@ import ImgRow from '@/components/typography/ImgRow.astro'
     <ImgRow
       class="game-img"
       wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
       imgs={[
         {
           src: ga4,
@@ -173,7 +176,6 @@ import ImgRow from '@/components/typography/ImgRow.astro'
           alt: 'Zelenia：P3-5 先钢铁起点',
           title: '先月环',
         },
-        
       ]}
     />
     <!-- <div class="paragraph">
