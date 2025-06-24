@@ -1032,16 +1032,16 @@ export const timelineMap = {
         type: 'special',
         value: '9999999',
       },
-    ],
+    ] as DamageInfoData[],
   },
   m8s1: {
     mitigations: {
-      MT: [],
-      ST: [],
-      D1: [],
-      D2: [],
-      D3: [],
-      D4: [],
+      MT: ['0:03', '1:04', '2:16', '4:09', '5:57'],
+      ST: ['0:15', '1:41', '2:42', '5:01', '6:18'],
+      D1: ['0:40', '2:42', '4:13', '6:18'],
+      D2: ['0:15', '1:46', '5:01', '6:18'],
+      D3: ['0:03', '1:41', '3:18', '5:01', '6:18'],
+      D4: ['0:40', '2:42', '4:13', '6:18'],
     },
     damages: [
       {
@@ -1200,6 +1200,7 @@ export const timelineMap = {
         name: '风尘咆哮',
         type: 'magical',
         value: '110000',
+        areaOnly: true,
       },
       {
         time: '03:18.6',
@@ -1278,6 +1279,7 @@ export const timelineMap = {
         name: '大震击/巨岩',
         type: 'magical',
         value: '110000',
+        areaOnly: true, // boss上天
       },
       {
         time: '05:11.2',
@@ -1381,6 +1383,6 @@ export const timelineMap = {
         type: 'special',
         value: '9999999',
       },
-    ],
+    ] as DamageInfoData[],
   },
 }
