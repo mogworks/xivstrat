@@ -9,5 +9,5 @@ export const macro = `/p 【踩塔】 　 　 |【凌空错】
 /p 【魔法阵展开：四式】
 /p 薔薇放置　　 　 四四分摊：雷点名半场集合→TH左拉线　DPS右拉线
 /p 　　 中央 　　 ※分摊时踩亮地板
-/p D1MT　 D2ST
-/p D3H1　 D4H2`
+/p   D1MT  D2ST
+/p D3H1　    D4H2`
