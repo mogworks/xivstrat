@@ -32,7 +32,12 @@
       "title": "Part 2",
       "subtitle": "小怪阶段",
       "name": "P2 - 小怪阶段",
-      "mechanics": []
+      "mechanics": [
+        {
+          "href": "#blessed-barricade",
+          "name": "圣护壁"
+        }
+      ]
     },
     {
       "href": "/07/zelenia/p3",
