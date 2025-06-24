@@ -11,15 +11,14 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 
 import EscelonsFallCast from '../_components/EscelonsFallCast.astro'
+import { translations } from '../_translations/index'
 
 import i from '@/assets/07/zelenia/P1/four-i.png'
 import o from '@/assets/07/zelenia/P1/four-o.png'
 import first from '@/assets/07/zelenia/P1/P1-four-1.png'
 
 import img from '@/assets/07/zelenia/Tmp.png'
-
 ---
-
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
@@ -27,8 +26,7 @@ import img from '@/assets/07/zelenia/Tmp.png'
       这是一个组合机制，由<Span variant="purple">四连远近刀</Span>
       +点名<RoleIcon role="tank" /><RoleIcon role="healer" />或<RoleIcon role="dps" />
       <Span variant="blue">月环</Span>
-      +
-      点名<RoleIcon role="tank" /><RoleIcon role="healer" />和<RoleIcon role="dps" />
+      + 点名<RoleIcon role="tank" /><RoleIcon role="healer" />和<RoleIcon role="dps" />
       <Span variant="yellow">分摊</Span>组成
     </div>
     <div class="paragraph">
@@ -49,9 +47,11 @@ import img from '@/assets/07/zelenia/Tmp.png'
     </div>
     <div class="paragraph">
       <Span variant="yellow">月环：</Span>
+      BOSS会对<RoleIcon role="tank" /><RoleIcon role="healer" />或<RoleIcon role="dps" />释放和P1开场同款的月环点名
     </div>
     <div class="paragraph">
       <Span variant="yellow">分摊：</Span>
+      BOSS会随机对1<RoleIcon role="tank" /><RoleIcon role="healer" />和1<RoleIcon role="dps" />释放圆形分摊
     </div>
   </div>
 </MechanicSection>
@@ -71,53 +71,120 @@ import img from '@/assets/07/zelenia/Tmp.png'
       ]}
     />
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
-      <!-- <div class="paragraph">按照图示位置进行初始站位，</div>
       <div class="paragraph">
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
-        往<Span variant="pink">目标圈内</Span>一步，
-        <RoleIcon role="dps" />
-        往<Span variant="purple">目标圈外</Span>一步
-      </div>
-      <div class="paragraph">无论远或近引导，只有两种情况：</div>
-      <div class="paragraph">
-        <h4 class="text-xl">
-          <Span variant="yellow">AABB：</Span>
-        </h4>
+        由于被点名月环的人不能移动，因此这里需要另外4人先引导第一刀，然后根据远近刀情况进行位置调整。
       </div>
       <div class="paragraph">
-        第一刀后
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
-        向外移动，来到<Span variant="purple">目标圈外</Span>一步。
-        <RoleIcon role="dps" />
-        向内移动，来到<Span variant="pink">目标圈内</Span>一步。
+        机制开始时
+        <RoleIcon role="tank" /><RoleIcon role="healer" />在A方向<Span variant="pink">目标圈上</Span>集合，
+        <RoleIcon role="dps" />在C方向<Span variant="pink">目标圈上</Span>集合。
       </div>
-      <div class="paragraph">第二刀后保持不动</div>
+      <div class="paragraph">分摊结束后，非月环组需要根据第一刀的情况进行位置调整：</div>
       <div class="paragraph">
-        第三刀后
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
-        向内移动，来到<Span variant="pink">目标圈内</Span>一步。
-        <RoleIcon role="dps" />
-        向外移动，来到<Span variant="purple">目标圈外</Span>一步。
+        若第一刀为近刀，则需要向<Span variant="pink">目标圈内</Span>走一步并且分散。
       </div>
       <div class="paragraph">
-        <h4 class="text-xl">
-          <Span variant="yellow">ABBA：</Span>
-        </h4>
+        若第一刀为远刀则需要向<Span variant="purple">目标圈外</Span>走一步分散。
       </div>
-
-      <div class="paragraph">第一刀后保持不动</div>
+      <div class="paragraph">之后根据是AABB还是ABBA来进行位置调整</div>
       <div class="paragraph">
-        第二刀后
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
-        向外移动，来到<Span variant="purple">目标圈外</Span>一步。
-        <RoleIcon role="dps" />
-        向内移动，来到<Span variant="pink">目标圈内</Span>一步。
+        <Span variant="yellow">AABB</Span>
       </div>
-      <div class="paragraph">第三刀后保持不动</div> -->
+      <div class="paragraph">第一三刀后换位</div>
+      <div class="paragraph">
+        <Span variant="yellow">ABBA</Span>
+      </div>
+      <div class="paragraph">第二刀后换位</div>
+    </div>
+  </div>
+  <div class="flex flex-col gap-4 mt-10">
+    <div class="paragraph">
+      <Span variant="yellow">月环点名<RoleIcon role="tank" /><RoleIcon role="healer" />并且四连刀为远远近近：</Span>
+    </div>
+    <div class="paragraph">
+      分摊后<RoleIcon role="dps" />向<Span variant="purple">目标圈外</Span>一步，并且按图示站位分散。
+    </div>
+    <div class="paragraph">
+      第一刀后<RoleIcon role="tank" /><RoleIcon role="healer" />向外，来到<Span variant="purple">目标圈外</Span
+      >一步分散站位，<RoleIcon role="dps" />向内，来到<Span variant="pink">目标圈内</Span>一步
+    </div>
+    <div class="paragraph">第二刀后不动。</div>
+    <div class="paragraph">
+      第三刀后<RoleIcon role="tank" /><RoleIcon role="healer" />向内，来到<Span variant="pink">目标圈内</Span
+      >一步，<RoleIcon role="dps" />向外，来到<Span variant="purple">目标圈外</Span>一步
+    </div>
+    <div class="flex">
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-88"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: img,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+          {
+            src: img,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+          {
+            src: img,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+          {
+            src: img,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+        ]}
+      />
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">月环点名<RoleIcon role="dps" />并且四连刀为近远远近：</Span>
+    </div>
+    <div class="paragraph">
+      分摊后<RoleIcon role="tank" /><RoleIcon role="healer" />向<Span variant="pink">目标圈内</Span
+      >一步，并且按图示站位分散。
+    </div>
+    <div class="paragraph">第一刀后不动。</div>
+    <div class="paragraph">
+      第二刀后<RoleIcon role="tank" /><RoleIcon role="healer" />向外，来到<Span variant="purple">目标圈外</Span
+      >一步分散站位，<RoleIcon role="dps" />向内，来到<Span variant="pink">目标圈内</Span>一步
+    </div>
+    <div class="paragraph">第三刀后不动。</div>
+    <div class="flex">
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-88"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: img,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+          {
+            src: img,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+          {
+            src: img,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+          {
+            src: img,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+        ]}
+      />
     </div>
   </div>
 </SolutionSection>
