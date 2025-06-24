@@ -40,19 +40,3 @@ const img = { physical, magical, special }[type]
   <Image src={img} alt={type} class="ml-[calc(1em*2/18)] h-[calc(1em*20/18)] w-[calc(1em*20/18)]" />
   <span class="damage-specific-number" data-damage={damage}>{damage}</span>
 </span>
-<script>
-  import { subscribeKeys } from 'nanostores'
-
-  import { splitDamage } from '@/lib/utils'
-  import { $stratSettings } from '@/stores/stratSettings'
-
-  subscribeKeys($stratSettings, ['damageFormat'], (stratSettings) => {
-    document.querySelectorAll('span.damage-specific-number').forEach((ele) => {
-      const span = ele as HTMLSpanElement
-      const originalDamage = span.dataset.damage
-      if (originalDamage) {
-        span.textContent = stratSettings.damageFormat === 'split' ? splitDamage(originalDamage) : originalDamage
-      }
-    })
-  })
-</script>
