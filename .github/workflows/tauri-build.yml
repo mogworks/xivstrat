@@ -195,6 +195,19 @@ jobs:
 
             ### 更新内容
             - 查看提交历史了解详细更新
+
+            ### Mac版本注意事项
+            - 先打开 `系统偏好设置 -> 安全与隐私 -> 通用` 选项卡，检查是否已经启用了 `任何来源` 选项。
+            - 如果没有这个选项，复制以下面的命令：
+              ```bash
+              sudo spctl --master-disable
+              ```
+              执行后，安全与隐私 -> 通用 选项卡中会多出一个 `任何来源` 选项，选择即可。
+            - 如果提示: `XivStrat.app已损坏无法打开。 你应该将它移到废纸篓`,请在终端执行：
+              ```bash
+              sudo xattr -rd com.apple.quarantine /存放地址/XivStrat.app
+              ```
+              然后重新打开 `XivStrat.app` 即可。
           draft: false
           prerelease: false
           files: |
