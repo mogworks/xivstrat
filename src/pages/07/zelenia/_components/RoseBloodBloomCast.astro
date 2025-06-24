@@ -14,6 +14,6 @@ interface Props {
 const { start, num }: Props = Astro.props
 ---
 
-<CastSection start={start} duration={2.3} ability={`魔法阵展开：${num ? ' ' + num : ''} 式`}>
+<CastSection start={start} duration={2.3} ability={`魔法阵展开 · ${num ? ' ' + num : ''} 式`}>
   <Zelenia slot="source" />
 </CastSection>
