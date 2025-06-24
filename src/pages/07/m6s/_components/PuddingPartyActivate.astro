@@ -9,15 +9,15 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
+
   num: number
 }
 
-const { time, base = 0, num }: Props = Astro.props
+const { time, num }: Props = Astro.props
 const PuddingParty = translations.PuddingParty
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <Span variant="yellow">{PuddingParty}</Span>
   第
   <Span variant="pink">{num}</Span>

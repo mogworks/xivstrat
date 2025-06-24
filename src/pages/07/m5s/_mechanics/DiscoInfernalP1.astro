@@ -11,15 +11,9 @@ import BurnBabyBurn from '../_components/BurnBabyBurn.astro'
 import BurnBabyBurnEffect from '../_components/BurnBabyBurnEffect.astro'
 import DiscoInfernalCast from '../_components/DiscoInfernalCast.astro'
 import { translations } from '../_translations'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<DiscoInfernalCast start="01:12.578" base={base} />
+<DiscoInfernalCast start="01:12.578" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">

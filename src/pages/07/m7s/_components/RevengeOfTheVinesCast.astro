@@ -9,15 +9,15 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
+
   duration?: number
 }
 
-const { start, base = 0, duration = 4.7 }: Props = Astro.props
+const { start, duration = 4.7 }: Props = Astro.props
 const revengeOfTheVines = translations.revengeOfTheVines
 ---
 
-<CastSection start={start} base={base} duration={duration} ability={revengeOfTheVines}>
+<CastSection start={start} duration={duration} ability={revengeOfTheVines}>
   <BruteAbombinator slot="source" />
   <Badge variant="purple">AoE</Badge>
 </CastSection>

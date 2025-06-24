@@ -52,17 +52,16 @@ import revolutionary_t_8 from '@/assets/07/m8s1/xreign/solution/revolutionary_t_
 
 interface Props {
   start: Time
-  base?: Time
 }
 
 const revolutionaryReign = translations.revolutionaryReign
 const eminentReign = translations.eminentReign
 const wolvesReign = translations.wolvesReign
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<XReignCast start={start} base={base} />
+<XReignCast start={start} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T>

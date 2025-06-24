@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import { getEntry } from 'astro:content'
 
 import ScannerSVG from '@/assets/svg/scanner.svg'
 import BiliBiliSVG from '@/assets/svg/bilibili.svg'
@@ -22,6 +23,7 @@ import { referenceList } from './_data/reference'
 import { thanksList } from './_data/thanks'
 
 const dutyId = '07/m5s'
+const duty = (await getEntry('duties', dutyId))!.data
 const navList = [
   { label: '小抄速览', id: 'cheatsheet' },
   { label: '场地标点', id: 'waymark' },
@@ -30,7 +32,7 @@ const navList = [
   { label: '参考资料', id: 'reference' },
   { label: '鸣谢', id: 'thanks' },
 ]
-const videoLink = 'https://www.bilibili.com/video/BV1pNNyzxEh6'
+const videoLink = duty.bilibili ?? undefined
 ---
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
@@ -60,18 +62,18 @@ const videoLink = 'https://www.bilibili.com/video/BV1pNNyzxEh6'
     </Fragment>
     <AreaBox>
       <ResizableImageDialog client:idle>
-        <Image src={CheatsheetsImage} alt="m5s 副本小抄" loading="lazy" class="h-full object-contain object-left-top" />
+        <Image src={CheatsheetsImage} alt="m5s 副本小抄" loading="lazy" class="h-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
-    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT" img={WaymarkImage} />
+    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT" img={WaymarkImage} downloadLabel="下载5~8层标点文件" />
     <Fragment slot="header">
       <span>场地标点</span>
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="macro" client:idle class="w-full">
-    <Macro text={macro} title="M5S - 站位" />
+    <Macro text={macro} title="M5S站位" />
     <Fragment slot="header">
       <span>宏</span>
     </Fragment>
@@ -79,7 +81,7 @@ const videoLink = 'https://www.bilibili.com/video/BV1pNNyzxEh6'
   <CollapsibleBox id="timeline" client:idle class="w-full">
     <AreaBox>
       <ResizableImageDialog client:idle>
-        <Image src={TimelineImage} alt="m5s 简易时间轴" class="w-full object-contain object-left-top" />
+        <Image src={TimelineImage} alt="m5s 简易时间轴" class="w-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
     <Fragment slot="header">

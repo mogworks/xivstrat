@@ -1,6 +1,5 @@
 /* eslint-disable no-irregular-whitespace */
 
-// TODO: 需要正确性校验
 export const macro1 = `/p ■ 基本分散 (BOSS面基、TBOSS脚下)
 /p 　      D3  D4
 /p      H1　☆ 　H2
@@ -25,8 +24,8 @@ export const macro2 = `/p ■小怪阶段（击杀顺序：马＞猫＞鱼＞松
 /p D3拉D鱼　D4拉B鱼 北侧放水圈　MT拉松鼠到东鱼 ST拉羊到西鱼`
 
 export const macro3 = `/p ■ 山川　　　　　　　    ■ 雷云
-/p 火：外側MTH1D1D2　　 　 　 雷云为北
-/p 　　内側STH2D3D4　　TH←左　人群　右→DPS
+/p 火：外侧MTH1D1D2　　 　 　 雷云为北
+/p 　　内侧STH2D3D4　　TH←左　人群　右→DPS
 /p 雷：D3              D4
 /p         D1    MT    ST
 /p         H1    D2    H2

@@ -18,35 +18,35 @@
       "mechanics": [
         {
           "href": "#stoneringer",
-          "name": "Stoneringer",
+          "name": "石制武器",
           "name_en": "Stoneringer",
           "name_ja": "",
           "name_ch": "石制武器"
         },
         {
           "href": "#sinister-seeds",
-          "name": "Sinister Seeds",
+          "name": "种弹播撒",
           "name_en": "Sinister Seeds",
           "name_ja": "",
           "name_ch": "种弹播撒"
         },
         {
           "href": "#explosion",
-          "name": "Explosion",
+          "name": "爆炸",
           "name_en": "Explosion",
           "name_ja": "",
           "name_ch": "爆炸"
         },
         {
           "href": "#pulp-smash",
-          "name": "Pulp Smash",
+          "name": "荆棘挥打",
           "name_en": "Pulp Smash",
           "name_ja": "",
           "name_ch": "荆棘挥打"
         },
         {
           "href": "#neo-bombarian-special",
-          "name": "Neo Bombarian Special",
+          "name": "新式超豪华野蛮大乱击",
           "name_en": "Neo Bombarian Special",
           "name_ja": "",
           "name_ch": "新式超豪华野蛮大乱击"
@@ -75,7 +75,7 @@
         },
         {
           "href": "#sporesplosion",
-          "name": "Sporesplosion",
+          "name": "孢子云",
           "name_en": "Sporesplosion",
           "name_ja": "",
           "name_ch": "孢子云"
@@ -89,7 +89,7 @@
         },
         {
           "href": "#strange-seeds",
-          "name": "Strange Seeds",
+          "name": "种弹炸裂",
           "name_en": "Strange Seeds",
           "name_ja": "",
           "name_ch": "种弹炸裂"
@@ -118,7 +118,7 @@
         },
         {
           "href": "#sinister-seeds",
-          "name": "Sinister Seeds",
+          "name": "种弹播撒",
           "name_en": "Sinister Seeds",
           "name_ja": "",
           "name_ch": "种弹播撒"
@@ -132,7 +132,7 @@
         },
         {
           "href": "#special-bombarian-special",
-          "name": "Special Bombarian Special",
+          "name": "究极超豪华野蛮大乱击",
           "name_en": "Special Bombarian Special",
           "name_ja": "",
           "name_ch": "究极超豪华野蛮大乱击"

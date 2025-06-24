@@ -37,9 +37,8 @@ import BrutishSwingMoveActivate from '../_components/BrutishSwingMoveActivate.as
 
 interface Props {
   start: Time
-  base?: Time
 }
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const stoneringer = translations.stoneringer
 const sporesplosion = translations.sporesplosion
 ---
@@ -49,18 +48,18 @@ const sporesplosion = translations.sporesplosion
   连线
   <ThornsOfDeathDebuff hover />消失
 </EventSection>
-<SporesplosionCast start={start} base={base} />
-<SporesplosionAppear start="03:52.311" num={1} base={base} />
-<SporesplosionAppear start="03:54.314" num={2} base={base} />
-<SporesplosionAppear start="03:56.317" num={3} base={base} />
-<BrutishSwingCast start="03:58.320" base={base} />
-<BrutishSwingMoveActivate time="04:05.182" base={base} />
-<BrutishSwingActivate time="04:06.386" base={base} />
-<GlowerPowerCast start="04:07.275" base={base} />
-<ElectrogeneticForceActivate time="04:11.101" base={base} />
-<GlowerPowerActivate time="04:11.235" base={base} />
-<RevengeOfTheVinesCast start="04:12.084" base={base} />
-<RevengeOfTheVinesActivate time="04:17.078" base={base} />
+<SporesplosionCast start={start} />
+<SporesplosionAppear start="03:52.311" num={1} />
+<SporesplosionAppear start="03:54.314" num={2} />
+<SporesplosionAppear start="03:56.317" num={3} />
+<BrutishSwingCast start="03:58.320" />
+<BrutishSwingMoveActivate time="04:05.182" />
+<BrutishSwingActivate time="04:06.386" />
+<GlowerPowerCast start="04:07.275" />
+<ElectrogeneticForceActivate time="04:11.101" />
+<GlowerPowerActivate time="04:11.235" />
+<RevengeOfTheVinesCast start="04:12.084" />
+<RevengeOfTheVinesActivate time="04:17.078" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T>
@@ -108,11 +107,15 @@ const sporesplosion = translations.sporesplosion
     <P
       >观察黄圈预兆的范围，可以发现：
       <Quote variant="rose">
-        <P> 场中每个黄圈的<Span variant="pink">圆心</Span>附近约<Span variant="pink">1m x 1m</Span>的近似正方形</P>
         <P>
-          场边每个黄圈的<Span variant="pink">圆心</Span>沿<Span variant="pink">垂直于场地边缘</Span>半径，向<Span
-            variant="pink">场地外</Span
-          >方向附近
+          <Span variant="pink">场中</Span>每个黄圈的<Span variant="pink">圆心</Span>附近约<Span variant="pink"
+            >1m x 1m</Span
+          >的近似正方形</P
+        >
+        <P>
+          <Span variant="pink">场边</Span>每个黄圈的<Span variant="pink">圆心</Span>沿<Span variant="pink"
+            >垂直于场地边缘</Span
+          >半径，向<Span variant="pink">场地外</Span>方向附近
         </P>
       </Quote>
     </P>

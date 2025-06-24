@@ -5,7 +5,7 @@ import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import Span from '@/components/Span.vue'
-import DraftWarning from '@/components/DraftWarning.astro'
+import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
@@ -28,7 +28,8 @@ import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
 
 const dutyId = '07/m7s'
 
-const base = '06:16.310'
+const base = '06:09.273'
+
 const sinisterSeeds = translations.sinisterSeeds
 const specialBombarianSpecial = translations.specialBombarianSpecial
 const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
@@ -41,18 +42,18 @@ const strangeSeeds = translations.strangeSeeds
 const sporesac = translations.sporeSac
 ---
 
-<DutyStratLayout dutyId={dutyId}>
+<DutyStratLayout dutyId={dutyId} base={base}>
   <SeparatorSection />
   <DraftWarning />
   <SeparatorSection />
   <EventSection time="06:09.273">
     <BruteAbombinator />可选中
   </EventSection>
-  <AttackSection time="06:09.986" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="06:13.014" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="06:16.042" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="06:09.986" damage="57000" damageType="physical" />
+  <AttackSection time="06:13.014" damage="57000" damageType="physical" />
+  <AttackSection time="06:16.042" damage="57000" damageType="physical" />
 
-  <BrutalImpactCast start="06:16.310" base={base} toln={7} />
+  <BrutalImpactCast start="06:16.310" toln={7} />
   <CollapseSection>
     <Fragment slot="summary">
       <BruteAbombinator />
@@ -60,24 +61,24 @@ const sporesac = translations.sporeSac
       <DamageInfo damage="57000" type="physical" />
     </Fragment>
     <Fragment slot="details">
-      <BrutalImpactActivate time="06:21.518" base={base} num={1} />
-      <BrutalImpactActivate time="06:22.587" base={base} num={2} />
-      <BrutalImpactActivate time="06:23.658" base={base} num={3} />
-      <BrutalImpactActivate time="06:24.727" base={base} num={4} />
-      <BrutalImpactActivate time="06:25.797" base={base} num={5} />
-      <BrutalImpactActivate time="06:26.867" base={base} num={6} />
-      <BrutalImpactActivate time="06:27.935" base={base} num={7} />
+      <BrutalImpactActivate time="06:21.518" num={1} />
+      <BrutalImpactActivate time="06:22.587" num={2} />
+      <BrutalImpactActivate time="06:23.658" num={3} />
+      <BrutalImpactActivate time="06:24.727" num={4} />
+      <BrutalImpactActivate time="06:25.797" num={5} />
+      <BrutalImpactActivate time="06:26.867" num={6} />
+      <BrutalImpactActivate time="06:27.935" num={7} />
     </Fragment>
   </CollapseSection>
-  <AttackSection time="06:30.789" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="06:30.789" damage="57000" damageType="physical" />
 
   <SeparatorSection id="S2RG" title=`${stoneringer2Stoneringers} + ${revengeOfTheVines} + ${glowerPower}` />
-  <MoveToCenterEvent time="06:31.100" base={base} />
-  <Stoneringer2First time="06:33.194" base={base} />
+  <MoveToCenterEvent time="06:31.100" />
+  <Stoneringer2First time="06:33.194" />
 
   <SeparatorSection title={brutalImpact} />
-  <AttackSection time="07:15.515" base={base} damage="57000" damageType="physical" />
-  <BrutalImpactCast start="07:16.318" base={base} toln={8} />
+  <AttackSection time="07:15.515" damage="57000" damageType="physical" />
+  <BrutalImpactCast start="07:16.318" toln={8} />
   <CollapseSection>
     <Fragment slot="summary">
       <BruteAbombinator />
@@ -85,33 +86,33 @@ const sporesac = translations.sporeSac
       <DamageInfo damage="57000" type="physical" />
     </Fragment>
     <Fragment slot="details">
-      <BrutalImpactActivate time="07:21.535" base={base} num={1} />
-      <BrutalImpactActivate time="07:22.606" base={base} num={2} />
-      <BrutalImpactActivate time="07:23.678" base={base} num={3} />
-      <BrutalImpactActivate time="07:24.749" base={base} num={4} />
-      <BrutalImpactActivate time="07:25.819" base={base} num={5} />
-      <BrutalImpactActivate time="07:26.887" base={base} num={6} />
-      <BrutalImpactActivate time="07:27.956" base={base} num={7} />
-      <BrutalImpactActivate time="07:29.028" base={base} num={8} />
+      <BrutalImpactActivate time="07:21.535" num={1} />
+      <BrutalImpactActivate time="07:22.606" num={2} />
+      <BrutalImpactActivate time="07:23.678" num={3} />
+      <BrutalImpactActivate time="07:24.749" num={4} />
+      <BrutalImpactActivate time="07:25.819" num={5} />
+      <BrutalImpactActivate time="07:26.887" num={6} />
+      <BrutalImpactActivate time="07:27.956" num={7} />
+      <BrutalImpactActivate time="07:29.028" num={8} />
     </Fragment>
   </CollapseSection>
   <SeparatorSection title={stoneringer} />
-  <StoneringerCast start="07:32.145" base={base} />
-  <SmashHereCast start="07:39.990" base={base} />
-  <BrutishSwingActivate time="07:43.955" base={base} />
-  <SmashActivate time="07:45.113" base={base} />
+  <StoneringerCast start="07:32.145" />
+  <SmashHereCast start="07:39.990" />
+  <BrutishSwingActivate time="07:43.955" />
+  <SmashActivate time="07:45.113" />
 
-  <AttackSection time="07:47.962" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="07:50.993" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="07:47.962" damage="57000" damageType="physical" />
+  <AttackSection time="07:50.993" damage="57000" damageType="physical" />
 
   <SeparatorSection id="debris-deathmatch-sporesac" title=`${debrisDeathmatch} + ${sporesac}` />
-  <DebrisDeathmatch base={base} />
+  <DebrisDeathmatch />
 
-  <SeparatorSection id="sinister-seeds" title="Sinister Seeds" />
-  <SinisterSeedsP3 base={base} />
+  <SeparatorSection id="sinister-seeds" title={sinisterSeeds} />
+  <SinisterSeedsP3 />
 
   <SeparatorSection title={brutalImpact} />
-  <BrutalImpactCast start="09:05.357" base={base} toln={8} />
+  <BrutalImpactCast start="09:05.357" toln={8} />
   <CollapseSection>
     <Fragment slot="summary">
       <BruteAbombinator />
@@ -119,32 +120,32 @@ const sporesac = translations.sporeSac
       <DamageInfo damage="57000" type="physical" />
     </Fragment>
     <Fragment slot="details">
-      <BrutalImpactActivate time="09:10.574" base={base} num={1} />
-      <BrutalImpactActivate time="09:11.643" base={base} num={2} />
-      <BrutalImpactActivate time="09:12.713" base={base} num={3} />
-      <BrutalImpactActivate time="09:13.782" base={base} num={4} />
-      <BrutalImpactActivate time="09:14.851" base={base} num={5} />
-      <BrutalImpactActivate time="09:15.921" base={base} num={6} />
-      <BrutalImpactActivate time="09:16.988" base={base} num={7} />
-      <BrutalImpactActivate time="09:18.056" base={base} num={8} />
+      <BrutalImpactActivate time="09:10.574" num={1} />
+      <BrutalImpactActivate time="09:11.643" num={2} />
+      <BrutalImpactActivate time="09:12.713" num={3} />
+      <BrutalImpactActivate time="09:13.782" num={4} />
+      <BrutalImpactActivate time="09:14.851" num={5} />
+      <BrutalImpactActivate time="09:15.921" num={6} />
+      <BrutalImpactActivate time="09:16.988" num={7} />
+      <BrutalImpactActivate time="09:18.056" num={8} />
     </Fragment>
   </CollapseSection>
-  <AttackSection time="09:20.907" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="09:23.935" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="09:20.907" damage="57000" damageType="physical" />
+  <AttackSection time="09:23.935" damage="57000" damageType="physical" />
 
   <SeparatorSection id="S2S" title=`${stoneringer2Stoneringers} + ${strangeSeeds}` />
-  <Stoneringer2Second time="09:26.252" base={base} />
+  <Stoneringer2Second time="09:26.252" />
 
-  <AttackSection time="10:14.526" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="10:14.526" damage="57000" damageType="physical" />
   <SeparatorSection title={stoneringer} />
-  <StoneringerCast start="10:16.130" base={base} />
-  <SmashHereCast start="10:23.968" base={base} />
-  <BrutishSwingActivate time="10:27.935" base={base} />
-  <SmashActivate time="10:29.098" base={base} />
-  <AttackSection time="10:31.948" base={base} damage="57000" damageType="physical" />
+  <StoneringerCast start="10:16.130" />
+  <SmashHereCast start="10:23.968" />
+  <BrutishSwingActivate time="10:27.935" />
+  <SmashActivate time="10:29.098" />
+  <AttackSection time="10:31.948" damage="57000" damageType="physical" />
 
   <SeparatorSection title={brutalImpact} />
-  <BrutalImpactCast start="10:33.242" base={base} toln={8} />
+  <BrutalImpactCast start="10:33.242" toln={8} />
   <CollapseSection>
     <Fragment slot="summary">
       <BruteAbombinator />
@@ -152,20 +153,20 @@ const sporesac = translations.sporeSac
       <DamageInfo damage="57000" type="physical" />
     </Fragment>
     <Fragment slot="details">
-      <BrutalImpactActivate time="10:38.459" base={base} num={1} />
-      <BrutalImpactActivate time="10:39.528" base={base} num={2} />
-      <BrutalImpactActivate time="10:40.599" base={base} num={3} />
-      <BrutalImpactActivate time="10:41.669" base={base} num={4} />
-      <BrutalImpactActivate time="10:42.738" base={base} num={5} />
-      <BrutalImpactActivate time="10:43.805" base={base} num={6} />
-      <BrutalImpactActivate time="10:44.872" base={base} num={7} />
-      <BrutalImpactActivate time="10:45.944" base={base} num={8} />
+      <BrutalImpactActivate time="10:38.459" num={1} />
+      <BrutalImpactActivate time="10:39.528" num={2} />
+      <BrutalImpactActivate time="10:40.599" num={3} />
+      <BrutalImpactActivate time="10:41.669" num={4} />
+      <BrutalImpactActivate time="10:42.738" num={5} />
+      <BrutalImpactActivate time="10:43.805" num={6} />
+      <BrutalImpactActivate time="10:44.872" num={7} />
+      <BrutalImpactActivate time="10:45.944" num={8} />
     </Fragment>
   </CollapseSection>
-  <AttackSection time="10:48.792" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="10:51.819" base={base} damage="57000" damageType="physical" />
-  <AttackSection time="10:54.850" base={base} damage="57000" damageType="physical" />
+  <AttackSection time="10:48.792" damage="57000" damageType="physical" />
+  <AttackSection time="10:51.819" damage="57000" damageType="physical" />
+  <AttackSection time="10:54.850" damage="57000" damageType="physical" />
   <SeparatorSection id="special-bombarian-special" title={specialBombarianSpecial} />
-  <MoveToCenterEvent time="10:55.164" base={base} />
-  <SpecialBombarianSpecial base={base} />
+  <MoveToCenterEvent time="10:55.164" />
+  <SpecialBombarianSpecial />
 </DutyStratLayout>

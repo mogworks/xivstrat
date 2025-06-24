@@ -8,16 +8,15 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const duration = 6.7
 
 const riseOfTheHowlingWind = translations.riseOfTheHowlingWind
 ---
 
-<CastSection start={start} base={base} duration={duration} ability={riseOfTheHowlingWind}>
+<CastSection start={start} duration={duration} ability={riseOfTheHowlingWind}>
   <HowlingBlade slot="source" />
   ，干扰传送装置
   <Badge variant="emerald">传送间隔+</Badge>

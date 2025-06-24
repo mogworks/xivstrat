@@ -178,7 +178,7 @@ watch(
           @mouseleave="stopDrag"
         >
           <slot>
-            <img v-if="src" :src="src" loading="lazy" alt="图片" class="block h-full object-contain object-left-top">
+            <img v-if="src" :src="src" loading="lazy" alt="图片" class="block h-full object-contain">
           </slot>
         </div>
       </div>

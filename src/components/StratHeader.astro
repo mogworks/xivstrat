@@ -7,17 +7,18 @@ import { cn } from '@/lib/utils'
 import LinkIcons from '@/components/LinkIcons.astro'
 import Separator from '@/components/Separator.astro'
 
-import XivStratLightLogo from '@/assets/developer/group/XivStrat_light.png'
-import XivStratDarkLogo from '@/assets/developer/group/XivStrat_dark.png'
-import XivStratHoverLogo from '@/assets/developer/group/XivStrat_hover.png'
+import XivStratLightLogo from '@/assets/developer/group/XivStrat/XivStrat_light.png'
+import XivStratDarkLogo from '@/assets/developer/group/XivStrat/XivStrat_dark.png'
+import XivStratHoverLogo from '@/assets/developer/group/XivStrat/XivStrat_hover.png'
 
 interface Props {
   baseUrl?: string
   name: string
   phases: DutyPhase[]
+  bilibili?: string
 }
 
-const { baseUrl, name, phases }: Props = Astro.props
+const { baseUrl, name, phases, bilibili = 'https://space.bilibili.com/25787773' }: Props = Astro.props
 ---
 
 <header
@@ -100,6 +101,6 @@ const { baseUrl, name, phases }: Props = Astro.props
       </nav>
       <Separator orientation="vertical" class="h-8" />
     </section>
-    <LinkIcons />
+    <LinkIcons bilibili={bilibili} />
   </div>
 </header>

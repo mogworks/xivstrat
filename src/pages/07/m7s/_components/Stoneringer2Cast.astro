@@ -8,14 +8,13 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
 ---
 
-<CastSection start={start} base={base} duration={4.7} ability={stoneringer2Stoneringers}>
+<CastSection start={start} duration={4.7} ability={stoneringer2Stoneringers}>
   <BruteAbombinator slot="source" />
   <Badge variant="emerald">掏出武器</Badge>
 </CastSection>

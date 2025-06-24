@@ -59,33 +59,31 @@ const videoLink = ''
     <Fragment slot="header">
       <span>小抄速览</span>
     </Fragment>
-    <AreaBox>
-      <ResizableImageDialog client:idle>
-        <Image
-          src={CheatsheetsImage}
-          alt="m6s 副本小抄"
-          loading="lazy"
-          class="h-full w-fit object-contain object-left-top"
-        />
-        <Image
-          src={CheatsheetsZooImage}
-          alt="m6s 动物园小抄"
-          loading="lazy"
-          class="h-full w-fit object-contain object-left-top"
-        />
-      </ResizableImageDialog>
-    </AreaBox>
+    <div class="flex flex-row gap-4">
+      <AreaBox>
+        <strong class="mb-2 inline-block text-sm opacity-60">总体机制</strong>
+        <ResizableImageDialog client:idle>
+          <Image src={CheatsheetsImage} alt="m6s 副本小抄" loading="lazy" class="h-full object-contain" />
+        </ResizableImageDialog>
+      </AreaBox>
+      <AreaBox>
+        <strong class="mb-2 inline-block text-sm opacity-60">动物园</strong>
+        <ResizableImageDialog client:idle>
+          <Image src={CheatsheetsZooImage} alt="m6s 动物园小抄" loading="lazy" class="h-full object-contain" />
+        </ResizableImageDialog>
+      </AreaBox>
+    </div>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
-    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT" img={WaymarkImage} />
+    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT" img={WaymarkImage} downloadLabel="下载5~8层标点文件" />
     <Fragment slot="header">
       <span>场地标点</span>
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="macro" client:idle class="w-full">
-    <Macro text={macro1} class="mb-4" title="M6S - 站位1" />
-    <Macro text={macro3} class="mb-4" title="M6S - 站位2" />
-    <Macro text={macro2} title="M6S - 动物园" />
+    <Macro text={macro1} class="mb-4" title="M6S站位1" />
+    <Macro text={macro3} class="mb-4" title="M6S站位2" />
+    <Macro text={macro2} title="M6S动物园" />
     <Fragment slot="header">
       <span>宏</span>
     </Fragment>

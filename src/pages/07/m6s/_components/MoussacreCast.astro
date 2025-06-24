@@ -13,14 +13,13 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const Moussacre = translations.Moussacre
 ---
 
-<CastSection start={start} base={base} duration={4.7} ability={Moussacre} target>
+<CastSection start={start} duration={4.7} ability={Moussacre} target>
   <SugarRiot slot="source" />
   <Span slot="target" variant="pink">距离最近的4人</Span>
   ，

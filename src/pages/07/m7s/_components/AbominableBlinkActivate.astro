@@ -14,14 +14,13 @@ import RoleIcon from '@/components/RoleIcon.astro'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 const abominableBlink = translations.abominableBlink
 ---
 
-<EventSection time={time} base={base} ability="abominableBlink">
+<EventSection time={time} ability="abominableBlink">
   <P>
     <Span variant="yellow">{abominableBlink}</Span>伤害判定 <Badge variant="yellow">AoE</Badge>
     <Separator orientation="vertical" class="w-0.1 bg-default h-16" />

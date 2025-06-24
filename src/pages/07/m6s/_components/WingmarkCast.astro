@@ -10,15 +10,15 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
+
   debuffDuration?: string
 }
 
-const { start, base = 0, debuffDuration = '21' }: Props = Astro.props
+const { start, debuffDuration = '21' }: Props = Astro.props
 const Wingmark = translations.Wingmark
 ---
 
-<CastSection start={start} base={base} duration={4.6} ability={Wingmark} target>
+<CastSection start={start} duration={4.6} ability={Wingmark} target>
   <SugarRiot slot="source" />
   <WingmarkDebuff tag={debuffDuration} hover />
   <Badge variant="emerald">强制飞行</Badge>

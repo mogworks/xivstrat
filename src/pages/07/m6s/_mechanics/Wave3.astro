@@ -34,15 +34,9 @@ import wave3_solution_4 from '@/assets/07/m6s/soul_sugar/wave3_solution_4.png'
 import wave3_solution_5 from '@/assets/07/m6s/soul_sugar/wave3_solution_5.png'
 import wave3_solution_6 from '@/assets/07/m6s/soul_sugar/wave3_solution_6.png'
 import { translations } from '../_translations'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<LivePaintingCast start="04:32.070" base={base} class="-my-5">
+<LivePaintingCast start="04:32.070" class="-my-5">
   <Image src={wave3} alt="Paint Mark: Wave #3" class="-mr-4 -ml-2 w-30 drop-shadow-sm drop-shadow-black" />
   ，激活
   <Yan>
@@ -55,20 +49,20 @@ const { base = 0 }: Props = Astro.props
     <Span variant="blue">×1</Span>
   </Jabberwock>
 </LivePaintingCast>
-<HangryHissCast start="04:33.355" base={base} wave={1} />
-<AttackSection time="04:38.934" base={base} damage="57000" damageType="magical" />
-<UnlimitedCravingActivate time="04:39.201" base={base} wave={3} />
-<AttackSection time="04:41.966" base={base} damage="57000" damageType="magical" />
-<ManxomeWindersnatchActivate time="04:44.236" base={base} wave={3} />
-<AttackSection time="04:44.995" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:48.023" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:51.050" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:54.080" base={base} damage="57000" damageType="magical" />
-<AttackSection time="04:57.113" base={base} damage="57000" damageType="magical" />
-<ReadyOreNotCast start="04:59.208" base={base} />
-<AttackSection time="05:07.147" base={base} damage="57000" damageType="magical" />
-<AttackSection time="05:10.172" base={base} damage="57000" damageType="magical" />
-<OreRigatoCast start="05:07.278" base={base}>
+<HangryHissCast start="04:33.355" wave={1} />
+<AttackSection time="04:38.934" damage="57000" damageType="magical" />
+<UnlimitedCravingActivate time="04:39.201" wave={3} />
+<AttackSection time="04:41.966" damage="57000" damageType="magical" />
+<ManxomeWindersnatchActivate time="04:44.236" wave={3} />
+<AttackSection time="04:44.995" damage="57000" damageType="magical" />
+<AttackSection time="04:48.023" damage="57000" damageType="magical" />
+<AttackSection time="04:51.050" damage="57000" damageType="magical" />
+<AttackSection time="04:54.080" damage="57000" damageType="magical" />
+<AttackSection time="04:57.113" damage="57000" damageType="magical" />
+<ReadyOreNotCast start="04:59.208" />
+<AttackSection time="05:07.147" damage="57000" damageType="magical" />
+<AttackSection time="05:10.172" damage="57000" damageType="magical" />
+<OreRigatoCast start="05:07.278">
   <Mu wave={1} />
   <Mu wave={2} />
 </OreRigatoCast>

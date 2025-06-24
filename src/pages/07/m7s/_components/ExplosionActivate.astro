@@ -9,15 +9,15 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
+
   num?: Number
 }
 
-const { time, base = 0, num }: Props = Astro.props
+const { time, num }: Props = Astro.props
 const explosion = translations.explosion
 ---
 
-<EventSection time={time} base={base} num={num} ability={explosion}>
+<EventSection time={time} num={num} ability={explosion}>
   第<Span variant="pink">{num}</Span>颗陨石伤害判定
   <DamageInfo damage="70000~300000" type="magical" />
   <Badge variant="amber">距离衰减</Badge>

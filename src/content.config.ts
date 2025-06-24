@@ -15,6 +15,7 @@ const duties = defineCollection({
       href: z.string(),
       status: z.union([z.literal('upcoming'), z.literal('live'), z.literal('done')]),
       indexAvailable: z.boolean(),
+      bilibili: z.string().optional(),
       phases: z.array(
         z.object({
           href: z.string(),
@@ -59,4 +60,16 @@ const developers = defineCollection({
     }),
 })
 
-export const collections = { duties, dutyGroups, developers }
+const devGroups = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/data/dev-groups' }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      description: z.optional(z.string(), z.undefined()),
+      iconDark: image(),
+      iconLight: image(),
+      link: z.string(),
+    }),
+})
+
+export const collections = { duties, dutyGroups, developers, devGroups }

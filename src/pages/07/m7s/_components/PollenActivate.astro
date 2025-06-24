@@ -6,17 +6,17 @@ import EventSection from '@/components/section/EventSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import Skill from '@/components/typography/Skill.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
-const pollen = 'Pollen'
+const { time }: Props = Astro.props
+const pollen = translations.pollen
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <Skill name={pollen} />
   伤害判定
   <Badge variant="emerald">8m圆形</Badge>

@@ -15,17 +15,11 @@ import ArtisticAnarchyCast from '../_components/ArtisticAnarchyCast.astro'
 import SugarRiot from '../_components/SugarRiot.astro'
 
 import final from '@/assets/07/m6s/paint_mark/final@3x.png'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<ArtisticAnarchyCast start="11:09.425" base={base} />
+<ArtisticAnarchyCast start="11:09.425" />
 <EventSection>
-  <StratInterval slot="time" start="11:20.556" end="11:23.541" base={base} />
+  <StratInterval slot="time" start="11:20.556" end="11:23.541" />
   <Fragment>
     <RoleIcon role="enemy_level1">
       <Span variant="rose">绘画图案</Span>
