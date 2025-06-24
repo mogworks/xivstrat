@@ -146,11 +146,11 @@ import steel from '@/assets/07/zelenia/P3-2/P2-j-steel.png'
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <div class="paragraph">
           <Span variant="orange">Step 2</Span>
-          钢铁/月环判定，穿内外，到第三刀区域
+          钢铁/月环判定，穿内外，到第三组刀区域
         </div>
         <div class="paragraph">
           <Span variant="green">Step 3</Span>
-          第二刀判定，到第二刀区域
+          第二组刀判定，到第二组刀区域
         </div>
       </div>
     </div>
@@ -159,11 +159,23 @@ import steel from '@/assets/07/zelenia/P3-2/P2-j-steel.png'
 <NoteSection>
   <div class="flex gap-4">
     <div class="max-w-88 flex-1">
-      <Image src={j} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-88"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: j,
+            alt: 'Zelenia：P3-2 说明',
+            // title: '先钢铁',
+          },
+        ]}
+      />
     </div>
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
       <div class="paragraph">如图所示，因为各刀之间有先后顺序，所以使用1~6进行标注，此处的x刀不同于上文</div>
-      <div class="paragraph">以钢铁+月环为例子，解释为何最好前往4外而不是3+5外</div>
+      <div class="paragraph">以钢铁+月环为例子，解释为何最好前往4外（单块灰地板）而不是3+5外</div>
       <div class="paragraph">
         首先，劈砍和钢铁月环的判定顺序如下：<Span variant="blue">1+钢铁</Span>→2→3→<Span variant="blue">4+月环</Span
         >→5→6
@@ -176,7 +188,7 @@ import steel from '@/assets/07/zelenia/P3-2/P2-j-steel.png'
       <div class="paragraph">
         躲避顺序：4外→<Span variant="blue">1钢铁判定</Span>→6内→<Span variant="blue">4刀+月环判定</Span>→4
       </div>
-      <div class="paragraph">最后是从6区域穿到4区域，等4刀判定完就可穿，有两个间隔时间(2s)</div>
+      <div class="paragraph">最后是从6区域穿到4区域，等4刀判定完就可穿，有两个间隔时间（2s）</div>
 
       <div class="paragraph">
         <Span variant="yellow">3&5外起点</Span>
@@ -186,7 +198,7 @@ import steel from '@/assets/07/zelenia/P3-2/P2-j-steel.png'
         躲避顺序：3&5外→<Span variant="blue">1钢铁判定</Span>→5内→3刀判定→<Span variant="blue">4刀+月环判定</Span>→3
       </div>
       <div class="paragraph">
-        最后是从5区域穿到3区域，等3刀判定后，还要等4刀+月环判定才可穿，只有一个间隔时间(1s)，高延迟选手慎选！
+        最后是从5区域穿到3区域，等3刀判定后，还要等4刀+月环判定才可穿，只有一个间隔时间（1s），高延迟选手慎选！
       </div>
     </div>
   </div>
