@@ -13,10 +13,9 @@ import { translations } from '../_translations'
 interface Props {
   start: Time
   type: 'line' | 'circle_or_fan'
-  base?: Time
 }
 
-const { start, type, base = 0 }: Props = Astro.props
+const { start, type }: Props = Astro.props
 
 const duration = 1.2
 const abilityName = translations.wolvesReign
@@ -26,13 +25,13 @@ const eminentReign = translations.eminentReign
 
 {
   type === 'line' ? (
-    <CastSection start={start} base={base} duration={duration} ability={abilityName}>
+    <CastSection start={start} duration={duration} ability={abilityName}>
       <HowlingBlade slot="source" />
       ，释放直线冲锋，冲至场地对侧
       <Badge variant="emerald">10m宽直线</Badge>
     </CastSection>
   ) : (
-    <CastSection start={start} base={base} duration={duration} ability={abilityName}>
+    <CastSection start={start} duration={duration} ability={abilityName}>
       <HowlingBlade slot="source" />
       ，释放附带击退效果的
       <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />

@@ -1,5 +1,5 @@
 ---
-import DraftWarning from '@/components/DraftWarning.astro'
+import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
@@ -30,32 +30,31 @@ const ultraviolentRay = translations.ultraviolentRay
 const twinbite = translations.twinbite
 ---
 
-<DutyStratLayout dutyId={dutyId}>
+<DutyStratLayout dutyId={dutyId} base={base}>
   <SeparatorSection />
   <DraftWarning />
   <SeparatorSection />
-  <RiseOfTheHowlingWind start={base} base={base} />
+  <RiseOfTheHowlingWind start={base} />
   <SeparatorSection id="twofold-tempest" title=`${twofoldTempest}` />
-  <TwofoldTempest start="09:26.675" base={base} activateTimes={['09:33.725', '09:40.823', '09:47.925', '09:54.982']} />
+  <TwofoldTempest start="09:26.675" activateTimes={['09:33.725', '09:40.823', '09:47.925', '09:54.982']} />
 
   <SeparatorSection id="bare-fangs" title=`${bareFangs} + ${championsCircuit}` />
-  <EventSection time="10:0.0" base={bareFangs}>
+  <EventSection time="10:0.0">
     初始浮岛被修复，并可以被传送到该平台
     <Badge variant="emerald">平台恢复</Badge>
   </EventSection>
   <ChampionsCircuit
     start="10:03.132"
-    base={base}
     activateTimes={['10:19.279', '10:23.683', '10:28.038', '10:32.395', '10:36.755']}
   />
 
-  <EventSection time="10:40.0" base={bareFangs}>
+  <EventSection time="10:40.0">
     传送冷却时长恢复至<ImmobileSuitDebuff tag="2" />
     <Badge variant="emerald">传送间隔-</Badge>
   </EventSection>
-  <QuakeIIICast start="10:41.608" base={base} />
-  <UltraviolentRayCast start="10:54.772" base={base} />
-  <TwinbiteCast start="11:04.913" base={base} />
+  <QuakeIIICast start="10:41.608" />
+  <UltraviolentRayCast start="10:54.772" />
+  <TwinbiteCast start="11:04.913" />
   <NoteSection>
     <div class="flex flex-col gap-4">
       <P>

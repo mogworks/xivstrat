@@ -33,8 +33,8 @@ const dutyId = '07/m5s'
 const base = '03:33.5'
 ---
 
-<DutyStratLayout dutyId={dutyId}>
-  <EventSection time="03:33.5" base={base} id="target-circle-restore">
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <EventSection time="03:33.5" id="target-circle-restore">
     <Boss />
     失去
     <DirectionalDisregard hover />
@@ -51,44 +51,43 @@ const base = '03:33.5'
       ），此时是最佳时机
     </div>
   </NoteSection>
-  <AttackSection time="03:33.5" base={base} damage="55000" damageType="physical" />
-  <AttackSection time="03:36.5" base={base} damage="55000" damageType="physical" />
-  <AttackSection time="03:39.6" base={base} damage="55000" damageType="physical" />
-  <AttackSection time="03:42.6" base={base} damage="55000" damageType="physical" />
-  <FlipToXSideCast start="03:42.692" base={base} />
+  <AttackSection time="03:33.5" damage="55000" damageType="physical" />
+  <AttackSection time="03:36.5" damage="55000" damageType="physical" />
+  <AttackSection time="03:39.6" damage="55000" damageType="physical" />
+  <AttackSection time="03:42.6" damage="55000" damageType="physical" />
+  <FlipToXSideCast start="03:42.692" />
   <SeparatorSection id="ride-the-waves" title={translations.rideTheWaves} />
-  <RideTheWaves base={base} />
+  <RideTheWaves />
   <SeparatorSection />
-  <AttackSection time="04:13.4" base={base} damage="55000" damageType="physical" />
-  <MoveToCenterEvent time="04:13.760" base={base} />
-  <InsideOutOrOutsideInCast start="04:16.122" base={base} />
+  <AttackSection time="04:13.4" damage="55000" damageType="physical" />
+  <MoveToCenterEvent time="04:13.760" />
+  <InsideOutOrOutsideInCast start="04:16.122" />
   <NoteSection>
     <div class="paragraph">此时北半场已经没有地火，简单躲避即可</div>
   </NoteSection>
-  <XSnapTwistAndDropTheNeedleCast start="04:26.100" base={base} />
-  <PlayXSideCast time="04:35.233" base={base} />
-  <DeepCutCast start="04:38.355" base={base} />
-  <CelebrateGoodTimesCast start="04:45.481" base={base} />
-  <AttackSection time="04:52.5" base={base} damage="55000" damageType="physical" />
-  <AttackSection time="04:55.6" base={base} damage="55000" damageType="physical" />
-  <MoveToCenterEvent time="04:56.665" base={base} />
+  <XSnapTwistAndDropTheNeedleCast start="04:26.100" />
+  <PlayXSideCast time="04:35.233" />
+  <DeepCutCast start="04:38.355" />
+  <CelebrateGoodTimesCast start="04:45.481" />
+  <AttackSection time="04:52.5" damage="55000" damageType="physical" />
+  <AttackSection time="04:55.6" damage="55000" damageType="physical" />
+  <MoveToCenterEvent time="04:56.665" />
   <SeparatorSection id="frogtourage" title={translations.frogtourage} />
-  <Frogtourage base={base} />
-  <AttackSection time="05:18.0" base={base} damage="55000" damageType="physical" />
+  <Frogtourage />
+  <AttackSection time="05:18.0" damage="55000" damageType="physical" />
   <SeparatorSection id="disco-infernal" title={translations.discoInfernal} />
-  <DiscoInfernalP2 base={base} />
+  <DiscoInfernalP2 />
   <SeparatorSection />
-  <XSnapTwistAndDropTheNeedleCast start="05:47.508" base={base} />
-  <PlayXSideCast time="05:56.641" base={base} />
-  <CelebrateGoodTimesCast start="05:58.734" base={base} />
-  <AttackSection time="06:05.8" base={base} damage="55000" damageType="physical" />
-  <AttackSection time="06:08.8" base={base} damage="55000" damageType="physical" />
-  <MoveToCenterEvent time="06:09.918" base={base} />
-  <EnsembleAssembleCast start="06:12.323" base={base} />
+  <XSnapTwistAndDropTheNeedleCast start="05:47.508" />
+  <PlayXSideCast time="05:56.641" />
+  <CelebrateGoodTimesCast start="05:58.734" />
+  <AttackSection time="06:05.8" damage="55000" damageType="physical" />
+  <AttackSection time="06:08.8" damage="55000" damageType="physical" />
+  <MoveToCenterEvent time="06:09.918" />
+  <EnsembleAssembleCast start="06:12.323" />
   <SeparatorSection id="arcady-night-encore" title={translations.arcadyNightEncore} />
   <ArcadyNightEncore
     start="06:18.474"
-    base={base}
     getDownTimes={[
       '06:23.956',
       '06:26.404',
@@ -101,7 +100,7 @@ const base = '03:33.5'
     ]}
   />
   <SeparatorSection id="lets-dance-remix" title={translations.letsDanceRemix} />
-  <LetsDanceRemix start="06:45.250" base={base} />
+  <LetsDanceRemix start="06:45.250" />
   <SeparatorSection id="lets-pose" title={translations.letsPose} />
-  <LetsPose phase="p2" start="07:04.596" base={base} />
+  <LetsPose phase="p2" start="07:04.596" />
 </DutyStratLayout>

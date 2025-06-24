@@ -26,20 +26,14 @@ import disco_infernal_p3_solution_1 from '@/assets/07/m5s/disco_infernal_p2/solu
 import disco_infernal_p3_solution_2 from '@/assets/07/m5s/disco_infernal_p2/solution_2.png'
 import disco_infernal_p3_solution_3 from '@/assets/07/m5s/disco_infernal_p2/solution_3.png'
 import { translations } from '../_translations'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<DiscoInfernalCast start="05:20.141" base={base} />
-<AttackSection time="05:25.0" base={base} damage="55000" damageType="physical" />
-<AttackSection time="05:28.1" base={base} damage="55000" damageType="physical" />
-<BackUpDanceCast start="05:26.423" end="05:35.964" base={base} />
-<FlipToXSideCast start="05:41.402" base={base} />
-<BackUpDanceCast start="05:36.542" end="05:46.038" base={base} />
+<DiscoInfernalCast start="05:20.141" />
+<AttackSection time="05:25.0" damage="55000" damageType="physical" />
+<AttackSection time="05:28.1" damage="55000" damageType="physical" />
+<BackUpDanceCast start="05:26.423" end="05:35.964" />
+<FlipToXSideCast start="05:41.402" />
+<BackUpDanceCast start="05:36.542" end="05:46.038" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">

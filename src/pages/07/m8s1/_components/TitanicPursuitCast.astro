@@ -10,14 +10,13 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 const ability = translations.titanicPursuit
 ---
 
-<CastSection start={start} base={base} duration={3.7} target damage="70000" damageType="physical" ability={ability}>
+<CastSection start={start} duration={3.7} target damage="70000" damageType="physical" ability={ability}>
   <HowlingBlade slot="source" />
   ，同时将俩石柱斜劈为两半
   <Badge variant="green">AoE</Badge>

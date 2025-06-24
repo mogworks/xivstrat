@@ -5,7 +5,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import ImageRow from '@/components/typography/ImgRow.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import BlessedBarricadeCast from '../_components/BlessedBarricadeCast.astro'
 import Zelenia from '../_components/Zelenia.astro'
@@ -16,13 +16,12 @@ import P2_a from '@/assets/07/zelenia/P2/P2_a.png'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<BlessedBarricadeCast start={start} base={base} />
+<BlessedBarricadeCast start={start} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
@@ -30,7 +29,7 @@ const { start, base = 0 }: Props = Astro.props
       <!-- <div class="max-w-88 flex-1">
         <Image src={P2_o} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div> -->
-      <ImageRow
+      <ImgRow
         class="game-img"
         wrapperClass="max-w-88"
         borderVariant="cyan"
@@ -72,7 +71,7 @@ const { start, base = 0 }: Props = Astro.props
       <!-- <div class="max-w-88 flex-1">
         <Image src={P2_t} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div> -->
-      <ImageRow
+      <ImgRow
         class="game-img"
         wrapperClass="max-w-88"
         borderVariant="cyan"
@@ -103,7 +102,7 @@ const { start, base = 0 }: Props = Astro.props
     <!-- <div class="max-w-88 flex-1">
       <Image src={P2_a} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     </div> -->
-    <ImageRow
+    <ImgRow
       class="game-img"
       wrapperClass="max-w-88"
       borderVariant="cyan"
@@ -124,17 +123,20 @@ const { start, base = 0 }: Props = Astro.props
         <RoleIcon role="healer" />
         去<Span variant="purple">D</Span>左半场
       </div>
+      <div class="paragraph">
+        <RoleIcon role="dps" />
+        去<Span variant="yellow">B</Span>右半场
+      </div>
+      <div class="paragraph">按点名情况引导左右刀+踩塔即可，每人都需要引导一次</div>
+      <div class="paragraph">
+        <h4 class="text-xl">
+          <Span variant="yellow">注意：</Span>
+        </h4>
+        近战可以在球的近战最远距离处引导左右刀
+      </div>
     </div>
-    <div class="paragraph">
-      <RoleIcon role="dps" />
-      去<Span variant="yellow">B</Span>右半场
-    </div>
+    
   </div>
-  <div class="paragraph">按点名情况引导左右刀+踩塔即可，每人都需要引导一次</div>
-  <div class="paragraph">
-    <h4 class="text-xl">
-      <Span variant="yellow">注意：</Span>
-    </h4>
-    近战可以在球的近战最远距离处引导左右刀
-  </div>
+  
+  
 </SolutionSection>

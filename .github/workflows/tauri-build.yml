@@ -161,6 +161,8 @@ jobs:
           retention-days: 5
 
   release:
+    permissions:
+      contents: write
     needs: build
     runs-on: ubuntu-latest
     if: success()

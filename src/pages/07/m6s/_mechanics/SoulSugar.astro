@@ -1,7 +1,8 @@
 ---
-import type { Time } from '@/lib/utils'
-
 import { Image } from 'astro:assets'
+
+import LimitBreak from '@/components/action/LimitBreak.astro'
+import Separator from '@/components/Separator.astro'
 
 import DamageInfo from '@/components/DamageInfo.astro'
 import DotInfo from '@/components/DotInfo.astro'
@@ -25,19 +26,14 @@ import SoulSugarTable from '../_components/SoulSugarTable.astro'
 import genseki from '@/assets/07/m6s/paint_mark/genseki@3x.png'
 import ranged_lb from '@/assets/07/m6s/soul_sugar/ranged_lb.png'
 import magic_lb from '@/assets/07/m6s/soul_sugar/magic_lb.png'
+
 import { translations } from '../_translations'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 
 const { LivePainting, ReadyOreNot, UnlimitedCraving, OreRigato, WaterIII, Wave } = translations
 const SoulSugarName = translations.SoulSugar
 ---
 
-<SoulSugarCast start="03:34.629" end="03:37.609" base={base} />
+<SoulSugarCast start="03:34.629" end="03:37.609" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph border-l-2 border-yellow-500 pl-2 opacity-80">
@@ -93,11 +89,11 @@ const SoulSugarName = translations.SoulSugar
     </h4>
     <div class="paragraph">
       <GimmeCat />
-      一出现就会发动的特殊机制，会偷取所有的LB条，主要是为了防止玩家通过LB逃课
+      一出现就会发动的特殊机制，会偷取<LimitBreak stage="full" />，主要是为了防止玩家以此逃课
     </div>
     <div class="paragraph">
       相应的，在通关本阶段后，
-      <Span variant="cyan">会获得3段LB的奖励补偿</Span>
+      <Span variant="cyan" class="flex items-center gap-1">会获得<LimitBreak stage={3} />的奖励补偿</Span>
     </div>
     <h4 class="mt-12 text-2xl">
       <Span variant="yellow">{WaterIII}</Span>
@@ -147,7 +143,7 @@ const SoulSugarName = translations.SoulSugar
     <div class="paragraph">
       由于
       <GimmeCat />
-      一出现就会偷取LB，为了不浪费，可以在本阶段正式开始前用掉
+      一出现就会偷取<LimitBreak stage="full" />，为了不浪费，可以在本阶段正式开始前用掉
     </div>
     <div class="flex gap-3">
       <div class="flex max-w-96 flex-col items-center gap-2">
@@ -156,16 +152,24 @@ const SoulSugarName = translations.SoulSugar
           alt="Soul Sugar: Ranged LB"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
-        <div class="paragraph">1段LB：远敏覆盖4目标</div>
+        <div class="paragraph">
+          <LimitBreak stage={1} />
+          <Separator orientation="vertical" class="mx-2 ml-3" />
+          远敏覆盖4目标
+        </div>
       </div>
       <div class="flex max-w-96 flex-col items-center gap-2">
         <Image src={magic_lb} alt="Soul Sugar: Magic LB" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div class="paragraph">≥2段LB：法系覆盖4目标</div>
+        <div class="paragraph">
+          <LimitBreak stage={2} operation="gte" />
+          <Separator orientation="vertical" class="mx-2 ml-3" />
+          法系覆盖4目标
+        </div>
       </div>
     </div>
     <div class="paragraph">
       <ListDot />
-      如果只有1段LB，由
+      如果只有<LimitBreak stage={1} />，由
       <RoleIcon role="ranged" tag="D3" />
       覆盖4目标，预先选中
       <SugarRiot />
@@ -173,7 +177,7 @@ const SoulSugarName = translations.SoulSugar
     </div>
     <div class="paragraph">
       <ListDot />
-      如果有≥2段LB，由
+      如果有<LimitBreak stage={2} operation="gte" />，由
       <RoleIcon role="magic" tag="D4" />
       覆盖4目标（
       <GimmeCat />
@@ -189,4 +193,4 @@ const SoulSugarName = translations.SoulSugar
     <div class="paragraph">释放时机需要大量的练习，因此作为锦上添花的选项吧，失败了也没关系！</div>
   </div>
 </SolutionSection>
-<AttackSection time="03:38.455" base={base} damage="57000" damageType="magical" />
+<AttackSection time="03:38.455" damage="57000" damageType="magical" />

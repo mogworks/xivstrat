@@ -3,15 +3,15 @@ import type { Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={6.7} ability="Specter of the Lost" damage="300000">
+<CastSection start={start} duration={6.7} ability={translations.SpecterOfTheLost} damage="300000">
   <Badge variant="red">接线死刑</Badge>
 </CastSection>

@@ -20,13 +20,12 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={5.5} ability={translations.letsDanceRemix}>
+<CastSection start={start} duration={5.5} ability={translations.letsDanceRemix}>
   <Badge variant="yellow">连续半场刀</Badge>
 </CastSection>
 <SolutionSection>

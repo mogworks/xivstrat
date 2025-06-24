@@ -11,18 +11,18 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
 const ability = translations.prowlingGale
 const damage = '75000'
 const damageType = 'magical'
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <Span variant="rose">塔×4</Span>
+  <Span variant="rose" class="text-decimal">[伤害源BOSS]</Span>
   判定，对
   <Span variant="pink">4</Span>
   <RoleIcon role="tank|healer" />

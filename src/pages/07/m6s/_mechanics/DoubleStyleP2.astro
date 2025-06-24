@@ -26,28 +26,23 @@ import supplement_1 from '@/assets/07/m6s/double_style_p2/supplement_1.png'
 import supplement_2 from '@/assets/07/m6s/double_style_p2/supplement_2.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
 const start = '03:01.061'
 const duration = 8.6
 const puddingGrafActivate = '03:10.063'
 const quicksandStart = '03:02.561'
 const quicksandActivate = timeToSeconds(start) + duration + 3
 
-const PuddingGraf = translations.PuddingGraf
+const { PuddingGraf, DoubleStyle } = translations
 ---
 
-<EventSection time={quicksandStart} base={base}><Span variant="zinc">场地北/南侧出现大范围流沙</Span></EventSection>
-<DoubleStyleCast start={start} base={base} duration={duration} />
-<PuddingGrafActivate time={puddingGrafActivate} base={base} />
-<EventSection time={quicksandActivate} base={base}><Span variant="zinc">场地北/南侧流沙开始下沉</Span></EventSection>
+<EventSection time={quicksandStart}><Span variant="zinc">场地北/南侧出现大范围流沙</Span></EventSection>
+<DoubleStyleCast start={start} duration={duration} />
+<PuddingGrafActivate time={puddingGrafActivate} />
+<EventSection time={quicksandActivate}><Span variant="zinc">场地北/南侧流沙开始下沉</Span></EventSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Double Style</Span>
+      <Span variant="yellow">{DoubleStyle}</Span>
     </h4>
     <div class="paragraph -my-3">
       <SugarRiot />

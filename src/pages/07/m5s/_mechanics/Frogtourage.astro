@@ -24,15 +24,9 @@ import frogtourage_solution_2 from '@/assets/07/m5s/frogtourage/solution_2.png'
 import frogtourage_solution_3 from '@/assets/07/m5s/frogtourage/solution_3.png'
 import frogtourage_solution_4 from '@/assets/07/m5s/frogtourage/solution_4.png'
 import { translations } from '../_translations'
-
-interface Props {
-  base?: Time
-}
-
-const { base = 0 }: Props = Astro.props
 ---
 
-<FrogtourageCast phase="p2" start="04:58.849" base={base} />
+<FrogtourageCast phase="p2" start="04:58.849" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
@@ -71,10 +65,10 @@ const { base = 0 }: Props = Astro.props
     </div>
   </div>
 </MechanicSection>
-<AttackSection time="05:03.9" base={base} damage="55000" damageType="physical" />
-<AttackSection time="05:06.9" base={base} damage="55000" damageType="physical" />
-<AttackSection time="05:09.9" base={base} damage="55000" damageType="physical" />
-<QuarterOrEighthBeatsCast start="05:11.014" base={base} />
+<AttackSection time="05:03.9" damage="55000" damageType="physical" />
+<AttackSection time="05:06.9" damage="55000" damageType="physical" />
+<AttackSection time="05:09.9" damage="55000" damageType="physical" />
+<QuarterOrEighthBeatsCast start="05:11.014" />
 <NoteSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">

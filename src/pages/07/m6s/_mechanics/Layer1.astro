@@ -51,12 +51,6 @@ import solution_2 from '@/assets/07/m6s/layer_1/solution_2.png'
 import solution_3 from '@/assets/07/m6s/layer_1/solution_3.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
-
 const start = '01:46.578'
 const duration = 6.7
 const adjustedDuration = duration + 0.3
@@ -71,23 +65,23 @@ const patternGroups = [
 const { Layer, Brûlée, CrowdBrûlée, SprayPain } = translations
 ---
 
-<LayerCast start={start} end={end} base={base} />
-<AttackSection time="01:54.609" base={base} damage="57000" damageType="magical" />
-<AttackSection time="01:57.646" base={base} damage="57000" damageType="magical" />
-<AttackSection time="02:00.681" base={base} damage="57000" damageType="magical" />
-<SprayPainCast start="01:54.743" base={base} />
-<AttackSection time="02:03.718" base={base} damage="57000" damageType="magical" />
-<SprayPainCast start="01:57.780" base={base} />
-<AttackSection time="02:06.755" base={base} damage="57000" damageType="magical" />
-<SprayPainCast start="02:00.815" base={base} />
-<AttackSection time="02:09.781" base={base} damage="57000" damageType="magical" />
-<SprayPainCast start="02:03.851" base={base} />
-<AttackSection time="02:12.814" base={base} damage="57000" damageType="magical" />
-<SprayPainCast start="02:06.889" base={base} />
-<AttackSection time="02:15.849" base={base} damage="57000" damageType="magical" />
-<SprayPainCast start="02:09.916" base={base} />
-<AttackSection time="02:18.886" base={base} damage="57000" damageType="magical" />
-<EventSection time="02:21.381" base={base}>
+<LayerCast start={start} end={end} />
+<AttackSection time="01:54.609" damage="57000" damageType="magical" />
+<AttackSection time="01:57.646" damage="57000" damageType="magical" />
+<AttackSection time="02:00.681" damage="57000" damageType="magical" />
+<SprayPainCast start="01:54.743" />
+<AttackSection time="02:03.718" damage="57000" damageType="magical" />
+<SprayPainCast start="01:57.780" />
+<AttackSection time="02:06.755" damage="57000" damageType="magical" />
+<SprayPainCast start="02:00.815" />
+<AttackSection time="02:09.781" damage="57000" damageType="magical" />
+<SprayPainCast start="02:03.851" />
+<AttackSection time="02:12.814" damage="57000" damageType="magical" />
+<SprayPainCast start="02:06.889" />
+<AttackSection time="02:15.849" damage="57000" damageType="magical" />
+<SprayPainCast start="02:09.916" />
+<AttackSection time="02:18.886" damage="57000" damageType="magical" />
+<EventSection time="02:21.381">
   <HeatingUpDebuff tag="43" hover />
   倒计时结束判定伤害，
   <Span variant="default">1</Span>
@@ -101,7 +95,7 @@ const { Layer, Brûlée, CrowdBrûlée, SprayPain } = translations
   <Badge variant="emerald">15m圆形</Badge>
   <Badge variant="yellow">分散</Badge>
 </EventSection>
-<EventSection time="02:21.381" base={base}>
+<EventSection time="02:21.381">
   <BurningUpDebuff tag="43" hover />
   倒计时结束判定伤害，余下
   <Span variant="default">6</Span>
@@ -263,4 +257,4 @@ const { Layer, Brûlée, CrowdBrûlée, SprayPain } = translations
     />
   </div>
 </SolutionSection>
-<AttackSection time="02:21.918" base={base} damage="57000" damageType="magical" />
+<AttackSection time="02:21.918" damage="57000" damageType="magical" />

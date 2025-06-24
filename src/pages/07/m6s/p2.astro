@@ -27,34 +27,33 @@ const dutyId = '07/m6s'
 const base = '01:29.093'
 ---
 
-<DutyStratLayout dutyId={dutyId}>
-  <MoveToNorthEvent time="01:29.093" base={base} />
-  <AttackSection time="01:29.897" base={base} damage="57000" damageType="magical" />
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <MoveToNorthEvent time="01:29.093" />
+  <AttackSection time="01:29.897" damage="57000" damageType="magical" />
   <SeparatorSection id="sugarscape" title={translations.Sugarscape} />
-  <SugarscapeP2 base={base} />
-  <AttackSection time="01:39.351" base={base} damage="57000" damageType="magical" />
-  <AttackSection time="01:42.384" base={base} damage="57000" damageType="magical" />
-  <AttackSection time="01:45.418" base={base} damage="57000" damageType="magical" />
+  <SugarscapeP2 />
+  <AttackSection time="01:39.351" damage="57000" damageType="magical" />
+  <AttackSection time="01:42.384" damage="57000" damageType="magical" />
+  <AttackSection time="01:45.418" damage="57000" damageType="magical" />
   <SeparatorSection id="layer-1" title={`${translations.Layer} #1`} />
-  <Layer1 base={base} />
+  <Layer1 />
   <SeparatorSection />
-  <MoveToCenterEvent time="02:22.765" base={base} />
-  <StickyMousseCast start="02:24.104" end="02:29.898" base={base} />
+  <MoveToCenterEvent time="02:22.765" />
+  <StickyMousseCast start="02:24.104" end="02:29.898" />
   <SeparatorSection id="layer-2" title={`${translations.Layer} #2`} />
-  <Layer2 base={base} />
+  <Layer2 />
   <SeparatorSection />
-  <AttackSection time="02:53.567" base={base} damage="57000" damageType="magical" />
-  <PuddingGrafCast start="02:53.612" base={base} />
-  <EventSection time={timeToSeconds('02:53.612') + 5} base={base}><Span variant="zinc">场中流沙消失</Span></EventSection
-  >
-  <AttackSection time="02:59.634" base={base} damage="57000" damageType="magical" />
-  <MoveToCenterEvent time="02:59.768" base={base} />
+  <AttackSection time="02:53.567" damage="57000" damageType="magical" />
+  <PuddingGrafCast start="02:53.612" />
+  <EventSection time={timeToSeconds('02:53.612') + 5}><Span variant="zinc">场中流沙消失</Span></EventSection>
+  <AttackSection time="02:59.634" damage="57000" damageType="magical" />
+  <MoveToCenterEvent time="02:59.768" />
   <SeparatorSection id="double-style" title={translations.DoubleStyle} />
-  <DoubleStyleP2 base={base} />
+  <DoubleStyleP2 />
   <SeparatorSection />
-  <MousseMuralCast start="03:14.202" base={base} />
-  <EventSection time="03:19.952" base={base}><Span variant="zinc">场地北/南侧流沙消失</Span></EventSection>
-  <EventSection time="03:19.952" base={base}>
+  <MousseMuralCast start="03:14.202" />
+  <EventSection time="03:19.952"><Span variant="zinc">场地北/南侧流沙消失</Span></EventSection>
+  <EventSection time="03:19.952">
     场地复原，
     <RoleIcon role="all" tag="全员" />
     消除

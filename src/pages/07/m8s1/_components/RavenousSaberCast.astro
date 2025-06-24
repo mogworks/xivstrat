@@ -10,25 +10,16 @@ interface Props {
   start: Time
   damage: string
   duration: Time
-  base?: Time
 }
 
-const { start, damage, duration, base = 0 }: Props = Astro.props
+const { start, damage, duration }: Props = Astro.props
 
 const ability = '風塵光狼斬'
 
 //该技能伤害暂时是估值，logs写的太乱
 ---
 
-<CastSection
-  start={start}
-  base={base}
-  duration={duration}
-  ability={ability}
-  target
-  damage={damage}
-  damageType="physical"
->
+<CastSection start={start} duration={duration} ability={ability} target damage={damage} damageType="physical">
   <HowlingBlade slot="source" />
   <Badge variant="purple">AoE</Badge>
 </CastSection>

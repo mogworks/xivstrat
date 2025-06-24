@@ -6,12 +6,11 @@ import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 ---
 
-<AttackSection time={time} base={base} damage="80000" damageType="physical">
+<AttackSection time={time} damage="80000" damageType="physical">
   <HowlingBlade slot="source" />
 </AttackSection>

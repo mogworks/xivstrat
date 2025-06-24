@@ -7,13 +7,12 @@ import SugarRiot from './SugarRiot.astro'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <SugarRiot />
   瞬移至场地北侧
 </EventSection>
