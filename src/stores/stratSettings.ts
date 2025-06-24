@@ -23,7 +23,7 @@ export const $stratSettings = persistentMap<StratSettings>(
     timelineOrigin: 'global',
     timeFormat: 'mm:ss',
     damageFormat: 'split',
-    pixijsApiPreference: 'webgpu',
+    pixijsApiPreference: 'webgl',
   },
   {
     encode: (value: StratSettingsValue) => value,
