@@ -41,6 +41,7 @@ const brutishswing = translations.brutishSwing
 const glowerPower = translations.glowerPower
 const RvOftVines = translations.revengeOfTheVines
 const electrogeneticForce = translations.electrogeneticForce
+const revengeOfTheVines = translations.revengeOfTheVines
 
 const solutions = [
   {
@@ -105,7 +106,7 @@ const defaultSolution = '解法：三五分散'
     </div>
 
     <div class="flex flex-col gap-4">
-      <T class="mt-8 scroll-mt-[calc(5rem+1px)]">
+      <T class="mt-8 scroll-mt-[calc(5rem+1px)]" id="gP">
         <Skill name={glowerPower} />
       </T>
       <P>
@@ -134,6 +135,10 @@ const defaultSolution = '解法：三五分散'
           >必定死亡</Span
         >
       </P>
+    </div>
+    <div class="flex flex-col gap-4">
+      <T class="mt-8 scroll-mt-[calc(5rem+1px)]" id="revengeofvines" text={revengeOfTheVines} variant="yellow" />
+      <P>全屏AoE，造成<DamageInfo damage="190000" type="magical" /></P>
     </div>
   </div>
 </MechanicSection>

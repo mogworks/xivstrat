@@ -7,13 +7,14 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
+  duration: number
 }
 
-const { start }: Props = Astro.props
+const { start, duration = 7.8 }: Props = Astro.props
 const brutishSwing = translations.brutishSwing
 ---
 
-<CastSection start={start} duration={7.8} ability={brutishSwing}>
+<CastSection start={start} duration={duration} ability={brutishSwing}>
   <BruteAbombinator slot="source" />
   连线场地墙壁，随后移动至连线墙壁
 </CastSection>
