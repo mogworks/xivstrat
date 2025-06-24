@@ -12,14 +12,15 @@ import EscelonsFall from './_mechanics/EscelonsFall.astro'
 import EscelonsFallActivate from './_components/EscelonsFallActivate.astro'
 
 import StockBreakCast from './_components/StockBreakCast.astro'
-
+import { translations } from './_translations'
 const dutyId = '07/zelenia'
 
-const base = 0
+const base = '00:00.00'
+
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <EventSection>
+  <EventSection time={base}>
     <RoleIcon role="tank" tag="MT" />
     开怪
     <!-- ，将
@@ -29,14 +30,14 @@ const base = 0
 
   <ThornedCatharsis start="00:11.120" />
 
-  <SeparatorSection id="shock" title="Shock" />
+  <SeparatorSection id="shock" title={translations.Shock} />
   <Shock start="00:18.574" type="all" />
   <AlexandrianHoly start="00:24.727" />
 
-  <SeparatorSection id="specter-of-the-lost" title="Specter of the Lost" />
+  <SeparatorSection id="specter-of-the-lost" title={translations.SpecterOfTheLost} />
   <SpecterOfTheLost start="00:36.897" />
 
-  <SeparatorSection id="escelons-fall" title="Escelons' Fall" />
+  <SeparatorSection id="escelons-fall" title={translations.EscelonsFall} />
 
   <EscelonsFall start="00:51.330" />
 

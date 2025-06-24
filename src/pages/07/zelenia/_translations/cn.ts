@@ -1,4 +1,5 @@
 export const translations = {
+  AlexandrianBanish2: '王国中放逐',
   AlexandrianBanish3: '王国强放逐',
   AlexandrianHoly: '王国神圣',
   AlexandrianThunder2: '王国震雷',
@@ -21,4 +22,5 @@ export const translations = {
   ValorousAscension: '凌空破',
   HazardousAscension: '凌空破II',
   ThunderSlash: '雷鸣剑',
+  BudofValor: '幻影生成',
 }
