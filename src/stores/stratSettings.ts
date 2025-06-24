@@ -7,6 +7,7 @@ export interface StratSettings {
   attackEvent: 'hide' | 'show' | 'only'
   timelineOrigin: 'global' | 'phase'
   timeFormat: 'mm:ss' | 's'
+  damageFormat: 'split' | 'full'
   pixijsApiPreference: 'webgpu' | 'webgl'
 }
 
@@ -21,6 +22,7 @@ export const $stratSettings = persistentMap<StratSettings>(
     attackEvent: 'hide',
     timelineOrigin: 'global',
     timeFormat: 'mm:ss',
+    damageFormat: 'split',
     pixijsApiPreference: 'webgpu',
   },
   {

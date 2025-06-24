@@ -6,7 +6,7 @@ import CastSection from '@/components/section/CastSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 
 import Zelenia from './Zelenia.astro'
-
+import { translations } from '../_translations'
 interface Props {
   start: Time
 }
@@ -14,7 +14,7 @@ interface Props {
 const { start }: Props = Astro.props
 ---
 
-<CastSection start={start} duration={4.7} target ability="Alexandrian Thunder III">
+<CastSection start={start} duration={4.7} target ability={translations.AlexandrianThunder3}>
   <Zelenia slot="source" />
   <Fragment slot="target">
     <RoleIcon role="all" tag="全员" />

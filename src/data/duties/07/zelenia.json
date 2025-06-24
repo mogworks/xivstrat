@@ -5,10 +5,11 @@
   "title": "泽莲尼娅歼殛战 攻略",
   "description": "最终幻想14 泽莲尼娅歼殛战 超详解动态图文攻略",
   "banner": "@/assets/banners/07/zelenia.png",
-  "date": "25/06/07 20:00",
+  "date": "25/06/24 20:20",
   "href": "/07/zelenia",
-  "status": "live",
+  "status": "done",
   "indexAvailable": true,
+  "bilibili": "https://www.bilibili.com/video/BV1n2NYzZEbR/",
   "phases": [
     {
       "href": "/07/zelenia/p1",
@@ -18,11 +19,11 @@
       "mechanics": [
         {
           "href": "#shock",
-          "name": "Shock"
+          "name": "震惊"
         },
         {
           "href": "#escelons-fall",
-          "name": "四连远近刀"
+          "name": "凌空错"
         }
       ]
     },
@@ -31,7 +32,12 @@
       "title": "Part 2",
       "subtitle": "小怪阶段",
       "name": "P2 - 小怪阶段",
-      "mechanics": []
+      "mechanics": [
+        {
+          "href": "#blessed-barricade",
+          "name": "圣护壁"
+        }
+      ]
     },
     {
       "href": "/07/zelenia/p3",
@@ -41,27 +47,35 @@
       "mechanics": [
         {
           "href": "#roseblood-bloom-1",
-          "name": "魔法阵展开·一式"
+          "name": "魔法阵展开 · 一式"
         },
         {
           "href": "#roseblood-bloom-2",
-          "name": "魔法阵展开·二式"
+          "name": "魔法阵展开 · 二式"
         },
         {
           "href": "#roseblood-bloom-3",
-          "name": "魔法阵展开·三式"
+          "name": "魔法阵展开 · 三式"
+        },
+        {
+          "href": "#budofvalor-three",
+          "name": "生成幻影 & 震惊 & 凌空错"
         },
         {
           "href": "#roseblood-bloom-4",
-          "name": "魔法阵展开·四式"
+          "name": "魔法阵展开 · 四式"
+        },
+        {
+          "href": "#budofvalor-four",
+          "name": "生成幻影 & 凌空错"
         },
         {
           "href": "#roseblood-bloom-5",
-          "name": "魔法阵展开·五式"
+          "name": "魔法阵展开 · 五式"
         },
         {
           "href": "#roseblood-bloom-6",
-          "name": "魔法阵展开·六式"
+          "name": "魔法阵展开 · 六式"
         }
       ]
     }

@@ -3,7 +3,6 @@ import type { Time } from '@/lib/utils'
 
 import { Image } from 'astro:assets'
 
-import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
@@ -14,8 +13,6 @@ import AlexandrianHolyCast from '../_components/AlexandrianHolyCast.astro'
 import ttn from '@/assets/07/zelenia/P1/P1-t-tn.png'
 import tdps from '@/assets/07/zelenia/P1/P1-t-dps.png'
 import t from '@/assets/07/zelenia/P1/P1t.png'
-
-import img from '@/assets/07/zelenia/Tmp.png'
 
 interface Props {
   start: Time
@@ -33,8 +30,8 @@ const { start }: Props = Astro.props
     </div>
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
       <div class="paragraph">
-        在场地中 召唤
-        <Span variant="blue">需要踩的塔</Span>x4
+        在场地中召唤需要至少一人踩的
+        <Span variant="blue">塔×4</Span>
       </div>
     </div>
   </div>
@@ -45,9 +42,9 @@ const { start }: Props = Astro.props
       被点<Span variant="pink">钢铁</Span>
       的玩家需要站在空地放置
       <Span variant="pink">钢铁</Span>
-      ，生效后迅速离开
+      ，在头顶倒计时结束后迅速离开
       <Span variant="pink">钢铁</Span>
-      的范围
+      的范围，减少被攻击的次数
     </div>
     <div class="paragraph">
       被点<Span variant="blue">月环</Span>

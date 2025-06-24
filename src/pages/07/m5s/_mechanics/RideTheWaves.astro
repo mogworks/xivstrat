@@ -41,12 +41,12 @@ import JobIcon from '@/components/JobIcon.astro'
 
 const solutions = [
   {
-    id: 'ride-the-waves-solution-jp',
-    title: '解法：日野主流',
-  },
-  {
     id: 'ride-the-waves-solution-optimize',
     title: '解法：近战优化',
+  },
+  {
+    id: 'ride-the-waves-solution-jp',
+    title: '解法：日野主流',
   },
 ]
 const defaultSolution = '解法：近战优化'
@@ -214,99 +214,6 @@ const defaultSolution = '解法：近战优化'
   </div>
 </NoteSection>
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：日野主流" class="flex flex-col gap-4">
-    <div class="paragraph border-l-2 border-lime-500 pl-2 opacity-80">以初始第2、5列安全为例</div>
-    <div class="paragraph mt-4">
-      地火预兆出现后，
-      <RoleIcon role="tank" tag="MT" />
-      迅速将
-      <Boss />
-      拉到两列安全列之间，以免近战罚站，
-      <RoleIcon role="tank" tag="ST" />
-      可视情况挑衅带位
-    </div>
-    <div class="max-w-90">
-      <Image
-        src={ride_the_waves_jp_1}
-        alt="Ride the Waves JP Solution 1/5"
-        class="border-2 border-amber-800/75 dark:border-amber-100"
-      />
-    </div>
-    <div class="paragraph mt-4">
-      第1次
-      <QuarterOrEighthBeatsAbility />
-      站位如下
-    </div>
-    <div class="flex max-w-184 gap-4">
-      <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_jp_2}
-          alt="Ride the Waves JP Solution 2/5"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
-        <div class="paragraph">
-          情形1：
-          <Span variant="yellow">{translations.quarterBeats}</Span>
-        </div>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_jp_3}
-          alt="Ride the Waves JP Solution 3/5"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
-        <div class="paragraph">
-          情形2：
-          <Span variant="yellow">{translations.eighthBeats}</Span>
-        </div>
-      </div>
-    </div>
-    <div class="paragraph mt-4">
-      第2次
-      <QuarterOrEighthBeatsAbility />
-      站位如下
-    </div>
-    <div class="flex max-w-184 gap-4">
-      <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_jp_4}
-          alt="Ride the Waves JP Solution 4/5"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
-        <div class="paragraph">
-          情形1：
-          <Span variant="yellow">{translations.quarterBeats}</Span>
-        </div>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_jp_5}
-          alt="Ride the Waves JP Solution 5/5"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
-        <div class="paragraph">
-          情形2：
-          <Span variant="yellow">{translations.eighthBeats}</Span>
-        </div>
-      </div>
-    </div>
-    <div class="paragraph">
-      此时由于
-      <Boss />
-      位置很难调整，近战有可能会罚站
-    </div>
-    <P class="mt-4">
-      考虑到
-      <Span variant="default">D3</Span>
-      <JobIcon job="DNC" />
-      和
-      <Span variant="default">D4</Span>
-      <JobIcon job="RDM" />
-      会有离
-      <Boss />
-      太远打不到的问题，这里远程组治疗和输出职业也可换位
-    </P>
-  </div>
   <div slot="解法：近战优化" class="flex flex-col gap-4">
     <div class="paragraph border-l-2 border-lime-500 pl-2 opacity-80">以初始第2、5列安全为例</div>
     <div class="paragraph mt-4">
@@ -424,5 +331,98 @@ const defaultSolution = '解法：近战优化'
       <Boss />
       位置，近战始终不会罚站
     </div>
+  </div>
+  <div slot="解法：日野主流" class="flex flex-col gap-4">
+    <div class="paragraph border-l-2 border-lime-500 pl-2 opacity-80">以初始第2、5列安全为例</div>
+    <div class="paragraph mt-4">
+      地火预兆出现后，
+      <RoleIcon role="tank" tag="MT" />
+      迅速将
+      <Boss />
+      拉到两列安全列之间，以免近战罚站，
+      <RoleIcon role="tank" tag="ST" />
+      可视情况挑衅带位
+    </div>
+    <div class="max-w-90">
+      <Image
+        src={ride_the_waves_jp_1}
+        alt="Ride the Waves JP Solution 1/5"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+    </div>
+    <div class="paragraph mt-4">
+      第1次
+      <QuarterOrEighthBeatsAbility />
+      站位如下
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_jp_2}
+          alt="Ride the Waves JP Solution 2/5"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">
+          情形1：
+          <Span variant="yellow">{translations.quarterBeats}</Span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_jp_3}
+          alt="Ride the Waves JP Solution 3/5"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">
+          情形2：
+          <Span variant="yellow">{translations.eighthBeats}</Span>
+        </div>
+      </div>
+    </div>
+    <div class="paragraph mt-4">
+      第2次
+      <QuarterOrEighthBeatsAbility />
+      站位如下
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_jp_4}
+          alt="Ride the Waves JP Solution 4/5"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">
+          情形1：
+          <Span variant="yellow">{translations.quarterBeats}</Span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <Image
+          src={ride_the_waves_jp_5}
+          alt="Ride the Waves JP Solution 5/5"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">
+          情形2：
+          <Span variant="yellow">{translations.eighthBeats}</Span>
+        </div>
+      </div>
+    </div>
+    <div class="paragraph">
+      此时由于
+      <Boss />
+      位置很难调整，近战有可能会罚站
+    </div>
+    <P class="mt-4">
+      考虑到
+      <Span variant="default">D3</Span>
+      <JobIcon job="DNC" />
+      和
+      <Span variant="default">D4</Span>
+      <JobIcon job="RDM" />
+      会有离
+      <Boss />
+      太远打不到的问题，这里远程组治疗和输出职业也可换位
+    </P>
   </div>
 </MultiSolutionSection>

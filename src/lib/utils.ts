@@ -76,3 +76,13 @@ export function isValidURL(str: string): boolean {
   }
 }
 /* eslint-enable no-new */
+
+export function splitDamage(damage: string): string {
+  // 只匹配>=4位
+  return damage.replace(/(-?)(\d{4,}(?:\.\d+)?)(?=[^.\d]|$)/g, (_, sign, num) => {
+    const [integer, fraction] = num.split('.')
+    const formattedInteger = integer.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    // 非伤害数字部分 + 格式化的整数 + 直接贴上的小数
+    return sign + formattedInteger + (fraction ? `.${fraction}` : '')
+  })
+}

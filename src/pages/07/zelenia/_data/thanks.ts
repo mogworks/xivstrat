@@ -1,6 +1,5 @@
-// TODO: 需要校对
 export const thanksList = {
-  groupList: ['XivStrat', 'MMW', 'SPJP'],
-  devList: ['SuperJump', 'Hikaru', 'DavidKitano', 'LuoLuoKe', 'Sui', 'Demon'],
+  groupList: ['ZiYan', 'XivStrat'],
+  devList: ['Sui', 'Demon', 'Ling', 'DavidKitano', 'Hikaru', 'LuoLuoKe', 'SuperJump'],
   other: [],
 }

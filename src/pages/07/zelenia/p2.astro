@@ -5,15 +5,16 @@ import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import PerfumedQuietus from './_components/PerfumedQuietusCast.astro'
 import BlessedBarricade from './_mechanics/BlessedBarricade.astro'
 
+import { translations } from './_translations'
+
 const dutyId = '07/zelenia'
 
-const base = 0
+const base = '01:31.034'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <BlessedBarricade start="01:31.034" />
-  <SeparatorSection id="explosion" title="Explosion" />
+  <SeparatorSection id="blessed-barricade" title={translations.BlessedBarricade} />
+  <BlessedBarricade start={base} />
 
-  <SeparatorSection id="perfumed-quietus" title="Perfumed Quietus" />
   <PerfumedQuietus start="02:27.331" />
 </DutyStratLayout>
