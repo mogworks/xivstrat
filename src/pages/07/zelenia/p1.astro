@@ -13,19 +13,16 @@ import EscelonsFallActivate from './_components/EscelonsFallActivate.astro'
 
 import StockBreakCast from './_components/StockBreakCast.astro'
 import { translations } from './_translations'
+
 const dutyId = '07/zelenia'
 
 const base = '00:00.00'
-
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
   <EventSection time={base}>
     <RoleIcon role="tank" tag="MT" />
     开怪
-    <!-- ，将
-    <Zelenia />
-    固定在场中偏南一点的位置 -->
   </EventSection>
 
   <ThornedCatharsis start="00:11.120" />
@@ -38,7 +35,6 @@ const base = '00:00.00'
   <SpecterOfTheLost start="00:36.897" />
 
   <SeparatorSection id="escelons-fall" title={translations.EscelonsFall} />
-
   <EscelonsFall start="00:51.330" />
 
   <EscelonsFallActivate time="01:05.185" num={1} />
