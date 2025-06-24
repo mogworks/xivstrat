@@ -121,322 +121,353 @@ const championsCircuit = translations.championsCircuit
       </div>
     </div>
   </div>
-  <SolutionSection>
-    <div class="flex flex-col gap-4">
-      <P> 待补充 </P>
-      <P>
-        <RoleIcon role="all" tag="全员" />
-        在初始平台中线位置集合，便于后续移动到安全区
-      </P>
-    </div>
-  </SolutionSection>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P> 待补充 </P>
+    <P>
+      <RoleIcon role="all" tag="全员" />
+      在初始平台中线位置集合，便于后续移动到安全区
+    </P>
+  </div>
+</SolutionSection>
 
-  <script>
-    import type { Application, Ticker } from 'pixi.js'
+<script>
+  import type { Application, Ticker } from 'pixi.js'
 
-    import { listenKeys } from 'nanostores'
-    import { Assets, Container, Graphics, Sprite } from 'pixi.js'
+  import { animate } from 'motion'
+  import { listenKeys } from 'nanostores'
+  import { Assets, Container, Graphics, Sprite } from 'pixi.js'
 
-    import inactiveFang_img from '@/assets/07/m8s2/entity_icons/gleaming_fang_1@4x.png'
-    import preparedFang_img from '@/assets/07/m8s2/entity_icons/gleaming_fang_2@4x.png'
-    import activeFang_img from '@/assets/07/m8s2/entity_icons/gleaming_fang_4@4x.png'
-    import floor_img from '@/assets/07/m8s2/p2/floor_2@3x.png'
-    import { AoE, AoETexture } from '@/pixi/aoe'
-    import { DEFAULT_AOE_RESOLUTION } from '@/pixi/resolutions'
-    import { getScale, YmToPx } from '@/pixi/utils'
-    import { $stratBoards } from '@/stores/stratBoards'
+  import inactiveFang_img from '@/assets/07/m8s2/entity_icons/gleaming_fang_1@4x.png'
+  import preparedFang_img from '@/assets/07/m8s2/entity_icons/gleaming_fang_2@4x.png'
+  import activeFang_img from '@/assets/07/m8s2/entity_icons/gleaming_fang_4@4x.png'
+  import floor_img from '@/assets/07/m8s2/p2/floor_2@3x.png'
+  import { AoE, AoETexture } from '@/pixi/aoe'
+  import { DEFAULT_AOE_RESOLUTION } from '@/pixi/resolutions'
+  import { getScale, YmToPx } from '@/pixi/utils'
+  import { $stratBoards } from '@/stores/stratBoards'
 
-    import { Fang, FangPair } from '../_fangs'
+  import { Fang, FangPair } from '../_fangs'
 
-    const centerDistance = 17.54
-    const scaleSize = 1.25
-    const YmToPxLarge = YmToPx * scaleSize
+  const centerDistance = 17.54
+  const scaleSize = 1.25
+  const YmToPxLarge = YmToPx * scaleSize
 
-    // champions circuit position
-    const aoePos: { r: number; rad: number }[] = [
-      { r: centerDistance * YmToPxLarge, rad: Math.PI / 10 },
-      { r: centerDistance * YmToPxLarge, rad: Math.PI / 2 },
-      { r: centerDistance * YmToPxLarge, rad: (9 * Math.PI) / 10 },
-      { r: centerDistance * YmToPxLarge, rad: (-7 * Math.PI) / 10 },
-      { r: centerDistance * YmToPxLarge, rad: (-3 * Math.PI) / 10 },
+  // champions circuit position
+  const aoePos: { r: number; rad: number }[] = [
+    { r: centerDistance * YmToPxLarge, rad: Math.PI / 10 },
+    { r: centerDistance * YmToPxLarge, rad: Math.PI / 2 },
+    { r: centerDistance * YmToPxLarge, rad: (9 * Math.PI) / 10 },
+    { r: centerDistance * YmToPxLarge, rad: (-7 * Math.PI) / 10 },
+    { r: centerDistance * YmToPxLarge, rad: (-3 * Math.PI) / 10 },
+  ]
+
+  function polarRadianToCartesian(ppos: { r: number; rad: number }): { x: number; y: number } {
+    const x = ppos.r * Math.cos(ppos.rad)
+    const y = ppos.r * Math.sin(ppos.rad)
+    return { x, y }
+  }
+
+  function getPatternArr(): (0 | 1)[] {
+    return Array.from({ length: 5 }, () => (Math.random() > 0.5 ? 1 : 0) as 0 | 1)
+  }
+
+  function rotateArray<T>(arr: T[], offset: number = 1) {
+    const len = arr.length
+    const n = ((offset % len) + len) % len
+    return arr.slice(n).concat(arr.slice(0, n))
+  }
+
+  function maskedAoEToSprite(app: Application, aoe: Sprite, mask?: Graphics): Sprite {
+    const container = new Container()
+    container.position.set(0)
+
+    if (mask) {
+      aoe.mask = mask
+      container.addChild(mask)
+    }
+    container.addChild(aoe)
+
+    const texture = new AoETexture(app.renderer.extract.texture(container), 'circle', DEFAULT_AOE_RESOLUTION)
+    const sprite = Sprite.from(texture)
+    const centerPivot = texture.getCenterPivot()
+    sprite.pivot.set(centerPivot.x, centerPivot.y)
+
+    container.destroy({ children: true, texture: true, textureSource: true })
+
+    return sprite
+  }
+
+  function generateChampionsCircuitAoes(
+    app: Application,
+    aoePos: { r: number; rad: number }[],
+    scale: number = scaleSize,
+  ): Sprite[] {
+    // aoe ring
+    const aoeSmallRingSprite = AoE.createRing(4.5 * scale, 13 * scale).toSprite(app)
+    const aoeSmallRing = maskedAoEToSprite(app, aoeSmallRingSprite)
+
+    // aoe rect
+    const aoeRectSprite = AoE.createRect(12 * scale, 20 * scale).toSprite(app)
+    aoeRectSprite.rotation = Math.PI / 2
+    const aoeRectMask = new Graphics().circle(0, 0, 8 * YmToPxLarge).fill({ color: 'white' })
+    const aoeRect = maskedAoEToSprite(app, aoeRectSprite, aoeRectMask)
+
+    // aoe large circle
+    const pos = polarRadianToCartesian({ r: aoePos[0].r, rad: Math.PI })
+    const aoeCircleFanSprite = AoE.createCircle(22 * scale).toSprite(app)
+    aoeCircleFanSprite.rotation = aoePos[0].rad
+    aoeCircleFanSprite.position.set(0, 0)
+    const aoeCircleFanMask = new Graphics().circle(-pos.x, pos.y, 8 * YmToPxLarge).fill({ color: 'white' })
+    const aoeCircleFan = maskedAoEToSprite(app, aoeCircleFanSprite, aoeCircleFanMask)
+
+    // aoe large ring fan * 2
+    const aoeRingFan1Sprite = AoE.createRingFan(15 * scale, 26 * scale, 60).toSprite(app)
+    const aoeRingFan1 = maskedAoEToSprite(app, aoeRingFan1Sprite)
+
+    const aoeRingFan2Sprite = AoE.createRingFan(15 * scale, 26 * scale, 60).toSprite(app)
+    const aoeRingFan2 = maskedAoEToSprite(app, aoeRingFan2Sprite)
+
+    return [aoeSmallRing, aoeRect, aoeRingFan1, aoeCircleFan, aoeRingFan2]
+  }
+
+  function generateAoeConfigs(pos: { r: number; rad: number }[]): {
+    position: { x: number; y: number }
+    rotation: number
+  }[] {
+    // 默认顺序对应Ring，Rect，RingFan1，CircleFan，RingFan2
+    const pos0 = polarRadianToCartesian(pos[0])
+    const pos1 = polarRadianToCartesian(pos[1])
+    const pos2 = polarRadianToCartesian({ r: 20.5 * YmToPxLarge, rad: pos[2].rad })
+
+    const pos3 = polarRadianToCartesian(pos[3])
+    const pos4 = polarRadianToCartesian({ r: 20.5 * YmToPxLarge, rad: pos[4].rad })
+
+    return [
+      { position: pos0, rotation: pos[0].rad },
+      { position: pos1, rotation: pos[1].rad },
+      { position: pos2, rotation: pos[2].rad },
+      { position: pos3, rotation: pos[3].rad },
+      { position: pos4, rotation: pos[4].rad },
     ]
+  }
 
-    function polarRadianToCartesian(ppos: { r: number; rad: number }): { x: number; y: number } {
-      const x = ppos.r * Math.cos(ppos.rad)
-      const y = ppos.r * Math.sin(ppos.rad)
-      return { x, y }
-    }
-
-    function getPatternArr(): (0 | 1)[] {
-      return Array.from({ length: 5 }, () => (Math.random() > 0.5 ? 1 : 0) as 0 | 1)
-    }
-
-    function rotateArray<T>(arr: T[], offset: number = 1) {
-      const len = arr.length
-      const n = ((offset % len) + len) % len
-      return arr.slice(n).concat(arr.slice(0, n))
-    }
-
-    function maskedAoEToSprite(app: Application, aoe: Sprite, mask?: Graphics): Sprite {
-      const container = new Container()
-      container.position.set(0)
-
-      if (mask) {
-        aoe.mask = mask
-        container.addChild(mask)
-      }
-      container.addChild(aoe)
-
-      const texture = new AoETexture(app.renderer.extract.texture(container), 'circle', DEFAULT_AOE_RESOLUTION)
-      const sprite = Sprite.from(texture)
-      const centerPivot = texture.getCenterPivot()
-      sprite.pivot.set(centerPivot.x, centerPivot.y)
-
-      container.destroy({ children: true, texture: true, textureSource: true })
-
-      return sprite
-    }
-
-    function generateChampionsCircuitAoes(
-      app: Application,
-      aoePos: { r: number; rad: number }[],
-      scale: number = scaleSize,
-    ): Sprite[] {
-      // aoe ring
-      const aoeSmallRingSprite = AoE.createRing(4.5 * scale, 13 * scale).toSprite(app)
-      const aoeSmallRing = maskedAoEToSprite(app, aoeSmallRingSprite)
-
-      // aoe rect
-      const aoeRectSprite = AoE.createRect(12 * scale, 20 * scale).toSprite(app)
-      aoeRectSprite.rotation = Math.PI / 2
-      const aoeRectMask = new Graphics().circle(0, 0, 8 * YmToPxLarge).fill({ color: 'white' })
-      const aoeRect = maskedAoEToSprite(app, aoeRectSprite, aoeRectMask)
-
-      // aoe large circle
-      const pos = polarRadianToCartesian({ r: aoePos[0].r, rad: Math.PI })
-      const aoeCircleFanSprite = AoE.createCircle(22 * scale).toSprite(app)
-      aoeCircleFanSprite.rotation = aoePos[0].rad
-      aoeCircleFanSprite.position.set(0, 0)
-      const aoeCircleFanMask = new Graphics().circle(-pos.x, pos.y, 8 * YmToPxLarge).fill({ color: 'white' })
-      const aoeCircleFan = maskedAoEToSprite(app, aoeCircleFanSprite, aoeCircleFanMask)
-
-      // aoe large ring fan * 2
-      const aoeRingFan1Sprite = AoE.createRingFan(15 * scale, 26 * scale, 60).toSprite(app)
-      const aoeRingFan1 = maskedAoEToSprite(app, aoeRingFan1Sprite)
-
-      const aoeRingFan2Sprite = AoE.createRingFan(15 * scale, 26 * scale, 60).toSprite(app)
-      const aoeRingFan2 = maskedAoEToSprite(app, aoeRingFan2Sprite)
-
-      return [aoeSmallRing, aoeRect, aoeRingFan1, aoeCircleFan, aoeRingFan2]
-    }
-
-    function generateAoeConfigs(pos: { r: number; rad: number }[]): {
+  function placeChampionsCircuitAoes(
+    aoeSprites: Sprite[],
+    aoeConifg: {
       position: { x: number; y: number }
       rotation: number
-    }[] {
-      // 默认顺序对应Ring，Rect，RingFan1，CircleFan，RingFan2
-      const pos0 = polarRadianToCartesian(pos[0])
-      const pos1 = polarRadianToCartesian(pos[1])
-      const pos2 = polarRadianToCartesian({ r: 20.5 * YmToPxLarge, rad: pos[2].rad })
-
-      const pos3 = polarRadianToCartesian(pos[3])
-      const pos4 = polarRadianToCartesian({ r: 20.5 * YmToPxLarge, rad: pos[4].rad })
-
-      return [
-        { position: pos0, rotation: pos[0].rad },
-        { position: pos1, rotation: pos[1].rad },
-        { position: pos2, rotation: pos[2].rad },
-        { position: pos3, rotation: pos[3].rad },
-        { position: pos4, rotation: pos[4].rad },
-      ]
-    }
-
-    function placeChampionsCircuitAoes(
-      aoeSprites: Sprite[],
-      aoeConifg: {
-        position: { x: number; y: number }
-        rotation: number
-      }[],
-    ) {
-      aoeSprites.forEach((sprite, i) => {
-        sprite.position.set(aoeConifg[i].position.x, aoeConifg[i].position.y)
-        sprite.rotation = aoeConifg[i].rotation
-      })
-    }
-
-    listenKeys($stratBoards, ['champions-circuit-mechanic-dynamic'], async (stratBoards) => {
-      const app = stratBoards['champions-circuit-mechanic-dynamic']
-
-      const container = new Container()
-      container.position.set(app.screen.width / 2, app.screen.height / 2)
-      app.stage.addChild(container)
-
-      const floorTexture = await Assets.load(floor_img)
-      const floor = Sprite.from(floorTexture)
-      const centerToNorth = 17.54 * Math.cos(Math.PI / 5) + 8
-      const centerToSouth = 17.54 + 8
-      floor.anchor.set(0.5, centerToNorth / (centerToNorth + centerToSouth))
-      floor.scale.set(getScale() * 1.25)
-      container.addChild(floor)
-
-      // Champion's Circuit
-      const randStart = Math.floor(Math.random() * 5)
-      const aoeContainer = new Container()
-      container.addChild(aoeContainer)
-
-      const aoeSprites: Sprite[] = generateChampionsCircuitAoes(app, aoePos)
-      placeChampionsCircuitAoes(aoeSprites, generateAoeConfigs(rotateArray(aoePos, randStart)))
-      aoeContainer.addChild(...aoeSprites)
-
-      // Bare Fangs
-      const fangsContainer = new Container()
-      container.addChild(fangsContainer)
-
-      const inactiveFang = await Assets.load(inactiveFang_img)
-      const fangPairs: FangPair[] = Array.from({ length: 5 }, (_, i) => {
-        const left = new Fang(app, inactiveFang, { pattern: 1, rotate: i as 0 | 1 | 2 | 3 | 4 })
-        const right = new Fang(app, inactiveFang, { rotate: i as 0 | 1 | 2 | 3 | 4 })
-        return new FangPair(left, right)
-      })
-      fangPairs.forEach((p) => p.loadPair(fangsContainer))
-
-      // dyanmic
-      const interval = 4400
-      let rotateDir = 1
-      let offset = randStart
-      let patternArr: (0 | 1)[] = []
-      let tickerFn: ((ticker: Ticker) => void) | null = null
-      let preparedTriggered = false
-      let activeTriggered = false
-      let exampleDisplay = false
-      let firstPlay = true
-
-      async function loadRestObjects(fangPairs: FangPair[]) {
-        // Bare Fangs
-        const [activeFang, preparedFang] = await Promise.all([
-          Assets.load(activeFang_img),
-          Assets.load(preparedFang_img),
-        ])
-        fangPairs.forEach((pair, i) => {
-          if (!pair.hasAllState()) {
-            const prepared = new Fang(app, preparedFang, { rotate: i as 0 | 1 | 2 | 3 | 4 })
-            const active = new Fang(app, activeFang, { activate: true, rotate: i as 0 | 1 | 2 | 3 | 4 })
-            pair.addRemainingFangs(prepared, active)
-          }
-        })
-      }
-
-      async function play() {
-        let elapsed = 0
-
-        await loadRestObjects(fangPairs)
-
-        if (tickerFn) {
-          app.ticker.remove(tickerFn)
-          tickerFn = null
-        }
-
-        tickerFn = (ticker) => {
-          elapsed += ticker.elapsedMS
-
-          if (!preparedTriggered && elapsed >= interval / 2) {
-            preparedTriggered = true
-
-            if (firstPlay) {
-              firstPlay = false
-              offset -= 1
-            } else {
-              aoeContainer.removeChildren()
-            }
-
-            fangsContainer.removeChildren()
-            patternArr = getPatternArr()
-            fangPairs.forEach((p, i) => {
-              p.switchSide(patternArr[i]).loadPair(fangsContainer, 'prepared')
-            })
-          }
-
-          if (!activeTriggered && elapsed >= interval) {
-            activeTriggered = true
-            offset += rotateDir // +1为顺时针
-
-            placeChampionsCircuitAoes(aoeSprites, generateAoeConfigs(rotateArray(aoePos, offset)))
-            aoeContainer.addChild(...aoeSprites)
-
-            fangsContainer.removeChildren()
-            fangPairs.forEach((p, i) => {
-              p.switchSide(patternArr[i]).loadPair(fangsContainer, 'active')
-            })
-          }
-
-          if (elapsed >= interval) {
-            elapsed = 0
-            preparedTriggered = false
-            activeTriggered = false
-          }
-        }
-
-        app.ticker.add(tickerFn)
-      }
-
-      async function reset() {
-        firstPlay = true
-        if (tickerFn) {
-          app.ticker.remove(tickerFn)
-          tickerFn = null
-        }
-
-        offset += 2
-        rotateDir = -rotateDir
-        // 更新按钮文字
-        const span = document.querySelector('#champions-circuit-mechanic-reset-button span')
-        if (span) {
-          span.textContent = rotateDir > 0 ? '顺时针' : '逆时针'
-        }
-
-        fangsContainer.removeChildren()
-        fangPairs.forEach((p) => {
-          p.loadPair(fangsContainer)
-        })
-      }
-
-      async function example() {
-        firstPlay = true
-        if (tickerFn) {
-          app.ticker.remove(tickerFn)
-          tickerFn = null
-        }
-
-        if (exampleDisplay) {
-          fangsContainer.removeChildren()
-          fangPairs.forEach((p, i) => {
-            p.switchSide(patternArr[i]).loadPair(fangsContainer)
-          })
-          exampleDisplay = false
-
-          return
-        }
-        exampleDisplay = true
-        await loadRestObjects(fangPairs)
-
-        patternArr = getPatternArr()
-        fangsContainer.removeChildren()
-        fangPairs.forEach((p, i) => {
-          p.switchSide(patternArr[i]).loadPair(fangsContainer, 'active')
-        })
-      }
-
-      document.getElementById('champions-circuit-mechanic-dynamic-play-button')?.addEventListener('click', () => {
-        play()
-      })
-
-      document.getElementById('champions-circuit-mechanic-reset-button')?.addEventListener('click', () => {
-        reset()
-      })
-
-      document.getElementById('champions-circuit-mechanic-copy-button')?.addEventListener('click', () => {
-        example()
-      })
+    }[],
+  ) {
+    aoeSprites.forEach((sprite, i) => {
+      sprite.position.set(aoeConifg[i].position.x, aoeConifg[i].position.y)
+      sprite.rotation = aoeConifg[i].rotation
     })
-  </script>
-</MechanicSection>
+  }
+
+  async function fadeInAoes(container: Container, aoeSprites: Sprite[], duration = 0.1): Promise<void> {
+    aoeSprites.forEach((sprite) => {
+      sprite.alpha = 0
+      container.addChild(sprite)
+    })
+
+    const animations = aoeSprites.map((sprite) => animate(sprite, { alpha: 1 }, { duration }))
+
+    return Promise.all(animations.map((a) => a.finished)).then(() => {})
+  }
+
+  async function fadeOutAoes(container: Container, aoeSprites: Sprite[], duration = 0.1): Promise<void> {
+    const animations = aoeSprites.map((sprite) =>
+      animate(sprite, { alpha: 0 }, { duration }).finished.then(() => {
+        container.removeChild(sprite)
+      }),
+    )
+
+    return Promise.all(animations).then(() => {})
+  }
+
+  listenKeys($stratBoards, ['champions-circuit-mechanic-dynamic'], async (stratBoards) => {
+    const app = stratBoards['champions-circuit-mechanic-dynamic']
+
+    const container = new Container()
+    container.position.set(app.screen.width / 2, app.screen.height / 2)
+    app.stage.addChild(container)
+
+    const floorTexture = await Assets.load(floor_img)
+    const floor = Sprite.from(floorTexture)
+    const centerToNorth = 17.54 * Math.cos(Math.PI / 5) + 8
+    const centerToSouth = 17.54 + 8
+    floor.anchor.set(0.5, centerToNorth / (centerToNorth + centerToSouth))
+    floor.scale.set(getScale() * 1.25)
+    container.addChild(floor)
+
+    // Champion's Circuit
+    const randStart = Math.floor(Math.random() * 5)
+    const aoeContainer = new Container()
+    container.addChild(aoeContainer)
+
+    const aoeSprites: Sprite[] = generateChampionsCircuitAoes(app, aoePos)
+    placeChampionsCircuitAoes(aoeSprites, generateAoeConfigs(rotateArray(aoePos, randStart)))
+    void fadeInAoes(aoeContainer, aoeSprites)
+
+    // Bare Fangs
+    const fangsContainer = new Container()
+    container.addChild(fangsContainer)
+
+    const inactiveFang = await Assets.load(inactiveFang_img)
+    const fangPairs: FangPair[] = Array.from({ length: 5 }, (_, i) => {
+      const left = new Fang(app, inactiveFang, { pattern: 1, rotate: i as 0 | 1 | 2 | 3 | 4 })
+      const right = new Fang(app, inactiveFang, { rotate: i as 0 | 1 | 2 | 3 | 4 })
+      return new FangPair(left, right)
+    })
+    fangPairs.forEach((p) => p.loadPair(fangsContainer))
+
+    // dyanmic
+    const interval = 4400
+    let exampleDisplay = false
+    let firstPlay = true
+    let activeTriggered = false
+    let inactiveTrigger = false
+    let preparedTriggered = false
+    let rotateDir = 1
+    let offset = randStart
+    let patternArr: (0 | 1)[] = []
+    let tickerFn: ((ticker: Ticker) => void) | null = null
+
+    async function loadRestObjects(fangPairs: FangPair[]) {
+      // Bare Fangs
+      const [activeFang, preparedFang] = await Promise.all([Assets.load(activeFang_img), Assets.load(preparedFang_img)])
+      fangPairs.forEach((pair, i) => {
+        if (!pair.hasAllState()) {
+          const prepared = new Fang(app, preparedFang, { rotate: i as 0 | 1 | 2 | 3 | 4 })
+          const active = new Fang(app, activeFang, { activate: true, rotate: i as 0 | 1 | 2 | 3 | 4 })
+          pair.addRemainingFangs(prepared, active)
+        }
+      })
+    }
+
+    async function play() {
+      let elapsed = 0
+
+      await loadRestObjects(fangPairs)
+
+      if (tickerFn) {
+        app.ticker.remove(tickerFn)
+        tickerFn = null
+      }
+
+      tickerFn = async (ticker) => {
+        elapsed += ticker.elapsedMS
+
+        if (!inactiveTrigger && elapsed >= interval / 3) {
+          inactiveTrigger = true
+
+          patternArr = getPatternArr()
+
+          if (!firstPlay) {
+            void fadeOutAoes(aoeContainer, aoeSprites)
+            await Promise.all(fangPairs.map((p) => p.fadeOutPair(fangsContainer)))
+            await Promise.all(fangPairs.map((p) => p.fadeInPair(fangsContainer)))
+          }
+
+          fangPairs.forEach((p, i) => p.switchSide(patternArr[i]))
+        }
+
+        if (!preparedTriggered && elapsed >= (2 * interval) / 3) {
+          preparedTriggered = true
+
+          if (firstPlay) {
+            firstPlay = false
+            offset -= 1
+          } else {
+            void fadeOutAoes(aoeContainer, aoeSprites)
+          }
+
+          await Promise.all(fangPairs.map((p) => p.fadeOutPair(fangsContainer)))
+          await Promise.all(fangPairs.map((p) => p.fadeInPair(fangsContainer, 'prepared')))
+        }
+
+        if (!activeTriggered && elapsed >= interval) {
+          activeTriggered = true
+          offset += rotateDir // +1为顺时针
+
+          placeChampionsCircuitAoes(aoeSprites, generateAoeConfigs(rotateArray(aoePos, offset)))
+          void fadeInAoes(aoeContainer, aoeSprites)
+
+          await Promise.all(fangPairs.map((p) => p.fadeOutPair(fangsContainer)))
+          await Promise.all(fangPairs.map((p) => p.fadeInPair(fangsContainer, 'active')))
+        }
+
+        if (elapsed >= interval) {
+          elapsed = 0
+          preparedTriggered = false
+          activeTriggered = false
+          inactiveTrigger = false
+        }
+      }
+
+      app.ticker.add(tickerFn)
+    }
+
+    async function reset() {
+      firstPlay = true
+      if (tickerFn) {
+        app.ticker.remove(tickerFn)
+        tickerFn = null
+      }
+
+      offset += 2
+      rotateDir = -rotateDir
+      // 更新按钮文字
+      const span = document.querySelector('#champions-circuit-mechanic-reset-button span')
+      if (span) {
+        span.textContent = rotateDir > 0 ? '顺时针' : '逆时针'
+      }
+
+      fangsContainer.removeChildren()
+      // fangPairs.forEach((p) => p.loadPair(fangsContainer))
+      await Promise.all(fangPairs.map((p) => p.fadeInPair(fangsContainer)))
+    }
+
+    async function example() {
+      firstPlay = true
+      if (tickerFn) {
+        app.ticker.remove(tickerFn)
+        tickerFn = null
+      }
+
+      if (exampleDisplay) {
+        exampleDisplay = false
+
+        await Promise.all(fangPairs.map((p) => p.fadeOutPair(fangsContainer)))
+        await Promise.all(fangPairs.map((p) => p.fadeInPair(fangsContainer)))
+
+        return
+      }
+
+      exampleDisplay = true
+      await loadRestObjects(fangPairs)
+
+      void fadeInAoes(aoeContainer, aoeSprites)
+
+      patternArr = getPatternArr()
+      fangsContainer.removeChildren()
+      fangPairs.forEach((p, i) => {
+        p.switchSide(patternArr[i]).fadeInPair(fangsContainer, 'active')
+      })
+    }
+
+    document.getElementById('champions-circuit-mechanic-dynamic-play-button')?.addEventListener('click', () => {
+      play()
+    })
+
+    document.getElementById('champions-circuit-mechanic-reset-button')?.addEventListener('click', () => {
+      reset()
+    })
+
+    document.getElementById('champions-circuit-mechanic-copy-button')?.addEventListener('click', () => {
+      example()
+    })
+  })
+</script>

@@ -1,5 +1,6 @@
 import type { Application, Texture } from 'pixi.js'
 
+import { animate } from 'motion'
 import { Container, Graphics, Sprite } from 'pixi.js'
 
 import type { AoEColors } from '@/pixi/aoe'
@@ -181,21 +182,53 @@ export class FangPair {
     this.right.inactive.setPattern(pattern)
     this.right.prepared?.setPattern(pattern)
     this.right.active?.setPattern(pattern)
+
     return this
   }
 
   public loadPair(container: Container, state: FangType = 'inactive') {
     container.addChild(this.left)
+    container.addChild(this.getFangByState(state))
+  }
+
+  public async fadeInPair(container: Container, state: FangType = 'inactive'): Promise<void> {
+    container.addChild(this.left)
+    const right = this.getFangByState(state)
+
+    right.alpha = 0
+    container.addChild(right)
+
+    const [rightAnim, leftAnim] = [
+      animate([[right, { alpha: 1 }, { duration: 0.1 }]]),
+      animate([[this.left, { alpha: 1 }, { duration: 0.1 }]])
+    ]
+
+    await Promise.all([rightAnim.finished, leftAnim.finished])
+  }
+
+  public async fadeOutPair(container: Container): Promise<void> {
+    const all = [this.right.inactive, this.right.prepared, this.right.active]
+
+    const promises = all
+      .filter((f): f is Fang => !!f && container.children.includes(f))
+      .map(f =>
+        animate([[f, { alpha: 0 }, { duration: 0.1 }]])
+          .finished
+          .then(() => container.removeChild(f))
+      )
+
+    await Promise.all(promises)
+
+    container.removeChildren()
+  }
+
+  private getFangByState(state: FangType): Fang {
     if (state === 'prepared' && this.right.prepared) {
-      container.addChild(this.right.prepared)
-      return
+      return this.right.prepared
     }
     if (state === 'active' && this.right.active) {
-      container.addChild(this.right.active)
-      return
+      return this.right.active
     }
-    if (state === 'inactive') {
-      container.addChild(this.right.inactive)
-    }
+    return this.right.inactive
   }
 }
