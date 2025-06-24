@@ -21,4 +21,5 @@ export const translations = {
   ValorousAscension: 'Valorous Ascension',
   HazardousAscension: 'Hazardous Ascension',
   ThunderSlash: 'Thunder Slash',
+  BudofValor: 'Bud of Valor',
 }
