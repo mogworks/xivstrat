@@ -25,11 +25,11 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
+
   activateTimes: Time[]
 }
 
-const { start, base = 0, activateTimes }: Props = Astro.props
+const { start, activateTimes }: Props = Astro.props
 
 const bareFangs = translations.bareFangs
 const championsCircuit = translations.championsCircuit
@@ -38,9 +38,9 @@ const championsCircuit = translations.championsCircuit
 // REF: https://www.fflogs.com/reports/GrMAphvBQfqLT9KJ?fight=4&type=casts&hostility=1&phase=2&view=events
 ---
 
-<BareFangsCast start={start} base={base} />
-<ChampionsCircuitCast start="10:11.323" base={base} />
-<ChampionsCircuitActivate base={base} activateTimes={activateTimes} />
+<BareFangsCast start={start} />
+<ChampionsCircuitCast start="10:11.323" />
+<ChampionsCircuitActivate activateTimes={activateTimes} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T variant="yellow" text=`${bareFangs}` />

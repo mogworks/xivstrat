@@ -11,11 +11,10 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
-const rootsofEvil = 'Roots of Evil'
+const { time }: Props = Astro.props
+const rootsofEvil = translations.rootsOfEvil
 ---
 
 <EventSection time="01:10.533">

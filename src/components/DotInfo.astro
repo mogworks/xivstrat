@@ -11,4 +11,10 @@ interface Props {
 const { damage, class: className = '' }: Props = Astro.props
 ---
 
-<Span variant="orange" class={cn('damage-info text-decimal', className)}>{`${damage}/3s`}</Span>
+<Span
+  variant="orange"
+  class={cn('damage-info text-decimal damage-specific-number', className)}
+  data-damage={`${damage}/3s`}
+>
+  {`${damage}/3s`}
+</Span>

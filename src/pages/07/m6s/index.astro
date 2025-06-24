@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets'
 
+import ScannerSVG from '@/assets/svg/scanner.svg'
+import BiliBiliSVG from '@/assets/svg/bilibili.svg'
+
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import AreaBox from '@/components/AreaBox.astro'
@@ -28,6 +31,7 @@ const navList = [
   { label: '参考资料', id: 'reference' },
   { label: '鸣谢', id: 'thanks' },
 ]
+const videoLink = ''
 ---
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
@@ -36,41 +40,50 @@ const navList = [
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
       >
+        <ScannerSVG class="mr-2 h-5 w-5" />
         查看正文
       </button>
     </a>
+    {
+      videoLink && (
+        <a href={videoLink} target="_blank">
+          <button class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75">
+            <BiliBiliSVG class="mr-2 h-5 w-5" />
+            查看视频攻略
+          </button>
+        </a>
+      )
+    }
   </Fragment>
   <CollapsibleBox id="cheatsheet" client:idle class="w-full">
     <Fragment slot="header">
       <span>小抄速览</span>
     </Fragment>
-    <AreaBox>
-      <ResizableImageDialog client:idle>
-        <Image
-          src={CheatsheetsImage}
-          alt="m6s 副本小抄"
-          loading="lazy"
-          class="h-full w-fit object-contain object-left-top"
-        />
-        <Image
-          src={CheatsheetsZooImage}
-          alt="m6s 动物园小抄"
-          loading="lazy"
-          class="h-full w-fit object-contain object-left-top"
-        />
-      </ResizableImageDialog>
-    </AreaBox>
+    <div class="flex flex-row gap-4">
+      <AreaBox>
+        <strong class="mb-2 inline-block text-sm opacity-60">总体机制</strong>
+        <ResizableImageDialog client:idle>
+          <Image src={CheatsheetsImage} alt="m6s 副本小抄" loading="lazy" class="h-full object-contain" />
+        </ResizableImageDialog>
+      </AreaBox>
+      <AreaBox>
+        <strong class="mb-2 inline-block text-sm opacity-60">动物园</strong>
+        <ResizableImageDialog client:idle>
+          <Image src={CheatsheetsZooImage} alt="m6s 动物园小抄" loading="lazy" class="h-full object-contain" />
+        </ResizableImageDialog>
+      </AreaBox>
+    </div>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
-    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT" img={WaymarkImage} />
+    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT" img={WaymarkImage} downloadLabel="下载5~8层标点文件" />
     <Fragment slot="header">
       <span>场地标点</span>
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="macro" client:idle class="w-full">
-    <Macro text={macro1} class="mb-4" title="M6S - 站位1" />
-    <Macro text={macro3} class="mb-4" title="M6S - 站位2" />
-    <Macro text={macro2} title="M6S - 动物园" />
+    <Macro text={macro1} class="mb-4" title="M6S站位1" />
+    <Macro text={macro3} class="mb-4" title="M6S站位2" />
+    <Macro text={macro2} title="M6S动物园" />
     <Fragment slot="header">
       <span>宏</span>
     </Fragment>

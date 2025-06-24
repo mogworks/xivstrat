@@ -1,4 +1,6 @@
 ---
+import type { Time } from '@/lib/utils'
+
 import { getEntry } from 'astro:content'
 
 import DutyLayout from '@/layouts/DutyLayout.astro'
@@ -9,15 +11,16 @@ import StratSettings from '@/components/StratSettings.vue'
 
 interface Props {
   dutyId: string
+  base: Time
 }
 
-const { dutyId }: Props = Astro.props
+const { dutyId, base = 0 }: Props = Astro.props
 const duty = (await getEntry('duties', dutyId))!.data
 ---
 
 <DutyLayout dutyId={dutyId}>
   <main class="max-w-strat-max min-w-strat-min relative mx-auto mb-20 grid grid-cols-[1fr_16rem] p-4">
-    <article class="flex flex-col gap-(--article-row-gap) tracking-wide">
+    <article id="strat-article" class="flex flex-col gap-(--article-row-gap) tracking-wide" data-base={base}>
       <slot />
     </article>
     <StratAside currentUrl={Astro.url.pathname} phases={duty.phases} client:idle />
@@ -31,6 +34,7 @@ const duty = (await getEntry('duties', dutyId))!.data
 <script>
   import { subscribeKeys } from 'nanostores'
 
+  import { splitDamage } from '@/lib/utils'
   import { $stratSettings } from '@/stores/stratSettings'
 
   // TODO: 把逻辑拆分到各自组件内
@@ -158,5 +162,15 @@ const duty = (await getEntry('duties', dutyId))!.data
         e.classList.add('hidden')
       })
     }
+  })
+
+  subscribeKeys($stratSettings, ['damageFormat'], (stratSettings) => {
+    document.querySelectorAll('span.damage-specific-number').forEach((ele) => {
+      const span = ele as HTMLSpanElement
+      const originalDamage = span.dataset.damage
+      if (originalDamage) {
+        span.textContent = stratSettings.damageFormat === 'split' ? splitDamage(originalDamage) : originalDamage
+      }
+    })
   })
 </script>

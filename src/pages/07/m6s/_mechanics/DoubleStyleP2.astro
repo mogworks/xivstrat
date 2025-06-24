@@ -26,28 +26,23 @@ import supplement_1 from '@/assets/07/m6s/double_style_p2/supplement_1.png'
 import supplement_2 from '@/assets/07/m6s/double_style_p2/supplement_2.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
 const start = '03:01.061'
 const duration = 8.6
 const puddingGrafActivate = '03:10.063'
 const quicksandStart = '03:02.561'
 const quicksandActivate = timeToSeconds(start) + duration + 3
 
-const PuddingGraf = translations.PuddingGraf
+const { PuddingGraf, DoubleStyle } = translations
 ---
 
-<EventSection time={quicksandStart} base={base}><Span variant="zinc">场地北/南侧出现大范围流沙</Span></EventSection>
-<DoubleStyleCast start={start} base={base} duration={duration} />
-<PuddingGrafActivate time={puddingGrafActivate} base={base} />
-<EventSection time={quicksandActivate} base={base}><Span variant="zinc">场地北/南侧流沙开始下沉</Span></EventSection>
+<EventSection time={quicksandStart}><Span variant="zinc">场地北/南侧出现大范围流沙</Span></EventSection>
+<DoubleStyleCast start={start} duration={duration} />
+<PuddingGrafActivate time={puddingGrafActivate} />
+<EventSection time={quicksandActivate}><Span variant="zinc">场地北/南侧流沙开始下沉</Span></EventSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
-      <Span variant="yellow">Double Style</Span>
+      <Span variant="yellow">{DoubleStyle}</Span>
     </h4>
     <div class="paragraph -my-3">
       <SugarRiot />
@@ -70,7 +65,7 @@ const PuddingGraf = translations.PuddingGraf
       连线，则
       <Span variant="yellow">{PuddingGraf}</Span>
       判定后会留下一个
-      <Span variant="blue">烈羽爆弹</Span>
+      <Span variant="blue">翅膀爆弹怪</Span>
     </div>
     <div class="paragraph -my-3">
       <ListDot />
@@ -79,26 +74,26 @@ const PuddingGraf = translations.PuddingGraf
       连线，则
       <Span variant="yellow">{PuddingGraf}</Span>
       判定后会留下一个
-      <Span variant="yellow">爆弹</Span>
+      <Span variant="yellow">涂鸦爆弹怪</Span>
     </div>
     <div class="paragraph">
-      <Span variant="yellow">爆弹</Span>
+      <Span variant="yellow">涂鸦爆弹怪</Span>
       一段时间后会爆炸，产生半径
       <Span variant="pink">15m</Span>
       的圆形AoE
     </div>
     <div class="paragraph">
-      <Span variant="blue">烈羽爆弹</Span>
+      <Span variant="blue">翅膀爆弹怪</Span>
       则会先飞行一段距离，飞行的方向是
       <Span variant="yellow">{PuddingGraf}</Span>
       判定时玩家面向的方向
     </div>
     <div class="paragraph">
-      <Span variant="yellow">爆弹</Span>
+      <Span variant="yellow">涂鸦爆弹怪</Span>
       和
       <Span variant="pink">飞行落地后</Span>
       的
-      <Span variant="blue">烈羽爆弹</Span>
+      <Span variant="blue">翅膀爆弹怪</Span>
       可被流沙吸收
     </div>
     <h4 class="mt-8 text-2xl">
@@ -113,9 +108,9 @@ const PuddingGraf = translations.PuddingGraf
     </div>
     <div class="paragraph">
       判定后会在原地留下一个
-      <Span variant="yellow">爆弹</Span>
+      <Span variant="yellow">涂鸦爆弹怪</Span>
       /
-      <Span variant="blue">烈羽爆弹</Span>
+      <Span variant="blue">翅膀爆弹怪</Span>
       （取决于连线）
     </div>
     <h4 class="mt-8 text-2xl">
@@ -151,11 +146,11 @@ const PuddingGraf = translations.PuddingGraf
       流沙
       <Span variant="pink">开始下沉</Span>
       后可以吸收
-      <Span variant="yellow">爆弹</Span>
+      <Span variant="yellow">涂鸦爆弹怪</Span>
       和
       <Span variant="pink">飞行落地后</Span>
       的
-      <Span variant="blue">烈羽爆弹</Span>
+      <Span variant="blue">翅膀爆弹怪</Span>
     </div>
   </div>
 </MechanicSection>
@@ -165,9 +160,9 @@ const PuddingGraf = translations.PuddingGraf
       玩家需要在处理八人分散（
       <Span variant="yellow">{PuddingGraf}</Span>
       ）的同时，将
-      <Span variant="yellow">爆弹</Span>
+      <Span variant="yellow">涂鸦爆弹怪</Span>
       和
-      <Span variant="blue">烈羽爆弹</Span>
+      <Span variant="blue">翅膀爆弹怪</Span>
       引入流沙中吸收
     </div>
     <div class="paragraph">
@@ -182,7 +177,7 @@ const PuddingGraf = translations.PuddingGraf
           alt="Double Style P2 Solution 1/2"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
-        <div class="paragraph">情形1：烈羽爆弹连线TH</div>
+        <div class="paragraph">情形1：翅膀爆弹怪连线TH</div>
       </div>
       <div class="flex max-w-96 flex-col items-center gap-2">
         <Image
@@ -190,25 +185,25 @@ const PuddingGraf = translations.PuddingGraf
           alt="Double Style P2 Solution 2/2"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
-        <div class="paragraph">情形2：烈羽爆弹连线DPS</div>
+        <div class="paragraph">情形2：翅膀爆弹怪连线DPS</div>
       </div>
     </div>
     <div class="paragraph">
       <ListDot />
       被普通
-      <Span variant="yellow">爆弹</Span>
+      <Span variant="yellow">涂鸦爆弹怪</Span>
       图案连线的人直接站入流沙中，之后
-      <Span variant="yellow">爆弹</Span>
+      <Span variant="yellow">涂鸦爆弹怪</Span>
       会落入流沙中被吸收
     </div>
     <div class="paragraph">
       <ListDot />
       被
-      <Span variant="blue">烈羽爆弹</Span>
+      <Span variant="blue">翅膀爆弹怪</Span>
       图案连线的人站在流沙外并
       <Span variant="pink">面向流沙</Span>
       ，之后
-      <Span variant="blue">烈羽爆弹</Span>
+      <Span variant="blue">翅膀爆弹怪</Span>
       会飞入流沙中被吸收
     </div>
     <div class="paragraph mt-8">流沙中的四人注意：</div>
@@ -235,9 +230,9 @@ const PuddingGraf = translations.PuddingGraf
     <div class="paragraph pl-4">
       <ListDot />
       但也要注意不能太贴边，否则若超出
-      <Span variant="blue">烈羽爆弹</Span>
+      <Span variant="blue">翅膀爆弹怪</Span>
       的飞行距离，
-      <Span variant="blue">烈羽爆弹</Span>
+      <Span variant="blue">翅膀爆弹怪</Span>
       会落在流沙外
     </div>
     <div class="flex gap-4">

@@ -1,0 +1,98 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import EscelonsFallCast from '../_components/EscelonsFallCast.astro'
+
+import first from '@/assets/07/zelenia/P1/P1-four-1.png'
+import leftAoe from '@/assets/07/zelenia/EP3/EP34-A.png'
+import rightAoe from '@/assets/07/zelenia/EP3/EP34-B.png'
+
+import img from '@/assets/07/zelenia/Tmp.png'
+import StratLink from '@/components/StratLink.astro'
+import { translations } from '../_translations'
+---
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      这是一个组合机制，由<Span variant="purple">四连远近刀</Span>
+      +<Span variant="yellow">分身左右刀</Span>组成
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">四连远近刀：</Span>
+    </div>
+    <div class="paragraph">
+      BOSS身上显示
+      <Span variant="purple">远引导标记</Span>
+      或
+      <Span variant="pink">近引导标记</Span>
+      <span></span>x4<span></span>次
+    </div>
+    <div class="paragraph">
+      代表接下来每次需要<span></span>4<span></span>人进行
+      <Span variant="purple">远引导</Span>
+      或
+      <Span variant="pink">近引导</Span>
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">分身左右刀：</Span>
+    </div>
+    <div class="paragraph">A点分身对场内释放左右刀，远近刀判定后，C点分身对场内释放左右刀</div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex gap-4">
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: first,
+          alt: 'Zelenia：P1 四连远近刀',
+          title: '引导位置示意',
+        },
+      ]}
+    />
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <div class="paragraph">
+        先躲避A方向左右刀，然后引导远近刀，处理方式与
+        <StratLink variant="yellow" href="/07/zelenia/p1/#escelons-fall">
+          {translations.EscelonsFall}
+        </StratLink>
+        一致。
+      </div>
+      <div class="paragraph">最后第四刀后躲避C方向左右刀。</div>
+    </div>
+  </div>
+  <div class="flex mt-10">
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: leftAoe,
+          alt: 'Zelenia：P1 四连远近刀',
+          title: '左右刀示意',
+        },
+        {
+          src: rightAoe,
+          alt: 'Zelenia：P1 四连远近刀',
+          title: '左右刀示意',
+        },
+      ]}
+    />
+  </div>
+</SolutionSection>

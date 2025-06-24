@@ -57,6 +57,6 @@ export const translations = {
   TasteofFire: '糖糖火焰',
   Highlightning: '界雷',
   UnmitigatedExplosion: '大爆炸',
-  Wave: '波次',
+  Wave: 'Wave',
   Rush: '突进',
 }

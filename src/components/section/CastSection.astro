@@ -15,7 +15,7 @@ interface Props {
   start?: Time
   duration?: Time
   end?: Time
-  base?: Time
+
   ability?: string
   target?: boolean | RoleType | CombinedRoleType
   targetTag?: string
@@ -31,7 +31,6 @@ const {
   start = undefined,
   duration = undefined,
   end = undefined,
-  base = 0,
   ability = '',
   target = false,
   targetTag = undefined,
@@ -53,7 +52,7 @@ const adjustedDuration = adjustDuration
 
 <Section {...rest}>
   <div class="self-center justify-self-end px-4">
-    <StratInterval start={start} duration={adjustedDuration} end={end} base={base} />
+    <StratInterval start={start} duration={adjustedDuration} end={end} />
   </div>
   <div class="flex flex-wrap items-center gap-1 px-4 text-lg">
     <slot name="source">

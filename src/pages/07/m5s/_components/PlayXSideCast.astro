@@ -11,13 +11,12 @@ import { translations } from '../_translations'
 
 interface Props {
   time?: Time
-  base?: Time
 }
 
-const { time = 0, base = 0 }: Props = Astro.props
+const { time = 0 }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <span class="text-sm opacity-80">或</span>
   <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
   <ul class="list-none space-y-4">

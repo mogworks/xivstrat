@@ -19,6 +19,7 @@ import Skill from '@/components/typography/Skill.astro'
 import Quote from '@/components/typography/Quote.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import ImgGrid from '@/components/typography/ImgGrid.astro'
+import StratLink from '@/components/StratLink.astro'
 
 import MillennialDecayCast from '../_components/MillennialDecayCast.astro'
 import BreathOfDecayCast from '../_components/BreathOfDecayCast.astro'
@@ -30,6 +31,7 @@ import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import WolfOfWind from '../_components/entities/WolfOfWind.astro'
 import GustEffect from '../_components/GustEffect.astro'
 import BreathOfDecayEffect from '../_components/BreathOfDecayEffect.astro'
+import BossAttackSection from '../_components/BossAttackSection.astro'
 
 import { translations } from '../_translations'
 
@@ -59,11 +61,6 @@ import solution_14 from '@/assets/07/m8s1/millennial_decay/solution_14.png'
 import solution_15 from '@/assets/07/m8s1/millennial_decay/solution_15.png'
 import solution_16 from '@/assets/07/m8s1/millennial_decay/solution_16.png'
 import solution_op from '@/assets/07/m8s1/millennial_decay/solution_op.png'
-import StratLink from '@/components/StratLink.astro'
-
-interface Props {
-  base?: Time
-}
 
 const millennialDecay = translations.millennialDecay
 const aeroIII = translations.aeroIII
@@ -72,8 +69,6 @@ const gust = translations.gust
 const prowlingGale = translations.prowlingGale
 const windsOfDecay = translations.windsOfDecay
 const greatWhirlwind = translations.greatWhirlwind
-
-const { base = 0 }: Props = Astro.props
 
 const solutions = [
   {
@@ -88,18 +83,27 @@ const solutions = [
 const defaultSolution = '解法：IQ6000【改】'
 ---
 
-<MillennialDecayCast start="01:01.456" base={base} />
-<AeroIIICast start="01:12.135" base={base} />
-<BreathOfDecayCast start="01:10.623" base={base} order={1} />
-<GustEvent time="01:19.081" base={base} />
-<BreathOfDecayCast start="01:12.625" base={base} order={2} />
-<BreathOfDecayCast start="01:14.628" base={base} order={3} />
-<GustEvent time="01:24.065" reverse base={base} />
-<BreathOfDecayCast start="01:16.630" base={base} order={4} />
-<BreathOfDecayCast start="01:18.635" base={base} order={5} />
-<AeroIIICast start="01:27.802" base={base} />
-<PowerlingGaleEvent time="01:35.055" base={base} />
-<WindsOfDecayEvent time="01:35.233" base={base} />
+<MillennialDecayCast start="01:01.456" />
+<AeroIIICast start="01:12.135" />
+<BreathOfDecayCast start="01:10.623" order={1} />
+<GustEvent time="01:19.081" />
+
+<BossAttackSection time="01:20.154" damage="60000" damageType="physical" />
+
+<BreathOfDecayCast start="01:12.625" order={2} />
+<BreathOfDecayCast start="01:14.628" order={3} />
+
+<BossAttackSection time="01:23.170" damage="60000" damageType="physical" />
+
+<GustEvent time="01:24.065" reverse />
+<BreathOfDecayCast start="01:16.630" order={4} />
+
+<BossAttackSection time="01:26.191" damage="60000" damageType="physical" />
+
+<BreathOfDecayCast start="01:18.635" order={5} />
+<AeroIIICast start="01:27.802" />
+<PowerlingGaleEvent time="01:35.055" />
+<WindsOfDecayEvent time="01:35.233" />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

@@ -12,6 +12,7 @@ import Dropsy from '@/components/buff/Dropsy.astro'
 import HPPenalty from '@/components/buff/HPPenalty.astro'
 import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 import VulnerabilityUp from '@/components/buff/VulnerabilityUp.astro'
+import LimitBreak from '@/components/action/LimitBreak.astro'
 
 import FeatherRay from './FeatherRay.astro'
 import HuffyCatBuff from './HuffyCatBuff.astro'
@@ -105,9 +106,6 @@ const {
       <Span variant="yellow">{YanName}</Span>
     </h4>
     <div class="paragraph">
-      后文以【
-      <Span variant="yellow">羊</Span>
-      】代称，
       <Span variant="green">HP 2,835,798</Span>
       ，对
       <RoleIcon role="tank" />
@@ -158,7 +156,7 @@ const {
     <div class="paragraph">
       一出场就会释放
       <Span variant="yellow">{UnlimitedCraving}</Span>
-      偷取LB，接着满场乱跳
+      偷取<LimitBreak stage="full" />，接着满场乱跳
     </div>
     <div class="paragraph">
       每跳6次后，第7次会随机跳到一名玩家处读条
@@ -218,7 +216,7 @@ const {
       连线最先攻击它的玩家，每隔约
       <Span variant="pink">9s</Span>
       对连线玩家读条
-      <Span variant="yellow">Water III</Span>
+      <Span variant="yellow">{translations.WaterIII}</Span>
       喷水
     </div>
     <div class="paragraph">

@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets'
 
+import ScannerSVG from '@/assets/svg/scanner.svg'
+import BiliBiliSVG from '@/assets/svg/bilibili.svg'
+
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
 import Separator from '@/components/Separator.astro'
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
@@ -30,6 +33,7 @@ const navList = [
   { label: '参考资料', id: 'reference' },
   { label: '鸣谢', id: 'thanks' },
 ]
+const videoLink = ''
 ---
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
@@ -38,9 +42,20 @@ const navList = [
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
       >
+        <ScannerSVG class="mr-2 h-5 w-5" />
         查看正文
       </button>
     </a>
+    {
+      videoLink && (
+        <a href={videoLink} target="_blank">
+          <button class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75">
+            <BiliBiliSVG class="mr-2 h-5 w-5" />
+            查看视频攻略
+          </button>
+        </a>
+      )
+    }
   </Fragment>
   <CollapsibleBox id="cheatsheet" client:idle class="w-full">
     <Fragment slot="header">
@@ -48,20 +63,20 @@ const navList = [
     </Fragment>
     <AreaBox>
       <ResizableImageDialog client:idle>
-        <Image src={CheatsheetsImage} alt="m7s 副本小抄" loading="lazy" class="h-full object-contain object-left-top" />
+        <Image src={CheatsheetsImage} alt="m7s 副本小抄" loading="lazy" class="h-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
-    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT">
+    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT" downloadLabel="下载5~8层标点文件">
       <Separator class="my-2 mb-3" />
       <strong class="text-sm opacity-60">P2场地</strong>
       <ResizableImageDialog client:idle>
-        <Image src={WaymarkImage1} alt="m7s 场地标点 1" class="mb-2 w-full object-contain object-left-top" />
+        <Image src={WaymarkImage1} alt="m7s 场地标点 1" class="mb-2 w-full object-contain" />
       </ResizableImageDialog>
       <strong class="text-sm opacity-60">P3场地</strong>
       <ResizableImageDialog client:idle>
-        <Image src={WaymarkImage2} alt="m7s 场地标点 2" class="w-full object-contain object-left-top" />
+        <Image src={WaymarkImage2} alt="m7s 场地标点 2" class="w-full object-contain" />
       </ResizableImageDialog>
     </WaymarkBox>
     <Fragment slot="header">
@@ -69,7 +84,7 @@ const navList = [
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="macro" client:idle class="w-full">
-    <Macro text={macro} />
+    <Macro text={macro} title="M7S站位" />
     <Fragment slot="header">
       <span>宏</span>
     </Fragment>
@@ -77,7 +92,7 @@ const navList = [
   <CollapsibleBox id="timeline" client:idle class="w-full">
     <AreaBox>
       <ResizableImageDialog client:idle>
-        <Image src={TimelineImage} alt="m7s 简易时间轴" class="w-full object-contain object-left-top" />
+        <Image src={TimelineImage} alt="m7s 简易时间轴" class="w-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
     <Fragment slot="header">

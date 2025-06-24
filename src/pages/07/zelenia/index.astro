@@ -1,18 +1,22 @@
 ---
 import { Image } from 'astro:assets'
 
+import ScannerSVG from '@/assets/svg/scanner.svg'
+import BiliBiliSVG from '@/assets/svg/bilibili.svg'
+
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
 import Separator from '@/components/Separator.astro'
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import AreaBox from '@/components/AreaBox.astro'
 
 import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
+import WaymarkBox from '@/components/WaymarkBox.astro'
 import Macro from '@/components/Macro.astro'
 import ReferenceItem from '@/components/ReferenceItem.astro'
 import Thanks from '@/components/thanks/Thanks.astro'
 
 // TODO: 需要替换
-import CheatsheetsImage from '@/assets/cheatsheets/07/zelenia.png'
+import CheatsheetsImage from '@/assets/cheatsheets/07/zelenia.jpg'
 import WaymarkImage from '@/assets/waymarks/07/zelenia.png'
 import TimelineImage from '@/assets/timelines/07/zelenia.png'
 
@@ -29,6 +33,8 @@ const navList = [
   { label: '参考资料', id: 'reference' },
   { label: '鸣谢', id: 'thanks' },
 ]
+const videoLink = 'https://www.bilibili.com/video/BV1n2NYzZEbR/'
+const waymarkLink = ''
 ---
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
@@ -37,9 +43,20 @@ const navList = [
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
       >
+        <ScannerSVG class="mr-2 h-5 w-5" />
         查看正文
       </button>
     </a>
+    {
+      videoLink && (
+        <a href={videoLink} target="_blank">
+          <button class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75">
+            <BiliBiliSVG class="mr-2 h-5 w-5" />
+            查看视频攻略
+          </button>
+        </a>
+      )
+    }
   </Fragment>
   <CollapsibleBox id="cheatsheet" client:idle class="w-full">
     <Fragment slot="header">
@@ -51,32 +68,21 @@ const navList = [
           src={CheatsheetsImage}
           alt="泽莲尼娅歼殛战 副本小抄"
           loading="lazy"
-          class="h-full w-fit object-contain object-left-top"
+          class="h-full w-fit object-contain"
         />
       </ResizableImageDialog>
     </AreaBox>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
-    <div class="w-sm">
-      <AreaBox>
-        <button
-          class="!disabled:hover:bg-purple-700/60 inline-flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white disabled:cursor-not-allowed disabled:opacity-50 dark:border-purple-500 dark:bg-purple-700/75"
-          disabled="true"
-        >
-          下载标点文件
-        </button>
-        <Separator class="my-2 mb-3" />
-        <ResizableImageDialog client:idle>
-          <Image src={WaymarkImage} alt="泽莲尼娅歼殛战 场地标点" class="w-full object-contain object-left-top" />
-        </ResizableImageDialog>
-      </AreaBox>
-    </div>
+    <AreaBox>
+      <WaymarkBox href={waymarkLink} img={WaymarkImage} />
+    </AreaBox>
     <Fragment slot="header">
       <span>场地标点</span>
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="macro" client:idle class="w-full">
-    <Macro text={macro} />
+    <Macro text={macro} title="极泽莲尼娅站位" />
     <Fragment slot="header">
       <span>宏</span>
     </Fragment>
@@ -84,7 +90,7 @@ const navList = [
   <CollapsibleBox id="timeline" client:idle class="w-full">
     <AreaBox>
       <ResizableImageDialog client:idle>
-        <Image src={TimelineImage} alt="泽莲尼娅歼殛战 简易时间轴" class="w-full object-contain object-left-top" />
+        <Image src={TimelineImage} alt="泽莲尼娅歼殛战 简易时间轴" class="w-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
     <Fragment slot="header">

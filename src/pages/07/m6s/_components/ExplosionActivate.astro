@@ -9,14 +9,13 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
 }
 
-const { time, base = 0 }: Props = Astro.props
+const { time }: Props = Astro.props
 const Explosion = translations.Explosion
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   单人塔伤害判定
   <Span variant="yellow">{Explosion}</Span>
   <DamageInfo damage="30000" type="magical" />

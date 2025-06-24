@@ -11,17 +11,15 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
 const quakeIII = translations.quakeIII
 ---
 
 <CastSection
   start={start}
-  base={base}
   duration={4.7}
   ability={quakeIII}
   target="healer"
@@ -32,6 +30,6 @@ const quakeIII = translations.quakeIII
   <HowlingBlade slot="source" />
 
   <MagicVulnerabilityUp tag="1" />
-  <Badge variant="pink">分摊</Badge>
   <Badge variant="red">人数检测</Badge>
+  <Badge variant="purple">四四分摊</Badge>
 </CastSection>

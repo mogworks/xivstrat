@@ -11,21 +11,20 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 
 const twinbite = translations.twinbite
 ---
 
-<CastSection start={start} base={base} duration={6.7} ability={twinbite} target damage="600000" damageType="magical">
+<CastSection start={start} duration={6.7} ability={twinbite} target damage="600000" damageType="magical">
   <HowlingBlade slot="source" />
 
   <div slot="target">
-    <RoleIcon role="all" tag="一仇" />
+    <RoleIcon role="tank" tag="一仇" />
     和
-    <RoleIcon role="all" tag="二仇" />
+    <RoleIcon role="tank" tag="二仇" />
   </div>
 
   <MagicVulnerabilityUp tag="9" />

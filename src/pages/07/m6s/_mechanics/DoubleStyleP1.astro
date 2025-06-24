@@ -11,6 +11,7 @@ import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import ParodyWordBox from '@/components/ParodyWordBox.astro'
 
 import ColorClashActivate from '../_components/ColorClashActivate.astro'
 import DoubleStyleCast from '../_components/DoubleStyleCast.astro'
@@ -39,12 +40,6 @@ import color_clash_22 from '@/assets/07/m6s/double_style/color_clash_22.png'
 import color_clash_22_optimize from '@/assets/07/m6s/double_style/color_clash_22_optimize.png'
 import { translations } from '../_translations'
 
-interface Props {
-  base: Time
-}
-
-const { base = 0 }: Props = Astro.props
-
 const solutions = [
   {
     id: 'double-style-p1-solution-common',
@@ -60,23 +55,23 @@ const defaultSolution = '解法：常规站位'
 const { ColorClash, DoubleStyle } = translations
 ---
 
-<DoubleStyleCast start="00:45.493" base={base} duration={12.6} />
+<DoubleStyleCast start="00:45.493" duration={12.6} />
 <EventSection>
-  <StratInterval slot="time" start="00:56.883" end="00:59.904" base={base} />
+  <StratInterval slot="time" start="00:56.883" end="00:59.904" />
   <Fragment>
     <RoleIcon role="all" tag="全员" />
     眩晕
   </Fragment>
 </EventSection>
 <EventSection>
-  <StratInterval slot="time" start="00:58.093" end="00:59.904" base={base} />
+  <StratInterval slot="time" start="00:58.093" end="00:59.904" />
   <Fragment>
     <RoleIcon role="all" tag="全员" />
     强制向面向方向飞行34m
   </Fragment>
 </EventSection>
 <EventSection>
-  <StratInterval slot="time" start="01:00.659" end="01:01.636" base={base} />
+  <StratInterval slot="time" start="01:00.659" end="01:01.636" />
   <Fragment>
     <RoleIcon role="enemy_level1">
       <Span variant="rose">绘画图案</Span>
@@ -84,7 +79,7 @@ const { ColorClash, DoubleStyle } = translations
     读条，发动相应图案效果
   </Fragment>
 </EventSection>
-<ColorClashActivate time="01:02.127" base={base} />
+<ColorClashActivate time="01:02.127" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <h4 class="text-2xl">
@@ -120,11 +115,11 @@ const { ColorClash, DoubleStyle } = translations
       />
       <div class="flex flex-col gap-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
-          <Span variant="yellow">爆弹</Span>
+          <Span variant="yellow">涂鸦爆弹怪</Span>
         </h4>
         <div class="paragraph">只有这一种情况，固定连线如图所示位置</div>
         <div class="paragraph">
-          爆弹位于距离场地中轴线
+          涂鸦爆弹怪位于距离场地中轴线
           <Span variant="pink">8m</Span>
           处，间隔
           <Span variant="pink">17m</Span>
@@ -139,11 +134,11 @@ const { ColorClash, DoubleStyle } = translations
       />
       <div class="flex flex-col gap-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
-          <Span variant="yellow">烈羽爆弹</Span>
+          <Span variant="yellow">翅膀爆弹怪</Span>
         </h4>
-        <div class="paragraph">只有这一种情况，固定连线如图所示位置（同爆弹）</div>
+        <div class="paragraph">只有这一种情况，固定连线如图所示位置（同涂鸦爆弹怪）</div>
         <div class="paragraph">
-          但最后爆弹会向右飞
+          但最后涂鸦爆弹怪会向右飞
           <Span variant="pink">16m</Span>
           到对称的位置再爆炸
         </div>
@@ -193,7 +188,7 @@ const { ColorClash, DoubleStyle } = translations
           alt="Double Style Bomb & Morbol"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
-        <div>爆弹 + 魔界花</div>
+        <div>涂鸦爆弹怪 + 魔界花</div>
       </div>
       <div class="flex flex-col items-center gap-1">
         <Image
@@ -201,7 +196,7 @@ const { ColorClash, DoubleStyle } = translations
           alt="Double Style Bomb & Succubus"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
-        <div>爆弹 + 梦魔</div>
+        <div>涂鸦爆弹怪 + 梦魔</div>
       </div>
       <div class="flex flex-col items-center gap-1">
         <Image
@@ -209,7 +204,7 @@ const { ColorClash, DoubleStyle } = translations
           alt="Double Style Hanebomb & Morbol"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
-        <div>烈羽爆弹 + 魔界花</div>
+        <div>翅膀爆弹怪 + 魔界花</div>
       </div>
       <div class="flex flex-col items-center gap-1">
         <Image
@@ -217,7 +212,7 @@ const { ColorClash, DoubleStyle } = translations
           alt="Double Style Hanebomb & Succubus"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
-        <div>烈羽爆弹 + 梦魔</div>
+        <div>翅膀爆弹怪 + 梦魔</div>
       </div>
       <div class="flex flex-col items-center gap-1">
         <Image
@@ -301,21 +296,19 @@ const { ColorClash, DoubleStyle } = translations
       <ListDot />
       先找到
       <Span variant="pink">靠近</Span>
-      <Span variant="yellow">爆弹</Span>
+      <Span variant="yellow">涂鸦爆弹怪</Span>
       和
       <Span variant="yellow">梦魔</Span>
       ，并且
       <Span variant="pink">远离</Span>
-      <Span variant="yellow">烈羽爆弹</Span>
+      <Span variant="yellow">翅膀爆弹怪</Span>
       和
       <Span variant="yellow">魔界花</Span>
       连线末端的数字点
     </div>
     <div class="paragraph pl-6">
       <ListDot />
-      <span class="line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700">
-        梦魔涩涩的，我们要靠近；魔界花臭臭的，我们要远离
-      </span>
+      <ParodyWordBox> 梦魔涩涩的，我们要靠近；魔界花臭臭的，我们要远离 </ParodyWordBox>
     </div>
     <div class="paragraph">
       <ListDot />

@@ -5,7 +5,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import ImageRow from '@/components/typography/ImgRow.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import BlessedBarricadeCast from '../_components/BlessedBarricadeCast.astro'
 import Zelenia from '../_components/Zelenia.astro'
@@ -16,21 +16,17 @@ import P2_a from '@/assets/07/zelenia/P2/P2_a.png'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<BlessedBarricadeCast start={start} base={base} />
+<BlessedBarricadeCast start={start} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="flex gap-4">
-      <!-- <div class="max-w-88 flex-1">
-        <Image src={P2_o} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      </div> -->
-      <ImageRow
+      <ImgRow
         class="game-img"
         wrapperClass="max-w-88"
         borderVariant="cyan"
@@ -39,7 +35,6 @@ const { start, base = 0 }: Props = Astro.props
           {
             src: P2_o,
             alt: 'Zelenia：P2 球与分身',
-            // title: '',
           },
         ]}
       />
@@ -51,9 +46,9 @@ const { start, base = 0 }: Props = Astro.props
         </div>
         <div class="paragraph">
           同时，<Zelenia />在场地上召唤
-          <Span variant="pink">四个球</Span>
+          <Span variant="pink">球 ×4</Span>
           ，在左右场边召唤
-          <Span variant="yellow">两个分身</Span>
+          <Span variant="yellow">分身 ×2</Span>
         </div>
         <div class="paragraph"></div>
         <div class="paragraph">
@@ -62,17 +57,12 @@ const { start, base = 0 }: Props = Astro.props
         </div>
         <div class="paragraph">
           <Span variant="yellow">分身：</Span>
-          会点名连线
-          <RoleIcon role="all" tag="随机" />
-          ，释放可引导的半场刀，共释放四次
+          会点名连线随机 <RoleIcon role="tank|healer" tag="TN" /> ×1 和 <RoleIcon role="dps" tag="DPS" /> ×1 ，释放可引导的半场刀，共释放四次
         </div>
       </div>
     </div>
     <div class="flex gap-4">
-      <!-- <div class="max-w-88 flex-1">
-        <Image src={P2_t} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-      </div> -->
-      <ImageRow
+      <ImgRow
         class="game-img"
         wrapperClass="max-w-88"
         borderVariant="cyan"
@@ -81,13 +71,12 @@ const { start, base = 0 }: Props = Astro.props
           {
             src: P2_t,
             alt: 'Zelenia：P2 三人塔',
-            // title: '',
           },
         ]}
       />
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <div class="paragraph">
-          同时，<Zelenia />会召唤两座<Span variant="blue">三人塔</Span>，踩塔人数不足会<Span variant="red">团灭</Span>
+          同时，<Zelenia />会召唤<Span variant="blue">三人塔 ×2</Span>，踩塔人数不足会<Span variant="red">团灭</Span>
         </div>
         <div class="paragraph"></div>
         <div class="paragraph">
@@ -100,10 +89,7 @@ const { start, base = 0 }: Props = Astro.props
 </MechanicSection>
 <SolutionSection>
   <div class="flex gap-4">
-    <!-- <div class="max-w-88 flex-1">
-      <Image src={P2_a} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-    </div> -->
-    <ImageRow
+    <ImgRow
       class="game-img"
       wrapperClass="max-w-88"
       borderVariant="cyan"
@@ -112,7 +98,6 @@ const { start, base = 0 }: Props = Astro.props
         {
           src: P2_a,
           alt: 'Zelenia：P2 站位图',
-          // title: '正三角',
         },
       ]}
     />
@@ -120,21 +105,20 @@ const { start, base = 0 }: Props = Astro.props
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
       <div class="paragraph">按照图示位置进行初始站位，</div>
       <div class="paragraph">
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
+        <RoleIcon role="tank|healer" tag="TN" />
         去<Span variant="purple">D</Span>左半场
       </div>
+      <div class="paragraph">
+        <RoleIcon role="dps" tag="DPS" />
+        去<Span variant="yellow">B</Span>右半场
+      </div>
+      <div class="paragraph">按点名情况引导左右刀+踩塔即可，每人都需要引导一次</div>
+      <div class="paragraph">
+        <h4 class="text-xl">
+          <Span variant="yellow">注意：</Span>
+        </h4>
+        近战可以在球的近战最远距离处引导左右刀
+      </div>
     </div>
-    <div class="paragraph">
-      <RoleIcon role="dps" />
-      去<Span variant="yellow">B</Span>右半场
-    </div>
-  </div>
-  <div class="paragraph">按点名情况引导左右刀+踩塔即可，每人都需要引导一次</div>
-  <div class="paragraph">
-    <h4 class="text-xl">
-      <Span variant="yellow">注意：</Span>
-    </h4>
-    近战可以在球的近战最远距离处引导左右刀
   </div>
 </SolutionSection>

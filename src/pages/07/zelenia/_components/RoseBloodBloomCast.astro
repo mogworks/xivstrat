@@ -4,16 +4,16 @@ import type { Time } from '@/lib/utils'
 import CastSection from '@/components/section/CastSection.astro'
 
 import Zelenia from './Zelenia.astro'
-
+import { translations } from '../_translations'
 interface Props {
   start: Time
-  base?: Time
+
   num: number
 }
 
-const { start, base = 0, num }: Props = Astro.props
+const { start, num }: Props = Astro.props
 ---
 
-<CastSection start={start} base={base} duration={2.3} ability={`魔法阵展开：第${num ? ' ' + num : ''} 式`}>
+<CastSection start={start} duration={2.3} ability={`魔法阵展开 · ${num ? ' ' + num : ''} 式`}>
   <Zelenia slot="source" />
 </CastSection>

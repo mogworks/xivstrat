@@ -13,16 +13,16 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
-  base?: Time
+
   reverse?: boolean
 }
 
 const ability = translations.gust
 
-const { time, base = 0, reverse = false }: Props = Astro.props
+const { time, reverse = false }: Props = Astro.props
 ---
 
-<EventSection time={time} base={base}>
+<EventSection time={time}>
   <HowlingBlade />
   {
     reverse ? (

@@ -13,20 +13,22 @@ import SpecterOfTheLostCast from '../_components/SpecterOfTheLostCast.astro'
 
 interface Props {
   start: Time
-  base?: Time
 }
 
-const { start, base = 0 }: Props = Astro.props
+const { start }: Props = Astro.props
 ---
 
-<SpecterOfTheLostCast start={start} base={base} />
+<SpecterOfTheLostCast start={start} />
 <MechanicSection>
   <div class="paragraph">
-    需要
-    <Span variant="blue">防护职业</Span>
+    点名随机两名
+    <RoleIcon role="healer|dps" tag="非T" />
+    玩家，需要
+    <RoleIcon role="tank" tag="MT" />
+    <RoleIcon role="tank" tag="ST" />
     <Span variant="pink">接线处理</Span>
     的
-    <Span variant="pink">45°扇形死刑</Span>
+    <Span variant="pink">约30°扇形死刑</Span>
     ，对
     <Span variant="blue">防护职业</Span>
     造成
@@ -36,12 +38,15 @@ const { start, base = 0 }: Props = Astro.props
 </MechanicSection>
 <SolutionSection>
   <div class="paragraph">
+    被点名的
+    <RoleIcon role="healer|dps" tag="非T" />
+    玩家将线拉长一点方便接线，
     <RoleIcon role="tank" tag="MT" />
     <RoleIcon role="tank" tag="ST" />
     前往人群
     <Span variant="pink">接线</Span>
     ， 然后到
     <Boss />
-    前方处理
+    前方左上和右上分散处理
   </div>
 </SolutionSection>

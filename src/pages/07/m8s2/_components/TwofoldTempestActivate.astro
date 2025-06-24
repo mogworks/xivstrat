@@ -12,11 +12,10 @@ import Span from '@/components/Span.vue'
 import type { Time } from '@/lib/utils'
 
 interface Props {
-  base?: Time
   activateTimes: Time[]
 }
 
-const { base = 0, activateTimes }: Props = Astro.props
+const { activateTimes }: Props = Astro.props
 ---
 
 <CollapseSection>
@@ -51,7 +50,7 @@ const { base = 0, activateTimes }: Props = Astro.props
   <Fragment slot="details">
     {
       activateTimes.map((time, index) => (
-        <EventSection time={time} base={base}>
+        <EventSection time={time}>
           第<Span variant="pink">{index + 1}</Span>组
           <Quote variant="zinc">
             <P>
