@@ -12,14 +12,14 @@ import ImgRow from '@/components/typography/ImgRow.astro'
 
 import EscelonsFallCast from '../_components/EscelonsFallCast.astro'
 
-import i from '@/assets/07/zelenia/P1/four-i.png'
-import o from '@/assets/07/zelenia/P1/four-o.png'
 import first from '@/assets/07/zelenia/P1/P1-four-1.png'
+import leftAoe from '@/assets/07/zelenia/EP3/EP34-A.png'
+import rightAoe from '@/assets/07/zelenia/EP3/EP34-B.png'
 
 import img from '@/assets/07/zelenia/Tmp.png'
-
+import StratLink from '@/components/StratLink.astro'
+import { translations } from '../_translations'
 ---
-
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
@@ -46,9 +46,7 @@ import img from '@/assets/07/zelenia/Tmp.png'
     <div class="paragraph">
       <Span variant="yellow">分身左右刀：</Span>
     </div>
-    <div class="paragraph">
-      A点分身对场内释放左右刀，远近刀判定后，C点分身对场内释放左右刀
-    </div>
+    <div class="paragraph">A点分身对场内释放左右刀，远近刀判定后，C点分身对场内释放左右刀</div>
   </div>
 </MechanicSection>
 <SolutionSection>
@@ -67,53 +65,34 @@ import img from '@/assets/07/zelenia/Tmp.png'
       ]}
     />
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
-      <!-- <div class="paragraph">按照图示位置进行初始站位，</div>
       <div class="paragraph">
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
-        往<Span variant="pink">目标圈内</Span>一步，
-        <RoleIcon role="dps" />
-        往<Span variant="purple">目标圈外</Span>一步
+        先躲避A方向左右刀，然后引导远近刀，处理方式与
+        <StratLink variant="yellow" href="/07/zelenia/p1/#escelons-fall">
+          {translations.EscelonsFall}
+        </StratLink>
+        一致。
       </div>
-      <div class="paragraph">无论远或近引导，只有两种情况：</div>
-      <div class="paragraph">
-        <h4 class="text-xl">
-          <Span variant="yellow">AABB：</Span>
-        </h4>
-      </div>
-      <div class="paragraph">
-        第一刀后
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
-        向外移动，来到<Span variant="purple">目标圈外</Span>一步。
-        <RoleIcon role="dps" />
-        向内移动，来到<Span variant="pink">目标圈内</Span>一步。
-      </div>
-      <div class="paragraph">第二刀后保持不动</div>
-      <div class="paragraph">
-        第三刀后
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
-        向内移动，来到<Span variant="pink">目标圈内</Span>一步。
-        <RoleIcon role="dps" />
-        向外移动，来到<Span variant="purple">目标圈外</Span>一步。
-      </div>
-      <div class="paragraph">
-        <h4 class="text-xl">
-          <Span variant="yellow">ABBA：</Span>
-        </h4>
-      </div>
-
-      <div class="paragraph">第一刀后保持不动</div>
-      <div class="paragraph">
-        第二刀后
-        <RoleIcon role="tank" />
-        <RoleIcon role="healer" />
-        向外移动，来到<Span variant="purple">目标圈外</Span>一步。
-        <RoleIcon role="dps" />
-        向内移动，来到<Span variant="pink">目标圈内</Span>一步。
-      </div>
-      <div class="paragraph">第三刀后保持不动</div> -->
+      <div class="paragraph">最后第四刀后躲避C方向左右刀。</div>
     </div>
+  </div>
+  <div class="flex mt-10">
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: leftAoe,
+          alt: 'Zelenia：P1 四连远近刀',
+          title: '左右刀示意',
+        },
+        {
+          src: rightAoe,
+          alt: 'Zelenia：P1 四连远近刀',
+          title: '左右刀示意',
+        },
+      ]}
+    />
   </div>
 </SolutionSection>
