@@ -7,7 +7,7 @@ import Span from '@/components/Span.vue'
 
 import EventSection from '@/components/section/EventSection.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-
+import { translations } from '../_translations'
 interface Props {
   time: Time
 
@@ -19,7 +19,7 @@ const { time, num }: Props = Astro.props
 ---
 
 <EventSection time={time}>
-  <Span variant="yellow">Escelons' Fall</Span>
+  <Span variant="yellow">{translations.EscelonsFall}</Span>
   第
   <Span variant="pink">{num}</Span>
   段伤害判定

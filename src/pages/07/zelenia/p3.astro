@@ -16,15 +16,24 @@ import RoseBloodBloom6 from './_mechanics/RoseBloodBloom_6.astro'
 
 import RoseBloodBloom2Dynamic from './_components/RoseBloodBloom2Dynamic.astro'
 
+import AlexandrianBanish2Cast from './_components/AlexandrianBanish2Cast.astro'
 import AlexandrianThunder2 from './_components/AlexandrianThunder2Cast.astro'
 import AlexandrianThunder3 from './_components/AlexandrianThunder3Cast.astro'
 import AlexandrianBanish3 from './_mechanics/AlexandrianBanish3.astro'
 
+import BudofValorCast from './_components/BudofValorCast.astro'
+import ShockCast from './_components/ShockCast.astro'
+
 import RoseFloor from './_mechanics/RoseFloor.astro'
+import Shock from './_mechanics/Shock.astro'
+
+import EscelonsFallCast from './_components/EscelonsFallCast.astro'
+import EscelonsFallP33 from './_mechanics/EscelonsFallP33.astro'
+import EscelonsFallP34 from './_mechanics/EscelonsFallP34.astro'
 
 const dutyId = '07/zelenia'
 
-const base = 0
+const base = '02:48.767'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
@@ -32,7 +41,7 @@ const base = 0
     这里写P3阶段起手、走位、机制要点等文字内容。
   </EventSection> -->
   <SeparatorSection id="roseblood-bloom-1" title="魔法阵展开·一式" />
-  <RoseBloodBloom start="02:48.767" num={1} />
+  <RoseBloodBloom start={base} num={1} />
   <AlexandrianThunder2 start="02:54.915" />
   <RoseBloodBloom1 />
 
@@ -60,6 +69,17 @@ const base = 0
   <SeparatorSection id="thorned-catharsis" title="Thorned Catharsis" /> -->
   <ThornedCatharsis start="04:42.488" />
 
+  <BudofValorCast start="04:55.913"/>
+
+  <EscelonsFallCast start="05:08.165"/>
+
+  <!-- <ShockCast start="05:14.852"/> -->
+  <Shock start="05:14.852" type = "half"/>
+
+  <AlexandrianBanish2Cast time="05:15.972"/>
+  <EscelonsFallP33 />
+  
+
   <!-- <SeparatorSection id="alexandrian-banish-II" title="Alexandrian Banish II" />
 
   <SeparatorSection id="escelons-fall " title="Escelons' Fall" />
@@ -71,10 +91,17 @@ const base = 0
 
   <RoseBloodBloom start="05:49.927" num={4} />
   <RoseBloodBloom4 />
+
   <AlexandrianBanish3 start="06:15.411" />
   <ThornedCatharsis start="06:26.547" />
 
   <SeparatorSection id="fenshen-four" title="分身左右刀&本体四连刀" />
+
+  <BudofValorCast start="06:40.047"/>
+
+  <EscelonsFallCast start="06:46.194"/>
+  <EscelonsFallP34 />
+
 
   <!-- <SeparatorSection id="thorned-catharsis" title="Thorned Catharsis" /> -->
 

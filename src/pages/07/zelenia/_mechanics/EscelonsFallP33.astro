@@ -1,0 +1,123 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import EscelonsFallCast from '../_components/EscelonsFallCast.astro'
+
+import i from '@/assets/07/zelenia/P1/four-i.png'
+import o from '@/assets/07/zelenia/P1/four-o.png'
+import first from '@/assets/07/zelenia/P1/P1-four-1.png'
+
+import img from '@/assets/07/zelenia/Tmp.png'
+
+---
+
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      这是一个组合机制，由<Span variant="purple">四连远近刀</Span>
+      +点名<RoleIcon role="tank" /><RoleIcon role="healer" />或<RoleIcon role="dps" />
+      <Span variant="blue">月环</Span>
+      +
+      点名<RoleIcon role="tank" /><RoleIcon role="healer" />和<RoleIcon role="dps" />
+      <Span variant="yellow">分摊</Span>组成
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">四连远近刀：</Span>
+    </div>
+    <div class="paragraph">
+      BOSS身上显示
+      <Span variant="purple">远引导标记</Span>
+      或
+      <Span variant="pink">近引导标记</Span>
+      <span></span>x4<span></span>次
+    </div>
+    <div class="paragraph">
+      代表接下来每次需要<span></span>4<span></span>人进行
+      <Span variant="purple">远引导</Span>
+      或
+      <Span variant="pink">近引导</Span>
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">月环：</Span>
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">分摊：</Span>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex gap-4">
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: first,
+          alt: 'Zelenia：P1 四连远近刀',
+          title: '引导位置示意',
+        },
+      ]}
+    />
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <!-- <div class="paragraph">按照图示位置进行初始站位，</div>
+      <div class="paragraph">
+        <RoleIcon role="tank" />
+        <RoleIcon role="healer" />
+        往<Span variant="pink">目标圈内</Span>一步，
+        <RoleIcon role="dps" />
+        往<Span variant="purple">目标圈外</Span>一步
+      </div>
+      <div class="paragraph">无论远或近引导，只有两种情况：</div>
+      <div class="paragraph">
+        <h4 class="text-xl">
+          <Span variant="yellow">AABB：</Span>
+        </h4>
+      </div>
+      <div class="paragraph">
+        第一刀后
+        <RoleIcon role="tank" />
+        <RoleIcon role="healer" />
+        向外移动，来到<Span variant="purple">目标圈外</Span>一步。
+        <RoleIcon role="dps" />
+        向内移动，来到<Span variant="pink">目标圈内</Span>一步。
+      </div>
+      <div class="paragraph">第二刀后保持不动</div>
+      <div class="paragraph">
+        第三刀后
+        <RoleIcon role="tank" />
+        <RoleIcon role="healer" />
+        向内移动，来到<Span variant="pink">目标圈内</Span>一步。
+        <RoleIcon role="dps" />
+        向外移动，来到<Span variant="purple">目标圈外</Span>一步。
+      </div>
+      <div class="paragraph">
+        <h4 class="text-xl">
+          <Span variant="yellow">ABBA：</Span>
+        </h4>
+      </div>
+
+      <div class="paragraph">第一刀后保持不动</div>
+      <div class="paragraph">
+        第二刀后
+        <RoleIcon role="tank" />
+        <RoleIcon role="healer" />
+        向外移动，来到<Span variant="purple">目标圈外</Span>一步。
+        <RoleIcon role="dps" />
+        向内移动，来到<Span variant="pink">目标圈内</Span>一步。
+      </div>
+      <div class="paragraph">第三刀后保持不动</div> -->
+    </div>
+  </div>
+</SolutionSection>
