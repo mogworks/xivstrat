@@ -13,7 +13,7 @@ const radius = 17.54
 const scale = 1.25
 const YmToPxLarge = YmToPx * scale
 
-const unitRad = (2 * Math.PI) / 5
+const UNIT_RAD = (2 * Math.PI) / 5
 // 浮游炮平移距离（m）
 // 8m半径的台子，暂定平移4m
 const fangAdjust = 4
@@ -40,105 +40,162 @@ function cartesianToPolarRadian(cartesian: { x: number; y: number }): { r: numbe
 }
 
 // 以南侧为基准，pattern 0是右边激活，pattern 1是左边激活
-export function addFangs(
-  app: Application,
-  activeFangTexture: Texture,
-  inactiveFangTexture: Texture,
-  options: {
-    multiplefangs?: boolean
-    activate?: boolean
-    patterns?: number[]
-    random?: boolean
-    aoeColor?: Partial<AoEColors>
-  },
-) {
-  const {
-    multiplefangs = options.multiplefangs ?? false,
-    activate = options.activate ?? false,
-    patterns = options.patterns ?? Array.from({ length: 5 }, () => 0),
-    random = options.random ?? false,
-    aoeColor = options.aoeColor ?? AOE_COLORS.default,
-  } = options
+export class Fang extends Container {
+  private app: Application
+  private texture: Texture
+  private rotate: 0 | 1 | 2 | 3 | 4
+  private pattern: 0 | 1
+  private activate: boolean
+  private aoeColor: Partial<AoEColors>
 
-  const fangs = new Container()
+  private sprite: Sprite
+  private shot?: Sprite
+  private shotMask?: Graphics
 
-  // apply random left/right, default as 0
-  const patternArr: number[] = random
-    ? Array.from({ length: 5 }, () => Math.random() < 0.5 ? 0 : 1)
-    : patterns
+  constructor(
+    app: Application,
+    texture: Texture,
+    options: {
+      rotate?: 0 | 1 | 2 | 3 | 4
+      pattern?: 0 | 1
+      activate?: boolean
+      aoeColor?: Partial<AoEColors>
+    } = {}
+  ) {
+    super()
+    this.app = app
+    this.texture = texture
+    this.rotate = options.rotate ?? 0
+    this.pattern = options.pattern ?? 0
+    this.activate = options.activate ?? false
+    this.aoeColor = options.aoeColor ?? AOE_COLORS.tailwind.emerald
 
-  for (let i = 0; i < 5; i++) {
-    // draw basic fangs group
-    const radian = (i + 1) * unitRad
-    const dir = getDirectionSign(i, patternArr[i])
+    this.sprite = Sprite.from(texture)
+    this.sprite.anchor.set(0.5, centerToNorth / (centerToNorth + centerToSouth))
+    this.sprite.scale.set(2)
+    this.addChild(this.sprite)
 
-    const fang = activate ? Sprite.from(activeFangTexture) : Sprite.from(inactiveFangTexture)
-    fang.anchor.set(0.5, centerToNorth / (centerToNorth + centerToSouth))
-    fang.scale.set(2)
+    if (this.activate) {
+      this.createShot()
+    }
 
-    // rotation in degree, always facing center?
-    // rotation first, then adjust position
-    fang.rotation = radian - unitRad
-    const p_adjust = polarRadianToCartesian({ r: radius + 8, rad: radian + unitRad / 4 })
-    fang.position.set(
-      (p_adjust.x + dir.x * fangAdjust * Math.sin(radian + unitRad / 4)) * YmToPxLarge,
-      (p_adjust.y + dir.y * fangAdjust * Math.cos(radian + unitRad / 4)) * YmToPxLarge,
-    )
-    fangs.addChild(fang)
+    this.update()
+  }
 
-    // another fangs group
-    if (multiplefangs) {
-      const fang = Sprite.from(inactiveFangTexture)
-      fang.anchor.set(0.5, centerToNorth / (centerToNorth + centerToSouth))
-      fang.scale.set(2)
+  public setPattern(pattern: 0 | 1) {
+    this.pattern = pattern
+    this.update()
+  }
 
-      // rotation in degree, always facing center?
-      // rotation first, then adjust position
-      fang.rotation = radian - unitRad
-      const p_adjust = polarRadianToCartesian({ r: radius + 8, rad: radian + unitRad / 4 })
-      fang.position.set(
-        (p_adjust.x - dir.x * fangAdjust * Math.sin(radian + unitRad / 4)) * YmToPxLarge,
-        (p_adjust.y - dir.y * fangAdjust * Math.cos(radian + unitRad / 4)) * YmToPxLarge,
-      )
-      fangs.addChild(fang)
+  public setRotate(rotate: 0 | 1 | 2 | 3 | 4) {
+    this.rotate = rotate
+    this.update()
+  }
+
+  private createShot() {
+    if (!this.shot) {
+      this.shot = AoE.createRect(8 * scale, 16 * scale, this.aoeColor).toSprite(this.app)
+      this.addChild(this.shot)
+    }
+    if (!this.shotMask) {
+      this.shotMask = new Graphics()
+      this.shot.mask = this.shotMask
+
+      this.addChild(this.shotMask)
     }
   }
 
-  if (activate) {
-    // create position of each rect
-    const rects = []
-    for (let i = 0; i < 5; i++) {
-      const p = {
-        x: -radius * scale * Math.sin(i * unitRad),
-        y: radius * scale * Math.cos(i * unitRad),
-      }
-      rects.push({
-        position: p,
-        rotation: Math.atan2(p.y - 0, p.x - 0) * (180 / Math.PI) - 90,
-        color: aoeColor
-      })
-    }
+  private update() {
+    const radian = (this.rotate + 1) * UNIT_RAD
+    const dir = getDirectionSign(this.rotate, this.pattern)
 
-    const aoe = AoE.createRects(app, rects, 8 * 1.25, 16 * 1.25)
-    aoe.children.forEach((c, i) => {
-      const prCoor = cartesianToPolarRadian(c)
-      const dir = getDirectionSign(i, patternArr[i])
-      c.position.set(
-        c.position.x + dir.x * fangAdjust * Math.sin(prCoor.rad) * YmToPxLarge,
-        c.position.y + dir.y * fangAdjust * Math.cos(prCoor.rad) * YmToPxLarge,
-      )
+    this.sprite.rotation = radian - UNIT_RAD
+    const p_adjust = polarRadianToCartesian({
+      r: radius + 8,
+      rad: radian + UNIT_RAD / 4,
     })
 
-    const mask = new Graphics()
-    for (let i = 0; i < 5; i++) {
-      const r = i * unitRad
-      mask.circle(-17.54 * YmToPxLarge * Math.sin(r), 17.54 * YmToPxLarge * Math.cos(r), 8 * YmToPxLarge)
+    this.sprite.position.set(
+      (p_adjust.x + dir.x * fangAdjust * Math.sin(radian + UNIT_RAD / 4)) * YmToPxLarge,
+      (p_adjust.y + dir.y * fangAdjust * Math.cos(radian + UNIT_RAD / 4)) * YmToPxLarge
+    )
+
+    // if (this.shot) this.removeChild(this.shot)
+    // if (this.shotMask) this.removeChild(this.shotMask)
+
+    if (this.activate && this.shot && this.shotMask) {
+      const pos = {
+        x: -radius * scale * Math.sin(this.rotate * UNIT_RAD) * YmToPx,
+        y: radius * scale * Math.cos(this.rotate * UNIT_RAD) * YmToPx,
+      }
+
+      this.shot.position.set(pos.x, pos.y)
+      this.shot.rotation = radian - UNIT_RAD
+      const prCoor = cartesianToPolarRadian(pos)
+      this.shot.position.set(
+        this.shot.position.x + dir.x * fangAdjust * Math.sin(prCoor.rad) * YmToPxLarge,
+        this.shot.position.y + dir.y * fangAdjust * Math.cos(prCoor.rad) * YmToPxLarge,
+      )
+
+      const r = this.rotate * UNIT_RAD
+      this.shotMask.circle(
+        -17.54 * YmToPxLarge * Math.sin(r),
+        17.54 * YmToPxLarge * Math.cos(r),
+        8 * YmToPxLarge
+      )
+      this.shotMask.fill({ color: 'white' })
     }
-    mask.fill({ color: 'white' })
-    aoe.mask = mask
-    aoe.addChild(mask)
-    fangs.addChild(aoe)
+  }
+}
+
+interface RightFangs {
+  inactive: Fang
+  prepared?: Fang
+  active?: Fang
+}
+
+export type FangType = 'inactive' | 'prepared' | 'active'
+// type RightFangs = Partial<Record<FangType, Fang>>
+
+export class FangPair {
+  left: Fang
+  right: RightFangs
+
+  constructor(left: Fang, right: Fang) {
+    this.left = left
+    this.right = { inactive: right }
   }
 
-  return fangs
+  public addRemainingFangs(prepared: Fang, active: Fang) {
+    this.right.prepared = prepared
+    this.right.active = active
+  }
+
+  public hasAllState() {
+    return !!((this.right.prepared && this.right.active))
+  }
+
+  // 0 => right, 1 => left
+  public switchSide(pattern: 0 | 1): FangPair {
+    this.left.setPattern(pattern === 0 ? 1 : 0)
+    this.right.inactive.setPattern(pattern)
+    this.right.prepared?.setPattern(pattern)
+    this.right.active?.setPattern(pattern)
+    return this
+  }
+
+  public loadPair(container: Container, state: FangType = 'inactive') {
+    container.addChild(this.left)
+    if (state === 'prepared' && this.right.prepared) {
+      container.addChild(this.right.prepared)
+      return
+    }
+    if (state === 'active' && this.right.active) {
+      container.addChild(this.right.active)
+      return
+    }
+    if (state === 'inactive') {
+      container.addChild(this.right.inactive)
+    }
+  }
 }
