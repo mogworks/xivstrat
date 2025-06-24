@@ -9,6 +9,7 @@
   "href": "/07/zelenia",
   "status": "live",
   "indexAvailable": true,
+  "bilibili": "https://www.bilibili.com/video/BV1n2NYzZEbR/",
   "phases": [
     {
       "href": "/07/zelenia/p1",
@@ -31,7 +32,12 @@
       "title": "Part 2",
       "subtitle": "小怪阶段",
       "name": "P2 - 小怪阶段",
-      "mechanics": []
+      "mechanics": [
+        {
+          "href": "#blessed-barricade",
+          "name": "圣护壁"
+        }
+      ]
     },
     {
       "href": "/07/zelenia/p3",
@@ -52,8 +58,16 @@
           "name": "魔法阵展开·三式"
         },
         {
+          "href": "#budofvalor-three",
+          "name": "生成幻影&震惊&凌空错"
+        },
+        {
           "href": "#roseblood-bloom-4",
           "name": "魔法阵展开·四式"
+        },
+        {
+          "href": "#budofvalor-four",
+          "name": "生成幻影&凌空错"
         },
         {
           "href": "#roseblood-bloom-5",

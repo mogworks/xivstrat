@@ -34,9 +34,14 @@ import go1 from '@/assets/07/zelenia/P3-6/P3-6-g-o1.png'
 import go2 from '@/assets/07/zelenia/P3-6/P3-6-g-o2.png'
 import go3 from '@/assets/07/zelenia/P3-6/P3-6-g-o3.png'
 
+import m1 from '@/assets/07/zelenia/P3-6/P3-6-m1.png'
+import m2 from '@/assets/07/zelenia/P3-6/P3-6-m2.png'
+
 import tdps from '@/assets/07/zelenia/P3-6/P3-6-t-dps.png'
 import ttn from '@/assets/07/zelenia/P3-6/P3-6-t-tn.png'
 import tg from '@/assets/07/zelenia/P3-6/P3-6-t-group.png'
+
+import { translations } from '../_translations'
 
 const solutions = [
   {
@@ -50,15 +55,53 @@ const solutions = [
 ]
 const defaultSolution = '解法：减伤法（TLB）'
 ---
-
-<MechanicSection />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <Zelenia />点名<RoleIcon role="tank|healer" />
+      或<RoleIcon role="dps" />
+      附加🌹标记
+    </div>
+    <div class="paragraph">
+      在场地中 召唤
+      <Span variant="blue">需要踩的塔</Span>x4
+    </div>
+    <div class="paragraph">
+      <Zelenia/>读条{translations.HolyHazard}，显示两组扇形预兆
+    </div>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: m1,
+          alt: 'Zelenia：P3-6 扇形',
+          // title: '扇形示意',
+        },
+        {
+          src: m2,
+          alt: 'Zelenia：P3-6 扇形',
+          // title: '扇形示意',
+        },
+      ]}
+    />
+    <div class="paragraph">
+      <Span variant="yellow">机制判定顺序</Span>
+    </div>
+    <div class="paragraph">
+      🌹放花判定 → 第一组扇形刀 → 第二组扇形刀&踩塔判定
+    </div>
+  </div>
+</MechanicSection>
 
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
   <div slot="解法：减伤法（TLB）" class="flex flex-col gap-4">
     <div class="paragraph">无需关注扇形刀的预兆，按照如图所示位置进行分组。</div>
     <div class="paragraph">🌹玫瑰标记显示时，花点名前往组内塔的对角放置花。</div>
     <div class="paragraph">踩塔的人站在塔上踩塔</div>
-    <div class="paragraph">扇形读条到一半时，可使用<LimitBreak role="tank" />或做好减伤处理</div>
+    <div class="paragraph">{translations.HolyHazard}读条到2/3时，可使用<LimitBreak role="tank" />或做好减伤处理</div>
     <ImgRow
       class="game-img"
       wrapperClass="max-w-88"
