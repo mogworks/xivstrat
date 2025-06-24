@@ -126,6 +126,25 @@ const timeFormatSetting = {
   },
 }
 
+const damageFormatSetting = {
+  name: '伤害值格式',
+  options: [
+    {
+      id: 'split',
+      name: '千位分隔',
+      description: '如：99,999,999',
+    },
+    {
+      id: 'full',
+      name: '不分隔',
+      description: '如：99999999',
+    },
+  ],
+  onChange: (value: string) => {
+    $stratSettings.setKey('damageFormat', value as 'split' | 'full')
+  },
+}
+
 const pixijsApiPreferenceSetting = {
   name: '动态演示优先使用的图形API（修改后需要刷新页面）',
   options: [
@@ -192,6 +211,12 @@ const pixijsApiPreferenceSetting = {
           :default-value="stratSettings.timeFormat"
           :options="timeFormatSetting.options"
           :on-value-change="timeFormatSetting.onChange"
+        />
+        <RadioGroup
+          :name="damageFormatSetting.name"
+          :default-value="stratSettings.damageFormat"
+          :options="damageFormatSetting.options"
+          :on-value-change="damageFormatSetting.onChange"
         />
         <RadioGroup
           :name="pixijsApiPreferenceSetting.name"
