@@ -116,7 +116,6 @@ const dutyRoutes = await (async () => {
   })
   return list.filter((item) => !item.children || (item.children && item.children.length > 0))
 })()
-console.log(JSON.stringify(dutyRoutes))
 const routes: Route[] = [...staticRoutes, ...dutyRoutes]
 ---
 
