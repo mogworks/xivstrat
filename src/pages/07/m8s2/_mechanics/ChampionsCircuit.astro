@@ -90,7 +90,7 @@ const championsCircuit = translations.championsCircuit
             >
           </button>
           <span class="mx-0.5 h-5 border-l border-lime-400/80 dark:border-lime-400/60"></span>
-          <button id="champions-circuit-mechanic-reset-button" class="group flex items-center gap-2" title="旋转方向">
+          <button id="champions-circuit-mechanic-reset-button" class="group flex items-center gap-2" title="转向并重置">
             <div
               class="flex h-6 w-6 items-center justify-center rounded-full bg-lime-500 text-white shadow-inner shadow-lime-400/30 transition-all group-hover:scale-110 group-hover:bg-lime-600 group-hover:shadow group-active:scale-95 dark:bg-lime-600 dark:shadow-lime-500/10 dark:group-hover:bg-lime-500"
             >
@@ -328,11 +328,11 @@ const championsCircuit = translations.championsCircuit
     let exampleDisplay = false
     let firstPlay = true
     let activeTriggered = false
-    let inactiveTrigger = false
+    let inactiveTriggered = false
     let preparedTriggered = false
     let rotateDir = 1
-    let offset = randStart
-    let patternArr: (0 | 1)[] = []
+    let offset = randStart // 控制回天动地的旋转方向，+1为顺时针
+    let patternArr: (0 | 1)[] = [] // 选择每组光牙的激活半侧
     let tickerFn: ((ticker: Ticker) => void) | null = null
 
     async function loadRestObjects(fangPairs: FangPair[]) {
@@ -360,17 +360,23 @@ const championsCircuit = translations.championsCircuit
       tickerFn = async (ticker) => {
         elapsed += ticker.elapsedMS
 
-        if (!inactiveTrigger && elapsed >= interval / 3) {
-          inactiveTrigger = true
+        if (!inactiveTriggered && elapsed >= interval / 3) {
+          inactiveTriggered = true
 
           patternArr = getPatternArr()
 
-          if (!firstPlay) {
+          if (firstPlay) {
+            aoeContainer.removeChildren()
+            aoeContainer.addChild(...aoeSprites)
+            fangsContainer.removeChildren()
+            fangPairs.forEach((p) => p.loadPair(fangsContainer))
+          } else {
             void fadeOutAoes(aoeContainer, aoeSprites)
             await Promise.all(fangPairs.map((p) => p.fadeOutPair(fangsContainer)))
             await Promise.all(fangPairs.map((p) => p.fadeInPair(fangsContainer)))
           }
 
+          placeChampionsCircuitAoes(aoeSprites, generateAoeConfigs(rotateArray(aoePos, offset)))
           fangPairs.forEach((p, i) => p.switchSide(patternArr[i]))
         }
 
@@ -379,7 +385,6 @@ const championsCircuit = translations.championsCircuit
 
           if (firstPlay) {
             firstPlay = false
-            offset -= 1
           } else {
             void fadeOutAoes(aoeContainer, aoeSprites)
           }
@@ -392,7 +397,6 @@ const championsCircuit = translations.championsCircuit
           activeTriggered = true
           offset += rotateDir // +1为顺时针
 
-          placeChampionsCircuitAoes(aoeSprites, generateAoeConfigs(rotateArray(aoePos, offset)))
           void fadeInAoes(aoeContainer, aoeSprites)
 
           await Promise.all(fangPairs.map((p) => p.fadeOutPair(fangsContainer)))
@@ -403,7 +407,7 @@ const championsCircuit = translations.championsCircuit
           elapsed = 0
           preparedTriggered = false
           activeTriggered = false
-          inactiveTrigger = false
+          inactiveTriggered = false
         }
       }
 
@@ -417,7 +421,6 @@ const championsCircuit = translations.championsCircuit
         tickerFn = null
       }
 
-      offset += 2
       rotateDir = -rotateDir
       // 更新按钮文字
       const span = document.querySelector('#champions-circuit-mechanic-reset-button span')
@@ -425,8 +428,12 @@ const championsCircuit = translations.championsCircuit
         span.textContent = rotateDir > 0 ? '顺时针' : '逆时针'
       }
 
+      aoeContainer.removeChildren()
+      offset = Math.floor(Math.random() * 5)
+      placeChampionsCircuitAoes(aoeSprites, generateAoeConfigs(rotateArray(aoePos, offset)))
+      await fadeInAoes(aoeContainer, aoeSprites)
+
       fangsContainer.removeChildren()
-      // fangPairs.forEach((p) => p.loadPair(fangsContainer))
       await Promise.all(fangPairs.map((p) => p.fadeInPair(fangsContainer)))
     }
 
@@ -449,6 +456,7 @@ const championsCircuit = translations.championsCircuit
       exampleDisplay = true
       await loadRestObjects(fangPairs)
 
+      aoeContainer.removeChildren()
       void fadeInAoes(aoeContainer, aoeSprites)
 
       patternArr = getPatternArr()
