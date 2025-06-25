@@ -7,7 +7,7 @@ import { translations } from '../_translations'
 
 interface Props {
   start: Time
-  duration: number
+  duration?: number
 }
 
 const { start, duration = 7.8 }: Props = Astro.props
