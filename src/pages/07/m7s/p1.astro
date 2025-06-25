@@ -23,7 +23,6 @@ const dutyId = '07/m7s'
 
 const base = 0
 const brutalImpact = translations.brutalImpact
-const stoneringer = translations.stoneringer
 const sinisterSeeds = translations.sinisterSeeds
 const explosion = translations.explosion
 const pulpSmash = translations.pulpSmash
@@ -49,7 +48,10 @@ const neoBombarianSpecial = translations.neoBombarianSpecial
   <BrutalImpact />
   <AttackSection time="00:18.577" damage="57000" damageType="physical" />
 
-  <SeparatorSection id="stoneringer" title={stoneringer} />
+  <SeparatorSection
+    id="stoneringer-smash-here-there"
+    title={`${translations.stoneringer} + ${translations.smashHereThere}`}
+  />
   <Stoneringer />
   <AttackSection time="00:35.910" damage="57000" damageType="physical" />
   <AttackSection time="00:39.740" damage="57000" damageType="physical" />
