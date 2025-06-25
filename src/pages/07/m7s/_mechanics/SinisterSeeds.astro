@@ -73,6 +73,7 @@ import no2g_pollen_solution_2_1 from '@/assets/07/m7s/sinister_seeds/no2g_pollen
 import no2g_solution2_preparation from '@/assets/07/m7s/sinister_seeds/no2g_solution2_preparation.png'
 import no2g_place_solution_case_1 from '@/assets/07/m7s/sinister_seeds/no2g_place_solution_case_1.png'
 import no2g_place_solution_case_2 from '@/assets/07/m7s/sinister_seeds/no2g_place_solution_case_2.png'
+import RootsofEvilActivate from '../_components/RootsofEvilActivate.astro'
 
 const impact = translations.impact
 const sinisterSeeds = translations.sinisterSeeds
@@ -121,7 +122,7 @@ const defaultSolution = '解法：本站攻略'
   <Badge variant="yellow">四四分摊</Badge>
 </EventSection>
 
-<MechanicSection>
+<MechanicSection id="sporesacmc">
   <div class="flex flex-col gap-4">
     <T class="gap-strat inline-flex">
       <Skill name={sporeSac} variant="yellow" />
@@ -143,6 +144,7 @@ const defaultSolution = '解法：本站攻略'
       的范围仅有以下两种情况：
     </P>
     <ImgRow
+      id="pollenmc"
       wrapperClass="max-w-96"
       bordered={false}
       imgs={[
@@ -196,7 +198,7 @@ const defaultSolution = '解法：本站攻略'
       <Span variant="green">孢子</Span>
       落下的地方会生成<BloomingAbominationSimplified />共计4只，
     </div>
-    <div class="paragraph">
+    <div class="paragraph" id="sismc">
       每3s释放对
       <RoleIcon role="any" tag="一仇" />的普通攻击，每只
       <Separator orientation="vertical" class="bg-default h-16 w-1" />
@@ -697,10 +699,7 @@ const defaultSolution = '解法：本站攻略'
   </div>
 </NoteSection>
 
-<EventSection time="01:10.533">
-  <Span variant="yellow">{rootsOfEvil}</Span>伤害判定
-  <Badge variant="emerald">12m圆形</Badge>
-</EventSection>
+<RootsofEvilActivate time="01:10.533" />
 <WindingWildwindsCast start="01:11.201" num={2} />
 <CrossingCrosswindsCast start="01:11.201" num={2} />
 <AttackSection time="01:15.925" damage="57000" damageType="physical" />
@@ -715,7 +714,7 @@ const defaultSolution = '解法：本站攻略'
 <AttackSection time="01:41.133" damage="57000" damageType="physical" />
 <AttackSection time="01:44.162" damage="57000" damageType="physical" />
 
-<MechanicSection>
+<MechanicSection id="rootsofEvil">
   <div class="flex flex-col gap-4">
     <T text={rootsOfEvil} variant="yellow" />
     <P>

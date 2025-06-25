@@ -13,7 +13,14 @@ interface Props {
 const { start }: Props = Astro.props
 ---
 
-<CastSection start={start} duration={2.7} ability={translations.PerfumedQuietus} target damage="100000" damageType="magical">
+<CastSection
+  start={start}
+  duration={2.7}
+  ability={translations.PerfumedQuietus}
+  target
+  damage="100000"
+  damageType="magical"
+>
   <Zelenia slot="source" />
   <Badge variant="purple">AoE</Badge>
 </CastSection>

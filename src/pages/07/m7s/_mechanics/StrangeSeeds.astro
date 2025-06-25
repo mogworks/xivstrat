@@ -74,7 +74,7 @@ const defaultSolution = '解法：萨利式'
 <MechanicSection id="strangeSeeds">
   <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-4">
-      <T><Skill name={strangeSeeds} /></T>
+      <T id="killerseedsmc"><Skill name={strangeSeeds} /></T>
       <P>
         点名<Span variant="pink">1</Span><RoleIcon role="tank|healer" />和<Span variant="pink">1</Span><RoleIcon
           role="dps"
@@ -99,8 +99,9 @@ const defaultSolution = '解法：萨利式'
   <div class="flex flex-col gap-4">
     <T class="mt-8"><Skill name={killerseeds} /></T>
     <P
-      >点名所有<RoleIcon role="tank|healer" />或<RoleIcon role="dps" />的<Span variant="yellow">双人分摊AoE</Span
-      >，半径<Span variant="pink">6m</Span>，造成<DamageInfo
+      >点名<Span variant="pink">4</Span><RoleIcon role="tank|healer" />或<Span variant="pink">4</Span><RoleIcon
+        role="dps"
+      />的<Span variant="yellow">双人分摊AoE</Span>，半径<Span variant="pink">6m</Span>，造成<DamageInfo
         damage="100000"
         type="magical"
       />，并附加<MagicVulnerabilityUp tag="2" hover /></P
