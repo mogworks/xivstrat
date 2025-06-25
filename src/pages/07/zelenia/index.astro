@@ -16,7 +16,7 @@ import ReferenceItem from '@/components/ReferenceItem.astro'
 import Thanks from '@/components/thanks/Thanks.astro'
 
 // TODO: 需要替换
-import CheatsheetsImage from '@/assets/cheatsheets/07/zelenia.png'
+import CheatsheetsImage from '@/assets/cheatsheets/07/zelenia.jpg'
 import WaymarkImage from '@/assets/waymarks/07/zelenia.png'
 import TimelineImage from '@/assets/timelines/07/zelenia.png'
 
@@ -64,12 +64,7 @@ const waymarkLink = ''
     </Fragment>
     <AreaBox>
       <ResizableImageDialog client:idle>
-        <Image
-          src={CheatsheetsImage}
-          alt="泽莲尼娅歼殛战 副本小抄"
-          loading="lazy"
-          class="h-full w-fit object-contain"
-        />
+        <Image src={CheatsheetsImage} alt="泽莲尼娅歼殛战 副本小抄" loading="lazy" class="h-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
   </CollapsibleBox>

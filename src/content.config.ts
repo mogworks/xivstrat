@@ -10,6 +10,12 @@ const duties = defineCollection({
       type: z.union([z.literal('raid'), z.literal('ultimate'), z.literal('trial')]),
       title: z.string(),
       description: z.string(),
+      navigationInfo: z
+        .object({
+          name: z.string().optional(),
+          parent: z.array(z.string()).optional(),
+        })
+        .optional(),
       banner: image(),
       date: z.string(),
       href: z.string(),
@@ -53,11 +59,23 @@ const developers = defineCollection({
   schema: ({ image }) =>
     z.object({
       name: z.string(),
-      breakNames: z.optional(z.array(z.string()), z.undefined()),
+      breakNames: z.array(z.string()).optional(),
       gameName: z.string(),
       avatar: image(),
       link: z.string(),
     }),
 })
 
-export const collections = { duties, dutyGroups, developers }
+const devGroups = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/data/dev-groups' }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      description: z.string().optional(),
+      iconDark: image(),
+      iconLight: image(),
+      link: z.string(),
+    }),
+})
+
+export const collections = { duties, dutyGroups, developers, devGroups }

@@ -1,30 +1,28 @@
 ---
-import CollapseSection from '@/components/section/CollapseSection.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
-import Span from '@/components/Span.vue'
 import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import P from '@/components/typography/P.astro'
 
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
-import BrutalImpactActivate from './_components/BrutalImpactActivate.astro'
 import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
-import SpecialBombarianSpecial from './_mechanics/SpecialBombarianSpecial.astro'
-import { translations } from './_translations'
-import Stoneringer2First from './_mechanics/Stoneringer2First.astro'
-import Stoneringer2Second from './_mechanics/Stoneringer2Second.astro'
-
-import SinisterSeedsP3 from './_mechanics/SinisterSeedsP3.astro'
 import StoneringerCast from './_components/StoneringerCast.astro'
 import SmashHereCast from './_components/SmashHereCast.astro'
-
 import BrutishSwingActivate from './_components/BrutishSwingActivate.astro'
 import SmashActivate from './_components/SmashActivate.astro'
+import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+
+import SpecialBombarianSpecial from './_mechanics/SpecialBombarianSpecial.astro'
+import Stoneringer2First from './_mechanics/Stoneringer2First.astro'
+import Stoneringer2Second from './_mechanics/Stoneringer2Second.astro'
+import SinisterSeedsP3 from './_mechanics/SinisterSeedsP3.astro'
 import DebrisDeathmatch from './_mechanics/DebrisDeathmatch.astro'
 
-import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+import { translations } from './_translations'
 
 const dutyId = '07/m7s'
 
@@ -46,6 +44,12 @@ const sporesac = translations.sporeSac
   <SeparatorSection />
   <DraftWarning />
   <SeparatorSection />
+  <NoteSection>
+    <div class="flex flex-col gap-4">
+      <P>P3机制多为前2P已出现的相同机制、少数机制效果稍微修改后的重新组合，因此许多机制下面不再详述</P>
+      <P>本P机制速度较快，场地较大，容易吃<DamageDown hover />和打不到<BruteAbombinator /></P>
+    </div>
+  </NoteSection>
   <EventSection time="06:09.273">
     <BruteAbombinator />可选中
   </EventSection>
@@ -53,23 +57,10 @@ const sporesac = translations.sporeSac
   <AttackSection time="06:13.014" damage="57000" damageType="physical" />
   <AttackSection time="06:16.042" damage="57000" damageType="physical" />
 
-  <BrutalImpactCast start="06:16.310" toln={7} />
-  <CollapseSection>
-    <Fragment slot="summary">
-      <BruteAbombinator />
-      连续释放<Span variant="pink">7</Span>次AoE，每轮伤害
-      <DamageInfo damage="57000" type="physical" />
-    </Fragment>
-    <Fragment slot="details">
-      <BrutalImpactActivate time="06:21.518" num={1} />
-      <BrutalImpactActivate time="06:22.587" num={2} />
-      <BrutalImpactActivate time="06:23.658" num={3} />
-      <BrutalImpactActivate time="06:24.727" num={4} />
-      <BrutalImpactActivate time="06:25.797" num={5} />
-      <BrutalImpactActivate time="06:26.867" num={6} />
-      <BrutalImpactActivate time="06:27.935" num={7} />
-    </Fragment>
-  </CollapseSection>
+  <BrutalImpactCast
+    start="06:16.310"
+    activateTimes={['06:21.518', '06:22.587', '06:23.658', '06:24.727', '06:25.797', '06:26.867', '06:27.935']}
+  />
   <AttackSection time="06:30.789" damage="57000" damageType="physical" />
 
   <SeparatorSection id="S2RG" title=`${stoneringer2Stoneringers} + ${revengeOfTheVines} + ${glowerPower}` />
@@ -78,24 +69,19 @@ const sporesac = translations.sporeSac
 
   <SeparatorSection title={brutalImpact} />
   <AttackSection time="07:15.515" damage="57000" damageType="physical" />
-  <BrutalImpactCast start="07:16.318" toln={8} />
-  <CollapseSection>
-    <Fragment slot="summary">
-      <BruteAbombinator />
-      连续释放<Span variant="pink">8</Span>次AoE，每轮伤害
-      <DamageInfo damage="57000" type="physical" />
-    </Fragment>
-    <Fragment slot="details">
-      <BrutalImpactActivate time="07:21.535" num={1} />
-      <BrutalImpactActivate time="07:22.606" num={2} />
-      <BrutalImpactActivate time="07:23.678" num={3} />
-      <BrutalImpactActivate time="07:24.749" num={4} />
-      <BrutalImpactActivate time="07:25.819" num={5} />
-      <BrutalImpactActivate time="07:26.887" num={6} />
-      <BrutalImpactActivate time="07:27.956" num={7} />
-      <BrutalImpactActivate time="07:29.028" num={8} />
-    </Fragment>
-  </CollapseSection>
+  <BrutalImpactCast
+    start="07:16.318"
+    activateTimes={[
+      '07:21.535',
+      '07:22.606',
+      '07:23.678',
+      '07:24.749',
+      '07:25.819',
+      '07:26.887',
+      '07:27.956',
+      '07:29.028',
+    ]}
+  />
   <SeparatorSection title={stoneringer} />
   <StoneringerCast start="07:32.145" />
   <SmashHereCast start="07:39.990" />
@@ -112,24 +98,19 @@ const sporesac = translations.sporeSac
   <SinisterSeedsP3 />
 
   <SeparatorSection title={brutalImpact} />
-  <BrutalImpactCast start="09:05.357" toln={8} />
-  <CollapseSection>
-    <Fragment slot="summary">
-      <BruteAbombinator />
-      连续释放<Span variant="pink">8</Span>次AoE，每轮伤害
-      <DamageInfo damage="57000" type="physical" />
-    </Fragment>
-    <Fragment slot="details">
-      <BrutalImpactActivate time="09:10.574" num={1} />
-      <BrutalImpactActivate time="09:11.643" num={2} />
-      <BrutalImpactActivate time="09:12.713" num={3} />
-      <BrutalImpactActivate time="09:13.782" num={4} />
-      <BrutalImpactActivate time="09:14.851" num={5} />
-      <BrutalImpactActivate time="09:15.921" num={6} />
-      <BrutalImpactActivate time="09:16.988" num={7} />
-      <BrutalImpactActivate time="09:18.056" num={8} />
-    </Fragment>
-  </CollapseSection>
+  <BrutalImpactCast
+    start="09:05.357"
+    activateTimes={[
+      '09:10.574',
+      '09:11.643',
+      '09:12.713',
+      '09:13.782',
+      '09:14.851',
+      '09:15.921',
+      '09:16.988',
+      '09:18.056',
+    ]}
+  />
   <AttackSection time="09:20.907" damage="57000" damageType="physical" />
   <AttackSection time="09:23.935" damage="57000" damageType="physical" />
 
@@ -145,24 +126,19 @@ const sporesac = translations.sporeSac
   <AttackSection time="10:31.948" damage="57000" damageType="physical" />
 
   <SeparatorSection title={brutalImpact} />
-  <BrutalImpactCast start="10:33.242" toln={8} />
-  <CollapseSection>
-    <Fragment slot="summary">
-      <BruteAbombinator />
-      连续释放<Span variant="pink">8</Span>次AoE，每轮伤害
-      <DamageInfo damage="57000" type="physical" />
-    </Fragment>
-    <Fragment slot="details">
-      <BrutalImpactActivate time="10:38.459" num={1} />
-      <BrutalImpactActivate time="10:39.528" num={2} />
-      <BrutalImpactActivate time="10:40.599" num={3} />
-      <BrutalImpactActivate time="10:41.669" num={4} />
-      <BrutalImpactActivate time="10:42.738" num={5} />
-      <BrutalImpactActivate time="10:43.805" num={6} />
-      <BrutalImpactActivate time="10:44.872" num={7} />
-      <BrutalImpactActivate time="10:45.944" num={8} />
-    </Fragment>
-  </CollapseSection>
+  <BrutalImpactCast
+    start="10:33.242"
+    activateTimes={[
+      '10:38.459',
+      '10:39.528',
+      '10:40.599',
+      '10:41.669',
+      '10:42.738',
+      '10:43.805',
+      '10:44.872',
+      '10:45.944',
+    ]}
+  />
   <AttackSection time="10:48.792" damage="57000" damageType="physical" />
   <AttackSection time="10:51.819" damage="57000" damageType="physical" />
   <AttackSection time="10:54.850" damage="57000" damageType="physical" />

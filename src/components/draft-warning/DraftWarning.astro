@@ -3,40 +3,33 @@ import NoteSection from '@/components/section/NoteSection.astro'
 import P from '@/components/typography/P.astro'
 import Span from '@/components/Span.vue'
 import WarningDialog from './WarningDialog.vue'
-
-// 开发环境只放一个，提示这东西在就OK
-const fakeArr = new Array(import.meta.env.DEV ? 1 : 10).fill('')
 ---
 
-<div class="flex flex-col gap-4">
-  {
-    fakeArr.map(() => (
-      <NoteSection title="">
-        <div class="my-8 flex flex-col gap-8 text-4xl text-cyan-600 [text-shadow:_0_0_1px_var(--color-cyan-600)] dark:text-cyan-400">
-          <P class="justify-center">本页内容尚在编辑中......</P>
-          <P class="justify-center">
-            文案/图片均为
-            <Span variant="red">占位草稿</Span>，用于网页排版，不代表最终解法！
-          </P>
-          <P class="justify-center">
-            为免造成误解，<Span variant="red">请勿参考本页内容！</Span>
-          </P>
-        </div>
-      </NoteSection>
-    ))
-  }
-  <WarningDialog client:idle>
-    <div
-      class="my-8 flex flex-col gap-8 text-4xl text-cyan-600 [text-shadow:_0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
-    >
-      <P class="justify-center">本页内容尚在编辑中......</P>
-      <P class="justify-center">
-        文案/图片均为
-        <Span variant="red">占位草稿</Span>，用于网页排版，不代表最终解法！
-      </P>
-      <P class="justify-center">
-        为免造成误解，<Span variant="red">请勿参考本页内容！</Span>
-      </P>
-    </div>
-  </WarningDialog>
-</div>
+<NoteSection title="">
+  <div
+    class="my-8 flex flex-col gap-8 text-4xl text-cyan-600 [text-shadow:_0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
+  >
+    <P class="justify-center">本页内容尚在编辑中......</P>
+    <P class="justify-center">
+      文案/图片均为
+      <Span variant="red">占位草稿</Span>，用于网页排版，不代表最终解法！
+    </P>
+    <P class="justify-center">
+      为免造成误解，<Span variant="red">请勿参考本页内容！</Span>
+    </P>
+  </div>
+</NoteSection>
+<WarningDialog client:idle>
+  <div
+    class="my-8 flex flex-col gap-8 text-4xl text-cyan-600 [text-shadow:_0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
+  >
+    <P class="justify-center">本页内容尚在编辑中......</P>
+    <P class="justify-center">
+      文案/图片均为
+      <Span variant="red">占位草稿</Span>，用于网页排版，不代表最终解法！
+    </P>
+    <P class="justify-center">
+      为免造成误解，<Span variant="red">请勿参考本页内容！</Span>
+    </P>
+  </div>
+</WarningDialog>

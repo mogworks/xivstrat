@@ -2,13 +2,9 @@
 import CloseSVG from '@/assets/svg/close.svg?component'
 import MenuSVG from '@/assets/svg/menu.svg?component'
 
-import NavItem from './NavItem.vue'
+import type { Route } from './type'
 
-interface Route {
-  name: string
-  path?: string
-  children?: Route[]
-}
+import NavItem from './NavItem.vue'
 
 const props = defineProps<{
   routes?: Route[]

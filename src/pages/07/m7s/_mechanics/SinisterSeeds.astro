@@ -1,6 +1,4 @@
 ---
-import type { Time } from '@/lib/utils'
-
 import { Image } from 'astro:assets'
 
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -11,7 +9,6 @@ import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
-import ListDot from '@/components/ListDot.astro'
 import Badge from '@/components/Badge.astro'
 import P from '@/components/typography/P.astro'
 import Quote from '@/components/typography/Quote.astro'
@@ -55,19 +52,24 @@ import BloomingAbominationSimplified from '../_components/BloomingAbominationSim
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
 import { translations } from '../_translations'
-import { TvMinimalPlay } from 'lucide-vue-next'
 import NoteSection from '@/components/section/NoteSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import Skill from '@/components/typography/Skill.astro'
 import ImgGrid from '@/components/typography/ImgGrid.astro'
-import PollenActivate from '../_components/PollenActivate.astro'
 import SinisterSeedsMode2Activate from '../_components/SinisterSeedsMode2Activate.astro'
 import SinisterSeedsMode1Cast from '../_components/SinisterSeedsMode1Cast.astro'
 import TendrilsofTerrorAppear2 from '../_components/TendrilsofTerrorAppear2.astro'
 import Separator from '@/components/Separator.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import StratLink from '@/components/StratLink.astro'
-import Tmp from '@/assets/07/m7s/Tmp.png'
+import no2g_place_solution_case_2_1 from '@/assets/07/m7s/sinister_seeds/no2g_place_solution_case_2_1.png'
+import no2g_pollen_solution2_2 from '@/assets/07/m7s/sinister_seeds/no2g_pollen_solution2_2.png'
+import no2g_place_solution_case_2_2 from '@/assets/07/m7s/sinister_seeds/no2g_place_solution_case_2_2.png'
+import no2g_pollen_solution_2_1 from '@/assets/07/m7s/sinister_seeds/no2g_pollen_solution_2_1.png'
+import no2g_solution2_preparation from '@/assets/07/m7s/sinister_seeds/no2g_solution2_preparation.png'
+import no2g_place_solution_case_1 from '@/assets/07/m7s/sinister_seeds/no2g_place_solution_case_1.png'
+import no2g_place_solution_case_2 from '@/assets/07/m7s/sinister_seeds/no2g_place_solution_case_2.png'
+import RootsofEvilActivate from '../_components/RootsofEvilActivate.astro'
 
 const impact = translations.impact
 const sinisterSeeds = translations.sinisterSeeds
@@ -84,20 +86,19 @@ const tendrilsofTerror = translations.tendrilsOfTerror
 const solutions = [
   {
     id: 'sinisterseeds-game8m',
-    title: '解法：本站攻略',
+    title: '解法：日野主流【改】',
   },
   {
     id: 'inisterseeds-nO2m',
     title: '解法：nO2S改',
   },
 ]
-const defaultSolution = '解法：本站攻略'
+const defaultSolution = '解法：日野主流【改】'
 ---
 
 <SporeSacCast start="00:40.052" end="00:43.039" />
 <SinisterSeedsCast start="00:48.384" />
 <PollenCast start="00:49.812" />
-<PollenActivate time="00:53.780" />
 <SinisterSeedsMode1Cast start="00:53.511" />
 <SinisterSeedsMode1Cast start="00:55.515" />
 <EventSection time="00:55.917">
@@ -110,13 +111,13 @@ const defaultSolution = '解法：本站攻略'
 <EventSection time="01:05.052">
   <Span variant="yellow">{impact}</Span>
   判定
-  <DamageInfo damage="171500" type="magical" />
+  <DamageInfo damage="170000" type="magical" />
   <MagicVulnerabilityUp tag="2" hover />
   <Badge variant="emerald">6m圆形</Badge>
   <Badge variant="yellow">四四分摊</Badge>
 </EventSection>
 
-<MechanicSection>
+<MechanicSection id="sporesacmc">
   <div class="flex flex-col gap-4">
     <T class="gap-strat inline-flex">
       <Skill name={sporeSac} variant="yellow" />
@@ -138,6 +139,7 @@ const defaultSolution = '解法：本站攻略'
       的范围仅有以下两种情况：
     </P>
     <ImgRow
+      id="pollenmc"
       wrapperClass="max-w-96"
       bordered={false}
       imgs={[
@@ -191,7 +193,7 @@ const defaultSolution = '解法：本站攻略'
       <Span variant="green">孢子</Span>
       落下的地方会生成<BloomingAbominationSimplified />共计4只，
     </div>
-    <div class="paragraph">
+    <div class="paragraph" id="sismc">
       每3s释放对
       <RoleIcon role="any" tag="一仇" />的普通攻击，每只
       <Separator orientation="vertical" class="bg-default h-16 w-1" />
@@ -211,33 +213,35 @@ const defaultSolution = '解法：本站攻略'
       <Skill name={sinisterSeeds} variant="yellow" />
     </T>
     <P> <BruteAbombinator />读条完毕，对<RoleIcon role="all" tag="全员" />释放两种点名攻击：</P>
-    <P
-      ><ListDot />赋予距离自己
-      <Span variant="pink">最近/最远</Span>的<Span variant="pink">4</Span>名玩家半径<Span variant="pink">6m</Span
-      >的<Span variant="purple">分散圆形AoE</Span>，造成<DamageInfo
-        damage="130000"
-        type="magical"
-      /><MagicVulnerabilityUp tag="2" hover /></P
-    >
-    <P
-      ><ListDot />并点名其余4人半径<Span variant="pink">7m</Span>的四连<Span variant="yellow">黄圈追踪AoE</Span
-      >，对范围内的玩家造成<DamageInfo damage="125000" type="magical" /><DamageDown tag="30" hover /></P
-    >
+    <Quote variant="rose">
+      <P
+        >赋予距离自己
+        <Span variant="pink">最近/最远</Span>的<Span variant="pink">4</Span>名玩家半径<Span variant="pink">6m</Span
+        >的<Span variant="purple">分散圆形AoE</Span>，造成<DamageInfo
+          damage="130000"
+          type="magical"
+        /><MagicVulnerabilityUp tag="2" hover /></P
+      >
+      <P
+        >并点名其余4人半径<Span variant="pink">7m</Span>的四连<Span variant="yellow">黄圈追踪AoE</Span
+        >，对范围内的玩家造成<DamageInfo damage="125000" type="magical" /><DamageDown tag="30" hover /></P
+      >
+    </Quote>
     <div class="paragraph">同时，这两个点名都有特殊效果：</div>
-    <div class="paragraph">
-      <ListDot />
-      <Span variant="purple">分散点名</Span>
-      在判定时，会在判定的位置生成
-      <Span variant="pink">米字形AoE</Span>
-      提示，也就是我们俗称的
-      <Span variant="pink">“冰花”</Span>
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      四连<Span variant="yellow">追踪AoE</Span>
-      在判定时，会<Span variant="pink">记录每次判定的位置</Span>，之后会<Span variant="pink">扩大范围</Span
-      >再统一判定一次
-    </div>
+    <Quote variant="rose">
+      <div class="paragraph">
+        <Span variant="purple">分散点名</Span>
+        在判定时，会在判定的位置生成
+        <Span variant="pink">米字形AoE</Span>
+        提示，也就是我们俗称的
+        <Span variant="pink">“冰花”</Span>
+      </div>
+      <div class="paragraph">
+        四连<Span variant="yellow">追踪AoE</Span>
+        在判定时，会<Span variant="pink">记录每次判定的位置</Span>，之后会<Span variant="pink">扩大范围</Span
+        >再统一判定一次
+      </div>
+    </Quote>
 
     <div class="flex flex-col gap-4">
       <h4 class="mt-8 text-2xl">
@@ -251,7 +255,7 @@ const defaultSolution = '解法：本站攻略'
         <Quote variant="rose">
           <div class="paragraph">
             <Span variant="pink">4</Span>人分摊时，每人
-            <DamageInfo damage="171500" type="magical" />
+            <DamageInfo damage="170000" type="magical" />
             <MagicVulnerabilityUp tag="2" hover />
           </div>
           <div class="paragraph">
@@ -272,13 +276,13 @@ const defaultSolution = '解法：本站攻略'
       冰花本花，预兆出现<Span variant="pink">3s</Span>后释放米字形AoE攻击，对范围内的玩家造成<DamageInfo
         damage="123000"
         type="magical"
-      /><DamageDown tag="30" hover />
+      /><DamageDown tag="30" hover />，每条直线AoE宽<Span variant="pink">4m</Span>
     </P>
   </div>
 </MechanicSection>
 
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：本站攻略">
+  <div slot="解法：日野主流【改】">
     <div class="flex flex-col gap-4">
       <div class="flex flex-col gap-4">
         <h4 class="text-2xl">
@@ -302,21 +306,21 @@ const defaultSolution = '解法：本站攻略'
           <Span variant="lime">躲避藤蔓</Span>
         </h4>
         <div class="paragraph">藤蔓开始生长后，我们规定：</div>
-        <div class="paragraph">
-          <ListDot />
-          近战组（即
-          <RoleIcon role="tank" tag="MT" /><RoleIcon role="tank" tag="ST" />
-          <RoleIcon role="melee" tag="D1" /><RoleIcon role="dps" tag="D2" />） 在
-          <Span variant="pink">内场南边</Span>的安全区集合
-        </div>
-        <div class="paragraph">
-          <ListDot />
-          远程组前往指定角落躲避，其中
-          <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />在
-          <Span variant="pink">北半场</Span>的安全角落，
-          <RoleIcon role="healer" tag="H1" /><RoleIcon role="healer" tag="H2" />在
-          <Span variant="pink">南半场</Span>的安全角落
-        </div>
+        <Quote variant="rose">
+          <div class="paragraph">
+            近战组（即
+            <RoleIcon role="tank" tag="MT" /><RoleIcon role="tank" tag="ST" />
+            <RoleIcon role="melee" tag="D1" /><RoleIcon role="dps" tag="D2" />） 在
+            <Span variant="pink">内场南边</Span>的安全区集合
+          </div>
+          <div class="paragraph">
+            远程组前往指定角落躲避，其中
+            <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />在
+            <Span variant="pink">北半场</Span>的安全角落，
+            <RoleIcon role="healer" tag="H1" /><RoleIcon role="healer" tag="H2" />在
+            <Span variant="pink">南半场</Span>的安全角落
+          </div>
+        </Quote>
         <div class="paragraph">根据安全区的两种情况，站位分别如下所示：</div>
         <ImgRow
           wrapperClass="max-w-100"
@@ -341,14 +345,14 @@ const defaultSolution = '解法：本站攻略'
           并点其余四人<Span variant="yellow">追踪AoE</Span>，且我们在<Span variant="lime">躲避藤蔓</Span>
           时，就确保了：
         </div>
-        <div class="paragraph">
-          <ListDot />
-          近战组四人一定是距离<BruteAbombinator /><Span variant="orange">最近</Span>的四人
-        </div>
-        <div class="paragraph">
-          <ListDot />
-          远程组四人一定是距离<BruteAbombinator /><Span variant="blue">最远</Span>的四人
-        </div>
+        <Quote variant="rose">
+          <div class="paragraph">
+            近战组四人一定是距离<BruteAbombinator /><Span variant="orange">最近</Span>的四人
+          </div>
+          <div class="paragraph">
+            远程组四人一定是距离<BruteAbombinator /><Span variant="blue">最远</Span>的四人
+          </div>
+        </Quote>
         <div class="paragraph">
           因此，放置<Span variant="pink">冰花</Span>点名必定会同时点近战组或者远程组四人
         </div>
@@ -361,9 +365,11 @@ const defaultSolution = '解法：本站攻略'
           <RoleIcon role="melee" tag="D1" />
           <RoleIcon role="dps" tag="D2" />
         </P>
-        <P class="pl-4">
-          <ListDot />直接前往内场斜点的<Span variant="pink">螺丝</Span>处，等待放置<Span variant="pink">冰花</Span>
-        </P>
+        <Quote variant="rose">
+          <P>
+            直接前往内场斜点的<Span variant="pink">螺丝</Span>处，等待放置<Span variant="pink">冰花</Span>
+          </P></Quote
+        >
         <P>
           远程组
           <RoleIcon role="ranged" tag="D3" />
@@ -371,14 +377,16 @@ const defaultSolution = '解法：本站攻略'
           <RoleIcon role="healer" tag="H1" />
           <RoleIcon role="healer" tag="H2" />
         </P>
-        <P class="pl-4">
-          <ListDot />
-          从角落出发，往场地<Span variant="pink">中轴线</Span>横向移动，沿着场边放下第<Span variant="pink">1、2、3</Span
-          >个黄圈
-        </P>
-        <P class="pl-4">
-          <ListDot />随后往场中拐，放下第<Span variant="pink">4</Span>个黄圈
-        </P>
+        <Quote variant="rose">
+          <P>
+            从角落出发，往场地<Span variant="pink">中轴线</Span>横向移动，沿着场边放下第<Span variant="pink"
+              >1、2、3</Span
+            >个黄圈
+          </P>
+          <P>
+            随后往场中拐，放下第<Span variant="pink">4</Span>个黄圈
+          </P>
+        </Quote>
         <ImgRow
           bordered={false}
           imgs={[
@@ -398,21 +406,23 @@ const defaultSolution = '解法：本站攻略'
         <P class="pl-4">
           此处我们介绍两种放置<Span variant="yellow">追踪AoE</Span>的方法，分别是Game8改和Game8原版
         </P>
-        <P class="pl-8">
-          <ListDot />
-          Game8改：
-          <Span variant="pink">横移</Span>放下第<Span variant="pink">2</Span>个圈， 回到<Span variant="pink">场中</Span
-          >放第<Span variant="pink">3</Span>个圈， 随后<Span variant="pink">往北</Span>放下第<Span variant="pink"
-            >4</Span
-          >个圈
-        </P>
-        <P class="pl-8">
-          <ListDot />
-          Game8原版：
-          <Span variant="pink">往北</Span>放下第<Span variant="pink">2</Span>个圈，
-          <Span variant="pink">横移</Span>放下第<Span variant="pink">3</Span>个圈， 随后<Span variant="pink">往南</Span
-          >放下第<Span variant="pink">4</Span>个圈
-        </P>
+        <Quote variant="rose">
+          <P>
+            Game8改：
+            <Span variant="pink">横移</Span>放下第<Span variant="pink">2</Span>个圈， 回到<Span variant="pink"
+              >场中</Span
+            >放第<Span variant="pink">3</Span>个圈， 随后<Span variant="pink">往北</Span>放下第<Span variant="pink"
+              >4</Span
+            >个圈
+          </P>
+          <P>
+            Game8原版：
+            <Span variant="pink">往北</Span>放下第<Span variant="pink">2</Span>个圈，
+            <Span variant="pink">横移</Span>放下第<Span variant="pink">3</Span>个圈， 随后<Span variant="pink"
+              >往南</Span
+            >放下第<Span variant="pink">4</Span>个圈
+          </P>
+        </Quote>
         <P>
           远程组
           <RoleIcon role="ranged" tag="D3" />
@@ -420,12 +430,13 @@ const defaultSolution = '解法：本站攻略'
           <RoleIcon role="healer" tag="H1" />
           <RoleIcon role="healer" tag="H2" />
         </P>
-        <P class="pl-4">
-          <ListDot />
-          在自己的点位旁<Span variant="pink">躲避黄圈</Span>，在自身点名判定前，前往内场斜点的<Span variant="pink"
-            >螺丝</Span
-          >处放置<Span variant="pink">冰花</Span>
-        </P>
+        <Quote variant="rose">
+          <P>
+            在自己的点位旁<Span variant="pink">躲避黄圈</Span>，在自身点名判定前，前往内场斜点的<Span variant="pink"
+              >螺丝</Span
+            >处放置<Span variant="pink">冰花</Span>
+          </P>
+        </Quote>
         <ImgGrid
           cols={[{ title: 'Game8改' }, { title: 'Game8原版' }]}
           defaultImgWrapperStyle={{
@@ -507,22 +518,22 @@ const defaultSolution = '解法：本站攻略'
           <Span variant="pink">冰花</Span>
           和<Span variant="yellow">追踪AoE</Span>后，我们分为H1组和H2组：
         </div>
-        <div class="paragraph">
-          <ListDot />
-          H1组：
-          <RoleIcon role="tank" tag="MT" />
-          <RoleIcon role="healer" tag="H1" />
-          <RoleIcon role="melee" tag="D1" />
-          <RoleIcon role="ranged" tag="D3" />
-        </div>
-        <div class="paragraph">
-          <ListDot />
-          H2组：
-          <RoleIcon role="tank" tag="ST" />
-          <RoleIcon role="healer" tag="H2" />
-          <RoleIcon role="dps" tag="D2" />
-          <RoleIcon role="magic" tag="D4" />
-        </div>
+        <Quote variant="rose">
+          <div class="paragraph">
+            H1组：
+            <RoleIcon role="tank" tag="MT" />
+            <RoleIcon role="healer" tag="H1" />
+            <RoleIcon role="melee" tag="D1" />
+            <RoleIcon role="ranged" tag="D3" />
+          </div>
+          <div class="paragraph">
+            H2组：
+            <RoleIcon role="tank" tag="ST" />
+            <RoleIcon role="healer" tag="H2" />
+            <RoleIcon role="dps" tag="D2" />
+            <RoleIcon role="magic" tag="D4" />
+          </div>
+        </Quote>
         <div class="paragraph">
           分别前往场中的指定位置，躲避
           <Span variant="pink">冰花</Span>
@@ -547,7 +558,11 @@ const defaultSolution = '解法：本站攻略'
           </div>
           <div class="flex gap-4">
             <div class="max-w-90 shrink">
-              <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+              <Image
+                src={no2g_solution2_preparation}
+                alt=""
+                class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+              />
             </div>
           </div>
         </div>
@@ -556,6 +571,7 @@ const defaultSolution = '解法：本站攻略'
         <h4 class="mt-8 text-2xl">
           <Span variant="lime">躲避藤蔓</Span>
         </h4>
+
         <div class="paragraph">
           观察<Span variant="pink">最南边一个</Span>藤蔓的生长方向，如果<Span variant="pink">没有向北</Span
           >生长，则全员在其<Span variant="pink">正北</Span>的内场安全区集合
@@ -563,30 +579,32 @@ const defaultSolution = '解法：本站攻略'
         <div class="paragraph">
           如果<Span variant="pink">向北</Span>生长，则全员在其北侧的<Span variant="pink">另一个</Span>内场安全区集合
         </div>
-        <div class="paragraph">
-          <ListDot />
-          近战组（即
-          <RoleIcon role="tank" tag="MT" /><RoleIcon role="tank" tag="ST" />
-          <RoleIcon role="melee" tag="D1" /><RoleIcon role="melee" tag="D2" />） 在内场安全区
-          <Span variant="pink">靠近</Span><RoleIcon role="boss" tag="boss" />处集合
-        </div>
-        <div class="paragraph">
-          <ListDot />
-          远程组（即
-          <RoleIcon role="healer" tag="H1" /><RoleIcon role="healer" tag="H2" />
-          <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />）在内场安全区
-          <Span variant="pink">远离</Span><RoleIcon role="boss" tag="boss" />处集合
-        </div>
-        <div class="paragraph">站位示意图如下：</div>
-        <div class="flex gap-4">
-          <div class="max-w-90 shrink">
-            <Image src={Tmp} alt="" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <Quote variant="rose">
+          <div class="paragraph">
+            近战组（即
+            <RoleIcon role="tank" tag="MT" /><RoleIcon role="tank" tag="ST" />
+            <RoleIcon role="melee" tag="D1" /><RoleIcon role="melee" tag="D2" />） 在内场安全区
+            <Span variant="pink">靠近</Span><RoleIcon role="boss" tag="boss" />处集合
           </div>
-        </div>
+          <div class="paragraph">
+            远程组（即
+            <RoleIcon role="healer" tag="H1" /><RoleIcon role="healer" tag="H2" />
+            <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />）在内场安全区
+            <Span variant="pink">远离</Span><RoleIcon role="boss" tag="boss" />处集合
+          </div>
+        </Quote>
+        <div class="paragraph">站位示意图如下：</div>
+        <ImgRow
+          bordered={false}
+          imgs={[
+            { src: no2g_pollen_solution_2_1, alt: '', title: '安全区左' },
+            { src: no2g_pollen_solution2_2, alt: '', title: '安全区右' },
+          ]}
+        />
       </div>
       <div class="flex flex-col gap-4">
         <h4 class="mt-8 text-2xl">
-          <Span variant="lime">放置冰花与追踪AOE</Span>
+          <Span variant="lime">放置冰花与追踪AoE</Span>
         </h4>
         <div class="paragraph">
           这里无论<RoleIcon role="tank|dps" tag="近战" />还是<RoleIcon role="healer|dps" tag="远程" />，均以<StratLink
@@ -598,24 +616,33 @@ const defaultSolution = '解法：本站攻略'
         <div class="paragraph mt-2">
           <RoleIcon role="all" tag="所有人" />观察自身点名情况：
         </div>
-        <div class="paragraph">
-          <ListDot />如果被点<Span variant="yellow">黄圈</Span>，则<Span variant="pink">横移</Span>放置第<Span
-            variant="pink">2</Span
-          >个黄圈，<Span variant="pink">场中</Span>放置第<Span variant="pink">3</Span>个黄圈，然后<Span variant="pink"
-            >往北</Span
-          >放置第<Span variant="pink">4</Span>个黄圈
-        </div>
-        <div class="paragraph">
-          <ListDot />如果被点<Span variant="yellow">冰花</Span>，则<Span variant="pink">躲开黄圈</Span
-          >并前往自己放花位置所在的<Span variant="pink">螺丝</Span>附近，准时前往螺丝处放花
-        </div>
+        <Quote variant="rose">
+          <div class="paragraph">
+            如果被点<Span variant="yellow">黄圈</Span>，则<Span variant="pink">横移</Span>放置第<Span variant="pink"
+              >2</Span
+            >个黄圈，<Span variant="pink">场中</Span>放置第<Span variant="pink">3</Span>个黄圈，然后<Span variant="pink"
+              >往北</Span
+            >放置第<Span variant="pink">4</Span>个黄圈
+          </div>
+          <div class="paragraph">
+            如果被点<Span variant="yellow">冰花</Span>，则<Span variant="pink">躲开黄圈</Span
+            >并前往自己放花位置所在的<Span variant="pink">螺丝</Span>附近，准时前往螺丝处放花
+          </div>
+        </Quote>
       </div>
       <div class="paragraph">四轮黄圈与放冰花示意图如下：</div>
       <ImgRow
         bordered={false}
         imgs={[
-          { src: g8g_place_solution_2, alt: '', title: '近战放黄圈' },
-          { src: Tmp, alt: '', title: '远程放黄圈' },
+          { src: no2g_place_solution_case_2, alt: '', title: '安全区左近战放黄圈' },
+          { src: no2g_place_solution_case_1, alt: '', title: '安全区右近战放黄圈' },
+        ]}
+      />
+      <ImgRow
+        bordered={false}
+        imgs={[
+          { src: no2g_place_solution_case_2_1, alt: '', title: '安全区左远程放黄圈' },
+          { src: no2g_place_solution_case_2_2, alt: '', title: '安全区右远程放黄圈' },
         ]}
       />
       <div class="flex flex-col gap-4">
@@ -667,10 +694,7 @@ const defaultSolution = '解法：本站攻略'
   </div>
 </NoteSection>
 
-<EventSection time="01:10.533">
-  <Span variant="yellow">{rootsOfEvil}</Span>伤害判定
-  <Badge variant="emerald">12m圆形</Badge>
-</EventSection>
+<RootsofEvilActivate time="01:10.533" />
 <WindingWildwindsCast start="01:11.201" num={2} />
 <CrossingCrosswindsCast start="01:11.201" num={2} />
 <AttackSection time="01:15.925" damage="57000" damageType="physical" />
@@ -685,7 +709,7 @@ const defaultSolution = '解法：本站攻略'
 <AttackSection time="01:41.133" damage="57000" damageType="physical" />
 <AttackSection time="01:44.162" damage="57000" damageType="physical" />
 
-<MechanicSection>
+<MechanicSection id="rootsofEvil">
   <div class="flex flex-col gap-4">
     <T text={rootsOfEvil} variant="yellow" />
     <P>

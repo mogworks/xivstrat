@@ -4,6 +4,10 @@
   "type": "raid",
   "title": "阿卡狄亚零式登天斗技场 中量级4 后半 攻略",
   "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级4 后半 超详解动态图文攻略",
+  "navigationInfo": {
+    "name": "后半",
+    "parent": ["阿卡狄亚零式登天斗技场 中量级", "M8S"]
+  },
   "banner": "@/assets/banners/07/m8s.png",
   "date": "25/06/18 18:20",
   "href": "/07/m8s2",
@@ -13,8 +17,8 @@
     {
       "href": "/07/m8s2/p1",
       "title": "Part 1",
-      "subtitle": "本体1",
-      "name": "P1 - 本体1",
+      "subtitle": "后半1",
+      "name": "P1 - 后半1",
       "mechanics": [
         {
           "href": "#quake-iii",

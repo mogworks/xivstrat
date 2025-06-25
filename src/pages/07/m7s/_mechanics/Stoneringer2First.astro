@@ -11,9 +11,6 @@ import { translations } from '../_translations'
 import img from '@/assets/07/m7s/Tmp.png'
 import circle_img from '@/assets/07/m7s/stoneringer2/p3_circle.png'
 import ring_img from '@/assets/07/m7s/stoneringer2/p3_ring.png'
-import left_img from '@/assets/07/m7s/stoneringer2/lashing_lariat_left.png'
-import right_img from '@/assets/07/m7s/stoneringer2/lashing_lariat_right.png'
-import glower_power_img from '@/assets/07/m7s/stoneringer2/p3_glower_power.png'
 import ListDot from '@/components/ListDot.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import Skill from '@/components/typography/Skill.astro'
@@ -29,11 +26,15 @@ import LashingLariatCast from '../_components/LashingLariatCast.astro'
 import SlaminatorCast from '../_components/SlaminatorCast.astro'
 import BrutishSwingMoveActivate from '../_components/BrutishSwingMoveActivate.astro'
 import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import RevengeOfTheVinesActivate from '../_components/RevengeOfTheVinesActivate.astro'
 import LashingLariatActivate from '../_components/LashingLariatActivate.astro'
 import SlaminatorActivate from '../_components/SlaminatorActivate.astro'
+import P from '@/components/typography/P.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Quote from '@/components/typography/Quote.astro'
+import StratLink from '@/components/StratLink.astro'
 
 interface Props {
   time: Time
@@ -50,14 +51,13 @@ const slaminator = translations.slaminator
 ---
 
 <Stoneringer2Cast start={time} />
-<BrutishSwingCast start="06:41.085" />
+<BrutishSwingCast start="06:41.085" duration={6.7} />
 <BrutishSwingMoveActivate time="06:46.790" />
 <BrutishSwingActivate time="06:47.813" />
-
 <RevengeOfTheVinesActivate time="06:48.882" />
 <LashingLariatCast start="06:50.973" />
 <LashingLariatActivate time="06:54.942" />
-<BrutishSwingCast start="06:56.589" />
+<BrutishSwingCast start="06:56.589" duration={6.7} />
 <BrutishSwingMoveActivate time="07:02.289" />
 <BrutishSwingActivate time="07:03.268" />
 <GlowerPowerCast start="07:04.383" duartion={1.7} />
@@ -65,108 +65,151 @@ const slaminator = translations.slaminator
 <GlowerPowerActivate time="07:06.345" />
 <SlaminatorCast start="07:07.188" />
 <SlaminatorActivate time="07:12.172" />
-<MechanicSection>
+<MechanicSection id="Stoneringer2Stoneringers">
   <div class="flex flex-col gap-4">
-    <T>
-      <Skill name={stoneringer2Stoneringers} />
-    </T>
-    <div class="paragraph">
-      读条期间
-      <BruteAbombinator />
-      掏出
-      <Span variant="pink">两把</Span>
-      武器，后续连续机制为：
+    <div class="flex flex-col gap-4">
+      <T>
+        <Skill name={stoneringer2Stoneringers} />
+      </T>
+      <P>
+        <BruteAbombinator />读条同时掏出2把不同武器，后续两把武器依次发光，释放一套组合技：
+      </P>
+      <P class="pl-2">
+        <ListDot />第1次<Skill name={brutishSwing} />
+      </P>
+      <P class="pl-6">
+        <Span variant="pink">1把</Span>武器<Span variant="pink">发光</Span>，然后<Span variant="pink">面向</Span
+        >四周1面墙壁并对其连线，挂到墙上后<Span variant="pink">面朝场内</Span>，发动对应<Span variant="yellow"
+          >钢铁/月环</Span
+        >
+      </P>
+      <P class="pl-6">武器与钢月对应关系与之前相同</P>
+      <P class="pl-2">
+        <ListDot /><Skill name={lashingLariat} />
+      </P>
+      <P class="pl-6"><BruteAbombinator />向对面墙冲锋，同时发光武器扫过<Span variant="pink">面前27m</Span>宽的场地</P>
+      <P class="pl-6"
+        >对范围内的玩家造成 <DamageInfo damage="190000" type="physical" />
+        ，并附加<DamageDown tag="30" hover /></P
+      >
+      <P class="pl-2">
+        <ListDot />第2次<Skill name={brutishSwing} />
+      </P>
+      <P class="pl-6">
+        <Span variant="pink">另1把</Span>武器<Span variant="pink">发光</Span>并连线左侧/右侧墙壁，发动对应<Span
+          variant="yellow">钢铁/月环</Span
+        >
+      </P>
+      <P class="pl-2">
+        <ListDot /><Skill name={slaminator} />
+      </P>
+      <P class="pl-6">
+        场中出现一座塔，对其中的<RoleIcon role="any" />造成总伤<DamageInfo
+          damage="800000"
+          type="physical"
+        />的可分摊伤害，无人踩塔则<Span variant="red">团灭</Span>
+      </P>
+
+      <T class="mt-8" variant="yellow" text="P3武器发光效果图示" />
+      <ImgRow
+        wrapperClass="max-w-100"
+        borderVariant="yellow"
+        imgs={[
+          {
+            src: img,
+            alt: 'm7sp3: 棍棒',
+            title: '钢铁',
+          },
+          {
+            src: img,
+            alt: 'm7sp3: 长刀',
+            title: '月环',
+          },
+        ]}
+      />
+      <T class="mt-8" variant="yellow" text="P3钢铁月环范围图示" />
+      <ImgRow
+        wrapperClass="max-w-100"
+        borderVariant="yellow"
+        imgs={[
+          {
+            src: circle_img,
+            alt: 'm7sp3: 钢铁',
+            title: '钢铁',
+          },
+          {
+            src: ring_img,
+            alt: 'm7sp3: 月环',
+            title: '月环',
+          },
+        ]}
+      />
+      <T class="mt-8" variant="yellow" text=`${lashingLariat}范围图示` />
+      <ImgRow
+        wrapperClass="max-w-100"
+        borderVariant="yellow"
+        imgs={[
+          {
+            src: img,
+            alt: 'm7sp3: 左半场刀',
+            title: '左半场',
+          },
+          {
+            src: img,
+            alt: 'm7sp3: 右半场刀',
+            title: '右半场',
+          },
+        ]}
+      />
     </div>
-    <div class="paragraph">
-      <ListDot />
-      <Skill name={brutishSwing} />
-      读条同时一把武器
-      <Span variant="pink">发光</Span>
-      ，
-      <BruteAbombinator />
-      移动至连线墙后释放对应
-      <Span variant="yellow">钢铁/月环</Span>
+    <Quote variant="yellow" class="opacity-80">
+      <P
+        >注意：以上为<Skill
+          name={stoneringer2Stoneringers}
+        />拆解，实际战斗中该机制会组合其他机制，P3共出现2次，参考上方时间轴</P
+      >
+    </Quote>
+    <div class="mt-4 flex flex-col gap-4">
+      <P
+        >在此处，穿插的是<StratLink variant="yellow" href="./p2/#revengeofvines">{revengeOfTheVines}</StratLink
+        >和<StratLink variant="yellow" href="./p2/#electrogenetic-force">{electrogeneticForce}</StratLink>+<StratLink
+          variant="yellow"
+          href="./p2/#gP">{glowerPower}</StratLink
+        >的组合，各机制效果与之前相同</P
+      >
     </div>
-    <div class="paragraph">
-      <ListDot />
-      全场AoE
-      <Skill name={revengeOfTheVines} />
-      释放后，使用武器的一侧释放宽于半场的
-      <Skill name={lashingLariat} />
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      使用另一把武器再次重复：武器
-      <Span variant="pink">发光</Span>
-      → 连线墙体 → 移动 → 释放
-      <Span variant="yellow">钢铁/月环</Span>
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      释放组合技直线AoE + 全员点名伤害， 即
-      <Skill name={[glowerPower, electrogeneticForce]}>
-        <div slot="separator">和</div>
-      </Skill>
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      <Skill name={slaminator} />
-      在场中生成塔
-    </div>
-    <T class="mt-8" variant="yellow" text="钢铁月环范围参考" />
-    <ImgRow
-      wrapperClass="max-w-100"
-      borderVariant="yellow"
-      imgs={[
-        {
-          src: circle_img,
-          alt: 'm7sp3: 钢铁',
-          title: '钢铁',
-        },
-        {
-          src: ring_img,
-          alt: 'm7sp3: 月环',
-          title: '月环',
-        },
-      ]}
-    />
-    <T class="mt-8" variant="yellow" text=`${lashingLariat}范围参考` />
-    <ImgRow
-      wrapperClass="max-w-100"
-      borderVariant="yellow"
-      imgs={[
-        {
-          src: left_img,
-          alt: 'm7sp3: 左半场刀',
-          title: '左半场',
-        },
-        {
-          src: right_img,
-          alt: 'm7sp3: 右半场刀',
-          title: '右半场',
-        },
-      ]}
-    />
   </div>
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      最后的塔可以由
-      <RoleIcon role="tank" />
-      开无敌单独踩塔
-    </div>
-    <div class="paragraph">组合技直线AoE + 全员点名伤害参考站位如下</div>
+    <P>
+      第1次<Skill name={brutishSwing} />读条时，观察发光武器和连线墙壁，在判定前到达安全区躲避钢月
+    </P>
+    <P class="pl-4">
+      由于<RoleIcon role="boss" tag="boss" />固定面朝连线墙壁，跳墙后面向<Span variant="pink">翻转</Span>
+    </P>
+    <P class="pl-4"
+      >所以跳墙前<Span variant="pink">发光武器</Span>所在的一侧是<Skill name={lashingLariat} />的安全侧，可提前就位</P
+    >
+    <P class="mt-4"
+      >躲完钢月后，注意减伤和治疗，也可此时观察墙上的<Span variant="pink">发光武器</Span>，避开其<Span variant="pink"
+        >面对</Span
+      >的一侧</P
+    >
+    <P class="mt-4">第2次<Skill name={brutishSwing} />读条时同样处理，此处固定与第1次相反</P>
+    <P class="pl-4">因为接下来是直线AoE，可以预先左右分组</P>
+    <P class="mt-4">然后按照下图所示站位分散：</P>
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="yellow"
       imgs={[
         {
-          src: glower_power_img,
-          alt: 'm7sp3: 分散站位',
-          title: '分散站位',
+          src: img,
+          alt: '分散直线站位',
+          title: '分散直线站位',
         },
       ]}
     />
+    <P class="mt-4">最后由<RoleIcon role="tank" tag="双T" /><Span variant="pink">开减伤分摊</Span>踩塔</P>
   </div>
 </SolutionSection>
