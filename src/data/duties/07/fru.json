@@ -4,6 +4,10 @@
   "type": "ultimate",
   "title": "光暗未来绝境战 攻略",
   "description": "最终幻想14 光暗未来绝境战 超详解动态图文攻略",
+  "navigationInfo": {
+    "name": "光暗未来绝境战",
+    "parent": ["绝境战"]
+  },
   "banner": "@/assets/banners/07/fru.png",
   "date": "",
   "href": "/07/fru",

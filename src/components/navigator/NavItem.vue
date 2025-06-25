@@ -3,11 +3,7 @@ import { onMounted, ref } from 'vue'
 
 import RightArrowSVG from '@/assets/svg/right-arrow.svg?component'
 
-interface Route {
-  name: string
-  path?: string
-  children?: Route[]
-}
+import type { Route } from './type'
 
 const props = withDefaults(
   defineProps<{
