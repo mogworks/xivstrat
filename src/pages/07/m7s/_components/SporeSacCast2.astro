@@ -1,19 +1,18 @@
 ---
-import { timeToSeconds, type Time } from '@/lib/utils'
+import { type Time } from '@/lib/utils'
 
 import CastSection from '@/components/section/CastSection.astro'
 
 import BruteAbombinator from './BruteAbombinator.astro'
 import Span from '@/components/Span.vue'
 import EventSection from '@/components/section/EventSection.astro'
-import DamageDown from '@/components/buff/DamageDown.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
 
 import MoveToCenterEvent from './MoveToCenterEvent.astro'
 import { translations } from '../_translations'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Badge from '@/components/Badge.astro'
 import ThornsOfDeathDebuff from './ThornsOfDeathDebuff.astro'
+import P from '@/components/typography/P.astro'
 
 interface Props {
   start: Time
@@ -21,7 +20,6 @@ interface Props {
 }
 
 const { start, end }: Props = Astro.props
-const seedsAppear = '08:02.581'
 const moveToCenter = '08:03.560'
 const seedFallen = '08:06.542'
 const sporeSac = translations.sporeSac
@@ -29,19 +27,16 @@ const sporeSac = translations.sporeSac
 
 <CastSection start={start} duration={2.7} ability={sporeSac}>
   <BruteAbombinator slot="source" />
+  <P>，完毕后1s场地出现<Span variant="green">孢子×4</Span>范围提示</P>
 </CastSection>
 <EventSection time="08:02.492"
   >对<RoleIcon role="any" tag="虚线" />施加连线<ThornsOfDeathDebuff hover /><Span variant="orange">9000/3s</Span>
   <Badge variant="orange">DoT</Badge></EventSection
 >
-<EventSection time={seedsAppear}>
-  <Span variant="green">孢子×4</Span>黄圈预兆出现
-</EventSection>
 
 <MoveToCenterEvent time={moveToCenter} />
 <EventSection time={seedFallen}>
   <Span variant="green">孢子×4</Span>
-  落下，对范围内的玩家造成
-  <DamageInfo damage="110000" type="magical" />
-  <DamageDown tag="30" hover />
+  落下，判定伤害
+  <Badge variant="emerald">8m圆形</Badge>
 </EventSection>

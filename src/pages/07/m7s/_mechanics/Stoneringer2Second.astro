@@ -40,6 +40,7 @@ import P from '@/components/typography/P.astro'
 import StratLink from '@/components/StratLink.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
 
 interface Props {
   time: Time
@@ -84,7 +85,7 @@ const strangeSeeds = translations.strangeSeeds
   <div class="flex flex-col gap-4">
     <T class="mt-8"><Skill name={strangeSeeds} /></T>
     <P
-      >依旧是点名放花+米字形AoE，造成<DamageInfo damage="90500" type="magical" />，并附加<MagicVulnerabilityUp
+      >依旧是点名放花+米字形AoE，造成<DamageInfo damage="90000" type="magical" />，并附加<MagicVulnerabilityUp
         tag="7"
         hover
       /></P
@@ -100,32 +101,23 @@ const strangeSeeds = translations.strangeSeeds
 </MechanicSection>
 <SolutionSection title="解法：Game8">
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      第二次放置
-      <Span variant="cyan">冰花</Span>
-      时，可以把靠近
-      <BruteAbombinator />
-      的位置留给近战职业
-    </div>
-    <div class="paragraph">
-      最后的塔可以由
-      <RoleIcon role="tank" />
-      开无敌单独踩塔
-    </div>
-    <T class="mt-8" variant="lime" text=`冰花放置参考` />
-    <div class="paragraph">注意在此解法中，第一次放置是以场地为基准，第二次放置是以面向Boss为基准</div>
-    <div class="paragraph">
-      这使得第一次放置时，近战职业可能远离
-      <BruteAbombinator />
-      ：
-      <ToggleSwitch
-        id="strange-seeds-solution-toggle"
-        lVariant="cyan"
-        rVariant="amber"
-        lLabel="TN组先"
-        rLabel="DPS组先"
-      />
-    </div>
+    <P>第1轮冰花以<Span variant="pink">场地标点A</Span>为正北：</P>
+    <Quote variant="rose">
+      <P class="pl-1">
+        <RoleIcon role="tank" tag="MT" /><RoleIcon role="ranged" tag="D3" />在<Span variant="red">标点1</Span>处， <RoleIcon
+          role="tank"
+          tag="ST"
+        /><RoleIcon role="magic" tag="D4" />在<Span variant="yellow">标点2</Span>处，<RoleIcon
+          role="tank"
+          tag="H2"
+        /><RoleIcon role="melee" tag="D2" />在<Span variant="blue">标点3</Span>处，<RoleIcon
+          role="tank"
+          tag="H1"
+        /><RoleIcon role="melee" tag="D1" />在<Span variant="purple">标点4</Span>处
+      </P></Quote
+    >
+    <P>放置自己的冰花</P>
+    <T variant="lime" text="第1轮放花位置示意图" class="mt-4" />
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="yellow"
@@ -133,35 +125,31 @@ const strangeSeeds = translations.strangeSeeds
       imgs={[
         {
           src: pos3_img,
-          alt: `${strangeSeeds} 第一次放置TN`,
-          title: '第一次放置',
+          alt: `${strangeSeeds} 第1轮TN位置`,
+          title: '第1轮TN放置',
         },
-        {
-          src: pos4_img,
-          alt: `${strangeSeeds} 第二次放置DPS`,
-          title: '第二次放置',
-        },
-      ]}
-    />
-    <ImgRow
-      wrapperClass="max-w-100"
-      borderVariant="yellow"
-      id="strange-seeds-solution-activate"
-      class="hidden"
-      imgs={[
         {
           src: pos1_img,
-          alt: `${strangeSeeds} 第一次放置DPS`,
-          title: '第一次放置',
-        },
-        {
-          src: pos2_img,
-          alt: `${strangeSeeds} 第二次放置TN`,
-          title: '第二次放置',
+          alt: `${strangeSeeds} 第1轮DPS位置`,
+          title: '第1轮DPS位置',
         },
       ]}
     />
-    <T class="mt-8" variant="lime" text=`冰花组合技` />
+    <P class="mt-4"
+      ><Skill name={strangeSeeds} />读条时，<RoleIcon role="all" tag="全员" /><Span variant="pink">靠近</Span
+      >自己的点位预站位</P
+    >
+    <P
+      >点名出现时，<RoleIcon role="any" tag="点名" />前往对应的位置放置，<RoleIcon
+        role="any"
+        tag="其他人"
+      />离开AoE范围，并同时观察<RoleIcon role="boss" tag="boss" />手中武器，判断钢月</P
+    >
+    <P class="mt-4">
+      点名伤害判定后，<RoleIcon role="all" tag="全员" />前往钢月和冰花安全区<Span variant="pink">重合</Span
+      >的部分，躲避钢月和冰花AoE
+    </P><P><Span variant="pink">同时</Span>观察半场刀的安全区</P>
+    <T class="mt-4" variant="lime" text=`冰花与钢月安全区` />
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="yellow"
@@ -178,31 +166,53 @@ const strangeSeeds = translations.strangeSeeds
         },
       ]}
     />
+
+    <P class="mt-4">冰花AoE判定后，全员前往安全区躲避半场刀，期间第2轮点名会出现</P>
+    <P>这一次以<RoleIcon role="boss" tag="boss" /><Span variant="pink">所在墙</Span>为正北：</P>
+    <Quote variant="rose">
+      <P class="pl-1">
+        <RoleIcon role="tank" tag="MT" /><RoleIcon role="melee" tag="D1" />在<Span variant="pink">西北</Span>标点处， <RoleIcon
+          role="tank"
+          tag="ST"
+        /><RoleIcon role="melee" tag="D2" />在<Span variant="pink">东北</Span>标点处，<RoleIcon
+          role="tank"
+          tag="H2"
+        /><RoleIcon role="ranged" tag="D3" />在<Span variant="pink">西南</Span>标点处，<RoleIcon
+          role="tank"
+          tag="H1"
+        /><RoleIcon role="magic" tag="D4" />在<Span variant="pink">东南</Span>标点处
+      </P></Quote
+    ><P>放置冰花</P>
+    <T variant="lime" text="第2轮放花位置示意图" class="mt-4" />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      id="strange-seeds-solution"
+      imgs={[
+        {
+          src: pos2_img,
+          alt: `${strangeSeeds} 第2次TN放置`,
+          title: '第2次TN放置',
+        },
+        {
+          src: pos4_img,
+          alt: `${strangeSeeds} 第2次DPS放置`,
+          title: '第2次DPS放置',
+        },
+      ]}
+    />
+    <P>
+      放花时要做的事和第1次一样，且不再有半场刀，最后场中出现塔，<RoleIcon role="tank" tag="双T" /><Span variant="pink"
+        >开减伤分摊</Span
+      >处理
+    </P>
   </div>
 </SolutionSection>
-
-<script>
-  function toggleTables(omenId: string, activateId: string, showActivate: boolean) {
-    const omenTable = document.getElementById(omenId)
-    const activateTable = document.getElementById(activateId)
-
-    if (omenTable && activateTable) {
-      if (showActivate) {
-        omenTable.classList.toggle('hidden', true)
-        activateTable.classList.toggle('hidden', false)
-        activateTable.classList.add('flex')
-      } else {
-        activateTable.classList.toggle('hidden', true)
-        omenTable.classList.toggle('hidden', false)
-      }
-    }
-  }
-
-  document.addEventListener('change', (event) => {
-    const target = event.target as HTMLInputElement
-
-    if (target && target.matches('#strange-seeds-solution-toggle')) {
-      toggleTables('strange-seeds-solution-omen', 'strange-seeds-solution-activate', target.checked)
-    }
-  })
-</script>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      在第2轮放花时，如果远程站在标点正中心处，会打不到<RoleIcon role="boss" tag="boss" />
+    </P>
+    <P>往场中方向靠近<Span variant="pink">约1个人物模型</Span>的距离，就可以在几乎不影响冰花安全区的同时打到</P>
+  </div>
+</NoteSection>

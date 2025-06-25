@@ -1,5 +1,4 @@
 ---
-import type { Time } from '@/lib/utils'
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
@@ -20,10 +19,25 @@ import BloomingAbomination from '../_components/BloomingAbomination.astro'
 import TendrilsofTerrorAppear2 from '../_components/TendrilsofTerrorAppear2.astro'
 import QuarrySwampCast from '../_components/QuarrySwampCast.astro'
 import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
+import { translations } from '../_translations'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
+import StratLink from '@/components/StratLink.astro'
+import Quote from '@/components/typography/Quote.astro'
+import BloomingAbominationSimplified from '../_components/BloomingAbominationSimplified.astro'
+import img from '@/assets/07/m7s/Tmp.png'
+import ListDot from '@/components/ListDot.astro'
+
+const debrisDeathmatch = translations.debrisDeathmatch
+const thornsofDeath = translations.thornsOfDeath
+const sporeSac = translations.sporeSac
+const pollen = translations.pollen
+const killerSeeds = translations.killerSeeds
+const quarrySwamp = translations.quarrySwamp
 ---
 
 <DebrisDeathmatchCast start="07:53.308" />
-<EventSection time="07:55.308">四周四面墙最近各一名<RoleIcon role="any" />身上出现虚线预兆</EventSection>
+<EventSection time="07:57.598">四周四面墙最近各1<RoleIcon role="any" />身上出现虚线预兆</EventSection>
 <SporeSacCast2 start="07:58.431" end="08:01.422" />
 <AttackSection time="08:06.365" damage="57000" damageType="physical" />
 <PollenCast start="08:08.192" />
@@ -43,6 +57,156 @@ import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
 <AttackSection time="08:27.580" damage="57000" damageType="physical" />
 <QuarrySwampCast start="08:28.695" />
 
-<MechanicSection />
-<NoteSection />
-<SolutionSection />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <T><Skill name={debrisDeathmatch} /></T>
+    <P>
+      <BruteAbombinator />读条完毕约<Span variant="pink">1.6s</Span>后，场边<Span variant="pink">四面</Span
+      >墙壁各自对<Span variant="pink">距离最近</Span>的<Span variant="pink">1</Span><RoleIcon
+        role="any"
+      />施加虚线连线预兆
+    </P>
+    <P
+      >约<Span variant="pink">5s</Span>后，虚线预兆变为荆棘连线，根据虚线长度对当前连线者附加<ThornsOfDeathDebuff
+        level={1}
+        hover
+      />/<ThornsOfDeathDebuff level={2} hover />/<ThornsOfDeathDebuff level={3} hover />/<ThornsOfDeathDebuff
+        level={4}
+        hover
+      /></P
+    >
+    <P>
+      <ThornsOfDeathDebuff hover /><Skill name={thornsofDeath} />的效果与<StratLink
+        variant="yellow"
+        href="./p2/#thornsofdeath">P2</StratLink
+      >时相同</P
+    >
+  </div>
+  <div class="mt-8 flex flex-col gap-4">
+    <P
+      ><StratLink variant="yellow" href="./p1/#sporesacmc">{sporeSac} </StratLink>与<StratLink
+        variant="yellow"
+        href="./p1/#pollenmc"
+        >{pollen}
+      </StratLink>机制效果与P1时相同（落下种子+长出藤蔓+生成小怪+石化波动）</P
+    >
+    <P>但此处的<BloomingAbominationSimplified />会被<BruteAbombinator />石化，之后一碰就碎</P>
+    <P class="mt-4"
+      >此处还复合了一次<StratLink variant="yellow" href="./p2/#killerseedsmc">{killerSeeds}</StratLink
+      >（双人分摊+放冰花）</P
+    >
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      以场地<Span variant="pink">标点A</Span>为正北：
+      <Quote variant="rose">
+        <P
+          ><RoleIcon role="ranged" tag="D3" />引导<Span variant="pink">北面</Span>墙，<RoleIcon
+            role="healer"
+            tag="H1"
+          />引导<Span variant="pink">西面</Span>墙，<RoleIcon role="ranged" tag="D4" />引导<Span variant="pink"
+            >南面</Span
+          >墙，<RoleIcon role="healer" tag="H2" />引导<Span variant="pink">东面</Span>墙</P
+        >
+      </Quote></P
+    >
+    <P> 在<Skill name={sporeSac} />读条结束（虚线预兆变为荆棘连线）之前，靠近所连墙壁</P>
+    <P class="mt-4"
+      ><Span variant="green">孢子</Span>落下，观察<Skill name={pollen} />安全区的位置，此处AoE分布情况与P1时相同
+    </P>
+    <P><RoleIcon role="tank|dps" tag="近战" />在内场安全区，<RoleIcon role="healer|dps" tag="远程" />在外场安全区躲避</P
+    >
+    <P
+      >此处由于<RoleIcon role="healer|dps" tag="远程" />身上存在<ThornsOfDeathDebuff
+        hover
+      />，请注意站位，尽量靠近场边，<Span variant="pink">保持</Span><ThornsOfDeathDebuff
+        level={1}
+        hover
+      />/<ThornsOfDeathDebuff level={2} hover /></P
+    >
+    <P class="mt-4"><Skill name={pollen} />AoE判定后，按照：</P>
+    <P>
+      <Quote variant="rose">
+        <P>
+          <RoleIcon role="tank" tag="MT" /><RoleIcon role="ranged" tag="D3" />，<RoleIcon
+            role="melee"
+            tag="D1"
+          /><RoleIcon role="healer" tag="H1" />，<RoleIcon role="tank" tag="ST" /><RoleIcon
+            role="magic"
+            tag="D4"
+          />，<RoleIcon role="melee" tag="D2" /><RoleIcon role="healer" tag="H2" /></P
+        ></Quote
+      >
+      的分组进行<Span variant="pink">分摊</Span>，将冰花放在<Span variant="pink">场边</Span>，躲开随后的冰花AoE</P
+    >
+    <T class="mt-4" variant="lime" text="分摊放冰花站位图示" />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: img,
+          alt: '',
+          title: '分摊放冰花站位',
+        },
+      ]}
+    />
+    <P class="mt-4"
+      >冰花伤害判定后，
+      <Quote variant="rose">
+        <P
+          ><RoleIcon role="tank" tag="MT" />拉住场地<Span variant="pink">西</Span>侧和<Span variant="pink">北</Span
+          >侧的<BloomingAbominationSimplified />x2至西北内场
+        </P>
+        <P
+          ><RoleIcon role="tank" tag="ST" />拉住场地<Span variant="pink">东</Span>侧和<Span variant="pink">南</Span
+          >侧的<BloomingAbominationSimplified />x2至东南内场
+        </P></Quote
+      >，<Span variant="pink">开好减伤</Span></P
+    >
+    <P>人群此时不用集火小怪</P>
+
+    <P class="mt-4"
+      >在<RoleIcon role="boss" tag="boss" />读条<Skill
+        name={quarrySwamp}
+      />结束前，全员前往下图位置，躲在<BloomingAbominationSimplified />身后躲避石化</P
+    >
+    <T class="mt-4" variant="lime" text="石化波动站位示意图" />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: img,
+          alt: '',
+          title: '分摊放冰花站位',
+        },
+      ]}
+    />
+  </div>
+</SolutionSection>
+
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <P><ListDot />因为分摊冰花需要贴场边放置，而P3场地边长40m，团辅技能半径30m范围 </P>
+    <P>
+      <ListDot />又因为此时对<BloomingAbominationSimplified
+      />的输出实际上无效，同时为了能够在P3落地爆发药之后的10：35再吃第三瓶</P
+    >
+    <P><ListDot />且狂暴轴11：07，延后不会少时间和次数</P><P>（还有其他原因）</P>
+    <P>一般此处的团辅会延后至8：35，即<BloomingAbominationSimplified />刚被石化后约1s</P>
+    <Quote variant="rose"
+      ><P>如果P3开场2GCD团辅，则延后8个GCD</P>
+      <P>如果3GCD团辅，则延后7个GCD</P>
+    </Quote>
+    <P
+      >由此，为了能保证团辅覆盖所有人，且接线的<RoleIcon role="healer|dps" tag="远程" />身上不超过<ThornsOfDeathDebuff
+        level={2}
+        hover
+      />，此处给出石化波动的站位示意图
+    </P>
+  </div>
+</NoteSection>

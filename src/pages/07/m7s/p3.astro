@@ -25,6 +25,9 @@ import SmashActivate from './_components/SmashActivate.astro'
 import DebrisDeathmatch from './_mechanics/DebrisDeathmatch.astro'
 
 import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import P from '@/components/typography/P.astro'
 
 const dutyId = '07/m7s'
 
@@ -46,6 +49,12 @@ const sporesac = translations.sporeSac
   <SeparatorSection />
   <DraftWarning />
   <SeparatorSection />
+  <NoteSection>
+    <div class="flex flex-col gap-4">
+      <P>P3机制多为前2P已出现的相同机制、少数机制效果稍微修改后的重新组合，因此许多机制下面不再详述</P>
+      <P>本P机制速度较快，场地较大，容易吃<DamageDown hover />和打不到<BruteAbombinator /></P>
+    </div>
+  </NoteSection>
   <EventSection time="06:09.273">
     <BruteAbombinator />可选中
   </EventSection>
