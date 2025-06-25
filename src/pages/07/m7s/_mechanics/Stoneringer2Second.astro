@@ -32,10 +32,14 @@ import MoveToCenterEvent from '../_components/MoveToCenterEvent.astro'
 import StrangeSeedsAppear from '../_components/StrangeSeedsAppear.astro'
 import StrangeSeedsActivate from '../_components/StrangeSeedsActivate.astro'
 import TendrilsofTerrorAppear from '../_components/TendrilsofTerrorAppear.astro'
-import TendrilsofTerrorAppear2 from '../_components/TendrilsofTerrorAppear2.astro'
 import LashingLariatActivate from '../_components/LashingLariatActivate.astro'
 import SlaminatorActivate from '../_components/SlaminatorActivate.astro'
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
+import Quote from '@/components/typography/Quote.astro'
+import P from '@/components/typography/P.astro'
+import StratLink from '@/components/StratLink.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
 interface Props {
   time: Time
@@ -52,88 +56,46 @@ const strangeSeeds = translations.strangeSeeds
 <MoveToCenterEvent time="09:34.096" />
 <StrangeSeedsCast start="09:36.193" />
 <StrangeSeedsAppear time="09:41.315" num={1} />
-<BrutishSwingCast start="09:44.261" />
+<BrutishSwingCast start="09:44.261" duration={6.7} />
 <StrangeSeedsActivate time="09:46.310" num={1} />
 <TendrilsofTerrorAppear time="09:48.451" num={1} />
 <BrutishSwingMoveActivate time="09:49.923" />
 <BrutishSwingActivate time="09:50.949" />
-<TendrilsofTerrorAppear2 time="09:51.439" num={1} />
 <LashingLariatCast start="09:52.017" />
 <StrangeSeedsAppear time="09:55.541" num={2} />
 <LashingLariatActivate time="09:55.987" />
-<BrutishSwingCast start="09:58.661" />
+<BrutishSwingCast start="09:58.661" duration={6.7} />
 <StrangeSeedsActivate time="10:00.534" num={2} />
 <TendrilsofTerrorAppear time="10:02.6701" num={2} />
 <BrutishSwingMoveActivate time="10:04.362" />
 <BrutishSwingActivate time="10:05.342" />
-<TendrilsofTerrorAppear2 time="10:05.656" num={2} />
 <SlaminatorCast start="10:06.990" />
 <SlaminatorActivate time="10:11.986" />
 
-<MechanicSection title=`第二次 ${stoneringer2Stoneringers}`>
+<MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      <BruteAbombinator />
-      掏出两把武器并进行下列组合技：
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      点名四人
-      <RoleIcon role="tank|healer" />
-      组或
-      <RoleIcon role="dps" />
-      组准备放置第一次
-      <Span variant="cyan">冰花</Span>
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      一把武器
-      <Span variant="pink">发光</Span>
-      ，同时Boss连线一面墙
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      点名判定
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      <BruteAbombinator />
-      跳至连线墙，随后
-      <Span variant="cyan">冰花</Span>
-      与
-      <Span variant="yellow">钢铁/月环</Span>
-      同时判定
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      释放宽于半场的
-      <Skill name={lashingLariat} />
-      ，同时点名不同的四人
-      <RoleIcon role="dps" />
-      组或
-      <RoleIcon role="tank|healer" />
-      组准备放置第二次
-      <Span variant="cyan">冰花</Span>
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      点名判定，同时另一把武器
-      <Span variant="pink">发光</Span>
-      且Boss连线一面墙
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      <BruteAbombinator />
-      跳至连线墙，判定第二次
-      <Span variant="cyan">冰花</Span>
-      与另一种
-      <Span variant="yellow">钢铁/月环</Span>
-    </div>
-    <div class="paragraph">
-      <ListDot />
-      <Skill name={slaminator} />
-      在场中生成塔
-    </div>
+    <Quote variant="yellow" class="opacity-80">
+      <P
+        >注意：此处为<StratLink variant="yellow" href="#Stoneringer2Stoneringers">{stoneringer2Stoneringers}</StratLink
+        >在P3第2次出现，其中穿插了<Skill name={strangeSeeds} />，参考上方时间轴</P
+      >
+    </Quote>
+  </div>
+  <div class="flex flex-col gap-4">
+    <T class="mt-8"><Skill name={strangeSeeds} /></T>
+    <P
+      >依旧是点名放花+米字形AoE，造成<DamageInfo damage="90500" type="magical" />，并附加<MagicVulnerabilityUp
+        tag="7"
+        hover
+      /></P
+    >
+    <P
+      >与<StratLink variant="yellow" href="./p2/#strangeSeeds">P2时</StratLink>不同，此处每轮点名<Span variant="pink"
+        >4</Span
+      ><RoleIcon role="tank|healer" />或<Span variant="pink">4</Span><RoleIcon role="dps" />，共<Span variant="pink"
+        >2轮</Span
+      ></P
+    >
   </div>
 </MechanicSection>
 <SolutionSection title="解法：Game8">

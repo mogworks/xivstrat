@@ -5,7 +5,6 @@ import ScannerSVG from '@/assets/svg/scanner.svg'
 import BiliBiliSVG from '@/assets/svg/bilibili.svg'
 
 import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
-import Separator from '@/components/Separator.astro'
 import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import AreaBox from '@/components/AreaBox.astro'
 
@@ -60,7 +59,7 @@ const videoLink = ''
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
       >
-        查看本体
+        查看后半阶段攻略
       </button>
     </a>
   </Fragment>
@@ -81,7 +80,7 @@ const videoLink = ''
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="macro" client:idle class="w-full">
-    <Macro text={macro} title="M8S门神站位" />
+    <Macro text={macro} title="M8S前半阶段站位" />
     <Fragment slot="header">
       <span>宏</span>
     </Fragment>
