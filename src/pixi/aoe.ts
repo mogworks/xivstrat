@@ -25,7 +25,7 @@ export const AOE_COLORS = {
 
 export type AoEColors = typeof AOE_COLORS.default
 
-export type AoEType = 'rect' | 'circle' | 'ring' | 'ringFan'
+type AoEType = 'rect' | 'circle' | 'ring' | 'ringFan'
 
 export class AoETexture extends Texture {
   type: AoEType
