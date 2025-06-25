@@ -22,7 +22,7 @@ import smash_there from '@/assets/07/m7s/smash_there.png'
 import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
 import SmashActivate from '../_components/SmashActivate.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
-import ListDot from '@/components/ListDot.astro'
+import Quote from '@/components/typography/Quote.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import Skill from '@/components/typography/Skill.astro'
@@ -165,15 +165,15 @@ const brutishswing = translations.brutishSwing
       先根据<Span variant="pink">发光</Span>的武器，判断读条结束后躲钢铁还是躲月环
     </div>
     <div class="gap-strat mt-8 flex items-center">钢月黄色预兆<Span variant="pink">消失</Span>的瞬间，</div>
-    <div class="gap-strat flex items-center">
-      <ListDot />
-      <RoleIcon role="tank" tag="引导T" />
-      引导对应的<Span variant="pink">最近</Span>/<Span variant="pink">最远</Span>死刑，无敌处理
-    </div>
-    <div class="gap-strat flex items-center">
-      <ListDot />
-      <RoleIcon role="all" tag="其他人" />
-      根据死刑读条<Span variant="pink">远离</Span>/<Span variant="pink">靠近</Span><RoleIcon role="boss" tag="boss" />
-    </div>
+    <Quote variant="rose">
+      <div class="gap-strat flex items-center pl-1">
+        <RoleIcon role="tank" tag="引导T" />
+        引导对应的<Span variant="pink">最近</Span>/<Span variant="pink">最远</Span>死刑，无敌处理
+      </div>
+      <div class="gap-strat flex items-center pl-1">
+        <RoleIcon role="all" tag="其他人" />
+        根据死刑读条<Span variant="pink">远离</Span>/<Span variant="pink">靠近</Span><RoleIcon role="boss" tag="boss" />
+      </div>
+    </Quote>
   </div>
 </SolutionSection>
