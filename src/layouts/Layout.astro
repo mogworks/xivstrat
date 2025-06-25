@@ -1,6 +1,9 @@
 ---
 import '@/styles/global.css'
 import Navigation from '@/components/navigator/Navigation.vue'
+import { getCollection, getEntries } from 'astro:content'
+import type { Route } from '@/components/navigator/type'
+import { findOrCreateRouteNode } from '@/lib/utils'
 
 interface Props {
   lang?: string
@@ -54,33 +57,66 @@ const keywords = [
   '零式通关',
   '阿卡狄亚',
 ]
-
 const { lang = 'zh-CN', title = defaultTitle, description = defaultDescription }: Props = Astro.props
-const routes = [
+
+const dutyGroups = await getCollection('dutyGroups')
+const staticRoutes: Route[] = [
   { name: '首页', path: '/' },
   { name: '关于', path: '/about' },
-  {
-    name: 'Patch 7.2',
-    children: [
-      {
-        name: '阿卡狄亚零式登天斗技场 中量级',
-        children: [
-          { name: 'M5S', path: '/07/m5s' },
-          { name: 'M6S', path: '/07/m6s' },
-          { name: 'M7S', path: '/07/m7s' },
-          {
-            name: 'M8S',
-            children: [
-              { name: '前半', path: '/07/m8s1' },
-              { name: '后半', path: '/07/m8s2' },
-            ],
-          },
-        ],
-      },
-      { name: '泽莲尼娅歼殛战', path: '/07/zelenia' },
-    ],
-  },
 ]
+const dutyRoutes = await (async () => {
+  const list: Route[] = []
+  await new Promise((resolve) => {
+    dutyGroups.forEach(async (group, index) => {
+      const groupData = group.data
+      const groupName = groupData.group
+      const routeItem = {
+        name: groupName,
+        children: await (async () => {
+          const duties = await getEntries(groupData.duties)
+          const rootRoutes: Route[] = []
+          for (const duty of duties) {
+            const dutyData = duty.data
+
+            if (!dutyData.indexAvailable) {
+              continue
+            }
+
+            const leafName = dutyData.navigationInfo?.name ?? dutyData.name
+            const parentHierarchy = dutyData.navigationInfo?.parent || [] // 父层路径数组
+
+            let currentLevel: Route[] = rootRoutes
+
+            // 按 parent 层级顺序创建目录节点
+            try {
+              for (const dirName of parentHierarchy) {
+                const dirNode = findOrCreateRouteNode(currentLevel, dirName)
+                if (!dirNode.children) dirNode.children = []
+                currentLevel = dirNode.children
+              }
+
+              const leafNode: Route = { name: leafName, path: dutyData.href }
+
+              if (currentLevel.some((n) => n.name === leafName)) {
+                throw new Error(`节点 '${leafName}' 在当前层级已存在`)
+              }
+              currentLevel.push(leafNode)
+            } catch (e: any) {
+              console.error(`[${groupName}] 添加节点失败`, e.message)
+            }
+          }
+          return rootRoutes
+        })(),
+      }
+      list.push(routeItem)
+      if (index === dutyGroups.length - 1) {
+        resolve(true)
+      }
+    })
+  })
+  return list.filter((item) => !item.children || (item.children && item.children.length > 0))
+})()
+const routes: Route[] = [...staticRoutes, ...dutyRoutes]
 ---
 
 <!doctype html>

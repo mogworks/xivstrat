@@ -4,6 +4,8 @@ import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { z } from 'zod'
 
+import type { Route } from '@/components/navigator/type'
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -85,4 +87,16 @@ export function splitDamage(damage: string): string {
     // 非伤害数字部分 + 格式化的整数 + 直接贴上的小数
     return sign + formattedInteger + (fraction ? `.${fraction}` : '')
   })
+}
+
+export function findOrCreateRouteNode(parentLevel: Route[], nodeName: string): Route {
+  let node = parentLevel.find(item => item.name === nodeName)
+  if (!node) {
+    node = { name: nodeName, children: [] }
+    parentLevel.push(node)
+  } else if (node.path) {
+    // 不允许叶子节点和目录节点同名冲突
+    throw new Error(`'${nodeName}' 已定义为叶子节点（含path），不能作为目录`)
+  }
+  return node
 }
