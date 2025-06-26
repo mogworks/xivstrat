@@ -18,6 +18,10 @@ import NoteSection from '@/components/section/NoteSection.astro'
 import Tmp0 from '@/assets/07/m7s/Tmp.png'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
+import abominable_blink_1 from '@/assets/07/m7s/tdab/AbBlink_flare1.png'
+import abominable_blink_2 from '@/assets/07/m7s/tdab/AbBlink_flare2.png'
+import game8_abominable_blink from '@/assets/07/m7s/tdab/game8_abblink.png'
+
 const thornyDeathmatch = translations.thornyDeathmatch
 const abominableBlink = translations.abominableBlink
 const sporesplosion = translations.sporesplosion
@@ -143,9 +147,14 @@ const defaultSolution = '解法：本站攻略'
         bordered={false}
         imgs={[
           {
-            src: Tmp0,
+            src: abominable_blink_1,
             alt: '',
-            title: '本站攻略',
+            title: 'BOSS位于上/下的墙面',
+          },
+          {
+            src: abominable_blink_2,
+            alt: '',
+            title: 'BOSS位于左边墙面',
           },
         ]}
       />
@@ -170,7 +179,7 @@ const defaultSolution = '解法：本站攻略'
         bordered={false}
         imgs={[
           {
-            src: Tmp0,
+            src: game8_abominable_blink,
             alt: '',
             title: 'Game8原版',
           },
