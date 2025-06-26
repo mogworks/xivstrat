@@ -23,7 +23,5 @@ const { icon, tag = '', alt = '', class: className = '', iconClass = '', ...rest
   <slot name="icon">
     <Icon img={icon} alt={alt ?? tag} tag={tag} iconClass={iconClass} />
   </slot>
-  <div class="text-decimal">
-    <slot />
-  </div>
+  <slot />
 </div>

@@ -4,7 +4,6 @@ import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
-import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
@@ -30,9 +29,6 @@ const neoBombarianSpecial = translations.neoBombarianSpecial
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <SeparatorSection />
-  <DraftWarning />
-  <SeparatorSection />
   <EventSection>
     <RoleIcon role="tank" tag="MT" />
     开怪，将

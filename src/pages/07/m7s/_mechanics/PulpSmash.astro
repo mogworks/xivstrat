@@ -1,11 +1,6 @@
 ---
-import type { Time } from '@/lib/utils'
-
-import { Image } from 'astro:assets'
-
 import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 
@@ -15,9 +10,7 @@ import TheUnpottedActivate from '../_components/TheUnpottedActivate.astro'
 
 import pulp_smash from '@/assets/07/m7s/pulp_smash/pulp_smash.png'
 import pulp_smash_arena_base from '@/assets/07/m7s/pulp_smash/pulp_smash_arena_base.png'
-import PulpSmashActivate from '../_components/PulpSmashActivate.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-import ListDot from '@/components/ListDot.astro'
 import ICftDActivate from '../_components/ICftDActivate.astro'
 import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
@@ -26,6 +19,7 @@ import Span from '@/components/Span.vue'
 import P from '@/components/typography/P.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import NoteSection from '@/components/section/NoteSection.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
 
 const pulpSmash = translations.pulpSmash
 const ITCD = translations.itCameFromTheDirt
@@ -34,18 +28,17 @@ const theUnpotted = translations.theUnpotted
 const solutions = [
   {
     id: 'PulpSmash-game8',
-    title: '解法：Game8原版',
+    title: '解法：日野主流（面基）',
   },
   {
     id: 'PulpSmash-EU',
-    title: '解法：欧野主流',
+    title: '解法：欧野主流（场基）',
   },
 ]
-const defaultSolution = '解法：Game8原版'
+const defaultSolution = '解法：日野主流（面基）'
 ---
 
 <PulpSmashCast start="02:01.981" />
-<PulpSmashActivate time="02:07.019" />
 <ICftDActivate time="02:08.978" />
 <TheUnpottedActivate time="02:09.025" />
 <MechanicSection>
@@ -55,7 +48,7 @@ const defaultSolution = '解法：Game8原版'
         <Skill name={pulpSmash} />
       </T>
       <div class="paragraph">
-        <BruteAbombinator />跳向<RoleIcon role="healer" />释放可分摊伤害,总伤害约
+        <BruteAbombinator />点名<RoleIcon role="healer" tag="随机" />释放可分摊伤害，总伤害约
         <DamageInfo damage="880000" type="physical" />，8人分摊时每人受到<DamageInfo damage="110000" type="physical" />
       </div>
     </div>
@@ -64,12 +57,9 @@ const defaultSolution = '解法：Game8原版'
         <Skill name={ITCD} />
       </T>
       <P>
-        <Skill name={pulpSmash} />对全员伤害生效<Span variant="pink">1.5s</Span>后，<BruteAbombinator
-        />脚底释放半径<Span variant="pink">6m</Span>的钢铁（<RoleIcon role="boss" tag="boss" /><Span variant="pink"
-          >目标圈内环</Span
-        >），
+        <Skill name={pulpSmash} />判定后，<BruteAbombinator />脚底还会释放半径<Span variant="pink">6m</Span
+        >的钢铁，对范围内的玩家造成<DamageInfo damage="123000" type="magical" /><DamageDown tag="30" hover />
       </P>
-      <P>对范围内的玩家造成<DamageInfo damage="123000" type="magical" /></P>
     </div>
     <div class="flex flex-col gap-4">
       <T class="gap-strat mt-8 inline-flex">
@@ -85,35 +75,35 @@ const defaultSolution = '解法：Game8原版'
 </MechanicSection>
 
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：Game8原版">
+  <div slot="解法：日野主流（面基）">
     <div class="flex flex-col gap-4">
       <div class="paragraph">
-        分摊预兆出现后，<RoleIcon role="all" tag="所有人" />前往<RoleIcon role="healer" tag="点名" /><Span
-          variant="pink">处</Span
-        >集合
-      </div>
-      <div class="paragraph">
-        在<BruteAbombinator />跳向<RoleIcon role="healer" />分摊后，以<RoleIcon role="boss" tag="boss" /><Span
-          variant="pink">面向</Span
-        >为基准，<Span variant="pink">八方分散</Span>
+        分摊预兆出现后，
+        <RoleIcon role="all" tag="全员" />
+        前往被点名的
+        <RoleIcon role="healer" />
+        处集合分摊
+      </div><div class="paragraph">
+        为了避免BOSS在空中大回旋，我们规定被点名的奶妈固定站在<RoleIcon role="boss" tag="boss" />当前面向的<Span
+          variant="pink">正面</Span
+        >
+      </div><div class="paragraph">
+        接着以
+        <BruteAbombinator />
+        的
+        <Span variant="pink">面向</Span>
+        为基准，按
+        <Span variant="pink">标准八方分散</Span>
       </div>
       <div class="paragraph">分散示意图如下：</div>
-      <ImgRow
-        wrapperClass="max-w-100"
-        bordered={false}
-        imgs={[{ src: pulp_smash, alt: '以BOSS面向为准', title: '面基' }]}
-      />
+      <ImgRow wrapperClass="max-w-100" bordered={false} imgs={[{ src: pulp_smash, alt: '以BOSS面向为准' }]} />
     </div>
   </div>
-  <div slot="解法：欧野主流">
+  <div slot="解法：欧野主流（场基）">
     <div class="flex flex-col gap-4">
       <div class="paragraph">
-        分摊预兆出现后，<RoleIcon role="all" tag="所有人" />前往<Span variant="pink">场中</Span>等待分摊
-      </div>
-      <div class="paragraph">
-        在<BruteAbombinator />跳向<RoleIcon role="healer" />分摊后，以<Span variant="pink">场地</Span>为基准，<Span
-          variant="pink">八方分散</Span
-        >
+        分摊预兆出现后，<RoleIcon role="all" tag="全员" />前往<Span variant="pink">场中</Span>集合分摊，接着以
+        <Span variant="pink">场地</Span>为基准，按<Span variant="pink">标准八方分散</Span>
       </div>
 
       <div class="paragraph">分散示意图如下：</div>
@@ -124,7 +114,6 @@ const defaultSolution = '解法：Game8原版'
           {
             src: pulp_smash_arena_base,
             alt: '以场地方向为准',
-            title: '场基',
           },
         ]}
       />

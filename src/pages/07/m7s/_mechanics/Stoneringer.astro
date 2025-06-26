@@ -14,9 +14,8 @@ import T from '@/components/typography/T.astro'
 import P from '@/components/typography/P.astro'
 
 import StoneringerCast from '../_components/StoneringerCast.astro'
-import SmashHereCast from '../_components/SmashHereCast.astro'
+import SmashHereThereCast from '../_components/SmashHereThereCast.astro'
 import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
-import SmashActivate from '../_components/SmashActivate.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 
 import { translations } from '../_translations'
@@ -37,8 +36,7 @@ const brutishswing = translations.brutishSwing
 
 <StoneringerCast start="00:20.89" />
 <BrutishSwingActivate time="00:32.704" />
-<SmashHereCast start="00:28.76" />
-<SmashActivate time="00:33.860" />
+<SmashHereThereCast start="00:28.76" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T>
@@ -161,20 +159,27 @@ const brutishswing = translations.brutishSwing
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <P>
       <RoleIcon role="any" tag="全员" />
       先根据<Span variant="pink">发光</Span>的武器，判断读条结束后躲钢铁还是躲月环
-    </div>
+    </P>
+    <P>
+      再根据
+      <Skill name={smashHereThere} />
+      的读条情况预先判断接下来靠近还是远离
+      <BruteAbombinator />
+      ，并调整站位
+    </P>
     <P class="mt-4">钢月黄色预兆<Span variant="pink">消失</Span>的瞬间：</P>
     <Quote variant="lime">
-      <div class="gap-strat flex items-center pl-1">
+      <P class="pl-1">
         <RoleIcon role="tank" tag="引导T" />
         引导对应的<Span variant="pink">最近</Span>/<Span variant="pink">最远</Span>死刑，无敌处理
-      </div>
-      <div class="gap-strat flex items-center pl-1">
-        <RoleIcon role="all" tag="其他人" />
+      </P>
+      <P class="pl-1">
+        <RoleIcon role="all" tag="其他" />
         根据死刑读条<Span variant="pink">远离</Span>/<Span variant="pink">靠近</Span><BruteAbombinator />
-      </div>
+      </P>
     </Quote>
     <P class="mt-4">
       <Skill name={stoneringer} />

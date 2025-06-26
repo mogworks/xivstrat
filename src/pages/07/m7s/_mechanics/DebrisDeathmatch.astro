@@ -23,7 +23,6 @@ import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import StratLink from '@/components/StratLink.astro'
 import Quote from '@/components/typography/Quote.astro'
-import BloomingAbominationSimplified from '../_components/BloomingAbominationSimplified.astro'
 import img from '@/assets/07/m7s/Tmp.png'
 import ListDot from '@/components/ListDot.astro'
 
@@ -88,7 +87,7 @@ const quarrySwamp = translations.quarrySwamp
         >{pollen}
       </StratLink>机制效果与P1时相同（落下种子+长出藤蔓+生成小怪+石化波动）</P
     >
-    <P>但此处的<BloomingAbominationSimplified />会被<BruteAbombinator />石化，之后一碰就碎</P>
+    <P>但此处的<BloomingAbomination />会被<BruteAbombinator />石化，之后一碰就碎</P>
     <P class="mt-4"
       >此处还复合了一次<StratLink variant="yellow" href="./p2/#killerseedsmc">{killerSeeds}</StratLink
       >（双人分摊+放冰花）</P
@@ -157,20 +156,19 @@ const quarrySwamp = translations.quarrySwamp
       <Quote variant="rose">
         <P
           ><RoleIcon role="tank" tag="MT" />拉住场地<Span variant="pink">西</Span>侧和<Span variant="pink">北</Span
-          >侧的<BloomingAbominationSimplified />x2至西北内场
+          >侧的<BloomingAbomination />x2至西北内场
         </P>
         <P
           ><RoleIcon role="tank" tag="ST" />拉住场地<Span variant="pink">东</Span>侧和<Span variant="pink">南</Span
-          >侧的<BloomingAbominationSimplified />x2至东南内场
+          >侧的<BloomingAbomination />x2至东南内场
         </P></Quote
       >，<Span variant="pink">开好减伤</Span></P
     >
     <P>人群此时不用集火小怪</P>
 
     <P class="mt-4"
-      >在<RoleIcon role="boss" tag="boss" />读条<Skill
-        name={quarrySwamp}
-      />结束前，全员前往下图位置，躲在<BloomingAbominationSimplified />身后躲避石化</P
+      >在<BruteAbombinator />读条<Skill name={quarrySwamp} />结束前，全员前往下图位置，躲在<BloomingAbomination
+      />身后躲避石化</P
     >
     <T class="mt-4" variant="lime" text="石化波动站位示意图" />
     <ImgRow
@@ -191,11 +189,11 @@ const quarrySwamp = translations.quarrySwamp
   <div class="flex flex-col gap-4">
     <P><ListDot />因为分摊冰花需要贴场边放置，而P3场地边长40m，团辅技能半径30m范围 </P>
     <P>
-      <ListDot />又因为此时对<BloomingAbominationSimplified
+      <ListDot />又因为此时对<BloomingAbomination
       />的输出实际上无效，同时为了能够在P3落地爆发药之后的10：35再吃第三瓶</P
     >
     <P><ListDot />且狂暴轴11：07，延后不会少时间和次数</P><P>（还有其他原因）</P>
-    <P>一般此处的团辅会延后至8：35，即<BloomingAbominationSimplified />刚被石化后约1s</P>
+    <P>一般此处的团辅会延后至8：35，即<BloomingAbomination />刚被石化后约1s</P>
     <Quote variant="rose"
       ><P>如果P3开场2GCD团辅，则延后8个GCD</P>
       <P>如果3GCD团辅，则延后7个GCD</P>
