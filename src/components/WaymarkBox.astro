@@ -78,7 +78,7 @@ const { href, img, downloadLabel = '下载标点文件' }: Props = Astro.props
     #confirmOpen = false
 
     get disabled() {
-      return this.hasAttribute('disabled')
+      return this.hasAttribute('disabled') && this.getAttribute('disabled') !== 'false'
     }
 
     connectedCallback() {
@@ -172,11 +172,6 @@ const { href, img, downloadLabel = '下载标点文件' }: Props = Astro.props
             display: inline-flex;
             position: relative;
             cursor: pointer;
-          }
-
-          :host([disabled]) {
-            cursor: not-allowed;
-            opacity: 0.6;
           }
 
           .container {
