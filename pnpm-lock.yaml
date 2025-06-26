@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@astrojs/vue':
         specifier: 5.1.0
-        version: 5.1.0(@types/node@22.15.21)(astro@5.10.0(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.8.3)(yaml@2.8.0))(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(vue@3.5.17(typescript@5.8.3))(yaml@2.8.0)
+        version: 5.1.0(@types/node@22.15.21)(astro@5.10.1(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.8.3)(yaml@2.8.0))(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(vue@3.5.17(typescript@5.8.3))(yaml@2.8.0)
       '@nanostores/persistent':
         specifier: 1.0.0
         version: 1.0.0(nanostores@1.0.1)
@@ -24,8 +24,8 @@ importers:
         specifier: 13.4.0
         version: 13.4.0(vue@3.5.17(typescript@5.8.3))
       astro:
-        specifier: 5.10.0
-        version: 5.10.0(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.8.3)(yaml@2.8.0)
+        specifier: 5.10.1
+        version: 5.10.1(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.8.3)(yaml@2.8.0)
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
@@ -33,11 +33,11 @@ importers:
         specifier: 2.1.1
         version: 2.1.1
       lucide-vue-next:
-        specifier: 0.522.0
-        version: 0.522.0(vue@3.5.17(typescript@5.8.3))
+        specifier: 0.523.0
+        version: 0.523.0(vue@3.5.17(typescript@5.8.3))
       motion:
-        specifier: 12.18.1
-        version: 12.18.1
+        specifier: 12.19.1
+        version: 12.19.1
       motion-v:
         specifier: 1.3.0
         version: 1.3.0(vue@3.5.17(typescript@5.8.3))
@@ -46,10 +46,10 @@ importers:
         version: 1.0.1
       pixi-filters:
         specifier: 6.1.3
-        version: 6.1.3(pixi.js@8.10.1)
+        version: 6.1.3(pixi.js@8.10.2)
       pixi.js:
-        specifier: 8.10.1
-        version: 8.10.1
+        specifier: 8.10.2
+        version: 8.10.2
       reka-ui:
         specifier: 2.3.1
         version: 2.3.1(typescript@5.8.3)(vue@3.5.17(typescript@5.8.3))
@@ -74,7 +74,7 @@ importers:
         version: 4.16.1(@vue/compiler-sfc@3.5.17)(astro-eslint-parser@1.2.2)(eslint-plugin-astro@1.3.1(eslint@9.29.0(jiti@2.4.2)))(eslint-plugin-format@1.0.1(eslint@9.29.0(jiti@2.4.2)))(eslint@9.29.0(jiti@2.4.2))(prettier-plugin-astro@0.14.1)(typescript@5.8.3)
       '@astrojs/check':
         specifier: 0.9.4
-        version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.6.0)(typescript@5.8.3)
+        version: 0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.6.1)(typescript@5.8.3)
       '@astrojs/ts-plugin':
         specifier: 1.10.4
         version: 1.10.4
@@ -97,14 +97,14 @@ importers:
         specifier: 16.1.2
         version: 16.1.2
       prettier:
-        specifier: 3.6.0
-        version: 3.6.0
+        specifier: 3.6.1
+        version: 3.6.1
       prettier-plugin-astro:
         specifier: 0.14.1
         version: 0.14.1
       prettier-plugin-tailwindcss:
         specifier: 0.6.13
-        version: 0.6.13(prettier-plugin-astro@0.14.1)(prettier@3.6.0)
+        version: 0.6.13(prettier-plugin-astro@0.14.1)(prettier@3.6.1)
       sharp:
         specifier: 0.34.2
         version: 0.34.2
@@ -1575,8 +1575,8 @@ packages:
     resolution: {integrity: sha512-JepyLROIad6f44uyqMF6HKE2QbunNzp3mYKRcPoDGt0QkxXmH222FAFC64WTyQu2Kg8NNEXHTN/sWuUId9sSxw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  astro@5.10.0:
-    resolution: {integrity: sha512-g/t54kVzQnFVijs+GbbbX/NBAFTl/3yNAEA/AQYq4FumLLVv7n4BIF+jKhcPGn9iFGyT1Cjvr7KB/qYyNvHEIg==}
+  astro@5.10.1:
+    resolution: {integrity: sha512-DJVmt+51jU1xmgmAHCDwuUgcG/5aVFSU+tcX694acAZqPVt8EMUAmUZcJDX36Z7/EztnPph9HR3pm72jS2EgHQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2282,6 +2282,20 @@ packages:
       react-dom:
         optional: true
 
+  framer-motion@12.19.1:
+    resolution: {integrity: sha512-nq9hwWAEKf4gzprbOZzKugLV5OVKF7zrNDY6UOVu+4D3ZgIkg8L9Jy6AMrpBM06fhbKJ6LEG6UY5+t7Eq6wNlg==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   fs-extra@11.3.0:
     resolution: {integrity: sha512-Z4XaCL6dUDHfP/jT25jJKMmtxvuwbkrD1vNSMFlo9lNLY2c5FHYSQgHPRZUjAB26TpDEoW9HCOgplrdbaPV/ew==}
     engines: {node: '>=14.14'}
@@ -2680,8 +2694,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-vue-next@0.522.0:
-    resolution: {integrity: sha512-T1FFXc+4PDXu4zjsrfOlx4SGClavHDozE5LyKgX7N5dPtdGvG+ni+KCg1P2HPLmlWWT2LQlc6vnAicHU0KY1sw==}
+  lucide-vue-next@0.523.0:
+    resolution: {integrity: sha512-PLbjArdcFgUcJLtszpCzGyaGm4AUfZ/SzDKfPjhkoEpG6j5k6fS3AGbMEbwt/xGJdD9DuSEgypNT/eqSPLfHfw==}
     peerDependencies:
       vue: '>=3.0.1'
 
@@ -2877,16 +2891,22 @@ packages:
   motion-dom@12.18.1:
     resolution: {integrity: sha512-dR/4EYT23Snd+eUSLrde63Ws3oXQtJNw/krgautvTfwrN/2cHfCZMdu6CeTxVfRRWREW3Fy1f5vobRDiBb/q+w==}
 
+  motion-dom@12.19.0:
+    resolution: {integrity: sha512-m96uqq8VbwxFLU0mtmlsIVe8NGGSdpBvBSHbnnOJQxniPaabvVdGgxSamhuDwBsRhwX7xPxdICgVJlOpzn/5bw==}
+
   motion-utils@12.18.1:
     resolution: {integrity: sha512-az26YDU4WoDP0ueAkUtABLk2BIxe28d8NH1qWT8jPGhPyf44XTdDUh8pDk9OPphaSrR9McgpcJlgwSOIw/sfkA==}
+
+  motion-utils@12.19.0:
+    resolution: {integrity: sha512-BuFTHINYmV07pdWs6lj6aI63vr2N4dg0vR+td0rtrdpWOhBzIkEklZyLcvKBoEtwSqx8Jg06vUB5RS0xDiUybw==}
 
   motion-v@1.3.0:
     resolution: {integrity: sha512-6JuWWEmQtotBEVAMcIa7rwzIguo0IYSyKjD6Cw8MbrMe3CVA83xQFF/9XPktZc2Hrv2TBx0o5A/oyac//5Az6A==}
     peerDependencies:
       vue: '>=3.0.0'
 
-  motion@12.18.1:
-    resolution: {integrity: sha512-w1ns2hWQ4COhOvnZf4rg4mW0Pl36mzcShpgt0fSfI6qJxKUbi3kHho/HSKeJFRoY0TO1m5/7C8lG1+Li0uC9Fw==}
+  motion@12.19.1:
+    resolution: {integrity: sha512-OhoHWrht+zwDPccr2wGltJdwgz2elFBBt/sLei2g0hwICvy2hOBFUkA4Ylup3VnDgz+vUtecf694EV7bJK4XjA==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -3089,8 +3109,8 @@ packages:
     peerDependencies:
       pixi.js: '>=8.0.0-0'
 
-  pixi.js@8.10.1:
-    resolution: {integrity: sha512-wjKJXawhTUxuyKIuwE3jK05eBh5I4GKy+YrRVniURFRkK7pYEvRvnV41dEqz6owSXav/YMXdG5783YDJeamiow==}
+  pixi.js@8.10.2:
+    resolution: {integrity: sha512-utRKxzTwNsIhaxOikxIBxKPfxuOyVkPvdYipY23ZEyWSYhONosrQlcB9nymeIcbsrsuSdwExX0eTnHTDjTN3UQ==}
 
   pkg-types@1.3.1:
     resolution: {integrity: sha512-/Jm5M4RvtBFVkKWRu2BLUTNP8/M2a+UwuAX+ae4770q1qVGtfjG+WTCupoZixokjmHiry8uI+dlY8KXYV5HVVQ==}
@@ -3193,8 +3213,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  prettier@3.6.0:
-    resolution: {integrity: sha512-ujSB9uXHJKzM/2GBuE0hBOUgC77CN3Bnpqa+g80bkv3T3A93wL/xlzDATHhnhkzifz/UE2SNOvmbTz5hSkDlHw==}
+  prettier@3.6.1:
+    resolution: {integrity: sha512-5xGWRa90Sp2+x1dQtNpIpeOQpTDBs9cZDmA/qs2vDNN2i18PdapqY7CmBeyLlMuGqXJRIOPaCaVZTLNQRWUH/A==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -4111,9 +4131,9 @@ snapshots:
 
   '@antfu/utils@0.7.10': {}
 
-  '@astrojs/check@0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.6.0)(typescript@5.8.3)':
+  '@astrojs/check@0.9.4(prettier-plugin-astro@0.14.1)(prettier@3.6.1)(typescript@5.8.3)':
     dependencies:
-      '@astrojs/language-server': 2.15.4(prettier-plugin-astro@0.14.1)(prettier@3.6.0)(typescript@5.8.3)
+      '@astrojs/language-server': 2.15.4(prettier-plugin-astro@0.14.1)(prettier@3.6.1)(typescript@5.8.3)
       chokidar: 4.0.3
       kleur: 4.1.5
       typescript: 5.8.3
@@ -4128,7 +4148,7 @@ snapshots:
 
   '@astrojs/internal-helpers@0.6.1': {}
 
-  '@astrojs/language-server@2.15.4(prettier-plugin-astro@0.14.1)(prettier@3.6.0)(typescript@5.8.3)':
+  '@astrojs/language-server@2.15.4(prettier-plugin-astro@0.14.1)(prettier@3.6.1)(typescript@5.8.3)':
     dependencies:
       '@astrojs/compiler': 2.12.0
       '@astrojs/yaml2ts': 0.2.2
@@ -4142,14 +4162,14 @@ snapshots:
       volar-service-css: 0.0.62(@volar/language-service@2.4.14)
       volar-service-emmet: 0.0.62(@volar/language-service@2.4.14)
       volar-service-html: 0.0.62(@volar/language-service@2.4.14)
-      volar-service-prettier: 0.0.62(@volar/language-service@2.4.14)(prettier@3.6.0)
+      volar-service-prettier: 0.0.62(@volar/language-service@2.4.14)(prettier@3.6.1)
       volar-service-typescript: 0.0.62(@volar/language-service@2.4.14)
       volar-service-typescript-twoslash-queries: 0.0.62(@volar/language-service@2.4.14)
       volar-service-yaml: 0.0.62(@volar/language-service@2.4.14)
       vscode-html-languageservice: 5.4.0
       vscode-uri: 3.1.0
     optionalDependencies:
-      prettier: 3.6.0
+      prettier: 3.6.1
       prettier-plugin-astro: 0.14.1
     transitivePeerDependencies:
       - typescript
@@ -4206,12 +4226,12 @@ snapshots:
       semver: 7.7.2
       vscode-languageserver-textdocument: 1.0.12
 
-  '@astrojs/vue@5.1.0(@types/node@22.15.21)(astro@5.10.0(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.8.3)(yaml@2.8.0))(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(vue@3.5.17(typescript@5.8.3))(yaml@2.8.0)':
+  '@astrojs/vue@5.1.0(@types/node@22.15.21)(astro@5.10.1(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.8.3)(yaml@2.8.0))(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(vue@3.5.17(typescript@5.8.3))(yaml@2.8.0)':
     dependencies:
       '@vitejs/plugin-vue': 5.2.1(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
       '@vitejs/plugin-vue-jsx': 4.2.0(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
       '@vue/compiler-sfc': 3.5.14
-      astro: 5.10.0(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.8.3)(yaml@2.8.0)
+      astro: 5.10.1(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.8.3)(yaml@2.8.0)
       vite: 6.3.5(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)
       vite-plugin-vue-devtools: 7.7.6(rollup@4.41.0)(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
       vue: 3.5.17(typescript@5.8.3)
@@ -4906,7 +4926,7 @@ snapshots:
 
   '@rollup/pluginutils@5.1.4(rollup@4.41.0)':
     dependencies:
-      '@types/estree': 1.0.7
+      '@types/estree': 1.0.8
       estree-walker: 2.0.2
       picomatch: 4.0.2
     optionalDependencies:
@@ -5602,7 +5622,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@5.10.0(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.8.3)(yaml@2.8.0):
+  astro@5.10.1(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.0)(typescript@5.8.3)(yaml@2.8.0):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.6.1
@@ -6122,7 +6142,7 @@ snapshots:
       eslint: 9.29.0(jiti@2.4.2)
       eslint-formatting-reporter: 0.0.0(eslint@9.29.0(jiti@2.4.2))
       eslint-parser-plain: 0.1.1
-      prettier: 3.6.0
+      prettier: 3.6.1
       synckit: 0.9.2
 
   eslint-plugin-import-lite@0.3.0(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3):
@@ -6367,7 +6387,7 @@ snapshots:
 
   estree-walker@3.0.3:
     dependencies:
-      '@types/estree': 1.0.7
+      '@types/estree': 1.0.8
 
   esutils@2.0.3: {}
 
@@ -6473,6 +6493,12 @@ snapshots:
     dependencies:
       motion-dom: 12.18.1
       motion-utils: 12.18.1
+      tslib: 2.8.1
+
+  framer-motion@12.19.1:
+    dependencies:
+      motion-dom: 12.19.0
+      motion-utils: 12.19.0
       tslib: 2.8.1
 
   fs-extra@11.3.0:
@@ -6860,7 +6886,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-vue-next@0.522.0(vue@3.5.17(typescript@5.8.3)):
+  lucide-vue-next@0.523.0(vue@3.5.17(typescript@5.8.3)):
     dependencies:
       vue: 3.5.17(typescript@5.8.3)
 
@@ -6870,8 +6896,8 @@ snapshots:
 
   magicast@0.3.5:
     dependencies:
-      '@babel/parser': 7.27.2
-      '@babel/types': 7.27.1
+      '@babel/parser': 7.27.5
+      '@babel/types': 7.27.6
       source-map-js: 1.2.1
 
   markdown-table@3.0.4: {}
@@ -7251,7 +7277,13 @@ snapshots:
     dependencies:
       motion-utils: 12.18.1
 
+  motion-dom@12.19.0:
+    dependencies:
+      motion-utils: 12.19.0
+
   motion-utils@12.18.1: {}
+
+  motion-utils@12.19.0: {}
 
   motion-v@1.3.0(vue@3.5.17(typescript@5.8.3)):
     dependencies:
@@ -7266,9 +7298,9 @@ snapshots:
       - react
       - react-dom
 
-  motion@12.18.1:
+  motion@12.19.1:
     dependencies:
-      framer-motion: 12.18.1
+      framer-motion: 12.19.1
       tslib: 2.8.1
 
   mrmime@2.0.1: {}
@@ -7424,12 +7456,12 @@ snapshots:
 
   pidtree@0.6.0: {}
 
-  pixi-filters@6.1.3(pixi.js@8.10.1):
+  pixi-filters@6.1.3(pixi.js@8.10.2):
     dependencies:
       '@types/gradient-parser': 0.1.5
-      pixi.js: 8.10.1
+      pixi.js: 8.10.2
 
-  pixi.js@8.10.1:
+  pixi.js@8.10.2:
     dependencies:
       '@pixi/colord': 2.9.6
       '@types/css-font-loading-module': 0.0.12
@@ -7491,19 +7523,19 @@ snapshots:
   prettier-plugin-astro@0.14.1:
     dependencies:
       '@astrojs/compiler': 2.12.0
-      prettier: 3.6.0
+      prettier: 3.6.1
       sass-formatter: 0.7.9
 
-  prettier-plugin-tailwindcss@0.6.13(prettier-plugin-astro@0.14.1)(prettier@3.6.0):
+  prettier-plugin-tailwindcss@0.6.13(prettier-plugin-astro@0.14.1)(prettier@3.6.1):
     dependencies:
-      prettier: 3.6.0
+      prettier: 3.6.1
     optionalDependencies:
       prettier-plugin-astro: 0.14.1
 
   prettier@2.8.7:
     optional: true
 
-  prettier@3.6.0: {}
+  prettier@3.6.1: {}
 
   pretty-ms@9.2.0:
     dependencies:
@@ -8203,12 +8235,12 @@ snapshots:
     optionalDependencies:
       '@volar/language-service': 2.4.14
 
-  volar-service-prettier@0.0.62(@volar/language-service@2.4.14)(prettier@3.6.0):
+  volar-service-prettier@0.0.62(@volar/language-service@2.4.14)(prettier@3.6.1):
     dependencies:
       vscode-uri: 3.1.0
     optionalDependencies:
       '@volar/language-service': 2.4.14
-      prettier: 3.6.0
+      prettier: 3.6.1
 
   volar-service-typescript-twoslash-queries@0.0.62(@volar/language-service@2.4.14):
     dependencies:
