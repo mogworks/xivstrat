@@ -24,9 +24,11 @@ const bloomingAbomination = translations.bloomingAbomination
   <Span variant="rose" class="ml-1">{bloomingAbomination}</Span>
   {
     num > 0 && (
-      <Span variant="rose" class="-ml-1">
-        ×{num}
-      </Span>
+      <div class="text-decimal">
+        <Span variant="rose" class="-ml-1">
+          ×{num}
+        </Span>
+      </div>
     )
   }
 </EntityIcon>

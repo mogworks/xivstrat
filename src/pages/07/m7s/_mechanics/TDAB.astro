@@ -1,6 +1,4 @@
 ---
-import type { Time } from '@/lib/utils'
-
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
@@ -14,8 +12,6 @@ import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import ListDot from '@/components/ListDot.astro'
 import { translations } from '../_translations'
 import StratLink from '@/components/StratLink.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
-import Tmp0 from '@/assets/07/m7s/Tmp.png'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 import abominable_blink_1 from '@/assets/07/m7s/tdab/AbBlink_flare1.png'
@@ -46,17 +42,27 @@ const defaultSolution = '解法：本站攻略'
   <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-4">
       <T>
-        <Skill name={thornyDeathmatch} />
+        <Skill name={`${thornyDeathmatch}（连线）`} />
       </T>
       <P>
         <BruteAbombinator />读条完毕后，所在的墙壁连线当前<RoleIcon role="any" tag="一仇" />，并附加<ThornsOfDeathDebuff
           hover
         />
       </P>
+      <P>
+        对
+        <RoleIcon role="any" tag="一仇" />
+        的
+        <ThornsOfDeathDebuff level={1} hover />
+        <ThornsOfDeathDebuff level={2} hover />
+        <ThornsOfDeathDebuff level={3} hover />
+        <ThornsOfDeathDebuff level={4} hover />
+        连线可以通过挑衅/退避转移
+      </P>
     </div>
     <div class="flex flex-col gap-4">
       <T class="mt-8 scroll-mt-[calc(5rem+1px)]" id="thornsofdeath">
-        <Skill name={ThornsOfDeath} />
+        <Skill name={`${ThornsOfDeath}（DEBUFF）`} />
       </T>
       <P>
         每<Span variant="pink">3s</Span>一跳的<Span variant="orange">持续伤害（DoT）</Span>，只有盾减生效，<RoleIcon
@@ -92,14 +98,6 @@ const defaultSolution = '解法：本站攻略'
     </div>
   </div>
 </MechanicSection>
-<NoteSection>
-  <P
-    >对<RoleIcon role="any" tag="一仇" />的<ThornsOfDeathDebuff level={1} hover /><ThornsOfDeathDebuff
-      level={2}
-      hover
-    /><ThornsOfDeathDebuff level={3} hover /><ThornsOfDeathDebuff level={4} hover />连线可以通过挑衅/退避转移</P
-  >
-</NoteSection>
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
@@ -115,7 +113,7 @@ const defaultSolution = '解法：本站攻略'
       <Span variant="pink">远离人群</Span>放置核爆</P
     >
     <P
-      ><ListDot /><RoleIcon role="all" tag="其他人" />集合<Span variant="pink">远离</Span><RoleIcon
+      ><ListDot /><RoleIcon role="all" tag="其他" />集合<Span variant="pink">远离</Span><RoleIcon
         role="tank"
         tag="点名"
       /></P
@@ -136,10 +134,7 @@ const defaultSolution = '解法：本站攻略'
           variant="pink">拉线</Span
         >，核爆<RoleIcon role="tank" tag="点名" />前往场地<Span variant="pink">左上角</Span></P
       >
-      <P
-        ><ListDot /><RoleIcon role="all" tag="其他人" />前往场地<Span variant="pink">中轴线</Span
-        >附近集合，交群减处理</P
-      >
+      <P><ListDot /><RoleIcon role="all" tag="其他" />前往场地<Span variant="pink">中轴线</Span>附近集合，交群减处理</P>
       <P>站位示意图如下：</P>
       <ImgRow
         class="game-img"
@@ -149,12 +144,6 @@ const defaultSolution = '解法：本站攻略'
           {
             src: abominable_blink_1,
             alt: '',
-            title: 'BOSS位于上/下的墙面',
-          },
-          {
-            src: abominable_blink_2,
-            alt: '',
-            title: 'BOSS位于左边墙面',
           },
         ]}
       />
@@ -168,10 +157,7 @@ const defaultSolution = '解法：本站攻略'
           tag="点名"
         />前往场地<Span variant="pink">右上角</Span></P
       >
-      <P
-        ><ListDot /><RoleIcon role="all" tag="其他人" />前往场地<Span variant="pink">左上角</Span
-        >附近集合，交群减处理</P
-      >
+      <P><ListDot /><RoleIcon role="all" tag="其他" />前往场地<Span variant="pink">左上角</Span>附近集合，交群减处理</P>
       <P>站位示意图如下：</P>
       <ImgRow
         class="game-img"

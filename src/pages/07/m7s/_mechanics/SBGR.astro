@@ -1,24 +1,15 @@
 ---
-import type { Time } from '@/lib/utils'
-
-import { Image } from 'astro:assets'
-
 import Span from '@/components/Span.vue'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 
-import img from '@/assets/07/m7s/Tmp.png'
 import circle from '@/assets/07/m7s/british_swing/stoneringer_p2_circle.png'
 import ring from '@/assets/07/m7s/british_swing/stoneringer_p2_ring.png'
 import glowerPowerVertical from '@/assets/07/m7s/british_swing/glower_power_vertical.png'
 import glowerPowerHorizontal from '@/assets/07/m7s/british_swing/glower_power_horizontal.png'
-import glowerPowerVertical35_1 from '@/assets/07/m7s/british_swing/glower_power_vertical_35_1.png'
 import glowerPowerVertical35_2 from '@/assets/07/m7s/british_swing/glower_power_vertical_35_2.png'
 import StoneringerCast from '../_components/StoneringerCast.astro'
 import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
 import GlowerPowerCast from '../_components/GlowerPowerCast.astro'
 import ElectrogeneticForceActivate from '../_components/ElectrogeneticForceActivate.astro'
-import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
-import BrutishSwingMoveActivate from '../_components/BrutishSwingMoveActivate.astro'
 import RevengeOfTheVinesCast from '../_components/RevengeOfTheVinesCast.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
@@ -28,12 +19,10 @@ import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import Skill from '@/components/typography/Skill.astro'
-import GlowerPowerActivate from '../_components/GlowerPowerActivate.astro'
 
 import { translations } from '../_translations'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-import RevengeOfTheVinesActivate from '../_components/RevengeOfTheVinesActivate.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 const stoneringer = translations.stoneringer
@@ -45,31 +34,26 @@ const revengeOfTheVines = translations.revengeOfTheVines
 
 const solutions = [
   {
-    id: 'SBGR-game8',
-    title: '解法：Game8原版',
+    id: 'SBGR-35',
+    title: '解法：本站',
   },
   {
-    id: 'SBGR-35',
-    title: '解法：三五分散',
+    id: 'SBGR-game8',
+    title: '解法：日野主流',
   },
 ]
-const defaultSolution = '解法：三五分散'
+const defaultSolution = '解法：本站'
 ---
 
 <StoneringerCast start="02:48.01" />
 <BrutishSwingCast start="02:55.84" />
-<BrutishSwingMoveActivate time="02:59.81" />
-<BrutishSwingActivate time="03:03.909" />
-<GlowerPowerCast start="03:04.80" />
 <ElectrogeneticForceActivate time="03:08.635" />
-<GlowerPowerActivate time="03:08.767" />
+<GlowerPowerCast start="03:04.80" />
 <RevengeOfTheVinesCast start="03:09.61" />
-<RevengeOfTheVinesActivate time="03:14.611" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <P>P2 场地共有三面墙，除了击飞过来的方向（也就是P1场地方向），每侧各有一面</P>
-    <P>场地长边的两面墙位置中心对称</P>
-    <P><BruteAbombinator />落地后先伸出藤蔓，吸附在P1场地对面的墙上</P>
+    <P>P2场地共有三面墙，除了击飞过来的方向（也就是P1场地方向），每侧各有一面</P>
+    <P>场地长边的两面墙位置中心对称，<BruteAbombinator />落地后先伸出藤蔓，吸附在P1场地对面的墙上</P>
     <div class="flex flex-col gap-4">
       <T class="mt-8 scroll-mt-[calc(5rem+1px)]" id="stoneringerP2">
         <Skill name={stoneringer} />
@@ -94,7 +78,7 @@ const defaultSolution = '解法：三五分散'
           {
             src: circle,
             alt: '连线墙钢铁',
-            title: '钢铁，范围依旧大于最大攻击距离',
+            title: '钢铁，范围大于最大近战距离',
           },
           {
             src: ring,
@@ -143,34 +127,7 @@ const defaultSolution = '解法：三五分散'
   </div>
 </MechanicSection>
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：Game8原版">
-    <div class="flex flex-col gap-4">
-      <P
-        >与<StratLink variant="lime" href="#SBGR-35">解法：三五分散</StratLink>仅仅只是<BruteAbombinator />在<Span
-          variant="pink">场地长边</Span
-        >时的分散站位不同，如图所示：</P
-      >
-      <ImgRow
-        class="game-img"
-        wrapperClass="max-w-150"
-        bordered={false}
-        imgs={[
-          {
-            src: glowerPowerVertical,
-            alt: 'boss跳长边',
-            title: 'boss跳长边',
-          },
-          {
-            src: glowerPowerHorizontal,
-            alt: 'boss跳短边',
-            title: 'boss跳短边',
-          },
-        ]}
-      />
-    </div>
-  </div>
-
-  <div slot="解法：三五分散">
+  <div slot="解法：本站">
     <div class="flex flex-col gap-4">
       <P>
         先观察<BruteAbombinator />掏出的<Span variant="pink">武器</Span>，判断接下来是躲钢铁还是月环
@@ -183,7 +140,17 @@ const defaultSolution = '解法：三五分散'
       <P>之后全员按照图示站位，躲避直线AoE并分散</P>
       <P><Skill name={RvOftVines} />读条时<Span variant="pink">集合</Span>刷血</P>
       <P>
-        直线AoE范围与<RoleIcon role="all" tag="全员" />站位如下所示：
+        直线范围与
+        <RoleIcon role="all" tag="全员" />
+        站位如下所示，
+        <Span variant="pink">面向</Span>
+        <BruteAbombinator />
+        <Span variant="pink">分左右</Span>，
+        <BruteAbombinator />
+        在长边时
+        <RoleIcon role="ranged" tag="D3" />
+        <RoleIcon role="magic" tag="D4" />
+        去大空地给其他人腾位置：
       </P>
       <ImgRow
         class="game-img"
@@ -192,13 +159,45 @@ const defaultSolution = '解法：三五分散'
         imgs={[
           {
             src: glowerPowerVertical35_2,
-            alt: 'D3前往较大的安全区分散',
-            title: 'D3前往较大的安全区分散',
+            alt: 'Boss跳长边',
+            title: 'Boss跳长边',
           },
           {
-            src: glowerPowerVertical35_1,
-            alt: 'H1前往较大的安全区分散',
-            title: 'H1前往较大的安全区分散',
+            src: glowerPowerHorizontal,
+            alt: 'Boss跳短边',
+            title: 'Boss跳短边',
+          },
+        ]}
+      />
+      <P>
+        左图这种情况
+        <RoleIcon role="ranged" tag="D3" />
+        <RoleIcon role="magic" tag="D4" />
+        站位比较随意，别炸到别人就行，右图这种情况可以多往后退一些
+      </P>
+    </div>
+  </div>
+  <div slot="解法：日野主流">
+    <div class="flex flex-col gap-4">
+      <P
+        >与<StratLink variant="lime" href="#SBGR-35">解法：本站</StratLink>相比仅仅只是<BruteAbombinator />在<Span
+          variant="pink">场地长边</Span
+        >时的分散站位不同，如图所示：</P
+      >
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-150"
+        bordered={false}
+        imgs={[
+          {
+            src: glowerPowerVertical,
+            alt: 'Boss跳长边',
+            title: 'Boss跳长边',
+          },
+          {
+            src: glowerPowerHorizontal,
+            alt: 'Boss跳短边',
+            title: 'Boss跳短边',
           },
         ]}
       />
