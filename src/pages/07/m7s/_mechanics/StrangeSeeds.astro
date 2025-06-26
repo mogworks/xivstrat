@@ -26,6 +26,21 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import Tmp from '@/assets/07/m7s/Tmp.png'
 import Quote from '@/components/typography/Quote.astro'
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
+
+import zari_safe_zone from '@/assets/07/m7s/strange_seeds/zari_safe_zone.png'
+import zari_safe_zone_only from '@/assets/07/m7s/strange_seeds/zari_safe_zone_only.png'
+import zari_place_overview from '@/assets/07/m7s/strange_seeds/zari_place_overview.png'
+import zari_place_tank_healer from '@/assets/07/m7s/strange_seeds/zari_place_tank_healer.png'
+import zari_place_melee from '@/assets/07/m7s/strange_seeds/zari_place_melee.png'
+import zari_place_ranged from '@/assets/07/m7s/strange_seeds/zari_place_ranged.png'
+import zari_place_magic from '@/assets/07/m7s/strange_seeds/zari_place_magic.png'
+import zari_odd_case_1 from '@/assets/07/m7s/strange_seeds/zari_odd_case_1.png'
+import zari_odd_case_2 from '@/assets/07/m7s/strange_seeds/zari_odd_case_2.png'
+import zari_even_case_1 from '@/assets/07/m7s/strange_seeds/zari_even_case_1.png'
+import zari_even_case_2 from '@/assets/07/m7s/strange_seeds/zari_even_case_2.png'
+import zari_stack from '@/assets/07/m7s/strange_seeds/zari_stack.png'
+
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 
 const strangeSeeds = translations.strangeSeeds
@@ -176,16 +191,38 @@ const defaultSolution = '解法：萨利式'
               tag="D3"
             />、<RoleIcon role="magic" tag="D4" />分组，不同组的放置点和安全区不同</P
           >
-          <P>首先，所有冰花放置点和<Span variant="purple">绝对安全区</Span>如图所示：</P>
+          <P>首先，所有冰花放置点如图所示：</P>
           <ImgRow
-            wrapperClass="max-w-100"
+            wrapperClass="max-w-180"
             borderVariant="rose"
-            imgs={[{ src: Tmp, alt: '萨利式冰花', title: '萨利式冰花全点位' }]}
+            imgs={[{ src: zari_place_overview, alt: '萨利式冰花', title: '萨利式冰花全点位' }]}
+          />
+        </div>
+        <div class="flex flex-col gap-4">
+          <P>
+            <Span variant="purple">绝对安全区</Span>则如下图所示
+          </P>
+          <P>
+            所有可能的冰花范围<ToggleSwitch
+              id="zari-safe-zone-toggle"
+              lVariant="lime"
+              rVariant="pink"
+              lLabel="隐藏"
+              rLabel="显示"
+            />
+          </P>
+          <ImgRow
+            id="zari-safe-zone-omen"
+            wrapperClass="max-w-180"
+            borderVariant="rose"
+            imgs={[{ src: zari_safe_zone_only, alt: '仅显示安全区', title: '' }]}
           />
           <ImgRow
-            wrapperClass="max-w-100"
+            id="zari-safe-zone-activate"
+            wrapperClass="max-w-180"
             borderVariant="rose"
-            imgs={[{ src: strange_seeds_safe_point, alt: '绝对安全区', title: '绝对安全区' }]}
+            class="hidden"
+            imgs={[{ src: zari_safe_zone, alt: '包含安全区与冰花范围', title: '' }]}
           />
         </div>
         <div class="flex flex-col gap-4">
@@ -205,6 +242,11 @@ const defaultSolution = '解法：萨利式'
               />的场地<Span variant="orange">标点</Span>处放置</P
             ></Quote
           >
+          <ImgRow
+            wrapperClass="max-w-180"
+            borderVariant="rose"
+            imgs={[{ src: zari_place_tank_healer, alt: '萨利式冰花坦克/治疗点位', title: '' }]}
+          />
         </div>
         <div class="flex flex-col gap-4">
           <P class="mt-4">对于<RoleIcon role="melee" />：</P>
@@ -223,23 +265,11 @@ const defaultSolution = '解法：萨利式'
               >处放置</P
             ></Quote
           >
-        </div>
-        <div class="flex flex-col gap-4">
-          <P class="mt-4">对于<RoleIcon role="magic" tag="D4" />：</P>
-          <P
-            ><Span variant="pink">无论</Span>是否被点名，<Quote variant="rose">
-              <P
-                ><Span variant="sky">奇数</Span>轮种子点名时，站在<Span variant="pink">远离</Span><RoleIcon
-                  role="boss"
-                  tag="boss"
-                />的场地<Span variant="sky">中轴线</Span>处</P
-              >
-              <P
-                ><Span variant="orange">偶数</Span>轮时，站在图中<Span variant="orange">橙色2点</Span
-                >（视角右侧螺丝正上方）处</P
-              ></Quote
-            ></P
-          >
+          <ImgRow
+            wrapperClass="max-w-180"
+            borderVariant="rose"
+            imgs={[{ src: zari_place_melee, alt: '萨利式冰花近战组点位', title: '' }]}
+          />
         </div>
         <div class="flex flex-col gap-4">
           <P class="mt-4">对于<RoleIcon role="ranged" tag="D3" />：</P>
@@ -272,22 +302,69 @@ const defaultSolution = '解法：萨利式'
               </Quote>
             </P>
           </Quote>
+          <ImgRow
+            wrapperClass="max-w-180"
+            borderVariant="rose"
+            imgs={[{ src: zari_place_ranged, alt: '萨利式冰花D3点位', title: '' }]}
+          />
         </div>
+        <div class="flex flex-col gap-4">
+          <P class="mt-4">对于<RoleIcon role="magic" tag="D4" />：</P>
+          <P
+            ><Span variant="pink">无论</Span>是否被点名，<Quote variant="rose">
+              <P
+                ><Span variant="sky">奇数</Span>轮种子点名时，站在<Span variant="pink">远离</Span><RoleIcon
+                  role="boss"
+                  tag="boss"
+                />的场地<Span variant="sky">中轴线</Span>处</P
+              >
+              <P
+                ><Span variant="orange">偶数</Span>轮时，站在图中<Span variant="orange">橙色2点</Span
+                >（视角右侧螺丝正上方）处</P
+              ></Quote
+            ></P
+          >
+          <ImgRow
+            wrapperClass="max-w-180"
+            borderVariant="rose"
+            imgs={[{ src: zari_place_magic, alt: '萨利式冰花D4点位', title: '' }]}
+          />
+        </div>
+        <P>
+          <Span variant="cyan">注：人群在绝对安全区集合时可略微分散，便于看清点名</Span>
+        </P>
         <div class="flex flex-col gap-4">
           <T variant="lime" text="奇偶轮冰花AoE范围示意图" class="mt-4 text-2xl" />
+          <P> 注：奇偶轮的图片中分别叠加了所有可能的冰花 </P>
+          <P>
+            <ToggleSwitch id="zari-if-toggle" lVariant="lime" rVariant="pink" lLabel="预兆" rLabel="判定" />
+          </P>
           <ImgRow
-            wrapperClass="max-w-100"
+            id="zari-if-odd-omen"
+            wrapperClass="max-w-180"
             borderVariant="rose"
-            imgs={[{ src: Tmp, alt: '奇数轮冰花AoE', title: '奇数轮冰花AoE' }]}
+            imgs={[{ src: zari_odd_case_1, alt: '奇数轮冰花AoE', title: '奇数轮冰花AoE' }]}
           />
           <ImgRow
-            wrapperClass="max-w-100"
+            id="zari-if-odd-activate"
+            wrapperClass="max-w-180"
             borderVariant="rose"
-            imgs={[{ src: Tmp, alt: '偶数轮冰花AoE', title: '偶数轮冰花AoE' }]}
+            class="hidden"
+            imgs={[{ src: zari_odd_case_2, alt: '奇数轮冰花AoE', title: '奇数轮冰花AoE' }]}
           />
-        </div>
-        <div class="flex flex-col gap-4">
-          <P><Span variant="cyan">注：人群在绝对安全区集合时可略微分散，便于看清点名</Span></P>
+          <ImgRow
+            id="zari-if-even-omen"
+            wrapperClass="max-w-180"
+            borderVariant="rose"
+            imgs={[{ src: zari_even_case_1, alt: '偶数轮冰花AoE', title: '偶数轮冰花AoE' }]}
+          />
+          <ImgRow
+            id="zari-if-even-activate"
+            wrapperClass="max-w-180"
+            borderVariant="rose"
+            class="hidden"
+            imgs={[{ src: zari_even_case_2, alt: '偶数轮冰花AoE', title: '偶数轮冰花AoE' }]}
+          />
         </div>
       </div>
     </div>
@@ -335,12 +412,7 @@ const defaultSolution = '解法：萨利式'
             tag="D3"
           /><RoleIcon role="magic" tag="D4" />去自己的奇数轮冰花点，搭档去找他们
         </P>
-        <T text="萨利式分摊站位示意图" variant="lime" class="mt-4 text-2xl" />
-        <ImgRow
-          wrapperClass="max-w-100"
-          borderVariant="rose"
-          imgs={[{ src: Tmp, alt: '萨利式分摊', title: '萨利式分摊' }]}
-        />
+        <ImgRow wrapperClass="max-w-180" imgs={[{ src: zari_stack, alt: '萨利式分摊站位图', title: '分摊站位' }]} />
         <P>
           <Span variant="cyan"
             >注：<RoleIcon role="healer" tag="H1" />请根据<RoleIcon
@@ -490,3 +562,31 @@ const defaultSolution = '解法：萨利式'
     >
   </div>
 </NoteSection>
+
+<script>
+  function toggleTables(omenId: string, activateId: string, showActivate: boolean) {
+    const omenTable = document.getElementById(omenId)
+    const activateTable = document.getElementById(activateId)
+
+    if (omenTable && activateTable) {
+      if (showActivate) {
+        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', true))
+        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', false))
+      } else {
+        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', true))
+        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', false))
+      }
+    }
+  }
+
+  document.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement
+
+    if (target && target.id === 'zari-if-toggle') {
+      toggleTables('zari-if-odd-omen', 'zari-if-odd-activate', target.checked)
+      toggleTables('zari-if-even-omen', 'zari-if-even-activate', target.checked)
+    } else if (target && target.id === 'zari-safe-zone-toggle') {
+      toggleTables('zari-safe-zone-omen', 'zari-safe-zone-activate', target.checked)
+    }
+  })
+</script>
