@@ -5,7 +5,6 @@ import circle from '@/assets/07/m7s/british_swing/stoneringer_p2_circle.png'
 import ring from '@/assets/07/m7s/british_swing/stoneringer_p2_ring.png'
 import glowerPowerVertical from '@/assets/07/m7s/british_swing/glower_power_vertical.png'
 import glowerPowerHorizontal from '@/assets/07/m7s/british_swing/glower_power_horizontal.png'
-import glowerPowerVertical35_1 from '@/assets/07/m7s/british_swing/glower_power_vertical_35_1.png'
 import glowerPowerVertical35_2 from '@/assets/07/m7s/british_swing/glower_power_vertical_35_2.png'
 import StoneringerCast from '../_components/StoneringerCast.astro'
 import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
@@ -143,9 +142,10 @@ const defaultSolution = '解法：本站'
       <P>
         直线范围与
         <RoleIcon role="all" tag="全员" />
-        站位如下所示，面向
+        站位如下所示，
+        <Span variant="pink">面向</Span>
         <BruteAbombinator />
-        分左右，
+        <Span variant="pink">分左右</Span>，
         <BruteAbombinator />
         在长边时
         <RoleIcon role="ranged" tag="D3" />
@@ -159,22 +159,28 @@ const defaultSolution = '解法：本站'
         imgs={[
           {
             src: glowerPowerVertical35_2,
-            alt: 'D3前往较大的安全区分散',
-            title: 'D3前往较大的安全区分散',
+            alt: 'Boss跳长边',
+            title: 'Boss跳长边',
           },
           {
-            src: glowerPowerVertical35_1,
-            alt: 'H1前往较大的安全区分散',
-            title: 'H1前往较大的安全区分散',
+            src: glowerPowerHorizontal,
+            alt: 'Boss跳短边',
+            title: 'Boss跳短边',
           },
         ]}
       />
+      <P>
+        左图这种情况
+        <RoleIcon role="ranged" tag="D3" />
+        <RoleIcon role="magic" tag="D4" />
+        站位比较随意，别炸到别人就行，右图这种情况可以多往后退一些
+      </P>
     </div>
   </div>
   <div slot="解法：日野主流">
     <div class="flex flex-col gap-4">
       <P
-        >与<StratLink variant="lime" href="#SBGR-35">解法：本站</StratLink>仅仅只是<BruteAbombinator />在<Span
+        >与<StratLink variant="lime" href="#SBGR-35">解法：本站</StratLink>相比仅仅只是<BruteAbombinator />在<Span
           variant="pink">场地长边</Span
         >时的分散站位不同，如图所示：</P
       >
