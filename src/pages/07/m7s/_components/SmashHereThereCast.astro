@@ -16,7 +16,7 @@ const { start }: Props = Astro.props
 const smashHereThere = translations.smashHereThere
 ---
 
-<CastSection start={start} duration={4.7} ability={smashHereThere} target>
+<CastSection start={start} duration={4.7} ability={smashHereThere} target damage="760000" damageType="physical">
   <BruteAbombinator slot="source" />
   <Fragment slot="target">
     <RoleIcon role="all" tag="最近" />

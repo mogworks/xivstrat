@@ -5,6 +5,7 @@ import BruteAbombinator from './BruteAbombinator.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import StratInterval from '@/components/StratInterval.astro'
 import Span from '@/components/Span.vue'
+import RoleIcon from '@/components/RoleIcon.astro'
 
 import { translations } from '../_translations'
 
@@ -22,5 +23,16 @@ const sinisterSeeds = translations.sinisterSeeds
     <BruteAbombinator />
     读条
     <Span variant="yellow">{sinisterSeeds}</Span>
+    ，锁定
+    <Span variant="default">4</Span>
+    <RoleIcon role="any" tag="最远" />
+    /
+    <RoleIcon role="any" tag="最近" />
+    点名追踪脚下黄圈，锁定
+    <Span variant="default">4</Span>
+    <RoleIcon role="any" tag="最近" />
+    /
+    <RoleIcon role="any" tag="最远" />
+    点名“冰花”
   </Fragment>
 </EventSection>
