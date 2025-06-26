@@ -487,12 +487,23 @@ const defaultSolution = '解法：日野主流【改】'
               </P>
             </Quote>， 以便处理后续机制
           </P>
-
           <P>
             由于此时角色处于跑位过程中，
             <RoleIcon role="tank" tag="MT" />和<RoleIcon role="tank" tag="ST" />
             可以酌情使用挑衅、飞斧等远程技能来获取仇恨
           </P>
+          <P>小怪刷新方位与敌对列表中的位置有一定关系</P>
+          <P>
+            将敌对列表视为一个循环列表，则西南东北四个方向的小怪分别对应
+            <BruteAbombinator />下方第一二三四位的小怪
+          </P>
+          <Image src={bloomings} alt="" class="w-62 rounded border-2 border-yellow-800 dark:border-yellow-100" />
+          <P>
+            以上图为例，
+            <BruteAbombinator />
+            处于列表中最后一位，我们将列表视为头尾相连的循环列表，可知：
+          </P>
+          <P>列表第1位是场地西侧小怪，第2位是场地南侧小怪，第3位是场地东侧小怪，第4位是场地北侧小怪</P>
         </div>
       </div>
 
