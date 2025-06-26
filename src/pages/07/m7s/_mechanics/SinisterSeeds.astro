@@ -48,7 +48,6 @@ import PollenCast from '../_components/PollenCast.astro'
 import QuarrySwampCast from '../_components/QuarrySwampCast.astro'
 import HurricaneForceCast from '../_components/HurricaneForceCast.astro'
 import BloomingAbomination from '../_components/BloomingAbomination.astro'
-import BloomingAbominationSimplified from '../_components/BloomingAbominationSimplified.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
 import { translations } from '../_translations'
@@ -188,7 +187,7 @@ const defaultSolution = '解法：日野主流【改】'
     <P>
       <Span variant="yellow">{pollen}</Span>伤害判定后，在
       <Span variant="green">孢子</Span>
-      落下的地方会生成<BloomingAbominationSimplified />共计4只，
+      落下的地方会生成<BloomingAbomination />共计4只，
     </P>
     <P id="sismc">
       每3s释放对
@@ -479,11 +478,11 @@ const defaultSolution = '解法：日野主流【改】'
             <Quote variant="lime">
               <P>
                 <RoleIcon role="tank" tag="MT" />拉
-                <Span variant="pink">西侧和北侧</Span>两只<BloomingAbominationSimplified />
+                <Span variant="pink">西侧和北侧</Span>两只<BloomingAbomination />
               </P>
               <P>
                 <RoleIcon role="tank" tag="ST" />拉
-                <Span variant="pink">东侧和南侧</Span>两只<BloomingAbominationSimplified />
+                <Span variant="pink">东侧和南侧</Span>两只<BloomingAbomination />
               </P>
             </Quote>， 以便处理后续机制
           </P>
@@ -768,18 +767,18 @@ const defaultSolution = '解法：日野主流【改】'
       <Span variant="yellow">{windingWildwinds} / {crossingCrosswinds}</Span>
     </h4>
     <P>
-      <BloomingAbominationSimplified />
+      <BloomingAbomination />
       以自身为中心释放
       <Span variant="pink">可被打断的</Span>
       月环/十字形AoE
     </P>
     <P>
-      其中，必定有两只<BloomingAbominationSimplified />读条
+      其中，必定有两只<BloomingAbomination />读条
       <Span variant="yellow">{windingWildwinds}</Span>
       ，释放月环
     </P>
     <P>
-      另外两只<BloomingAbominationSimplified />读条
+      另外两只<BloomingAbomination />读条
       <Span variant="yellow">{crossingCrosswinds}</Span>
       ，释放十字形AoE
     </P>
@@ -806,7 +805,7 @@ const defaultSolution = '解法：日野主流【改】'
     </P>
     <P>
       玩家可以躲在
-      <BloomingAbominationSimplified />
+      <BloomingAbomination />
       的尸体后（无需背对）来躲避石化
     </P>
     <P>
@@ -820,8 +819,8 @@ const defaultSolution = '解法：日野主流【改】'
 <SolutionSection>
   <div class="flex flex-col gap-4">
     <P>
-      在躲避<Span variant="yellow">{rootsOfEvil}</Span>时，
-      <RoleIcon role="tank" />将小怪拉到场地<Span variant="pink">西侧或西北侧</Span>的安全区
+      在四四分摊后，<RoleIcon role="tank" tag="双T" />迅速将小怪拉到场地<Span variant="pink">西侧</Span>的安全区，东侧的
+      <RoleIcon role="melee" />跟着<RoleIcon role="tank" tag="ST" />穿到西侧
     </P>
     <P>
       当小怪读条<Span variant="yellow">{windingWildwinds} / {crossingCrosswinds}</Span>时，
@@ -838,8 +837,8 @@ const defaultSolution = '解法：日野主流【改】'
     <P>
       例如，当仇恨列表如下图所示时，
       <Quote variant="lime">
-        <P><RoleIcon role="tank" tag="MT" />应当打断第二只<BloomingAbominationSimplified /></P>
-        <P><RoleIcon role="tank" tag="ST" />应当打断第四只<BloomingAbominationSimplified /></P>
+        <P><RoleIcon role="tank" tag="MT" />应当打断第二只<BloomingAbomination /></P>
+        <P><RoleIcon role="tank" tag="ST" />应当打断第四只<BloomingAbomination /></P>
       </Quote>
     </P>
     <Image src={bloomings} alt="" class="w-62 rounded border-2 border-yellow-800 dark:border-yellow-100" />
@@ -848,15 +847,12 @@ const defaultSolution = '解法：日野主流【改】'
       帮助队友进行打断
     </P>
     <P>
-      同时，全员集火<BloomingAbominationSimplified />， 在其狂暴之前将其全部击杀
-      <span class="pl-2 line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700"
-        >这里小怪计入logs，你们懂的</span
-      >
+      同时，全员集火<BloomingAbomination />， 在其狂暴之前将其全部击杀
     </P>
     <P>
-      击杀<BloomingAbominationSimplified />后，
+      击杀<BloomingAbomination />后，
       <RoleIcon role="tank" tag="MT" />将<BruteAbombinator />
-      拉到<BloomingAbominationSimplified />的尸体附近，
+      拉到<BloomingAbomination />的尸体附近，
     </P>
     <P>全员利用小怪尸体阻挡石化视线</P>
     <Image src={quarry_swamp} alt="" class="w-96" />

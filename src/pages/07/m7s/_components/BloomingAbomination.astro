@@ -8,15 +8,26 @@ import bloomingAbominationIcon from '@/assets/07/m7s/entity_icons/blooming_abomi
 import { translations } from '../_translations'
 
 interface Props {
-  num: number
+  num?: number
 }
 
-const { num }: Props = Astro.props
+const { num = 0 }: Props = Astro.props
 const bloomingAbomination = translations.bloomingAbomination
 ---
 
-<EntityIcon icon={bloomingAbominationIcon} alt="BOSS" iconClass="scale-125 drop-shadow-xs drop-shadow-black">
+<EntityIcon
+  icon={bloomingAbominationIcon}
+  alt="BOSS"
+  class="ml-0.5"
+  iconClass="scale-125 drop-shadow-xs drop-shadow-black"
+>
   <Span variant="rose" class="ml-1">{bloomingAbomination}</Span>
-  <Span variant="rose" class="-ml-1">×{num}</Span>
+  {
+    num > 0 && (
+      <Span variant="rose" class="-ml-1">
+        ×{num}
+      </Span>
+    )
+  }
 </EntityIcon>
-<EntityText>{bloomingAbomination}×{num}</EntityText>
+<EntityText>{bloomingAbomination}{num > 0 ? `×${num}` : ''}</EntityText>
