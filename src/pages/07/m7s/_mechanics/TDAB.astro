@@ -7,7 +7,6 @@ import Span from '@/components/Span.vue'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import ListDot from '@/components/ListDot.astro'
 import { translations } from '../_translations'
@@ -15,8 +14,8 @@ import StratLink from '@/components/StratLink.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 import abominable_blink_1 from '@/assets/07/m7s/tdab/AbBlink_flare1.png'
-import abominable_blink_2 from '@/assets/07/m7s/tdab/AbBlink_flare2.png'
 import game8_abominable_blink from '@/assets/07/m7s/tdab/game8_abblink.png'
+import DamageInfo from '@/components/DamageInfo.astro'
 
 const thornyDeathmatch = translations.thornyDeathmatch
 const abominableBlink = translations.abominableBlink
@@ -27,15 +26,15 @@ const ThornsOfDeath = translations.thornsOfDeath
 
 const solutions = [
   {
-    id: 'TDAB-game8',
-    title: '解法：Game8原版',
+    id: 'TDAB-xivstrat',
+    title: '解法：本站',
   },
   {
-    id: 'TDAB-spjp',
-    title: '解法：本站攻略',
+    id: 'TDAB-game8',
+    title: '解法：日野主流',
   },
 ]
-const defaultSolution = '解法：本站攻略'
+const defaultSolution = '解法：本站'
 ---
 
 <MechanicSection>
@@ -99,42 +98,22 @@ const defaultSolution = '解法：本站攻略'
   </div>
 </MechanicSection>
 
-<SolutionSection>
-  <div class="flex flex-col gap-4">
-    <P>
-      <Skill name={stoneringer} />读条时，<RoleIcon role="all" tag="全员" />观察并<Span variant="pink">记住</Span
-      ><BruteAbombinator />掏出的武器，以处理<StratLink variant="yellow" href="#sporesplosion"
-        ><Skill name={sporesplosion} /></StratLink
-      >结束后的<Skill name={brutishswing} />
-    </P>
-    <P><Skill name={abominableBlink} />读条时：</P>
-    <P>
-      <ListDot />被<Skill name={abominableBlink} />点名的<RoleIcon role="tank" />
-      <Span variant="pink">远离人群</Span>放置核爆</P
-    >
-    <P
-      ><ListDot /><RoleIcon role="all" tag="其他" />集合<Span variant="pink">远离</Span><RoleIcon
-        role="tank"
-        tag="点名"
-      /></P
-    >
-    <P>
-      以下给出<StratLink variant="lime" href="#TDAB-spjp">本站攻略</StratLink>和<StratLink
-        variant="lime"
-        href="#TDAB-game8">Game8原版</StratLink
-      >处理方式：
-    </P>
-  </div>
-</SolutionSection>
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：本站攻略">
+  <div slot="解法：本站">
     <div class="flex flex-col gap-4">
+      <P>
+        <Skill name={stoneringer} />读条时，<RoleIcon role="all" tag="全员" />观察并<Span variant="pink">记住</Span
+        ><BruteAbombinator />掏出的武器，以处理<StratLink variant="yellow" href="#sporesplosion"
+          ><Skill name={sporesplosion} /></StratLink
+        >结束后的<Skill name={brutishswing} />
+      </P>
+      <P><Skill name={abominableBlink} />读条时：</P>
       <P
         ><ListDot />无论核爆点名如何，<Span variant="pink">固定让</Span><RoleIcon role="tank" tag="MT" /><Span
           variant="pink">拉线</Span
-        >，核爆<RoleIcon role="tank" tag="点名" />前往场地<Span variant="pink">左上角</Span></P
+        >，核爆<RoleIcon role="tank" />前往场地<Span variant="pink">左上角（以面向BOSS为基准）</Span></P
       >
-      <P><ListDot /><RoleIcon role="all" tag="其他" />前往场地<Span variant="pink">中轴线</Span>附近集合，交群减处理</P>
+      <P><ListDot />其他人远离左上角，<RoleIcon role="melee" />可最大近战距离输出</P>
       <P>站位示意图如下：</P>
       <ImgRow
         class="game-img"
@@ -147,17 +126,31 @@ const defaultSolution = '解法：本站攻略'
           },
         ]}
       />
+      <P>
+        按上图站位时，远程会受到约
+        <DamageInfo damage="110000" type="magical" />
+        的伤害，近战则受到约
+        <DamageInfo damage="160000~210000" type="magical" />
+        的伤害
+      </P>
+      <P>首周装等下，需要≥20%的团减，或给近战单独的支援减</P>
     </div>
   </div>
-  <div slot="解法：Game8原版">
+  <div slot="解法：日野主流">
     <div class="flex flex-col gap-4">
+      <P>
+        <Skill name={stoneringer} />读条时，<RoleIcon role="all" tag="全员" />观察并<Span variant="pink">记住</Span
+        ><BruteAbombinator />掏出的武器，以处理<StratLink variant="yellow" href="#sporesplosion"
+          ><Skill name={sporesplosion} /></StratLink
+        >结束后的<Skill name={brutishswing} />
+      </P>
+      <P><Skill name={abominableBlink} />读条时：</P>
       <P
         ><ListDot /><Span variant="pink">未被核爆点名</Span>的<RoleIcon role="tank" />挑衅成为一仇拉线，核爆<RoleIcon
           role="tank"
-          tag="点名"
-        />前往场地<Span variant="pink">右上角</Span></P
+        />前往场地<Span variant="pink">右侧远离人群</Span></P
       >
-      <P><ListDot /><RoleIcon role="all" tag="其他" />前往场地<Span variant="pink">左上角</Span>附近集合，交群减处理</P>
+      <P><ListDot />其他人前往场地<Span variant="pink">左上角</Span>附近集合</P>
       <P>站位示意图如下：</P>
       <ImgRow
         class="game-img"
@@ -167,7 +160,6 @@ const defaultSolution = '解法：本站攻略'
           {
             src: game8_abominable_blink,
             alt: '',
-            title: 'Game8原版',
           },
         ]}
       />
