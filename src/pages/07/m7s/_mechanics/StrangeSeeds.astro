@@ -41,6 +41,12 @@ import zari_even_case_1 from '@/assets/07/m7s/strange_seeds/zari_even_case_1.png
 import zari_even_case_2 from '@/assets/07/m7s/strange_seeds/zari_even_case_2.png'
 import zari_stack from '@/assets/07/m7s/strange_seeds/zari_stack.png'
 
+import fs_place_overview from '@/assets/07/m7s/strange_seeds/fs_place_overview.png'
+import fs_place_overview_dot from '@/assets/07/m7s/strange_seeds/fs_place_overview_dot.png'
+import fs_place_cursed_1 from '@/assets/07/m7s/strange_seeds/fs_place_cursed_1.png'
+import fs_place_cursed_2 from '@/assets/07/m7s/strange_seeds/fs_place_cursed_2.png'
+import fs_stack from '@/assets/07/m7s/strange_seeds/fs_stack.png'
+
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 
 const strangeSeeds = translations.strangeSeeds
@@ -446,10 +452,21 @@ const defaultSolution = '解法：萨利式'
         <P>如果被点名，将冰花放在自己点位上，然后<Span variant="pink">躲开这轮</Span>冰花</P>
       </Quote>
       <T variant="lime" text="Fixed Seeds点位图示" class="mt-4 text-2xl" />
+      <P>
+        <ToggleSwitch id="fs-overview-toggle" lVariant="lime" rVariant="pink" lLabel="职能图标" rLabel="精确点位" />
+      </P>
       <ImgRow
-        wrapperClass="max-w-100"
+        id="fs-overview-icon"
+        wrapperClass="max-w-180"
         borderVariant="rose"
-        imgs={[{ src: Tmp, alt: 'Fixed Seeds点位', title: 'Fixed Seeds点位' }]}
+        imgs={[{ src: fs_place_overview, alt: '显示职能图标', title: '' }]}
+      />
+      <ImgRow
+        id="fs-overview-dot"
+        wrapperClass="max-w-180"
+        borderVariant="rose"
+        class="hidden"
+        imgs={[{ src: fs_place_overview_dot, alt: '显示精确点位', title: '' }]}
       />
     </div>
     <div class="mt-4 flex flex-col gap-4">
@@ -464,20 +481,28 @@ const defaultSolution = '解法：萨利式'
       </Quote>
       <P>实际上，场中存在不止一处的安全区</P>
       <T text="特殊情况" variant="lime" class="mt-4 text-2xl" />
-      <P
-        >对于<RoleIcon role="tank" /><RoleIcon role="melee" />，<Span variant="pink">连续2轮</Span>点<RoleIcon
-          role="tank"
-        /><RoleIcon role="melee" />的情况下，要注意前往特殊的位置才能无损躲避冰花，具体如下图：</P
-      >
+      <P>
+        对于<RoleIcon role="tank" /><RoleIcon role="melee" />，
+        <Span variant="pink">连续2轮</Span>点<RoleIcon role="tank" /><RoleIcon role="melee" />的情况下
+      </P>
+      <P>
+        要注意前往特殊的位置（图中<Span variant="purple">紫色点位</Span>）才能无损躲避冰花，如下图所示：
+      </P>
       <ImgRow
-        wrapperClass="max-w-100"
+        wrapperClass="max-w-180"
         borderVariant="rose"
-        imgs={[{ src: Tmp, alt: '双近战情况1', title: '双近战情况1' }]}
+        imgs={[{ src: fs_place_cursed_1, alt: '双近战情况1', title: '双近战情况1' }]}
       />
       <ImgRow
-        wrapperClass="max-w-100"
+        wrapperClass="max-w-180"
         borderVariant="rose"
-        imgs={[{ src: Tmp, alt: '双近战情况2', title: '双近战情况2' }]}
+        imgs={[
+          {
+            src: fs_place_cursed_2,
+            alt: '双近战情况2',
+            title: '双近战情况2（黄色点位有概率吃到冰花/超出近战最大攻击距离）',
+          },
+        ]}
       />
     </div>
     <div class="flex flex-col gap-4">
@@ -511,9 +536,9 @@ const defaultSolution = '解法：萨利式'
         </P>
         <T text="Fixed Seeds分摊图示" variant="lime" class="mt-4 text-2xl" />
         <ImgRow
-          wrapperClass="max-w-100"
+          wrapperClass="max-w-180"
           borderVariant="rose"
-          imgs={[{ src: Tmp, alt: 'fixedseeds分摊', title: 'Fixed Seeds分摊' }]}
+          imgs={[{ src: fs_stack, alt: 'fixed seeds分摊', title: '' }]}
         />
       </div>
     </div>
@@ -587,6 +612,8 @@ const defaultSolution = '解法：萨利式'
       toggleTables('zari-if-even-omen', 'zari-if-even-activate', target.checked)
     } else if (target && target.id === 'zari-safe-zone-toggle') {
       toggleTables('zari-safe-zone-omen', 'zari-safe-zone-activate', target.checked)
+    } else if (target && target.id === 'fs-overview-toggle') {
+      toggleTables('fs-overview-icon', 'fs-overview-dot', target.checked)
     }
   })
 </script>
