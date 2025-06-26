@@ -1,6 +1,4 @@
 ---
-import type { Time } from '@/lib/utils'
-
 import { Image } from 'astro:assets'
 
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -8,9 +6,19 @@ import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
+import Quote from '@/components/typography/Quote.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import P from '@/components/typography/P.astro'
 
 import StoneringerCast from '../_components/StoneringerCast.astro'
 import SmashHereCast from '../_components/SmashHereCast.astro'
+import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
+import SmashActivate from '../_components/SmashActivate.astro'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+
 import { translations } from '../_translations'
 
 import stoneringer_1 from '@/assets/07/m7s/stoneringer/stoneringer_1.png'
@@ -19,14 +27,6 @@ import stoneringer_circle from '@/assets/07/m7s/stoneringer/stoneringer_circle.p
 import stoneringer_ring from '@/assets/07/m7s/stoneringer/stoneringer_ring.png'
 import smash_here from '@/assets/07/m7s/smash_here.png'
 import smash_there from '@/assets/07/m7s/smash_there.png'
-import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
-import SmashActivate from '../_components/SmashActivate.astro'
-import BruteAbombinator from '../_components/BruteAbombinator.astro'
-import Quote from '@/components/typography/Quote.astro'
-import ImgRow from '@/components/typography/ImgRow.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import Skill from '@/components/typography/Skill.astro'
-import T from '@/components/typography/T.astro'
 
 const smashHere = translations.smashHere
 const smashThere = translations.smashThere
@@ -36,22 +36,23 @@ const brutishswing = translations.brutishSwing
 ---
 
 <StoneringerCast start="00:20.89" />
-<SmashHereCast start="00:28.76" />
 <BrutishSwingActivate time="00:32.704" />
+<SmashHereCast start="00:28.76" />
 <SmashActivate time="00:33.860" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T>
       <Skill name={stoneringer} />
     </T>
-    <div class="paragraph">
-      <Span variant="yellow">{stoneringer}</Span> 读条期间，<BruteAbombinator />掏出<Span variant="pink">一把</Span>武器
-    </div>
-    <div>
-      <Span variant="yellow">{smashHereThere}</Span> 读条同时武器<Span variant="pink">发光</Span>，读条结束后发动对应 <Span
-        variant="yellow">{brutishswing}（钢铁/月环）</Span
-      >
-    </div>
+    <P>
+      <Span variant="yellow">{stoneringer}</Span>
+      读条期间，<BruteAbombinator />掏出<Span variant="pink">一把</Span>武器
+    </P>
+    <P>
+      <Span variant="yellow">{smashHereThere}</Span>
+      读条的同时武器<Span variant="pink">发光</Span>，读条结束后发动对应
+      <Span variant="yellow">{brutishswing}（钢铁/月环）</Span>
+    </P>
     <div class="flex gap-4">
       <div class="max-w-88 flex-1">
         <Image src={stoneringer_1} alt="" class="rounded border-2 border-yellow-800 dark:border-yellow-100" />
@@ -60,17 +61,17 @@ const brutishswing = translations.brutishSwing
         <h4 class="text-xl">
           <Span variant="yellow">情形1</Span>
         </h4>
-        <div class="paragraph">
+        <P>
           <BruteAbombinator />掏出一根石制<Span variant="pink">棍棒</Span>，发光后释放半径<Span variant="pink">12m</Span
           >的<Span variant="yellow">钢铁</Span>
-        </div>
-        <div>范围<Span variant="pink">大于</Span>最大近战攻击距离</div>
-        <div>
+        </P>
+        <P>范围<Span variant="pink">大于</Span>最大近战攻击距离</P>
+        <P>
           对范围内的玩家造成
           <DamageInfo damage="134000" type="physical" />
           <DamageDown tag="30" hover />
           <Span variant="rose" class="text-decimal">35%↓</Span>
-        </div>
+        </P>
       </div>
     </div>
     <div class="flex gap-4">
@@ -81,16 +82,16 @@ const brutishswing = translations.brutishSwing
         <h4 class="text-xl">
           <Span variant="yellow">情形2</Span>
         </h4>
-        <div class="paragraph">
+        <P>
           <BruteAbombinator />掏出一把石制<Span variant="pink">长刀</Span>，发光后释放<Span variant="yellow">月环</Span>
-        </div>
-        <div>中间安全场地半径 <Span variant="pink">9m</Span></div>
-        <div>
+        </P>
+        <P>中间安全场地半径 <Span variant="pink">9m</Span></P>
+        <P>
           对范围内的玩家造成
           <DamageInfo damage="134000" type="physical" />
           <DamageDown tag="30" hover />
           <Span variant="rose" class="text-decimal">35%↓</Span>
-        </div>
+        </P>
       </div>
     </div>
 
@@ -118,12 +119,12 @@ const brutishswing = translations.brutishSwing
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">{smashHereThere}</Span>
     </h4>
-    <div class="paragraph">
+    <P>
       <Span variant="yellow">{stoneringer}</Span>判定后<Span variant="pink">约1秒</Span>，<BruteAbombinator />释放<Span
         variant="pink">距离诱导</Span
-      >的<Span variant="pink">6m</Span>圆形AOE物理<Span variant="red">死刑</Span>，需要
+      >的<Span variant="pink">6m</Span>圆形AoE物理<Span variant="red">死刑</Span>，需要
       <RoleIcon role="tank" tag="双T" />分摊或<RoleIcon role="tank" tag="单T" />无敌处理
-    </div>
+    </P>
 
     <div class="flex gap-4">
       <div class="flex-1 shrink">
@@ -133,12 +134,12 @@ const brutishswing = translations.brutishSwing
         <h4 class="text-xl">
           <Span variant="yellow">情形1：{smashHere}</Span>
         </h4>
-        <div class="paragraph">
+        <P>
           <!--想保留读条文字高亮色强调，又想中英文可切换 -->
           读条 <Span variant="pink">近侧</Span>挥打，对距离<Span variant="pink">最近</Span>的玩家释放<Span
             variant="pink">范围</Span
           >死刑
-        </div>
+        </P>
       </div>
     </div>
     <div class="flex gap-4">
@@ -149,31 +150,55 @@ const brutishswing = translations.brutishSwing
         <h4 class="text-xl">
           <Span variant="yellow">情形2：{smashThere}</Span>
         </h4>
-        <div class="paragraph">
+        <P>
           读条<Span variant="pink">远侧</Span>挥打，对距离<Span variant="pink">最远</Span>的玩家释放<Span variant="pink"
             >范围</Span
           >死刑
-        </div>
+        </P>
       </div>
     </div>
   </div>
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="gap-strat flex items-center">
+    <P>
       <RoleIcon role="any" tag="全员" />
       先根据<Span variant="pink">发光</Span>的武器，判断读条结束后躲钢铁还是躲月环
-    </div>
-    <div class="gap-strat mt-8 flex items-center">钢月黄色预兆<Span variant="pink">消失</Span>的瞬间，</div>
-    <Quote variant="rose">
-      <div class="gap-strat flex items-center pl-1">
+    </P>
+    <P>
+      再根据
+      <Skill name={smashHereThere} />
+      的读条情况预先判断接下来靠近还是远离
+      <BruteAbombinator />
+      ，并调整站位
+    </P>
+    <P class="mt-4">钢月黄色预兆<Span variant="pink">消失</Span>的瞬间：</P>
+    <Quote variant="lime">
+      <P class="pl-1">
         <RoleIcon role="tank" tag="引导T" />
         引导对应的<Span variant="pink">最近</Span>/<Span variant="pink">最远</Span>死刑，无敌处理
-      </div>
-      <div class="gap-strat flex items-center pl-1">
+      </P>
+      <P class="pl-1">
         <RoleIcon role="all" tag="其他人" />
-        根据死刑读条<Span variant="pink">远离</Span>/<Span variant="pink">靠近</Span><RoleIcon role="boss" tag="boss" />
-      </div>
+        根据死刑读条<Span variant="pink">远离</Span>/<Span variant="pink">靠近</Span><BruteAbombinator />
+      </P>
     </Quote>
+    <P class="mt-4">
+      <Skill name={stoneringer} />
+      +
+      <Skill name={smashHereThere} />
+      的组合技在P1、P3阶段各有两次，近/远死刑可全部用无敌覆盖
+    </P>
+    <P>
+      我们规定按照
+      <RoleIcon role="tank" tag="MT" />
+      >
+      <RoleIcon role="tank" tag="ST" />
+      >
+      <RoleIcon role="tank" tag="MT" />
+      >
+      <RoleIcon role="tank" tag="ST" />
+      的次序依次开无敌引导单吃
+    </P>
   </div>
 </SolutionSection>

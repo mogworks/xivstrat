@@ -36,6 +36,7 @@ import go3 from '@/assets/07/zelenia/P3-6/P3-6-g-o3.png'
 
 import m1 from '@/assets/07/zelenia/P3-6/P3-6-m1.png'
 import m2 from '@/assets/07/zelenia/P3-6/P3-6-m2.png'
+import m3 from '@/assets/07/zelenia/P3-6/P3-6-m3.png'
 
 import tdps from '@/assets/07/zelenia/P3-6/P3-6-t-dps.png'
 import ttn from '@/assets/07/zelenia/P3-6/P3-6-t-tn.png'
@@ -97,21 +98,39 @@ const defaultSolution = '解法：减伤法（TLB）'
 
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
   <div slot="解法：减伤法（TLB）" class="flex flex-col gap-4">
-    <div class="paragraph">无需关注扇形刀的预兆，按照如图所示位置进行分组。</div>
-    <div class="paragraph">🌹玫瑰标记显示时，花点名前往组内塔的对角放置花。</div>
-    <div class="paragraph">踩塔的人站在塔上踩塔</div>
-    <div class="paragraph">{translations.HolyHazard}读条到2/3时，可使用<LimitBreak role="tank" />或做好减伤处理</div>
+    <div class="flex gap-4">
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-88"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: tg,
+            alt: 'Zelenia：P3-6 分组',
+            title: '分组',
+          },
+
+        ]}
+      />
+      
+      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+        <div class="paragraph">无需关注扇形刀的预兆，按照如图所示位置进行分组，每两人负责1/4区域</div>
+        <div class="paragraph">🌹玫瑰标记显示时，花点名前往组内塔的对角放置花。</div>
+        <div class="paragraph">踩塔的人站在塔上踩塔</div>
+        <div class="paragraph">{translations.HolyHazard}读条到2/3时，可使用<LimitBreak role="tank" />或做好减伤处理</div>
+        <div class="paragraph">
+          备注：🌹玫瑰标记可以靠近斜角放置，会只吃到一次扇形伤害
+        </div>
+      </div>
+      
+    </div>
     <ImgRow
       class="game-img"
       wrapperClass="max-w-88"
       borderVariant="cyan"
       rounded
       imgs={[
-        {
-          src: tg,
-          alt: 'Zelenia：P3-6 分组',
-          title: '分组',
-        },
         {
           src: ttn,
           alt: 'Zelenia：P3-6 分组',
@@ -122,9 +141,21 @@ const defaultSolution = '解法：减伤法（TLB）'
           alt: 'Zelenia：P3-6 分组',
           title: 'DPS点花',
         },
+        {
+          src: m3,
+          alt: 'Zelenia：P3-6 分组',
+          title: '两次扇形伤害范围',
+        },
+
       ]}
     />
+
   </div>
+  
+  <!-- <div slot="解法：减伤法（TLB）" class="flex flex-col gap-4">
+    
+    
+  </div> -->
   <div slot="解法：正攻" class="flex flex-col gap-4">
     <div class="paragraph">
       <Span variant="yellow">原理：</Span>
@@ -162,6 +193,7 @@ const defaultSolution = '解法：减伤法（TLB）'
       <Zelenia />开始读条，并显示第一次扇形的预兆：完全盖住内塔/外塔
     </div>
     <div class="paragraph">不同人群行为如下，注意此处的踩内塔/外塔代表着自己负责的区域是内塔/外塔</div>
+    
     <table class="mt-4 min-w-full border">
       <thead>
         <tr>
@@ -187,6 +219,7 @@ const defaultSolution = '解法：减伤法（TLB）'
         </tr>
       </tbody>
     </table>
+    <div class="paragraph">备注：为了方便阅读，在图示的塔旁边标注了负责此块区域的角色。此处以TN点花，DPS踩塔举例</div>
     <ImgRow
       class="game-img"
       wrapperClass="max-w-88"

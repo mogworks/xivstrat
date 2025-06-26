@@ -1,6 +1,4 @@
 ---
-import type { Time } from '@/lib/utils'
-
 import { Image } from 'astro:assets'
 
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -54,12 +52,10 @@ import BloomingAbominationSimplified from '../_components/BloomingAbominationSim
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
 import { translations } from '../_translations'
-import { TvMinimalPlay } from 'lucide-vue-next'
 import NoteSection from '@/components/section/NoteSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import Skill from '@/components/typography/Skill.astro'
 import ImgGrid from '@/components/typography/ImgGrid.astro'
-import PollenActivate from '../_components/PollenActivate.astro'
 import SinisterSeedsMode2Activate from '../_components/SinisterSeedsMode2Activate.astro'
 import SinisterSeedsMode1Cast from '../_components/SinisterSeedsMode1Cast.astro'
 import TendrilsofTerrorAppear2 from '../_components/TendrilsofTerrorAppear2.astro'
@@ -90,20 +86,19 @@ const tendrilsofTerror = translations.tendrilsOfTerror
 const solutions = [
   {
     id: 'sinisterseeds-game8m',
-    title: '解法：本站攻略',
+    title: '解法：日野主流【改】',
   },
   {
     id: 'inisterseeds-nO2m',
     title: '解法：nO2S改',
   },
 ]
-const defaultSolution = '解法：本站攻略'
+const defaultSolution = '解法：日野主流【改】'
 ---
 
 <SporeSacCast start="00:40.052" end="00:43.039" />
 <SinisterSeedsCast start="00:48.384" />
 <PollenCast start="00:49.812" />
-<PollenActivate time="00:53.780" />
 <SinisterSeedsMode1Cast start="00:53.511" />
 <SinisterSeedsMode1Cast start="00:55.515" />
 <EventSection time="00:55.917">
@@ -287,7 +282,7 @@ const defaultSolution = '解法：本站攻略'
 </MechanicSection>
 
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：本站攻略">
+  <div slot="解法：日野主流【改】">
     <div class="flex flex-col gap-4">
       <div class="flex flex-col gap-4">
         <h4 class="text-2xl">
@@ -609,7 +604,7 @@ const defaultSolution = '解法：本站攻略'
       </div>
       <div class="flex flex-col gap-4">
         <h4 class="mt-8 text-2xl">
-          <Span variant="lime">放置冰花与追踪AOE</Span>
+          <Span variant="lime">放置冰花与追踪AoE</Span>
         </h4>
         <div class="paragraph">
           这里无论<RoleIcon role="tank|dps" tag="近战" />还是<RoleIcon role="healer|dps" tag="远程" />，均以<StratLink
