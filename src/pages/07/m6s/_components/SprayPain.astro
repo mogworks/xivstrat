@@ -13,6 +13,8 @@ const { num }: Props = Astro.props
 ---
 
 <EntityIcon icon={icon} alt="仙人掌" iconClass="drop-shadow-xs drop-shadow-black">
-  <Span variant="rose">仙人掌×{num}</Span>
+  <div class="text-decimal">
+    <Span variant="rose">仙人掌×{num}</Span>
+  </div>
 </EntityIcon>
 <EntityText>仙人掌×{num}</EntityText>

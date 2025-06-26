@@ -18,14 +18,16 @@ const name = type === 'wind' ? '风狼首' : '土狼首'
 
 <EntityIcon icon={icon} class="-mx-px" iconClass="scale-120 drop-shadow-xs drop-shadow-black">
   <slot>
-    <Span variant={type === 'wind' ? 'green' : 'orange'}>{name}</Span>
-    {
-      order !== 0 && (
-        <Span variant={type === 'wind' ? 'green' : 'orange'} class="-ml-1">
-          #{order}
-        </Span>
-      )
-    }
+    <div class="text-decimal">
+      <Span variant={type === 'wind' ? 'green' : 'orange'}>{name}</Span>
+      {
+        order !== 0 && (
+          <Span variant={type === 'wind' ? 'green' : 'orange'} class="-ml-1">
+            #{order}
+          </Span>
+        )
+      }
+    </div>
   </slot>
 </EntityIcon>
 <EntityText>

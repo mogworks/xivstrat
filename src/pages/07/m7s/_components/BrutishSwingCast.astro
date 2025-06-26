@@ -1,6 +1,7 @@
 ---
 import type { Time } from '@/lib/utils'
 import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
 
 import BruteAbombinator from './BruteAbombinator.astro'
 import { translations } from '../_translations'
@@ -16,5 +17,6 @@ const brutishSwing = translations.brutishSwing
 
 <CastSection start={start} duration={duration} ability={brutishSwing}>
   <BruteAbombinator slot="source" />
-  连线场地墙壁，随后移动至连线墙壁
+  连线另一墙壁，随后移动至连线墙壁并释放武器相应技能
+  <Badge variant="yellow">钢铁/月环</Badge>
 </CastSection>
