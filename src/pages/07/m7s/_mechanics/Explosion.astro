@@ -1,8 +1,4 @@
 ---
-import type { Time } from '@/lib/utils'
-
-import { Image } from 'astro:assets'
-
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
@@ -18,11 +14,8 @@ import ImgRow from '@/components/typography/ImgRow.astro'
 import ExplosionCast from '../_components/ExplosionCast.astro'
 import ExplosionActivate from '../_components/ExplosionActivate.astro'
 import StoneringerCast from '../_components/StoneringerCast.astro'
-import SmashActivate from '../_components/SmashActivate.astro'
-import SmashHereCast from '../_components/SmashHereCast.astro'
+import SmashHereThereCast from '../_components/SmashHereThereCast.astro'
 import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
-import Stoneringer from './Stoneringer.astro'
-import Skill from '@/components/typography/Skill.astro'
 import { translations } from '../_translations'
 import StratLink from '@/components/StratLink.astro'
 
@@ -33,12 +26,11 @@ const stoneringer = translations.stoneringer
 <ExplosionCast time="01:38.818" num={2} />
 <ExplosionCast time="01:41.314" num={3} />
 <ExplosionActivate time="01:45.234" num={1} />
-<StoneringerCast start="01:46.61" />
 <ExplosionActivate time="01:47.815" num={2} />
 <ExplosionActivate time="01:50.309" num={3} />
-<SmashHereCast start="01:54.42" />
+<StoneringerCast start="01:46.61" />
 <BrutishSwingActivate time="01:58.147" />
-<SmashActivate time="01:59.304" />
+<SmashHereThereCast start="01:54.42" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">
