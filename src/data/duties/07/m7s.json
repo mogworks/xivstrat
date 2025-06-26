@@ -71,14 +71,14 @@
       "mechanics": [
         {
           "href": "#SBGR",
-          "name": "SBGR",
+          "name": "石制武器 + 野蛮横扫",
           "name_en": "",
           "name_ja": "",
           "name_ch": ""
         },
         {
           "href": "#TDAB",
-          "name": "TDAB",
+          "name": "荆棘生死战",
           "name_en": "",
           "name_ja": "",
           "name_ch": ""
@@ -92,7 +92,7 @@
         },
         {
           "href": "#DDAB",
-          "name": "DDAB",
+          "name": "荆棘生死战：楼体",
           "name_en": "",
           "name_ja": "",
           "name_ch": ""
