@@ -23,7 +23,7 @@
     "@nanostores/vue": "1.0.0",
     "@tailwindcss/vite": "4.1.10",
     "@vueuse/core": "13.4.0",
-    "astro": "5.10.1",
+    "astro": "5.10.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "lucide-vue-next": "0.523.0",
