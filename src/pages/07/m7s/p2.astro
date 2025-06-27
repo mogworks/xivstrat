@@ -66,7 +66,7 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
   <AttackSection time="03:43.624" damage="57000" damageType="physical" />
   <AttackSection time="03:46.656" damage="57000" damageType="physical" />
 
-  <SeparatorSection id="TDAB" title=`${thornyDeathmatch} + ${abominableBlink}` />
+  <SeparatorSection id="TDAB" title=`${thornyDeathmatch}` />
   <ThornyDeathmatchCast start="03:22.806" />
   <StoneringerCast start="03:27.928" />
   <AbominableBlinkCast start="03:35.780" />
@@ -79,14 +79,14 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
   <AttackSection time="04:19.661" damage="57000" damageType="physical" />
   <AttackSection time="04:22.696" damage="57000" damageType="physical" />
 
-  <SeparatorSection id="DDAB" title=`${demolitionDeathmatch} + ${abominableBlink}` />
+  <SeparatorSection id="DDAB" title=`${demolitionDeathmatch}` />
   <DDAB />
 
   <AttackSection time="04:42.302" damage="57000" damageType="physical" />
   <SeparatorSection id="strange-seeds" title={strangeSeeds} />
   <StrangeSeeds />
 
-  <SeparatorSection title=`${stoneringer} + ${brutishSwing} + ${glowerPower} + ${revengeOfTheVines}` />
+  <SeparatorSection id="SBGR2" title=`${stoneringer} + ${brutishSwing}` />
   <BrutishSwingMoveActivate time="05:24.855" />
   <BrutishSwingActivate time="05:28.947" />
   <GlowerPowerCast start="05:29.839" />
@@ -96,14 +96,19 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
   <RevengeOfTheVinesActivate time="05:39.643" />
   <NoteSection>
     <div class="flex flex-col gap-4">
-      <P><StratLink variant="yellow" href="#SBGR">SBGR组合技</StratLink>，处理方式与之前相同</P>
+      <P>
+        <StratLink variant="yellow" href="#SBGR">
+          {`${stoneringer} + ${brutishSwing} + ${glowerPower} + ${revengeOfTheVines}`}
+        </StratLink>
+        组合技，处理方式与之前相同
+      </P>
     </div>
   </NoteSection>
 
   <AttackSection time="05:42.223" damage="57000" damageType="physical" />
   <AttackSection time="05:45.255" damage="57000" damageType="physical" />
 
-  <SeparatorSection title={powerslam} />
+  <SeparatorSection id="powerslam" title={powerslam} />
   <PowerSlamCast time="05:51.804" />
   <PowerSlamActivate time="05:51.804" />
   <PowerSlam />
