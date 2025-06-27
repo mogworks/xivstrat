@@ -10,12 +10,15 @@ import ListDot from '@/components/ListDot.astro'
 
 import chn1 from '@/assets/07/m7s/ddab/DemoDM_chn_1.png'
 import chn2 from '@/assets/07/m7s/ddab/DemoDM_chn_2.png'
+import chn2_target_base from '@/assets/07/m7s/ddab/DemoDM_chn_2_target_base.png'
 import fixed_seeds_chn1 from '@/assets/07/m7s/ddab/fixed_seeds_chn_1.png'
 import fixed_seeds_chn2 from '@/assets/07/m7s/ddab/fixed_seeds_chn_2.png'
 import DDAB_solution_1 from '@/assets/07/m7s/ddab/DDAB_solution_1.png'
 import DDAB_solution_2 from '@/assets/07/m7s/ddab/DDAB_solution_2.png'
 import DDAB_solution_3 from '@/assets/07/m7s/ddab/DDAB_solution_3.png'
 import DDAB_solution_4 from '@/assets/07/m7s/ddab/DDAB_solution_4.png'
+import DDAB_solution_2_target_base from '@/assets/07/m7s/ddab/DDAB_solution_2_target_base.png'
+import DDAB_solution_4_target_base from '@/assets/07/m7s/ddab/DDAB_solution_4_target_base.png'
 
 import AbominableBlinkCast from '../_components/AbominableBlinkCast.astro'
 import AbominableBlinkActivate from '../_components/AbominableBlinkActivate.astro'
@@ -33,6 +36,7 @@ import { translations } from '../_translations'
 import Quote from '@/components/typography/Quote.astro'
 import StratLink from '@/components/StratLink.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
 
 const demolitionDeathmatch = translations.demolitionDeathmatch
 const thornsofDeath = translations.thornsOfDeath
@@ -161,13 +165,27 @@ const defaultSolution = '解法：本站'
           tag="D4"
         />来到<ThornsOfDeathDebuff level={1} hover />/<ThornsOfDeathDebuff level={2} hover />的位置就位</P
       >
-      <P>最终两种连线情况示意图如下： </P>
+      <P>
+        最终两种连线情况示意图如下：
+        <ToggleSwitch id="DDAB-toggle-1" lVariant="blue" rVariant="red" lLabel="场地基准" rLabel="面向BOSS基准" />
+      </P>
       <ImgRow
+        id="DDAB-floor-base-1"
         wrapperClass="max-w-120"
         bordered={false}
         imgs={[
           { src: chn1, alt: '接线时BOSS位于左上方墙面', title: 'BOSS在左上方' },
           { src: chn2, alt: '接线时BOSS位于右下方墙面', title: 'BOSS在右下方' },
+        ]}
+      />
+      <ImgRow
+        id="DDAB-target-base-1"
+        class="hidden"
+        wrapperClass="max-w-120"
+        bordered={false}
+        imgs={[
+          { src: chn1, alt: '接线时BOSS位于左上方墙面', title: 'BOSS在左上方' },
+          { src: chn2_target_base, alt: '接线时BOSS位于右下方墙面', title: 'BOSS在右下方' },
         ]}
       />
 
@@ -195,8 +213,12 @@ const defaultSolution = '解法：本站'
         />给<RoleIcon role="ranged" tag="D3" />一个支援减，减少其受到的核爆伤害
       </P>
 
-      <T class="mt-8"><Span variant="lime">核爆站位各情况示意图</Span></T>
+      <P class="mt-8">
+        核爆站位各情况如下表：
+        <ToggleSwitch id="DDAB-toggle-2" lVariant="blue" rVariant="red" lLabel="场地基准" rLabel="面向BOSS基准" />
+      </P>
       <ImgGrid
+        id="DDAB-floor-base-2"
         cols={[
           { title: 'BOSS位于左上墙壁', width: '30rem' },
           { title: 'BOSS位于右下墙壁', width: '30rem' },
@@ -220,6 +242,36 @@ const defaultSolution = '解法：本站'
             cells: [
               { img: { src: DDAB_solution_3, alt: 'BOSS位于左上墙壁且核爆点ST' } },
               { img: { src: DDAB_solution_4, alt: 'BOSS位于右下墙壁且核爆点ST' } },
+            ],
+          },
+        ]}
+      />
+      <ImgGrid
+        id="DDAB-target-base-2"
+        class="hidden"
+        cols={[
+          { title: 'BOSS位于左上墙壁', width: '30rem' },
+          { title: 'BOSS位于右下墙壁', width: '30rem' },
+        ]}
+        defaultImgWrapperStyle={{
+          bordered: false,
+          rounded: false,
+          borderVariant: 'rose',
+          class: 'max-w-120',
+        }}
+        rows={[
+          {
+            title: '核爆点MT',
+            cells: [
+              { img: { src: DDAB_solution_1, alt: 'BOSS位于左上墙壁且核爆点MT' } },
+              { img: { src: DDAB_solution_2_target_base, alt: 'BOSS位于右下墙壁且核爆点MT' } },
+            ],
+          },
+          {
+            title: '核爆点ST',
+            cells: [
+              { img: { src: DDAB_solution_3, alt: 'BOSS位于左上墙壁且核爆点ST' } },
+              { img: { src: DDAB_solution_4_target_base, alt: 'BOSS位于右下墙壁且核爆点ST' } },
             ],
           },
         ]}
@@ -297,3 +349,31 @@ const defaultSolution = '解法：本站'
     </div>
   </NoteSection>
 </MultiSolutionSection>
+
+<script>
+  function toggleImgs(id1: string, id2: string, baseClass: string, change: boolean) {
+    const element1 = document.getElementById(id1)
+    const element2 = document.getElementById(id2)
+
+    if (element1 && element2) {
+      if (change) {
+        element1.classList.toggle(baseClass, !element1.classList.toggle('hidden', true))
+        element2.classList.toggle(baseClass, !element2.classList.toggle('hidden', false))
+      } else {
+        element2.classList.toggle(baseClass, !element2.classList.toggle('hidden', true))
+        element1.classList.toggle(baseClass, !element1.classList.toggle('hidden', false))
+      }
+    }
+  }
+
+  document.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement
+
+    if (target && target.id === 'DDAB-toggle-1') {
+      toggleImgs('DDAB-floor-base-1', 'DDAB-target-base-1', 'flex', target.checked)
+    }
+    if (target && target.id === 'DDAB-toggle-2') {
+      toggleImgs('DDAB-floor-base-2', 'DDAB-target-base-2', 'grid', target.checked)
+    }
+  })
+</script>
