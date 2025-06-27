@@ -72,7 +72,7 @@ const slaminator = translations.slaminator
         <Skill name={stoneringer2Stoneringers} />
       </T>
       <P>
-        <BruteAbombinator />读条同时掏出2把不同武器，后续两把武器依次发光，释放一套组合技：
+        <BruteAbombinator />读条同时掏出2把不同武器，后续两把武器依次发光，按以下顺序释放一套组合技：
       </P>
       <P class="pl-2">
         <ListDot />第1次<Skill name={brutishSwing} />
@@ -84,10 +84,16 @@ const slaminator = translations.slaminator
         >
       </P>
       <P class="pl-6">武器与钢月对应关系与之前相同</P>
+      <P class="pl-2"><ListDot /><Skill name={revengeOfTheVines} /></P>
+      <P class="pl-6"
+        >同
+        <StratLink variant="yellow" href="./p2/#revengeofvines">p2</StratLink>
+        ，全屏AoE，造成<DamageInfo damage="190000" type="magical" /></P
+      >
       <P class="pl-2">
         <ListDot /><Skill name={lashingLariat} />
       </P>
-      <P class="pl-6"><BruteAbombinator />向对面墙冲锋，同时发光武器扫过<Span variant="pink">面前27m</Span>宽的场地</P>
+      <P class="pl-6"><BruteAbombinator />向对面墙冲锋，同时发光武器的半场扫过<Span variant="pink">27m</Span>宽的AoE</P>
       <P class="pl-6"
         >对范围内的玩家造成 <DamageInfo damage="190000" type="physical" />
         ，并附加<DamageDown tag="30" hover /></P
@@ -100,6 +106,15 @@ const slaminator = translations.slaminator
           variant="yellow">钢铁/月环</Span
         >
       </P>
+      <P class="pl-2">
+        <ListDot />
+        <StratLink variant="yellow" href="./p2/#electrogenetic-force">{electrogeneticForce}</StratLink>+<StratLink
+          variant="yellow"
+          href="./p2/#gP">{glowerPower}</StratLink
+        >
+      </P>
+      <P class="pl-6">机制效果与之前相同</P>
+
       <P class="pl-2">
         <ListDot /><Skill name={slaminator} />
       </P>
@@ -169,22 +184,14 @@ const slaminator = translations.slaminator
         />拆解，实际战斗中该机制会组合其他机制，P3共出现2次，参考上方时间轴</P
       >
     </Quote>
-    <div class="mt-4 flex flex-col gap-4">
-      <P
-        >在此处，穿插的是<StratLink variant="yellow" href="./p2/#revengeofvines">{revengeOfTheVines}</StratLink
-        >和<StratLink variant="yellow" href="./p2/#electrogenetic-force">{electrogeneticForce}</StratLink>+<StratLink
-          variant="yellow"
-          href="./p2/#gP">{glowerPower}</StratLink
-        >的组合，各机制效果与之前相同</P
-      >
-    </div>
   </div>
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <P>
-      第1次<Skill name={brutishSwing} />读条时，观察发光武器和连线墙壁，在判定前到达安全区躲避钢月
-    </P>
+    <T>
+      第1次<Skill name={brutishSwing} />
+    </T>
+    <P>读条时，观察发光武器和连线墙壁，在判定前到达安全区躲避钢铁月环</P>
     <P class="pl-4">
       由于<BruteAbombinator />固定面朝连线墙壁，跳墙后面向<Span variant="pink">翻转</Span>
     </P>

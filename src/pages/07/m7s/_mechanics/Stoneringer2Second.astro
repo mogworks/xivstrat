@@ -99,21 +99,19 @@ const strangeSeeds = translations.strangeSeeds
     >
   </div>
 </MechanicSection>
-<SolutionSection title="解法：Game8">
+<SolutionSection title="解法：Game8改">
   <div class="flex flex-col gap-4">
-    <P>第1轮冰花以<Span variant="pink">场地标点A</Span>为正北：</P>
+    <P>冰花以<Span variant="pink">场地标点A</Span>为正北：</P>
     <Quote variant="rose">
       <P class="pl-1">
         <RoleIcon role="tank" tag="MT" /><RoleIcon role="ranged" tag="D3" />在<Span variant="red">标点1</Span>处， <RoleIcon
           role="tank"
           tag="ST"
-        /><RoleIcon role="magic" tag="D4" />在<Span variant="yellow">标点2</Span>处，<RoleIcon
-          role="tank"
-          tag="H2"
-        /><RoleIcon role="melee" tag="D2" />在<Span variant="blue">标点3</Span>处，<RoleIcon
-          role="tank"
-          tag="H1"
-        /><RoleIcon role="melee" tag="D1" />在<Span variant="purple">标点4</Span>处
+        /><RoleIcon role="magic" tag="D4" />在<Span variant="yellow">标点2</Span>处，
+        <RoleIcon role="healer" tag="H1" />
+        <RoleIcon role="melee" tag="D1" />在<Span variant="purple">标点4</Span>处
+        <RoleIcon role="healer" tag="H2" /><RoleIcon role="melee" tag="D2" />
+        在<Span variant="blue">标点3</Span>处，
       </P></Quote
     >
     <P>放置自己的冰花</P>
@@ -168,21 +166,21 @@ const strangeSeeds = translations.strangeSeeds
     />
 
     <P class="mt-4">冰花AoE判定后，全员前往安全区躲避半场刀，期间第2轮点名会出现</P>
-    <P>这一次以<BruteAbombinator /><Span variant="pink">所在墙</Span>为正北：</P>
+    <P>和之前一样</P>
     <Quote variant="rose">
       <P class="pl-1">
-        <RoleIcon role="tank" tag="MT" /><RoleIcon role="melee" tag="D1" />在<Span variant="pink">西北</Span>标点处， <RoleIcon
-          role="tank"
-          tag="ST"
-        /><RoleIcon role="melee" tag="D2" />在<Span variant="pink">东北</Span>标点处，<RoleIcon
-          role="tank"
-          tag="H2"
-        /><RoleIcon role="ranged" tag="D3" />在<Span variant="pink">西南</Span>标点处，<RoleIcon
-          role="tank"
-          tag="H1"
-        /><RoleIcon role="magic" tag="D4" />在<Span variant="pink">东南</Span>标点处
+        <RoleIcon role="tank" tag="MT" /><RoleIcon role="ranged" tag="D3" />
+        在<Span variant="red">标点1</Span>处，
+        <RoleIcon role="tank" tag="ST" /><RoleIcon role="magic" tag="D4" />
+        在<Span variant="yellow">标点2</Span>处，
+        <RoleIcon role="healer" tag="H1" />
+        <RoleIcon role="melee" tag="D1" />
+        在<Span variant="purple">标点4</Span>处
+        <RoleIcon role="healer" tag="H2" /><RoleIcon role="melee" tag="D2" />
+        在<Span variant="blue">标点3</Span>处，
       </P></Quote
-    ><P>放置冰花</P>
+    >
+    <P>放置冰花</P>
     <T variant="lime" text="第2轮放花位置示意图" class="mt-4" />
     <ImgRow
       wrapperClass="max-w-100"
