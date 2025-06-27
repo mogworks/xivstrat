@@ -14,6 +14,7 @@ import ring_img from '@/assets/07/m7s/stoneringer2/p3_ring.png'
 import lariat_left_img from '@/assets/07/m7s/lashing_lariat/lashing_lariat_3.png'
 import lariat_right_img from '@/assets/07/m7s/lashing_lariat/lashing_lariat_4.png'
 import glower_power_img from '@/assets/07/m7s/stoneringer2/p3_glower_power.png'
+import glower_power_img_2 from '@/assets/07/m7s/stoneringer2/p3_glower_power_2.png'
 
 import ListDot from '@/components/ListDot.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
@@ -192,10 +193,7 @@ const slaminator = translations.slaminator
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <T>
-      第1次<Skill name={brutishSwing} />
-    </T>
-    <P>读条时，观察发光武器和连线墙壁，在判定前到达安全区躲避钢铁月环</P>
+    <P>第1次<Skill name={brutishSwing} />读条时，观察发光武器和连线墙壁，在判定前到达安全区躲避钢铁月环</P>
     <P class="pl-4">
       由于<BruteAbombinator />固定面朝连线墙壁，跳墙后面向<Span variant="pink">翻转</Span>
     </P>
@@ -209,15 +207,21 @@ const slaminator = translations.slaminator
     >
     <P class="mt-4">第2次<Skill name={brutishSwing} />读条时同样处理，此处固定与第1次相反</P>
     <P class="pl-4">因为接下来是直线AoE，可以预先左右分组</P>
-    <P class="mt-4">然后以<Span variant="pink">BOSS面向</Span>为基准，按照下图所示站位分散：</P>
+    <P class="mt-4">然后以<Span variant="pink">BOSS面向</Span>为基准分散</P>
+    <P>我们在此提供两种分散站位：</P>
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="yellow"
       imgs={[
         {
           src: glower_power_img,
-          alt: '分散直线站位',
-          title: '分散直线站位',
+          alt: 'game8版分散站位',
+          title: 'game8版分散站位',
+        },
+        {
+          src: glower_power_img_2,
+          alt: '第二种分散站位',
+          title: '第二种分散站位',
         },
       ]}
     />
