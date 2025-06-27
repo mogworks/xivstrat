@@ -71,7 +71,7 @@
       "mechanics": [
         {
           "href": "#SBGR",
-          "name": "石制武器 + 野蛮横扫",
+          "name": "石制武器 + 野蛮横扫 #1",
           "name_en": "",
           "name_ja": "",
           "name_ch": ""
@@ -103,6 +103,20 @@
           "name_en": "Strange Seeds",
           "name_ja": "",
           "name_ch": "种弹炸裂"
+        },
+        {
+          "href": "#SBGR2",
+          "name": "石制武器 + 野蛮横扫 #2",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
+        },
+        {
+          "href": "#powerslam",
+          "name": "强震冲",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
         }
       ]
     },

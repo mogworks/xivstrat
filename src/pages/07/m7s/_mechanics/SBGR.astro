@@ -6,6 +6,9 @@ import ring from '@/assets/07/m7s/british_swing/stoneringer_p2_ring.png'
 import glowerPowerVertical from '@/assets/07/m7s/british_swing/glower_power_vertical.png'
 import glowerPowerHorizontal from '@/assets/07/m7s/british_swing/glower_power_horizontal.png'
 import glowerPowerVertical35 from '@/assets/07/m7s/british_swing/glower_power_vertical_35.png'
+import glower_power_vertical_35_1 from '@/assets/07/m7s/british_swing/glower_power_vertical_35_1.png'
+import glower_power_tank_1 from '@/assets/07/m7s/british_swing/glower_power_tank_1.png'
+import glower_power_tank_2 from '@/assets/07/m7s/british_swing/glower_power_tank_2.png'
 import StoneringerCast from '../_components/StoneringerCast.astro'
 import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
 import GlowerPowerCast from '../_components/GlowerPowerCast.astro'
@@ -26,7 +29,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 const stoneringer = translations.stoneringer
-const brutishswing = translations.brutishSwing
+const brutishSwing = translations.brutishSwing
 const glowerPower = translations.glowerPower
 const RvOftVines = translations.revengeOfTheVines
 const electrogeneticForce = translations.electrogeneticForce
@@ -35,14 +38,18 @@ const revengeOfTheVines = translations.revengeOfTheVines
 const solutions = [
   {
     id: 'SBGR-35',
-    title: '解法：本站',
+    title: '解法：本站（视频）',
+  },
+  {
+    id: 'SBGR-35-2',
+    title: '解法：本站（改）',
   },
   {
     id: 'SBGR-game8',
     title: '解法：日野主流',
   },
 ]
-const defaultSolution = '解法：本站'
+const defaultSolution = '解法：本站（视频）'
 ---
 
 <StoneringerCast start="02:48.01" />
@@ -57,12 +64,15 @@ const defaultSolution = '解法：本站'
     <div class="flex flex-col gap-4">
       <T class="mt-8 scroll-mt-[calc(5rem+1px)]" id="stoneringerP2">
         <Skill name={stoneringer} />
+        +
+        <Skill name={brutishSwing} />
       </T>
+
       <P>
         <BruteAbombinator />读条<Span variant="yellow">{stoneringer}</Span>，拔出武器
       </P>
       <P>
-        然后读条<Span variant="yellow">{brutishswing}</Span>，连线所在墙<Span variant="pink">除外</Span
+        然后读条<Span variant="yellow">{brutishSwing}</Span>，连线所在墙<Span variant="pink">除外</Span
         >的墙壁，同时武器<Span variant="pink">发光</Span>
       </P>
       <P>随后<Span variant="pink">移动至连线墙壁</Span>，读条结束后发动对应<Span variant="yellow">钢铁/月环</Span></P>
@@ -127,7 +137,7 @@ const defaultSolution = '解法：本站'
   </div>
 </MechanicSection>
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：本站">
+  <div slot="解法：本站（视频）">
     <div class="flex flex-col gap-4">
       <P>
         先观察<BruteAbombinator />掏出的<Span variant="pink">武器</Span>，判断接下来是躲钢铁还是月环
@@ -175,18 +185,65 @@ const defaultSolution = '解法：本站'
         <RoleIcon role="magic" tag="D4" />
         站位比较随意，别炸到别人就行，右图这种情况可以多往后退一些
       </P>
+      <P><RoleIcon role="tank" />参考点如下：</P>
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-120"
+        bordered={false}
+        imgs={[
+          {
+            src: glower_power_tank_1,
+            alt: 'Boss跳长边时坦克参考点',
+            title: 'Boss跳长边时坦克参考点',
+          },
+          {
+            src: glower_power_tank_2,
+            alt: 'Boss跳短边时坦克参考点',
+            title: 'Boss跳短边时坦克参考点',
+          },
+        ]}
+      />
+    </div>
+  </div>
+  <div slot="解法：本站（改）">
+    <div class="flex flex-col gap-4">
+      <P
+        >与<StratLink variant="lime" href="#SBGR-35">解法：本站（视频）</StratLink>相比仅仅只是<BruteAbombinator
+        />在<Span variant="pink">场地长边</Span>时的分散站位不同，如图所示：</P
+      >
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-120"
+        bordered={false}
+        imgs={[
+          {
+            src: glower_power_vertical_35_1,
+            alt: 'Boss跳长边',
+            title: 'Boss跳长边',
+          },
+          {
+            src: glowerPowerHorizontal,
+            alt: 'Boss跳短边',
+            title: 'Boss跳短边',
+          },
+        ]}
+      />
+      <P>
+        也就是左图这种情况时让
+        <RoleIcon role="healer" tag="双奶" />
+        在场中附近
+      </P>
     </div>
   </div>
   <div slot="解法：日野主流">
     <div class="flex flex-col gap-4">
       <P
-        >与<StratLink variant="lime" href="#SBGR-35">解法：本站</StratLink>相比仅仅只是<BruteAbombinator />在<Span
-          variant="pink">场地长边</Span
-        >时的分散站位不同，如图所示：</P
+        >与<StratLink variant="lime" href="#SBGR-35">解法：本站（视频）</StratLink>相比仅仅只是<BruteAbombinator
+        />在<Span variant="pink">场地长边</Span>时的分散站位不同，如图所示：</P
       >
       <ImgRow
         class="game-img"
-        wrapperClass="max-w-150"
+        wrapperClass="max-w-120"
         bordered={false}
         imgs={[
           {
