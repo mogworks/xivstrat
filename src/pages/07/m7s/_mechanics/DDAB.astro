@@ -35,7 +35,6 @@ import StratLink from '@/components/StratLink.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 const demolitionDeathmatch = translations.demolitionDeathmatch
-const thornyDeathmatch = translations.thornyDeathmatch
 const thornsofDeath = translations.thornsOfDeath
 const abominableBlink = translations.abominableBlink
 const strangeSeeds = translations.strangeSeeds
@@ -198,11 +197,15 @@ const defaultSolution = '解法：本站'
 
       <T class="mt-8"><Span variant="lime">核爆站位各情况示意图</Span></T>
       <ImgGrid
-        cols={[{ title: 'BOSS位于左上墙壁' }, { title: 'BOSS位于右下墙壁' }]}
+        cols={[
+          { title: 'BOSS位于左上墙壁', width: '30rem' },
+          { title: 'BOSS位于右下墙壁', width: '30rem' },
+        ]}
         defaultImgWrapperStyle={{
           bordered: false,
           rounded: false,
           borderVariant: 'rose',
+          class: 'max-w-120',
         }}
         rows={[
           {
@@ -260,13 +263,13 @@ const defaultSolution = '解法：本站'
         <P><ListDot />离<Span variant="pink">需要</Span>引导的墙<Span variant="pink">最近</Span></P>
         <P><ListDot />离<Span variant="pink">不需要</Span>引导的墙<Span variant="pink">不是最近</Span></P>
         <P
-          >在虚线转变为荆棘连线之前，<RoleIcon role="tank|dps" tag="虚线" />
+          >在虚线转变为荆棘连线之前，虚线<RoleIcon role="tank|dps" />
           来到<ThornsOfDeathDebuff level={1} hover />/<ThornsOfDeathDebuff level={2} hover />的位置就位</P
         >
         <P>最终两种连线情况示意图如下： </P>
         <ImgRow
-          wrapperClass="max-w-100"
-          borderVariant="rose"
+          wrapperClass="max-w-120"
+          bordered={false}
           imgs={[
             { src: fixed_seeds_chn1, alt: '短边墙在boss近侧', title: '短边墙在boss近侧' },
             { src: fixed_seeds_chn2, alt: '短边墙在boss远侧', title: '短边墙在boss远侧' },
@@ -280,6 +283,7 @@ const defaultSolution = '解法：本站'
             tag="D3"
           />支援减</P
         >
+        <P>但需注意这里会影响之后冰花的放法，后续放冰花不能再混用其它解法</P>
       </div>
     </div>
   </div>
