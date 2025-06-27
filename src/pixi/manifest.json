@@ -575,6 +575,15 @@
         },
         {
           "alias": [
+            "role/ranged_magic.png",
+            "role/ranged_magic"
+          ],
+          "src": [
+            "role/ranged_magic.png"
+          ]
+        },
+        {
+          "alias": [
             "role/tank.png",
             "role/tank"
           ],
