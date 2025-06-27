@@ -111,10 +111,12 @@ const sporesplosion = translations.sporesplosion
 </SolutionSection>
 
 <script>
+  import type { AnimationSequence } from 'motion'
+
+  import { animate } from 'motion'
   import { listenKeys } from 'nanostores'
   import { Assets, Container, Graphics, Sprite } from 'pixi.js'
 
-  import floor_img from '@/assets/07/m7s/sporesplosion/floor_p2_1@3x.png'
   import { getScale, YmToPx } from '@/pixi/utils'
   import { $stratBoards } from '@/stores/stratBoards'
 
@@ -163,7 +165,7 @@ const sporesplosion = translations.sporesplosion
     container.position.set(app.screen.width / 2, app.screen.height / 2)
     app.stage.addChild(container)
 
-    const floorTexture = await Assets.load(floor_img)
+    const floorTexture = await Assets.load('07/m7s/floor_p2_1.png')
     const floor = Sprite.from(floorTexture)
     floor.anchor.set(0.5, 0.5)
     container.addChild(floor)
@@ -182,9 +184,9 @@ const sporesplosion = translations.sporesplosion
         const fan_360 = new Sprite(fan_360_Texture)
         const pos = transferPos(p)
         fan_360.anchor.set(0.5, 0.5)
+        fan_360.scale.set(0)
+        fan_360.alpha = 0
         fan_360.position.set(pos.x * YmToPx, pos.y * YmToPx)
-        fan_360.scale.set(getScale() / 1.95)
-        fan_360.visible = false // 初始不显示
         container.addChild(fan_360)
         return fan_360
       })
@@ -192,25 +194,26 @@ const sporesplosion = translations.sporesplosion
 
     const groupSprites = [createAoeSprites(group1), createAoeSprites(group2), createAoeSprites(group3)]
 
-    function showGroups(upToIndex: number) {
-      for (let i = 0; i < groupSprites.length; i++) {
-        const visible = i <= upToIndex
-        groupSprites[i].forEach((sprite) => {
-          sprite.visible = visible
-        })
-      }
+    function showGroups(i: number) {
+      groupSprites[i].forEach((omen) => {
+        const sequence: AnimationSequence = [
+          [omen.scale, { x: getScale() / 1.95, y: getScale() / 1.95 }, { duration: 0.25, at: 0 }],
+          [omen, { alpha: 1 }, { duration: 0.25, at: 0 }],
+          [omen, { alpha: 0 }, { duration: 0.25, at: 4.25 }],
+          [omen.scale, { x: 0, y: 0 }, { duration: 0.1, at: 5 }],
+        ]
+        animate(sequence)
+      })
     }
 
     let elapsed = 0
     app.ticker.add((ticker) => {
       elapsed += ticker.elapsedMS
 
-      const phase = Math.floor(elapsed / 2000) % 4
+      const phase = Math.floor(elapsed / 2000) % 6
 
-      if (phase < 3) {
-        showGroups(phase)
-      } else {
-        showGroups(-1)
+      if (phase >= 1 && phase <= 3) {
+        showGroups(phase - 1)
       }
     })
   })
