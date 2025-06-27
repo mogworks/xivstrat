@@ -106,59 +106,17 @@ const sporesplosion = translations.sporesplosion
 </MechanicSection>
 <SolutionSection title="解法">
   <div class="flex flex-col gap-4">
-    <P
-      >观察黄圈预兆的范围，可以发现：
-      <Quote variant="rose">
-        <P>
-          <Span variant="pink">场中</Span>每个黄圈的<Span variant="pink">圆心</Span>附近约<Span variant="pink"
-            >1m x 1m</Span
-          >的近似正方形</P
-        >
-        <P>
-          <Span variant="pink">场边</Span>每个黄圈的<Span variant="pink">圆心</Span>沿<Span variant="pink"
-            >垂直于场地边缘</Span
-          >半径，向<Span variant="pink">场地外</Span>方向附近
-        </P>
-      </Quote>
-    </P>
-    <P
-      >只会被孢子AoE覆盖<Span variant="pink">1次</Span>，因此这些区域在覆盖的孢子炸掉之后会成为<Span variant="pink"
-        >安全区，如下图所示：</Span
-      ></P
-    >
-    <ImgRow
-      class="game-img"
-      wrapperClass="max-w-150"
-      bordered={false}
-      imgs={[
-        {
-          src: Tmp0,
-          alt: '场中安全区',
-          title: '场中安全区',
-        },
-        {
-          src: Tmp0,
-          alt: '场边安全区',
-          title: '场边安全区',
-        },
-      ]}
-    />
+    <P>由黄圈间隔不算短，半径也不算大，不开疾跑也可以轻易走出范围</P>
+    <P>因此，这里可以三穿一躲避，也可以三穿二、二穿一等</P>
     <P>
-      第1组黄圈消失前，<RoleIcon role="all" tag="全员" />站到不被<Span variant="pink">第1组</Span
-      >黄圈炸到的地方，待上一组黄圈<Span variant="pink">消失</Span>后<Span variant="pink">2s</Span>内移动到安全区
+      如果
+      <Skill name={stoneringer} />
+      是弯刀（月环），那么可以有意识的提前往
+      <BruteAbombinator />
+      对侧长边靠近
     </P>
-    <P>这里可以三穿一躲避，也可以三穿二，二穿一</P>
   </div>
 </SolutionSection>
-
-<NoteSection>
-  <div class="flex flex-col gap-4">
-    <P
-      >如需减少移动，可以先根据<StratLink variant="yellow" href="#stoneringerP2">{stoneringer}</StratLink
-      >的情况选择最终前往哪个安全区</P
-    >
-  </div>
-</NoteSection>
 
 <script>
   import { listenKeys } from 'nanostores'
