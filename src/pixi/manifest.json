@@ -72,6 +72,27 @@
       ]
     },
     {
+      "name": "07/m7s",
+      "assets": [
+        {
+          "alias": [
+            "07/m7s/floor_p2_1.png",
+            "07/m7s/floor_p2_1"
+          ],
+          "src": [
+            "07/m7s/floor_p2_1-TIX-GQ@2x.webp",
+            "07/m7s/floor_p2_1-pqbxsg.webp",
+            "07/m7s/floor_p2_1-lcEb6g@2x.png",
+            "07/m7s/floor_p2_1-jWOLcg@3x.webp",
+            "07/m7s/floor_p2_1-cxu5iQ@3x.avif",
+            "07/m7s/floor_p2_1-cUCDcQ.avif",
+            "07/m7s/floor_p2_1-c8gzAQ.png",
+            "07/m7s/floor_p2_1-33jwOg@2x.avif"
+          ]
+        }
+      ]
+    },
+    {
       "name": "enemy",
       "assets": [
         {
