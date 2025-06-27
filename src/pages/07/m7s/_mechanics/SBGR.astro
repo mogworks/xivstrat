@@ -29,7 +29,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 const stoneringer = translations.stoneringer
-const brutishswing = translations.brutishSwing
+const brutishSwing = translations.brutishSwing
 const glowerPower = translations.glowerPower
 const RvOftVines = translations.revengeOfTheVines
 const electrogeneticForce = translations.electrogeneticForce
@@ -64,12 +64,15 @@ const defaultSolution = '解法：本站（视频）'
     <div class="flex flex-col gap-4">
       <T class="mt-8 scroll-mt-[calc(5rem+1px)]" id="stoneringerP2">
         <Skill name={stoneringer} />
+        +
+        <Skill name={brutishSwing} />
       </T>
+
       <P>
         <BruteAbombinator />读条<Span variant="yellow">{stoneringer}</Span>，拔出武器
       </P>
       <P>
-        然后读条<Span variant="yellow">{brutishswing}</Span>，连线所在墙<Span variant="pink">除外</Span
+        然后读条<Span variant="yellow">{brutishSwing}</Span>，连线所在墙<Span variant="pink">除外</Span
         >的墙壁，同时武器<Span variant="pink">发光</Span>
       </P>
       <P>随后<Span variant="pink">移动至连线墙壁</Span>，读条结束后发动对应<Span variant="yellow">钢铁/月环</Span></P>

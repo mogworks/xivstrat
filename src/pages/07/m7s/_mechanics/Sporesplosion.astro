@@ -40,6 +40,7 @@ interface Props {
 }
 const { start }: Props = Astro.props
 const stoneringer = translations.stoneringer
+const brutishSwing = translations.brutishSwing
 const sporesplosion = translations.sporesplosion
 ---
 
@@ -82,22 +83,27 @@ const sporesplosion = translations.sporesplosion
         <StratBoard width={654} height={327} key="sporesplosion" canvasClass="h-full w-full" />
       </div>
     </div>
-  </div>
-  <div class="mt-8 flex flex-col gap-4">
+    <T class="mt-8">
+      <Skill name={stoneringer} />
+      +
+      <Skill name={brutishSwing} />
+    </T>
     <P>
-      <StratLink variant="yellow" href="#SBGR">SBGR的组合技</StratLink>与之前完全相同，不再赘述
+      这一次
+      <BruteAbombinator />
+      必定连线其<Span variant="pink">对面</Span>的墙壁
+    </P>
+    <P>
+      由于P2第一次
+      <StratLink variant="yellow" href="#SBGR">
+        {`${stoneringer} + ${translations.brutishSwing}`}
+      </StratLink>
+      时，
+      <BruteAbombinator />
+      一定连线场地长边的墙，故此处也一定连长边
     </P>
   </div>
 </MechanicSection>
-<NoteSection>
-  <div class="flex flex-col gap-4">
-    <P
-      >这一次<BruteAbombinator />永远连线其对面的墙壁，由于P2第一次<StratLink variant="yellow" href="#SBGR"
-        >SBGR</StratLink
-      ><BruteAbombinator />一定连线场地长边的墙，故此处也一定连长边</P
-    >
-  </div>
-</NoteSection>
 <SolutionSection title="解法">
   <div class="flex flex-col gap-4">
     <P
