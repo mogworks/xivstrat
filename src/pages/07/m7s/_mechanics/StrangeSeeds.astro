@@ -236,16 +236,12 @@ const defaultSolution = '解法：萨利式'
           <Quote variant="rose"
             ><P>如果自己<Span variant="purple">未被</Span>点名，则前往<Span variant="purple">绝对安全区</Span></P>
             <P
-              >如果自己被点名<Span variant="sky">奇数</Span>轮种子，则前往<Span variant="pink">靠近</Span><RoleIcon
-                role="boss"
-                tag="boss"
-              />的场地<Span variant="sky">中轴线</Span>处放置</P
+              >如果自己被点名<Span variant="sky">奇数</Span>轮种子，则前往<Span variant="pink">靠近</Span
+              ><BruteAbombinator />的场地<Span variant="sky">中轴线</Span>处放置</P
             >
             <P
-              >如果自己被点名<Span variant="orange">偶数</Span>轮种子，则前往<Span variant="pink">靠近</Span><RoleIcon
-                role="boss"
-                tag="boss"
-              />的场地<Span variant="orange">标点</Span>处放置</P
+              >如果自己被点名<Span variant="orange">偶数</Span>轮种子，则前往<Span variant="pink">靠近</Span
+              ><BruteAbombinator />的场地<Span variant="orange">标点</Span>处放置</P
             ></Quote
           >
           <ImgRow
@@ -319,9 +315,7 @@ const defaultSolution = '解法：萨利式'
           <P
             ><Span variant="pink">无论</Span>是否被点名，<Quote variant="rose">
               <P
-                ><Span variant="sky">奇数</Span>轮种子点名时，站在<Span variant="pink">远离</Span><RoleIcon
-                  role="boss"
-                  tag="boss"
+                ><Span variant="sky">奇数</Span>轮种子点名时，站在<Span variant="pink">远离</Span><BruteAbombinator
                 />的场地<Span variant="sky">中轴线</Span>处</P
               >
               <P
@@ -380,12 +374,9 @@ const defaultSolution = '解法：萨利式'
         <P>分摊预兆出现时：</P>
         <Quote variant="rose">
           <P class="pl-1">
-            <RoleIcon role="tank" tag="MT" /><RoleIcon role="melee" tag="D1" />前往<RoleIcon
-              role="boss"
-              tag="boss"
-            /><Span variant="pink">目标圈穿过</Span>的场地<Span variant="sky">角落</Span>，即<RoleIcon
-              role="melee"
-            /><Span variant="sky">奇数</Span>轮冰花点
+            <RoleIcon role="tank" tag="MT" /><RoleIcon role="melee" tag="D1" />前往<BruteAbombinator /><Span
+              variant="pink">目标圈穿过</Span
+            >的场地<Span variant="sky">角落</Span>，即<RoleIcon role="melee" /><Span variant="sky">奇数</Span>轮冰花点
           </P>
           <P class="pl-1">
             <RoleIcon role="tank" tag="ST" /><RoleIcon role="melee" tag="D2" />前往<Span variant="pink">靠近</Span
@@ -511,10 +502,9 @@ const defaultSolution = '解法：萨利式'
         <P>分摊预兆出现时：</P>
         <Quote variant="rose">
           <P class="pl-1">
-            <RoleIcon role="tank" tag="ST" /><RoleIcon role="melee" tag="D1" />前往<RoleIcon
-              role="boss"
-              tag="boss"
-            /><Span variant="pink">目标圈穿过</Span>的场地<Span variant="pink">角落</Span>
+            <RoleIcon role="tank" tag="ST" /><RoleIcon role="melee" tag="D1" />前往<BruteAbombinator /><Span
+              variant="pink">目标圈穿过</Span
+            >的场地<Span variant="pink">角落</Span>
           </P>
           <P class="pl-1">
             <RoleIcon role="tank" tag="MT" /><RoleIcon role="melee" tag="D2" />前往<Span variant="pink">靠近</Span
@@ -571,12 +561,7 @@ const defaultSolution = '解法：萨利式'
         variant="lime">萨利式</Span
       >而短边墙在<BruteAbombinator />远侧</P
     >
-    <P
-      >都会有一个标准舞步较难在不吃到<ThornsOfDeathDebuff level={3} hover />的情况下打到<RoleIcon
-        role="boss"
-        tag="boss"
-      /></P
-    >
+    <P>都会有一个标准舞步较难在不吃到<ThornsOfDeathDebuff level={3} hover />的情况下打到<BruteAbombinator /></P>
     <P
       >固定队的话，可以和<RoleIcon role="healer" />协商，由<RoleIcon
         role="healer"
