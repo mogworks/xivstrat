@@ -1,8 +1,4 @@
 ---
-import type { Time } from '@/lib/utils'
-import { Image } from 'astro:assets'
-
-import Boss from '@/components/Boss.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
@@ -37,7 +33,6 @@ import { translations } from '../_translations'
 import Quote from '@/components/typography/Quote.astro'
 import StratLink from '@/components/StratLink.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
-import Tmp from '@/assets/07/m7s/Tmp.png'
 
 const demolitionDeathmatch = translations.demolitionDeathmatch
 const thornyDeathmatch = translations.thornyDeathmatch
@@ -61,18 +56,18 @@ const defaultSolution = '解法：萨利式核爆改'
 
 <DemolitionDeathmatchCast start="04:23.274" />
 <AttackSection time="04:28.850" damage="57000" damageType="physical" />
-<EventSection time="04:27.332"
-  >对
-  <RoleIcon role="any" tag="一仇" />
-  施加连线
-  <ThornsOfDeathDebuff hover />
+<EventSection time="04:27.332">
+  <BruteAbombinator />对<RoleIcon role="any" tag="一仇" />施加连线<ThornsOfDeathDebuff hover />
   <Span variant="orange">9000/3s</Span>
-  <Badge variant="orange">DoT</Badge>，另外两面墙最近各一名<RoleIcon role="any" />身上出现虚线预兆</EventSection
->
-<EventSection time="04:32.462"
-  >对<RoleIcon role="any" tag="虚线" />施加连线<ThornsOfDeathDebuff hover /><Span variant="orange">9000/3s</Span>
-  <Badge variant="orange">DoT</Badge></EventSection
->
+  <Badge variant="orange">DoT</Badge>
+</EventSection>
+<EventSection time="04:27.332">
+  距离<BruteAbombinator />不在的另两面墙最近的人身上出现连线预兆
+</EventSection>
+<EventSection time="04:32.462">
+  另两面墙对预兆相连的人施加连线<ThornsOfDeathDebuff hover /><Span variant="orange">9000/3s</Span>
+  <Badge variant="orange">DoT</Badge>
+</EventSection>
 <AttackSection time="04:31.880" damage="57000" damageType="physical" />
 <AbominableBlinkCast start="04:34.422" />
 <AbominableBlinkActivate time="04:40.745" />
@@ -88,27 +83,33 @@ const defaultSolution = '解法：萨利式核爆改'
           />
         </P>
         <P>
-          场地上<Span variant="pink">其他两面</Span>墙壁各自对距离<Span variant="pink">最近</Span>的一名<RoleIcon
-            role="any"
-          />施加虚线连线预兆
+          场地上
+          <Span variant="pink">其他两面</Span>
+          墙壁各自对距离
+          <Span variant="pink">最近</Span>
+          的一名玩家施加虚线连线预兆
         </P>
       </Quote>
     </P>
-    <P>此时的虚线预兆可以被截走</P>
+    <P>此时的连线预兆可以被截走</P>
     <P>
-      约<Span variant="pink">5s</Span>后，虚线预兆变为荆棘连线，根据虚线长度对当前连线者附加<ThornsOfDeathDebuff
-        level={1}
-        hover
-      />/<ThornsOfDeathDebuff level={2} hover />/<ThornsOfDeathDebuff level={3} hover />/<ThornsOfDeathDebuff
-        level={4}
-        hover
-      />
+      约
+      <Span variant="pink">5s</Span>
+      后，连线预兆变为荆棘连线，根据虚线长度对当前连线者附加
+      <ThornsOfDeathDebuff level={1} hover />
+      /
+      <ThornsOfDeathDebuff level={2} hover />
+      /
+      <ThornsOfDeathDebuff level={3} hover />
+      /
+      <ThornsOfDeathDebuff level={4} hover />
     </P>
     <P>
-      <ThornsOfDeathDebuff hover /><StratLink variant="yellow" href="#thornsofdeath">{thornsofDeath}</StratLink
-      >的效果和<StratLink variant="yellow" href="#abominableblink">{abominableBlink}</StratLink>与<Skill
-        name={thornyDeathmatch}
-      />时相同，此处不再赘述
+      <ThornsOfDeathDebuff hover />
+      <StratLink variant="yellow" href="#thornsofdeath">{`${thornsofDeath}（DEBUFF）`}</StratLink>
+      和
+      <StratLink variant="yellow" href="#abominableblink">{abominableBlink}</StratLink>
+      的效果与之前相同，此处不再赘述
     </P>
   </div>
 </MechanicSection>
