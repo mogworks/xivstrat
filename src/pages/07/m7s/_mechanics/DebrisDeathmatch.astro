@@ -35,7 +35,9 @@ const quarrySwamp = translations.quarrySwamp
 ---
 
 <DebrisDeathmatchCast start="07:53.308" />
-<EventSection time="07:57.598">四周四面墙最近各1<RoleIcon role="any" />身上出现虚线预兆</EventSection>
+<EventSection time="07:57.598"
+  >四周四面墙最近各<Span variant="pink">1</Span><RoleIcon role="any" />身上出现虚线预兆</EventSection
+>
 <SporeSacCast2 start="07:58.431" end="08:01.422" />
 <AttackSection time="08:06.365" damage="57000" damageType="physical" />
 <PollenCast start="08:08.192" />
@@ -137,8 +139,9 @@ const quarrySwamp = translations.quarrySwamp
           />，<RoleIcon role="melee" tag="D2" /><RoleIcon role="healer" tag="H2" /></P
         ></Quote
       >
-      的分组进行<Span variant="pink">分摊</Span>，将冰花放在<Span variant="pink">场边</Span>，躲开随后的冰花AoE</P
+      的分组进行<Span variant="pink">分摊</Span>，将冰花贴边放在<Span variant="pink">场边</Span>，躲开随后的冰花AoE</P
     >
+    <Quote variant="lime">远程组注意连线层数，不要超过两层。</Quote>
     <T class="mt-4" variant="lime" text="分摊放冰花站位图示" />
     <ImgRow
       wrapperClass="max-w-100"
@@ -164,12 +167,13 @@ const quarrySwamp = translations.quarrySwamp
         </P></Quote
       >，<Span variant="pink">开好减伤</Span></P
     >
-    <P>人群此时不用集火小怪</P>
+    <P>人群此时不用输出小怪</P>
 
     <P class="mt-4"
       >在<BruteAbombinator />读条<Skill name={quarrySwamp} />结束前，全员前往下图位置，躲在<BloomingAbomination
       />身后躲避石化</P
     >
+    <P> <BloomingAbomination />被石化后可以一击秒杀</P>
     <T class="mt-4" variant="lime" text="石化波动站位示意图" />
     <ImgRow
       wrapperClass="max-w-100"

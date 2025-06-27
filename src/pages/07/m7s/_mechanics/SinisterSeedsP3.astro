@@ -67,10 +67,12 @@ const rootsofEvil = translations.rootsOfEvil
     <div class="flex flex-col gap-4">
       <T><Skill name={sinisterSeeds} /></T>
       <P>
-        与<StratLink variant="yellow" href="./p1/#sismc">P1：{sinisterSeeds}</StratLink>的机制效果相同，但在此处点名
+        与<StratLink variant="yellow" href="./p1/#sismc">P1：{sinisterSeeds}</StratLink>的机制效果相同，此时
+        <Span variant="pink">4</Span>
+        <RoleIcon role="healer|dps" tag="远程" />
+        贴在场边会被视为最远，
         <Span variant="pink">4</Span><RoleIcon role="tank|dps" tag="近战" />
-        或<Span variant="pink">4</Span>
-        <RoleIcon role="healer|dps" tag="远程" />放置冰花，另外4人黄圈追踪AoE
+        则是最近目标。
       </P>
       <P class="mt-4"
         ><StratLink variant="yellow" href="./p1/#rootsofEvil">{rootsofEvil}</StratLink>、<StratLink
@@ -91,7 +93,7 @@ const rootsofEvil = translations.rootsOfEvil
             >最大近战距离</Span
           >处</P
         >
-        <P><RoleIcon role="healer|dps" tag="远程" />在各自连线墙所在的<Span variant="pink">场边</Span></P>
+        <P><RoleIcon role="healer|dps" tag="远程" />在各自连线墙的<Span variant="pink">场边靠近角落</Span>处</P>
       </Quote>，等待点名
     </P>
     <P> 根据点名情况，有两种排圈放花方式，对应的分摊位置也不同 </P>
@@ -191,9 +193,7 @@ const rootsofEvil = translations.rootsOfEvil
       <P>之后以<BruteAbombinator /><Span variant="pink">面向</Span>为基准，立刻离开钢铁范围并分散</P>
       <P>根据冰花安全区的不同，分摊的位置有些差异</P>
       <P
-        >但无论何种情况，<RoleIcon role="healer" tag="点名" />需要注意引导<RoleIcon
-          role="boss"
-          tag="boss"
+        >但无论何种情况，<RoleIcon role="healer" tag="点名" />需要注意引导<BruteAbombinator
         />的位置，给离开钢铁并分散留出足够的空间</P
       >
       <P class="mt-4">
