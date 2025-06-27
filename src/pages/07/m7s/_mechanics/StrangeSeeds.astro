@@ -358,30 +358,23 @@ const defaultSolution = '解法：日野主流（萨利式）'
             <ToggleSwitch id="zari-if-toggle" lVariant="lime" rVariant="pink" lLabel="预兆" rLabel="判定" />
           </P>
           <ImgRow
-            id="zari-if-odd-omen"
+            id="zari-if-omen"
             wrapperClass="max-w-180"
             bordered={false}
-            imgs={[{ src: zari_odd_case_1, alt: '奇数轮冰花AoE', title: '奇数轮冰花AoE' }]}
+            imgs={[
+              { src: zari_odd_case_1, alt: '奇数轮冰花', title: '奇数轮冰花' },
+              { src: zari_even_case_1, alt: '偶数轮冰花', title: '偶数轮冰花' },
+            ]}
           />
           <ImgRow
-            id="zari-if-odd-activate"
+            id="zari-if-activate"
             wrapperClass="max-w-180"
             bordered={false}
             class="hidden"
-            imgs={[{ src: zari_odd_case_2, alt: '奇数轮冰花AoE', title: '奇数轮冰花AoE' }]}
-          />
-          <ImgRow
-            id="zari-if-even-omen"
-            wrapperClass="max-w-180"
-            bordered={false}
-            imgs={[{ src: zari_even_case_1, alt: '偶数轮冰花AoE', title: '偶数轮冰花AoE' }]}
-          />
-          <ImgRow
-            id="zari-if-even-activate"
-            wrapperClass="max-w-180"
-            bordered={false}
-            class="hidden"
-            imgs={[{ src: zari_even_case_2, alt: '偶数轮冰花AoE', title: '偶数轮冰花AoE' }]}
+            imgs={[
+              { src: zari_odd_case_2, alt: '奇数轮冰花', title: '奇数轮冰花' },
+              { src: zari_even_case_2, alt: '偶数轮冰花', title: '偶数轮冰花' },
+            ]}
           />
         </div>
       </div>
@@ -599,11 +592,11 @@ const defaultSolution = '解法：日野主流（萨利式）'
 
     if (omenTable && activateTable) {
       if (showActivate) {
-        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', true))
-        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', false))
+        omenTable.classList.toggle('flex', !omenTable.classList.toggle('hidden', true))
+        activateTable.classList.toggle('flex', !activateTable.classList.toggle('hidden', false))
       } else {
-        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', true))
-        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', false))
+        activateTable.classList.toggle('flex', !activateTable.classList.toggle('hidden', true))
+        omenTable.classList.toggle('flex', !omenTable.classList.toggle('hidden', false))
       }
     }
   }
@@ -612,8 +605,7 @@ const defaultSolution = '解法：日野主流（萨利式）'
     const target = event.target as HTMLInputElement
 
     if (target && target.id === 'zari-if-toggle') {
-      toggleTables('zari-if-odd-omen', 'zari-if-odd-activate', target.checked)
-      toggleTables('zari-if-even-omen', 'zari-if-even-activate', target.checked)
+      toggleTables('zari-if-omen', 'zari-if-activate', target.checked)
     } else if (target && target.id === 'zari-safe-zone-toggle') {
       toggleTables('zari-safe-zone-omen', 'zari-safe-zone-activate', target.checked)
     } else if (target && target.id === 'fs-overview-toggle') {
