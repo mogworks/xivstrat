@@ -3,7 +3,6 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
-import strange_seeds_safe_point from '@/assets/07/m7s/strange_seeds/strange_seeds_safe_point.png'
 import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
 import StrangeSeedsActivate from '../_components/StrangeSeedsActivate.astro'
 import { translations } from '../_translations'
@@ -24,7 +23,6 @@ import StratLink from '@/components/StratLink.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
-import Tmp from '@/assets/07/m7s/Tmp.png'
 import Quote from '@/components/typography/Quote.astro'
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
 
@@ -48,6 +46,8 @@ import fs_place_cursed_2 from '@/assets/07/m7s/strange_seeds/fs_place_cursed_2.p
 import fs_stack from '@/assets/07/m7s/strange_seeds/fs_stack.png'
 
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
+import Badge from '@/components/Badge.astro'
 
 const strangeSeeds = translations.strangeSeeds
 const demolitionDeathmatch = translations.demolitionDeathmatch
@@ -58,35 +58,54 @@ const brutishSwing = translations.brutishSwing
 const solutions = [
   {
     id: 'strangeseeds-sari-m',
-    title: '解法：萨利式',
+    title: '解法：日野主流（萨利式）',
   },
   {
     id: 'strangeseeds-fixedseeds',
     title: '解法：Fixed Seeds',
   },
 ]
-const defaultSolution = '解法：萨利式'
+const defaultSolution = '解法：日野主流（萨利式）'
 ---
 
 <StrangeSeedsCast start="04:43.863" />
-<StrangeSeedsAppear time="04:48.986" num={1} />
+<CollapseSection wider>
+  <Fragment slot="summary">
+    <BruteAbombinator />
+    进行
+    <Span variant="default">4</Span>
+    轮不重复点名，每轮点名
+    <Span variant="default">1</Span>
+    <RoleIcon role="tank|healer" />
+    <Span variant="default">1</Span>
+    <RoleIcon role="dps" />
+    <Skill name={strangeSeeds} />
+    <DamageInfo damage="90000" type="magical" />
+    <MagicVulnerabilityUp tag="7" hover />
+    <Badge variant="emerald">6m圆形</Badge>
+    <Badge variant="yellow">分散</Badge>
+    <Badge variant="cyan">放冰花</Badge>
+  </Fragment>
+  <Fragment slot="details">
+    <StrangeSeedsAppear time="04:48.986" num={1} />
+    <StrangeSeedsActivate time="04:53.975" num={1} />
+    <StrangeSeedsAppear time="04:54.021" num={2} />
+    <TendrilsofTerrorAppear time="04:55.624" num={1} />
+    <StrangeSeedsActivate time="04:59.013" num={2} />
+    <StrangeSeedsAppear time="04:59.013" num={3} />
+    <TendrilsofTerrorAppear time="05:00.664" num={2} />
+    <StrangeSeedsActivate time="05:04.009" num={3} />
+    <StrangeSeedsAppear time="05:04.009" num={4} />
+    <TendrilsofTerrorAppear time="05:05.658" num={3} />
+    <StrangeSeedsActivate time="05:08.997" num={4} />
+    <TendrilsofTerrorAppear time="05:10.647" num={4} />
+  </Fragment>
+</CollapseSection>
 <StoneringerCast start="04:52.997" />
-<StrangeSeedsActivate time="04:53.975" num={1} />
-<StrangeSeedsAppear time="04:54.021" num={2} />
-<TendrilsofTerrorAppear time="04:55.624" num={1} />
-<StrangeSeedsActivate time="04:59.013" num={2} />
-<StrangeSeedsAppear time="04:59.013" num={3} />
-<TendrilsofTerrorAppear time="05:00.664" num={2} />
-<StrangeSeedsActivate time="05:04.009" num={3} />
-<StrangeSeedsAppear time="05:04.009" num={4} />
-<TendrilsofTerrorAppear time="05:05.658" num={3} />
-<StrangeSeedsActivate time="05:08.997" num={4} />
-<TendrilsofTerrorAppear time="05:10.647" num={4} />
 <KillerSeedsAppear time="05:13.853" />
 <KillerSeedsActivate time="05:18.842" />
 <EventSection time="05:20.310">
-  墙与<RoleIcon role="any" />
-  连线
+  墙与玩家的连线
   <ThornsOfDeathDebuff hover />消失
 </EventSection>
 <TendrilsofTerrorAppear time="05:20.532" num={5} />
@@ -98,7 +117,7 @@ const defaultSolution = '解法：萨利式'
       <P>
         点名<Span variant="pink">1</Span><RoleIcon role="tank|healer" />和<Span variant="pink">1</Span><RoleIcon
           role="dps"
-        />的<Span variant="yellow">圆形AoE</Span>，半径<Span variant="pink">6m</Span>，对点名玩家造成<DamageInfo
+        />的圆形伤害，半径<Span variant="pink">6m</Span>，对点名玩家造成<DamageInfo
           damage="90000"
           type="magical"
         />，并附加<MagicVulnerabilityUp tag="7" hover /></P
@@ -121,7 +140,7 @@ const defaultSolution = '解法：萨利式'
     <P
       >点名<Span variant="pink">4</Span><RoleIcon role="tank|healer" />或<Span variant="pink">4</Span><RoleIcon
         role="dps"
-      />的<Span variant="yellow">双人分摊AoE</Span>，半径<Span variant="pink">6m</Span>，造成<DamageInfo
+      />的可分摊圆形伤害，半径<Span variant="pink">6m</Span>，双人分摊时造成<DamageInfo
         damage="100000"
         type="magical"
       />，并附加<MagicVulnerabilityUp tag="2" hover /></P
@@ -153,7 +172,7 @@ const defaultSolution = '解法：萨利式'
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <P>在<Skill name={strangeSeeds} />阶段，<RoleIcon role="all" tag="全员" />处理机制需要做的事只有两种情况：</P>
+    <P>在<Skill name={strangeSeeds} />阶段，<RoleIcon role="all" tag="全员" />需要做的事只有两种情况：</P>
     <Quote variant="rose">
       <P>如果<Span variant="pink">没被点名</Span>放置冰花，站在<Span variant="pink">安全区</Span>躲避冰花</P>
       <P
@@ -181,7 +200,7 @@ const defaultSolution = '解法：萨利式'
 </SolutionSection>
 
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：萨利式">
+  <div slot="解法：日野主流（萨利式）">
     <div class="flex flex-col gap-4">
       <T text="放置冰花" variant="lime" class="text-2xl" />
       <div class="flex flex-col gap-4">
