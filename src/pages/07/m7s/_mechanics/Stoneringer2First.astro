@@ -11,6 +11,10 @@ import { translations } from '../_translations'
 import img from '@/assets/07/m7s/Tmp.png'
 import circle_img from '@/assets/07/m7s/stoneringer2/p3_circle.png'
 import ring_img from '@/assets/07/m7s/stoneringer2/p3_ring.png'
+import lariat_left_img from '@/assets/07/m7s/lashing_lariat/lashing_lariat_3.png'
+import lariat_right_img from '@/assets/07/m7s/lashing_lariat/lashing_lariat_4.png'
+import glower_power_img from '@/assets/07/m7s/stoneringer2/p3_glower_power.png'
+
 import ListDot from '@/components/ListDot.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import Skill from '@/components/typography/Skill.astro'
@@ -165,12 +169,12 @@ const slaminator = translations.slaminator
         borderVariant="yellow"
         imgs={[
           {
-            src: img,
+            src: lariat_left_img,
             alt: 'm7sp3: 左半场刀',
             title: '左半场',
           },
           {
-            src: img,
+            src: lariat_right_img,
             alt: 'm7sp3: 右半场刀',
             title: '右半场',
           },
@@ -205,13 +209,13 @@ const slaminator = translations.slaminator
     >
     <P class="mt-4">第2次<Skill name={brutishSwing} />读条时同样处理，此处固定与第1次相反</P>
     <P class="pl-4">因为接下来是直线AoE，可以预先左右分组</P>
-    <P class="mt-4">然后按照下图所示站位分散：</P>
+    <P class="mt-4">然后以<Span variant="pink">BOSS面向</Span>为基准，按照下图所示站位分散：</P>
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="yellow"
       imgs={[
         {
-          src: img,
+          src: glower_power_img,
           alt: '分散直线站位',
           title: '分散直线站位',
         },
