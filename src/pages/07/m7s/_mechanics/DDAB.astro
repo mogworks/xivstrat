@@ -46,15 +46,19 @@ const stoneringer = translations.stoneringer
 
 const solutions = [
   {
-    id: 'DDAB-sari-m',
-    title: '解法：本站',
+    id: 'DDAB-jp',
+    title: '解法：日野主流',
+  },
+  {
+    id: 'DDAB-mmw',
+    title: '解法：MMW',
   },
   {
     id: 'DDAB-fixedseeds',
     title: '解法：Fixed Seeds',
   },
 ]
-const defaultSolution = '解法：本站'
+const defaultSolution = 'DDAB-jp'
 ---
 
 <DemolitionDeathmatchCast start="04:23.274" />
@@ -116,18 +120,9 @@ const defaultSolution = '解法：本站'
     </P>
   </div>
 </MechanicSection>
-<SolutionSection>
-  <div class="flex flex-col gap-4">
-    <P>
-      我们在此处介绍两种解法，它们的区别在于<RoleIcon role="any" tag="角色" />接线规则和后续<StratLink
-        variant="yellow"
-        href="#strange-seeds">{strangeSeeds}</StratLink
-      >时放置冰花和分摊的位置
-    </P>
-  </div>
-</SolutionSection>
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：本站">
+  <div slot="日野主流">TODO</div>
+  <div slot="解法：MMW">
     <div class="flex flex-col gap-4">
       <T text="接线规则" variant="lime" class="text-2xl" />
       <P>我们规定：</P>
@@ -330,7 +325,7 @@ const defaultSolution = '解法：本站'
       </div>
       <div class="flex flex-col gap-4">
         <P class="mt-4"
-          >核爆站位与<StratLink variant="lime" href="#DDAB-sari-m">解法：本站</StratLink>相同，且不再需要注意给<RoleIcon
+          >核爆站位与<StratLink variant="lime" href="#DDAB-mmw">解法：MMW</StratLink>相同，且不再需要注意给<RoleIcon
             role="ranged"
             tag="D3"
           />支援减</P
