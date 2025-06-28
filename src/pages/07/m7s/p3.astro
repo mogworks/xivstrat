@@ -2,7 +2,6 @@
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
-import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
 import P from '@/components/typography/P.astro'
@@ -32,17 +31,12 @@ const base = '06:09.273'
 const sinisterSeeds = translations.sinisterSeeds
 const specialBombarianSpecial = translations.specialBombarianSpecial
 const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
-const brutalImpact = translations.brutalImpact
-const stoneringer = translations.stoneringer
 const debrisDeathmatch = translations.debrisDeathmatch
 const strangeSeeds = translations.strangeSeeds
 const sporesac = translations.sporeSac
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <SeparatorSection />
-  <DraftWarning />
-  <SeparatorSection />
   <NoteSection>
     <div class="flex flex-col gap-4">
       <P>P3机制多为前2P已出现的相同机制或少数机制稍微修改后的重新组合，故部分重复机制后文不再赘述</P>
