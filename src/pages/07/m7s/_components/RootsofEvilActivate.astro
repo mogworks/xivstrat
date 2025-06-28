@@ -2,9 +2,7 @@
 import type { Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
 import Span from '@/components/Span.vue'
-import DamageDown from '@/components/buff/DamageDown.astro'
 
 import EventSection from '@/components/section/EventSection.astro'
 import { translations } from '../_translations'
@@ -17,9 +15,7 @@ const { time }: Props = Astro.props
 const rootsofEvil = translations.rootsOfEvil
 ---
 
-<EventSection time="01:10.533">
+<EventSection time={time}>
   <Span variant="yellow">{rootsofEvil}</Span>伤害判定
-  <DamageInfo damage="120000" type="magical" />
-  <DamageDown tag="30" hover />
   <Badge variant="emerald">12m圆形</Badge>
 </EventSection>

@@ -4,10 +4,16 @@
   "type": "raid",
   "title": "阿卡狄亚零式登天斗技场 中量级3 攻略",
   "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级3 超详解动态图文攻略",
+  "navigationInfo": {
+    "name": "M7S",
+    "parent": [
+      "阿卡狄亚零式登天斗技场 中量级"
+    ]
+  },
   "banner": "@/assets/banners/07/m7s.png",
-  "date": "25/06/18 18:20",
+  "date": "25/06/28 23:30",
   "href": "/07/m7s",
-  "status": "live",
+  "status": "done",
   "indexAvailable": true,
   "phases": [
     {
@@ -17,8 +23,12 @@
       "name": "P1 - 爆裂开场",
       "mechanics": [
         {
-          "href": "#stoneringer",
-          "name": "石制武器",
+          "href": "#brutal-impact",
+          "name": "野蛮碎击"
+        },
+        {
+          "href": "#stoneringer-smash-here-there",
+          "name": "石制武器 + 近/远侧挥打",
           "name_en": "Stoneringer",
           "name_ja": "",
           "name_ch": "石制武器"
@@ -61,14 +71,14 @@
       "mechanics": [
         {
           "href": "#SBGR",
-          "name": "SBGR",
+          "name": "石制武器 + 野蛮横扫 #1",
           "name_en": "",
           "name_ja": "",
           "name_ch": ""
         },
         {
           "href": "#TDAB",
-          "name": "TDAB",
+          "name": "荆棘生死战",
           "name_en": "",
           "name_ja": "",
           "name_ch": ""
@@ -82,7 +92,7 @@
         },
         {
           "href": "#DDAB",
-          "name": "DDAB",
+          "name": "荆棘生死战：楼体",
           "name_en": "",
           "name_ja": "",
           "name_ch": ""
@@ -93,6 +103,20 @@
           "name_en": "Strange Seeds",
           "name_ja": "",
           "name_ch": "种弹炸裂"
+        },
+        {
+          "href": "#SBGR2",
+          "name": "石制武器 + 野蛮横扫 #2",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
+        },
+        {
+          "href": "#powerslam",
+          "name": "强震冲",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
         }
       ]
     },
@@ -104,14 +128,14 @@
       "mechanics": [
         {
           "href": "#S2RG",
-          "name": "S2RG",
+          "name": "双持石制武器 #1",
           "name_en": "",
           "name_ja": "",
           "name_ch": ""
         },
         {
           "href": "#debris-deathmatch-sporesac",
-          "name": "DDS",
+          "name": "荆棘生死战：墙面 + 孢囊",
           "name_en": "",
           "name_ja": "",
           "name_ch": ""
@@ -125,7 +149,7 @@
         },
         {
           "href": "#S2S",
-          "name": "S2S",
+          "name": "双持石制武器 #2",
           "name_en": "",
           "name_ja": "",
           "name_ch": ""

@@ -1,32 +1,27 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
-import CollapseSection from '@/components/section/CollapseSection.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
-import Span from '@/components/Span.vue'
-import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
-import BrutalImpactActivate from './_components/BrutalImpactActivate.astro'
-import BrutalImpact from './_mechanics/BrutalImpact.astro'
+import AttackSection from './_components/BossAttackSection.astro'
 
+import BrutalImpact from './_mechanics/BrutalImpact.astro'
 import Stoneringer from './_mechanics/Stoneringer.astro'
 import SinisterSeeds from './_mechanics/SinisterSeeds.astro'
 import Explosion from './_mechanics/Explosion.astro'
 import PulpSmash from './_mechanics/PulpSmash.astro'
 import NeoBombarianSpecial from './_mechanics/NeoBombarianSpecial.astro'
-import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
+
 import { translations } from './_translations'
 
 const dutyId = '07/m7s'
 
 const base = 0
 const brutalImpact = translations.brutalImpact
-const stoneringer = translations.stoneringer
 const sinisterSeeds = translations.sinisterSeeds
 const explosion = translations.explosion
 const pulpSmash = translations.pulpSmash
@@ -34,41 +29,26 @@ const neoBombarianSpecial = translations.neoBombarianSpecial
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <SeparatorSection />
-  <DraftWarning />
-  <SeparatorSection />
   <EventSection>
     <RoleIcon role="tank" tag="MT" />
     开怪，将
     <BruteAbombinator />
     固定在场中偏南一点的位置
   </EventSection>
-  <AttackSection time="00:03.832" damage="57000" damageType="physical" />
-  <SeparatorSection id="BrutalImpact" title={brutalImpact} />
-  <BrutalImpactCast start="00:05.165" toln={6} />
-  <CollapseSection>
-    <Fragment slot="summary">
-      <BruteAbombinator />
-      连续释放<Span variant="pink">6</Span>次AoE，每轮伤害
-      <DamageInfo damage="57000" type="physical" />
-    </Fragment>
-    <Fragment slot="details">
-      <BrutalImpactActivate time="00:10.381" num={1} />
-      <BrutalImpactActivate time="00:11.451" num={2} />
-      <BrutalImpactActivate time="00:12.521" num={3} />
-      <BrutalImpactActivate time="00:13.589" num={4} />
-      <BrutalImpactActivate time="00:14.657" num={5} />
-      <BrutalImpactActivate time="00:15.727" num={6} /></Fragment
-    >
-  </CollapseSection>
-
+  <AttackSection time="00:03.029" damage="57000" damageType="physical" />
+  <SeparatorSection id="brutal-impact" title={brutalImpact} />
+  <BrutalImpactCast
+    start="00:05.165"
+    activateTimes={['00:10.381', '00:11.451', '00:12.521', '00:13.589', '00:14.657', '00:15.727']}
+  />
+  <AttackSection time="00:17.775" damage="57000" damageType="physical" />
   <BrutalImpact />
-  <AttackSection time="00:18.577" damage="57000" damageType="physical" />
 
-  <SeparatorSection id="stoneringer" title={stoneringer} />
+  <SeparatorSection
+    id="stoneringer-smash-here-there"
+    title={`${translations.stoneringer} + ${translations.smashHereThere}`}
+  />
   <Stoneringer />
-  <AttackSection time="00:35.910" damage="57000" damageType="physical" />
-  <AttackSection time="00:39.740" damage="57000" damageType="physical" />
 
   <SeparatorSection id="sinister-seeds" title={sinisterSeeds} />
   <SinisterSeeds />
@@ -77,13 +57,8 @@ const neoBombarianSpecial = translations.neoBombarianSpecial
 
   <Explosion />
 
-  <AttackSection time="02:02.160" damage="57000" damageType="physical" />
-
   <SeparatorSection id="pulp-smash" title={pulpSmash} />
   <PulpSmash />
-  <AttackSection time="02:11.071" damage="57000" damageType="physical" />
-  <AttackSection time="02:14.104" damage="57000" damageType="physical" />
-  <AttackSection time="02:17.136" damage="57000" damageType="physical" />
 
   <SeparatorSection id="neo-bombarian-special" title={neoBombarianSpecial} />
   <NeoBombarianSpecial />

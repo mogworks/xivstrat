@@ -3,7 +3,6 @@ import type { Time } from '@/lib/utils'
 import { Image } from 'astro:assets'
 
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import StratBoard from '@/components/StratBoard.astro'
 import Span from '@/components/Span.vue'
@@ -17,49 +16,43 @@ import GlowerPowerCast from '../_components/GlowerPowerCast.astro'
 import ElectrogeneticForceActivate from '../_components/ElectrogeneticForceActivate.astro'
 import RevengeOfTheVinesCast from '../_components/RevengeOfTheVinesCast.astro'
 import { translations } from '../_translations'
-import GlowerPowerActivate from '../_components/GlowerPowerActivate.astro'
-import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
-import RevengeOfTheVinesActivate from '../_components/RevengeOfTheVinesActivate.astro'
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
-import Tmp0 from '@/assets/07/m7s/Tmp.png'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import StratLink from '@/components/StratLink.astro'
-import Quote from '@/components/typography/Quote.astro'
-import ImgRow from '@/components/typography/ImgRow.astro'
 import SporesplosionAppear from '../_components/SporesplosionAppear.astro'
-import BrutishSwingMoveActivate from '../_components/BrutishSwingMoveActivate.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
 
 interface Props {
   start: Time
 }
 const { start }: Props = Astro.props
 const stoneringer = translations.stoneringer
+const brutishSwing = translations.brutishSwing
 const sporesplosion = translations.sporesplosion
 ---
 
 <EventSection time="03:47.100">
-  墙与<RoleIcon role="any" tag="一仇" />
+  <BruteAbombinator />与<RoleIcon role="any" tag="一仇" />
   连线
   <ThornsOfDeathDebuff hover />消失
 </EventSection>
 <SporesplosionCast start={start} />
+<AttackSection time="03:56.228" damage="57000" damageType="magical" />
 <SporesplosionAppear start="03:52.311" num={1} />
 <SporesplosionAppear start="03:54.314" num={2} />
 <SporesplosionAppear start="03:56.317" num={3} />
 <BrutishSwingCast start="03:58.320" />
-<BrutishSwingMoveActivate time="04:05.182" />
-<BrutishSwingActivate time="04:06.386" />
-<GlowerPowerCast start="04:07.275" />
 <ElectrogeneticForceActivate time="04:11.101" />
-<GlowerPowerActivate time="04:11.235" />
+<GlowerPowerCast start="04:07.275" />
 <RevengeOfTheVinesCast start="04:12.084" />
-<RevengeOfTheVinesActivate time="04:17.078" />
+<AttackSection time="04:19.128" damage="57000" damageType="magical" />
+<AttackSection time="04:22.159" damage="57000" damageType="magical" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T>
@@ -86,83 +79,48 @@ const sporesplosion = translations.sporesplosion
         <StratBoard width={654} height={327} key="sporesplosion" canvasClass="h-full w-full" />
       </div>
     </div>
-  </div>
-  <div class="mt-8 flex flex-col gap-4">
+    <T class="mt-8">
+      <Skill name={stoneringer} />
+      +
+      <Skill name={brutishSwing} />
+    </T>
     <P>
-      <StratLink variant="yellow" href="#SBGR">SBGR的组合技</StratLink>与之前完全相同，不再赘述
+      这一次
+      <BruteAbombinator />
+      必定连线其<Span variant="pink">对面</Span>的墙壁
+    </P>
+    <P>
+      由于P2第一次
+      <StratLink variant="yellow" href="#SBGR">
+        {`${stoneringer} + ${translations.brutishSwing}`}
+      </StratLink>
+      时，
+      <BruteAbombinator />
+      一定连线场地长边的墙，故此处也一定连长边
     </P>
   </div>
 </MechanicSection>
-<NoteSection>
-  <div class="flex flex-col gap-4">
-    <P
-      >这一次<BruteAbombinator />永远连线其对面的墙壁，由于P2第一次<StratLink variant="yellow" href="#SBGR"
-        >SBGR</StratLink
-      ><BruteAbombinator />一定连线场地长边的墙，故此处也一定连长边</P
-    >
-  </div>
-</NoteSection>
 <SolutionSection title="解法">
   <div class="flex flex-col gap-4">
-    <P
-      >观察黄圈预兆的范围，可以发现：
-      <Quote variant="rose">
-        <P>
-          <Span variant="pink">场中</Span>每个黄圈的<Span variant="pink">圆心</Span>附近约<Span variant="pink"
-            >1m x 1m</Span
-          >的近似正方形</P
-        >
-        <P>
-          <Span variant="pink">场边</Span>每个黄圈的<Span variant="pink">圆心</Span>沿<Span variant="pink"
-            >垂直于场地边缘</Span
-          >半径，向<Span variant="pink">场地外</Span>方向附近
-        </P>
-      </Quote>
-    </P>
-    <P
-      >只会被孢子AoE覆盖<Span variant="pink">1次</Span>，因此这些区域在覆盖的孢子炸掉之后会成为<Span variant="pink"
-        >安全区，如下图所示：</Span
-      ></P
-    >
-    <ImgRow
-      class="game-img"
-      wrapperClass="max-w-150"
-      bordered={false}
-      imgs={[
-        {
-          src: Tmp0,
-          alt: '场中安全区',
-          title: '场中安全区',
-        },
-        {
-          src: Tmp0,
-          alt: '场边安全区',
-          title: '场边安全区',
-        },
-      ]}
-    />
+    <P>由黄圈间隔不算短，半径也不算大，不开疾跑也可以轻易走出范围</P>
+    <P>因此，这里可以三穿一躲避，也可以三穿二、二穿一等</P>
     <P>
-      第1组黄圈消失前，<RoleIcon role="all" tag="所有人" />站到不被<Span variant="pink">第1组</Span
-      >黄圈炸到的地方，待上一组黄圈<Span variant="pink">消失</Span>后<Span variant="pink">2s</Span>内移动到安全区
+      如果
+      <Skill name={stoneringer} />
+      是弯刀（月环），那么可以有意识的提前往
+      <BruteAbombinator />
+      对侧长边靠近
     </P>
-    <P>这里可以三穿一躲避，也可以三穿二，二穿一</P>
   </div>
 </SolutionSection>
 
-<NoteSection>
-  <div class="flex flex-col gap-4">
-    <P
-      >如需减少移动，可以先根据<StratLink variant="yellow" href="#stoneringerP2">{stoneringer}</StratLink
-      >的情况选择最终前往哪个安全区</P
-    >
-  </div>
-</NoteSection>
-
 <script>
+  import type { AnimationSequence } from 'motion'
+
+  import { animate } from 'motion'
   import { listenKeys } from 'nanostores'
   import { Assets, Container, Graphics, Sprite } from 'pixi.js'
 
-  import floor_img from '@/assets/07/m7s/sporesplosion/floor_p2_1@3x.png'
   import { getScale, YmToPx } from '@/pixi/utils'
   import { $stratBoards } from '@/stores/stratBoards'
 
@@ -211,7 +169,7 @@ const sporesplosion = translations.sporesplosion
     container.position.set(app.screen.width / 2, app.screen.height / 2)
     app.stage.addChild(container)
 
-    const floorTexture = await Assets.load(floor_img)
+    const floorTexture = await Assets.load('07/m7s/floor_p2_1.png')
     const floor = Sprite.from(floorTexture)
     floor.anchor.set(0.5, 0.5)
     container.addChild(floor)
@@ -230,9 +188,9 @@ const sporesplosion = translations.sporesplosion
         const fan_360 = new Sprite(fan_360_Texture)
         const pos = transferPos(p)
         fan_360.anchor.set(0.5, 0.5)
+        fan_360.scale.set(0)
+        fan_360.alpha = 0
         fan_360.position.set(pos.x * YmToPx, pos.y * YmToPx)
-        fan_360.scale.set(getScale() / 1.95)
-        fan_360.visible = false // 初始不显示
         container.addChild(fan_360)
         return fan_360
       })
@@ -240,25 +198,26 @@ const sporesplosion = translations.sporesplosion
 
     const groupSprites = [createAoeSprites(group1), createAoeSprites(group2), createAoeSprites(group3)]
 
-    function showGroups(upToIndex: number) {
-      for (let i = 0; i < groupSprites.length; i++) {
-        const visible = i <= upToIndex
-        groupSprites[i].forEach((sprite) => {
-          sprite.visible = visible
-        })
-      }
+    function showGroups(i: number) {
+      groupSprites[i].forEach((omen) => {
+        const sequence: AnimationSequence = [
+          [omen.scale, { x: getScale() / 1.95, y: getScale() / 1.95 }, { duration: 0.25, at: 0 }],
+          [omen, { alpha: 1 }, { duration: 0.25, at: 0 }],
+          [omen, { alpha: 0 }, { duration: 0.25, at: 4.25 }],
+          [omen.scale, { x: 0, y: 0 }, { duration: 0.1, at: 5 }],
+        ]
+        animate(sequence)
+      })
     }
 
     let elapsed = 0
     app.ticker.add((ticker) => {
       elapsed += ticker.elapsedMS
 
-      const phase = Math.floor(elapsed / 2000) % 4
+      const phase = Math.floor(elapsed / 2000) % 6
 
-      if (phase < 3) {
-        showGroups(phase)
-      } else {
-        showGroups(-1)
+      if (phase >= 1 && phase <= 3) {
+        showGroups(phase - 1)
       }
     })
   })
