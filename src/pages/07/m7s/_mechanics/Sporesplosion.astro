@@ -26,6 +26,7 @@ import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import StratLink from '@/components/StratLink.astro'
 import SporesplosionAppear from '../_components/SporesplosionAppear.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
 
 interface Props {
   start: Time
@@ -42,6 +43,7 @@ const sporesplosion = translations.sporesplosion
   <ThornsOfDeathDebuff hover />消失
 </EventSection>
 <SporesplosionCast start={start} />
+<AttackSection time="03:56.228" damage="57000" damageType="magical" />
 <SporesplosionAppear start="03:52.311" num={1} />
 <SporesplosionAppear start="03:54.314" num={2} />
 <SporesplosionAppear start="03:56.317" num={3} />
@@ -49,6 +51,8 @@ const sporesplosion = translations.sporesplosion
 <ElectrogeneticForceActivate time="04:11.101" />
 <GlowerPowerCast start="04:07.275" />
 <RevengeOfTheVinesCast start="04:12.084" />
+<AttackSection time="04:19.128" damage="57000" damageType="magical" />
+<AttackSection time="04:22.159" damage="57000" damageType="magical" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T>

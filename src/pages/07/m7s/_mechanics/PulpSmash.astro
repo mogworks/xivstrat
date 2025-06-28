@@ -20,6 +20,7 @@ import P from '@/components/typography/P.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import NoteSection from '@/components/section/NoteSection.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
 
 const pulpSmash = translations.pulpSmash
 const ITCD = translations.itCameFromTheDirt
@@ -41,6 +42,9 @@ const defaultSolution = '解法：日野主流（面基）'
 <PulpSmashCast start="02:01.981" />
 <ICftDActivate time="02:08.978" />
 <TheUnpottedActivate time="02:09.025" />
+<AttackSection time="02:10.267" damage="57000" damageType="physical" />
+<AttackSection time="02:13.303" damage="57000" damageType="physical" />
+<AttackSection time="02:16.335" damage="57000" damageType="physical" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-4">

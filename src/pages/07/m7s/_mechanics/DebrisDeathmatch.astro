@@ -16,7 +16,7 @@ import KillerSeedsActivate from '../_components/KillerSeedsActivate.astro'
 import BloomingAbomination from '../_components/BloomingAbomination.astro'
 import TendrilsofTerrorAppear2 from '../_components/TendrilsofTerrorAppear2.astro'
 import QuarrySwampCast from '../_components/QuarrySwampCast.astro'
-import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
 import { translations } from '../_translations'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
@@ -24,10 +24,13 @@ import StratLink from '@/components/StratLink.astro'
 import Quote from '@/components/typography/Quote.astro'
 
 import quarry_swamp from '@/assets/07/m7s/debris_deathmatch_sporesac/quarrySwamp.png'
+import quarry_swamp_1 from '@/assets/07/m7s/debris_deathmatch_sporesac/quarrySwamp_1.png'
 import tendrilsOfTerror_stack from '@/assets/07/m7s/debris_deathmatch_sporesac/tendrilsOfTerror_stack.png'
 import img_1 from '@/assets/07/m7s/debris_deathmatch_sporesac/1.png'
 import img_2 from '@/assets/07/m7s/debris_deathmatch_sporesac/2.png'
 import img_3 from '@/assets/07/m7s/debris_deathmatch_sporesac/3.png'
+import NoteSection from '@/components/section/NoteSection.astro'
+import ListDot from '@/components/ListDot.astro'
 
 const debrisDeathmatch = translations.debrisDeathmatch
 const thornsofDeath = translations.thornsOfDeath
@@ -40,21 +43,21 @@ const quarrySwamp = translations.quarrySwamp
 <DebrisDeathmatchCast start="07:53.308" />
 <EventSection time="07:57.598">四面墙各自连线最近的人虚线预兆</EventSection>
 <SporeSacCast2 start="07:58.431" end="08:01.422" />
-<AttackSection time="08:06.365" damage="57000" damageType="physical" />
+<AttackSection time="08:08.593" damage="57000" damageType="physical" />
 <KillerSeedsAppear time="08:10.685" />
+<AttackSection time="08:11.620" damage="57000" damageType="physical" />
 <PollenCast start="08:08.192" />
-<AttackSection time="08:09.393" damage="57000" damageType="physical" />
-<AttackSection time="08:12.422" damage="57000" damageType="physical" />
+
 <EventSection time="08:14.297">
   <BloomingAbomination num={4} />可选中
 </EventSection>
-<AttackSection time="08:15.457" damage="57000" damageType="physical" />
+<AttackSection time="08:14.654" damage="57000" damageType="physical" />
 <KillerSeedsActivate time="08:15.680" />
+<AttackSection time="08:17.684" damage="57000" damageType="physical" />
 <TendrilsofTerrorAppear2 time="08:17.328" />
-<AttackSection time="08:18.484" damage="57000" damageType="physical" />
-<AttackSection time="08:21.516" damage="57000" damageType="physical" />
-<AttackSection time="08:24.549" damage="57000" damageType="physical" />
-<AttackSection time="08:27.580" damage="57000" damageType="physical" />
+<AttackSection time="08:20.714" damage="57000" damageType="physical" />
+<AttackSection time="08:23.746" damage="57000" damageType="physical" />
+<AttackSection time="08:26.779" damage="57000" damageType="physical" />
 <QuarrySwampCast start="08:28.695" />
 
 <MechanicSection>
@@ -221,42 +224,41 @@ const quarrySwamp = translations.quarrySwamp
       />身后躲避石化</P
     >
     <ImgRow
-      wrapperClass="max-w-100"
+      wrapperClass="max-w-100 flex-1"
       borderVariant="yellow"
       imgs={[
         {
           src: quarry_swamp,
           alt: '石化波动站位示意图',
+          title: '1层debuff站位',
+        },
+        {
+          src: quarry_swamp_1,
+          alt: '石化波动站位示意图',
+          title: '30m团辅站位',
         },
       ]}
     />
-    <!-- <P>
+    <P>
       <Span variant="cyan">
-        注：此位置远程身上为
+        注：右图位置远程身上为
         <ThornsOfDeathDebuff level={2} hover />
-        ，选择此站位原因在说明中
+        ，再靠近场中会变为
+        <ThornsOfDeathDebuff level={3} hover />
+        ，关于团辅的补充说明见下方
       </Span>
-    </P> -->
+    </P>
   </div>
 </SolutionSection>
-<!-- <NoteSection>
+<NoteSection>
   <div class="flex flex-col gap-4">
     <P><ListDot />因为分摊冰花需要贴场边放置，而P3场地边长40m，团辅技能半径30m范围 </P>
-    <P>
-      <ListDot />又因为此时对<BloomingAbomination
-      />的输出实际上无效，同时为了能够在P3落地爆发药之后的10：35再吃第三瓶</P
-    >
-    <P><ListDot />且狂暴轴11：07，延后不会少时间和次数</P><P>（还有其他原因）</P>
-    <P>一般此处的团辅会延后至8：35，即<BloomingAbomination />刚被石化后约1s</P>
+    <P> <ListDot />又因为此时对<BloomingAbomination />的输出没意义，同时为了能够在P3落地爆发药之后的10：35再吃一瓶</P>
+    <P><ListDot />且狂暴轴11：07，延后不会少时间和次数</P>
+    <P>因此，通常此处的团辅会延后至8：35，即<BloomingAbomination />刚被石化后约1s</P>
     <Quote variant="lime"
       ><P>如果P3开场2GCD团辅，则延后8个GCD</P>
       <P>如果3GCD团辅，则延后7个GCD</P>
     </Quote>
-    <P
-      >由此，为了能保证团辅覆盖所有人，且接线的<RoleIcon role="healer|dps" tag="远程" />身上不超过<ThornsOfDeathDebuff
-        level={2}
-        hover
-      />，此处给出石化波动的站位示意图
-    </P>
   </div>
-</NoteSection> -->
+</NoteSection>

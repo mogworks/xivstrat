@@ -16,6 +16,8 @@ import ExplosionActivate from '../_components/ExplosionActivate.astro'
 import StoneringerCast from '../_components/StoneringerCast.astro'
 import SmashHereThereCast from '../_components/SmashHereThereCast.astro'
 import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
+
 import { translations } from '../_translations'
 import StratLink from '@/components/StratLink.astro'
 
@@ -23,14 +25,18 @@ const stoneringer = translations.stoneringer
 ---
 
 <ExplosionCast time="01:36.275" num={1} />
+<AttackSection time="01:37.300" damage="57000" damageType="physical" />
 <ExplosionCast time="01:38.818" num={2} />
+<AttackSection time="01:40.331" damage="57000" damageType="physical" />
 <ExplosionCast time="01:41.314" num={3} />
+<AttackSection time="01:43.362" damage="57000" damageType="physical" />
 <ExplosionActivate time="01:45.234" num={1} />
 <ExplosionActivate time="01:47.815" num={2} />
 <ExplosionActivate time="01:50.309" num={3} />
 <StoneringerCast start="01:46.61" />
 <BrutishSwingActivate time="01:58.147" />
 <SmashHereThereCast start="01:54.42" />
+<AttackSection time="02:01.355" damage="57000" damageType="physical" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <div class="paragraph">

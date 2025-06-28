@@ -10,7 +10,7 @@ import RoleIcon from '@/components/RoleIcon.astro'
 
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
-import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
+import AttackSection from './_components/BossAttackSection.astro'
 import StoneringerCast from './_components/StoneringerCast.astro'
 import SmashHereThereCast from './_components/SmashHereThereCast.astro'
 import BrutishSwingActivate from './_components/BrutishSwingActivate.astro'
@@ -26,7 +26,7 @@ import { translations } from './_translations'
 
 const dutyId = '07/m7s'
 
-const base = '06:09.273'
+const base = '06:09.184'
 
 const sinisterSeeds = translations.sinisterSeeds
 const specialBombarianSpecial = translations.specialBombarianSpecial
@@ -54,18 +54,18 @@ const sporesac = translations.sporeSac
       </P>
     </div>
   </NoteSection>
-  <EventSection time="06:09.273">
+  <EventSection time="06:09.184">
     <BruteAbombinator />可选中
   </EventSection>
-  <AttackSection time="06:09.986" damage="57000" damageType="physical" />
-  <AttackSection time="06:13.014" damage="57000" damageType="physical" />
-  <AttackSection time="06:16.042" damage="57000" damageType="physical" />
+  <AttackSection time="06:09.184" damage="57000" damageType="physical" />
+  <AttackSection time="06:12.213" damage="57000" damageType="physical" />
+  <AttackSection time="06:15.240" damage="57000" damageType="physical" />
 
   <BrutalImpactCast
     start="06:16.310"
     activateTimes={['06:21.518', '06:22.587', '06:23.658', '06:24.727', '06:25.797', '06:26.867', '06:27.935']}
   />
-  <AttackSection time="06:30.789" damage="57000" damageType="physical" />
+  <AttackSection time="06:29.986" damage="57000" damageType="physical" />
   <MoveToCenterEvent time="06:31.100" />
 
   <SeparatorSection id="S2RG" title=`${stoneringer2Stoneringers}` />
@@ -73,7 +73,6 @@ const sporesac = translations.sporeSac
 
   <SeparatorSection />
 
-  <AttackSection time="07:15.515" damage="57000" damageType="physical" />
   <BrutalImpactCast
     start="07:16.318"
     activateTimes={[
@@ -100,8 +99,8 @@ const sporesac = translations.sporeSac
     </P>
   </SolutionSection>
 
-  <AttackSection time="07:47.962" damage="57000" damageType="physical" />
-  <AttackSection time="07:50.993" damage="57000" damageType="physical" />
+  <AttackSection time="07:47.162" damage="57000" damageType="physical" />
+  <AttackSection time="07:50.190" damage="57000" damageType="physical" />
 
   <SeparatorSection id="debris-deathmatch-sporesac" title=`${debrisDeathmatch} + ${sporesac}` />
   <DebrisDeathmatch />
@@ -123,19 +122,17 @@ const sporesac = translations.sporeSac
       '09:18.056',
     ]}
   />
-  <AttackSection time="09:20.907" damage="57000" damageType="physical" />
-  <AttackSection time="09:23.935" damage="57000" damageType="physical" />
+  <AttackSection time="09:20.106" damage="57000" damageType="physical" />
+  <AttackSection time="09:23.132" damage="57000" damageType="physical" />
 
   <SeparatorSection id="S2S" title=`${stoneringer2Stoneringers} + ${strangeSeeds}` />
   <Stoneringer2Second time="09:26.252" />
-
-  <AttackSection time="10:14.526" damage="57000" damageType="physical" />
 
   <SeparatorSection />
   <StoneringerCast start="10:16.130" />
   <BrutishSwingActivate time="10:27.935" />
   <SmashHereThereCast start="10:23.968" />
-  <AttackSection time="10:31.948" damage="57000" damageType="physical" />
+  <AttackSection time="10:31.146" damage="57000" damageType="physical" />
 
   <BrutalImpactCast
     start="10:33.242"
@@ -150,9 +147,9 @@ const sporesac = translations.sporeSac
       '10:45.944',
     ]}
   />
-  <AttackSection time="10:48.792" damage="57000" damageType="physical" />
-  <AttackSection time="10:51.819" damage="57000" damageType="physical" />
-  <AttackSection time="10:54.850" damage="57000" damageType="physical" />
+  <AttackSection time="10:47.993" damage="57000" damageType="physical" />
+  <AttackSection time="10:51.019" damage="57000" damageType="physical" />
+  <AttackSection time="10:54.047" damage="57000" damageType="physical" />
   <MoveToCenterEvent time="10:55.164" />
   <SeparatorSection id="special-bombarian-special" title={specialBombarianSpecial} />
   <SpecialBombarianSpecial />

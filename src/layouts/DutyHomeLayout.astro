@@ -1,6 +1,8 @@
 ---
+import { getEntry } from 'astro:content'
 import DutyLayout from '@/layouts/DutyLayout.astro'
 
+import FooterPagination from '@/components/FooterPagination.astro'
 import Separator from '@/components/Separator.astro'
 import StratHomeAside from '@/components/StratHomeAside.vue'
 
@@ -13,6 +15,7 @@ interface Props {
 }
 
 const { dutyId, navList }: Props = Astro.props
+const duty = (await getEntry('duties', dutyId))!.data
 ---
 
 <DutyLayout dutyId={dutyId}>
@@ -23,6 +26,7 @@ const { dutyId, navList }: Props = Astro.props
         <slot name="operation" />
       </div>
       <slot />
+      <FooterPagination duty={duty} />
     </article>
     <StratHomeAside client:idle navList={navList} />
     <Separator orientation="vertical" class="absolute top-4 left-68 h-[calc(100%-2rem)]" />

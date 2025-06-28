@@ -7,7 +7,6 @@ import share_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_share_1
 import share_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_share_2.png'
 import spread_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_spread_1.png'
 import spread_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_spread_2.png'
-import Tmp from '@/assets/07/m7s/Tmp.png'
 import img_1 from '@/assets/07/m7s/sinister_seeds_p3/1.png'
 import img_2 from '@/assets/07/m7s/sinister_seeds_p3/2.png'
 import img_3 from '@/assets/07/m7s/sinister_seeds_p3/3.png'
@@ -24,7 +23,7 @@ import Skill from '@/components/typography/Skill.astro'
 import T from '@/components/typography/T.astro'
 
 import SinisterSeedsCast from '../_components/SinisterSeedsCast.astro'
-import AttackSection from '../_components/BruteAbombinatorAttackSection.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
 import { translations } from '../_translations'
 import RoleIcon from '@/components/RoleIcon.astro'
 import SinisterSeedsMode1Cast from '../_components/SinisterSeedsMode1Cast.astro'
@@ -63,21 +62,21 @@ const defaultSolution = '解法：本站'
 ---
 
 <SinisterSeedsCast start="08:39.830" />
+<AttackSection time="08:45.843" damage="57000" damageType="physical" />
 <SinisterSeedsMode1Cast start="08:44.953" />
-<AttackSection time="08:46.643" damage="57000" damageType="physical" />
+<AttackSection time="08:48.875" damage="57000" damageType="physical" />
 <SinisterSeedsMode1Cast start="08:46.956" />
+<AttackSection time="08:51.902" damage="57000" damageType="physical" />
 <SinisterSeedsMode1Cast start="08:48.963" />
 <SinisterSeedsMode2Activate time="08:51.968" />
-<AttackSection time="08:49.674" damage="57000" damageType="physical" />
 <EventSection time="08:52.392">
   墙与玩家的连线
   <ThornsOfDeathDebuff hover />消失
 </EventSection>
 <SinisterSeedsMode1Cast start="08:50.965" />
-<AttackSection time="08:52.703" damage="57000" damageType="physical" />
+<AttackSection time="08:54.930" damage="57000" damageType="physical" />
 <TendrilsofTerrorAppear2 time="08:55.643" />
 <RootsofEvilActivate time="08:58.764" />
-<AttackSection time="08:55.732" damage="57000" damageType="physical" />
 <PulpSmashCast start="08:56.980" />
 <ICftDActivate time="09:03.975" />
 <TheUnpottedActivate time="09:04.019" />
