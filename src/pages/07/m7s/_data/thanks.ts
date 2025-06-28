@@ -5,6 +5,7 @@ export const thanksList = {
     'Ling',
     'sui',
     'Saleri',
+    'JiaoTangHaiYanBuDing',
     'SuperJump',
     'Hikaru',
     'DavidKitano',

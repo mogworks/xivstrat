@@ -2,6 +2,7 @@
 import type { Time } from '@/lib/utils'
 import CastSection from '@/components/section/CastSection.astro'
 import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
 
 import BruteAbombinator from './BruteAbombinator.astro'
 import { translations } from '../_translations'
@@ -16,5 +17,8 @@ const slaminator = translations.slaminator
 
 <CastSection start={start} duration={4.7} ability={slaminator}>
   <BruteAbombinator slot="source" />
+  ，砸向场地中心出现的分摊塔，总伤
+  <DamageInfo damage="800000" type="physical" variant="stack" />
+  <Badge variant="emerald">分摊塔</Badge>
   <Badge variant="red">双T分摊</Badge>
 </CastSection>
