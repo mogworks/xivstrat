@@ -1,36 +1,17 @@
 ---
-import type { Time } from '@/lib/utils'
-
-import { Image } from 'astro:assets'
-
-import Boss from '@/components/Boss.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import DotInfo from '@/components/DotInfo.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
-import Bleeding from '@/components/buff/Bleeding.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
-import SolutionSection from '@/components/section/SolutionSection.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
-import ToggleSwitch from '@/components/ToggleSwitch.astro'
 
-import RoseBloodBloomCast from '../_components/RoseBloodBloomCast.astro'
-
-import img from '@/assets/07/zelenia/Tmp.png'
 import Zelenia from '../_components/Zelenia.astro'
 
-import gi from '@/assets/07/zelenia/P3-6/P3-6-g-i.png'
-import go from '@/assets/07/zelenia/P3-6/P3-6-g-o.png'
 import gi0 from '@/assets/07/zelenia/P3-6/P3-6-g-i0.png'
-import gi1 from '@/assets/07/zelenia/P3-6/P3-6-g-i1.png'
 import gi2 from '@/assets/07/zelenia/P3-6/P3-6-g-i2.png'
 import gi3 from '@/assets/07/zelenia/P3-6/P3-6-g-i3.png'
 import go0 from '@/assets/07/zelenia/P3-6/P3-6-g-o0.png'
-import go1 from '@/assets/07/zelenia/P3-6/P3-6-g-o1.png'
 import go2 from '@/assets/07/zelenia/P3-6/P3-6-g-o2.png'
 import go3 from '@/assets/07/zelenia/P3-6/P3-6-g-o3.png'
 
@@ -110,20 +91,18 @@ const defaultSolution = '解法：减伤法（TLB）'
             alt: 'Zelenia：P3-6 分组',
             title: '分组',
           },
-
         ]}
       />
-      
+
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <div class="paragraph">无需关注扇形刀的预兆，按照如图所示位置进行分组，每两人负责1/4区域</div>
         <div class="paragraph">🌹玫瑰标记显示时，花点名前往组内塔的对角放置花。</div>
         <div class="paragraph">踩塔的人站在塔上踩塔</div>
-        <div class="paragraph">{translations.HolyHazard}读条到2/3时，可使用<LimitBreak role="tank" />或做好减伤处理</div>
         <div class="paragraph">
-          备注：🌹玫瑰标记可以靠近斜角放置，会只吃到一次扇形伤害
+          {translations.HolyHazard}读条到2/3时，可使用<LimitBreak role="tank" />或做好减伤处理
         </div>
+        <div class="paragraph">备注：🌹玫瑰标记可以靠近斜角放置，会只吃到一次扇形伤害</div>
       </div>
-      
     </div>
     <ImgRow
       class="game-img"
@@ -146,15 +125,13 @@ const defaultSolution = '解法：减伤法（TLB）'
           alt: 'Zelenia：P3-6 分组',
           title: '两次扇形伤害范围',
         },
-
       ]}
     />
-
   </div>
-  
+
   <!-- <div slot="解法：减伤法（TLB）" class="flex flex-col gap-4">
-    
-    
+
+
   </div> -->
   <div slot="解法：正攻" class="flex flex-col gap-4">
     <div class="paragraph">
@@ -193,7 +170,7 @@ const defaultSolution = '解法：减伤法（TLB）'
       <Zelenia />开始读条，并显示第一次扇形的预兆：完全盖住内塔/外塔
     </div>
     <div class="paragraph">不同人群行为如下，注意此处的踩内塔/外塔代表着自己负责的区域是内塔/外塔</div>
-    
+
     <table class="mt-4 min-w-full border">
       <thead>
         <tr>

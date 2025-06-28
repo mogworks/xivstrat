@@ -24,22 +24,19 @@ import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
 import LashingLariatCast from '../_components/LashingLariatCast.astro'
 
 import SlaminatorCast from '../_components/SlaminatorCast.astro'
-import BrutishSwingMoveActivate from '../_components/BrutishSwingMoveActivate.astro'
-import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
 import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MoveToCenterEvent from '../_components/MoveToCenterEvent.astro'
 import StrangeSeedsAppear from '../_components/StrangeSeedsAppear.astro'
 import StrangeSeedsActivate from '../_components/StrangeSeedsActivate.astro'
 import TendrilsofTerrorAppear from '../_components/TendrilsofTerrorAppear.astro'
-import LashingLariatActivate from '../_components/LashingLariatActivate.astro'
-import SlaminatorActivate from '../_components/SlaminatorActivate.astro'
 import Quote from '@/components/typography/Quote.astro'
 import P from '@/components/typography/P.astro'
 import StratLink from '@/components/StratLink.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
 
 interface Props {
   time: Time
@@ -75,7 +72,7 @@ const defaultSolution = '解法：本站（场地基准冰花）'
 <TendrilsofTerrorAppear time="10:02.6701" num={2} />
 <BrutishSwingCast start="09:58.661" duration={6.7} />
 <SlaminatorCast start="10:06.990" />
-
+<AttackSection time="10:13.726" damage="57000" damageType="physical" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <Quote variant="yellow" class="opacity-80">
