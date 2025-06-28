@@ -2,14 +2,12 @@
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
-import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import SBGR from './_mechanics/SBGR.astro'
 import Sporesplosion from './_mechanics/Sporesplosion.astro'
 import DDAB from './_mechanics/DDAB.astro'
 import StrangeSeeds from './_mechanics/StrangeSeeds.astro'
 import PowerSlamCast from './_components/PowerSlamCast.astro'
-import PowerSlamActivate from './_components/PowerSlamActivate.astro'
 import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import GrapplingIvy from './_components/GrapplingIvy.astro'
@@ -20,28 +18,23 @@ import ThornyDeathmatchCast from './_components/ThornyDeathmatchCast.astro'
 import TDAB from './_mechanics/TDAB.astro'
 import StoneringerCast from './_components/StoneringerCast.astro'
 
-import BrutishSwingActivate from './_components/BrutishSwingActivate.astro'
 import GlowerPowerCast from './_components/GlowerPowerCast.astro'
-import GlowerPowerActivate from './_components/GlowerPowerActivate.astro'
 import ElectrogeneticForceActivate from './_components/ElectrogeneticForceActivate.astro'
 import RevengeOfTheVinesCast from './_components/RevengeOfTheVinesCast.astro'
-import RevengeOfTheVinesActivate from './_components/RevengeOfTheVinesActivate.astro'
-import BrutishSwingMoveActivate from './_components/BrutishSwingMoveActivate.astro'
 import { translations } from './_translations'
 import PowerSlam from './_mechanics/PowerSlam.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
 import P from '@/components/typography/P.astro'
 import StratLink from '@/components/StratLink.astro'
+import BrutishSwingCast from './_components/BrutishSwingCast.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 
 const dutyId = '07/m7s'
 
 const base = '02:38.206'
 const stoneringer = translations.stoneringer
 const brutishSwing = translations.brutishSwing
-const glowerPower = translations.glowerPower
-const revengeOfTheVines = translations.revengeOfTheVines
 const thornyDeathmatch = translations.thornyDeathmatch
-const abominableBlink = translations.abominableBlink
 const sporesplosion = translations.sporesplosion
 const strangeSeeds = translations.strangeSeeds
 const powerslam = translations.powerslam
@@ -87,29 +80,25 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
   <StrangeSeeds />
 
   <SeparatorSection id="SBGR2" title=`${stoneringer} + ${brutishSwing}` />
-  <BrutishSwingMoveActivate time="05:24.855" />
-  <BrutishSwingActivate time="05:28.947" />
-  <GlowerPowerCast start="05:29.839" />
+  <BrutishSwingCast start="05:20.887" />
   <ElectrogeneticForceActivate time="05:33.672" />
-  <GlowerPowerActivate time="05:33.804" />
+  <GlowerPowerCast start="05:29.839" />
   <RevengeOfTheVinesCast start="05:34.653" />
-  <RevengeOfTheVinesActivate time="05:39.643" />
-  <NoteSection>
+  <SolutionSection>
     <div class="flex flex-col gap-4">
       <P>
         <StratLink variant="yellow" href="#SBGR">
-          {`${stoneringer} + ${brutishSwing} + ${glowerPower} + ${revengeOfTheVines}`}
+          {`${stoneringer} + ${translations.brutishSwing}`}
         </StratLink>
         组合技，处理方式与之前相同
       </P>
     </div>
-  </NoteSection>
+  </SolutionSection>
 
   <AttackSection time="05:42.223" damage="57000" damageType="physical" />
   <AttackSection time="05:45.255" damage="57000" damageType="physical" />
 
   <SeparatorSection id="powerslam" title={powerslam} />
-  <PowerSlamCast time="05:51.804" />
-  <PowerSlamActivate time="05:51.804" />
+  <PowerSlamCast time="05:45.833" />
   <PowerSlam />
 </DutyStratLayout>

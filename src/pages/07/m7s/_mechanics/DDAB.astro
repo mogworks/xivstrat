@@ -1,8 +1,4 @@
 ---
-import type { Time } from '@/lib/utils'
-import { Image } from 'astro:assets'
-
-import Boss from '@/components/Boss.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
@@ -14,12 +10,15 @@ import ListDot from '@/components/ListDot.astro'
 
 import chn1 from '@/assets/07/m7s/ddab/DemoDM_chn_1.png'
 import chn2 from '@/assets/07/m7s/ddab/DemoDM_chn_2.png'
+import chn2_target_base from '@/assets/07/m7s/ddab/DemoDM_chn_2_target_base.png'
 import fixed_seeds_chn1 from '@/assets/07/m7s/ddab/fixed_seeds_chn_1.png'
 import fixed_seeds_chn2 from '@/assets/07/m7s/ddab/fixed_seeds_chn_2.png'
 import DDAB_solution_1 from '@/assets/07/m7s/ddab/DDAB_solution_1.png'
 import DDAB_solution_2 from '@/assets/07/m7s/ddab/DDAB_solution_2.png'
 import DDAB_solution_3 from '@/assets/07/m7s/ddab/DDAB_solution_3.png'
 import DDAB_solution_4 from '@/assets/07/m7s/ddab/DDAB_solution_4.png'
+import DDAB_solution_2_target_base from '@/assets/07/m7s/ddab/DDAB_solution_2_target_base.png'
+import DDAB_solution_4_target_base from '@/assets/07/m7s/ddab/DDAB_solution_4_target_base.png'
 
 import AbominableBlinkCast from '../_components/AbominableBlinkCast.astro'
 import AbominableBlinkActivate from '../_components/AbominableBlinkActivate.astro'
@@ -37,10 +36,9 @@ import { translations } from '../_translations'
 import Quote from '@/components/typography/Quote.astro'
 import StratLink from '@/components/StratLink.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
-import Tmp from '@/assets/07/m7s/Tmp.png'
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
 
 const demolitionDeathmatch = translations.demolitionDeathmatch
-const thornyDeathmatch = translations.thornyDeathmatch
 const thornsofDeath = translations.thornsOfDeath
 const abominableBlink = translations.abominableBlink
 const strangeSeeds = translations.strangeSeeds
@@ -48,31 +46,35 @@ const stoneringer = translations.stoneringer
 
 const solutions = [
   {
-    id: 'DDAB-sari-m',
-    title: '解法：萨利式核爆改',
+    id: 'DDAB-site',
+    title: '解法：本站',
+  },
+  {
+    id: 'DDAB-mmw',
+    title: '解法：MMW早期文档',
   },
   {
     id: 'DDAB-fixedseeds',
     title: '解法：Fixed Seeds',
   },
 ]
-const defaultSolution = '解法：萨利式核爆改'
+const defaultSolution = 'DDAB-site'
 ---
 
 <DemolitionDeathmatchCast start="04:23.274" />
 <AttackSection time="04:28.850" damage="57000" damageType="physical" />
-<EventSection time="04:27.332"
-  >对
-  <RoleIcon role="any" tag="一仇" />
-  施加连线
-  <ThornsOfDeathDebuff hover />
+<EventSection time="04:27.332">
+  <BruteAbombinator />对<RoleIcon role="any" tag="一仇" />施加连线<ThornsOfDeathDebuff hover />
   <Span variant="orange">9000/3s</Span>
-  <Badge variant="orange">DoT</Badge>，另外两面墙最近各一名<RoleIcon role="any" />身上出现虚线预兆</EventSection
->
-<EventSection time="04:32.462"
-  >对<RoleIcon role="any" tag="虚线" />施加连线<ThornsOfDeathDebuff hover /><Span variant="orange">9000/3s</Span>
-  <Badge variant="orange">DoT</Badge></EventSection
->
+  <Badge variant="orange">DoT</Badge>
+</EventSection>
+<EventSection time="04:27.332">
+  距离<BruteAbombinator />不在的另两面墙最近的人身上出现连线预兆
+</EventSection>
+<EventSection time="04:32.462">
+  另两面墙对预兆相连的人施加连线<ThornsOfDeathDebuff hover /><Span variant="orange">9000/3s</Span>
+  <Badge variant="orange">DoT</Badge>
+</EventSection>
 <AttackSection time="04:31.880" damage="57000" damageType="physical" />
 <AbominableBlinkCast start="04:34.422" />
 <AbominableBlinkActivate time="04:40.745" />
@@ -88,145 +90,187 @@ const defaultSolution = '解法：萨利式核爆改'
           />
         </P>
         <P>
-          场地上<Span variant="pink">其他两面</Span>墙壁各自对距离<Span variant="pink">最近</Span>的一名<RoleIcon
-            role="any"
-          />施加虚线连线预兆
+          场地上
+          <Span variant="pink">其他两面</Span>
+          墙壁各自对距离
+          <Span variant="pink">最近</Span>
+          的一名玩家施加虚线连线预兆
         </P>
       </Quote>
     </P>
-    <P>此时的虚线预兆可以被截走</P>
+    <P>此时的连线预兆可以被截走</P>
     <P>
-      约<Span variant="pink">5s</Span>后，虚线预兆变为荆棘连线，根据虚线长度对当前连线者附加<ThornsOfDeathDebuff
-        level={1}
-        hover
-      />/<ThornsOfDeathDebuff level={2} hover />/<ThornsOfDeathDebuff level={3} hover />/<ThornsOfDeathDebuff
-        level={4}
-        hover
-      />
+      约
+      <Span variant="pink">5s</Span>
+      后，连线预兆变为荆棘连线，根据虚线长度对当前连线者附加
+      <ThornsOfDeathDebuff level={1} hover />
+      /
+      <ThornsOfDeathDebuff level={2} hover />
+      /
+      <ThornsOfDeathDebuff level={3} hover />
+      /
+      <ThornsOfDeathDebuff level={4} hover />
     </P>
     <P>
-      <ThornsOfDeathDebuff hover /><StratLink variant="yellow" href="#thornsofdeath">{thornsofDeath}</StratLink
-      >的效果和<StratLink variant="yellow" href="#abominableblink">{abominableBlink}</StratLink>与<Skill
-        name={thornyDeathmatch}
-      />时相同，此处不再赘述
+      <ThornsOfDeathDebuff hover />
+      <StratLink variant="yellow" href="#thornsofdeath">{`${thornsofDeath}（DEBUFF）`}</StratLink>
+      和
+      <StratLink variant="yellow" href="#abominableblink">{abominableBlink}</StratLink>
+      的效果与之前相同，此处不再赘述
     </P>
   </div>
 </MechanicSection>
-<SolutionSection>
-  <div class="flex flex-col gap-4">
-    <P>
-      我们在此处介绍两种解法，它们的区别在于<RoleIcon role="any" tag="角色" />接线规则和后续<StratLink
-        variant="yellow"
-        href="#strange-seeds">{strangeSeeds}</StratLink
-      >时放置冰花和分摊的位置
-    </P>
-  </div>
-</SolutionSection>
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：萨利式核爆改">
+  <div slot="解法：本站">TODO</div>
+  <div slot="解法：MMW早期文档">
     <div class="flex flex-col gap-4">
-      <div class="flex flex-col gap-4">
-        <T text="接线规则" variant="lime" class="text-2xl" />
-        <P>我们规定：</P>
-        <P>
-          <ListDot /><RoleIcon role="tank" tag="MT" />保持一仇，接<BruteAbombinator /><Span variant="pink">所在</Span
-          >墙壁的连线
-        </P>
-        <P>
-          <ListDot />剩下的两面墙中，
-          <Quote variant="rose">
-            <P class="pl-1"
-              ><RoleIcon role="ranged" tag="D3" />在<Skill name={demolitionDeathmatch} />读条<Span variant="pink"
-                >结束1s前</Span
-              >靠近场地<Span variant="pink">短边</Span>的墙引导虚线预兆</P
-            >
-            <P class="pl-1"
-              ><RoleIcon role="magic" tag="D4" />在<Skill name={demolitionDeathmatch} />读条<Span variant="pink"
-                >结束1s前</Span
-              >靠近场地<Span variant="pink">长边</Span>的墙引导虚线预兆</P
-            >
-          </Quote>
-        </P>
-        <P>由于两面墙虚线连线判定存在优先级差异，请引导者确保自己：</P>
-        <P><ListDot />离<Span variant="pink">需要</Span>引导的墙<Span variant="pink">最近</Span></P>
-        <P><ListDot />离<Span variant="pink">不需要</Span>引导的墙<Span variant="pink">不是最近</Span></P>
-        <P
-          ><RoleIcon role="ranged" tag="D3" />需要注意，根据P2开场第1次<Skill
-            name={stoneringer}
-          />的情况，要接线的墙可能<Span variant="pink">靠近</Span>也可能<Span variant="pink">远离</Span><RoleIcon
-            role="boss"
-            tag="boss"
-          /></P
-        >
-        <P
-          >在虚线转变为荆棘连线之前，<RoleIcon role="ranged" tag="D3" /><RoleIcon
-            role="magic"
-            tag="D4"
-          />来到<ThornsOfDeathDebuff level={1} hover />/<ThornsOfDeathDebuff level={2} hover />的位置就位</P
-        >
-        <P>最终两种连线情况示意图如下： </P>
-        <ImgRow
-          wrapperClass="max-w-100"
-          borderVariant="rose"
-          imgs={[
-            { src: chn1, alt: '接线时BOSS位于左上方墙面', title: 'BOSS在左上方' },
-            { src: chn2, alt: '接线时BOSS位于右下方墙面', title: 'BOSS在右下方' },
-          ]}
-        />
-      </div>
-      <div class="flex flex-col gap-4">
-        <T text="核爆站位" variant="lime" class="mt-4 text-2xl" />
-        <P>
-          与原版萨利式不同，处理核爆时，为了增加<RoleIcon role="tank" />与<RoleIcon role="melee" />的uptime，我们规定：
-        </P>
-        <P>
-          <ListDot />
-          被点名核爆的<RoleIcon role="tank" />前往<BruteAbombinator /><Span variant="pink">目标圈穿过</Span>的场地角落
-        </P>
-        <P>
-          <ListDot />
-          <RoleIcon role="ranged" tag="D3" />与<RoleIcon role="magic" tag="D4" />
-          在<ThornsOfDeathDebuff hover />/<ThornsOfDeathDebuff level={2} hover />的位置， 尽可能地<Span variant="pink"
-            >远离</Span
-          >核爆<RoleIcon role="tank" tag="点名" />
-        </P>
-        <P>
-          <ListDot />
-          其余人在BOSS目标圈的另一侧输出，务必<Span variant="pink">不要越过场地中轴线</Span>，防止太靠近核爆<RoleIcon
-            role="tank"
-          />直接暴毙
-        </P>
-        <P>
-          此外，当与<RoleIcon role="ranged" tag="D3" />连线的墙靠近<BruteAbombinator />时，请<RoleIcon
-            role="tank"
-          />给<RoleIcon role="ranged" tag="D3" />一个支援减，减少其受到的核爆伤害
-        </P>
-        <T class="mt-4"><Span variant="lime">核爆站位各情况示意图</Span></T>
-        <ImgGrid
-          cols={[{ title: 'BOSS位于左上墙壁' }, { title: 'BOSS位于右下墙壁' }]}
-          defaultImgWrapperStyle={{
-            bordered: false,
-            rounded: false,
-            borderVariant: 'rose',
-          }}
-          rows={[
-            {
-              title: '核爆点MT',
-              cells: [
-                { img: { src: DDAB_solution_1, alt: 'BOSS位于左上墙壁且核爆点MT' } },
-                { img: { src: DDAB_solution_2, alt: 'BOSS位于右下墙壁且核爆点MT' } },
-              ],
-            },
-            {
-              title: '核爆点ST',
-              cells: [
-                { img: { src: DDAB_solution_3, alt: 'BOSS位于左上墙壁且核爆点ST' } },
-                { img: { src: DDAB_solution_4, alt: 'BOSS位于右下墙壁且核爆点ST' } },
-              ],
-            },
-          ]}
-        />
-      </div>
+      <T text="接线规则" variant="lime" class="text-2xl" />
+      <P>我们规定：</P>
+      <P>
+        <ListDot /><RoleIcon role="tank" tag="MT" />保持一仇，接<BruteAbombinator /><Span variant="pink">所在</Span
+        >墙壁的连线
+      </P>
+      <P>
+        <ListDot />剩下的两面墙中，
+        <Quote variant="rose">
+          <P class="pl-1"
+            ><RoleIcon role="ranged" tag="D3" />在<Skill name={demolitionDeathmatch} />读条<Span variant="pink"
+              >结束1s前</Span
+            >靠近场地<Span variant="pink">短边</Span>的墙引导虚线预兆</P
+          >
+          <P class="pl-1"
+            ><RoleIcon role="magic" tag="D4" />在<Skill name={demolitionDeathmatch} />读条<Span variant="pink"
+              >结束1s前</Span
+            >靠近场地<Span variant="pink">长边</Span>的墙引导虚线预兆</P
+          >
+        </Quote>
+      </P>
+      <P>由于两面墙虚线连线判定存在优先级差异，请引导者确保自己：</P>
+      <P><ListDot />离<Span variant="pink">需要</Span>引导的墙<Span variant="pink">最近</Span></P>
+      <P><ListDot />离<Span variant="pink">不需要</Span>引导的墙<Span variant="pink">不是最近</Span></P>
+      <P
+        ><RoleIcon role="ranged" tag="D3" />需要注意，根据P2开场第1次<Skill
+          name={stoneringer}
+        />的情况，要接线的墙可能<Span variant="pink">靠近</Span>也可能<Span variant="pink">远离</Span>
+        <BruteAbombinator />
+      </P>
+      <P
+        >在虚线转变为荆棘连线之前，<RoleIcon role="ranged" tag="D3" /><RoleIcon
+          role="magic"
+          tag="D4"
+        />来到<ThornsOfDeathDebuff level={1} hover />/<ThornsOfDeathDebuff level={2} hover />的位置就位</P
+      >
+      <P>
+        最终两种连线情况示意图如下：
+        <ToggleSwitch id="DDAB-toggle-1" lVariant="blue" rVariant="red" lLabel="场地基准" rLabel="面向BOSS基准" />
+      </P>
+      <ImgRow
+        id="DDAB-floor-base-1"
+        wrapperClass="max-w-120"
+        bordered={false}
+        imgs={[
+          { src: chn1, alt: '接线时BOSS位于左上方墙面', title: 'BOSS在左上方' },
+          { src: chn2, alt: '接线时BOSS位于右下方墙面', title: 'BOSS在右下方' },
+        ]}
+      />
+      <ImgRow
+        id="DDAB-target-base-1"
+        class="hidden"
+        wrapperClass="max-w-120"
+        bordered={false}
+        imgs={[
+          { src: chn1, alt: '接线时BOSS位于左上方墙面', title: 'BOSS在左上方' },
+          { src: chn2_target_base, alt: '接线时BOSS位于右下方墙面', title: 'BOSS在右下方' },
+        ]}
+      />
+
+      <T text="核爆站位" variant="lime" class="mt-8 text-2xl" />
+      <P>
+        <ListDot />
+        被点名核爆的<RoleIcon role="tank" />前往<BruteAbombinator /><Span variant="pink">目标圈穿过</Span>的场地角落
+      </P>
+      <P>
+        <ListDot />
+        <RoleIcon role="ranged" tag="D3" />与<RoleIcon role="magic" tag="D4" />
+        在<ThornsOfDeathDebuff hover />/<ThornsOfDeathDebuff level={2} hover />的位置， 尽可能地<Span variant="pink"
+          >远离</Span
+        >核爆<RoleIcon role="tank" tag="点名" />
+      </P>
+      <P>
+        <ListDot />
+        其余人在BOSS目标圈的另一侧输出，务必<Span variant="pink">不要越过场地中轴线</Span>，防止太靠近核爆<RoleIcon
+          role="tank"
+        />直接暴毙
+      </P>
+      <P>
+        此外，当与<RoleIcon role="ranged" tag="D3" />连线的墙靠近<BruteAbombinator />时，请<RoleIcon
+          role="tank"
+        />给<RoleIcon role="ranged" tag="D3" />一个支援减，减少其受到的核爆伤害
+      </P>
+
+      <P class="mt-8">
+        核爆站位各情况如下表：
+        <ToggleSwitch id="DDAB-toggle-2" lVariant="blue" rVariant="red" lLabel="场地基准" rLabel="面向BOSS基准" />
+      </P>
+      <ImgGrid
+        id="DDAB-floor-base-2"
+        cols={[
+          { title: 'BOSS位于左上墙壁', width: '30rem' },
+          { title: 'BOSS位于右下墙壁', width: '30rem' },
+        ]}
+        defaultImgWrapperStyle={{
+          bordered: false,
+          rounded: false,
+          borderVariant: 'rose',
+          class: 'max-w-120',
+        }}
+        rows={[
+          {
+            title: '核爆点MT',
+            cells: [
+              { img: { src: DDAB_solution_1, alt: 'BOSS位于左上墙壁且核爆点MT' } },
+              { img: { src: DDAB_solution_2, alt: 'BOSS位于右下墙壁且核爆点MT' } },
+            ],
+          },
+          {
+            title: '核爆点ST',
+            cells: [
+              { img: { src: DDAB_solution_3, alt: 'BOSS位于左上墙壁且核爆点ST' } },
+              { img: { src: DDAB_solution_4, alt: 'BOSS位于右下墙壁且核爆点ST' } },
+            ],
+          },
+        ]}
+      />
+      <ImgGrid
+        id="DDAB-target-base-2"
+        class="hidden"
+        cols={[
+          { title: 'BOSS位于左上墙壁', width: '30rem' },
+          { title: 'BOSS位于右下墙壁', width: '30rem' },
+        ]}
+        defaultImgWrapperStyle={{
+          bordered: false,
+          rounded: false,
+          borderVariant: 'rose',
+          class: 'max-w-120',
+        }}
+        rows={[
+          {
+            title: '核爆点MT',
+            cells: [
+              { img: { src: DDAB_solution_1, alt: 'BOSS位于左上墙壁且核爆点MT' } },
+              { img: { src: DDAB_solution_2_target_base, alt: 'BOSS位于右下墙壁且核爆点MT' } },
+            ],
+          },
+          {
+            title: '核爆点ST',
+            cells: [
+              { img: { src: DDAB_solution_3, alt: 'BOSS位于左上墙壁且核爆点ST' } },
+              { img: { src: DDAB_solution_4_target_base, alt: 'BOSS位于右下墙壁且核爆点ST' } },
+            ],
+          },
+        ]}
+      />
     </div>
   </div>
   <div slot="解法：Fixed Seeds">
@@ -266,13 +310,13 @@ const defaultSolution = '解法：萨利式核爆改'
         <P><ListDot />离<Span variant="pink">需要</Span>引导的墙<Span variant="pink">最近</Span></P>
         <P><ListDot />离<Span variant="pink">不需要</Span>引导的墙<Span variant="pink">不是最近</Span></P>
         <P
-          >在虚线转变为荆棘连线之前，<RoleIcon role="tank|dps" tag="虚线" />
+          >在虚线转变为荆棘连线之前，虚线<RoleIcon role="tank|dps" />
           来到<ThornsOfDeathDebuff level={1} hover />/<ThornsOfDeathDebuff level={2} hover />的位置就位</P
         >
         <P>最终两种连线情况示意图如下： </P>
         <ImgRow
-          wrapperClass="max-w-100"
-          borderVariant="rose"
+          wrapperClass="max-w-120"
+          bordered={false}
           imgs={[
             { src: fixed_seeds_chn1, alt: '短边墙在boss近侧', title: '短边墙在boss近侧' },
             { src: fixed_seeds_chn2, alt: '短边墙在boss远侧', title: '短边墙在boss远侧' },
@@ -281,9 +325,10 @@ const defaultSolution = '解法：萨利式核爆改'
       </div>
       <div class="flex flex-col gap-4">
         <P class="mt-4"
-          >核爆站位与<StratLink variant="lime" href="#DDAB-sari-m">解法：萨利式核爆改</StratLink
+          >核爆站位与<StratLink variant="lime" href="#DDAB-mmw">解法：MMW早期文档</StratLink
           >相同，且不再需要注意给<RoleIcon role="ranged" tag="D3" />支援减</P
         >
+        <P>但需注意这里会影响之后冰花的放法，后续放冰花不能再混用其它解法</P>
       </div>
     </div>
   </div>
@@ -297,3 +342,31 @@ const defaultSolution = '解法：萨利式核爆改'
     </div>
   </NoteSection>
 </MultiSolutionSection>
+
+<script>
+  function toggleImgs(id1: string, id2: string, baseClass: string, change: boolean) {
+    const element1 = document.getElementById(id1)
+    const element2 = document.getElementById(id2)
+
+    if (element1 && element2) {
+      if (change) {
+        element1.classList.toggle(baseClass, !element1.classList.toggle('hidden', true))
+        element2.classList.toggle(baseClass, !element2.classList.toggle('hidden', false))
+      } else {
+        element2.classList.toggle(baseClass, !element2.classList.toggle('hidden', true))
+        element1.classList.toggle(baseClass, !element1.classList.toggle('hidden', false))
+      }
+    }
+  }
+
+  document.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement
+
+    if (target && target.id === 'DDAB-toggle-1') {
+      toggleImgs('DDAB-floor-base-1', 'DDAB-target-base-1', 'flex', target.checked)
+    }
+    if (target && target.id === 'DDAB-toggle-2') {
+      toggleImgs('DDAB-floor-base-2', 'DDAB-target-base-2', 'grid', target.checked)
+    }
+  })
+</script>

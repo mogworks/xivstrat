@@ -7,11 +7,11 @@ import share_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_share_1
 import share_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_share_2.png'
 import spread_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_spread_1.png'
 import spread_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_spread_2.png'
+import Tmp from '@/assets/07/m7s/Tmp.png'
 
 import ImgRow from '@/components/typography/ImgRow.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import Skill from '@/components/typography/Skill.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import T from '@/components/typography/T.astro'
 
 import SinisterSeedsCast from '../_components/SinisterSeedsCast.astro'
@@ -34,11 +34,23 @@ import EventSection from '@/components/section/EventSection.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 const sinisterSeeds = translations.sinisterSeeds
 const pulpSmash = translations.pulpSmash
 const tendrilsofTerror = translations.tendrilsOfTerror
 const rootsofEvil = translations.rootsOfEvil
+const solutions = [
+  {
+    id: 'sinisterseedsP3-本站',
+    title: '解法：本站',
+  },
+  {
+    id: 'sinisterseedsP3-g8',
+    title: '解法：Game8',
+  },
+]
+const defaultSolution = '解法：本站'
 ---
 
 <SinisterSeedsCast start="08:39.830" />
@@ -84,144 +96,251 @@ const rootsofEvil = translations.rootsOfEvil
   </div>
 </MechanicSection>
 
-<SolutionSection title="解法：Game8">
-  <div class="flex flex-col gap-4">
-    <P>
-      首先，<Quote variant="rose"
-        ><P
-          ><RoleIcon role="tank|dps" tag="近战" />在场地<Span variant="pink">西北</Span>侧<Span variant="pink"
-            >最大近战距离</Span
-          >处</P
-        >
-        <P><RoleIcon role="healer|dps" tag="远程" />在各自连线墙的<Span variant="pink">场边靠近角落</Span>处</P>
-      </Quote>，等待点名
-    </P>
-    <P> 根据点名情况，有两种排圈放花方式，对应的分摊位置也不同 </P>
-  </div>
-  <div class="flex flex-col gap-4">
-    <T text="放置冰花并躲避" variant="lime" class="mt-8 text-2xl" />
-    <Quote variant="rose">
-      <P
-        >如果<RoleIcon role="tank|dps" tag="近战" />被点冰花：<Quote variant="rose">
-          <P>
-            <RoleIcon role="tank|dps" tag="近战" />按照图示，以<Span variant="pink">标点A</Span
-            >为场地北，将冰花放置在数字标点中心连线的中点上
-          </P>
-          <P>
-            <RoleIcon role="healer|dps" tag="远程" />在场边依次引导自己的黄圈
-          </P>
-        </Quote></P
-      >
-      <P
-        >如果<RoleIcon role="healer|dps" tag="远程" />被点冰花：<Quote variant="rose">
-          <P>
-            <RoleIcon role="tank|dps" tag="近战" />以集合点为始，如图所示，<Span variant="pink">顺时针</Span
-            >引导黄圈，<Span variant="pink">空出</Span>西南角落
-          </P>
-          <P>
-            <RoleIcon role="healer|dps" tag="远程" />在<Span variant="pink">场边中点</Span>放置冰花
-          </P>
-        </Quote></P
-      ></Quote
-    >
-    <P>放花点名伤害判定后：</P>
-    <Quote variant="rose">
-      <P
-        >如果<RoleIcon role="tank|dps" tag="近战" />被点冰花：
-
-        <RoleIcon role="all" tag="全员" />向中央靠近自己的内场安全区集合</P
-      >
-
-      <P>
-        如果<RoleIcon role="healer|dps" tag="远程" />被点冰花：<RoleIcon role="all" tag="全员" />向西南外侧安全区集合
-      </P>
-    </Quote>
-    <P class="mt-4">
-      两种情况如下所示：<ToggleSwitch
-        id="sinisterseedsp3-1-toggle"
-        lVariant="yellow"
-        rVariant="rose"
-        lLabel="近战冰花"
-        rLabel="远程冰花"
-      />
-    </P>
-    <div id="sinisterseedsp3-1-toggle-div">
-      <ImgRow
-        class="melee-strat"
-        wrapperClass="max-w-100"
-        borderVariant="yellow"
-        imgs={[
-          {
-            src: move_1,
-            alt: '初始近战-放置冰花',
-            title: '放置冰花',
-          },
-          {
-            src: safezone_1,
-            alt: '初始近战-躲避冰花',
-            title: '躲避冰花',
-          },
-        ]}
-      />
-      <ImgRow
-        class="ranged-strat hidden"
-        wrapperClass="max-w-100"
-        borderVariant="yellow"
-        imgs={[
-          {
-            src: move_2,
-            alt: '初始远程-放置冰花',
-            title: '放置冰花',
-          },
-          {
-            src: safezone_2,
-            alt: '初始远程-躲避冰花',
-            title: '躲避冰花',
-          },
-        ]}
-      />
-    </div>
-
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：本站">
     <div class="flex flex-col gap-4">
-      <T text="集合分摊并分散" variant="lime" class="mt-8 text-2xl" />
-      <P>
-        <Skill name={rootsofEvil} />伤害判定后，<RoleIcon role="healer" tag="点名" />靠近场中，<RoleIcon
-          role="all"
-          tag="其他"
-        />与<RoleIcon role="healer" tag="点名" />集合处理分摊
-      </P>
-      <P>之后以<BruteAbombinator /><Span variant="pink">面向</Span>为基准，立刻离开钢铁范围并分散</P>
-      <P>根据冰花安全区的不同，分摊的位置有些差异</P>
-      <P
-        >但无论何种情况，<RoleIcon role="healer" tag="点名" />需要注意引导<RoleIcon
-          role="boss"
-          tag="boss"
-        />的位置，给离开钢铁并分散留出足够的空间</P
+      <P><Span variant="cyan">流程总结：躲避黄圈+放置冰花 > 躲避冰花 > 集合分摊 > 八方分散</Span></P>
+      <div class="flex flex-col gap-4">
+        <P>
+          首先，<Quote variant="green"
+            ><P
+              ><RoleIcon role="tank|dps" tag="近战" />近战组来到<Span variant="pink">标点2</Span><Span variant="pink"
+                >左下</Span
+              >方集合</P
+            >
+            <P><RoleIcon role="healer|dps" tag="远程" />在各自连线墙的<Span variant="pink">场边靠近角落</Span>处</P>
+          </Quote>，等待点名
+        </P>
+        <P> 根据点名情况，有两种排圈放花方式，对应的分摊位置也不同</P>
+      </div>
+      <div class="flex flex-col gap-4">
+        <T text="放置冰花并躲避" variant="lime" class="mt-8 text-2xl" />
+        <Quote variant="green">
+          <P
+            >如果<RoleIcon role="tank|dps" tag="近战" />被点冰花：<Quote variant="green">
+              <P>
+                <RoleIcon role="tank|dps" tag="近战" />按照图示，以<Span variant="pink">标点A</Span
+                >为场地北，将冰花放置在<Span variant="pink">数字标点</Span>上
+              </P>
+              <P>
+                <RoleIcon role="healer|dps" tag="远程" />沿着场边往另一侧移动放置黄圈
+              </P>
+            </Quote></P
+          >
+          <P
+            >如果<RoleIcon role="healer|dps" tag="远程" />被点冰花：<Quote variant="green">
+              <P>
+                <RoleIcon role="tank|dps" tag="近战" />在<Span variant="pink">标点B</Span><Span variant="pink"
+                  >左上</Span
+                >方格集合，按照图示，<Span variant="pink">逆时针</Span>放置黄圈
+              </P>
+              <P>
+                <RoleIcon role="healer|dps" tag="远程" />在<Span variant="pink">场边中点</Span>放置冰花
+              </P>
+            </Quote></P
+          ></Quote
+        >
+        <P>放花点名伤害判定后：</P>
+        <Quote variant="green">
+          <P
+            >如果<RoleIcon role="tank|dps" tag="近战" />被点冰花：
+
+            <RoleIcon role="all" tag="全员" />来到场中正点方向躲避</P
+          >
+
+          <P>
+            如果<RoleIcon role="healer|dps" tag="远程" />被点冰花：<RoleIcon
+              role="all"
+              tag="全员"
+            />来到场地西南角落躲避
+          </P>
+        </Quote>
+        <P class="mt-4">
+          两种情况如下所示：<ToggleSwitch
+            id="sinisterseedsp3-1-toggle"
+            lVariant="yellow"
+            rVariant="rose"
+            lLabel="近战冰花"
+            rLabel="远程冰花"
+          />
+        </P>
+        <div id="sinisterseedsp3-1-toggle-div">
+          <ImgRow
+            class="melee-strat"
+            wrapperClass="max-w-100"
+            borderVariant="yellow"
+            imgs={[
+              {
+                src: Tmp,
+                alt: '初始近战-放置冰花',
+                title: '放置冰花',
+              },
+              {
+                src: Tmp,
+                alt: '初始近战-躲避冰花',
+                title: '躲避冰花',
+              },
+            ]}
+          />
+          <ImgRow
+            class="ranged-strat hidden"
+            wrapperClass="max-w-100"
+            borderVariant="yellow"
+            imgs={[
+              {
+                src: Tmp,
+                alt: '初始远程-放置冰花',
+                title: '放置冰花',
+              },
+              {
+                src: Tmp,
+                alt: '初始远程-躲避冰花',
+                title: '躲避冰花',
+              },
+            ]}
+          />
+        </div>
+        <div class="flex flex-col gap-4">
+          <T text="集合分摊并分散" variant="lime" class="mt-8 text-2xl" />
+          <P>
+            <Skill name={rootsofEvil} />伤害判定后，<RoleIcon role="healer" tag="点名" />来到<BruteAbombinator /><Span
+              variant="pink">正面</Span
+            >，<RoleIcon role="all" tag="其他" />与<RoleIcon role="healer" tag="点名" />集合处理分摊
+          </P>
+          <P>之后以<BruteAbombinator /><Span variant="pink">面向</Span>为基准，立刻离开钢铁范围并分散</P>
+          <P>根据冰花安全区的不同，分摊的位置有些差异</P>
+          <P
+            >但无论何种情况，<RoleIcon role="healer" tag="点名" />需要注意引导<BruteAbombinator
+            />的位置，给离开钢铁并分散留出足够的空间</P
+          >
+          <P class="mt-4">
+            两种情况如下所示：<ToggleSwitch
+              id="sinisterseedsp3-2-toggle"
+              lVariant="yellow"
+              rVariant="rose"
+              lLabel="近战冰花"
+              rLabel="远程冰花"
+            />
+          </P>
+          <div id="sinisterseedsp3-2-toggle-div">
+            <ImgRow
+              class="melee-strat"
+              wrapperClass="max-w-100"
+              borderVariant="yellow"
+              imgs={[
+                {
+                  src: Tmp,
+                  alt: '初始近战-分摊',
+                  title: '分摊',
+                },
+                {
+                  src: Tmp,
+                  alt: '初始近战-分散',
+                  title: '分散',
+                },
+              ]}
+            />
+            <ImgRow
+              class="ranged-strat hidden"
+              wrapperClass="max-w-100"
+              borderVariant="yellow"
+              imgs={[
+                {
+                  src: Tmp,
+                  alt: '初始远程-分摊',
+                  title: '分摊',
+                },
+                {
+                  src: Tmp,
+                  alt: '初始远程-分散',
+                  title: '分散',
+                },
+              ]}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div slot="解法：Game8">
+    <div class="flex flex-col gap-4">
+      <P><Span variant="cyan">流程总结：躲避黄圈+放置冰花 > 躲避冰花 > 集合分摊 > 八方分散</Span></P>
+      <div class="flex flex-col gap-4">
+        <P>
+          首先，<Quote variant="green"
+            ><P
+              ><RoleIcon role="tank|dps" tag="近战" />在场地<Span variant="pink">西北</Span>侧<Span variant="pink"
+                >最大近战距离</Span
+              >处</P
+            >
+            <P><RoleIcon role="healer|dps" tag="远程" />在各自连线墙的<Span variant="pink">场边靠近角落</Span>处</P>
+          </Quote>，等待点名
+        </P>
+        <P> 根据点名情况，有两种排圈放花方式，对应的分摊位置也不同 </P>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <T text="放置冰花并躲避" variant="lime" class="mt-8 text-2xl" />
+      <Quote variant="green">
+        <P
+          >如果<RoleIcon role="tank|dps" tag="近战" />被点冰花：<Quote variant="green">
+            <P>
+              <RoleIcon role="tank|dps" tag="近战" />按照图示，以<Span variant="pink">标点A</Span
+              >为场地北，将冰花放置在数字标点中心连线的中点上
+            </P>
+            <P>
+              <RoleIcon role="healer|dps" tag="远程" />在场边依次引导自己的黄圈
+            </P>
+          </Quote></P
+        >
+        <P
+          >如果<RoleIcon role="healer|dps" tag="远程" />被点冰花：<Quote variant="green">
+            <P>
+              <RoleIcon role="tank|dps" tag="近战" />以集合点为始，如图所示，<Span variant="pink">顺时针</Span
+              >引导黄圈，<Span variant="pink">空出</Span>西南角落
+            </P>
+            <P>
+              <RoleIcon role="healer|dps" tag="远程" />在<Span variant="pink">场边中点</Span>放置冰花
+            </P>
+          </Quote></P
+        ></Quote
       >
+      <P>放花点名伤害判定后：</P>
+      <Quote variant="green">
+        <P
+          >如果<RoleIcon role="tank|dps" tag="近战" />被点冰花：
+
+          <RoleIcon role="all" tag="全员" />向中央靠近自己的内场安全区集合</P
+        >
+
+        <P>
+          如果<RoleIcon role="healer|dps" tag="远程" />被点冰花：<RoleIcon role="all" tag="全员" />向西南外侧安全区集合
+        </P>
+      </Quote>
       <P class="mt-4">
         两种情况如下所示：<ToggleSwitch
-          id="sinisterseedsp3-2-toggle"
+          id="sinisterseedsp3-1-toggle"
           lVariant="yellow"
           rVariant="rose"
           lLabel="近战冰花"
           rLabel="远程冰花"
         />
       </P>
-      <div id="sinisterseedsp3-2-toggle-div">
+      <div id="sinisterseedsp3-1-toggle-div">
         <ImgRow
           class="melee-strat"
           wrapperClass="max-w-100"
           borderVariant="yellow"
           imgs={[
             {
-              src: share_1,
-              alt: '初始近战-分摊',
-              title: '分摊',
+              src: move_1,
+              alt: '初始近战-放置冰花',
+              title: '放置冰花',
             },
             {
-              src: spread_1,
-              alt: '初始近战-分散',
-              title: '分散',
+              src: safezone_1,
+              alt: '初始近战-躲避冰花',
+              title: '躲避冰花',
             },
           ]}
         />
@@ -231,22 +350,82 @@ const rootsofEvil = translations.rootsOfEvil
           borderVariant="yellow"
           imgs={[
             {
-              src: share_2,
-              alt: '初始远程-分摊',
-              title: '分摊',
+              src: move_2,
+              alt: '初始远程-放置冰花',
+              title: '放置冰花',
             },
             {
-              src: spread_2,
-              alt: '初始远程-分散',
-              title: '分散',
+              src: safezone_2,
+              alt: '初始远程-躲避冰花',
+              title: '躲避冰花',
             },
           ]}
         />
       </div>
+
+      <div class="flex flex-col gap-4">
+        <T text="集合分摊并分散" variant="lime" class="mt-8 text-2xl" />
+        <P>
+          <Skill name={rootsofEvil} />伤害判定后，<RoleIcon role="healer" tag="点名" />靠近场中，<RoleIcon
+            role="all"
+            tag="其他"
+          />与<RoleIcon role="healer" tag="点名" />集合处理分摊
+        </P>
+        <P>之后以<BruteAbombinator /><Span variant="pink">面向</Span>为基准，立刻离开钢铁范围并分散</P>
+        <P>根据冰花安全区的不同，分摊的位置有些差异</P>
+        <P
+          >但无论何种情况，<RoleIcon role="healer" tag="点名" />需要注意引导<BruteAbombinator
+          />的位置，给离开钢铁并分散留出足够的空间</P
+        >
+        <P class="mt-4">
+          两种情况如下所示：<ToggleSwitch
+            id="sinisterseedsp3-2-toggle"
+            lVariant="yellow"
+            rVariant="rose"
+            lLabel="近战冰花"
+            rLabel="远程冰花"
+          />
+        </P>
+        <div id="sinisterseedsp3-2-toggle-div">
+          <ImgRow
+            class="melee-strat"
+            wrapperClass="max-w-100"
+            borderVariant="yellow"
+            imgs={[
+              {
+                src: share_1,
+                alt: '初始近战-分摊',
+                title: '分摊',
+              },
+              {
+                src: spread_1,
+                alt: '初始近战-分散',
+                title: '分散',
+              },
+            ]}
+          />
+          <ImgRow
+            class="ranged-strat hidden"
+            wrapperClass="max-w-100"
+            borderVariant="yellow"
+            imgs={[
+              {
+                src: share_2,
+                alt: '初始远程-分摊',
+                title: '分摊',
+              },
+              {
+                src: spread_2,
+                alt: '初始远程-分散',
+                title: '分散',
+              },
+            ]}
+          />
+        </div>
+      </div>
     </div>
   </div>
-</SolutionSection>
-
+</MultiSolutionSection>
 <NoteSection>
   <div class="flex flex-col gap-4">
     <P>分摊和放大黄圈AoE判定存在3s的时间差，请优先躲避冰花AoE和黄圈，再处理分摊</P>
