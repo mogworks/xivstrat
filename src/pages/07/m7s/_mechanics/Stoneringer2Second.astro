@@ -16,7 +16,6 @@ import pos4_img from '@/assets/07/m7s/stoneringer2/p3_strange_seeds_4.png'
 import pos4_fixed_img from '@/assets/07/m7s/stoneringer2/p3_strange_seeds_4_fixed.png'
 import circle_img from '@/assets/07/m7s/stoneringer2/p3_seeds_circle.png'
 import ring_img from '@/assets/07/m7s/stoneringer2/p3_seeds_ring.png'
-import ListDot from '@/components/ListDot.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import Skill from '@/components/typography/Skill.astro'
 import T from '@/components/typography/T.astro'
@@ -36,7 +35,6 @@ import StrangeSeedsActivate from '../_components/StrangeSeedsActivate.astro'
 import TendrilsofTerrorAppear from '../_components/TendrilsofTerrorAppear.astro'
 import LashingLariatActivate from '../_components/LashingLariatActivate.astro'
 import SlaminatorActivate from '../_components/SlaminatorActivate.astro'
-import ToggleSwitch from '@/components/ToggleSwitch.astro'
 import Quote from '@/components/typography/Quote.astro'
 import P from '@/components/typography/P.astro'
 import StratLink from '@/components/StratLink.astro'
@@ -220,6 +218,10 @@ const defaultSolution = '解法：Game8（场地基准）'
     </P>
   </div>
   <div slot={solutions[1].title} class="flex flex-col gap-4">
+    <P>
+      在<StratLink variant="lime" href="#stoneringer-2-second-solution-fixed">{solutions[0].title}</StratLink
+      >的基础上，为了让<RoleIcon role="tank|dps" tag="近战" />多摸到<BruteAbombinator />，有此优化
+    </P>
     <P>冰花以<Span variant="pink">场地标点A</Span>为正北：</P>
     <Quote variant="rose">
       <P class="pl-1">
