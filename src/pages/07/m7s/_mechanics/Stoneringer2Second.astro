@@ -3,7 +3,6 @@ import type { Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 import Stoneringer2Cast from '../_components/Stoneringer2Cast.astro'
@@ -47,22 +46,20 @@ interface Props {
 }
 
 const { time }: Props = Astro.props
-const lashingLariat = translations.lashingLariat
 const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
-const slaminator = translations.slaminator
 const strangeSeeds = translations.strangeSeeds
 
 const solutions = [
   {
     id: 'stoneringer-2-second-solution-fixed',
-    title: '解法：Game8（场地基准）',
+    title: '解法：本站（场地基准冰花）',
   },
   {
     id: 'stoneringer-2-second-solution-boss-relative',
-    title: '解法：Game8（BOSS基准）',
+    title: '解法：日野主流（近战追车冰花）',
   },
 ]
-const defaultSolution = '解法：Game8（场地基准）'
+const defaultSolution = '解法：本站（场地基准冰花）'
 ---
 
 <Stoneringer2Cast start={time} />
@@ -121,12 +118,11 @@ const defaultSolution = '解法：Game8（场地基准）'
           tag="ST"
         /><RoleIcon role="magic" tag="D4" />在<Span variant="yellow">标点2</Span>处，
         <RoleIcon role="healer" tag="H1" />
-        <RoleIcon role="melee" tag="D1" />在<Span variant="purple">标点4</Span>处
+        <RoleIcon role="melee" tag="D1" />在<Span variant="purple">标点4</Span>处，
         <RoleIcon role="healer" tag="H2" /><RoleIcon role="dps" tag="D2" />
-        在<Span variant="blue">标点3</Span>处，
+        在<Span variant="blue">标点3</Span>处，放置冰花
       </P></Quote
     >
-    <P>放置自己的冰花</P>
     <T variant="lime" text="第1轮放花位置示意图" class="mt-4" />
     <ImgRow
       wrapperClass="max-w-100"
@@ -218,10 +214,6 @@ const defaultSolution = '解法：Game8（场地基准）'
     </P>
   </div>
   <div slot={solutions[1].title} class="flex flex-col gap-4">
-    <P>
-      在<StratLink variant="lime" href="#stoneringer-2-second-solution-fixed">{solutions[0].title}</StratLink
-      >的基础上，为了让<RoleIcon role="tank|dps" tag="近战" />多摸到<BruteAbombinator />，有此优化
-    </P>
     <P>冰花以<Span variant="pink">场地标点A</Span>为正北：</P>
     <Quote variant="lime">
       <P class="pl-1">

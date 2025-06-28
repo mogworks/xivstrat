@@ -6,6 +6,8 @@ import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
 import P from '@/components/typography/P.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
 
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
@@ -30,8 +32,6 @@ const base = '06:09.273'
 const sinisterSeeds = translations.sinisterSeeds
 const specialBombarianSpecial = translations.specialBombarianSpecial
 const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
-const revengeOfTheVines = translations.revengeOfTheVines
-const glowerPower = translations.glowerPower
 const brutalImpact = translations.brutalImpact
 const stoneringer = translations.stoneringer
 const debrisDeathmatch = translations.debrisDeathmatch
@@ -77,7 +77,8 @@ const sporesac = translations.sporeSac
   <SeparatorSection id="S2RG" title=`${stoneringer2Stoneringers}` />
   <Stoneringer2First time="06:33.194" />
 
-  <SeparatorSection title={brutalImpact} />
+  <SeparatorSection />
+
   <AttackSection time="07:15.515" damage="57000" damageType="physical" />
   <BrutalImpactCast
     start="07:16.318"
@@ -92,13 +93,18 @@ const sporesac = translations.sporeSac
       '07:29.028',
     ]}
   />
-  <SeparatorSection title={stoneringer} />
   <StoneringerCast start="07:32.145" />
-  <SmashHereThereCast start="07:39.990" />
   <BrutishSwingActivate time="07:43.955" />
-  <NoteSection>
-    <div class="flex flex-col gap-4"><P>与P1时完全一致，P3共出现2次</P></div>
-  </NoteSection>
+  <SmashHereThereCast start="07:39.990" />
+  <SolutionSection>
+    <P>
+      与P1时完全一致，P3共会出现2次，按照
+      <RoleIcon role="tank" tag="MT" />
+      >
+      <RoleIcon role="tank" tag="ST" />
+      的次序依次开无敌引导单吃
+    </P>
+  </SolutionSection>
 
   <AttackSection time="07:47.962" damage="57000" damageType="physical" />
   <AttackSection time="07:50.993" damage="57000" damageType="physical" />
@@ -109,7 +115,7 @@ const sporesac = translations.sporeSac
   <SeparatorSection id="sinister-seeds" title={sinisterSeeds} />
   <SinisterSeedsP3 />
 
-  <SeparatorSection title={brutalImpact} />
+  <SeparatorSection />
   <BrutalImpactCast
     start="09:05.357"
     activateTimes={[
@@ -130,13 +136,13 @@ const sporesac = translations.sporeSac
   <Stoneringer2Second time="09:26.252" />
 
   <AttackSection time="10:14.526" damage="57000" damageType="physical" />
-  <SeparatorSection title={stoneringer} />
+
+  <SeparatorSection />
   <StoneringerCast start="10:16.130" />
-  <SmashHereThereCast start="10:23.968" />
   <BrutishSwingActivate time="10:27.935" />
+  <SmashHereThereCast start="10:23.968" />
   <AttackSection time="10:31.948" damage="57000" damageType="physical" />
 
-  <SeparatorSection title={brutalImpact} />
   <BrutalImpactCast
     start="10:33.242"
     activateTimes={[
@@ -153,7 +159,7 @@ const sporesac = translations.sporeSac
   <AttackSection time="10:48.792" damage="57000" damageType="physical" />
   <AttackSection time="10:51.819" damage="57000" damageType="physical" />
   <AttackSection time="10:54.850" damage="57000" damageType="physical" />
-  <SeparatorSection id="special-bombarian-special" title={specialBombarianSpecial} />
   <MoveToCenterEvent time="10:55.164" />
+  <SeparatorSection id="special-bombarian-special" title={specialBombarianSpecial} />
   <SpecialBombarianSpecial />
 </DutyStratLayout>

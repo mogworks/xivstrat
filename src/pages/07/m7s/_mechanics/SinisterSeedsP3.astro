@@ -8,6 +8,15 @@ import share_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_share_2
 import spread_1 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_spread_1.png'
 import spread_2 from '@/assets/07/m7s/sinister_seeds_p3/p3_sinister_seeds_spread_2.png'
 import Tmp from '@/assets/07/m7s/Tmp.png'
+import img_1 from '@/assets/07/m7s/sinister_seeds_p3/1.png'
+import img_2 from '@/assets/07/m7s/sinister_seeds_p3/2.png'
+import img_3 from '@/assets/07/m7s/sinister_seeds_p3/3.png'
+import img_4 from '@/assets/07/m7s/sinister_seeds_p3/4.png'
+import img_5 from '@/assets/07/m7s/sinister_seeds_p3/5.png'
+import img_6 from '@/assets/07/m7s/sinister_seeds_p3/6.png'
+import img_7 from '@/assets/07/m7s/sinister_seeds_p3/7.png'
+import img_8 from '@/assets/07/m7s/sinister_seeds_p3/8.png'
+import img_9 from '@/assets/07/m7s/sinister_seeds_p3/9.png'
 
 import ImgRow from '@/components/typography/ImgRow.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
@@ -47,7 +56,7 @@ const solutions = [
   },
   {
     id: 'sinisterseedsP3-g8',
-    title: '解法：Game8',
+    title: '解法：日野主流',
   },
 ]
 const defaultSolution = '解法：本站'
@@ -58,19 +67,18 @@ const defaultSolution = '解法：本站'
 <AttackSection time="08:46.643" damage="57000" damageType="physical" />
 <SinisterSeedsMode1Cast start="08:46.956" />
 <SinisterSeedsMode1Cast start="08:48.963" />
+<SinisterSeedsMode2Activate time="08:51.968" />
 <AttackSection time="08:49.674" damage="57000" damageType="physical" />
-<SinisterSeedsMode1Cast start="08:50.965" />
-<SinisterSeedsMode2Activate time="08:51.948" />
-<AttackSection time="08:52.703" damage="57000" damageType="physical" />
 <EventSection time="08:52.392">
-  墙与<RoleIcon role="any" />
-  连线
+  墙与玩家的连线
   <ThornsOfDeathDebuff hover />消失
 </EventSection>
+<SinisterSeedsMode1Cast start="08:50.965" />
+<AttackSection time="08:52.703" damage="57000" damageType="physical" />
 <TendrilsofTerrorAppear2 time="08:55.643" />
+<RootsofEvilActivate time="08:58.764" />
 <AttackSection time="08:55.732" damage="57000" damageType="physical" />
 <PulpSmashCast start="08:56.980" />
-<RootsofEvilActivate time="08:58.764" />
 <ICftDActivate time="09:03.975" />
 <TheUnpottedActivate time="09:04.019" />
 
@@ -80,17 +88,15 @@ const defaultSolution = '解法：本站'
       <T><Skill name={sinisterSeeds} /></T>
       <P>
         与<StratLink variant="yellow" href="./p1/#sismc">P1：{sinisterSeeds}</StratLink>的机制效果相同，此时
-        <Span variant="pink">4</Span>
-        <RoleIcon role="healer|dps" tag="远程" />
-        贴在场边会被视为最远，
-        <Span variant="pink">4</Span><RoleIcon role="tank|dps" tag="近战" />
-        则是最近目标。
+        <Span variant="default">4</Span>
+        远程贴在场边会被视为最远，
+        <Span variant="default">4</Span>近战则是最近目标
       </P>
       <P class="mt-4"
         ><StratLink variant="yellow" href="./p1/#rootsofEvil">{rootsofEvil}</StratLink>、<StratLink
           variant="yellow"
           href="./p1/#tendrilsofTerror">{tendrilsofTerror}</StratLink
-        >、<StratLink variant="yellow" href="./p1/#pulp-smash">{pulpSmash}组合技</StratLink>与之前相同</P
+        >、<StratLink variant="yellow" href="./p1/#pulp-smash">{pulpSmash}组合技</StratLink>与之前相同，不再赘述</P
       >
     </div>
   </div>
@@ -100,85 +106,144 @@ const defaultSolution = '解法：本站'
   <div slot="解法：本站">
     <div class="flex flex-col gap-4">
       <P><Span variant="cyan">流程总结：躲避黄圈+放置冰花 > 躲避冰花 > 集合分摊 > 八方分散</Span></P>
-      <div class="flex flex-col gap-4">
+      <P>
+        首先，<Quote variant="lime"
+          ><P>近战组来到<Span variant="pink">标点2</Span><Span variant="pink">左下</Span>方集合</P>
+          <P>远程组在各自连线墙的<Span variant="pink">场边靠近角落</Span>处</P>
+        </Quote>，等待“冰花”点名出现
+      </P>
+      <ImgRow
+        wrapperClass="max-w-100"
+        borderVariant="yellow"
+        imgs={[
+          {
+            src: img_1,
+            alt: '',
+          },
+        ]}
+      />
+      <P> 根据点名情况，有两种排圈放花方式，对应的分摊位置也不同</P>
+
+      <T text="放置冰花并躲避" variant="lime" class="mt-8 text-2xl" />
+      <Quote variant="lime">
+        <P
+          >如果<RoleIcon role="tank|dps" tag="近战" />被点冰花：<Quote variant="lime">
+            <P>
+              <RoleIcon role="tank|dps" tag="近战" />按照图示，以<Span variant="pink">标点A</Span
+              >为场地北，将冰花放置在<Span variant="pink">数字标点</Span>上
+            </P>
+            <P>
+              <RoleIcon role="healer|dps" tag="远程" />沿着场边往另一侧移动放置黄圈
+            </P>
+          </Quote></P
+        >
+        <P
+          >如果<RoleIcon role="healer|dps" tag="远程" />被点冰花：<Quote variant="lime">
+            <P>
+              <RoleIcon role="tank|dps" tag="近战" />在<Span variant="pink">标点2左下</Span>方格集合，按照图示，<Span
+                variant="pink">逆时针</Span
+              >放置黄圈
+            </P>
+            <P>
+              <RoleIcon role="healer|dps" tag="远程" />在<Span variant="pink">场边中点</Span>放置冰花
+            </P>
+          </Quote></P
+        ></Quote
+      >
+      <P>放花点名伤害判定后：</P>
+      <Quote variant="lime">
+        <P
+          >如果<RoleIcon role="tank|dps" tag="近战" />被点冰花：
+
+          <RoleIcon role="all" tag="全员" />来到场中正点方向躲避</P
+        >
+
         <P>
-          首先，<Quote variant="lime"
-            ><P
-              ><RoleIcon role="tank|dps" tag="近战" />近战组来到<Span variant="pink">标点2</Span><Span variant="pink"
-                >左下</Span
-              >方集合</P
-            >
-            <P><RoleIcon role="healer|dps" tag="远程" />在各自连线墙的<Span variant="pink">场边靠近角落</Span>处</P>
-          </Quote>，等待点名
+          如果<RoleIcon role="healer|dps" tag="远程" />被点冰花：<RoleIcon role="all" tag="全员" />来到场地西南角落躲避
         </P>
-        <P> 根据点名情况，有两种排圈放花方式，对应的分摊位置也不同</P>
+      </Quote>
+      <P class="mt-4">
+        两种情况如下所示：<ToggleSwitch
+          id="sinisterseedsp3-1-toggle"
+          lVariant="yellow"
+          rVariant="rose"
+          lLabel="近战冰花"
+          rLabel="远程冰花"
+        />
+      </P>
+      <div id="sinisterseedsp3-1-toggle-div">
+        <ImgRow
+          class="melee-strat"
+          wrapperClass="max-w-100"
+          borderVariant="yellow"
+          imgs={[
+            {
+              src: img_4,
+              alt: '初始近战-放置冰花',
+              title: '放置冰花',
+            },
+            {
+              src: img_5,
+              alt: '初始近战-躲避冰花',
+              title: '躲避冰花',
+            },
+          ]}
+        />
+        <ImgRow
+          class="ranged-strat hidden"
+          wrapperClass="max-w-100"
+          borderVariant="yellow"
+          imgs={[
+            {
+              src: img_2,
+              alt: '初始远程-放置冰花',
+              title: '放置冰花',
+            },
+            {
+              src: img_3,
+              alt: '初始远程-躲避冰花',
+              title: '躲避冰花',
+            },
+          ]}
+        />
       </div>
       <div class="flex flex-col gap-4">
-        <T text="放置冰花并躲避" variant="lime" class="mt-8 text-2xl" />
-        <Quote variant="lime">
-          <P
-            >如果<RoleIcon role="tank|dps" tag="近战" />被点冰花：<Quote variant="lime">
-              <P>
-                <RoleIcon role="tank|dps" tag="近战" />按照图示，以<Span variant="pink">标点A</Span
-                >为场地北，将冰花放置在<Span variant="pink">数字标点</Span>上
-              </P>
-              <P>
-                <RoleIcon role="healer|dps" tag="远程" />沿着场边往另一侧移动放置黄圈
-              </P>
-            </Quote></P
-          >
-          <P
-            >如果<RoleIcon role="healer|dps" tag="远程" />被点冰花：<Quote variant="lime">
-              <P>
-                <RoleIcon role="tank|dps" tag="近战" />在<Span variant="pink">标点B</Span><Span variant="pink"
-                  >左上</Span
-                >方格集合，按照图示，<Span variant="pink">逆时针</Span>放置黄圈
-              </P>
-              <P>
-                <RoleIcon role="healer|dps" tag="远程" />在<Span variant="pink">场边中点</Span>放置冰花
-              </P>
-            </Quote></P
-          ></Quote
+        <T text="集合分摊并分散" variant="lime" class="mt-8 text-2xl" />
+        <P>
+          <Skill name={rootsofEvil} />伤害判定后，<RoleIcon role="healer" tag="点名" />来到<BruteAbombinator /><Span
+            variant="pink">正面</Span
+          >，<RoleIcon role="all" tag="其他" />与<RoleIcon role="healer" tag="点名" />集合处理分摊
+        </P>
+        <P>之后以<BruteAbombinator /><Span variant="pink">面向</Span>为基准，立刻离开钢铁范围并分散</P>
+        <P>根据冰花安全区的不同，分摊的位置有些差异</P>
+        <P
+          >但无论何种情况，<RoleIcon role="healer" tag="点名" />需要注意引导<BruteAbombinator
+          />的位置，给离开钢铁并分散留出足够的空间</P
         >
-        <P>放花点名伤害判定后：</P>
-        <Quote variant="lime">
-          <P
-            >如果<RoleIcon role="tank|dps" tag="近战" />被点冰花：
-
-            <RoleIcon role="all" tag="全员" />来到场中正点方向躲避</P
-          >
-
-          <P>
-            如果<RoleIcon role="healer|dps" tag="远程" />被点冰花：<RoleIcon
-              role="all"
-              tag="全员"
-            />来到场地西南角落躲避
-          </P>
-        </Quote>
         <P class="mt-4">
           两种情况如下所示：<ToggleSwitch
-            id="sinisterseedsp3-1-toggle"
+            id="sinisterseedsp3-2-toggle"
             lVariant="yellow"
             rVariant="rose"
             lLabel="近战冰花"
             rLabel="远程冰花"
           />
         </P>
-        <div id="sinisterseedsp3-1-toggle-div">
+        <div id="sinisterseedsp3-2-toggle-div">
           <ImgRow
             class="melee-strat"
             wrapperClass="max-w-100"
             borderVariant="yellow"
             imgs={[
               {
-                src: Tmp,
-                alt: '初始近战-放置冰花',
-                title: '放置冰花',
+                src: img_8,
+                alt: '初始近战-分摊',
+                title: '分摊',
               },
               {
-                src: Tmp,
-                alt: '初始近战-躲避冰花',
-                title: '躲避冰花',
+                src: img_9,
+                alt: '初始近战-分散',
+                title: '分散',
               },
             ]}
           />
@@ -188,81 +253,22 @@ const defaultSolution = '解法：本站'
             borderVariant="yellow"
             imgs={[
               {
-                src: Tmp,
-                alt: '初始远程-放置冰花',
-                title: '放置冰花',
+                src: img_6,
+                alt: '初始远程-分摊',
+                title: '分摊',
               },
               {
-                src: Tmp,
-                alt: '初始远程-躲避冰花',
-                title: '躲避冰花',
+                src: img_7,
+                alt: '初始远程-分散',
+                title: '分散',
               },
             ]}
           />
         </div>
-        <div class="flex flex-col gap-4">
-          <T text="集合分摊并分散" variant="lime" class="mt-8 text-2xl" />
-          <P>
-            <Skill name={rootsofEvil} />伤害判定后，<RoleIcon role="healer" tag="点名" />来到<BruteAbombinator /><Span
-              variant="pink">正面</Span
-            >，<RoleIcon role="all" tag="其他" />与<RoleIcon role="healer" tag="点名" />集合处理分摊
-          </P>
-          <P>之后以<BruteAbombinator /><Span variant="pink">面向</Span>为基准，立刻离开钢铁范围并分散</P>
-          <P>根据冰花安全区的不同，分摊的位置有些差异</P>
-          <P
-            >但无论何种情况，<RoleIcon role="healer" tag="点名" />需要注意引导<BruteAbombinator
-            />的位置，给离开钢铁并分散留出足够的空间</P
-          >
-          <P class="mt-4">
-            两种情况如下所示：<ToggleSwitch
-              id="sinisterseedsp3-2-toggle"
-              lVariant="yellow"
-              rVariant="rose"
-              lLabel="近战冰花"
-              rLabel="远程冰花"
-            />
-          </P>
-          <div id="sinisterseedsp3-2-toggle-div">
-            <ImgRow
-              class="melee-strat"
-              wrapperClass="max-w-100"
-              borderVariant="yellow"
-              imgs={[
-                {
-                  src: Tmp,
-                  alt: '初始近战-分摊',
-                  title: '分摊',
-                },
-                {
-                  src: Tmp,
-                  alt: '初始近战-分散',
-                  title: '分散',
-                },
-              ]}
-            />
-            <ImgRow
-              class="ranged-strat hidden"
-              wrapperClass="max-w-100"
-              borderVariant="yellow"
-              imgs={[
-                {
-                  src: Tmp,
-                  alt: '初始远程-分摊',
-                  title: '分摊',
-                },
-                {
-                  src: Tmp,
-                  alt: '初始远程-分散',
-                  title: '分散',
-                },
-              ]}
-            />
-          </div>
-        </div>
       </div>
     </div>
   </div>
-  <div slot="解法：Game8">
+  <div slot="解法：日野主流">
     <div class="flex flex-col gap-4">
       <P><Span variant="cyan">流程总结：躲避黄圈+放置冰花 > 躲避冰花 > 集合分摊 > 八方分散</Span></P>
       <div class="flex flex-col gap-4">

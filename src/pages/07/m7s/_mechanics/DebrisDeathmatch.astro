@@ -5,7 +5,6 @@ import ImgRow from '@/components/typography/ImgRow.astro'
 import Skill from '@/components/typography/Skill.astro'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -23,8 +22,12 @@ import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import StratLink from '@/components/StratLink.astro'
 import Quote from '@/components/typography/Quote.astro'
-import img from '@/assets/07/m7s/Tmp.png'
-import ListDot from '@/components/ListDot.astro'
+
+import quarry_swamp from '@/assets/07/m7s/debris_deathmatch_sporesac/quarrySwamp.png'
+import tendrilsOfTerror_stack from '@/assets/07/m7s/debris_deathmatch_sporesac/tendrilsOfTerror_stack.png'
+import img_1 from '@/assets/07/m7s/debris_deathmatch_sporesac/1.png'
+import img_2 from '@/assets/07/m7s/debris_deathmatch_sporesac/2.png'
+import img_3 from '@/assets/07/m7s/debris_deathmatch_sporesac/3.png'
 
 const debrisDeathmatch = translations.debrisDeathmatch
 const thornsofDeath = translations.thornsOfDeath
@@ -35,14 +38,12 @@ const quarrySwamp = translations.quarrySwamp
 ---
 
 <DebrisDeathmatchCast start="07:53.308" />
-<EventSection time="07:57.598"
-  >四周四面墙最近各<Span variant="pink">1</Span><RoleIcon role="any" />身上出现虚线预兆</EventSection
->
+<EventSection time="07:57.598">四面墙各自连线最近的人虚线预兆</EventSection>
 <SporeSacCast2 start="07:58.431" end="08:01.422" />
 <AttackSection time="08:06.365" damage="57000" damageType="physical" />
+<KillerSeedsAppear time="08:10.685" />
 <PollenCast start="08:08.192" />
 <AttackSection time="08:09.393" damage="57000" damageType="physical" />
-<KillerSeedsAppear time="08:10.685" />
 <AttackSection time="08:12.422" damage="57000" damageType="physical" />
 <EventSection time="08:14.297">
   <BloomingAbomination num={4} />可选中
@@ -61,9 +62,7 @@ const quarrySwamp = translations.quarrySwamp
     <T><Skill name={debrisDeathmatch} /></T>
     <P>
       <BruteAbombinator />读条完毕约<Span variant="pink">1.6s</Span>后，场边<Span variant="pink">四面</Span
-      >墙壁各自对<Span variant="pink">距离最近</Span>的<Span variant="pink">1</Span><RoleIcon
-        role="any"
-      />施加虚线连线预兆
+      >墙壁各自对<Span variant="pink">距离最近</Span>的一人施加虚线连线预兆
     </P>
     <P
       >约<Span variant="pink">5s</Span>后，虚线预兆变为荆棘连线，根据虚线长度对当前连线者附加<ThornsOfDeathDebuff
@@ -94,6 +93,7 @@ const quarrySwamp = translations.quarrySwamp
         >一碰就碎</span
       >可一招击杀</P
     >
+    <P>因此只需<RoleIcon role="tank" tag="双T" />拉住仇恨，无需浪费资源输出</P>
     <P class="mt-4"
       >此处还复合了一次<StratLink variant="yellow" href="./p2/#killerseedsmc">{killerSeeds}</StratLink
       >（双人分摊+放冰花）</P
@@ -103,38 +103,67 @@ const quarrySwamp = translations.quarrySwamp
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <P
-      ><Span variant="cyan"
-        >流程总结：接线 > 躲孢子和藤蔓 > 分组分摊并放花 > 躲避冰花，<RoleIcon role="tank" tag="双T" />拉小怪 > 躲避石化</Span
-      ></P
-    >
-    <P>此处由全体<RoleIcon role="healer|dps" tag="远程" />接线，以场地<Span variant="pink">标点A</Span>为正北：</P>
     <P>
-      <Quote variant="lime">
-        <P
-          ><RoleIcon role="ranged" tag="D3" />引导<Span variant="pink">北面</Span>墙，<RoleIcon
-            role="healer"
-            tag="H1"
-          />引导<Span variant="pink">西面</Span>墙，<RoleIcon role="ranged" tag="D4" />引导<Span variant="pink"
-            >南面</Span
-          >墙，<RoleIcon role="healer" tag="H2" />引导<Span variant="pink">东面</Span>墙</P
-        >
-      </Quote></P
-    >
-    <P> 在<Skill name={sporeSac} />读条结束（虚线预兆变为荆棘连线）之前，靠近所连墙壁</P>
+      <Span variant="cyan">
+        流程总结：接线 > 躲孢子和藤蔓 > 分组分摊并放冰花 > 躲避冰花，
+        <RoleIcon role="tank" tag="双T" />
+        拉小怪 > 躲避石化
+      </Span>
+    </P>
+    <P>
+      此处由
+      <RoleIcon role="healer" tag="双奶" />
+      和
+      <RoleIcon role="ranged_magic" tag="D34" />
+      接线，以场地<Span variant="pink">标点A</Span>为正北：
+    </P>
+    <Quote variant="lime">
+      <P
+        ><RoleIcon role="ranged" tag="D3" />引导<Span variant="pink">北面</Span>墙，<RoleIcon
+          role="healer"
+          tag="H1"
+        />引导<Span variant="pink">西面</Span>墙，<RoleIcon role="ranged" tag="D4" />引导<Span variant="pink">南面</Span
+        >墙，<RoleIcon role="healer" tag="H2" />引导<Span variant="pink">东面</Span>墙</P
+      >
+      <P>在<Skill name={sporeSac} />读条结束（虚线预兆变为荆棘连线）之前，靠近所连墙壁</P>
+    </Quote>
+    <P>
+      这是为了让
+      <RoleIcon role="ranged_magic" tag="D34" />
+      分布在
+      <RoleIcon role="healer" tag="双奶" />
+      的左右两侧而不是对面，方便抬血
+    </P>
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: img_1,
+          alt: '接线站位',
+        },
+      ]}
+    />
+
     <P class="mt-4"
       ><Span variant="green">孢子</Span>落下，观察<Skill name={pollen} />安全区的位置，此处AoE分布情况与P1时相同
     </P>
-    <P><RoleIcon role="tank|dps" tag="近战" />在内场安全区，<RoleIcon role="healer|dps" tag="远程" />在外场安全区躲避</P
-    >
+    <P>近战在内场安全区，远程在外场安全区躲避</P>
     <P
-      >此处由于<RoleIcon role="healer|dps" tag="远程" />身上存在<ThornsOfDeathDebuff
-        hover
-      />，请注意站位，尽量靠近场边，<Span variant="pink">保持</Span><ThornsOfDeathDebuff
-        level={1}
-        hover
-      />/<ThornsOfDeathDebuff level={2} hover /></P
+      >此处由于远程身上存在<ThornsOfDeathDebuff hover />，请注意站位，尽量靠近场边，<Span variant="pink">保持</Span
+      ><ThornsOfDeathDebuff level={1} hover />/<ThornsOfDeathDebuff level={2} hover /></P
     >
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: img_2,
+          alt: '孢子站位',
+        },
+      ]}
+    />
+
     <P class="mt-4"><Skill name={pollen} />AoE判定后，按照：</P>
     <P>
       <Quote variant="lime">
@@ -150,15 +179,17 @@ const quarrySwamp = translations.quarrySwamp
       >
       的分组进行<Span variant="pink">分摊</Span>，将冰花贴边放在<Span variant="pink">场边中点</Span></P
     ><P> 躲开随后的冰花AoE </P>
-    <T class="mt-4" variant="lime" text="分摊放冰花站位图示" />
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="yellow"
       imgs={[
         {
-          src: img,
-          alt: '',
-          title: '分摊放冰花站位',
+          src: tendrilsOfTerror_stack,
+          alt: '分摊放冰花站位',
+        },
+        {
+          src: img_3,
+          alt: '躲避冰花站位',
         },
       ]}
     />
@@ -167,41 +198,48 @@ const quarrySwamp = translations.quarrySwamp
       <Quote variant="lime">
         <P
           ><RoleIcon role="tank" tag="MT" />拉住场地<Span variant="pink">西</Span>侧和<Span variant="pink">北</Span
-          >侧的<BloomingAbomination />x2至西北内场
+          >侧的<BloomingAbomination />x2至西北内场（<Span variant="red">标点1</Span>）
         </P>
         <P
           ><RoleIcon role="tank" tag="ST" />拉住场地<Span variant="pink">东</Span>侧和<Span variant="pink">南</Span
-          >侧的<BloomingAbomination />x2至东南内场
+          >侧的<BloomingAbomination />x2至东南内场（<Span variant="sky">标点3</Span>）
         </P></Quote
-      >，<Span variant="pink">开好减伤</Span></P
+      ></P
     >
-    <P>人群此时不用集火小怪</P>
+    <P>
+      <RoleIcon role="tank" tag="MT" />
+      注意
+      <Span variant="cyan">开好减伤</Span>
+      ，三目标平A非常疼，
+      <RoleIcon role="tank" tag="双T" />
+      注意多做仇恨，不要只打一个1，避免OT
+    </P>
+    <P>人群此时完全不用打小怪</P>
 
     <P class="mt-4"
       >在<BruteAbombinator />读条<Skill name={quarrySwamp} />结束前，全员前往下图位置，躲在<BloomingAbomination
       />身后躲避石化</P
     >
-    <T class="mt-4" variant="lime" text="石化波动站位示意图" />
     <ImgRow
       wrapperClass="max-w-100"
       borderVariant="yellow"
       imgs={[
         {
-          src: img,
-          alt: '',
-          title: '石化波动站位示意图',
+          src: quarry_swamp,
+          alt: '石化波动站位示意图',
         },
       ]}
     />
-    <P
-      ><Span variant="cyan"
-        >注：此位置<RoleIcon role="healer|dps" tag="远程">身上为<ThornsOfDeathDebuff level={2} hover /></RoleIcon
-        >，选择此站位原因在说明中</Span
-      >
-    </P>
+    <!-- <P>
+      <Span variant="cyan">
+        注：此位置远程身上为
+        <ThornsOfDeathDebuff level={2} hover />
+        ，选择此站位原因在说明中
+      </Span>
+    </P> -->
   </div>
 </SolutionSection>
-<NoteSection>
+<!-- <NoteSection>
   <div class="flex flex-col gap-4">
     <P><ListDot />因为分摊冰花需要贴场边放置，而P3场地边长40m，团辅技能半径30m范围 </P>
     <P>
@@ -221,4 +259,4 @@ const quarrySwamp = translations.quarrySwamp
       />，此处给出石化波动的站位示意图
     </P>
   </div>
-</NoteSection>
+</NoteSection> -->

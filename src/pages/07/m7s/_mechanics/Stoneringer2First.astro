@@ -10,6 +10,7 @@ import { translations } from '../_translations'
 
 import circle_img from '@/assets/07/m7s/stoneringer2/p3_circle.png'
 import ring_img from '@/assets/07/m7s/stoneringer2/p3_ring.png'
+import img_1 from '@/assets/07/m7s/stoneringer2/1.png'
 import lariat_left_img from '@/assets/07/m7s/lashing_lariat/lashing_lariat_3.png'
 import lariat_right_img from '@/assets/07/m7s/lashing_lariat/lashing_lariat_4.png'
 import glower_power_img from '@/assets/07/m7s/stoneringer2/p3_glower_power.png'
@@ -190,6 +191,17 @@ const slaminator = translations.slaminator
     />
 
     <T variant="lime" text="分摊塔的处理" class="mt-8" />
+    <ImgRow
+      class="melee-strat"
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: img_1,
+          alt: '双T分摊踩塔',
+        },
+      ]}
+    />
     <P>
       我们这里固定安排
       <RoleIcon role="tank" tag="双T" /><Span variant="cyan">开减伤分摊踩塔</Span>
