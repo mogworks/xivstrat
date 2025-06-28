@@ -11,9 +11,9 @@
     ]
   },
   "banner": "@/assets/banners/07/m7s.png",
-  "date": "25/06/27 23:40",
+  "date": "25/06/28 23:30",
   "href": "/07/m7s",
-  "status": "live",
+  "status": "done",
   "indexAvailable": true,
   "phases": [
     {
@@ -128,7 +128,7 @@
       "mechanics": [
         {
           "href": "#S2RG",
-          "name": "双持石制武器",
+          "name": "双持石制武器 #1",
           "name_en": "",
           "name_ja": "",
           "name_ch": ""
@@ -149,7 +149,7 @@
         },
         {
           "href": "#S2S",
-          "name": "S2S",
+          "name": "双持石制武器 #2",
           "name_en": "",
           "name_ja": "",
           "name_ch": ""

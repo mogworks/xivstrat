@@ -66,21 +66,15 @@ const defaultSolution = '解法：本站（场地基准冰花）'
 <MoveToCenterEvent time="09:34.096" />
 <StrangeSeedsCast start="09:36.193" />
 <StrangeSeedsAppear time="09:41.315" num={1} />
-<BrutishSwingCast start="09:44.261" duration={6.7} />
 <StrangeSeedsActivate time="09:46.310" num={1} />
 <TendrilsofTerrorAppear time="09:48.451" num={1} />
-<BrutishSwingMoveActivate time="09:49.923" />
-<BrutishSwingActivate time="09:50.949" />
+<BrutishSwingCast start="09:44.461" duration={6.7} />
 <LashingLariatCast start="09:52.017" />
 <StrangeSeedsAppear time="09:55.541" num={2} />
-<LashingLariatActivate time="09:55.987" />
-<BrutishSwingCast start="09:58.661" duration={6.7} />
 <StrangeSeedsActivate time="10:00.534" num={2} />
 <TendrilsofTerrorAppear time="10:02.6701" num={2} />
-<BrutishSwingMoveActivate time="10:04.362" />
-<BrutishSwingActivate time="10:05.342" />
+<BrutishSwingCast start="09:58.661" duration={6.7} />
 <SlaminatorCast start="10:06.990" />
-<SlaminatorActivate time="10:11.986" />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
@@ -94,7 +88,7 @@ const defaultSolution = '解法：本站（场地基准冰花）'
   <div class="flex flex-col gap-4">
     <T class="mt-8"><Skill name={strangeSeeds} /></T>
     <P
-      >依旧是点名放花+米字形AoE，造成<DamageInfo damage="90000" type="magical" />，并附加<MagicVulnerabilityUp
+      >依旧是点名放花 + 米字形AoE，造成<DamageInfo damage="90000" type="magical" />，并附加<MagicVulnerabilityUp
         tag="7"
         hover
       /></P
@@ -222,12 +216,11 @@ const defaultSolution = '解法：本站（场地基准冰花）'
           tag="ST"
         /><RoleIcon role="magic" tag="D4" />在<Span variant="yellow">标点2</Span>处，
         <RoleIcon role="healer" tag="H1" />
-        <RoleIcon role="melee" tag="D1" />在<Span variant="purple">标点4</Span>处
+        <RoleIcon role="melee" tag="D1" />在<Span variant="purple">标点4</Span>处，
         <RoleIcon role="healer" tag="H2" /><RoleIcon role="dps" tag="D2" />
-        在<Span variant="blue">标点3</Span>处，
+        在<Span variant="blue">标点3</Span>处，放置冰花
       </P></Quote
     >
-    <P>放置自己的冰花</P>
     <T variant="lime" text="第1轮放花位置示意图" class="mt-4" />
     <ImgRow
       wrapperClass="max-w-100"
