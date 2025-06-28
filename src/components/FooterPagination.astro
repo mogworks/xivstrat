@@ -1,0 +1,73 @@
+---
+import type { Duty } from '@/data/duty'
+import { cn } from '@/lib/utils'
+
+interface Props {
+  duty: Duty
+}
+const { duty }: Props = Astro.props
+const phases = duty.phases
+const basePath = (() => {
+  if (duty.status === 'upcoming') return undefined
+  if (duty.indexAvailable) return duty.href
+  return undefined
+})()
+// 构造包含副本首页的fullPhases
+const fullPhases = [
+  {
+    name: 'home',
+    title: '首页',
+    href: basePath,
+    subtitle: '副本信息',
+    mechanics: [],
+  },
+  ...phases,
+]
+const currentPath = Astro.url.pathname
+const currentIndex = fullPhases.findIndex((phase) => phase.href === currentPath)
+const prev = currentIndex > 0 ? fullPhases[currentIndex - 1] : null
+const next = currentIndex < fullPhases.length - 1 ? fullPhases[currentIndex + 1] : null
+const isHome = currentIndex === 0
+---
+
+<!-- 分别适配副本首页和攻略页排版 -->
+<div class={cn('mt-4 grid grid-cols-2 gap-4', !isHome && 'ml-64 px-4')}>
+  <div class={cn('rounded-sm border p-2 ', prev && 'hover:border-zinc-400 dark:hover:border-zinc-200')}>
+    {
+      prev ? (
+        <a href={prev.href} rel="prev">
+          <div class="flex flex-col gap-0.5">
+            <div class="text-xs font-bold">上一页</div>
+            <div class="text-sm">
+              {prev.title}-{prev.subtitle}
+            </div>
+          </div>
+        </a>
+      ) : (
+        <div class="flex cursor-not-allowed flex-col gap-0.5">
+          <div class="text-xs font-bold">上一页</div>
+          <div class="text-sm text-gray-600">已经是第一页</div>
+        </div>
+      )
+    }
+  </div>
+  <div class={cn('rounded-sm border p-2 ', next && 'hover:border-zinc-400 dark:hover:border-zinc-200')}>
+    {
+      next ? (
+        <a href={next.href} rel="next">
+          <div class="flex flex-col gap-0.5 text-right">
+            <div class="text-xs font-bold">下一页</div>
+            <div class="text-sm">
+              {next.title}-{next.subtitle}
+            </div>
+          </div>
+        </a>
+      ) : (
+        <div class="flex cursor-not-allowed flex-col gap-0.5 text-right">
+          <div class="text-xs font-bold">下一页</div>
+          <div class="text-sm text-gray-600">已经是最后一页</div>
+        </div>
+      )
+    }
+  </div>
+</div>
