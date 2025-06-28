@@ -1,0 +1,19 @@
+---
+import type { Time } from '@/lib/utils'
+
+import AttackSection from '@/components/section/AttackSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+
+interface Props {
+  time: Time
+  damage: string
+  damageType: 'physical' | 'magical' | 'special'
+}
+
+const { time, damage, damageType }: Props = Astro.props
+---
+
+<AttackSection time={time} damage={damage} damageType={damageType}>
+  <BruteAbombinator slot="source" />
+</AttackSection>

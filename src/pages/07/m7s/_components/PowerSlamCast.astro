@@ -15,7 +15,7 @@ const { time }: Props = Astro.props
 const powerslam = translations.powerslam
 ---
 
-<CastSection start={time} duration={5.7} ability={powerslam}>
+<CastSection start={time} duration={5.7} ability={powerslam} damage="205000" damageType="physical">
   <BruteAbombinator slot="source" />
   <Badge variant="emerald">场地切换</Badge>
   <Badge variant="purple">AoE</Badge>

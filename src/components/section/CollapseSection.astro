@@ -51,20 +51,31 @@ const { wider = false }: Props = Astro.props
     private _updateUI = (isOpen: boolean) => {
       this._openText.classList.toggle('hidden', isOpen)
       this._closeText.classList.toggle('hidden', !isOpen)
-      animate(this._icon, { rotate: isOpen ? 90 : 0 }, { duration: 0.3, ease: 'easeInOut' })
-      animate(
-        this._summarySection,
-        { marginBottom: isOpen ? 'var(--article-row-gap)' : 0 },
-        { duration: 0.3, ease: 'easeInOut' },
-      )
-      animate(
-        this._detailsSection,
-        {
-          maxHeight: isOpen ? `${this._detailsSection.scrollHeight}px` : '0px',
-          opacity: isOpen ? this._openOpacity : 0,
-        },
-        { duration: 0.3, ease: 'easeInOut' },
-      )
+      if (isOpen) {
+        // 先使元素可见
+        this._detailsSection.classList.toggle('hidden', false)
+        animate(this._icon, { rotate: 90 }, { duration: 0.3, ease: 'easeInOut' })
+        animate(this._summarySection, { marginBottom: 'var(--article-row-gap)' }, { duration: 0.3, ease: 'easeInOut' })
+        animate(
+          this._detailsSection,
+          {
+            maxHeight: `${this._detailsSection.scrollHeight}px`,
+            opacity: this._openOpacity,
+          },
+          { duration: 0.3, ease: 'easeInOut' },
+        )
+      } else {
+        Promise.all(
+          [
+            animate(this._icon, { rotate: 0 }, { duration: 0.3, ease: 'easeInOut' }),
+            animate(this._summarySection, { marginBottom: 0 }, { duration: 0.3, ease: 'easeInOut' }),
+            animate(this._detailsSection, { maxHeight: 0, opacity: 0 }, { duration: 0.3, ease: 'easeInOut' }),
+          ].map((anim) => anim.finished),
+        ).then(() => {
+          // 所有动画完成后隐藏元素
+          this._detailsSection.classList.toggle('hidden', true)
+        })
+      }
     }
 
     public forceOpen() {

@@ -5,6 +5,7 @@ import { getEntry } from 'astro:content'
 
 import DutyLayout from '@/layouts/DutyLayout.astro'
 
+import FooterPagination from '@/components/FooterPagination.astro'
 import Separator from '@/components/Separator.astro'
 import StratAside from '@/components/StratAside.vue'
 import StratSettings from '@/components/StratSettings.vue'
@@ -22,6 +23,7 @@ const duty = (await getEntry('duties', dutyId))!.data
   <main class="max-w-strat-max min-w-strat-min relative mx-auto mb-20 grid grid-cols-[1fr_16rem] p-4">
     <article id="strat-article" class="flex flex-col gap-(--article-row-gap) tracking-wide" data-base={base}>
       <slot />
+      <FooterPagination duty={duty} />
     </article>
     <StratAside currentUrl={Astro.url.pathname} phases={duty.phases} client:idle />
     <Separator orientation="vertical" class="absolute top-4 left-68 h-[calc(100%-2rem)]" />

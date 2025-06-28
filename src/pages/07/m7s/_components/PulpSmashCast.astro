@@ -16,9 +16,17 @@ const { start }: Props = Astro.props
 const pulpSmash = translations.pulpSmash
 ---
 
-<CastSection start={start} duration={4.7} target ability={pulpSmash}>
+<CastSection
+  start={start}
+  duration={4.7}
+  target
+  ability={pulpSmash}
+  damage="110000"
+  damageType="physical"
+  damageVariant="stack"
+>
   <BruteAbombinator slot="source" />
-  <RoleIcon role="healer" slot="target" />
+  <RoleIcon role="healer" tag="随机" slot="target" />
   <Badge variant="emerald">6m圆形</Badge>
   <Badge variant="yellow">8人分摊</Badge>
 </CastSection>

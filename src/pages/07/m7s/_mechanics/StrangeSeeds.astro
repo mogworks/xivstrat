@@ -1,11 +1,8 @@
 ---
-import type { Time } from '@/lib/utils'
-import { Image } from 'astro:assets'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
-import strange_seeds_safe_point from '@/assets/07/m7s/strange_seeds/strange_seeds_safe_point.png'
 import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
 import StrangeSeedsActivate from '../_components/StrangeSeedsActivate.astro'
 import { translations } from '../_translations'
@@ -26,8 +23,31 @@ import StratLink from '@/components/StratLink.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
-import Tmp from '@/assets/07/m7s/Tmp.png'
 import Quote from '@/components/typography/Quote.astro'
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
+
+import zari_safe_zone from '@/assets/07/m7s/strange_seeds/zari_safe_zone.png'
+import zari_safe_zone_only from '@/assets/07/m7s/strange_seeds/zari_safe_zone_only.png'
+import zari_place_overview from '@/assets/07/m7s/strange_seeds/zari_place_overview.png'
+import zari_place_tank_healer from '@/assets/07/m7s/strange_seeds/zari_place_tank_healer.png'
+import zari_place_melee from '@/assets/07/m7s/strange_seeds/zari_place_melee.png'
+import zari_place_ranged from '@/assets/07/m7s/strange_seeds/zari_place_ranged.png'
+import zari_place_magic from '@/assets/07/m7s/strange_seeds/zari_place_magic.png'
+import zari_odd_case_1 from '@/assets/07/m7s/strange_seeds/zari_odd_case_1.png'
+import zari_odd_case_2 from '@/assets/07/m7s/strange_seeds/zari_odd_case_2.png'
+import zari_even_case_1 from '@/assets/07/m7s/strange_seeds/zari_even_case_1.png'
+import zari_even_case_2 from '@/assets/07/m7s/strange_seeds/zari_even_case_2.png'
+import zari_stack from '@/assets/07/m7s/strange_seeds/zari_stack.png'
+
+import fs_place_overview from '@/assets/07/m7s/strange_seeds/fs_place_overview.png'
+import fs_place_overview_dot from '@/assets/07/m7s/strange_seeds/fs_place_overview_dot.png'
+import fs_place_cursed_1 from '@/assets/07/m7s/strange_seeds/fs_place_cursed_1.png'
+import fs_place_cursed_2 from '@/assets/07/m7s/strange_seeds/fs_place_cursed_2.png'
+import fs_stack from '@/assets/07/m7s/strange_seeds/fs_stack.png'
+
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
+import Badge from '@/components/Badge.astro'
 
 const strangeSeeds = translations.strangeSeeds
 const demolitionDeathmatch = translations.demolitionDeathmatch
@@ -38,47 +58,65 @@ const brutishSwing = translations.brutishSwing
 const solutions = [
   {
     id: 'strangeseeds-sari-m',
-    title: '解法：萨利式',
+    title: '解法：日野主流（萨利式）',
   },
   {
     id: 'strangeseeds-fixedseeds',
     title: '解法：Fixed Seeds',
   },
 ]
-const defaultSolution = '解法：萨利式'
+const defaultSolution = '解法：日野主流（萨利式）'
 ---
 
 <StrangeSeedsCast start="04:43.863" />
-<StrangeSeedsAppear time="04:48.986" num={1} />
+<CollapseSection wider>
+  <Fragment slot="summary">
+    <BruteAbombinator />
+    进行
+    <Span variant="default">4</Span>
+    轮不重复点名，每轮点名
+    <Span variant="default">1</Span>
+    <RoleIcon role="tank|healer" />
+    <Span variant="default">1</Span>
+    <RoleIcon role="dps" />
+    <Skill name={strangeSeeds} />
+    <DamageInfo damage="90000" type="magical" />
+    <MagicVulnerabilityUp tag="7" hover />
+    <Badge variant="emerald">6m圆形</Badge>
+    <Badge variant="yellow">分散</Badge>
+    <Badge variant="cyan">放冰花</Badge>
+  </Fragment>
+  <Fragment slot="details">
+    <StrangeSeedsAppear time="04:48.986" num={1} />
+    <StrangeSeedsActivate time="04:53.975" num={1} />
+    <StrangeSeedsAppear time="04:54.021" num={2} />
+    <TendrilsofTerrorAppear time="04:55.624" num={1} />
+    <StrangeSeedsActivate time="04:59.013" num={2} />
+    <StrangeSeedsAppear time="04:59.013" num={3} />
+    <TendrilsofTerrorAppear time="05:00.664" num={2} />
+    <StrangeSeedsActivate time="05:04.009" num={3} />
+    <StrangeSeedsAppear time="05:04.009" num={4} />
+    <TendrilsofTerrorAppear time="05:05.658" num={3} />
+    <StrangeSeedsActivate time="05:08.997" num={4} />
+    <TendrilsofTerrorAppear time="05:10.647" num={4} />
+  </Fragment>
+</CollapseSection>
 <StoneringerCast start="04:52.997" />
-<StrangeSeedsActivate time="04:53.975" num={1} />
-<StrangeSeedsAppear time="04:54.021" num={2} />
-<TendrilsofTerrorAppear time="04:55.624" num={1} />
-<StrangeSeedsActivate time="04:59.013" num={2} />
-<StrangeSeedsAppear time="04:59.013" num={3} />
-<TendrilsofTerrorAppear time="05:00.664" num={2} />
-<StrangeSeedsActivate time="05:04.009" num={3} />
-<StrangeSeedsAppear time="05:04.009" num={4} />
-<TendrilsofTerrorAppear time="05:05.658" num={3} />
-<StrangeSeedsActivate time="05:08.997" num={4} />
-<TendrilsofTerrorAppear time="05:10.647" num={4} />
 <KillerSeedsAppear time="05:13.853" />
 <KillerSeedsActivate time="05:18.842" />
 <EventSection time="05:20.310">
-  墙与<RoleIcon role="any" />
-  连线
+  墙与玩家的连线
   <ThornsOfDeathDebuff hover />消失
 </EventSection>
 <TendrilsofTerrorAppear time="05:20.532" num={5} />
-<BrutishSwingCast start="05:20.887" />
 <MechanicSection id="strangeSeeds">
   <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-4">
-      <T><Skill name={strangeSeeds} /></T>
+      <T id="killerseedsmc"><Skill name={strangeSeeds} /></T>
       <P>
         点名<Span variant="pink">1</Span><RoleIcon role="tank|healer" />和<Span variant="pink">1</Span><RoleIcon
           role="dps"
-        />的<Span variant="yellow">圆形AoE</Span>，半径<Span variant="pink">6m</Span>，对点名玩家造成<DamageInfo
+        />的圆形伤害，半径<Span variant="pink">6m</Span>，对点名玩家造成<DamageInfo
           damage="90000"
           type="magical"
         />，并附加<MagicVulnerabilityUp tag="7" hover /></P
@@ -99,8 +137,9 @@ const defaultSolution = '解法：萨利式'
   <div class="flex flex-col gap-4">
     <T class="mt-8"><Skill name={killerseeds} /></T>
     <P
-      >点名所有<RoleIcon role="tank|healer" />或<RoleIcon role="dps" />的<Span variant="yellow">双人分摊AoE</Span
-      >，半径<Span variant="pink">6m</Span>，造成<DamageInfo
+      >点名<Span variant="pink">4</Span><RoleIcon role="tank|healer" />或<Span variant="pink">4</Span><RoleIcon
+        role="dps"
+      />的可分摊圆形伤害，半径<Span variant="pink">6m</Span>，双人分摊时造成<DamageInfo
         damage="100000"
         type="magical"
       />，并附加<MagicVulnerabilityUp tag="2" hover /></P
@@ -132,8 +171,8 @@ const defaultSolution = '解法：萨利式'
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <P>在<Skill name={strangeSeeds} />阶段，<RoleIcon role="all" tag="所有人" />处理机制需要做的事只有两种情况：</P>
-    <Quote variant="rose">
+    <P>在<Skill name={strangeSeeds} />阶段，<RoleIcon role="all" tag="全员" />需要做的事只有两种情况：</P>
+    <Quote variant="lime">
       <P>如果<Span variant="pink">没被点名</Span>放置冰花，站在<Span variant="pink">安全区</Span>躲避冰花</P>
       <P
         >如果<Span variant="pink">被点名</Span>放置冰花，在<Span variant="pink">相应的点位</Span>上放置冰花，然后<Span
@@ -147,9 +186,9 @@ const defaultSolution = '解法：萨利式'
       />两两配对，处理双人分摊</P
     >
     <P
-      >双人分摊判定后，观察<RoleIcon role="boss" tag="boss" />武器，<Span variant="pink">靠近</Span><Skill
-        name={brutishSwing}
-      /><Span variant="pink">安全区</Span>躲避最后的冰花</P
+      >双人分摊判定后，观察<BruteAbombinator />武器，<Span variant="pink">靠近</Span><Skill name={brutishSwing} /><Span
+        variant="pink">安全区</Span
+      >躲避最后的冰花</P
     >
     <P class="mt-4"
       >根据之前<StratLink variant="yellow" href="#DDAB">{demolitionDeathmatch}</StratLink>接线方式的选择，继续介绍<Span
@@ -160,7 +199,7 @@ const defaultSolution = '解法：萨利式'
 </SolutionSection>
 
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：萨利式">
+  <div slot="解法：日野主流（萨利式）">
     <div class="flex flex-col gap-4">
       <T text="放置冰花" variant="lime" class="text-2xl" />
       <div class="flex flex-col gap-4">
@@ -176,47 +215,76 @@ const defaultSolution = '解法：萨利式'
               tag="D3"
             />、<RoleIcon role="magic" tag="D4" />分组，不同组的放置点和安全区不同</P
           >
-          <P>首先，所有冰花放置点和<Span variant="purple">绝对安全区</Span>如图所示：</P>
+          <P>首先，所有冰花放置点如图所示（对原版解法点位有轻微调整，安全区略大一些）：</P>
           <ImgRow
-            wrapperClass="max-w-100"
-            borderVariant="rose"
-            imgs={[{ src: Tmp, alt: '萨利式冰花', title: '萨利式冰花全点位' }]}
+            wrapperClass="max-w-180"
+            bordered={false}
+            imgs={[{ src: zari_place_overview, alt: '萨利式冰花', title: '萨利式冰花全点位' }]}
+          />
+        </div>
+        <div class="flex flex-col gap-4">
+          <P>
+            <Span variant="green">绝对安全区</Span>则如下图所示
+          </P>
+          <P>
+            所有可能的冰花范围<ToggleSwitch
+              id="zari-safe-zone-toggle"
+              lVariant="lime"
+              rVariant="pink"
+              lLabel="隐藏"
+              rLabel="显示"
+            />
+          </P>
+          <ImgRow
+            id="zari-safe-zone-omen"
+            wrapperClass="max-w-180"
+            bordered={false}
+            imgs={[{ src: zari_safe_zone_only, alt: '仅显示安全区', title: '' }]}
           />
           <ImgRow
-            wrapperClass="max-w-100"
-            borderVariant="rose"
-            imgs={[{ src: strange_seeds_safe_point, alt: '绝对安全区', title: '绝对安全区' }]}
+            id="zari-safe-zone-activate"
+            wrapperClass="max-w-180"
+            bordered={false}
+            class="hidden"
+            imgs={[{ src: zari_safe_zone, alt: '包含安全区与冰花范围', title: '' }]}
           />
         </div>
         <div class="flex flex-col gap-4">
           <P class="mt-4">对于<RoleIcon role="tank" />和<RoleIcon role="healer" />：</P>
-          <Quote variant="rose"
-            ><P>如果自己<Span variant="purple">未被</Span>点名，则前往<Span variant="purple">绝对安全区</Span></P>
+          <Quote variant="lime">
+            <P>如果自己<Span variant="green">未被</Span>点名，则前往<Span variant="green">绝对安全区</Span></P>
             <P
-              >如果自己被点名<Span variant="sky">奇数</Span>轮种子，则前往<Span variant="pink">靠近</Span><RoleIcon
-                role="boss"
-                tag="boss"
-              />的场地<Span variant="sky">中轴线</Span>处放置</P
+              >如果自己被点名<Span variant="sky">奇数</Span>轮种子，则前往<Span variant="pink">靠近</Span
+              ><BruteAbombinator />的场地<Span variant="sky">中轴线</Span>处放置</P
             >
             <P
-              >如果自己被点名<Span variant="orange">偶数</Span>轮种子，则前往<Span variant="pink">靠近</Span><RoleIcon
-                role="boss"
-                tag="boss"
-              />的场地<Span variant="orange">标点</Span>处放置</P
-            ></Quote
-          >
+              >如果自己被点名<Span variant="orange">偶数</Span>轮种子，则前往<Span variant="pink">靠近</Span
+              ><BruteAbombinator />的场地<Span variant="orange">标点</Span>处放置</P
+            >
+          </Quote>
+          <P>
+            注意：下图这种情况标点为
+            <Span variant="yellow">B</Span>
+            ，当<BruteAbombinator />
+            在对侧长边时，则标点为
+            <Span variant="purple">D</Span>
+          </P>
+          <ImgRow
+            wrapperClass="max-w-180"
+            bordered={false}
+            imgs={[{ src: zari_place_tank_healer, alt: '萨利式冰花坦克/治疗点位', title: '' }]}
+          />
         </div>
         <div class="flex flex-col gap-4">
           <P class="mt-4">对于<RoleIcon role="melee" />：</P>
-          <Quote variant="rose"
+          <Quote variant="lime"
             ><P
-              >如果自己<Span variant="purple">未被</Span>点名，则前往<RoleIcon role="boss" tag="boss" /><Span
-                variant="pink">面前</Span
-              >的<Span variant="purple">绝对安全区</Span></P
+              >如果自己<Span variant="green">未被</Span>点名，则前往<BruteAbombinator /><Span variant="pink">面前</Span
+              >的<Span variant="green">绝对安全区</Span></P
             >
             <P
-              >如果自己被点名<Span variant="sky">奇数</Span>轮种子，则前往<RoleIcon role="boss" tag="boss" /><Span
-                variant="pink">目标圈穿过</Span
+              >如果自己被点名<Span variant="sky">奇数</Span>轮种子，则前往<BruteAbombinator /><Span variant="pink"
+                >目标圈穿过</Span
               >的场地<Span variant="sky">角落</Span>放置</P
             >
             <P
@@ -224,15 +292,55 @@ const defaultSolution = '解法：萨利式'
               >处放置</P
             ></Quote
           >
+          <ImgRow
+            wrapperClass="max-w-180"
+            bordered={false}
+            imgs={[{ src: zari_place_melee, alt: '萨利式冰花近战组点位', title: '' }]}
+          />
+        </div>
+        <div class="flex flex-col gap-4">
+          <P class="mt-4">对于<RoleIcon role="ranged" tag="D3" />：</P>
+          <Quote variant="lime">
+            <P
+              ><Span variant="sky">奇数</Span>轮种子点名时，<Span variant="pink">无论</Span>是否被点名，站在视角<Span
+                variant="pink">右侧</Span
+              >的场地<Span variant="sky">角落</Span>处</P
+            >
+            <P
+              ><Span variant="orange">偶数</Span>轮时，
+              <Quote variant="lime">
+                <P
+                  >如果连线<BruteAbombinator /><Span variant="pink">近侧</Span>墙：
+                  <Quote variant="lime">
+                    <P
+                      ><Span variant="orange">橙色1点</Span>处<Span variant="pink">有点名</Span>，则站在图中
+                      <Span variant="green">绿色点</Span>
+                      处
+                    </P>
+                    <P>没有则站在<Span variant="orange">橙色1点</Span>处</P>
+                  </Quote>
+                </P>
+
+                <P
+                  >如果连线<BruteAbombinator /><Span variant="pink">远侧</Span>墙，站在图中<Span variant="orange"
+                    >橙色3点</Span
+                  >处
+                </P>
+              </Quote>
+            </P>
+          </Quote>
+          <ImgRow
+            wrapperClass="max-w-180"
+            bordered={false}
+            imgs={[{ src: zari_place_ranged, alt: '萨利式冰花D3点位', title: '' }]}
+          />
         </div>
         <div class="flex flex-col gap-4">
           <P class="mt-4">对于<RoleIcon role="magic" tag="D4" />：</P>
           <P
-            ><Span variant="pink">无论</Span>是否被点名，<Quote variant="rose">
+            ><Span variant="pink">无论</Span>是否被点名，<Quote variant="lime">
               <P
-                ><Span variant="sky">奇数</Span>轮种子点名时，站在<Span variant="pink">远离</Span><RoleIcon
-                  role="boss"
-                  tag="boss"
+                ><Span variant="sky">奇数</Span>轮种子点名时，站在<Span variant="pink">远离</Span><BruteAbombinator
                 />的场地<Span variant="sky">中轴线</Span>处</P
               >
               <P
@@ -241,54 +349,40 @@ const defaultSolution = '解法：萨利式'
               ></Quote
             ></P
           >
+          <ImgRow
+            wrapperClass="max-w-180"
+            bordered={false}
+            imgs={[{ src: zari_place_magic, alt: '萨利式冰花D4点位', title: '' }]}
+          />
         </div>
-        <div class="flex flex-col gap-4">
-          <P class="mt-4">对于<RoleIcon role="ranged" tag="D3" />：</P>
-          <Quote variant="rose">
-            <P
-              ><Span variant="sky">奇数</Span>轮种子点名时，<Span variant="pink">无论</Span>是否被点名，站在视角<Span
-                variant="pink">右侧</Span
-              >的场地<Span variant="sky">角落</Span>处</P
-            >
-            <P
-              ><Span variant="orange">偶数</Span>轮时，
-              <Quote variant="rose">
-                <P
-                  >如果连线<RoleIcon role="boss" tag="boss" /><Span variant="pink">近侧</Span>墙：
-                  <Quote variant="rose">
-                    <P
-                      ><Span variant="orange">橙色1点</Span>处<Span variant="pink">有点名</Span>，则站在图中
-                      <Span variant="purple">紫色点</Span>
-                      处
-                    </P>
-                    <P>没有则站在<Span variant="orange">橙色1点</Span>处</P>
-                  </Quote>
-                </P>
-
-                <P
-                  >如果连线<RoleIcon role="boss" tag="boss" /><Span variant="pink">远侧</Span>墙，站在图中<Span
-                    variant="orange">橙色3点</Span
-                  >处
-                </P>
-              </Quote>
-            </P>
-          </Quote>
-        </div>
+        <P>
+          <Span variant="cyan">注：人群在绝对安全区集合时可略微分散，便于看清点名</Span>
+        </P>
         <div class="flex flex-col gap-4">
           <T variant="lime" text="奇偶轮冰花AoE范围示意图" class="mt-4 text-2xl" />
+          <P> 注：奇偶轮的图片中分别叠加了所有可能的冰花 </P>
+          <P>
+            <ToggleSwitch id="zari-if-toggle" lVariant="lime" rVariant="pink" lLabel="预兆" rLabel="判定" />
+          </P>
           <ImgRow
-            wrapperClass="max-w-100"
-            borderVariant="rose"
-            imgs={[{ src: Tmp, alt: '奇数轮冰花AoE', title: '奇数轮冰花AoE' }]}
+            id="zari-if-omen"
+            wrapperClass="max-w-180"
+            bordered={false}
+            imgs={[
+              { src: zari_odd_case_1, alt: '奇数轮冰花', title: '奇数轮冰花' },
+              { src: zari_even_case_1, alt: '偶数轮冰花', title: '偶数轮冰花' },
+            ]}
           />
           <ImgRow
-            wrapperClass="max-w-100"
-            borderVariant="rose"
-            imgs={[{ src: Tmp, alt: '偶数轮冰花AoE', title: '偶数轮冰花AoE' }]}
+            id="zari-if-activate"
+            wrapperClass="max-w-180"
+            bordered={false}
+            class="hidden"
+            imgs={[
+              { src: zari_odd_case_2, alt: '奇数轮冰花', title: '奇数轮冰花' },
+              { src: zari_even_case_2, alt: '偶数轮冰花', title: '偶数轮冰花' },
+            ]}
           />
-        </div>
-        <div class="flex flex-col gap-4">
-          <P><Span variant="cyan">注：人群在绝对安全区集合时可略微分散，便于看清点名</Span></P>
         </div>
       </div>
     </div>
@@ -296,20 +390,17 @@ const defaultSolution = '解法：萨利式'
       <T text="双人分摊" variant="lime" class="mt-8 text-2xl" />
       <div class="flex flex-col gap-4">
         <P>分摊预兆出现时：</P>
-        <Quote variant="rose">
+        <Quote variant="lime">
           <P class="pl-1">
-            <RoleIcon role="tank" tag="MT" /><RoleIcon role="melee" tag="D1" />前往<RoleIcon
-              role="boss"
-              tag="boss"
-            /><Span variant="pink">目标圈穿过</Span>的场地<Span variant="sky">角落</Span>，即<RoleIcon
-              role="melee"
-            /><Span variant="sky">奇数</Span>轮冰花点
+            <RoleIcon role="tank" tag="MT" /><RoleIcon role="melee" tag="D1" />前往<BruteAbombinator /><Span
+              variant="pink">目标圈穿过</Span
+            >的场地<Span variant="sky">角落</Span>，即<RoleIcon role="melee" /><Span variant="sky">奇数</Span>轮冰花点
           </P>
           <P class="pl-1">
             <RoleIcon role="tank" tag="ST" /><RoleIcon role="melee" tag="D2" />前往<Span variant="pink">靠近</Span
-            ><RoleIcon role="boss" tag="boss" />的场地<Span variant="sky">中轴线</Span>处，即<RoleIcon
-              role="healer|tank"
-            /><Span variant="sky">奇数</Span>轮冰花点
+            ><BruteAbombinator />的场地<Span variant="sky">中轴线</Span>处，即<RoleIcon role="healer|tank" /><Span
+              variant="sky">奇数</Span
+            >轮冰花点
           </P>
           <P class="pl-1">
             <RoleIcon role="healer" tag="H1" /><RoleIcon role="ranged" tag="D3" />前往<RoleIcon
@@ -322,10 +413,9 @@ const defaultSolution = '解法：萨利式'
           </P>
           <P class="pl-1">
             <RoleIcon role="healer" tag="H2" /><RoleIcon role="magic" tag="D4" />前往<Span variant="pink">远离</Span
-            ><RoleIcon role="boss" tag="boss" />的场地<Span variant="sky">中轴线</Span>处,即<RoleIcon
-              role="magic"
-              tag="D4"
-            /><Span variant="sky">奇数</Span>轮冰花点
+            ><BruteAbombinator />的场地<Span variant="sky">中轴线</Span>处,即<RoleIcon role="magic" tag="D4" /><Span
+              variant="sky">奇数</Span
+            >轮冰花点
           </P>
         </Quote>
         <P>
@@ -337,11 +427,10 @@ const defaultSolution = '解法：萨利式'
             tag="D3"
           /><RoleIcon role="magic" tag="D4" />去自己的奇数轮冰花点，搭档去找他们
         </P>
-        <T text="萨利式分摊站位示意图" variant="lime" class="mt-4 text-2xl" />
         <ImgRow
-          wrapperClass="max-w-100"
-          borderVariant="rose"
-          imgs={[{ src: Tmp, alt: '萨利式分摊', title: '萨利式分摊' }]}
+          wrapperClass="max-w-180"
+          bordered={false}
+          imgs={[{ src: zari_stack, alt: '萨利式分摊站位图', title: '分摊站位' }]}
         />
         <P>
           <Span variant="cyan"
@@ -371,20 +460,31 @@ const defaultSolution = '解法：萨利式'
           >专属</Span
         >的点位：</P
       >
-      <Quote variant="rose">
+      <Quote variant="lime">
         <P>如果<Span variant="pink">未被</Span>点名，在自己点位上躲冰花</P>
         <P>如果被点名，将冰花放在自己点位上，然后<Span variant="pink">躲开这轮</Span>冰花</P>
       </Quote>
       <T variant="lime" text="Fixed Seeds点位图示" class="mt-4 text-2xl" />
+      <P>
+        <ToggleSwitch id="fs-overview-toggle" lVariant="lime" rVariant="pink" lLabel="职能图标" rLabel="精确点位" />
+      </P>
       <ImgRow
-        wrapperClass="max-w-100"
-        borderVariant="rose"
-        imgs={[{ src: Tmp, alt: 'Fixed Seeds点位', title: 'Fixed Seeds点位' }]}
+        id="fs-overview-icon"
+        wrapperClass="max-w-180"
+        bordered={false}
+        imgs={[{ src: fs_place_overview, alt: '显示职能图标', title: '' }]}
+      />
+      <ImgRow
+        id="fs-overview-dot"
+        wrapperClass="max-w-180"
+        bordered={false}
+        class="hidden"
+        imgs={[{ src: fs_place_overview_dot, alt: '显示精确点位', title: '' }]}
       />
     </div>
     <div class="mt-4 flex flex-col gap-4">
       <P>躲开自己点名1轮冰花的方法有：</P>
-      <Quote variant="rose">
+      <Quote variant="lime">
         <P>对于未被连线的<RoleIcon role="any" />，可站在周围任一<Span variant="pink">未被点名</Span>者的点位</P>
         <P
           >对于<RoleIcon role="tank|dps" tag="接线" />，<Span variant="pink">观察</Span
@@ -394,40 +494,47 @@ const defaultSolution = '解法：萨利式'
       </Quote>
       <P>实际上，场中存在不止一处的安全区</P>
       <T text="特殊情况" variant="lime" class="mt-4 text-2xl" />
-      <P
-        >对于<RoleIcon role="tank" /><RoleIcon role="melee" />，<Span variant="pink">连续2轮</Span>点<RoleIcon
-          role="tank"
-        /><RoleIcon role="melee" />的情况下，要注意前往特殊的位置才能无损躲避冰花，具体如下图：</P
-      >
+      <P>
+        对于<RoleIcon role="tank" /><RoleIcon role="melee" />，
+        <Span variant="pink">连续2轮</Span>点<RoleIcon role="tank" /><RoleIcon role="melee" />的情况下
+      </P>
+      <P>
+        要注意前往特殊的位置（图中<Span variant="purple">紫色点位</Span>）才能无损躲避冰花，如下图所示：
+      </P>
       <ImgRow
-        wrapperClass="max-w-100"
-        borderVariant="rose"
-        imgs={[{ src: Tmp, alt: '双近战情况1', title: '双近战情况1' }]}
+        wrapperClass="max-w-180"
+        bordered={false}
+        imgs={[{ src: fs_place_cursed_1, alt: '双近战情况1', title: '双近战情况1' }]}
       />
       <ImgRow
-        wrapperClass="max-w-100"
-        borderVariant="rose"
-        imgs={[{ src: Tmp, alt: '双近战情况2', title: '双近战情况2' }]}
+        wrapperClass="max-w-180"
+        bordered={false}
+        imgs={[
+          {
+            src: fs_place_cursed_2,
+            alt: '双近战情况2',
+            title: '双近战情况2（黄色点位有概率吃到冰花/超出近战最大攻击距离）',
+          },
+        ]}
       />
     </div>
     <div class="flex flex-col gap-4">
       <T text="双人分摊" variant="lime" class="mt-8 text-2xl" />
       <div class="flex flex-col gap-4">
         <P>分摊预兆出现时：</P>
-        <Quote variant="rose">
+        <Quote variant="lime">
           <P class="pl-1">
-            <RoleIcon role="tank" tag="ST" /><RoleIcon role="melee" tag="D1" />前往<RoleIcon
-              role="boss"
-              tag="boss"
-            /><Span variant="pink">目标圈穿过</Span>的场地<Span variant="pink">角落</Span>
+            <RoleIcon role="tank" tag="ST" /><RoleIcon role="melee" tag="D1" />前往<BruteAbombinator /><Span
+              variant="pink">目标圈穿过</Span
+            >的场地<Span variant="pink">角落</Span>
           </P>
           <P class="pl-1">
             <RoleIcon role="tank" tag="MT" /><RoleIcon role="melee" tag="D2" />前往<Span variant="pink">靠近</Span
-            ><RoleIcon role="boss" tag="boss" />的场地<Span variant="pink">中轴线</Span>处
+            ><BruteAbombinator />的场地<Span variant="pink">中轴线</Span>处
           </P>
           <P class="pl-1">
             <RoleIcon role="healer" tag="H1" /><RoleIcon role="magic" tag="D3" />前往<Span variant="pink">远离</Span
-            ><RoleIcon role="boss" tag="boss" />的场地<Span variant="pink">中轴线</Span>处
+            ><BruteAbombinator />的场地<Span variant="pink">中轴线</Span>处
           </P>
           <P class="pl-1">
             <RoleIcon role="healer" tag="H2" /><RoleIcon role="ranged" tag="D4" />前往<RoleIcon
@@ -441,9 +548,9 @@ const defaultSolution = '解法：萨利式'
         </P>
         <T text="Fixed Seeds分摊图示" variant="lime" class="mt-4 text-2xl" />
         <ImgRow
-          wrapperClass="max-w-100"
-          borderVariant="rose"
-          imgs={[{ src: Tmp, alt: 'fixedseeds分摊', title: 'Fixed Seeds分摊' }]}
+          wrapperClass="max-w-180"
+          bordered={false}
+          imgs={[{ src: fs_stack, alt: 'fixed seeds分摊', title: '' }]}
         />
       </div>
     </div>
@@ -474,21 +581,42 @@ const defaultSolution = '解法：萨利式'
     <P
       >若<RoleIcon role="ranged" tag="D3" />为舞者，如果使用<Span variant="lime">Fixed Seeds</Span>，或者<Span
         variant="lime">萨利式</Span
-      >而短边墙在<RoleIcon role="boss" tag="boss" />远侧</P
+      >而短边墙在<BruteAbombinator />远侧</P
     >
-    <P
-      >都会有一个标准舞步较难在不吃到<ThornsOfDeathDebuff level={3} hover />的情况下打到<RoleIcon
-        role="boss"
-        tag="boss"
-      /></P
-    >
+    <P>都会有一个标准舞步较难在不吃到<ThornsOfDeathDebuff level={3} hover />的情况下打到<BruteAbombinator /></P>
     <P
       >固定队的话，可以和<RoleIcon role="healer" />协商，由<RoleIcon
         role="healer"
-      />给口单奶（配合自己内丹）或代替引导<span
-        class="pl-2 line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700"
-        >一键切机诗</span
-      ></P
+      />给口单奶（配合自己内丹）或代替引导</P
     >
   </div>
 </NoteSection>
+
+<script>
+  function toggleTables(omenId: string, activateId: string, showActivate: boolean) {
+    const omenTable = document.getElementById(omenId)
+    const activateTable = document.getElementById(activateId)
+
+    if (omenTable && activateTable) {
+      if (showActivate) {
+        omenTable.classList.toggle('flex', !omenTable.classList.toggle('hidden', true))
+        activateTable.classList.toggle('flex', !activateTable.classList.toggle('hidden', false))
+      } else {
+        activateTable.classList.toggle('flex', !activateTable.classList.toggle('hidden', true))
+        omenTable.classList.toggle('flex', !omenTable.classList.toggle('hidden', false))
+      }
+    }
+  }
+
+  document.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement
+
+    if (target && target.id === 'zari-if-toggle') {
+      toggleTables('zari-if-omen', 'zari-if-activate', target.checked)
+    } else if (target && target.id === 'zari-safe-zone-toggle') {
+      toggleTables('zari-safe-zone-omen', 'zari-safe-zone-activate', target.checked)
+    } else if (target && target.id === 'fs-overview-toggle') {
+      toggleTables('fs-overview-icon', 'fs-overview-dot', target.checked)
+    }
+  })
+</script>

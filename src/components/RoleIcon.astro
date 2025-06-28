@@ -25,7 +25,7 @@ interface Props {
 
 const tagHandler = (tag: string): string => {
   // 添加文本使攻略行文通顺
-  if (['最近', '最远', '随机'].includes(tag)) return `${tag}目标`
+  if (['最近', '最远', '随机', '点名'].includes(tag)) return `${tag}目标`
   else return tag
 }
 

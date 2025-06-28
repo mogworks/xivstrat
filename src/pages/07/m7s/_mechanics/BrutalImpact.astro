@@ -1,14 +1,19 @@
 ---
-import type { Time } from '@/lib/utils'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
+import P from '@/components/typography/P.astro'
+
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
 ---
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">Boss读条完毕后对全体玩家造成多段伤害，每使用1次伤害增加1段，初始6段，上限8段</div>
+    <P>
+      <BruteAbombinator />
+      读条完毕后对全体玩家造成多段伤害，后续每次使用会增加1段伤害，初始6段，上限8段
+    </P>
   </div>
 </MechanicSection>
 <NoteSection>
-  <div class="paragraph">狂暴轴下该机制全程共出现5次</div>
+  <P>狂暴轴下该机制全程共出现5次</P>
 </NoteSection>

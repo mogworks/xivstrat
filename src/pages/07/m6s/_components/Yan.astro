@@ -25,10 +25,10 @@ const variant =
   <slot>
     {
       wave !== 0 && (
-        <>
+        <div class="text-decimal">
           <Span variant={variant as VariantType}>羊</Span>
           <Span variant={variant as VariantType}>#{wave}</Span>
-        </>
+        </div>
       )
     }
   </slot>
