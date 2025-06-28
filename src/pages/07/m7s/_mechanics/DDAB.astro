@@ -4,7 +4,6 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import ImgGrid from '@/components/typography/ImgGrid.astro'
 import ListDot from '@/components/ListDot.astro'
 
@@ -37,28 +36,24 @@ import Quote from '@/components/typography/Quote.astro'
 import StratLink from '@/components/StratLink.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
 
 const demolitionDeathmatch = translations.demolitionDeathmatch
 const thornsofDeath = translations.thornsOfDeath
 const abominableBlink = translations.abominableBlink
-const strangeSeeds = translations.strangeSeeds
 const stoneringer = translations.stoneringer
 
 const solutions = [
   {
-    id: 'DDAB-site',
+    id: 'DDAB-xivstrat',
     title: '解法：本站',
-  },
-  {
-    id: 'DDAB-mmw',
-    title: '解法：MMW早期文档',
   },
   {
     id: 'DDAB-fixedseeds',
     title: '解法：Fixed Seeds',
   },
 ]
-const defaultSolution = 'DDAB-site'
+const defaultSolution = '解法：本站'
 ---
 
 <DemolitionDeathmatchCast start="04:23.274" />
@@ -121,8 +116,7 @@ const defaultSolution = 'DDAB-site'
   </div>
 </MechanicSection>
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：本站">TODO</div>
-  <div slot="解法：MMW早期文档">
+  <div slot="解法：本站">
     <div class="flex flex-col gap-4">
       <T text="接线规则" variant="lime" class="text-2xl" />
       <P>我们规定：</P>
@@ -203,9 +197,22 @@ const defaultSolution = 'DDAB-site'
         />直接暴毙
       </P>
       <P>
-        此外，当与<RoleIcon role="ranged" tag="D3" />连线的墙靠近<BruteAbombinator />时，请<RoleIcon
-          role="tank"
-        />给<RoleIcon role="ranged" tag="D3" />一个支援减，减少其受到的核爆伤害
+        此外，当与
+        <RoleIcon role="ranged" tag="D3" />
+        连线的墙靠近
+        <BruteAbombinator />
+        时，
+        <RoleIcon role="ranged" tag="D3" />
+        会受到约
+        <DamageInfo damage="230000" type="magical" />
+        的伤害
+      </P>
+      <P>
+        因此，请减伤溢出的
+        <RoleIcon role="tank" tag="ST" />
+        固定给
+        <RoleIcon role="ranged" tag="D3" />
+        一个支援减，再加上原本的其它团减（≥20%）即可安全吃下
       </P>
 
       <P class="mt-8">
@@ -325,7 +332,7 @@ const defaultSolution = 'DDAB-site'
       </div>
       <div class="flex flex-col gap-4">
         <P class="mt-4"
-          >核爆站位与<StratLink variant="lime" href="#DDAB-mmw">解法：MMW早期文档</StratLink
+          >核爆站位与<StratLink variant="lime" href="#DDAB-xivstrat">解法：本站</StratLink
           >相同，且不再需要注意给<RoleIcon role="ranged" tag="D3" />支援减</P
         >
         <P>但需注意这里会影响之后冰花的放法，后续放冰花不能再混用其它解法</P>
