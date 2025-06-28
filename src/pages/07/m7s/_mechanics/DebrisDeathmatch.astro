@@ -5,7 +5,6 @@ import ImgRow from '@/components/typography/ImgRow.astro'
 import Skill from '@/components/typography/Skill.astro'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -23,10 +22,12 @@ import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import StratLink from '@/components/StratLink.astro'
 import Quote from '@/components/typography/Quote.astro'
-import ListDot from '@/components/ListDot.astro'
 
 import quarry_swamp from '@/assets/07/m7s/debris_deathmatch_sporesac/quarrySwamp.png'
 import tendrilsOfTerror_stack from '@/assets/07/m7s/debris_deathmatch_sporesac/tendrilsOfTerror_stack.png'
+import img_1 from '@/assets/07/m7s/debris_deathmatch_sporesac/1.png'
+import img_2 from '@/assets/07/m7s/debris_deathmatch_sporesac/2.png'
+import img_3 from '@/assets/07/m7s/debris_deathmatch_sporesac/3.png'
 
 const debrisDeathmatch = translations.debrisDeathmatch
 const thornsofDeath = translations.thornsOfDeath
@@ -133,6 +134,17 @@ const quarrySwamp = translations.quarrySwamp
       <RoleIcon role="healer" tag="双奶" />
       的左右两侧而不是对面，方便抬血
     </P>
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: img_1,
+          alt: '接线站位',
+        },
+      ]}
+    />
+
     <P class="mt-4"
       ><Span variant="green">孢子</Span>落下，观察<Skill name={pollen} />安全区的位置，此处AoE分布情况与P1时相同
     </P>
@@ -141,6 +153,17 @@ const quarrySwamp = translations.quarrySwamp
       >此处由于远程身上存在<ThornsOfDeathDebuff hover />，请注意站位，尽量靠近场边，<Span variant="pink">保持</Span
       ><ThornsOfDeathDebuff level={1} hover />/<ThornsOfDeathDebuff level={2} hover /></P
     >
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: img_2,
+          alt: '孢子站位',
+        },
+      ]}
+    />
+
     <P class="mt-4"><Skill name={pollen} />AoE判定后，按照：</P>
     <P>
       <Quote variant="lime">
@@ -156,14 +179,17 @@ const quarrySwamp = translations.quarrySwamp
       >
       的分组进行<Span variant="pink">分摊</Span>，将冰花贴边放在<Span variant="pink">场边中点</Span></P
     ><P> 躲开随后的冰花AoE </P>
-    <T class="mt-4" variant="lime" text="分摊放冰花站位图示" />
     <ImgRow
-      wrapperClass="max-w-140"
-      bordered={false}
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
       imgs={[
         {
           src: tendrilsOfTerror_stack,
           alt: '分摊放冰花站位',
+        },
+        {
+          src: img_3,
+          alt: '躲避冰花站位',
         },
       ]}
     />
@@ -194,10 +220,9 @@ const quarrySwamp = translations.quarrySwamp
       >在<BruteAbombinator />读条<Skill name={quarrySwamp} />结束前，全员前往下图位置，躲在<BloomingAbomination
       />身后躲避石化</P
     >
-    <T class="mt-4" variant="lime" text="石化波动站位示意图" />
     <ImgRow
-      wrapperClass="max-w-140"
-      bordered={false}
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
       imgs={[
         {
           src: quarry_swamp,
