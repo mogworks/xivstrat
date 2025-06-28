@@ -22,7 +22,7 @@ import WaymarkImage1 from '@/assets/waymarks/07/m7s_p2.png'
 import WaymarkImage2 from '@/assets/waymarks/07/m7s_p3.png'
 import TimelineImage from '@/assets/timelines/07/m7s.png'
 
-import { macro } from './_data/macro'
+import { macro1, macro2 } from './_data/macro'
 import { referenceList } from './_data/reference'
 import { thanksList } from './_data/thanks'
 
@@ -101,7 +101,8 @@ const videoLink = ''
     </Fragment>
   </CollapsibleBox>
   <CollapsibleBox id="macro" client:idle class="w-full">
-    <Macro text={macro} title="M7S站位" />
+    <Macro text={macro1} class="mb-4" title="M7S站位1" />
+    <Macro text={macro2} class="mb-4" title="M7S站位2" />
     <Fragment slot="header">
       <span>宏</span>
     </Fragment>
