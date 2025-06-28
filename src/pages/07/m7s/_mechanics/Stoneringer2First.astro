@@ -8,7 +8,6 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import Stoneringer2Cast from '../_components/Stoneringer2Cast.astro'
 import { translations } from '../_translations'
 
-import img from '@/assets/07/m7s/Tmp.png'
 import circle_img from '@/assets/07/m7s/stoneringer2/p3_circle.png'
 import ring_img from '@/assets/07/m7s/stoneringer2/p3_ring.png'
 import lariat_left_img from '@/assets/07/m7s/lashing_lariat/lashing_lariat_3.png'
@@ -24,21 +23,15 @@ import T from '@/components/typography/T.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
 import ElectrogeneticForceActivate from '../_components/ElectrogeneticForceActivate.astro'
-import GlowerPowerActivate from '../_components/GlowerPowerActivate.astro'
 import GlowerPowerCast from '../_components/GlowerPowerCast.astro'
 import LashingLariatCast from '../_components/LashingLariatCast.astro'
 
 import SlaminatorCast from '../_components/SlaminatorCast.astro'
-import BrutishSwingMoveActivate from '../_components/BrutishSwingMoveActivate.astro'
-import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import RevengeOfTheVinesActivate from '../_components/RevengeOfTheVinesActivate.astro'
-import LashingLariatActivate from '../_components/LashingLariatActivate.astro'
-import SlaminatorActivate from '../_components/SlaminatorActivate.astro'
 import P from '@/components/typography/P.astro'
 import DamageDown from '@/components/buff/DamageDown.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
-import Quote from '@/components/typography/Quote.astro'
 import StratLink from '@/components/StratLink.astro'
 
 interface Props {
@@ -57,19 +50,12 @@ const slaminator = translations.slaminator
 
 <Stoneringer2Cast start={time} />
 <BrutishSwingCast start="06:41.085" duration={6.7} />
-<BrutishSwingMoveActivate time="06:46.790" />
-<BrutishSwingActivate time="06:47.813" />
 <RevengeOfTheVinesActivate time="06:48.882" />
 <LashingLariatCast start="06:50.973" />
-<LashingLariatActivate time="06:54.942" />
 <BrutishSwingCast start="06:56.589" duration={6.7} />
-<BrutishSwingMoveActivate time="07:02.289" />
-<BrutishSwingActivate time="07:03.268" />
-<GlowerPowerCast start="07:04.383" duartion={1.7} />
 <ElectrogeneticForceActivate time="07:06.209" />
-<GlowerPowerActivate time="07:06.345" />
+<GlowerPowerCast start="07:04.383" duartion={1.7} />
 <SlaminatorCast start="07:07.188" />
-<SlaminatorActivate time="07:12.172" />
 <MechanicSection id="Stoneringer2Stoneringers">
   <div class="flex flex-col gap-4">
     <div class="flex flex-col gap-4">
@@ -124,30 +110,12 @@ const slaminator = translations.slaminator
         <ListDot /><Skill name={slaminator} />
       </P>
       <P class="pl-6">
-        场中出现一座塔，对其中的<RoleIcon role="any" />造成总伤<DamageInfo
-          damage="800000"
-          type="physical"
-        />的可分摊伤害，无人踩塔则<Span variant="red">团灭</Span>
+        场中出现一座塔，对其中的玩家造成总伤<DamageInfo damage="800000" type="physical" />的可分摊伤害，无人踩塔则<Span
+          variant="red">团灭</Span
+        >
       </P>
 
-      <T class="mt-8" variant="yellow" text="P3武器发光效果图示" />
-      <ImgRow
-        wrapperClass="max-w-100"
-        borderVariant="yellow"
-        imgs={[
-          {
-            src: img,
-            alt: 'm7sp3: 棍棒',
-            title: '钢铁',
-          },
-          {
-            src: img,
-            alt: 'm7sp3: 长刀',
-            title: '月环',
-          },
-        ]}
-      />
-      <T class="mt-8" variant="yellow" text="P3钢铁月环范围图示" />
+      <T class="mt-8" variant="yellow" text="钢铁、月环范围图示" />
       <ImgRow
         wrapperClass="max-w-100"
         borderVariant="yellow"
@@ -182,23 +150,18 @@ const slaminator = translations.slaminator
         ]}
       />
     </div>
-    <Quote variant="yellow" class="opacity-80">
-      <P
-        >注意：以上为<Skill
-          name={stoneringer2Stoneringers}
-        />拆解，实际战斗中该机制会组合其他机制，P3共出现2次，参考上方时间轴</P
-      >
-    </Quote>
   </div>
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
     <P>第1次<Skill name={brutishSwing} />读条时，观察发光武器和连线墙壁，在判定前到达安全区躲避钢铁月环</P>
     <P class="pl-4">
-      由于<BruteAbombinator />固定面朝连线墙壁，跳墙后面向<Span variant="pink">翻转</Span>
+      <ListDot />由于<BruteAbombinator />固定面朝连线墙壁，跳墙后面向<Span variant="pink">翻转</Span>
     </P>
     <P class="pl-4"
-      >所以跳墙前<Span variant="pink">发光武器</Span>所在的一侧是<Skill name={lashingLariat} />的安全侧，可提前就位</P
+      ><ListDot />所以跳墙前<Span variant="pink">发光武器</Span>所在的一侧是<Skill
+        name={lashingLariat}
+      />的安全侧，可提前就位</P
     >
     <P class="mt-4"
       >躲完钢月后，注意减伤和治疗，也可此时观察墙上的<Span variant="pink">发光武器</Span>，避开其<Span variant="pink"
@@ -206,25 +169,89 @@ const slaminator = translations.slaminator
       >的一侧</P
     >
     <P class="mt-4">第2次<Skill name={brutishSwing} />读条时同样处理，此处固定与第1次相反</P>
-    <P class="pl-4">因为接下来是直线AoE，可以预先左右分组</P>
-    <P class="mt-4">然后以<Span variant="pink">BOSS面向</Span>为基准分散</P>
+    <P class="pl-4"><ListDot />因为接下来是直线AoE，可以预先左右分组</P>
+    <P class="mt-4">然后以<Span variant="pink">视角面朝BOSS为基准</Span>分散</P>
     <P>我们在此提供两种分散站位：</P>
     <ImgRow
-      wrapperClass="max-w-100"
+      wrapperClass="max-w-100 flex-1"
       borderVariant="yellow"
       imgs={[
         {
           src: glower_power_img,
-          alt: 'game8版分散站位',
-          title: 'game8版分散站位',
+          alt: '常规分散站位，安全空间更足',
+          title: '常规分散站位，安全空间更足',
         },
         {
           src: glower_power_img_2,
-          alt: '第二种分散站位',
-          title: '第二种分散站位',
+          alt: '更紧凑的分散站位',
+          title: '更紧凑的分散站位，防止超出部分技能距离',
         },
       ]}
     />
-    <P class="mt-4">最后由<RoleIcon role="tank" tag="双T" /><Span variant="pink">开减伤分摊</Span>踩塔</P>
+
+    <T variant="lime" text="分摊塔的处理" class="mt-8" />
+    <P>
+      我们这里固定安排
+      <RoleIcon role="tank" tag="双T" /><Span variant="cyan">开减伤分摊踩塔</Span>
+      ，而不是无敌单吃，理由如下：
+    </P>
+    <P class="pl-4">
+      <ListDot />
+      分摊塔的总伤害<DamageInfo damage="800000" type="physical" />
+      只比死刑<DamageInfo damage="760000" type="physical" />
+      略高一点
+    </P>
+    <P class="pl-4">
+      <ListDot />
+      因此，
+      <RoleIcon role="tank" tag="双T" />
+      无论是减伤分摊踩塔还是减伤分摊死刑，伤害层面区别不大
+    </P>
+    <P class="pl-8">
+      <ListDot />
+      平摊到两个T身上，每人多出20000伤害，对减伤安排没有影响
+    </P>
+    <P class="pl-8">
+      <ListDot />
+      只需要开启【铁壁 + 特色减伤 + 小减】即可安全吃下
+    </P>
+    <P class="pl-4">
+      <ListDot />
+      P3首次踩塔比首次死刑来得早，因此通过提前开启铁壁，可以使后续小怪阶段铁壁转好
+    </P>
+    <P class="pl-4">
+      <ListDot />
+      相比于引导远/近死刑，固定位置的踩塔会更方便<RoleIcon role="tank" tag="双T" />分摊
+    </P>
+    <P class="mt-4">此外，减伤的开法也有一定讲究，具体如下：</P>
+    <P class="pl-4">
+      <ListDot />
+      <RoleIcon role="tank" tag="MT" />
+      开启
+      <Span variant="cyan">除了40%减以外</Span>
+      的所有单减，把40%留给后续小怪阶段
+    </P>
+    <P class="pl-4">
+      <ListDot />
+      <RoleIcon role="tank" tag="ST" />
+      开启
+      <Span variant="cyan">除了支援减以外</Span>
+      的所有单减，
+      <Span variant="cyan">把支援减固定给</Span>
+      <RoleIcon role="tank" tag="MT" />
+    </P>
+    <P class="pl-4">
+      <ListDot />
+      铁壁的开启时机为
+      <Skill name={lashingLariat} />
+      <Span variant="cyan">读条过本的时候</Span>
+    </P>
+    <P>
+      算上后续冷却好的铁壁，这样在
+      <RoleIcon role="tank" tag="MT" />
+      血量压力最大的小怪阶段，可以使
+      <RoleIcon role="tank" tag="MT" />
+      留有全减在手
+    </P>
   </div>
 </SolutionSection>
