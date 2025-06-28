@@ -8,7 +8,7 @@ import Sporesplosion from './_mechanics/Sporesplosion.astro'
 import DDAB from './_mechanics/DDAB.astro'
 import StrangeSeeds from './_mechanics/StrangeSeeds.astro'
 import PowerSlamCast from './_components/PowerSlamCast.astro'
-import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
+import AttackSection from './_components/BossAttackSection.astro'
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import GrapplingIvy from './_components/GrapplingIvy.astro'
 
@@ -27,7 +27,6 @@ import P from '@/components/typography/P.astro'
 import StratLink from '@/components/StratLink.astro'
 import BrutishSwingCast from './_components/BrutishSwingCast.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 
 const dutyId = '07/m7s'
 
@@ -46,33 +45,27 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
   <EventSection time="02:42.841">
     <BruteAbombinator />挂墙完毕，可选中
   </EventSection>
-  <AttackSection time="02:43.372" damage="57000" damageType="physical" />
-  <AttackSection time="02:46.402" damage="57000" damageType="physical" />
+  <AttackSection time="02:42.841" damage="57000" damageType="magical" />
+  <AttackSection time="02:45.868" damage="57000" damageType="magical" />
 
   <SeparatorSection id="SBGR" title=`${stoneringer} + ${brutishSwing}` />
   <SBGR />
-  <AttackSection time="03:17.190" damage="57000" damageType="physical" />
-  <AttackSection time="03:20.219" damage="57000" damageType="physical" />
-  <AttackSection time="03:43.624" damage="57000" damageType="physical" />
-  <AttackSection time="03:46.656" damage="57000" damageType="physical" />
 
   <SeparatorSection id="TDAB" title=`${thornyDeathmatch}` />
   <ThornyDeathmatchCast start="03:22.806" />
   <StoneringerCast start="03:27.928" />
   <AbominableBlinkCast start="03:35.780" />
   <AbominableBlinkActivate time="03:42.064" />
+  <AttackSection time="03:43.089" damage="57000" damageType="magical" />
+  <AttackSection time="03:46.120" damage="57000" damageType="magical" />
   <TDAB />
 
   <SeparatorSection id="sporesplosion" title={sporesplosion} />
   <Sporesplosion start="03:47.190" />
 
-  <AttackSection time="04:19.661" damage="57000" damageType="physical" />
-  <AttackSection time="04:22.696" damage="57000" damageType="physical" />
-
   <SeparatorSection id="DDAB" title=`${demolitionDeathmatch}` />
   <DDAB />
 
-  <AttackSection time="04:42.302" damage="57000" damageType="physical" />
   <SeparatorSection id="strange-seeds" title={strangeSeeds} />
   <StrangeSeeds />
 
@@ -81,6 +74,8 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
   <ElectrogeneticForceActivate time="05:33.672" />
   <GlowerPowerCast start="05:29.839" />
   <RevengeOfTheVinesCast start="05:34.653" />
+  <AttackSection time="05:41.688" damage="57000" damageType="magical" />
+  <AttackSection time="05:44.719" damage="57000" damageType="magical" />
   <SolutionSection>
     <div class="flex flex-col gap-4">
       <P>
@@ -91,9 +86,6 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
       </P>
     </div>
   </SolutionSection>
-
-  <AttackSection time="05:42.223" damage="57000" damageType="physical" />
-  <AttackSection time="05:45.255" damage="57000" damageType="physical" />
 
   <SeparatorSection id="powerslam" title={powerslam} />
   <PowerSlamCast time="05:45.833" />

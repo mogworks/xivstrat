@@ -6,6 +6,7 @@ import CastSection from '@/components/section/CastSection.astro'
 import BruteAbombinator from './BruteAbombinator.astro'
 import Span from '@/components/Span.vue'
 import EventSection from '@/components/section/EventSection.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
 
 import MoveToCenterEvent from './MoveToCenterEvent.astro'
 import { translations } from '../_translations'
@@ -42,6 +43,7 @@ const sporeSac = translations.sporeSac
 </EventSection>
 
 <MoveToCenterEvent time={moveToCenter} />
+<AttackSection time="08:05.562" damage="57000" damageType="physical" />
 
 <EventSection time={seedFallen}>
   <Span variant="green">孢子×4</Span>

@@ -7,7 +7,7 @@ import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
 import BruteAbombinator from './_components/BruteAbombinator.astro'
 import BrutalImpactCast from './_components/BrutalImpactCast.astro'
-import AttackSection from './_components/BruteAbombinatorAttackSection.astro'
+import AttackSection from './_components/BossAttackSection.astro'
 
 import BrutalImpact from './_mechanics/BrutalImpact.astro'
 import Stoneringer from './_mechanics/Stoneringer.astro'
@@ -35,22 +35,20 @@ const neoBombarianSpecial = translations.neoBombarianSpecial
     <BruteAbombinator />
     固定在场中偏南一点的位置
   </EventSection>
-  <AttackSection time="00:03.832" damage="57000" damageType="physical" />
+  <AttackSection time="00:03.029" damage="57000" damageType="physical" />
   <SeparatorSection id="brutal-impact" title={brutalImpact} />
   <BrutalImpactCast
     start="00:05.165"
     activateTimes={['00:10.381', '00:11.451', '00:12.521', '00:13.589', '00:14.657', '00:15.727']}
   />
+  <AttackSection time="00:17.775" damage="57000" damageType="physical" />
   <BrutalImpact />
-  <AttackSection time="00:18.577" damage="57000" damageType="physical" />
 
   <SeparatorSection
     id="stoneringer-smash-here-there"
     title={`${translations.stoneringer} + ${translations.smashHereThere}`}
   />
   <Stoneringer />
-  <AttackSection time="00:35.910" damage="57000" damageType="physical" />
-  <AttackSection time="00:39.740" damage="57000" damageType="physical" />
 
   <SeparatorSection id="sinister-seeds" title={sinisterSeeds} />
   <SinisterSeeds />
@@ -59,13 +57,8 @@ const neoBombarianSpecial = translations.neoBombarianSpecial
 
   <Explosion />
 
-  <AttackSection time="02:02.160" damage="57000" damageType="physical" />
-
   <SeparatorSection id="pulp-smash" title={pulpSmash} />
   <PulpSmash />
-  <AttackSection time="02:11.071" damage="57000" damageType="physical" />
-  <AttackSection time="02:14.104" damage="57000" damageType="physical" />
-  <AttackSection time="02:17.136" damage="57000" damageType="physical" />
 
   <SeparatorSection id="neo-bombarian-special" title={neoBombarianSpecial} />
   <NeoBombarianSpecial />
