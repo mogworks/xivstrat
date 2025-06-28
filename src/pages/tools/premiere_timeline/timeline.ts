@@ -698,9 +698,21 @@ export const timelineMap = {
       },
       {
         time: '03:42.1',
-        name: '野蛮电火花（衰减）',
+        name: '野蛮电火花（点名T）',
         type: 'magical',
-        value: '160000',
+        value: '320000',
+      },
+      {
+        time: '03:42.1',
+        name: '野蛮电火花（近战）',
+        type: 'magical',
+        value: '190000',
+      },
+      {
+        time: '03:42.1',
+        name: '野蛮电火花（人群）',
+        type: 'magical',
+        value: '130000',
       },
       {
         time: '04:11.1',
@@ -716,9 +728,21 @@ export const timelineMap = {
       },
       {
         time: '04:40.7',
-        name: '野蛮电火花（衰减）',
+        name: '野蛮电火花（点名T）',
         type: 'magical',
-        value: '160000',
+        value: '320000',
+      },
+      {
+        time: '04:40.7',
+        name: '野蛮电火花（D3近点）',
+        type: 'magical',
+        value: '230000',
+      },
+      {
+        time: '04:40.7',
+        name: '野蛮电火花（人群）',
+        type: 'magical',
+        value: '130000',
       },
       {
         time: '04:54.0',
