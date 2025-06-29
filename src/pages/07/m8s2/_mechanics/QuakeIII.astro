@@ -1,16 +1,13 @@
 ---
-import { Image } from 'astro:assets'
 import { type Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
 
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
-import Quote from '@/components/typography/Quote.astro'
 import Skill from '@/components/typography/Skill.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 
@@ -59,7 +56,11 @@ const quakeIII = translations.quakeIII
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <P>如图，所有人分为MT组和ST组，以南平台为基准，MT组去左平台，ST组去右平台</P>
+    <P>
+      如图，所有人分为MT组和ST组，以
+      <HowlingBlade />
+      目标圈正面箭头的指向为南，MT组去左平台，ST组去右平台
+    </P>
 
     <P>注意靠近场中分摊，以免吃不到对面平台的减伤和抬血</P>
 
