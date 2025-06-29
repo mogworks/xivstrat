@@ -18,7 +18,9 @@ const { start }: Props = Astro.props
 
 <CastSection start={start} duration={3.7} ability={translations.fangedCharge}>
   <GleamingFang slot="source">
-    <Span variant="rose" class="ml-0.5">光牙×2</Span>
+    <div class="text-decimal">
+      <Span variant="rose" class="ml-0.5">光牙×2</Span>
+    </div>
   </GleamingFang>
   <Badge variant="emerald">6m宽直线</Badge>
 </CastSection>

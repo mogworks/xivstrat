@@ -7,6 +7,7 @@ import DownForTheCount from '@/components/buff/DownForTheCount.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
+import P from '@/components/typography/P.astro'
 
 import QuakeIII from './_mechanics/QuakeIII.astro'
 import UltraviolentRay from './_mechanics/UltraviolentRay.astro'
@@ -18,6 +19,17 @@ import ProwlingGale from './_mechanics/ProwlingGale.astro'
 import MooncleaverCast from './_components/MooncleaverCast.astro'
 
 import { translations } from './_translations'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import floor_img from '@/assets/07/m8s2/floor.png'
+import HowlingBlade from './_components/entities/HowlingBlade.astro'
+import Span from '@/components/Span.vue'
+import ImmobileSuitDebuff from './_components/ImmobileSuitDebuff.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import TerrestrialChains from './_components/buff/TerrestrialChains.astro'
+import QuakeIIICast from './_components/QuakeIIICast.astro'
+import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
 
 const dutyId = '07/m8s2'
 
@@ -36,23 +48,66 @@ const prowlingGale = translations.prowlingGale
   <SeparatorSection />
   <DraftWarning />
   <SeparatorSection />
+  <NoteSection>前半阶段攻略的快慢会影响本阶段的时间节点，本页时间轴以前半攻略速度较慢为基准</NoteSection>
+  <SeparatorSection />
+
   <EventSection time={base}>
     <RoleIcon role="all" tag="全员" />
     身上的
-    <DownForTheCount hover />消失，场地变为五个平台，进入战斗的后半阶段
+    <DownForTheCount hover />消失，
+    <HowlingBlade />可选中，场地变为五个平台，进入战斗的后半阶段
   </EventSection>
 
   <NoteSection>
-    后半全程双T平A，请
-    <RoleIcon role="tank" tag="ST" />
-    保持二仇。
+    <div class="flex flex-col gap-4">
+      <P>
+        后半全程对
+        <RoleIcon role="any" tag="一仇" />
+        和
+        <RoleIcon role="any" tag="二仇" />
+        平A，请
+        <RoleIcon role="tank" tag="ST" />
+        也开启盾姿
+      </P>
+      <P>后半场地如下图所示，分为五个半径<Span variant="pink">8m</Span>的圆形平台，玩家初始位于南平台：</P>
+      <ImgRow
+        class="-mt-3 mb-3 ml-3"
+        wrapperClass="max-w-100 scale-110"
+        bordered={false}
+        imgs={[{ src: floor_img, alt: '后半场地' }]}
+      />
+      <P>每个平台上都有两个传送装置，玩家可借此移动至其它平台</P>
+      <P>
+        每次传送会给玩家附加
+        <ImmobileSuitDebuff hover />
+        ，倒计时根据不同时间段有
+        <Span variant="pink">2s</Span>
+        和
+        <Span variant="pink">7s</Span>
+        两种可能，短时间内不能连续传送
+      </P>
+      <P>此外，进入后半阶段后，玩家全程持有<TerrestrialChains hover />，无法跳跃</P>
+      <T variant="cyan" text="传送Tips" class="mt-8" />
+      <P>
+        显然，从任一平台出发到任意其它平台，一次性最多也只需传送
+        <Span variant="cyan">2</Span>
+        次
+      </P>
+      <P>
+        如果传送
+        <Span variant="cyan">≥3</Span>
+        次，则必然是选错了传送方向；这一点在之后的
+        <Skill name={ultraviolentRay} />
+        机制中比较重要，还请注意
+      </P>
+    </div>
   </NoteSection>
 
   <SeparatorSection id="quake-iii" title=`${quakeIII}` />
   <QuakeIII start="07:40.930" />
 
   <SeparatorSection id="ultraviolent-ray" title=`${ultraviolentRay}` />
-  <UltraviolentRay start="07:55.096" />
+  <UltraviolentRay start="07:52.096" />
 
   <SeparatorSection id="twinbite" title=`${twinbite}` />
   <Twinbite start="08:02.234" />
@@ -62,8 +117,8 @@ const prowlingGale = translations.prowlingGale
 
   <NoteSection> 以上四个机制会在整场战斗重复多次。 </NoteSection>
 
-  <UltraviolentRay start="08:25.583" />
-  <QuakeIII start="08:37.727" />
+  <UltraviolentRayCast start="08:25.583" />
+  <QuakeIIICast start="08:37.727" />
 
   <SeparatorSection id="mooncleaver" title=`${mooncleaver}` />
   <MooncleaverCast start="08:50.987" />
@@ -72,5 +127,5 @@ const prowlingGale = translations.prowlingGale
   <ElementalPurge start="08:58.105" />
 
   <SeparatorSection id="prowling-gale" title=`${prowlingGale}` />
-  <ProwlingGale start="09:14.167" />
+  <ProwlingGale start="09:10.384" />
 </DutyStratLayout>
