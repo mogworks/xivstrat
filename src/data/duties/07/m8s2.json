@@ -12,7 +12,7 @@
     ]
   },
   "banner": "@/assets/banners/07/m8s.png",
-  "date": "25/06/18 18:20",
+  "date": "25/06/30 00:00",
   "href": "/07/m8s2",
   "status": "live",
   "indexAvailable": true,
@@ -20,8 +20,8 @@
     {
       "href": "/07/m8s2/p1",
       "title": "Part 1",
-      "subtitle": "后半1",
-      "name": "P1 - 后半1",
+      "subtitle": "铠袖一触",
+      "name": "P1 - 铠袖一触",
       "mechanics": [
         {
           "href": "#quake-iii",
@@ -50,7 +50,15 @@
           "name_en": "Hero's Blow",
           "name_ja": "鎧袖一触",
           "name_ch": "铠袖一触"
-        },
+        }
+      ]
+    },
+    {
+      "href": "/07/m8s2/p2",
+      "title": "Part 2",
+      "subtitle": "一运",
+      "name": "P2 - 一运",
+      "mechanics": [
         {
           "href": "#mooncleaver",
           "name": "刚刃一闪",
@@ -71,21 +79,13 @@
           "name_en": "Prowling Gale",
           "name_ja": "風狼陣",
           "name_ch": "风狼阵"
-        }
-      ]
-    },
-    {
-      "href": "/07/m8s2/p2",
-      "title": "Part 2",
-      "subtitle": "一运",
-      "name": "P2 - 一运",
-      "mechanics": [
+        },
         {
           "href": "#rise-of-the-howling-wind",
-          "name": "魔狼战型·天岚之相",
+          "name": "魔狼战形·飓风之相",
           "name_en": "Howling Wind Stance",
           "name_ja": "魔狼戦型・天嵐の相",
-          "name_ch": "魔狼战型·天岚之相"
+          "name_ch": "魔狼战形·飓风之相"
         },
         {
           "href": "#twofold-tempest",
