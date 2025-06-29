@@ -26,29 +26,33 @@ const ultraviolentRay = translations.ultraviolentRay
   start={start}
   duration={5.7}
   ability={ultraviolentRay}
-  target
   damage="100000"
   damageType="magical"
   damageVariant="skywardLeap"
 >
-  <HowlingBlade slot="source" />
-
-  <Quote slot="target" variant="teal" class="ml-1">
-    <P>
-      <Span variant="pink">4</Span>
-      <RoleIcon role="tank|healer" />
-      +
-      <Span variant="pink">1</Span>
-      <RoleIcon role="dps" />
-    </P>
-    <P>
-      <Span variant="pink">4</Span>
-      <RoleIcon role="dps" />
-      +
-      <Span variant="pink">1</Span>
-      <RoleIcon role="tank|healer" />
-    </P>
-  </Quote>
+  <Fragment slot="source">
+    <span class="text-sm opacity-80">或</span>
+    <Quote variant="teal" class="ml-1">
+      <P>
+        <HowlingBlade />
+        对
+        <Span variant="pink">4</Span>
+        <RoleIcon role="tank|healer" />
+        +
+        <Span variant="pink">1</Span>
+        <RoleIcon role="dps" tag="随机" />
+      </P>
+      <P>
+        <HowlingBlade />
+        对
+        <Span variant="pink">4</Span>
+        <RoleIcon role="dps" />
+        +
+        <Span variant="pink">1</Span>
+        <RoleIcon role="tank|healer" tag="随机" />
+      </P>
+    </Quote>
+  </Fragment>
 
   <MagicVulnerabilityUp tag="1" />
   <Badge variant="yellow">分散</Badge>
