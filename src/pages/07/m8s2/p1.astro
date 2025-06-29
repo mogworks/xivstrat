@@ -1,7 +1,6 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
-import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import DownForTheCount from '@/components/buff/DownForTheCount.astro'
 import EventSection from '@/components/section/EventSection.astro'
@@ -13,10 +12,6 @@ import QuakeIII from './_mechanics/QuakeIII.astro'
 import UltraviolentRay from './_mechanics/UltraviolentRay.astro'
 import Twinbite from './_mechanics/Twinbite.astro'
 import HerosBlow from './_mechanics/HerosBlow.astro'
-import ElementalPurge from './_mechanics/ElementalPurge.astro'
-import ProwlingGale from './_mechanics/ProwlingGale.astro'
-
-import MooncleaverCast from './_components/MooncleaverCast.astro'
 
 import { translations } from './_translations'
 import ImgRow from '@/components/typography/ImgRow.astro'
@@ -40,15 +35,9 @@ const quakeIII = translations.quakeIII
 const ultraviolentRay = translations.ultraviolentRay
 const twinbite = translations.twinbite
 const herosBlow = translations.herosBlow
-const mooncleaver = translations.mooncleaver
-const elementalPurge = translations.elementalPurge
-const prowlingGale = translations.prowlingGale
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <SeparatorSection />
-  <DraftWarning />
-  <SeparatorSection />
   <NoteSection>前半阶段攻略的快慢会影响本阶段的时间节点，本页时间轴以前半攻略速度较慢为基准</NoteSection>
   <SeparatorSection />
 
@@ -140,13 +129,4 @@ const prowlingGale = translations.prowlingGale
       </P>
     </div>
   </SolutionSection>
-
-  <SeparatorSection id="mooncleaver" title=`${mooncleaver}` />
-  <MooncleaverCast start="08:50.987" />
-
-  <SeparatorSection id="elemental-purge" title=`${elementalPurge}` />
-  <ElementalPurge start="08:58.105" />
-
-  <SeparatorSection id="prowling-gale" title=`${prowlingGale}` />
-  <ProwlingGale start="09:10.384" />
 </DutyStratLayout>
