@@ -104,24 +104,11 @@ const ultraviolentRay = translations.ultraviolentRay
       <RoleIcon role="dps" />
       ，因此各组内只会有两个或者三个蓝标
     </P>
-
-    <P class="mt-8">我们规定，蓝标点名按如下方式分散到各个平台：</P>
-    <Quote variant="lime">
-      <P>若本组内有两个蓝标，则靠北的玩家往北传送一个平台，靠南的玩家不动</P>
-      <P>若本组内有三个蓝标，则靠北的玩家往北传送一个平台，靠南的玩家往南传送，中间的玩家不动</P>
-    </Quote>
-
-    <P>
-      传送到位后记得看自己身后的
-      <GleamingFang />
-      ，在自己平台安全的半边躲避
-    </P>
-
     <ImgRow
-      id="ultraviolentray-solution-omen"
+      class="m-4"
+      wrapperClass="max-w-150 scale-110"
       bordered={false}
-      borderVariant="cyan"
-      imgClass="max-w-110"
+      imgClass="shadowbringer"
       imgs={[
         {
           src: ultraviolentRay1,
@@ -129,12 +116,22 @@ const ultraviolentRay = translations.ultraviolentRay
         },
       ]}
     />
+
+    <P class="mt-4">我们规定，蓝标点名按如下方式分散到各个平台：</P>
+    <Quote variant="lime">
+      <P>若本组内有两个蓝标，则靠北的玩家往北传送一个平台，靠南的玩家不动</P>
+      <P>若本组内有三个蓝标，则靠北的玩家往北传送一个平台，靠南的玩家往南传送，中间的玩家不动</P>
+    </Quote>
+    <P>
+      传送到位后记得看自己身后的
+      <GleamingFang />
+      ，在自己平台安全的半边躲避
+    </P>
     <ImgRow
-      id="ultraviolentray-solution-activate"
-      class="hidden"
-      imgClass="max-w-120"
+      class="m-4"
+      wrapperClass="max-w-150 scale-110"
       bordered={false}
-      borderVariant="cyan"
+      imgClass="shadowbringer"
       imgs={[
         {
           src: ultraviolentRay2,
