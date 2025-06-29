@@ -1,5 +1,5 @@
 ---
-import { timeToSeconds, type Time } from '@/lib/utils'
+import { type Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -19,7 +19,6 @@ import ultraviolentRay2 from '@/assets/07/m8s2/p1/ultraviolentRay2.png'
 import { translations } from '../_translations'
 import Skill from '@/components/typography/Skill.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-import GleamingBeamCast from '../_components/GleamingBeamCast.astro'
 import Quote from '@/components/typography/Quote.astro'
 
 interface Props {
@@ -32,7 +31,6 @@ const ultraviolentRay = translations.ultraviolentRay
 ---
 
 <UltraviolentRayCast start={start} />
-<GleamingBeamCast start={timeToSeconds(start) + 2} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

@@ -30,6 +30,7 @@ import Skill from '@/components/typography/Skill.astro'
 import TerrestrialChains from './_components/buff/TerrestrialChains.astro'
 import QuakeIIICast from './_components/QuakeIIICast.astro'
 import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
 
 const dutyId = '07/m8s2'
 
@@ -115,11 +116,30 @@ const prowlingGale = translations.prowlingGale
 
   <SeparatorSection id="heros-blow" title=`${herosBlow}` />
   <HerosBlow start="08:14.462" />
-
-  <NoteSection>以上四个机制会在整场战斗重复多次。</NoteSection>
+  <SeparatorSection />
 
   <UltraviolentRayCast start="08:25.583" />
   <QuakeIIICast start="08:37.727" />
+  <SolutionSection>
+    <div class="flex flex-col gap-4">
+      <P>
+        按之前的方式在
+        <HowlingBlade />
+        正面的左右平台处理
+        <Skill name={translations.ultraviolentRay} />
+        +
+        <Skill name={translations.quakeIII} />
+      </P>
+      <P>
+        接着，
+        <Span variant="cyan">立刻回到</Span>
+        <HowlingBlade />
+        <Span variant="cyan">正面平台</Span>
+        ，准备引导之后的
+        <Skill name={translations.mooncleaver} />
+      </P>
+    </div>
+  </SolutionSection>
 
   <SeparatorSection id="mooncleaver" title=`${mooncleaver}` />
   <MooncleaverCast start="08:50.987" />

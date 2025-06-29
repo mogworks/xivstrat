@@ -1,5 +1,5 @@
 ---
-import type { Time } from '@/lib/utils'
+import { timeToSeconds, type Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
@@ -12,6 +12,7 @@ import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import { translations } from '../_translations'
 import Quote from '@/components/typography/Quote.astro'
 import P from '@/components/typography/P.astro'
+import GleamingBeamCast from './GleamingBeamCast.astro'
 
 interface Props {
   start: Time
@@ -57,3 +58,4 @@ const ultraviolentRay = translations.ultraviolentRay
   <MagicVulnerabilityUp tag="1" />
   <Badge variant="yellow">分散</Badge>
 </CastSection>
+<GleamingBeamCast start={timeToSeconds(start) + 2} />
