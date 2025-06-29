@@ -1,7 +1,5 @@
 ---
-import { Image } from 'astro:assets'
-
-import { type Time } from '@/lib/utils'
+import { timeToSeconds, type Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
@@ -21,6 +19,9 @@ import ultraviolentRay1 from '@/assets/07/m8s2/p1/ultraviolentRay1.png'
 import ultraviolentRay2 from '@/assets/07/m8s2/p1/ultraviolentRay2.png'
 
 import { translations } from '../_translations'
+import Skill from '@/components/typography/Skill.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import GleamingBeamCast from '../_components/GleamingBeamCast.astro'
 
 interface Props {
   start: Time
@@ -32,6 +33,7 @@ const ultraviolentRay = translations.ultraviolentRay
 ---
 
 <UltraviolentRayCast start={start} />
+<GleamingBeamCast start={timeToSeconds(start) + 2} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
@@ -41,32 +43,33 @@ const ultraviolentRay = translations.ultraviolentRay
 
     <P>
       <HowlingBlade />
-      随机点名
+      随机点名【
       <Span variant="pink">4</Span>
       <RoleIcon role="tank|healer" />
+      +
       <Span variant="pink">1</Span>
       <RoleIcon role="dps" />
-      或
+      】或【
       <Span variant="pink">4</Span>
       <RoleIcon role="dps" />
+      +
       <Span variant="pink">1</Span>
       <RoleIcon role="tank|healer" />
-      <RoleIcon role="any" tag="5人" />
+      】共5人
+      <Skill name={ultraviolentRay} />
     </P>
     <P>
       被点名的玩家头上会出现蓝色标记，代表随后会对该玩家
-      <Span variant="pink"> 所在的平台 </Span>
-      造成伤害。
+      <Span variant="pink">所在的平台</Span>
+      造成直线范围伤害，附带
+      <MagicVulnerabilityUp tag="1" />
     </P>
+
+    <T variant="yellow" class="mt-8" text={translations.gleamingBeam} />
     <P>
-      因此每个平台上只能有
-      <Span variant="pink"> 一个 </Span>
-      点名。
-    </P>
-    <P>
-      与此同时，每个平台后方会出现一个
+      与此同时，每个平台左后或右后方会出现一个
       <GleamingFang />
-      随机覆盖左半或右半平台。需要分散的同时躲开半场刀。
+      读条释放覆盖半个平台的直线范围伤害
     </P>
   </div>
 </MechanicSection>

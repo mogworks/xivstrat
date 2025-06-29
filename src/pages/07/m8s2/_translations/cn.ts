@@ -20,4 +20,5 @@ export const translations = {
   starcleaverCanceled: '刚刃一闪・终',
   terrestrialChains: '大地的束缚',
   terrestrialChainsDesp: '身体被魔咒束缚在地面上，无法跳跃',
+  gleamingBeam: '闪光炮',
 }
