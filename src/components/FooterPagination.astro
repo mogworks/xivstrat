@@ -15,21 +15,24 @@ const basePath = (() => {
   return undefined
 })()
 // 构造包含副本首页的fullPhases
-const fullPhases = [
-  {
-    name: 'home',
-    title: '首页',
-    href: basePath,
-    subtitle: '副本信息',
-    mechanics: [],
-  },
-  ...phases,
-]
+const fullPhases =
+  basePath !== undefined
+    ? [
+        {
+          name: 'home',
+          title: '首页',
+          href: basePath,
+          subtitle: '副本信息',
+          mechanics: [],
+        },
+        ...phases,
+      ]
+    : phases
 const currentPath = Astro.url.pathname
-const currentIndex = fullPhases.findIndex((phase) => phase.href === currentPath)
+const currentIndex = fullPhases.findIndex((phase) => currentPath === phase.href || currentPath === `${phase.href}/`)
 const prev = currentIndex > 0 ? fullPhases[currentIndex - 1] : null
 const next = currentIndex < fullPhases.length - 1 ? fullPhases[currentIndex + 1] : null
-const isHome = currentIndex === 0
+const isHome = currentPath === duty.href || currentPath === `${duty.href}/`
 ---
 
 <!-- 分别适配副本首页和攻略页排版 -->
