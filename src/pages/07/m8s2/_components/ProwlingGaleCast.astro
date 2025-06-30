@@ -15,12 +15,10 @@ interface Props {
 const { start }: Props = Astro.props
 
 const prowlingGale = translations.prowlingGale
-
-// 如果要修改这个文件注意p2跟p3复用了同一个
 ---
 
-<CastSection start={start} duration={7.7} ability={prowlingGale} damage="45000" damageType="magical">
+<CastSection start={start} duration={2.7} ability={prowlingGale}>
   <HowlingBlade slot="source" />
-
+  ，在场地上生成若干塔
   <Badge variant="yellow">踩塔</Badge>
 </CastSection>

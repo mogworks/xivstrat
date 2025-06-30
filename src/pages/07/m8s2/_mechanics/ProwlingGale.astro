@@ -1,63 +1,51 @@
 ---
-import { Image } from 'astro:assets'
 import { type Time } from '@/lib/utils'
 
-import Span from '@/components/Span.vue'
-import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import T from '@/components/typography/T.astro'
+import P from '@/components/typography/P.astro'
+import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import ProwlingGaleCast from '../_components/ProwlingGaleCast.astro'
+import ProwlingGaleEvent from '../_components/ProwlingGaleEvent.astro'
 
-import img from '@/assets/07/m8s2/tmp.png'
 import { translations } from '../_translations'
 
-interface Props {
-  start: Time
-}
-
-const { start }: Props = Astro.props
+import prowling_gale from '@/assets/07/m8s2/p2/prowling_gale.png'
 
 const prowlingGale = translations.prowlingGale
 ---
 
-<ProwlingGaleCast start={start} />
+<ProwlingGaleCast start="09:10.384" />
+<ProwlingGaleEvent time="09:22.130" />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
-      <Span variant="yellow">{prowlingGale}</Span>
-    </div>
-    <div class="paragraph">
-      每座平台会出现一个需要两人的塔。
-      <!-- 此处不确定炸塔具体效果（概率也太低了吧） -->
-    </div>
+    <T variant="yellow" text={prowlingGale} />
+    <P>
+      场上剩余的
+      <Span variant="pink">4</Span>
+      个平台各生成一座双人塔
+    </P>
   </div>
 </MechanicSection>
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      为了方便后续机制处理，这里让
-      <RoleIcon role="tank" tag="MT" />
-      <RoleIcon role="dps" tag="D1" />
-      去左下平台，
-      <RoleIcon role="tank" tag="ST" />
-      <RoleIcon role="dps" tag="D2" />
-      去右下平台，
-    </div>
+    <P>
+      处理完之前的
+      <Skill name={translations.elementalPurge} />
+      后，全员按如下站位踩塔：
+    </P>
 
-    <div class="paragraph">
-      <RoleIcon role="healer" tag="H1" />
-      <RoleIcon role="dps" tag="D3" />
-      去左上平台，
-      <RoleIcon role="healer" tag="H2" />
-      <RoleIcon role="dps" tag="D4" />
-      去右上平台。
-    </div>
-
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={img} alt="quake1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-      <div>双奶分组分摊</div>
-    </div>
+    <ImgRow
+      class="-mt-3 mb-4 ml-3"
+      wrapperClass="max-w-100 scale-110"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: prowling_gale, alt: '风狼阵' }]}
+    />
   </div>
 </SolutionSection>
