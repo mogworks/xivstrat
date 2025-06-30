@@ -26,6 +26,7 @@ const dutyId = '07/m8s2'
 const base = '09:10.384'
 
 const prowlingGale = translations.prowlingGale
+const riseOfTheHowlingWind = translations.riseOfTheHowlingWind
 const twofoldTempest = translations.twofoldTempest
 const bareFangs = translations.bareFangs
 const championsCircuit = translations.championsCircuit
@@ -39,9 +40,9 @@ const twinbite = translations.twinbite
   <DraftWarning />
 
   <SeparatorSection id="prowling-gale" title=`${prowlingGale}` />
-  <ProwlingGale start="09:10.384" />
+  <ProwlingGale />
+  <SeparatorSection id="rise-of-the-howling-wind" title=`${riseOfTheHowlingWind}` />
   <RiseOfTheHowlingWind start="09:17.549" />
-  <SeparatorSection id="twofold-tempest" title=`${twofoldTempest}` />
   <TwofoldTempest start="09:26.675" activateTimes={['09:33.725', '09:40.823', '09:47.925', '09:54.982']} />
 
   <SeparatorSection id="bare-fangs" title=`${bareFangs} + ${championsCircuit}` />
