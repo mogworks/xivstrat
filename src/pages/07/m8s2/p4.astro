@@ -1,9 +1,92 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
+import HowlingEight8 from './_mechanics/HowlingEight8.astro'
+import HowlingEight1 from './_mechanics/HowlingEight1.astro'
+import HowlingEight2 from './_mechanics/HowlingEight2.astro'
+import MooncleaverCast from './_components/MooncleaverCast.astro'
+import StarcleaverCast from './_components/StarcleaverCast.astro'
+
 const dutyId = '07/m8s2'
 
 const base = '12:19.819'
 ---
 
-<DutyStratLayout dutyId={dutyId} base={base} />
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <HowlingEight8
+    start="12:19.819"
+    activateTimes={[
+      '12:28.877',
+      '12:29.898',
+      '12:30.786',
+      '12:31.587',
+      '12:32.209',
+      '12:32.696',
+      '12:33.097',
+      '12:34.876',
+    ]}
+  />
+  <MooncleaverCast start="12:35.276" target={false} />
+
+  <HowlingEight1
+    start="12:42.435"
+    activateTimes={[
+      '12:48.519',
+      '12:49.499',
+      '12:50.433',
+      '12:51.233',
+      '12:51.812',
+      '12:52.301',
+      '12:52.702',
+      '12:54.526',
+    ]}
+    tank="MT"
+  />
+  <MooncleaverCast start="12:54.882" target={false} />
+
+  <HowlingEight1
+    start="13:02.045"
+    activateTimes={[
+      '13:08.131',
+      '13:09.108',
+      '13:10.040',
+      '13:10.839',
+      '13:11.416',
+      '13:11.904',
+      '13:12.304',
+      '13:14.125',
+    ]}
+    tank="ST"
+  />
+  <MooncleaverCast start="13:14.481" target={false} />
+
+  <HowlingEight2
+    start="13:21.627"
+    activateTimes={[
+      '13:27.706',
+      '13:28.726',
+      '13:29.613',
+      '13:30.413',
+      '13:30.989',
+      '13:31.522',
+      '13:31.921',
+      '13:33.697',
+    ]}
+  />
+  <MooncleaverCast start="13:34.052" target={false} />
+
+  <HowlingEight8
+    start="13:41.205"
+    activateTimes={[
+      '13:47.295',
+      '13:48.272',
+      '13:49.162',
+      '13:49.965',
+      '13:50.589',
+      '13:51.078',
+      '13:51.480',
+      '13:53.260',
+    ]}
+  />
+  <StarcleaverCast start="13:53.662" />
+</DutyStratLayout>

@@ -12,9 +12,10 @@ import StratInterval from '@/components/StratInterval.astro'
 
 interface Props {
   start: Time
+  target: boolean
 }
 
-const { start }: Props = Astro.props
+const { start, target = true }: Props = Astro.props
 
 const mooncleaver = translations.mooncleaver
 ---
@@ -25,7 +26,7 @@ const mooncleaver = translations.mooncleaver
   读条
   <Skill name={mooncleaver} />
   ，读条开始时锁定
-  <RoleIcon role="any" tag="随机" />
+  {target ? <RoleIcon role="any" tag="随机" /> : '分摊'}
   所在平台，读条结束时摧毁该平台
   <Badge variant="emerald">引导</Badge>
   <Badge variant="emerald">摧毁平台</Badge>
