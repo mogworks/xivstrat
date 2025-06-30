@@ -1,5 +1,7 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 
 import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
 import HerosBlowCast from './_components/HerosBlowCast.astro'
@@ -13,6 +15,9 @@ const base = '11:20.127'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
+  <SeparatorSection />
+  <DraftWarning />
+  <SeparatorSection />
   <RiseOfTheHuntersBlade start="11:20.127" />
   <LoneWolfsLament start="11:29.245" />
   <ProwlingGaleP3 start="11:39.379" />

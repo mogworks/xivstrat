@@ -1,5 +1,7 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 
 import HowlingEight8 from './_mechanics/HowlingEight8.astro'
 import HowlingEight1 from './_mechanics/HowlingEight1.astro'
@@ -13,6 +15,9 @@ const base = '12:19.819'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
+  <SeparatorSection />
+  <DraftWarning />
+  <SeparatorSection />
   <HowlingEight8
     start="12:19.819"
     activateTimes={[
