@@ -23,7 +23,7 @@ const { start, activateTimes }: Props = Astro.props
 const duration = 7.7
 const ability = translations.howlingEight
 const damage1 = '150000'
-const damage2 = '350000'
+const damage2 = '340000'
 ---
 
 <CastSection
@@ -37,20 +37,17 @@ const damage2 = '350000'
 >
   <HowlingBlade slot="source" />
   <RoleIcon slot="target" role="any" tag="随机" />
-  <Badge variant="emerald">整个平台</Badge>
-  <Badge variant="purple">双T分摊×8</Badge>
+  <Badge variant="red">双T分摊×8</Badge>
 </CastSection>
 <CollapseSection>
   <Fragment slot="summary">
     <RoleIcon role="tank" tag="双T" />
     连续分摊<Span variant="pink">8</Span>次伤害，前
-    <Span variant="pink">7</Span>次 每人每次受到
-    <Skill name={ability} />
+    <Span variant="pink">7</Span>次每人每次受到
     <DamageInfo damage={damage1} type="magical" />
-    第<Span variant="pink">8</Span>次
+    ，第<Span variant="pink">8</Span>次受到
     <DamageInfo damage={damage2} type="magical" />
-    <Badge variant="emerald">整个平台</Badge>
-    <Badge variant="yellow">双T分摊</Badge>
+    <Badge variant="red">双T分摊</Badge>
   </Fragment>
   <Fragment slot="details">
     {

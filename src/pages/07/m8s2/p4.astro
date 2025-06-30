@@ -8,6 +8,7 @@ import HowlingEight1 from './_mechanics/HowlingEight1.astro'
 import HowlingEight2 from './_mechanics/HowlingEight2.astro'
 import MooncleaverCast from './_components/MooncleaverCast.astro'
 import StarcleaverCast from './_components/StarcleaverCast.astro'
+import { translations } from './_translations'
 
 const dutyId = '07/m8s2'
 
@@ -17,7 +18,10 @@ const base = '12:19.819'
 <DutyStratLayout dutyId={dutyId} base={base}>
   <SeparatorSection />
   <DraftWarning />
-  <SeparatorSection />
+  <SeparatorSection
+    id="howling-eight-mooncleaver"
+    title={`${translations.howlingEight} + ${translations.mooncleaver}`}
+  />
   <HowlingEight8
     start="12:19.819"
     activateTimes={[
@@ -31,8 +35,9 @@ const base = '12:19.819'
       '12:34.876',
     ]}
   />
-  <MooncleaverCast start="12:35.276" target={false} />
+  <MooncleaverCast start="12:35.276" stack={true} />
 
+  <SeparatorSection />
   <HowlingEight1
     start="12:42.435"
     activateTimes={[
@@ -47,8 +52,9 @@ const base = '12:19.819'
     ]}
     tank="MT"
   />
-  <MooncleaverCast start="12:54.882" target={false} />
+  <MooncleaverCast start="12:54.882" stack={true} />
 
+  <SeparatorSection />
   <HowlingEight1
     start="13:02.045"
     activateTimes={[
@@ -63,8 +69,9 @@ const base = '12:19.819'
     ]}
     tank="ST"
   />
-  <MooncleaverCast start="13:14.481" target={false} />
+  <MooncleaverCast start="13:14.481" stack={true} />
 
+  <SeparatorSection />
   <HowlingEight2
     start="13:21.627"
     activateTimes={[
@@ -78,8 +85,12 @@ const base = '12:19.819'
       '13:33.697',
     ]}
   />
-  <MooncleaverCast start="13:34.052" target={false} />
+  <MooncleaverCast start="13:34.052" stack={true} />
 
+  <SeparatorSection
+    id="howling-eight-starcleaver"
+    title={`${translations.howlingEight} + ${translations.starcleaver}`}
+  />
   <HowlingEight8
     start="13:41.205"
     activateTimes={[

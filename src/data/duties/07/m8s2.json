@@ -153,25 +153,18 @@
       "name": "P4 - 八连光弹",
       "mechanics": [
         {
-          "href": "#howling-eight",
-          "name": "八连光弹",
-          "name_en": "Howling Eight",
-          "name_ja": "八連光弾",
-          "name_ch": "八连光弹"
+          "href": "#howling-eight-mooncleaver",
+          "name": "八连光弹 + 刚刃一闪",
+          "name_en": "Howling Eight + Mooncleaver",
+          "name_ja": "八連光弾 + 剛刃一閃",
+          "name_ch": "八连光弹 + 刚刃一闪"
         },
         {
-          "href": "#mooncleaver",
-          "name": "刚刃一闪",
-          "name_en": "Mooncleaver",
-          "name_ja": "剛刃一閃",
-          "name_ch": "刚刃一闪"
-        },
-        {
-          "href": "#starcleaver",
-          "name": "刚刃一闪・终",
-          "name_en": "Starcleaver",
-          "name_ja": "剛刃一閃・終",
-          "name_ch": "刚刃一闪・终"
+          "href": "#howling-eight-starcleaver",
+          "name": "八连光弹 + 刚刃一闪・终",
+          "name_en": "Howling Eight + Starcleaver",
+          "name_ja": "八連光弾 + 剛刃一閃・終",
+          "name_ch": "八连光弹 + 刚刃一闪・终"
         }
       ]
     }
