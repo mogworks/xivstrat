@@ -28,6 +28,7 @@ import Mooncleaver from './_mechanics/Mooncleaver.astro'
 import { translations } from './_translations'
 
 import floor_img from '@/assets/07/m8s2/floor.png'
+import ElementalPurge from './_mechanics/ElementalPurge.astro'
 
 const dutyId = '07/m8s2'
 
@@ -38,6 +39,7 @@ const ultraviolentRay = translations.ultraviolentRay
 const twinbite = translations.twinbite
 const herosBlow = translations.herosBlow
 const mooncleaver = translations.mooncleaver
+const elementalPurge = translations.elementalPurge
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
@@ -64,7 +66,7 @@ const mooncleaver = translations.mooncleaver
       </P>
       <P>后半场地如下图所示，分为五个半径<Span variant="pink">8m</Span>的圆形平台，玩家初始位于南平台：</P>
       <ImgRow
-        class="-mt-3 mb-3 ml-3"
+        class="-mt-3 mb-4 ml-3"
         wrapperClass="max-w-100 scale-110"
         bordered={false}
         imgClass="shadowbringer"
@@ -135,4 +137,7 @@ const mooncleaver = translations.mooncleaver
 
   <SeparatorSection id="mooncleaver" title=`${mooncleaver}` />
   <Mooncleaver start="08:50.987" />
+
+  <SeparatorSection id="elemental-purge" title=`${elementalPurge}` />
+  <ElementalPurge start="08:58.105" />
 </DutyStratLayout>
