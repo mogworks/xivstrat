@@ -1,11 +1,14 @@
 ---
 import { Image } from 'astro:assets'
-import { type Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import T from '@/components/typography/T.astro'
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import ElementalPurgeCast from '../_components/ElementalPurgeCast.astro'
@@ -15,11 +18,9 @@ import HuntersHarvestEvent from '../_components/HuntersHarvestEvent.astro'
 import PatienceOfStoneDebuff from '../_components/buff/PatienceOfStoneDebuff.astro'
 import PatienceOfWindDebuff from '../_components/buff/PatienceOfWindDebuff.astro'
 
-import img from '@/assets/07/m8s2/tmp.png'
 import { translations } from '../_translations'
-import T from '@/components/typography/T.astro'
-import P from '@/components/typography/P.astro'
-import Skill from '@/components/typography/Skill.astro'
+
+import mooncleaver_3 from '@/assets/07/m8s2/p1/mooncleaver_3.png'
 
 const elementalPurge = translations.elementalPurge
 
@@ -70,7 +71,7 @@ const huntersHarvestTime = '09:08.249'
       会锁定并止步当前
       <RoleIcon role="all" tag="一仇" />
       ，稍后面朝其所在平台中心，释放
-      <Span variant="pink">200°</Span>
+      <Span variant="pink">210°</Span>
       扇形斩击
     </P>
   </div>
@@ -79,27 +80,49 @@ const huntersHarvestTime = '09:08.249'
 <SolutionSection>
   <div class="flex flex-col gap-4">
     <P>
-      此时南边分平台，也就是初始平台已经被摧毁。在读条前，
-      <RoleIcon role="tank" tag="双T" /> 请分别在左下和右下平台待机。
+      处理完
+      <Skill name={translations.mooncleaver} />
+      后，
+      <RoleIcon role="all" tag="全员" />
+      如下图位置待机：
     </P>
+    <ImgRow
+      class="-mt-3 mb-4 ml-3"
+      wrapperClass="max-w-100 scale-110"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: mooncleaver_3, alt: '准备处理风震魔印' }]}
+    />
 
     <P>
-      人群在左上或右上平台待机。可以看出，点名的<RoleIcon role="tank" /> 不能吃顺劈，
-    </P>
-
-    <P>
-      因此需要在点名标记出现的时候，无标记的<RoleIcon role="tank" />确保自己是一仇。
-    </P>
-
-    <P>
-      标记出现后，
+      <HowlingBlade />
+      开始读条
+      <Skill name={elementalPurge} />
+      ，
       <RoleIcon role="healer|dps" />
-      寻找有标记的<RoleIcon role="tank" />并且传送到旁边的平台等待分摊判定。
+      观察
+      <RoleIcon role="tank" tag="双T" />
+      头上是否出现点名标记，去
+      <HowlingBlade />
+      身后靠近
+      <RoleIcon role="tank" tag="点名" />
+      一侧的平台集合
+    </P>
+    <P>
+      <RoleIcon role="tank" tag="ST" />
+      则需要观察自身是否有点名标记，如果
+      <Span variant="cyan">没被点名</Span>
+      ，则需要挑衅成为一仇，以免
+      <RoleIcon role="tank" tag="MT" />
+      同时吃两个死刑
     </P>
 
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={img} alt="elementalPurge" class="border-2 border-amber-800/75 dark:border-amber-100" />
-      <div>所有人出现在该在的平台</div>
-    </div>
+    <P>
+      随后，
+      <RoleIcon role="all" tag="全员" />
+      站在
+      <Span variant="cyan">各自平台的中心</Span>
+      ，处理死刑和分摊即可
+    </P>
   </div>
 </SolutionSection>
