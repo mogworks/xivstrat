@@ -12,29 +12,23 @@ import ElementalPurgeCast from '../_components/ElementalPurgeCast.astro'
 import AerotemporalBlast from '../_components/AerotemporalBlastEvent.astro'
 import GeotemporalBlast from '../_components/GeotemporalBlastEvent.astro'
 import HuntersHarvestEvent from '../_components/HuntersHarvestEvent.astro'
-import PatienceOfStoneDebuff from '../_components/PatienceOfStoneDebuff.astro'
-import PatienceOfWindDebuff from '../_components/PatienceOfWindDebuff.astro'
+import PatienceOfStoneDebuff from '../_components/buff/PatienceOfStoneDebuff.astro'
+import PatienceOfWindDebuff from '../_components/buff/PatienceOfWindDebuff.astro'
 
 import img from '@/assets/07/m8s2/tmp.png'
 import { translations } from '../_translations'
-
-interface Props {
-  start: Time
-}
-
-const { start }: Props = Astro.props
 
 const elementalPurge = translations.elementalPurge
 
 // 该机制不会复用，直接写入时间
 const temporalBlastTime = '09:08.204'
-const huntersHarvestTime = '09:08.204'
+const huntersHarvestTime = '09:08.249'
 ---
 
-<ElementalPurgeCast start={start} />
+<ElementalPurgeCast start="08:58.105" />
 <GeotemporalBlast start={temporalBlastTime} />
 <AerotemporalBlast start={temporalBlastTime} />
-<HuntersHarvestEvent start={huntersHarvestTime} />
+<HuntersHarvestEvent time={huntersHarvestTime} />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

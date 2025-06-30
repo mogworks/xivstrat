@@ -6,7 +6,10 @@ import DamageInfo from '@/components/DamageInfo.astro'
 import Badge from '@/components/Badge.astro'
 import VulnerabilityUp from '@/components/buff/VulnerabilityUp.astro'
 
-import PatienceOfWindDebuff from '../_components/PatienceOfWindDebuff.astro'
+import PatienceOfWindDebuff from '../_components/buff/PatienceOfWindDebuff.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Skill from '@/components/typography/Skill.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -17,8 +20,12 @@ const { start }: Props = Astro.props
 
 <EventSection time={start}>
   <PatienceOfWindDebuff />
-  判定
+  判定，对
+  <RoleIcon role="tank" tag="点名" />
+  造成
+  <Skill name={translations.aerotemporalBlast} />
   <DamageInfo damage="280000" type="magical" />
   <VulnerabilityUp tag="2" />
+  <Badge variant="emerald">16m圆形</Badge>
   <Badge variant="red">死刑</Badge>
 </EventSection>

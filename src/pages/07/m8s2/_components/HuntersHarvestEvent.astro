@@ -9,23 +9,25 @@ import Badge from '@/components/Badge.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import { translations } from '../_translations'
+import Bind from '@/components/buff/Bind.astro'
 
 interface Props {
-  start: Time
+  time: Time
 }
 
-const { start }: Props = Astro.props
+const { time }: Props = Astro.props
 
 const huntersHarvest = translations.huntersHarvest
 ---
 
-<EventSection time={start}>
+<EventSection time={time}>
   <HowlingBlade />
-  对
-  <RoleIcon role="all" tag="一仇" />
-  使用
+  面朝
+  <RoleIcon role="tank" tag="一仇" />
+  <Bind hover />
+  所在平台中心，释放
   <Span variant="yellow">{huntersHarvest}</Span>
   <DamageInfo damage="280000" type="physical" />
-  <Badge variant="green">200°</Badge>
+  <Badge variant="emerald">200°扇形</Badge>
   <Badge variant="red">死刑</Badge>
 </EventSection>
