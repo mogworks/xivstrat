@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config'
 import svgLoader from 'vite-svg-loader'
 
 export default defineConfig({
-  site: 'https://xivstrat.com',
+  site: 'https://xivstrat.cn',
 
   integrations: [vue()],
 
