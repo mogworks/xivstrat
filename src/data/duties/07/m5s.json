@@ -17,7 +17,7 @@
   "phases": [
     {
       "href": "/07/m5s/p1",
-      "title": "Part 1",
+      "title": "Phase 1",
       "subtitle": "登天夜狂热",
       "name": "P1 - 登天夜狂热",
       "mechanics": [
@@ -138,7 +138,7 @@
         {
           "href": "#frogtourage-part-1",
           "name": "来吧！青蛙舞者！#1",
-          "name_en": "Frogtourage Part 1",
+          "name_en": "Frogtourage Phase 1",
           "name_ja": "",
           "name_ch": "来吧！青蛙舞者！#1"
         },
