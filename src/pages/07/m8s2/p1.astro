@@ -7,25 +7,27 @@ import EventSection from '@/components/section/EventSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import P from '@/components/typography/P.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import Span from '@/components/Span.vue'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import HowlingBlade from './_components/entities/HowlingBlade.astro'
+import TerrestrialChains from './_components/buff/TerrestrialChains.astro'
+import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
+import ImmobileSuitDebuff from './_components/ImmobileSuitDebuff.astro'
+import QuakeIIICast from './_components/QuakeIIICast.astro'
 
 import QuakeIII from './_mechanics/QuakeIII.astro'
 import UltraviolentRay from './_mechanics/UltraviolentRay.astro'
 import Twinbite from './_mechanics/Twinbite.astro'
 import HerosBlow from './_mechanics/HerosBlow.astro'
+import Mooncleaver from './_mechanics/Mooncleaver.astro'
 
 import { translations } from './_translations'
-import ImgRow from '@/components/typography/ImgRow.astro'
 
 import floor_img from '@/assets/07/m8s2/floor.png'
-import HowlingBlade from './_components/entities/HowlingBlade.astro'
-import Span from '@/components/Span.vue'
-import ImmobileSuitDebuff from './_components/ImmobileSuitDebuff.astro'
-import T from '@/components/typography/T.astro'
-import Skill from '@/components/typography/Skill.astro'
-import TerrestrialChains from './_components/buff/TerrestrialChains.astro'
-import QuakeIIICast from './_components/QuakeIIICast.astro'
-import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 
 const dutyId = '07/m8s2'
 
@@ -35,6 +37,7 @@ const quakeIII = translations.quakeIII
 const ultraviolentRay = translations.ultraviolentRay
 const twinbite = translations.twinbite
 const herosBlow = translations.herosBlow
+const mooncleaver = translations.mooncleaver
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
@@ -129,4 +132,7 @@ const herosBlow = translations.herosBlow
       </P>
     </div>
   </SolutionSection>
+
+  <SeparatorSection id="mooncleaver" title=`${mooncleaver}` />
+  <Mooncleaver start="08:50.987" />
 </DutyStratLayout>
