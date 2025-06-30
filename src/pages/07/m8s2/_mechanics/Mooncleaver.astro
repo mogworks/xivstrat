@@ -1,0 +1,47 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { translations } from '../_translations'
+import MooncleaverCast from '../_components/MooncleaverCast.astro'
+import T from '@/components/typography/T.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<MooncleaverCast start={start} />
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      前面处理完
+      <Skill name={translations.ultraviolentRay} />
+      +
+      <Skill name={translations.quakeIII} />
+      后，
+      <RoleIcon role="all" tag="全员" />
+      立即返回
+      <HowlingBlade />
+      正面平台，引导
+      <Skill name={translations.mooncleaver} />
+    </P>
+    <P>
+      <HowlingBlade />
+      开始读条
+      <Skill name={translations.mooncleaver} />
+      ，即代表已经锁定要摧毁的平台，
+      <RoleIcon role="all" tag="全员" />
+      往两侧传送，离开
+      <HowlingBlade />
+      正面平台躲避
+    </P>
+  </div>
+</SolutionSection>

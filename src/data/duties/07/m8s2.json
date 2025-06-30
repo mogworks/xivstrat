@@ -50,22 +50,22 @@
           "name_en": "Hero's Blow",
           "name_ja": "鎧袖一触",
           "name_ch": "铠袖一触"
-        }
-      ]
-    },
-    {
-      "href": "/07/m8s2/p2",
-      "title": "Part 2",
-      "subtitle": "一运",
-      "name": "P2 - 一运",
-      "mechanics": [
+        },
         {
           "href": "#mooncleaver",
           "name": "刚刃一闪",
           "name_en": "Mooncleaver",
           "name_ja": "剛刃一閃",
           "name_ch": "刚刃一闪"
-        },
+        }
+      ]
+    },
+    {
+      "href": "/07/m8s2/p2",
+      "title": "Part 2",
+      "subtitle": "飓风之相",
+      "name": "P2 - 飓风之相",
+      "mechanics": [
         {
           "href": "#elemental-purge",
           "name": "风震魔印",
@@ -113,8 +113,8 @@
     {
       "href": "/07/m8s2/p3",
       "title": "Part 3",
-      "subtitle": "二运",
-      "name": "P3 - 二运",
+      "subtitle": "咒刃之相",
+      "name": "P3 - 咒刃之相",
       "mechanics": [
         {
           "href": "#rise-of-the-hunters-blade",
@@ -149,8 +149,8 @@
     {
       "href": "/07/m8s2/p4",
       "title": "Part 4",
-      "subtitle": "软狂暴",
-      "name": "P4 - 软狂暴",
+      "subtitle": "八连光弹",
+      "name": "P4 - 八连光弹",
       "mechanics": [
         {
           "href": "#howling-eight",
