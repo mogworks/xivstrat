@@ -6,7 +6,9 @@
   "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级1 超详解动态图文攻略",
   "navigationInfo": {
     "name": "M5S",
-    "parent": ["阿卡狄亚零式登天斗技场 中量级"]
+    "parent": [
+      "阿卡狄亚零式登天斗技场 中量级"
+    ]
   },
   "banner": "@/assets/banners/07/m5s.png",
   "date": "25/06/21 16:00",
