@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets'
-
 import Span from '@/components/Span.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
@@ -21,6 +19,10 @@ import PatienceOfWindDebuff from '../_components/buff/PatienceOfWindDebuff.astro
 import { translations } from '../_translations'
 
 import mooncleaver_3 from '@/assets/07/m8s2/p1/mooncleaver_3.png'
+import elemental_purge_1 from '@/assets/07/m8s2/p1/elemental_purge_1.png'
+import elemental_purge_2 from '@/assets/07/m8s2/p1/elemental_purge_2.png'
+import elemental_purge_3 from '@/assets/07/m8s2/p1/elemental_purge_3.png'
+import elemental_purge_4 from '@/assets/07/m8s2/p1/elemental_purge_4.png'
 
 const elementalPurge = translations.elementalPurge
 
@@ -116,6 +118,16 @@ const huntersHarvestTime = '09:08.249'
       <RoleIcon role="tank" tag="MT" />
       同时吃两个死刑
     </P>
+    <ImgRow
+      class="mx-3 -mt-3 mb-4 gap-10"
+      wrapperClass="max-w-100 scale-110 flex-1"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[
+        { src: elemental_purge_1, alt: '风震魔印1' },
+        { src: elemental_purge_2, alt: '风震魔印2' },
+      ]}
+    />
 
     <P>
       随后，
@@ -124,5 +136,14 @@ const huntersHarvestTime = '09:08.249'
       <Span variant="cyan">各自平台的中心</Span>
       ，处理死刑和分摊即可
     </P>
+    <ImgRow
+      bordered={false}
+      imgClass="max-w-116 shadowbringer"
+      class="-mx-4 gap-16"
+      imgs={[
+        { src: elemental_purge_3, alt: '风震魔印3' },
+        { src: elemental_purge_4, alt: '风震魔印4' },
+      ]}
+    />
   </div>
 </SolutionSection>
