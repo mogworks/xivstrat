@@ -17,7 +17,7 @@ export const translations = {
   riseOfTheHuntersBlade: '魔狼战形·咒刃之相',
   loneWolfsLament: '独狼的诅咒',
   howlingEight: '八连光弹',
-  starcleaverCanceled: '刚刃一闪・终',
+  starcleaver: '刚刃一闪・终',
   terrestrialChains: '大地的束缚',
   terrestrialChainsDesp: '身体被魔咒束缚在地面上，无法跳跃',
   gleamingBeam: '闪光炮',

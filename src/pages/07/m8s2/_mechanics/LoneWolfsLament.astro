@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets'
+import { type Time } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import RoleIcon from '@/components/RoleIcon.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+
+import LoneWolfsLamentCast from '../_components/LoneWolfsLamentCast.astro'
+
+import img from '@/assets/07/m8s2/tmp.png'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const loneWolfsLament = translations.loneWolfsLament
+---
+
+<LoneWolfsLamentCast start={start} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <T>
+      <Span variant="yellow">{loneWolfsLament}</Span>
+    </T>
+    <P> TODO </P>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P> TODO </P>
+  </div>
+</SolutionSection>

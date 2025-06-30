@@ -2,16 +2,19 @@
 import Buff from '@/components/Buff.astro'
 import Span from '@/components/Span.vue'
 
-import icon from '@/assets/buff/215519.png'
+import layer_0 from '@/assets/buff/215519.png'
+import layer_1 from '@/assets/buff/217061.png'
 
 interface Props {
   tag?: string
   hover?: boolean
   class?: string
   percent?: number
+  layer?: number
 }
 
-const { tag = '', hover = false, class: className = '', percent = undefined }: Props = Astro.props
+const { tag = '', hover = false, class: className = '', percent = undefined, layer = 0 }: Props = Astro.props
+const icon = layer === 0 ? layer_0 : layer_1
 ---
 
 <Buff

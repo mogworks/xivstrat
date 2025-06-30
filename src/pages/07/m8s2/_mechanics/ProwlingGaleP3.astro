@@ -6,6 +6,8 @@ import Span from '@/components/Span.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
 
 import ProwlingGaleCast from '../_components/ProwlingGaleCast.astro'
 
@@ -24,40 +26,18 @@ const prowlingGale = translations.prowlingGale
 <ProwlingGaleCast start={start} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <div class="text-2xl">
+    <T>
       <Span variant="yellow">{prowlingGale}</Span>
-    </div>
-    <div class="paragraph">
-      每座平台会出现一个需要两人的塔。
+    </T>
+    <P>
+      每座平台会出现一个塔，其中南平台必定是三人塔，左下和右下必定是单人塔，左上和右上是一个双人塔一个单人塔。
       <!-- 此处不确定炸塔具体效果（概率也太低了吧） -->
-    </div>
+    </P>
   </div>
 </MechanicSection>
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <div class="paragraph">
-      为了方便后续机制处理，这里让
-      <RoleIcon role="tank" tag="MT" />
-      <RoleIcon role="dps" tag="D1" />
-      去左下平台，
-      <RoleIcon role="tank" tag="ST" />
-      <RoleIcon role="dps" tag="D2" />
-      去右下平台，
-    </div>
-
-    <div class="paragraph">
-      <RoleIcon role="healer" tag="H1" />
-      <RoleIcon role="dps" tag="D3" />
-      去左上平台，
-      <RoleIcon role="healer" tag="H2" />
-      <RoleIcon role="dps" tag="D4" />
-      去右上平台。
-    </div>
-
-    <div class="flex max-w-90 shrink grow flex-col items-center gap-2">
-      <Image src={img} alt="quake1" class="border-2 border-amber-800/75 dark:border-amber-100" />
-      <div>双奶分组分摊</div>
-    </div>
+    <P> TODO </P>
   </div>
 </SolutionSection>
