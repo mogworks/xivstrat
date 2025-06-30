@@ -1,0 +1,73 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  activateTimes: Time[]
+  tank: string
+}
+
+const { start, activateTimes, tank }: Props = Astro.props
+const duration = 7.7
+const ability = translations.howlingEight
+const damage1 = '300000'
+const damage2 = '700000'
+---
+
+<CastSection
+  start={start}
+  duration={duration}
+  ability={ability}
+  target
+  damage={damage1 + '×7 + ' + damage2}
+  damageType="magical"
+  damageVariant="stack"
+>
+  <HowlingBlade slot="source" />
+  <RoleIcon slot="target" role="any" tag="随机" />
+  <Badge variant="emerald">整个平台</Badge>
+  <Badge variant="purple">{tank}无敌</Badge>
+</CastSection>
+<CollapseSection>
+  <Fragment slot="summary">
+    <RoleIcon role="tank" tag={tank} />
+    连续分摊<Span variant="pink">8</Span>次伤害，前
+    <Span variant="pink">7</Span>次 每次受到
+    <Skill name={ability} />
+    <DamageInfo damage={damage1} type="magical" />
+    第<Span variant="pink">8</Span>次
+    <DamageInfo damage={damage2} type="magical" />
+    <Badge variant="emerald">整个平台</Badge>
+    <Badge variant="yellow">{tank}无敌</Badge>
+  </Fragment>
+  <Fragment slot="details">
+    {
+      activateTimes.map((time, index) => (
+        <EventSection time={time}>
+          <RoleIcon role="all" tag="全员" />第<Span variant="pink">{index + 1}</Span>次分摊，受到
+          <Skill name={ability} />
+          {index === 7 ? (
+            <DamageInfo damage={damage2} type="magical" />
+          ) : (
+            <DamageInfo damage={damage1} type="magical" />
+          )}
+          <Badge variant="emerald">6m圆形</Badge>
+          <Badge variant="yellow">{tank}无敌</Badge>
+        </EventSection>
+      ))
+    }
+  </Fragment>
+</CollapseSection>
