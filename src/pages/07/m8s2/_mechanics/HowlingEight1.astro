@@ -54,7 +54,7 @@ const damage2 = '680000'
     {
       activateTimes.map((time, index) => (
         <EventSection time={time}>
-          <RoleIcon role="all" tag="全员" />第<Span variant="pink">{index + 1}</Span>次分摊，受到
+          <RoleIcon role="tank" tag={tank} />第<Span variant="pink">{index + 1}</Span>次单吃，受到
           <Skill name={ability} />
           {index === 7 ? (
             <DamageInfo damage={damage2} type="magical" />
