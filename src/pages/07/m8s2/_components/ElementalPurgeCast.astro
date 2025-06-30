@@ -6,8 +6,8 @@ import CastSection from '@/components/section/CastSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Bind from '@/components/buff/Bind.astro'
 
-import PatienceOfStoneDebuff from '../_components/PatienceOfStoneDebuff.astro'
-import PatienceOfWindDebuff from '../_components/PatienceOfWindDebuff.astro'
+import PatienceOfStoneDebuff from '../_components/buff/PatienceOfStoneDebuff.astro'
+import PatienceOfWindDebuff from '../_components/buff/PatienceOfWindDebuff.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import { translations } from '../_translations'
@@ -23,12 +23,15 @@ const elementalPurge = translations.elementalPurge
 
 <CastSection start={start} duration={4.7} ability={elementalPurge}>
   <HowlingBlade slot="source" />
-  给予 1 <RoleIcon role="tank" />
-  <PatienceOfWindDebuff tag="5" />
-  和 1 <RoleIcon role="healer|dps" />
-  <PatienceOfStoneDebuff tag="5" />
-  ，以及
-  <RoleIcon role="all" tag="一仇" />
-  <Bind tag="6" />
-  <Badge variant="green">点名</Badge>
+  ，点名
+  <RoleIcon role="healer|dps" tag="随机" />
+  和
+  <RoleIcon role="tank" tag="随机" />
+  ，读条结束时分别赋予其
+  <PatienceOfStoneDebuff tag="5" hover />
+  和
+  <PatienceOfWindDebuff tag="5" hover />
+  ，并赋予
+  <RoleIcon role="tank" tag="一仇" />
+  <Bind tag="6" hover />
 </CastSection>

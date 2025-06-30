@@ -12,7 +12,7 @@
     ]
   },
   "banner": "@/assets/banners/07/m8s.png",
-  "date": "25/06/30 00:00",
+  "date": "25/06/30 12:50",
   "href": "/07/m8s2",
   "status": "live",
   "indexAvailable": true,
@@ -20,8 +20,8 @@
     {
       "href": "/07/m8s2/p1",
       "title": "Part 1",
-      "subtitle": "铠袖一触",
-      "name": "P1 - 铠袖一触",
+      "subtitle": "风震魔印",
+      "name": "P1 - 风震魔印",
       "mechanics": [
         {
           "href": "#quake-iii",
@@ -57,6 +57,13 @@
           "name_en": "Mooncleaver",
           "name_ja": "剛刃一閃",
           "name_ch": "刚刃一闪"
+        },
+        {
+          "href": "#elemental-purge",
+          "name": "风震魔印",
+          "name_en": "Elemental Purge",
+          "name_ja": "風震の魔印",
+          "name_ch": "风震魔印"
         }
       ]
     },
@@ -66,13 +73,6 @@
       "subtitle": "飓风之相",
       "name": "P2 - 飓风之相",
       "mechanics": [
-        {
-          "href": "#elemental-purge",
-          "name": "风震魔印",
-          "name_en": "Elemental Purge",
-          "name_ja": "風震の魔印",
-          "name_ch": "风震魔印"
-        },
         {
           "href": "#prowling-gale",
           "name": "风狼阵",
