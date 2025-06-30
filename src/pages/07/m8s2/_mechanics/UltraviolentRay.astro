@@ -1,12 +1,8 @@
 ---
-import { Image } from 'astro:assets'
-
 import { type Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
-import ToggleSwitch from '@/components/ToggleSwitch.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
-import Separator from '@/components/Separator.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import P from '@/components/typography/P.astro'
@@ -21,6 +17,9 @@ import ultraviolentRay1 from '@/assets/07/m8s2/p1/ultraviolentRay1.png'
 import ultraviolentRay2 from '@/assets/07/m8s2/p1/ultraviolentRay2.png'
 
 import { translations } from '../_translations'
+import Skill from '@/components/typography/Skill.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import Quote from '@/components/typography/Quote.astro'
 
 interface Props {
   start: Time
@@ -41,101 +40,73 @@ const ultraviolentRay = translations.ultraviolentRay
 
     <P>
       <HowlingBlade />
-      随机点名
+      随机点名【
       <Span variant="pink">4</Span>
       <RoleIcon role="tank|healer" />
+      +
       <Span variant="pink">1</Span>
       <RoleIcon role="dps" />
-      或
+      】或【
       <Span variant="pink">4</Span>
       <RoleIcon role="dps" />
+      +
       <Span variant="pink">1</Span>
       <RoleIcon role="tank|healer" />
-      <RoleIcon role="any" tag="5人" />
+      】共5人
+      <Skill name={ultraviolentRay} />
     </P>
     <P>
       被点名的玩家头上会出现蓝色标记，代表随后会对该玩家
-      <Span variant="pink"> 所在的平台 </Span>
-      造成伤害。
+      <Span variant="pink">所在的平台</Span>
+      造成直线范围伤害，附带
+      <MagicVulnerabilityUp tag="1" />
     </P>
+
+    <T variant="yellow" class="mt-8" text={translations.gleamingBeam} />
     <P>
-      因此每个平台上只能有
-      <Span variant="pink"> 一个 </Span>
-      点名。
-    </P>
-    <P>
-      与此同时，每个平台后方会出现一个
+      与此同时，每个平台左后或右后方会出现一个
       <GleamingFang />
-      随机覆盖左半或右半平台。需要分散的同时躲开半场刀。
+      读条释放覆盖半个平台的直线范围伤害
     </P>
   </div>
 </MechanicSection>
 
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <P> 该机制有五人获得点名，刚好场上有五个平台，因此需要五个点名各自去一个平台，其他人可以自由行动。 </P>
-    <P> 以BOSS当前目标圈为基准，MT组在左半场处理，ST组在右半场处理。 </P>
+    <P>该机制有五人获得点名，因此需要五个点名各自去一个平台，其他人则可以自由行动</P>
     <P>
-      然后按照
-      <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
-      <ul class="list-none space-y-4">
-        <li class="flex items-center gap-1 text-lg">
-          <RoleIcon role="tank" tag="ST" />
-          <RoleIcon role="melee" tag="D2" />
-          <RoleIcon role="magic" tag="D4" />
-          <RoleIcon role="healer" tag="H2" />
-        </li>
-
-        <li class="flex items-center gap-1 text-lg">
-          <RoleIcon role="tank" tag="MT" />
-          <RoleIcon role="melee" tag="D1" />
-          <RoleIcon role="ranged" tag="D3" />
-          <RoleIcon role="healer" tag="H1" />
-        </li>
-      </ul>
-      的顺序在平台上排队。
+      我们还是以
+      <HowlingBlade />
+      目标圈正面箭头的指向为南，吃完
+      <Skill name={translations.quakeIII} />
+      后，所有人留在分摊平台预站位排队
+    </P>
+    <P>
+      排队顺序为：自北向南按
+      <RoleIcon role="tank" />
+      >
+      <RoleIcon role="melee" />
+      >
+      <RoleIcon role="ranged_magic" />
+      >
+      <RoleIcon role="healer" />
+      的顺序排列
     </P>
 
     <P>
-      每组都是
-      <Span variant="pink">2</Span>
-      <RoleIcon role="dps" />
+      由于每组都是
       <Span variant="pink">2</Span>
       <RoleIcon role="tank|healer" />
-      ，因此本组内只会有两个或者三个蓝标
+      +
+      <Span variant="pink">2</Span>
+      <RoleIcon role="dps" />
+      ，因此各组内只会有两个或者三个蓝标
     </P>
-
-    <P>
-      <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-yellow-500" />
-      <ul class="list-none space-y-4">
-        <li>
-          <P> 若本组内有两个蓝标，则靠近BOSS背后的玩家往BOSS身后移动一个平台，靠近正面的玩家保持不动。 </P>
-        </li>
-
-        <li>
-          <P> 若本组内有三个蓝标，则靠近BOSS正面的玩家往BOSS身前移动一个平台，其余同上。 </P>
-        </li>
-      </ul>
-    </P>
-
-    <P>
-      随后所有人看平台后面的
-      <GleamingFang />
-      去安全的半场，这里注意每个平台的安全半场是不一样的。
-      <ToggleSwitch
-        id="ultraviolentray-solution-toggle"
-        lVariant="yellow"
-        rVariant="pink"
-        lLabel="预兆"
-        rLabel="判定"
-      />
-    </P>
-
     <ImgRow
-      id="ultraviolentray-solution-omen"
+      class="m-4 mb-5"
+      wrapperClass="max-w-150 scale-110"
       bordered={false}
-      borderVariant="cyan"
-      imgClass="max-w-110"
+      imgClass="shadowbringer"
       imgs={[
         {
           src: ultraviolentRay1,
@@ -143,12 +114,22 @@ const ultraviolentRay = translations.ultraviolentRay
         },
       ]}
     />
+
+    <P class="mt-4">我们规定，蓝标点名按如下方式分散到各个平台：</P>
+    <Quote variant="lime">
+      <P>若本组内有两个蓝标，则靠北的玩家往北传送一个平台，靠南的玩家不动</P>
+      <P>若本组内有三个蓝标，则靠北的玩家往北传送一个平台，靠南的玩家往南传送，中间的玩家不动</P>
+    </Quote>
+    <P>
+      传送到位后记得看自己身后的
+      <GleamingFang />
+      ，在自己平台安全的半边躲避
+    </P>
     <ImgRow
-      id="ultraviolentray-solution-activate"
-      class="hidden"
-      imgClass="max-w-120"
+      class="m-4 mb-5"
+      wrapperClass="max-w-150 scale-110"
       bordered={false}
-      borderVariant="cyan"
+      imgClass="shadowbringer"
       imgs={[
         {
           src: ultraviolentRay2,
@@ -156,30 +137,26 @@ const ultraviolentRay = translations.ultraviolentRay
         },
       ]}
     />
+
+    <P>
+      处理完
+      <Skill name={translations.ultraviolentRay} />
+      后：
+      <Quote variant="lime">
+        <P>
+          <RoleIcon role="tank" tag="双T" />
+          <Span variant="cyan">回到各自排队的平台</Span>
+          ，准备引导之后的
+          <Skill name={translations.twinbite} />
+        </P>
+        <P>
+          <RoleIcon role="healer|dps" />
+          则
+          <Span variant="cyan">回到初始平台</Span>
+          ，准备引导之后的
+          <Skill name={translations.herosBlow} />
+        </P>
+      </Quote>
+    </P>
   </div>
 </SolutionSection>
-
-<script>
-  function toggleTables(omenId: string, activateId: string, showActivate: boolean) {
-    const omenTable = document.getElementById(omenId)
-    const activateTable = document.getElementById(activateId)
-
-    if (omenTable && activateTable) {
-      if (showActivate) {
-        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', true))
-        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', false))
-      } else {
-        activateTable.classList.toggle('grid', !activateTable.classList.toggle('hidden', true))
-        omenTable.classList.toggle('grid', !omenTable.classList.toggle('hidden', false))
-      }
-    }
-  }
-
-  document.addEventListener('change', (event) => {
-    const target = event.target as HTMLInputElement
-
-    if (target && target.id === 'ultraviolentray-solution-toggle') {
-      toggleTables('ultraviolentray-solution-omen', 'ultraviolentray-solution-activate', target.checked)
-    }
-  })
-</script>

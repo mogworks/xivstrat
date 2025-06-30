@@ -12,7 +12,7 @@
     ]
   },
   "banner": "@/assets/banners/07/m8s.png",
-  "date": "25/06/18 18:20",
+  "date": "25/06/30 12:50",
   "href": "/07/m8s2",
   "status": "live",
   "indexAvailable": true,
@@ -20,8 +20,8 @@
     {
       "href": "/07/m8s2/p1",
       "title": "Part 1",
-      "subtitle": "后半1",
-      "name": "P1 - 后半1",
+      "subtitle": "风震魔印",
+      "name": "P1 - 风震魔印",
       "mechanics": [
         {
           "href": "#quake-iii",
@@ -64,28 +64,28 @@
           "name_en": "Elemental Purge",
           "name_ja": "風震の魔印",
           "name_ch": "风震魔印"
-        },
-        {
-          "href": "#prowling-gale",
-          "name": "风狼阵",
-          "name_en": "Prowling Gale",
-          "name_ja": "風狼陣",
-          "name_ch": "风狼阵"
         }
       ]
     },
     {
       "href": "/07/m8s2/p2",
       "title": "Part 2",
-      "subtitle": "一运",
-      "name": "P2 - 一运",
+      "subtitle": "飓风之相",
+      "name": "P2 - 飓风之相",
       "mechanics": [
         {
+          "href": "#prowling-gale",
+          "name": "风狼阵",
+          "name_en": "Prowling Gale",
+          "name_ja": "風狼陣",
+          "name_ch": "风狼阵"
+        },
+        {
           "href": "#rise-of-the-howling-wind",
-          "name": "魔狼战型·天岚之相",
+          "name": "魔狼战形·飓风之相",
           "name_en": "Howling Wind Stance",
           "name_ja": "魔狼戦型・天嵐の相",
-          "name_ch": "魔狼战型·天岚之相"
+          "name_ch": "魔狼战形·飓风之相"
         },
         {
           "href": "#twofold-tempest",
@@ -113,8 +113,8 @@
     {
       "href": "/07/m8s2/p3",
       "title": "Part 3",
-      "subtitle": "二运",
-      "name": "P3 - 二运",
+      "subtitle": "咒刃之相",
+      "name": "P3 - 咒刃之相",
       "mechanics": [
         {
           "href": "#rise-of-the-hunters-blade",
@@ -149,8 +149,8 @@
     {
       "href": "/07/m8s2/p4",
       "title": "Part 4",
-      "subtitle": "软狂暴",
-      "name": "P4 - 软狂暴",
+      "subtitle": "八连光弹",
+      "name": "P4 - 八连光弹",
       "mechanics": [
         {
           "href": "#howling-eight",

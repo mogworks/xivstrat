@@ -1,0 +1,84 @@
+---
+import type { Time } from '@/lib/utils'
+
+import { translations } from '../_translations'
+import MooncleaverCast from '../_components/MooncleaverCast.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import mooncleaver_1 from '@/assets/07/m8s2/p1/mooncleaver_1.png'
+import mooncleaver_2 from '@/assets/07/m8s2/p1/mooncleaver_2.png'
+import mooncleaver_3 from '@/assets/07/m8s2/p1/mooncleaver_3.png'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<MooncleaverCast start={start} />
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      前面处理完
+      <Skill name={translations.ultraviolentRay} />
+      +
+      <Skill name={translations.quakeIII} />
+      后，
+      <RoleIcon role="all" tag="全员" />
+      立即返回
+      <HowlingBlade />
+      正面平台，引导
+      <Skill name={translations.mooncleaver} />
+    </P>
+    <ImgRow
+      class="-mt-3 mb-4 ml-3"
+      wrapperClass="max-w-100 scale-110"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: mooncleaver_1, alt: '引导刚刃一闪' }]}
+    />
+
+    <P>
+      <HowlingBlade />
+      开始读条
+      <Skill name={translations.mooncleaver} />
+      ，即代表已经锁定要摧毁的平台，
+      <RoleIcon role="all" tag="全员" />
+      往两侧传送，离开
+      <HowlingBlade />
+      正面平台躲避
+    </P>
+    <ImgRow
+      class="-mt-3 mb-4 ml-3"
+      wrapperClass="max-w-100 scale-110"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: mooncleaver_2, alt: '躲避刚刃一闪' }]}
+    />
+
+    <P>
+      接着，
+      <RoleIcon role="tank" tag="双T" />
+      留在左右平台，
+      <RoleIcon role="healer|dps" />
+      继续往
+      <HowlingBlade />
+      身后传送一次，准备处理之后的
+      <Skill name={translations.elementalPurge} />
+    </P>
+    <ImgRow
+      class="-mt-3 mb-4 ml-3"
+      wrapperClass="max-w-100 scale-110"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: mooncleaver_3, alt: '准备处理风震魔印' }]}
+    />
+  </div>
+</SolutionSection>

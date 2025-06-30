@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets'
 import { type Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
@@ -18,6 +17,8 @@ import HerosBlow2 from '@/assets/07/m8s2/p1/herosBlow2.png'
 import HerosBlow3 from '@/assets/07/m8s2/p1/herosBlow3.png'
 import HerosBlow4 from '@/assets/07/m8s2/p1/herosBlow4.png'
 import { translations } from '../_translations'
+import Skill from '@/components/typography/Skill.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
 
 interface Props {
   start: Time
@@ -37,14 +38,15 @@ const herosBlow = translations.herosBlow
     </T>
 
     <P>
-      <HowlingBlade />会举起剑，点名一个
-      <Span variant="pink"> 有玩家的平台 </Span>
-      ，对随机左/右半场释放半场刀。
+      <HowlingBlade />高举光剑，面向
+      <Span variant="cyan">随机玩家所在平台中心</Span>
+      ，对其释放【左/右半场刀】
     </P>
 
     <P>
       与此同时，会有一圈
-      <GleamingFang />向内圈或者外圈发光，释放钢铁或者月环。
+      <GleamingFang />
+      朝向场地内圈或者外圈发光，释放【钢铁/月环】
     </P>
   </div>
 </MechanicSection>
@@ -52,17 +54,36 @@ const herosBlow = translations.herosBlow
 <SolutionSection>
   <div class="flex flex-col gap-4">
     <P>
-      在该机制之前，所有玩家应该在<HowlingBlade />面前的平台引导半场刀。
+      在该机制读条开始前，所有玩家
+      <Span variant="cyan">务必在</Span>
+      <HowlingBlade />
+      <Span variant="cyan">面前的平台集合引导</Span>
     </P>
 
     <P>
-      随后<HowlingBlade />举起刀，观察安全半场，然后确认
-      <GleamingFang />是钢铁还是月环，进行躲避。
+      <HowlingBlade />举起刀后，观察安全半场，同时确认
+      <GleamingFang />发光的方向是朝内还是朝外，再进行躲避：
     </P>
 
     <ImgRow
       bordered={false}
-      imgClass="max-w-110"
+      imgClass="max-w-110 shadowbringer"
+      class="gap-20"
+      imgs={[
+        {
+          src: HerosBlow3,
+          alt: '月环+右半场刀',
+        },
+        {
+          src: HerosBlow4,
+          alt: '月环+左半场刀',
+        },
+      ]}
+    />
+
+    <ImgRow
+      bordered={false}
+      imgClass="max-w-110 shadowbringer"
       class="gap-20"
       imgs={[
         {
@@ -76,20 +97,19 @@ const herosBlow = translations.herosBlow
       ]}
     />
 
-    <ImgRow
-      bordered={false}
-      imgClass="max-w-110"
-      class="gap-20"
-      imgs={[
-        {
-          src: HerosBlow3,
-          alt: '月环+右半场刀',
-        },
-        {
-          src: HerosBlow4,
-          alt: '月环+左半场刀',
-        },
-      ]}
-    />
+    <P>
+      <RoleIcon role="tank" />
+      <RoleIcon role="melee" />
+      注意：钢铁的情况下，保持最大近战距离是可以无损处理的，但要非常小心
+    </P>
+    <P>
+      <RoleIcon role="all" tag="全员" />
+      注意：处理完该机制后，
+      <Span variant="cyan">立刻分组前往左右平台</Span>
+      ，准备处理
+      <Skill name={translations.ultraviolentRay} />
+      +
+      <Skill name={translations.quakeIII} />
+    </P>
   </div>
 </SolutionSection>

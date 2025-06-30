@@ -18,4 +18,11 @@ export const translations = {
   loneWolfsLament: '独狼的诅咒',
   howlingEight: '八连光弹',
   starcleaverCanceled: '刚刃一闪・终',
+  terrestrialChains: '大地的束缚',
+  terrestrialChainsDesp: '身体被魔咒束缚在地面上，无法跳跃',
+  gleamingBeam: '闪光炮',
+  patienceOfWind: '风之残响',
+  patienceOfWindDesp: '体内残留着风属性的魔力。效果时间结束时对周围发动魔法',
+  patienceOfStone: '土之残响',
+  patienceOfStoneDesp: '体内残留着土属性的魔力。效果时间结束时对周围发动魔法',
 }
