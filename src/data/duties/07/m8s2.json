@@ -12,7 +12,7 @@
     ]
   },
   "banner": "@/assets/banners/07/m8s.png",
-  "date": "25/06/30 12:50",
+  "date": "25/06/30 18:20",
   "href": "/07/m8s2",
   "status": "live",
   "indexAvailable": true,
@@ -153,11 +153,20 @@
       "name": "P4 - 八连光弹",
       "mechanics": [
         {
-          "href": "#howling-eight-mooncleaver",
-          "name": "八连光弹 + 刚刃一闪",
-          "name_en": "Howling Eight + Mooncleaver",
-          "name_ja": "八連光弾 + 剛刃一閃",
-          "name_ch": "八连光弹 + 刚刃一闪"
+          "href": "#howling-eight-mooncleaver-1",
+          "name": "八连光弹 + 刚刃一闪・一"
+        },
+        {
+          "href": "#howling-eight-mooncleaver-2",
+          "name": "八连光弹 + 刚刃一闪・二"
+        },
+        {
+          "href": "#howling-eight-mooncleaver-3",
+          "name": "八连光弹 + 刚刃一闪・三"
+        },
+        {
+          "href": "#howling-eight-mooncleaver-4",
+          "name": "八连光弹 + 刚刃一闪・四"
         },
         {
           "href": "#howling-eight-starcleaver",

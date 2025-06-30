@@ -18,10 +18,10 @@ interface Props {
   start: Time
   activateTimes: Time[]
   tank: string
+  duration: number
 }
 
-const { start, activateTimes, tank }: Props = Astro.props
-const duration = 7.7
+const { start, activateTimes, tank, duration }: Props = Astro.props
 const ability = translations.howlingEight
 const damage1 = '300000'
 const damage2 = '680000'

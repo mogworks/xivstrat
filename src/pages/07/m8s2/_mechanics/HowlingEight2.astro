@@ -17,10 +17,10 @@ import { translations } from '../_translations'
 interface Props {
   start: Time
   activateTimes: Time[]
+  duration: number
 }
 
-const { start, activateTimes }: Props = Astro.props
-const duration = 7.7
+const { start, activateTimes, duration }: Props = Astro.props
 const ability = translations.howlingEight
 const damage1 = '150000'
 const damage2 = '340000'
