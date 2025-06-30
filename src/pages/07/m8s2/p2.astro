@@ -6,27 +6,25 @@ import NoteSection from '@/components/section/NoteSection.astro'
 import P from '@/components/typography/P.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import StratLink from '@/components/StratLink.astro'
+import Badge from '@/components/Badge.astro'
 
-import ChampionsCircuit from './_mechanics/ChampionsCircuit.astro'
 import ImmobileSuitDebuff from './_components/ImmobileSuitDebuff.astro'
 import QuakeIIICast from './_components/QuakeIIICast.astro'
 import RiseOfTheHowlingWind from './_mechanics/RiseOfTheHowlingWind.astro'
 import TwinbiteCast from './_components/TwinbiteCast.astro'
-import TwofoldTempest from './_mechanics/TwofoldTempest.astro'
 import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
 
-import { translations } from './_translations'
-import Badge from '@/components/Badge.astro'
-import MooncleaverCast from './_components/MooncleaverCast.astro'
+import TwofoldTempest from './_mechanics/TwofoldTempest.astro'
 import ElementalPurge from './_mechanics/ElementalPurge.astro'
+import ChampionsCircuit from './_mechanics/ChampionsCircuit.astro'
 import ProwlingGale from './_mechanics/ProwlingGale.astro'
+
+import { translations } from './_translations'
 
 const dutyId = '07/m8s2'
 
-const base = '08:50.987'
+const base = '09:10.384'
 
-const mooncleaver = translations.mooncleaver
-const elementalPurge = translations.elementalPurge
 const prowlingGale = translations.prowlingGale
 const twofoldTempest = translations.twofoldTempest
 const bareFangs = translations.bareFangs
@@ -39,11 +37,6 @@ const twinbite = translations.twinbite
 <DutyStratLayout dutyId={dutyId} base={base}>
   <SeparatorSection />
   <DraftWarning />
-  <SeparatorSection id="mooncleaver" title=`${mooncleaver}` />
-  <MooncleaverCast start="08:50.987" />
-
-  <SeparatorSection id="elemental-purge" title=`${elementalPurge}` />
-  <ElementalPurge start="08:58.105" />
 
   <SeparatorSection id="prowling-gale" title=`${prowlingGale}` />
   <ProwlingGale start="09:10.384" />

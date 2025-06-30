@@ -1,33 +1,33 @@
 ---
-import type { Time } from '@/lib/utils'
+import { type Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
-import CastSection from '@/components/section/CastSection.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import { translations } from '../_translations'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Skill from '@/components/typography/Skill.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import StratInterval from '@/components/StratInterval.astro'
 
 interface Props {
   start: Time
-  target?: boolean
+  target: boolean
 }
 
 const { start, target = true }: Props = Astro.props
 
 const mooncleaver = translations.mooncleaver
-//预留target，软狂暴是同一个读条但是不对人
 ---
 
-{
-  target ? (
-    <CastSection start={start} duration={4.7} ability={mooncleaver} target="any" targetTag="随机">
-      <HowlingBlade slot="source" />
-      <Badge variant="green">摧毁平台</Badge>
-    </CastSection>
-  ) : (
-    <CastSection start={start} duration={4.7} ability={mooncleaver}>
-      <HowlingBlade slot="source" />
-      <Badge variant="green">摧毁分摊平台</Badge>
-    </CastSection>
-  )
-}
+<EventSection>
+  <StratInterval slot="time" start={start} duration={4.7 + 0.3} />
+  <HowlingBlade />
+  读条
+  <Skill name={mooncleaver} />
+  ，读条开始时锁定
+  {target ? <RoleIcon role="any" tag="随机" /> : '分摊'}
+  所在平台，读条结束时摧毁该平台
+  <Badge variant="emerald">引导</Badge>
+  <Badge variant="emerald">摧毁平台</Badge>
+</EventSection>
