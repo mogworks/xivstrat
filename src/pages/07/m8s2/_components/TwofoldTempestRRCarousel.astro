@@ -1,0 +1,218 @@
+---
+import Carousel from '@/components/Carousel.vue'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+import img_1 from '@/assets/07/m8s2/p2/twofoldTempest_rr_1.png'
+import img_2 from '@/assets/07/m8s2/p2/twofoldTempest_rr_2.png'
+import img_3 from '@/assets/07/m8s2/p2/twofoldTempest_rr_3.png'
+import img_4 from '@/assets/07/m8s2/p2/twofoldTempest_rr_4.png'
+import img_5 from '@/assets/07/m8s2/p2/twofoldTempest_rr_5.png'
+import img_6 from '@/assets/07/m8s2/p2/twofoldTempest_rr_6.png'
+import img_7 from '@/assets/07/m8s2/p2/twofoldTempest_rr_7.png'
+import img_8 from '@/assets/07/m8s2/p2/twofoldTempest_rr_8.png'
+import img_9 from '@/assets/07/m8s2/p2/twofoldTempest_rr_9.png'
+import img_10 from '@/assets/07/m8s2/p2/twofoldTempest_12.png'
+---
+
+<Carousel
+  class="relative mx-14 max-w-180"
+  loop={true}
+  slots={Array.from({ length: 10 }, (_, i) => (i + 1).toString())}
+  client:idle
+>
+  <div slot="1" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_1, alt: '', title: '处理流程 1 / 10' }]}
+    />
+    <P>
+      为方便说明，我们把平台编号为
+      <Span variant="red">1</Span>、
+      <Span variant="yellow">2</Span>、
+      <Span variant="sky">3</Span>、
+      <Span variant="purple">4</Span>，把
+      <Span variant="red">1</Span>、<Span variant="yellow">2</Span>视为左半场，
+      <Span variant="sky">3</Span>、<Span variant="purple">4</Span>视为右半场
+    </P>
+    <P>
+      <HowlingBlade />
+      开始读条
+      <Skill name={translations.twofoldTempest} />
+      ，连线出现
+    </P>
+    <P>这里以连线出现在左半场为例，另一种情况是镜像对称的，假设连线的是<Span variant="yellow">2号平台</Span></P>
+    <P>那么，左半场的两个平台就需要负责处理连线，右半场的两个平台则负责引导直线</P>
+  </div>
+  <div slot="2" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_2, alt: '', title: '处理流程 2 / 10' }]}
+    />
+    <P>第一轮：</P>
+    <P>
+      左半场连线平台（
+      <Span variant="yellow">2号平台</Span>
+      ）的两人去远离自己半场另一平台（
+      <Span variant="red">1号平台</Span>
+      ）的一侧分摊
+    </P>
+    <P>
+      左半场非连线平台（
+      <Span variant="red">1号平台</Span>
+      ）的近战（<RoleIcon role="tank" tag="MT" />）去靠近自己半场另一平台（
+      <Span variant="yellow">2号平台</Span>
+      ）的传送装置以内，等待传递连线
+    </P>
+    <P>
+      右半场的近战则都靠近
+      <HowlingBlade />
+      引导直线，哪个平台先引导到不重要，这里以
+      <Span variant="sky">3号平台</Span>
+      先引导到为例
+    </P>
+  </div>
+  <div slot="3" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_3, alt: '', title: '处理流程 3 / 10' }]}
+    />
+    <P>
+      随后，
+      <Span variant="yellow">2号平台</Span>
+      的近战把连线传递给
+      <Span variant="red">1号平台</Span>
+      的近战（<RoleIcon role="tank" tag="MT" />）
+    </P>
+    <P>
+      <Span variant="sky">3号平台</Span>
+      的近战后退，
+      <Span variant="purple">4号平台</Span>
+      的近战（<RoleIcon role="tank" tag="ST" />）靠近
+      <HowlingBlade />
+      准备引导直线
+    </P>
+  </div>
+  <div slot="4" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_4, alt: '', title: '处理流程 4 / 10' }]}
+    />
+    <P>第二轮：</P>
+    <P>
+      <Span variant="red">1号平台</Span>
+      的两人去远离自己半场另一平台（
+      <Span variant="yellow">2号平台</Span>
+      ）的一侧分摊
+    </P>
+    <P>
+      原
+      <Span variant="yellow">2号平台</Span>
+      的近战在
+      <Span variant="red">1号平台</Span>
+      靠近自己原平台的传送装置以内，等待传递连线
+    </P>
+    <P>
+      <Span variant="purple">4号平台</Span>
+      则负责引导本轮的直线分摊
+    </P>
+  </div>
+  <div slot="5" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_5, alt: '', title: '处理流程 5 / 10' }]}
+    />
+    <P>
+      接着，
+      <Span variant="red">1号平台</Span>
+      的近战（
+      <RoleIcon role="tank" tag="MT" />）把线还回给
+      <Span variant="yellow">2号平台</Span>
+      的近战
+    </P>
+    <P>
+      <Span variant="sky">3号平台</Span>
+      的近战靠近准备引导直线分摊
+    </P>
+    <P>
+      <Span variant="purple">4号平台</Span>
+      的近战（<RoleIcon role="tank" tag="ST" />）后退远离
+    </P>
+  </div>
+  <div slot="6" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_6, alt: '', title: '处理流程 6 / 10' }]}
+    />
+    <P>第三轮：</P>
+    <P>
+      <Span variant="yellow">2号平台</Span>
+      的两人在最远端分摊连线
+    </P>
+    <P>
+      <Span variant="sky">3号平台</Span>
+      的近战则引导直线分摊
+    </P>
+  </div>
+  <div slot="7" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_7, alt: '', title: '处理流程 7 / 10' }]}
+    />
+    <P>之后的流程就不再赘述了</P>
+    <P>简而言之，就是连线半场两个平台来回传递连线，非连线半场的两个平台则交替引导直线</P>
+  </div>
+  <div slot="8" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_8, alt: '', title: '处理流程 8 / 10' }]}
+    />
+    <P>（重复的注意事项和流程不再赘述）</P>
+  </div>
+  <div slot="9" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_9, alt: '', title: '处理流程 9 / 10' }]}
+    />
+    <P>（重复的注意事项和流程不再赘述）</P>
+  </div>
+  <div slot="10" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_10, alt: '', title: '处理流程 10 / 10' }]}
+    />
+    <P>
+      机制结束，最南端平台恢复，
+      <RoleIcon role="all" tag="全员" />
+      抓紧时间回到初始平台，准备处理
+      <Skill name={translations.championsCircuit} />
+    </P>
+  </div>
+</Carousel>

@@ -17,6 +17,7 @@ import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
 import RiseOfTheHowlingWindCast from '../_components/RiseOfTheHowlingWindCast.astro'
 import TwofoldTempestCast from '../_components/TwofoldTempestCast.astro'
 import TwofoldTempestActivate from '../_components/TwofoldTempestActivate.astro'
+import TwofoldTempestRRCarousel from '../_components/TwofoldTempestRRCarousel.astro'
 
 import { translations } from '../_translations'
 
@@ -142,6 +143,14 @@ const defaultSolution = '解法：常规思路'
         </StratLink>
       </P>
     </Quote>
-    <P>TODO</P>
+    <P>【RR式】的思路是让线在两个平台之间来回传递，剩下两个平台负责引导直线</P>
+    <P>
+      无论是传递连线还是引导直线，都交给
+      <RoleIcon role="tank|dps" tag="近战" />
+      负责，
+      <RoleIcon role="healer|dps" tag="远程" />
+      只参与分摊，具体步骤如下：
+    </P>
+    <TwofoldTempestRRCarousel />
   </div>
 </MultiSolutionSection>
