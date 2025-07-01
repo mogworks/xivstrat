@@ -1,0 +1,278 @@
+---
+import Carousel from '@/components/Carousel.vue'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
+
+import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
+
+import { translations } from '../_translations'
+
+import img_1 from '@/assets/07/m8s2/p2/twofoldTempest_1.png'
+import img_2 from '@/assets/07/m8s2/p2/twofoldTempest_2.png'
+import img_3 from '@/assets/07/m8s2/p2/twofoldTempest_3.png'
+import img_4 from '@/assets/07/m8s2/p2/twofoldTempest_4.png'
+import img_5 from '@/assets/07/m8s2/p2/twofoldTempest_5.png'
+import img_6 from '@/assets/07/m8s2/p2/twofoldTempest_6.png'
+import img_7 from '@/assets/07/m8s2/p2/twofoldTempest_7.png'
+import img_8 from '@/assets/07/m8s2/p2/twofoldTempest_8.png'
+import img_9 from '@/assets/07/m8s2/p2/twofoldTempest_9.png'
+import img_10 from '@/assets/07/m8s2/p2/twofoldTempest_10.png'
+import img_11 from '@/assets/07/m8s2/p2/twofoldTempest_11.png'
+import img_12 from '@/assets/07/m8s2/p2/twofoldTempest_12.png'
+---
+
+<Carousel
+  class="relative mx-14 max-w-180"
+  loop={true}
+  slots={Array.from({ length: 12 }, (_, i) => (i + 1).toString())}
+  client:idle
+>
+  <div slot="1" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_1, alt: '', title: '处理流程 1 / 12' }]}
+    />
+    <P>
+      <RoleIcon role="dps" />
+      去左下/右下平台集合，
+      <RoleIcon role="healer|dps" />
+      站在传送装置以外的位置，
+      <RoleIcon role="tank" tag="双T" />
+      站在传送装置以内的位置
+    </P>
+    <P>
+      这样连线出现时必定在
+      <RoleIcon role="tank" tag="随机" />
+      身上
+    </P>
+  </div>
+  <div slot="2" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_2, alt: '', title: '处理流程 2 / 12' }]}
+    />
+    <P>
+      连线出现，这里以连线
+      <RoleIcon role="tank" tag="MT" />
+      为例，另一种情况是左右镜像的
+    </P>
+    <P>
+      为了方便描述，我们将连线出现的平台编号为
+      <Span variant="red">1</Span>，其它平台依次编号为
+      <Span variant="yellow">2</Span>、
+      <Span variant="sky">3</Span>、
+      <Span variant="purple">4</Span>
+    </P>
+  </div>
+  <div slot="3" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_3, alt: '', title: '处理流程 3 / 12' }]}
+    />
+    <P>
+      随后，
+      <RoleIcon role="dps" />
+      回到原平台，接下来传递连线和引导直线都由
+      <RoleIcon role="tank|dps" tag="近战" />
+      负责，
+      <RoleIcon role="healer|dps" tag="远程" />
+      只需等待分摊
+    </P>
+    <P>
+      我们需要按照
+      <Span variant="red">1</Span>
+      >
+      <Span variant="yellow">2</Span>
+      >
+      <Span variant="sky">3</Span>
+      >
+      <Span variant="purple">4</Span>
+      的顺序处理连线，同时按照
+      <Span variant="sky">3</Span>
+      >
+      <Span variant="purple">4</Span>
+      >
+      <Span variant="red">1</Span>
+      >
+      <Span variant="yellow">2</Span>
+      的顺序引导直线
+    </P>
+  </div>
+  <div slot="4" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_4, alt: '', title: '处理流程 4 / 12' }]}
+    />
+    <P>第一轮：</P>
+    <P>
+      <Span variant="red">1号平台</Span>
+      的两人在最远端分摊，
+      <Span variant="yellow">2号平台</Span>
+      的近战在传送装置以内等待传递连线
+    </P>
+    <P>
+      <Span variant="sky">3号平台</Span>
+      的近战在最近端引导直线，
+      <Span variant="purple">4号平台</Span>
+      暂时无事
+    </P>
+    <P>随后，连线分摊和直线分摊同时判定，第一轮处理结束</P>
+  </div>
+  <div slot="5" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_5, alt: '', title: '处理流程 5 / 12' }]}
+    />
+    <P>接着：</P>
+    <P>
+      <Span variant="red">1号平台</Span>
+      的远程（
+      <RoleIcon role="healer" tag="H1" />）躲开扩散毒圈，近战（
+      <RoleIcon role="tank" tag="MT" />）把线传递给
+      <Span variant="yellow">2号平台</Span>
+      的近战
+    </P>
+    <P>
+      <Span variant="sky">3号平台</Span>
+      的近战在传送装置以内等待传递连线
+    </P>
+    <P>
+      <Span variant="purple">4号平台</Span>
+      的近战（<RoleIcon role="tank" tag="ST" />）在最近端引导直线
+    </P>
+  </div>
+  <div slot="6" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_6, alt: '', title: '处理流程 6 / 12' }]}
+    />
+    <P>第二轮：</P>
+    <P>
+      <Span variant="red">1号平台</Span>
+      的近战（<RoleIcon role="tank" tag="MT" />）等
+      <ImmobileSuitDebuff hover />
+      倒计时结束就立刻回到
+      <Span variant="red">1号平台</Span>
+    </P>
+    <P>
+      <Span variant="yellow">2号平台</Span>
+      的两人在最远端分摊，
+      <Span variant="sky">3号平台</Span>
+      的近战在传送装置以内等待传递连线
+    </P>
+    <P>
+      <Span variant="purple">4号平台</Span>
+      的近战（<RoleIcon role="tank" tag="ST" />）在最近端引导直线
+    </P>
+    <P>随后，连线分摊和直线分摊同时判定，第二轮处理结束</P>
+  </div>
+  <div slot="7" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_7, alt: '', title: '处理流程 7 / 12' }]}
+    />
+    <P>接着：</P>
+    <P>
+      <Span variant="red">1号平台</Span>
+      的近战（<RoleIcon role="tank" tag="MT" />）在最近端引导直线
+    </P>
+    <P>
+      <Span variant="yellow">2号平台</Span>
+      的远程躲开扩散毒圈，近战把线传递给
+      <Span variant="sky">3号平台</Span>
+      的近战
+    </P>
+    <P>
+      <Span variant="purple">4号平台</Span>
+      的近战（<RoleIcon role="tank" tag="ST" />）在传送装置以内等待传递连线
+    </P>
+  </div>
+  <div slot="8" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_8, alt: '', title: '处理流程 8 / 12' }]}
+    />
+    <P>第三轮：</P>
+    <P>
+      <Span variant="red">1号平台</Span>
+      的近战（<RoleIcon role="tank" tag="MT" />）在最近端引导直线
+    </P>
+    <P>
+      <Span variant="yellow">2号平台</Span>
+      的近战等
+      <ImmobileSuitDebuff hover />
+      倒计时结束就立刻回到
+      <Span variant="yellow">2号平台</Span>
+    </P>
+    <P>
+      <Span variant="sky">3号平台</Span>
+      的两人在最远端分摊，
+      <Span variant="purple">4号平台</Span>
+      的近战（<RoleIcon role="tank" tag="ST" />）在传送装置以内等待传递连线
+    </P>
+    <P>随后，连线分摊和直线分摊同时判定，第三轮处理结束</P>
+  </div>
+  <div slot="9" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_9, alt: '', title: '处理流程 9 / 12' }]}
+    />
+    <P>（重复的注意事项和流程不再赘述）</P>
+    <P>继续如图所示传递连线和靠近引导</P>
+  </div>
+  <div slot="10" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_10, alt: '', title: '处理流程 10 / 12' }]}
+    />
+    <P>（重复的注意事项和流程不再赘述）</P>
+    <P>连线分摊和直线分摊同时判定，第四轮处理结束</P>
+  </div>
+  <div slot="11" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_11, alt: '', title: '处理流程 11 / 12' }]}
+    />
+    <P>（重复的注意事项和流程不再赘述）</P>
+    <P><Span variant="purple">4号平台</Span>的两人躲开扩散毒圈</P>
+  </div>
+  <div slot="12" class="mb-4 flex flex-col gap-4">
+    <ImgRow
+      wrapperClass="max-w-180 -mt-10"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: img_12, alt: '', title: '处理流程 12 / 12' }]}
+    />
+    <P>
+      机制结束，最南端平台恢复，
+      <RoleIcon role="all" tag="全员" />
+      抓紧时间回到初始平台，准备处理
+      <Skill name={translations.championsCircuit} />
+    </P>
+  </div>
+</Carousel>
