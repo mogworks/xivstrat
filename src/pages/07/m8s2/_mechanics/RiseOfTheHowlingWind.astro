@@ -7,22 +7,36 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import P from '@/components/typography/P.astro'
 import Quote from '@/components/typography/Quote.astro'
 import Span from '@/components/Span.vue'
-import teleport1_img from '@/assets/07/m8s2/teleport1.png'
-import teleport2_img from '@/assets/07/m8s2/teleport2.png'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import T from '@/components/typography/T.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 
 import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
 import RiseOfTheHowlingWindCast from '../_components/RiseOfTheHowlingWindCast.astro'
-
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-import T from '@/components/typography/T.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import TwofoldTempestCast from '../_components/TwofoldTempestCast.astro'
 import TwofoldTempestActivate from '../_components/TwofoldTempestActivate.astro'
-import mechanic_img from '@/assets/07/m8s2/p2/twofoldTempest_mech.png'
 
-const howlingBlade = '啸刃'
+import { translations } from '../_translations'
+
+import mechanic_img from '@/assets/07/m8s2/p2/twofoldTempest_mech.png'
+import teleport1_img from '@/assets/07/m8s2/teleport1.png'
+import teleport2_img from '@/assets/07/m8s2/teleport2.png'
+
+const howlingBlade = translations.howlingBlade
 
 const activateTimes = ['09:33.725', '09:40.823', '09:47.925', '09:54.982']
+
+const solutions = [
+  {
+    id: 'ROTHW-normal',
+    title: '解法：常规思路',
+  },
+  {
+    id: 'ROTHW-rr',
+    title: '解法：RR式【改】',
+  },
+]
+const defaultSolution = '解法：常规思路'
 ---
 
 <RiseOfTheHowlingWindCast start="09:17.549" />
@@ -105,8 +119,7 @@ const activateTimes = ['09:33.725', '09:40.823', '09:47.925', '09:54.982']
     <Image src={mechanic_img} alt="双牙暴风击范围" class="max-w-100 drop-shadow-sm drop-shadow-black" />
   </div>
 </MechanicSection>
-<SolutionSection>
-  <div class="flex flex-col gap-4">
-    <P> 待补充 </P>
-  </div>
-</SolutionSection>
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：常规思路" class="flex flex-col gap-4">TODO</div>
+  <div slot="解法：RR式【改】" class="flex flex-col gap-4">TODO</div>
+</MultiSolutionSection>
