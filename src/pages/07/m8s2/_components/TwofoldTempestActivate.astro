@@ -20,30 +20,27 @@ const { activateTimes }: Props = Astro.props
 
 <CollapseSection>
   <Fragment slot="summary">
-    依次判定<Span variant="pink">4</Span>组
-    <Quote variant="cyan">
+    依次判定<Span variant="pink">4</Span>次
+    <Quote variant="cyan" class="ml-1">
       <P>
-        对连线
-        <RoleIcon role="any" tag="随机" />
-        的
+        对<RoleIcon role="any" tag="连线" />：
         <Span variant="teal">圆形分摊</Span>
-        和毒圈
-        <DamageInfo damage="106000×2" type="magical" />
+        <DamageInfo damage="105000" type="magical" />
         <MagicVulnerabilityUp tag="9" hover />
-        <Badge variant="emerald">5m圆形</Badge>
+        <Badge variant="emerald">6m圆形</Badge>
+        <Badge variant="yellow">二二分摊</Badge>
         <Badge variant="red">扩散毒圈</Badge>
-        <Badge variant="yellow">分组分摊</Badge>
+        <Badge variant="red">人数检测</Badge>
       </P>
       <P>
-        对
-        <RoleIcon role="any" tag="最近" />
-        的
+        对<RoleIcon role="any" tag="最近" />：
         <Span variant="lime">直线分摊</Span>
-        ，覆盖所在平台
-        <DamageInfo damage="101000×2" type="magical" />
+        <DamageInfo damage="105000" type="magical" />
         <MagicVulnerabilityUp tag="9" hover />
         <Badge variant="emerald">16m宽直线</Badge>
-        <Badge variant="yellow">分组分摊</Badge>
+        <Badge variant="emerald">近引导</Badge>
+        <Badge variant="yellow">二二分摊</Badge>
+        <Badge variant="red">人数检测</Badge>
       </P>
     </Quote>
   </Fragment>
@@ -51,24 +48,28 @@ const { activateTimes }: Props = Astro.props
     {
       activateTimes.map((time, index) => (
         <EventSection time={time}>
-          第<Span variant="pink">{index + 1}</Span>组
-          <Quote variant="zinc">
+          第<Span variant="pink">{index + 1}</Span>次
+          <Quote variant="zinc" class="ml-1">
             <P>
               <Span variant="teal">圆形分摊</Span>
-              判定，<Span variant="pink">连线目标</Span>留下扩散毒圈
-              <DamageInfo damage="106000" type="magical" />
+              判定
+              <DamageInfo damage="105000" type="magical" />
               <MagicVulnerabilityUp tag="9" hover />
-              <Badge variant="emerald">5m圆形</Badge>
+              并留下扩散毒圈
+              <Badge variant="emerald">6m圆形</Badge>
+              <Badge variant="yellow">二二分摊</Badge>
               <Badge variant="red">扩散毒圈</Badge>
-              <Badge variant="yellow">分摊</Badge>
+              <Badge variant="red">人数检测</Badge>
             </P>
             <P>
               <Span variant="lime">直线分摊</Span>
               判定
-              <DamageInfo damage="101000" type="magical" />
+              <DamageInfo damage="105000" type="magical" />
               <MagicVulnerabilityUp tag="9" hover />
               <Badge variant="emerald">16m宽直线</Badge>
-              <Badge variant="yellow">分摊</Badge>
+              <Badge variant="emerald">近引导</Badge>
+              <Badge variant="yellow">二二分摊</Badge>
+              <Badge variant="red">人数检测</Badge>
             </P>
           </Quote>
         </EventSection>

@@ -32,6 +32,9 @@ importers:
       clsx:
         specifier: 2.1.1
         version: 2.1.1
+      embla-carousel-vue:
+        specifier: 8.6.0
+        version: 8.6.0(vue@3.5.17(typescript@5.8.3))
       lucide-vue-next:
         specifier: 0.525.0
         version: 0.525.0(vue@3.5.17(typescript@5.8.3))
@@ -2361,6 +2364,19 @@ packages:
     resolution: {integrity: sha512-ouVtHbHDFsRBHPGx9G6RDm4ccPaSCmrrR8tbUGZuqbJhqIClVBkVMz94Spjihag2Zo1eHtYD+KevALrc/94g1g==}
     engines: {node: '>= 12.20.55'}
     hasBin: true
+
+  embla-carousel-reactive-utils@8.6.0:
+    resolution: {integrity: sha512-fMVUDUEx0/uIEDM0Mz3dHznDhfX+znCCDCeIophYb1QGVM7YThSWX+wz11zlYwWFOr74b4QLGg0hrGPJeG2s4A==}
+    peerDependencies:
+      embla-carousel: 8.6.0
+
+  embla-carousel-vue@8.6.0:
+    resolution: {integrity: sha512-v8UO5UsyLocZnu/LbfQA7Dn2QHuZKurJY93VUmZYP//QRWoCWOsionmvLLAlibkET3pGPs7++03VhJKbWD7vhQ==}
+    peerDependencies:
+      vue: ^3.2.37
+
+  embla-carousel@8.6.0:
+    resolution: {integrity: sha512-SjWyZBHJPbqxHOzckOfo8lHisEaJWmwd23XppYFYVh10bU66/Pn5tkVkbkCMZVdbUE5eTCI2nD8OyIP4Z+uwkA==}
 
   emmet@2.4.11:
     resolution: {integrity: sha512-23QPJB3moh/U9sT4rQzGgeyyGIrcM+GH5uVYg2C6wZIxAIJq7Ng3QLT79tl8FUwDXhyq9SusfknOrofAKqvgyQ==}
@@ -7775,6 +7791,18 @@ snapshots:
       extract-zip: 2.0.1
     transitivePeerDependencies:
       - supports-color
+
+  embla-carousel-reactive-utils@8.6.0(embla-carousel@8.6.0):
+    dependencies:
+      embla-carousel: 8.6.0
+
+  embla-carousel-vue@8.6.0(vue@3.5.17(typescript@5.8.3)):
+    dependencies:
+      embla-carousel: 8.6.0
+      embla-carousel-reactive-utils: 8.6.0(embla-carousel@8.6.0)
+      vue: 3.5.17(typescript@5.8.3)
+
+  embla-carousel@8.6.0: {}
 
   emmet@2.4.11:
     dependencies:

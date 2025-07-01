@@ -1,7 +1,6 @@
 ---
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import type { Time } from '@/lib/utils'
 
 import HowlingBlade from './entities/HowlingBlade.astro'
@@ -14,12 +13,11 @@ interface Props {
 const { start }: Props = Astro.props
 const duration = 6.7
 
-const twofoldTempest = translations.twofoldTempest
+const riseOfTheHuntersBlade = translations.riseOfTheHuntersBlade
 ---
 
-<CastSection start={start} duration={duration} ability={twofoldTempest}>
+<CastSection start={start} duration={duration} ability={riseOfTheHuntersBlade}>
   <HowlingBlade slot="source" />
-  <Badge variant="yellow">二二分摊</Badge>
-  <Badge variant="red">扩散毒圈</Badge>
-  <Badge variant="red">人数检测</Badge>
+  ，干扰传送装置
+  <Badge variant="emerald">传送间隔+</Badge>
 </CastSection>

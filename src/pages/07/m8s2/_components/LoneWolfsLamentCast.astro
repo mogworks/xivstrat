@@ -14,11 +14,13 @@ interface Props {
 
 const { start }: Props = Astro.props
 
-const prowlingGale = translations.prowlingGale
+const loneWolfsLament = translations.loneWolfsLament
+
+// 如果要修改这个文件注意p2跟p3复用了同一个
 ---
 
-<CastSection start={start} duration={2.7} ability={prowlingGale}>
+<CastSection start={start} duration={2.7} ability={loneWolfsLament}>
   <HowlingBlade slot="source" />
-  ，在场地上生成若干塔
-  <Badge variant="yellow">踩塔</Badge>
+
+  <Badge variant="yellow">连线出现</Badge>
 </CastSection>

@@ -1,9 +1,358 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import P from '@/components/typography/P.astro'
+import HowlingBlade from './_components/entities/HowlingBlade.astro'
+import Skill from '@/components/typography/Skill.astro'
+import DamageUp from '@/components/buff/DamageUp.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import Span from '@/components/Span.vue'
+import Quote from '@/components/typography/Quote.astro'
+import JobIcon from '@/components/JobIcon.astro'
+
+import MooncleaverCast from './_components/MooncleaverCast.astro'
+import StarcleaverCast from './_components/StarcleaverCast.astro'
+
+import HowlingEight8 from './_mechanics/HowlingEight8.astro'
+import HowlingEight1 from './_mechanics/HowlingEight1.astro'
+import HowlingEight2 from './_mechanics/HowlingEight2.astro'
+
+import { translations } from './_translations'
+
+import img_1 from '@/assets/07/m8s2/p4/enrage1.png'
+import img_2 from '@/assets/07/m8s2/p4/enrage2.png'
+import img_3 from '@/assets/07/m8s2/p4/enrage3.png'
+import img_4 from '@/assets/07/m8s2/p4/enrage4.png'
+import img_5 from '@/assets/07/m8s2/p4/enrage5.png'
 
 const dutyId = '07/m8s2'
 
 const base = '12:19.819'
 ---
 
-<DutyStratLayout dutyId={dutyId} base={base} />
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <SeparatorSection
+    id="howling-eight-mooncleaver-1"
+    title={`${translations.howlingEight} + ${translations.mooncleaver}・一`}
+  />
+  <HowlingEight8
+    start="12:19.819"
+    duration={8.7}
+    activateTimes={[
+      '12:28.877',
+      '12:29.898',
+      '12:30.786',
+      '12:31.587',
+      '12:32.209',
+      '12:32.696',
+      '12:33.097',
+      '12:34.876',
+    ]}
+  />
+  <MooncleaverCast start="12:35.276" stack={true} />
+  <SolutionSection>
+    <div class="flex flex-col gap-4">
+      <P>
+        躲完上次的
+        <Skill name={translations.ultraviolentRay} />
+        后，
+        <RoleIcon role="all" tag="全员" />
+        迅速回到
+        <HowlingBlade />
+        正面目标圈大箭头指向的平台集合，引导连续分摊
+      </P>
+      <ImgRow
+        class="-mt-6 mb-6"
+        wrapperClass="max-w-120 scale-125"
+        bordered={false}
+        imgClass="shadowbringer"
+        imgs={[{ src: img_1, alt: '八连光弹1' }]}
+      />
+      <P>注意：</P>
+      <Quote variant="lime">
+        <P>
+          首次由
+          <RoleIcon role="all" tag="全员" />
+          减伤分摊，
+          <Span variant="cyan">90s团减可以在读条开始时就开启</Span>
+          ，这样可以在最后一次
+          <Skill name={translations.howlingEight} />
+          时转好
+        </P>
+        <P>
+          <Span variant="cyan">分摊结束后不要着急走，务必等</Span>
+          <HowlingBlade />
+          <Span variant="cyan">读条</Span>
+          <Skill name={translations.mooncleaver} />
+          <Span variant="cyan">锁定初始平台后，再顺时针传送去下一个平台</Span>
+        </P>
+      </Quote>
+    </div>
+  </SolutionSection>
+
+  <SeparatorSection title="关于分摊伤害数值的说明" />
+  <NoteSection>
+    <div class="flex flex-col gap-4">
+      <P>
+        每次
+        <HowlingBlade />
+        释放
+        <Skill name={translations.mooncleaver} />
+        后都会获得
+        <DamageUp layer={1} hover />
+        ，因此实际伤害是会越来越高的
+      </P>
+      <P>但由于连续分摊的伤害很难测量，以下时间轴的伤害数据依然沿用第一次的测量值</P>
+    </div>
+  </NoteSection>
+
+  <SeparatorSection
+    id="howling-eight-mooncleaver-2"
+    title={`${translations.howlingEight} + ${translations.mooncleaver}・二`}
+  />
+  <HowlingEight1
+    start="12:42.435"
+    duration={5.7}
+    activateTimes={[
+      '12:48.519',
+      '12:49.499',
+      '12:50.433',
+      '12:51.233',
+      '12:51.812',
+      '12:52.301',
+      '12:52.702',
+      '12:54.526',
+    ]}
+    tank="MT"
+  />
+  <MooncleaverCast start="12:54.882" stack={true} />
+  <SolutionSection>
+    <div class="flex flex-col gap-4">
+      <P>
+        第<Span variant="pink">2</Span>次，
+        <RoleIcon role="all" tag="全员" />
+        <Span variant="cyan">先集合引导，等</Span>
+        <HowlingBlade />
+        <Span variant="cyan">读条</Span>
+        <Skill name={translations.howlingEight} />
+        <Span variant="cyan">后，除</Span>
+        <RoleIcon role="tank" tag="MT" />
+        <Span variant="cyan">外，其他人顺时针传送去下一个平台</Span>
+      </P>
+      <P>
+        <RoleIcon role="tank" tag="MT" />
+        留下并开启无敌单吃分摊
+      </P>
+      <ImgRow
+        class="-mt-6 ml-10"
+        wrapperClass="max-w-120 scale-125"
+        bordered={false}
+        imgClass="shadowbringer"
+        imgs={[{ src: img_2, alt: '八连光弹2' }]}
+      />
+      <P>注意：</P>
+      <Quote variant="lime">
+        <P>
+          <HowlingBlade />
+          <Span variant="cyan">开始读条</Span>
+          <Skill name={translations.howlingEight} />
+          <Span variant="cyan">前不要着急走，人群务必等分摊标记出现后，再顺时针传送去下一平台</Span>
+        </P>
+        <P>
+          <Span variant="cyan">分摊结束后</Span>
+          <RoleIcon role="tank" tag="MT" />
+          <Span variant="cyan">不要着急走，务必等</Span>
+          <HowlingBlade />
+          <Span variant="cyan">读条</Span>
+          <Skill name={translations.mooncleaver} />
+          <Span variant="cyan">锁定当前平台后，再顺时针传送去人群平台</Span>
+        </P>
+      </Quote>
+    </div>
+  </SolutionSection>
+
+  <SeparatorSection
+    id="howling-eight-mooncleaver-3"
+    title={`${translations.howlingEight} + ${translations.mooncleaver}・三`}
+  />
+  <HowlingEight1
+    start="13:02.045"
+    duration={5.7}
+    activateTimes={[
+      '13:08.131',
+      '13:09.108',
+      '13:10.040',
+      '13:10.839',
+      '13:11.416',
+      '13:11.904',
+      '13:12.304',
+      '13:14.125',
+    ]}
+    tank="ST"
+  />
+  <MooncleaverCast start="13:14.481" stack={true} />
+  <SolutionSection>
+    <div class="flex flex-col gap-4">
+      <P>
+        第<Span variant="pink">3</Span>次，
+        <RoleIcon role="all" tag="全员" />
+        <Span variant="cyan">先集合引导，等</Span>
+        <HowlingBlade />
+        <Span variant="cyan">读条</Span>
+        <Skill name={translations.howlingEight} />
+        <Span variant="cyan">后，除</Span>
+        <RoleIcon role="tank" tag="ST" />
+        <Span variant="cyan">外，其他人顺时针传送去下一个平台</Span>
+      </P>
+      <P>
+        <RoleIcon role="tank" tag="ST" />
+        留下并开启无敌单吃分摊
+      </P>
+      <ImgRow
+        class="mt-4"
+        wrapperClass="max-w-120 scale-125"
+        bordered={false}
+        imgClass="shadowbringer"
+        imgs={[{ src: img_3, alt: '八连光弹3' }]}
+      />
+      <P>注意：</P>
+      <Quote variant="lime">
+        <P>
+          <HowlingBlade />
+          <Span variant="cyan">开始读条</Span>
+          <Skill name={translations.howlingEight} />
+          <Span variant="cyan">前不要着急走，人群务必等分摊标记出现后，再顺时针传送去下一平台</Span>
+        </P>
+        <P>
+          <Span variant="cyan">分摊结束后</Span>
+          <RoleIcon role="tank" tag="ST" />
+          <Span variant="cyan">不要着急走，务必等</Span>
+          <HowlingBlade />
+          <Span variant="cyan">读条</Span>
+          <Skill name={translations.mooncleaver} />
+          <Span variant="cyan">锁定当前平台后，再顺时针传送去人群平台</Span>
+        </P>
+      </Quote>
+    </div>
+  </SolutionSection>
+
+  <SeparatorSection
+    id="howling-eight-mooncleaver-4"
+    title={`${translations.howlingEight} + ${translations.mooncleaver}・四`}
+  />
+  <HowlingEight2
+    start="13:21.627"
+    duration={5.7}
+    activateTimes={[
+      '13:27.706',
+      '13:28.726',
+      '13:29.613',
+      '13:30.413',
+      '13:30.989',
+      '13:31.522',
+      '13:31.921',
+      '13:33.697',
+    ]}
+  />
+  <MooncleaverCast start="13:34.052" stack={true} />
+  <SolutionSection>
+    <div class="flex flex-col gap-4">
+      <P>
+        第<Span variant="pink">4</Span>次，
+        <RoleIcon role="all" tag="全员" />
+        <Span variant="cyan">先集合引导，等</Span>
+        <HowlingBlade />
+        <Span variant="cyan">读条</Span>
+        <Skill name={translations.howlingEight} />
+        <Span variant="cyan">后，除</Span>
+        <RoleIcon role="tank" tag="双T" />
+        <Span variant="cyan">外，其他人顺时针传送去下一个平台</Span>
+      </P>
+      <P>
+        <RoleIcon role="tank" tag="双T" />
+        留下并开启全减分摊，除
+        <JobIcon job="DRK" />
+        <JobIcon job="GNB" />
+        组合外，建议
+        <RoleIcon role="tank" tag="双T" />
+        互给支援减以提升减伤效率
+      </P>
+      <P>
+        可以安排某一
+        <RoleIcon role="tank" />
+        的雪仇给这里，
+        <RoleIcon role="healer" />
+        注意奶好
+        <RoleIcon role="tank" tag="双T" />
+        ，不要吝啬手里的单减
+      </P>
+      <ImgRow
+        class="mt-4"
+        wrapperClass="max-w-120 scale-125"
+        bordered={false}
+        imgClass="shadowbringer"
+        imgs={[{ src: img_4, alt: '八连光弹4' }]}
+      />
+      <P>注意：</P>
+      <Quote variant="lime">
+        <P>
+          <HowlingBlade />
+          <Span variant="cyan">开始读条</Span>
+          <Skill name={translations.howlingEight} />
+          <Span variant="cyan">前不要着急走，人群务必等分摊标记出现后，再顺时针传送去下一平台</Span>
+        </P>
+        <P>
+          <Span variant="cyan">分摊结束后</Span>
+          <RoleIcon role="tank" tag="双T" />
+          <Span variant="cyan">不要着急走，务必等</Span>
+          <HowlingBlade />
+          <Span variant="cyan">读条</Span>
+          <Skill name={translations.mooncleaver} />
+          <Span variant="cyan">锁定当前平台后，再顺时针传送去人群平台</Span>
+        </P>
+      </Quote>
+    </div>
+  </SolutionSection>
+
+  <SeparatorSection
+    id="howling-eight-starcleaver"
+    title={`${translations.howlingEight} + ${translations.starcleaver}`}
+  />
+  <HowlingEight8
+    start="13:41.205"
+    duration={5.7}
+    activateTimes={[
+      '13:47.295',
+      '13:48.272',
+      '13:49.162',
+      '13:49.965',
+      '13:50.589',
+      '13:51.078',
+      '13:51.480',
+      '13:53.260',
+    ]}
+  />
+  <StarcleaverCast start="13:53.662" />
+  <SolutionSection>
+    <div class="flex flex-col gap-4">
+      <P>
+        第<Span variant="pink">5</Span>次也是最后一次，
+        <RoleIcon role="all" tag="全员" />
+        分摊，有什么团减就都开启，在狂暴前击杀
+        <HowlingBlade />
+        吧
+      </P>
+      <ImgRow
+        class="-mt-6 ml-10"
+        wrapperClass="max-w-120 scale-125"
+        bordered={false}
+        imgClass="shadowbringer"
+        imgs={[{ src: img_5, alt: '八连光弹5' }]}
+      />
+    </div>
+  </SolutionSection>
+</DutyStratLayout>

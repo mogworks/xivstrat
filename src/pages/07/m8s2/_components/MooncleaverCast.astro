@@ -1,5 +1,5 @@
 ---
-import { type Time } from '@/lib/utils'
+import { timeToSeconds, type Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
 
@@ -9,24 +9,38 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import Skill from '@/components/typography/Skill.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import StratInterval from '@/components/StratInterval.astro'
+import Span from '@/components/Span.vue'
+import DamageUp from '@/components/buff/DamageUp.astro'
 
 interface Props {
   start: Time
+  stack?: boolean
 }
 
-const { start }: Props = Astro.props
-
+const { start, stack = false }: Props = Astro.props
+const duration = stack ? 3.7 + 0.3 : 4.7 + 0.3
 const mooncleaver = translations.mooncleaver
 ---
 
 <EventSection>
-  <StratInterval slot="time" start={start} duration={4.7 + 0.3} />
+  <StratInterval slot="time" start={start} duration={duration} />
   <HowlingBlade />
   读条
   <Skill name={mooncleaver} />
-  ，读条开始时锁定
+  ，摧毁读条开始时{stack && <Span variant="cyan">参与分摊的</Span>}
   <RoleIcon role="any" tag="随机" />
-  所在平台，读条结束时摧毁该平台
+  所在平台
   <Badge variant="emerald">引导</Badge>
   <Badge variant="emerald">摧毁平台</Badge>
 </EventSection>
+
+{
+  stack && (
+    <EventSection time={timeToSeconds(start) + duration + 0.13}>
+      <HowlingBlade />
+      获得
+      <DamageUp layer={1} hover />
+      <Badge variant="emerald">伤害提高</Badge>
+    </EventSection>
+  )
+}
