@@ -10,6 +10,8 @@ import Span from '@/components/Span.vue'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import T from '@/components/typography/T.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
 
 import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
 import RiseOfTheHowlingWindCast from '../_components/RiseOfTheHowlingWindCast.astro'
@@ -19,8 +21,6 @@ import TwofoldTempestActivate from '../_components/TwofoldTempestActivate.astro'
 import { translations } from '../_translations'
 
 import mechanic_img from '@/assets/07/m8s2/p2/twofoldTempest_mech.png'
-import teleport1_img from '@/assets/07/m8s2/teleport1.png'
-import teleport2_img from '@/assets/07/m8s2/teleport2.png'
 
 const howlingBlade = translations.howlingBlade
 
@@ -44,79 +44,76 @@ const defaultSolution = '解法：常规思路'
 <TwofoldTempestActivate activateTimes={activateTimes} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
+    <T variant="yellow" text={translations.riseOfTheHowlingWind} />
+    <P>读条结束后，屏幕中央出现文字提示</P>
     <P>
-      传送时长限制是由
-      <ImmobileSuitDebuff hover />
-      作用于单个角色
-    </P>
-    <P>
-      该技能判定后，传送装置的冷却时间由
-      <ImmobileSuitDebuff tag="2" />
-      延长至
-      <ImmobileSuitDebuff tag="7" />
-    </P>
-    <P>延长生效还有以下提示：</P>
-    <P>
-      <ListDot />
-      读条结束后，屏幕中出现文字提示
-    </P>
-    <Quote variant="slate">
-      <Span variant="stone">
-        {howlingBlade}的干扰使得传送装置的冷却时间延长……
+      <Span
+        variant="default"
+        class="bg-gradient-to-r from-transparent from-5% via-red-300 via-50% to-transparent to-95% px-20 text-lg font-medium text-amber-950 dark:via-red-900 dark:text-amber-100"
+      >
+        {howlingBlade}使传送装置过载，限制了其可用性…
       </Span>
-    </Quote>
+    </P>
     <P>
-      <ListDot />
-      传送装置的颜色由
+      此后，传送装置的颜色由
       <Span variant="cyan">蓝色</Span>
       变成
       <Span variant="red">红色</Span>
+      ，原本每次使用传送装置被赋予的
+      <ImmobileSuitDebuff tag="2" hover />
+      也延长为
+      <ImmobileSuitDebuff tag="7" hover />
     </P>
-    <ImgRow
-      wrapperClass="max-w-20"
-      borderVariant="cyan"
-      imgs={[
-        {
-          src: teleport1_img,
-          alt: '传送装置样式1',
-        },
-        {
-          src: teleport2_img,
-          alt: '传送装置样式2',
-        },
-      ]}
-    />
-  </div>
-</MechanicSection>
-<MechanicSection>
-  <div class="flex flex-col gap-4">
+
+    <T variant="yellow" text={translations.twofoldTempest} class="mt-8" />
     <P>
-      由于
+      读条开始时连线
+      <RoleIcon role="any" tag="随机" />
+      ，读条结束后，每隔约
+      <Span variant="pink">7s</Span>
+      判定一次点名
+      <RoleIcon role="any" tag="连线" />
+      的
+      <Span variant="teal">圆形分摊</Span>
+      和点名
+      <RoleIcon role="any" tag="最近" />
+      的
+      <Span variant="lime">直线分摊</Span>
+    </P>
+    <P>
+      无论
+      <Span variant="teal">圆形</Span>
+      还是
+      <Span variant="lime">直线</Span>
+      都带人数检测，两人分摊时受到约
+      <DamageInfo damage="105000" type="magical" />
       <MagicVulnerabilityUp tag="9" hover />
-      的存在而每组伤害仅间隔
-      <Span variant="rose">7秒</Span>
-      左右，玩家需要合理分配分摊顺序
+      ，人数不足时则远超血量上限
     </P>
     <P>
       <Span variant="teal">圆形分摊</Span>
-      的连线是可以被其他玩家接取，伤害判定时会留下以
-      <Span variant="pink">连线目标</Span>
-      为中心的毒圈
-    </P>
-    <P>
-      <Span variant="teal">圆形分摊</Span>
-      的毒圈初始半径为
-      <Span variant="rose">5m</Span>
-      ，落地3秒后开始逐渐扩大至
-      <Span variant="rose">10m</Span>
-      ，略大于平台半径
+      半径
+      <Span variant="pink">6m</Span>
+      ，判定后留下一个
+      <Span variant="red">即死</Span>
+      毒圈，初始半径
+      <Span variant="pink">5m</Span>
+      ，3秒后开始逐渐扩大至
+      <Span variant="pink">10m</Span>
     </P>
     <P>
       <Span variant="lime">直线分摊</Span>
-      的攻击范围会覆盖整个平台
+      宽度
+      <Span variant="pink">16m</Span>
+      ，刚好覆盖整个平台
     </P>
-    <T variant="yellow" text="范围示意" />
-    <Image src={mechanic_img} alt="双牙暴风击范围" class="max-w-100 drop-shadow-sm drop-shadow-black" />
+    <P>
+      <Span variant="teal">圆形分摊</Span>、
+      <Span variant="green">扩散毒圈</Span>
+      和
+      <Span variant="lime">直线分摊</Span>
+      的范围示意如下：
+    </P>
   </div>
 </MechanicSection>
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>

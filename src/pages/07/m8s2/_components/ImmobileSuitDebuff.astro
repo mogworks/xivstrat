@@ -10,13 +10,14 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+// TODO: 翻译
 ---
 
 <Buff
   icon={immobile_suit}
-  name="Immobile Suit"
+  name="禁止使用传送装置"
   nameVariant="yellow"
-  description="Unable to teleport due to system overload."
+  description="由于系统过载，无法使用传送装置"
   tag={tag}
   hover={hover}
   class={className}
