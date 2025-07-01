@@ -12,6 +12,7 @@ import T from '@/components/typography/T.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
+import StratLink from '@/components/StratLink.astro'
 
 import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
 import RiseOfTheHowlingWindCast from '../_components/RiseOfTheHowlingWindCast.astro'
@@ -123,6 +124,18 @@ const defaultSolution = '解法：常规思路'
   </div>
 </MechanicSection>
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
-  <div slot="解法：常规思路" class="flex flex-col gap-4">TODO</div>
-  <div slot="解法：RR式【改】" class="flex flex-col gap-4">TODO</div>
+  <div slot="解法：常规思路" class="flex flex-col gap-4">
+    <P>TODO</P>
+  </div>
+  <div slot="解法：RR式【改】" class="flex flex-col gap-4">
+    <Quote variant="lime" class="opacity-80">
+      <P>
+        本解法参考并修改自
+        <StratLink variant="sky" href="https://www.bilibili.com/video/BV1nrVUzdE3V/" target="_blank">
+          RR式：【FF14】M8S本体一运优化解法
+        </StratLink>
+      </P>
+    </Quote>
+    <P>TODO</P>
+  </div>
 </MultiSolutionSection>
