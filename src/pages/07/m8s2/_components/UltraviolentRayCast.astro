@@ -1,5 +1,5 @@
 ---
-import type { Time } from '@/lib/utils'
+import { timeToSeconds, type Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
 import CastSection from '@/components/section/CastSection.astro'
@@ -10,6 +10,9 @@ import Span from '@/components/Span.vue'
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
 import { translations } from '../_translations'
+import Quote from '@/components/typography/Quote.astro'
+import P from '@/components/typography/P.astro'
+import GleamingBeamCast from './GleamingBeamCast.astro'
 
 interface Props {
   start: Time
@@ -24,25 +27,35 @@ const ultraviolentRay = translations.ultraviolentRay
   start={start}
   duration={5.7}
   ability={ultraviolentRay}
-  target
   damage="100000"
   damageType="magical"
   damageVariant="skywardLeap"
 >
-  <HowlingBlade slot="source" />
-
-  <div slot="target">
-    <Span variant="pink">4</Span>
-    <RoleIcon role="tank|healer" />
-    <Span variant="pink">1</Span>
-    <RoleIcon role="dps" />
-    或
-    <Span variant="pink">4</Span>
-    <RoleIcon role="dps" />
-    <Span variant="pink">1</Span>
-    <RoleIcon role="tank|healer" />
-  </div>
+  <Fragment slot="source">
+    <span class="text-sm opacity-80">或</span>
+    <Quote variant="teal" class="ml-1">
+      <P>
+        <HowlingBlade />
+        对
+        <Span variant="pink">4</Span>
+        <RoleIcon role="tank|healer" />
+        +
+        <Span variant="pink">1</Span>
+        <RoleIcon role="dps" tag="随机" />
+      </P>
+      <P>
+        <HowlingBlade />
+        对
+        <Span variant="pink">4</Span>
+        <RoleIcon role="dps" />
+        +
+        <Span variant="pink">1</Span>
+        <RoleIcon role="tank|healer" tag="随机" />
+      </P>
+    </Quote>
+  </Fragment>
 
   <MagicVulnerabilityUp tag="1" />
   <Badge variant="yellow">分散</Badge>
 </CastSection>
+<GleamingBeamCast start={timeToSeconds(start) + 2} />

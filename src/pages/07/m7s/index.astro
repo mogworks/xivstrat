@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import { getEntry } from 'astro:content'
 
 import ScannerSVG from '@/assets/svg/scanner.svg'
 import BiliBiliSVG from '@/assets/svg/bilibili.svg'
@@ -16,8 +17,8 @@ import Thanks from '@/components/thanks/Thanks.astro'
 
 // TODO: 需要替换
 import CheatsheetsP1Image from '@/assets/cheatsheets/07/m7s_p1.png'
-import CheatsheetsP2Image from '@/assets/cheatsheets/07/m7s.png'
-import CheatsheetsP3Image from '@/assets/cheatsheets/07/m7s.png'
+import CheatsheetsP2Image from '@/assets/cheatsheets/07/m7s_p2.jpg'
+import CheatsheetsP3Image from '@/assets/cheatsheets/07/m7s_p3.jpg'
 import WaymarkImage1 from '@/assets/waymarks/07/m7s_p2.png'
 import WaymarkImage2 from '@/assets/waymarks/07/m7s_p3.png'
 import TimelineImage from '@/assets/timelines/07/m7s.png'
@@ -27,6 +28,7 @@ import { referenceList } from './_data/reference'
 import { thanksList } from './_data/thanks'
 
 const dutyId = '07/m7s'
+const duty = (await getEntry('duties', dutyId))!.data
 const navList = [
   { label: '小抄速览', id: 'cheatsheet' },
   { label: '场地标点', id: 'waymark' },
@@ -35,7 +37,7 @@ const navList = [
   { label: '参考资料', id: 'reference' },
   { label: '鸣谢', id: 'thanks' },
 ]
-const videoLink = ''
+const videoLink = duty.bilibili ?? undefined
 ---
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>

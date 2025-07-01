@@ -6,13 +6,16 @@
   "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级2 超详解动态图文攻略",
   "navigationInfo": {
     "name": "M6S",
-    "parent": ["阿卡狄亚零式登天斗技场 中量级"]
+    "parent": [
+      "阿卡狄亚零式登天斗技场 中量级"
+    ]
   },
   "banner": "@/assets/banners/07/m6s.png",
   "date": "25/06/21 18:00",
   "href": "/07/m6s",
   "status": "done",
   "indexAvailable": true,
+  "bilibili": "https://www.bilibili.com/video/BV1riKdzoESQ/",
   "phases": [
     {
       "href": "/07/m6s/p1",
