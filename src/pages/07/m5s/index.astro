@@ -67,7 +67,11 @@ const videoLink = duty.bilibili ?? undefined
     </AreaBox>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
-    <WaymarkBox href="/waymarks/07/AacCruiserweight/UISAVE.DAT" img={WaymarkImage} downloadLabel="下载5~8层标点文件" />
+    <WaymarkBox
+      href="/waymarks/07/AacCruiserweight/UISAVE.DAT?v=1"
+      img={WaymarkImage}
+      downloadLabel="下载5~8层标点文件"
+    />
     <Fragment slot="header">
       <span>场地标点</span>
     </Fragment>
