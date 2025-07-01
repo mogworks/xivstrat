@@ -25,4 +25,5 @@ export const translations = {
   patienceOfWindDesp: '体内残留着风属性的魔力。效果时间结束时对周围发动魔法',
   patienceOfStone: '土之残响',
   patienceOfStoneDesp: '体内残留着土属性的魔力。效果时间结束时对周围发动魔法',
+  howlingBlade: '剑嚎',
 }
