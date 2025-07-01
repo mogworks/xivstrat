@@ -20,7 +20,7 @@ import TwofoldTempestActivate from '../_components/TwofoldTempestActivate.astro'
 
 import { translations } from '../_translations'
 
-import mechanic_img from '@/assets/07/m8s2/p2/twofoldTempest_mech.png'
+import twofoldTempest_img from '@/assets/07/m8s2/p2/twofoldTempest_mech.png'
 
 const howlingBlade = translations.howlingBlade
 
@@ -114,6 +114,12 @@ const defaultSolution = '解法：常规思路'
       <Span variant="lime">直线分摊</Span>
       的范围示意如下：
     </P>
+    <ImgRow
+      wrapperClass="max-w-150"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: twofoldTempest_img, alt: '双牙暴风击范围' }]}
+    />
   </div>
 </MechanicSection>
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
