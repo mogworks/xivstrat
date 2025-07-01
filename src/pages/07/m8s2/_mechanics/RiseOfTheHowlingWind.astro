@@ -1,5 +1,5 @@
 ---
-import { type Time } from '@/lib/utils'
+import { Image } from 'astro:assets'
 
 import ImgRow from '@/components/typography/ImgRow.astro'
 import ListDot from '@/components/ListDot.astro'
@@ -7,65 +7,135 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import P from '@/components/typography/P.astro'
 import Quote from '@/components/typography/Quote.astro'
 import Span from '@/components/Span.vue'
-import teleport1_img from '@/assets/07/m8s2/teleport1.png'
-import teleport2_img from '@/assets/07/m8s2/teleport2.png'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import T from '@/components/typography/T.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import StratLink from '@/components/StratLink.astro'
 
 import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
 import RiseOfTheHowlingWindCast from '../_components/RiseOfTheHowlingWindCast.astro'
+import TwofoldTempestCast from '../_components/TwofoldTempestCast.astro'
+import TwofoldTempestActivate from '../_components/TwofoldTempestActivate.astro'
 
-interface Props {
-  start: Time
-}
+import { translations } from '../_translations'
 
-const { start }: Props = Astro.props
+import twofoldTempest_img from '@/assets/07/m8s2/p2/twofoldTempest_mech.png'
 
-const howlingBlade = '啸刃'
+const howlingBlade = translations.howlingBlade
+
+const activateTimes = ['09:33.725', '09:40.823', '09:47.925', '09:55.027']
+
+const solutions = [
+  {
+    id: 'ROTHW-normal',
+    title: '解法：常规思路',
+  },
+  {
+    id: 'ROTHW-rr',
+    title: '解法：RR式【改】',
+  },
+]
+const defaultSolution = '解法：常规思路'
 ---
 
-<RiseOfTheHowlingWindCast start={start} />
+<RiseOfTheHowlingWindCast start="09:17.549" />
+<TwofoldTempestCast start="09:26.675" />
+<TwofoldTempestActivate activateTimes={activateTimes} />
 <MechanicSection>
   <div class="flex flex-col gap-4">
+    <T variant="yellow" text={translations.riseOfTheHowlingWind} />
+    <P>读条结束后，屏幕中央出现文字提示</P>
     <P>
-      传送时长限制是由
-      <ImmobileSuitDebuff hover />
-      作用于单个角色
-    </P>
-    <P>
-      该技能判定后，传送装置的冷却时间由
-      <ImmobileSuitDebuff tag="2" />
-      延长至
-      <ImmobileSuitDebuff tag="7" />
-    </P>
-    <P>延长生效还有以下提示：</P>
-    <P>
-      <ListDot />
-      读条结束后，屏幕中出现文字提示
-    </P>
-    <Quote variant="slate">
-      <Span variant="stone">
-        {howlingBlade}的干扰使得传送装置的冷却时间延长……
+      <Span
+        variant="default"
+        class="bg-gradient-to-r from-transparent from-5% via-red-300 via-50% to-transparent to-95% px-20 text-lg font-medium text-amber-950 dark:via-red-900 dark:text-amber-100"
+      >
+        {howlingBlade}使传送装置过载，限制了其可用性…
       </Span>
-    </Quote>
+    </P>
     <P>
-      <ListDot />
-      传送装置的颜色由
+      此后，传送装置的颜色由
       <Span variant="cyan">蓝色</Span>
       变成
       <Span variant="red">红色</Span>
+      ，原本每次使用传送装置被赋予的
+      <ImmobileSuitDebuff tag="2" hover />
+      也延长为
+      <ImmobileSuitDebuff tag="7" hover />
+    </P>
+
+    <T variant="yellow" text={translations.twofoldTempest} class="mt-8" />
+    <P>
+      读条开始时连线
+      <RoleIcon role="any" tag="随机" />
+      ，读条结束后，每隔约
+      <Span variant="pink">7s</Span>
+      判定一次点名
+      <RoleIcon role="any" tag="连线" />
+      的
+      <Span variant="teal">圆形分摊</Span>
+      和点名
+      <RoleIcon role="any" tag="最近" />
+      的
+      <Span variant="lime">直线分摊</Span>
+    </P>
+    <P>
+      无论
+      <Span variant="teal">圆形</Span>
+      还是
+      <Span variant="lime">直线</Span>
+      都带人数检测，两人分摊时受到约
+      <DamageInfo damage="105000" type="magical" />
+      <MagicVulnerabilityUp tag="9" hover />
+      ，人数不足时则远超血量上限
+    </P>
+    <P>
+      <Span variant="teal">圆形分摊</Span>
+      半径
+      <Span variant="pink">6m</Span>
+      ，判定后留下一个
+      <Span variant="red">即死</Span>
+      毒圈，初始半径
+      <Span variant="pink">5m</Span>
+      ，3秒后开始逐渐扩大至
+      <Span variant="pink">10m</Span>
+    </P>
+    <P>
+      <Span variant="lime">直线分摊</Span>
+      宽度
+      <Span variant="pink">16m</Span>
+      ，刚好覆盖整个平台
+    </P>
+    <P>
+      <Span variant="teal">圆形分摊</Span>、
+      <Span variant="green">扩散毒圈</Span>
+      和
+      <Span variant="lime">直线分摊</Span>
+      的范围示意如下：
     </P>
     <ImgRow
-      wrapperClass="max-w-20"
-      borderVariant="cyan"
-      imgs={[
-        {
-          src: teleport1_img,
-          alt: '传送装置样式1',
-        },
-        {
-          src: teleport2_img,
-          alt: '传送装置样式2',
-        },
-      ]}
+      wrapperClass="max-w-150"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: twofoldTempest_img, alt: '双牙暴风击范围' }]}
     />
   </div>
 </MechanicSection>
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：常规思路" class="flex flex-col gap-4">
+    <P>TODO</P>
+  </div>
+  <div slot="解法：RR式【改】" class="flex flex-col gap-4">
+    <Quote variant="lime" class="opacity-80">
+      <P>
+        本解法参考并修改自
+        <StratLink variant="sky" href="https://www.bilibili.com/video/BV1nrVUzdE3V/" target="_blank">
+          RR式：【FF14】M8S本体一运优化解法
+        </StratLink>
+      </P>
+    </Quote>
+    <P>TODO</P>
+  </div>
+</MultiSolutionSection>

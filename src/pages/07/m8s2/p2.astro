@@ -14,8 +14,6 @@ import RiseOfTheHowlingWind from './_mechanics/RiseOfTheHowlingWind.astro'
 import TwinbiteCast from './_components/TwinbiteCast.astro'
 import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
 
-import TwofoldTempest from './_mechanics/TwofoldTempest.astro'
-import ElementalPurge from './_mechanics/ElementalPurge.astro'
 import ChampionsCircuit from './_mechanics/ChampionsCircuit.astro'
 import ProwlingGale from './_mechanics/ProwlingGale.astro'
 
@@ -42,8 +40,7 @@ const twinbite = translations.twinbite
   <SeparatorSection id="prowling-gale" title=`${prowlingGale}` />
   <ProwlingGale />
   <SeparatorSection id="rise-of-the-howling-wind" title=`${riseOfTheHowlingWind}` />
-  <RiseOfTheHowlingWind start="09:17.549" />
-  <TwofoldTempest start="09:26.675" activateTimes={['09:33.725', '09:40.823', '09:47.925', '09:54.982']} />
+  <RiseOfTheHowlingWind />
 
   <SeparatorSection id="bare-fangs" title=`${bareFangs} + ${championsCircuit}` />
   <EventSection time="10:0.0">
