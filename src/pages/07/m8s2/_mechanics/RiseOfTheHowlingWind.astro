@@ -1,8 +1,5 @@
 ---
-import { Image } from 'astro:assets'
-
 import ImgRow from '@/components/typography/ImgRow.astro'
-import ListDot from '@/components/ListDot.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import P from '@/components/typography/P.astro'
 import Quote from '@/components/typography/Quote.astro'
@@ -13,7 +10,9 @@ import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import StratLink from '@/components/StratLink.astro'
+import Skill from '@/components/typography/Skill.astro'
 
+import TwofoldTempestCarousel from '../_components/TwofoldTempestCarousel.astro'
 import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
 import RiseOfTheHowlingWindCast from '../_components/RiseOfTheHowlingWindCast.astro'
 import TwofoldTempestCast from '../_components/TwofoldTempestCast.astro'
@@ -125,7 +124,14 @@ const defaultSolution = '解法：常规思路'
 </MechanicSection>
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
   <div slot="解法：常规思路" class="flex flex-col gap-4">
-    <P>TODO</P>
+    <P>
+      在处理完
+      <Skill name={translations.prowlingGale} />
+      后，
+      <RoleIcon role="all" tag="全员" />
+      按以下流程执行：
+    </P>
+    <TwofoldTempestCarousel />
   </div>
   <div slot="解法：RR式【改】" class="flex flex-col gap-4">
     <Quote variant="lime" class="opacity-80">
