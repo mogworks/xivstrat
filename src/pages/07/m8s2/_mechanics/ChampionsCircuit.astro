@@ -1,6 +1,7 @@
 ---
-import { Image } from 'astro:assets'
 import { type Time } from '@/lib/utils'
+
+import { Image } from 'astro:assets'
 
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import P from '@/components/typography/P.astro'
@@ -10,14 +11,14 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import Span from '@/components/Span.vue'
 import T from '@/components/typography/T.astro'
 
-import img from '@/assets/07/m8s2/tmp.png'
-
 import BareFangsCast from '../_components/BareFangsCast.astro'
 import ChampionsCircuitActivate from '../_components/ChampionsCircuitActivate.astro'
 import ChampionsCircuitCast from '../_components/ChampionsCircuitCast.astro'
 import GleamingFang from '../_components/entities/GleamingFang.astro'
 
 import { translations } from '../_translations'
+
+import img from '@/assets/07/m8s2/tmp.png'
 
 interface Props {
   start: Time

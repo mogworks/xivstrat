@@ -26,4 +26,5 @@ export const translations = {
   patienceOfStone: '土之残响',
   patienceOfStoneDesp: '体内残留着土属性的魔力。效果时间结束时对周围发动魔法',
   howlingBlade: '剑嚎',
+  gleamingBarrage: '连击闪光炮',
 }

@@ -1,14 +1,16 @@
 ---
+import type { Time } from '@/lib/utils'
+
 import Badge from '@/components/Badge.astro'
 import CollapseSection from '@/components/section/CollapseSection.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import P from '@/components/typography/P.astro'
 import Quote from '@/components/typography/Quote.astro'
 import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
 
-import type { Time } from '@/lib/utils'
-import DamageDown from '@/components/buff/DamageDown.astro'
+import GleamingFang from './entities/GleamingFang.astro'
+import HowlingBlade from './entities/HowlingBlade.astro'
 
 import { translations } from '../_translations'
 
@@ -18,35 +20,31 @@ interface Props {
 
 const { activateTimes }: Props = Astro.props
 
-const bareFangs = translations.bareFangs
 const championsCircuit = translations.championsCircuit
+const gleamingBarrage = translations.gleamingBarrage
 ---
 
 <CollapseSection>
   <Fragment slot="summary">
-    依次判定<Span variant="pink">5</Span>组AoE
-    <DamageDown tag="30" />
-    <Badge variant="yellow">AoE组合</Badge>
+    依次判定<Span variant="pink">5</Span>次范围伤害
   </Fragment>
   <Fragment slot="details">
     {
       activateTimes.map((time, index) => (
         <EventSection time={time}>
-          第<Span variant="pink">{index + 1}</Span>组AoE
-          <Quote variant="zinc">
+          第<Span variant="pink">{index + 1}</Span>次范围伤害
+          <Quote variant="zinc" class="ml-1">
             <P>
-              <Span variant="yellow">{bareFangs}</Span>
-              造成
-              <DamageInfo damage="170000" type="magical" />
-              <DamageDown tag="30" />
-              <Badge variant="yellow">半平台AoE</Badge>
+              <GleamingFang />
+              读条释放
+              <Skill name={gleamingBarrage} />
+              <Badge variant="yellow">半岛刀</Badge>
             </P>
             <P>
-              <Span variant="yellow">{championsCircuit}</Span>
-              造成
-              <DamageInfo damage="150000" type="magical" />
-              <DamageDown tag="30" />
-              <Badge variant="yellow">特殊AoE</Badge>
+              <HowlingBlade />
+              释放
+              <Skill name={championsCircuit} />
+              <Badge variant="yellow">“转转乐”</Badge>
             </P>
           </Quote>
         </EventSection>
