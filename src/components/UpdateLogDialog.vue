@@ -14,7 +14,7 @@ import {
   DialogTrigger,
 } from '@/components/shadcn-vue/dialog'
 import { Separator } from '@/components/shadcn-vue/separator'
-import { cn } from '@/lib/utils'
+import { cn, getJSONHash } from '@/lib/utils'
 
 const props = defineProps<{
   duty: Duty
@@ -43,18 +43,19 @@ const handleOpen = (e?: MouseEvent) => {
   isOpen.value = true
 }
 
-const handleUnderstood = () => {
+const handleUnderstood = async () => {
   try {
     const latestLogDate = sortedLogs.value[0]?.date
-    const latestLogQuantity = sortedLogs.value[0]?.content.length
-    const dutyName = props.duty.name.replaceAll(' ', '_').trim()
     if (!latestLogDate) {
       return
     }
 
+    const latestLogHash = await getJSONHash(sortedLogs.value[0]?.content)
+    const dutyName = props.duty.name.replaceAll(' ', '_').trim()
+
     const logStatus = window.localStorage.getItem('log-status')
     const parsedLogStatus: Record<string, string> = JSON.parse(logStatus ?? '{}')
-    parsedLogStatus[dutyName] = `${latestLogDate}/${latestLogQuantity}`
+    parsedLogStatus[dutyName] = `${latestLogDate}/${latestLogHash}`
 
     const newLogStatus = JSON.stringify(parsedLogStatus)
     window.localStorage.setItem('log-status', newLogStatus)
@@ -67,16 +68,17 @@ onMounted(async () => {
   try {
     await nextTick()
     const latestLogDate = sortedLogs.value[0]?.date
-    const latestLogQuantity = sortedLogs.value[0]?.content.length
-    const dutyName = props.duty.name.replaceAll(' ', '_').trim()
     if (!latestLogDate) {
       return
     }
 
+    const latestLogHash = await getJSONHash(sortedLogs.value[0]?.content)
+    const dutyName = props.duty.name.replaceAll(' ', '_').trim()
+
     const logStatus = window.localStorage.getItem('log-status')
     const parsedLogStatus: Record<string, string> = JSON.parse(logStatus ?? '{}')
     const currentDutyLogStatus = parsedLogStatus?.[dutyName]
-    if (!currentDutyLogStatus || currentDutyLogStatus !== `${latestLogDate}/${latestLogQuantity}`) {
+    if (!currentDutyLogStatus || currentDutyLogStatus !== `${latestLogDate}/${latestLogHash}`) {
       return handleOpen()
     }
   } catch (error) {
