@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+import icon from '@/assets/buff/07/m8s2/214272.png'
+
+import { translations } from '../../_translations'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+}
+
+const { tag = '', hover = false }: Props = Astro.props
+---
+
+<Buff
+  icon={icon}
+  name={translations.lamentOfTheDistant}
+  nameVariant="yellow"
+  description={translations.lamentOfTheDistantDesp}
+  tag={tag}
+  hover={hover}
+/>

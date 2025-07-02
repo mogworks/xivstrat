@@ -13,10 +13,9 @@ import StratLink from '@/components/StratLink.astro'
 import Skill from '@/components/typography/Skill.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import Badge from '@/components/Badge.astro'
-import Hint from '@/components/typography/Hint.astro'
 
 import TwofoldTempestCarousel from '../_components/TwofoldTempestCarousel.astro'
-import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
+import RiseOfTheEffect from '../_components/RiseOfTheEffect.astro'
 import RiseOfTheHowlingWindCast from '../_components/RiseOfTheHowlingWindCast.astro'
 import TwofoldTempestCast from '../_components/TwofoldTempestCast.astro'
 import TwofoldTempestActivate from '../_components/TwofoldTempestActivate.astro'
@@ -25,8 +24,6 @@ import TwofoldTempestRRCarousel from '../_components/TwofoldTempestRRCarousel.as
 import { translations } from '../_translations'
 
 import twofoldTempest_img from '@/assets/07/m8s2/p2/twofoldTempest_mech.png'
-
-const howlingBlade = translations.howlingBlade
 
 const activateTimes = ['09:33.725', '09:40.823', '09:47.925', '09:55.027']
 
@@ -53,22 +50,7 @@ const defaultSolution = '解法：常规思路'
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T variant="yellow" text={translations.riseOfTheHowlingWind} />
-    <P>读条结束后，屏幕中央出现文字提示：</P>
-    <P>
-      <Hint>
-        {howlingBlade}使传送装置过载，限制了其可用性…
-      </Hint>
-    </P>
-    <P>
-      此后，传送装置的颜色由
-      <Span variant="cyan">蓝色</Span>
-      变成
-      <Span variant="red">红色</Span>
-      ，原本每次使用传送装置被赋予的
-      <ImmobileSuitDebuff tag="2" hover />
-      也延长为
-      <ImmobileSuitDebuff tag="7" hover />
-    </P>
+    <RiseOfTheEffect />
 
     <T variant="yellow" text={translations.twofoldTempest} class="mt-8" />
     <P>

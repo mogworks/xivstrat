@@ -6,9 +6,7 @@
   "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级2 超详解动态图文攻略",
   "navigationInfo": {
     "name": "M6S",
-    "parent": [
-      "阿卡狄亚零式登天斗技场 中量级"
-    ]
+    "parent": ["阿卡狄亚零式登天斗技场 中量级"]
   },
   "banner": "@/assets/banners/07/m6s.png",
   "date": "25/06/21 18:00",
@@ -19,7 +17,7 @@
   "phases": [
     {
       "href": "/07/m6s/p1",
-      "title": "Part 1",
+      "title": "Phase 1",
       "subtitle": "起稿",
       "name": "P1 - 起稿",
       "mechanics": [
@@ -62,7 +60,7 @@
     },
     {
       "href": "/07/m6s/p2",
-      "title": "Part 2",
+      "title": "Phase 2",
       "subtitle": "赤阳灼沙",
       "name": "P2 - 赤阳灼沙",
       "mechanics": [
@@ -98,7 +96,7 @@
     },
     {
       "href": "/07/m6s/p3",
-      "title": "Part 3",
+      "title": "Phase 3",
       "subtitle": "墨涌万灵",
       "name": "P3 - 墨涌万灵",
       "mechanics": [
@@ -155,7 +153,7 @@
     },
     {
       "href": "/07/m6s/p4",
-      "title": "Part 4",
+      "title": "Phase 4",
       "subtitle": "溪桥烬雨",
       "name": "P4 - 溪桥烬雨",
       "mechanics": [
@@ -191,7 +189,7 @@
     },
     {
       "href": "/07/m6s/p5",
-      "title": "Part 5",
+      "title": "Phase 5",
       "subtitle": "完稿",
       "name": "P5 - 完稿",
       "mechanics": [
