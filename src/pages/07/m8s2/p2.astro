@@ -1,14 +1,9 @@
 ---
-import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
-import EventSection from '@/components/section/EventSection.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
 import P from '@/components/typography/P.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import StratLink from '@/components/StratLink.astro'
-import Badge from '@/components/Badge.astro'
 
-import ImmobileSuitDebuff from './_components/ImmobileSuitDebuff.astro'
 import QuakeIIICast from './_components/QuakeIIICast.astro'
 import RiseOfTheHowlingWind from './_mechanics/RiseOfTheHowlingWind.astro'
 import TwinbiteCast from './_components/TwinbiteCast.astro'
@@ -28,7 +23,6 @@ const base = '09:10.384'
 
 const prowlingGale = translations.prowlingGale
 const riseOfTheHowlingWind = translations.riseOfTheHowlingWind
-const twofoldTempest = translations.twofoldTempest
 const bareFangs = translations.bareFangs
 const championsCircuit = translations.championsCircuit
 const quakeIII = translations.quakeIII
@@ -37,9 +31,6 @@ const twinbite = translations.twinbite
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <SeparatorSection />
-  <DraftWarning />
-
   <SeparatorSection id="prowling-gale" title=`${prowlingGale}` />
   <ProwlingGale />
   <SeparatorSection id="rise-of-the-howling-wind" title=`${riseOfTheHowlingWind}` />
