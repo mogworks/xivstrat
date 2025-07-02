@@ -58,14 +58,28 @@ const viewModeSetting = {
       name: '仅伤害',
       description: '仅保留有伤害的事件，适合快速查阅伤害',
     },
-    {
-      id: 'mechanic',
-      name: '仅关键机制',
-      description: '隐藏重要机制解法以外的信息，如咏唱内容等，适合快速查阅关键机制解法',
-    },
   ],
   onChange: (value: string) => {
     $stratSettings.setKey('viewMode', value as 'default' | 'solution' | 'timeline' | 'damage')
+  },
+}
+
+const mechanicChooseSetting = {
+  name: '机制显示模式',
+  options: [
+    {
+      id: 'default',
+      name: '全部',
+      description: '正常显示所有内容，包括咏唱、AOE等',
+    },
+    {
+      id: 'key-mechanic',
+      name: '仅关键机制',
+      description: '仅显示重要机制',
+    },
+  ],
+  onChange: (value: string) => {
+    $stratSettings.setKey('mechanicChoose', value as 'default' | 'key-mechanic')
   },
 }
 
@@ -203,6 +217,12 @@ const pixijsApiPreferenceSetting = {
           :options="viewModeSetting.options"
           :disabled="stratSettings.attackEvent === 'only'"
           :on-value-change="viewModeSetting.onChange"
+        />
+        <RadioGroup
+          :name="mechanicChooseSetting.name"
+          :default-value="stratSettings.mechanicChoose"
+          :options="mechanicChooseSetting.options"
+          :on-value-change="mechanicChooseSetting.onChange"
         />
         <RadioGroup
           :name="attackEventSetting.name"

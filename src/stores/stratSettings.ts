@@ -1,7 +1,8 @@
 import { persistentMap } from '@nanostores/persistent'
 
 export interface StratSettings {
-  viewMode: 'default' | 'solution' | 'timeline' | 'damage' | 'mechanic'
+  viewMode: 'default' | 'solution' | 'timeline' | 'damage'
+  mechanicChoose: 'default' | 'key-mechanic'
   readMode: 'standard' | 'minimal'
   readModeRefresh: 'true' | 'false' // 用于重新触发DutyStratLayout里的相关代码，按阅读模式修改元素
   attackEvent: 'hide' | 'show' | 'only'
@@ -17,6 +18,7 @@ export const $stratSettings = persistentMap<StratSettings>(
   'stratSettings:',
   {
     viewMode: 'default',
+    mechanicChoose: 'default',
     readMode: 'standard',
     readModeRefresh: 'false',
     attackEvent: 'hide',

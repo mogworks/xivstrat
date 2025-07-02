@@ -41,145 +41,146 @@ const duty = (await getEntry('duties', dutyId))!.data
 
   // TODO: 把逻辑拆分到各自组件内
 
-  subscribeKeys($stratSettings, ['viewMode', 'readMode', 'readModeRefresh', 'attackEvent'], (stratSettings) => {
-    if (stratSettings.attackEvent === 'only') {
-      // 只显示普通攻击
-      document.querySelectorAll('section.strat-section:not(.attack-section),collapse-section').forEach((e) => {
-        e.classList.toggle('grid', !e.classList.toggle('hidden', true))
-      })
-      document.querySelectorAll('section.strat-section.attack-section').forEach((e) => {
-        e.classList.toggle('grid', !e.classList.toggle('hidden', false))
-      })
-    } else {
-      // 对于普通攻击
-      document.querySelectorAll('section.strat-section.attack-section').forEach((e) => {
-        // 若设置为隐藏，则隐藏
-        e.classList.toggle('grid', !e.classList.toggle('hidden', stratSettings.attackEvent === 'hide'))
-      })
-      // 对于非普通攻击和非内容
-      document
-        .querySelectorAll('section.strat-section:not(.content-section):not(.attack-section),collapse-section')
-        .forEach((e) => {
-          // 若仅保留伤害，则隐藏不含伤害信息的元素，否则都要显示
-          e.classList.toggle(
-            'grid',
-            !e.classList.toggle(
-              'hidden',
-              stratSettings.viewMode === 'damage' && e.querySelector('.damage-info') === null,
-            ),
-          )
+  subscribeKeys(
+    $stratSettings,
+    ['viewMode', 'mechanicChoose', 'readMode', 'readModeRefresh', 'attackEvent'],
+    (stratSettings) => {
+      if (stratSettings.attackEvent === 'only') {
+        // 只显示普通攻击
+        document.querySelectorAll('section.strat-section:not(.attack-section),collapse-section').forEach((e) => {
+          e.classList.toggle('grid', !e.classList.toggle('hidden', true))
         })
-      // 对于内容
-      if (stratSettings.viewMode === 'default') {
-        // 正常显示所有信息
-        document.querySelectorAll('section.strat-section.content-section').forEach((e) => {
+        document.querySelectorAll('section.strat-section.attack-section').forEach((e) => {
           e.classList.toggle('grid', !e.classList.toggle('hidden', false))
         })
-      } else if (stratSettings.viewMode === 'solution') {
-        // 保留解法，隐藏机制、说明
-        document.querySelectorAll('section.strat-section.content-section').forEach((e) => {
-          e.classList.toggle(
-            'grid',
-            !e.classList.toggle(
-              'hidden',
-              e.classList.contains('mechanic-section') || e.classList.contains('note-section'),
-            ),
-          )
-        })
       } else {
-        // 隐藏内容，如机制、说明、解法、分割线等
-        document.querySelectorAll('section.strat-section.content-section').forEach((e) => {
+        // 对于普通攻击
+        document.querySelectorAll('section.strat-section.attack-section').forEach((e) => {
+          // 若设置为隐藏，则隐藏
+          e.classList.toggle('grid', !e.classList.toggle('hidden', stratSettings.attackEvent === 'hide'))
+        })
+        // 对于非普通攻击和非内容
+        document
+          .querySelectorAll('section.strat-section:not(.content-section):not(.attack-section),collapse-section')
+          .forEach((e) => {
+            // 若仅保留伤害，则隐藏不含伤害信息的元素，否则都要显示
+            e.classList.toggle(
+              'grid',
+              !e.classList.toggle(
+                'hidden',
+                stratSettings.viewMode === 'damage' && e.querySelector('.damage-info') === null,
+              ),
+            )
+          })
+        // 对于内容
+        if (stratSettings.viewMode === 'default') {
+          // 正常显示所有信息
+          document.querySelectorAll('section.strat-section.content-section').forEach((e) => {
+            e.classList.toggle('grid', !e.classList.toggle('hidden', false))
+          })
+        } else if (stratSettings.viewMode === 'solution') {
+          // 保留解法，隐藏机制、说明
+          document.querySelectorAll('section.strat-section.content-section').forEach((e) => {
+            e.classList.toggle(
+              'grid',
+              !e.classList.toggle(
+                'hidden',
+                e.classList.contains('mechanic-section') || e.classList.contains('note-section'),
+              ),
+            )
+          })
+        } else {
+          // 隐藏内容，如机制、说明、解法、分割线等
+          document.querySelectorAll('section.strat-section.content-section').forEach((e) => {
+            e.classList.toggle('grid', !e.classList.toggle('hidden', true))
+          })
+        }
+        if (stratSettings.viewMode === 'damage') {
+          // 视图模式为仅伤害时，隐藏collapse-summary，展开collapse-details
+          document.querySelectorAll('collapse-section').forEach((e) => {
+            e.querySelector('.collapse-summary')?.classList.toggle('hidden', true)
+            ;(e as any).forceOpen()
+            // 检测collapse-details，无子元素则隐藏本身
+            const detailsSection = e.querySelector('.collapse-details') as HTMLElement
+            const allChildrenHidden = Array.from(detailsSection.children)
+              .filter(
+                (e) => e instanceof HTMLElement && !e.classList.contains('pointer-events-none'), // 排除装饰元素
+              )
+              .every((child) => child instanceof HTMLElement && getComputedStyle(child).display === 'none')
+            if (allChildrenHidden) {
+              e.classList.toggle('hidden', true)
+            }
+          })
+        } else {
+          document.querySelectorAll('collapse-section').forEach((e) => {
+            e.classList.toggle('hidden', false)
+            e.querySelector('.collapse-summary')?.classList.toggle('hidden', false)
+            ;(e as any).reset()
+          })
+        }
+      }
+
+      if (stratSettings.mechanicChoose === 'key-mechanic') {
+        document.querySelectorAll('section.strat-event-section').forEach((e) => {
+          e.classList.toggle('grid', !e.classList.toggle('hidden', true))
+        })
+        document.querySelectorAll('section.strat-cast-section').forEach((e) => {
+          e.classList.toggle('grid', !e.classList.toggle('hidden', true))
+        })
+        document.querySelectorAll('collapse-section.strat-collapse-section').forEach((e) => {
           e.classList.toggle('grid', !e.classList.toggle('hidden', true))
         })
       }
-      if (stratSettings.viewMode === 'damage') {
-        // 视图模式为仅伤害时，隐藏collapse-summary，展开collapse-details
-        document.querySelectorAll('collapse-section').forEach((e) => {
-          e.querySelector('.collapse-summary')?.classList.toggle('hidden', true)
-          ;(e as any).forceOpen()
-          // 检测collapse-details，无子元素则隐藏本身
-          const detailsSection = e.querySelector('.collapse-details') as HTMLElement
-          const allChildrenHidden = Array.from(detailsSection.children)
-            .filter(
-              (e) => e instanceof HTMLElement && !e.classList.contains('pointer-events-none'), // 排除装饰元素
-            )
-            .every((child) => child instanceof HTMLElement && getComputedStyle(child).display === 'none')
-          if (allChildrenHidden) {
-            e.classList.toggle('hidden', true)
+
+      // 对于阅读模式
+      const highlightTextQuery =
+        'section.strat-section:not(.separator-section) span:not(.strat-time):not(.damage-info):not(.strat-title):not([data-icon="buff-icon"])'
+      if (stratSettings.readMode === 'minimal') {
+        const colorClassReg = /^text-[a-z]+-\d{3}(?:\/\d+)?$/
+        const darkColorClassReg = /^dark:text-[a-z]+-\d{3}(?:\/\d+)?$/
+        const textShadowReg = /^\[text-shadow.*\]$/
+        // 对于高亮词条
+        document.querySelectorAll<HTMLElement>(highlightTextQuery).forEach((e) => {
+          if (!e.dataset.originalClass) {
+            e.dataset.originalClass = e.className
           }
+          e.classList.remove(
+            // 移除字体颜色、字体阴影样式
+            ...Array.from(e.classList).filter(
+              (cls) => colorClassReg.test(cls) || darkColorClassReg.test(cls) || textShadowReg.test(cls),
+            ),
+          )
+          e.classList.add('text-foreground', '[text-shadow:_0_0_1px_var(--color-background)]')
+        })
+        // 对于角色、目标等图标
+        document.querySelectorAll<HTMLElement>('[data-icon="standard-icon"]').forEach((e) => {
+          e.classList.remove('inline-flex')
+          e.classList.add('hidden')
+        })
+        document.querySelectorAll<HTMLElement>('[data-icon="minimal-icon"]').forEach((e) => {
+          e.classList.add('inline-flex')
+          e.classList.remove('hidden')
         })
       } else {
-        document.querySelectorAll('collapse-section').forEach((e) => {
-          e.classList.toggle('hidden', false)
-          e.querySelector('.collapse-summary')?.classList.toggle('hidden', false)
-          ;(e as any).reset()
+        // 对于高亮词条
+        document.querySelectorAll<HTMLElement>(highlightTextQuery).forEach((e) => {
+          if (e.dataset.originalClass) {
+            e.className = e.dataset.originalClass
+            delete e.dataset.originalClass
+          }
+        })
+        // 对于角色、目标等图标
+        document.querySelectorAll<HTMLElement>('[data-icon="standard-icon"]').forEach((e) => {
+          e.classList.add('inline-flex')
+          e.classList.remove('hidden')
+        })
+        document.querySelectorAll<HTMLElement>('[data-icon="minimal-icon"]').forEach((e) => {
+          e.classList.remove('inline-flex')
+          e.classList.add('hidden')
         })
       }
-    }
-
-    if (stratSettings.viewMode === 'mechanic') {
-      document.querySelectorAll('section.strat-event-section').forEach((e) => {
-        e.classList.toggle('grid', !e.classList.toggle('hidden', true))
-      })
-      document.querySelectorAll('section.strat-cast-section').forEach((e) => {
-        e.classList.toggle('grid', !e.classList.toggle('hidden', true))
-      })
-      document.querySelectorAll('collapse-section.strat-collapse-section').forEach((e) => {
-        e.classList.toggle('grid', !e.classList.toggle('hidden', true))
-      })
-      document.querySelectorAll('section.strat-section.content-section').forEach((e) => {
-        e.classList.toggle('grid', !e.classList.toggle('hidden', e.classList.contains('note-section')))
-      })
-    }
-
-    // 对于阅读模式
-    const highlightTextQuery =
-      'section.strat-section:not(.separator-section) span:not(.strat-time):not(.damage-info):not(.strat-title):not([data-icon="buff-icon"])'
-    if (stratSettings.readMode === 'minimal') {
-      const colorClassReg = /^text-[a-z]+-\d{3}(?:\/\d+)?$/
-      const darkColorClassReg = /^dark:text-[a-z]+-\d{3}(?:\/\d+)?$/
-      const textShadowReg = /^\[text-shadow.*\]$/
-      // 对于高亮词条
-      document.querySelectorAll<HTMLElement>(highlightTextQuery).forEach((e) => {
-        if (!e.dataset.originalClass) {
-          e.dataset.originalClass = e.className
-        }
-        e.classList.remove(
-          // 移除字体颜色、字体阴影样式
-          ...Array.from(e.classList).filter(
-            (cls) => colorClassReg.test(cls) || darkColorClassReg.test(cls) || textShadowReg.test(cls),
-          ),
-        )
-        e.classList.add('text-foreground', '[text-shadow:_0_0_1px_var(--color-background)]')
-      })
-      // 对于角色、目标等图标
-      document.querySelectorAll<HTMLElement>('[data-icon="standard-icon"]').forEach((e) => {
-        e.classList.remove('inline-flex')
-        e.classList.add('hidden')
-      })
-      document.querySelectorAll<HTMLElement>('[data-icon="minimal-icon"]').forEach((e) => {
-        e.classList.add('inline-flex')
-        e.classList.remove('hidden')
-      })
-    } else {
-      // 对于高亮词条
-      document.querySelectorAll<HTMLElement>(highlightTextQuery).forEach((e) => {
-        if (e.dataset.originalClass) {
-          e.className = e.dataset.originalClass
-          delete e.dataset.originalClass
-        }
-      })
-      // 对于角色、目标等图标
-      document.querySelectorAll<HTMLElement>('[data-icon="standard-icon"]').forEach((e) => {
-        e.classList.add('inline-flex')
-        e.classList.remove('hidden')
-      })
-      document.querySelectorAll<HTMLElement>('[data-icon="minimal-icon"]').forEach((e) => {
-        e.classList.remove('inline-flex')
-        e.classList.add('hidden')
-      })
-    }
-  })
+    },
+  )
 
   subscribeKeys($stratSettings, ['damageFormat'], (stratSettings) => {
     document.querySelectorAll('span.damage-specific-number').forEach((ele) => {
