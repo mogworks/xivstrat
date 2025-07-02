@@ -1,14 +1,13 @@
 ---
-import CastSection from '@/components/section/CastSection.astro'
 import type { Time } from '@/lib/utils'
 
-import HowlingBlade from './entities/HowlingBlade.astro'
-import { translations } from '../_translations'
-import GleamingFang from './entities/GleamingFang.astro'
+import CastSection from '@/components/section/CastSection.astro'
 import Span from '@/components/Span.vue'
-import Badge from '@/components/Badge.astro'
-import DamageDown from '@/components/buff/DamageDown.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
+
+import HowlingBlade from './entities/HowlingBlade.astro'
+import GleamingFang from './entities/GleamingFang.astro'
+
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -22,10 +21,11 @@ const bareFangs = translations.bareFangs
 
 <CastSection start={start} duration={duration} ability={bareFangs}>
   <HowlingBlade slot="source" />
-  召唤
-  <GleamingFang />
-  <Span variant="rose">×10</Span>
-  <DamageInfo damage="170000" type="magical" />
-  <DamageDown tag="30" />
-  <Badge variant="yellow">半平台AoE</Badge>
+  ，召唤
+  <GleamingFang>
+    <div class="text-decimal">
+      <Span variant="rose" class="ml-0.5">光牙×10</Span>
+    </div>
+  </GleamingFang>
+  ，每个平台后方各两个
 </CastSection>

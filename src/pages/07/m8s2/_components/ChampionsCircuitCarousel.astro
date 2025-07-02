@@ -1,0 +1,61 @@
+---
+import Carousel from '@/components/Carousel.vue'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import img_0 from '@/assets/07/m8s2/p2/championsCircuit.png'
+import img_1 from '@/assets/07/m8s2/p2/championsCircuit_1.png'
+import img_2 from '@/assets/07/m8s2/p2/championsCircuit_2.png'
+import img_3 from '@/assets/07/m8s2/p2/championsCircuit_3.png'
+import img_4 from '@/assets/07/m8s2/p2/championsCircuit_4.png'
+import img_5 from '@/assets/07/m8s2/p2/championsCircuit_5.png'
+---
+
+<Carousel
+  class="relative mx-14 max-w-150"
+  loop={true}
+  slots={Array.from({ length: 6 }, (_, i) => i.toString())}
+  client:idle
+>
+  <ImgRow
+    slot="0"
+    wrapperClass="max-w-150"
+    bordered={false}
+    imgClass="shadowbringer"
+    imgs={[{ src: img_0, alt: '', title: '处理流程 1 / 6' }]}
+  />
+  <ImgRow
+    slot="1"
+    wrapperClass="max-w-150"
+    bordered={false}
+    imgClass="shadowbringer"
+    imgs={[{ src: img_1, alt: '', title: '处理流程 2 / 6' }]}
+  />
+  <ImgRow
+    slot="2"
+    wrapperClass="max-w-150"
+    bordered={false}
+    imgClass="shadowbringer"
+    imgs={[{ src: img_2, alt: '', title: '处理流程 3 / 6' }]}
+  />
+  <ImgRow
+    slot="3"
+    wrapperClass="max-w-150"
+    bordered={false}
+    imgClass="shadowbringer"
+    imgs={[{ src: img_3, alt: '', title: '处理流程 4 / 6' }]}
+  />
+  <ImgRow
+    slot="4"
+    wrapperClass="max-w-150"
+    bordered={false}
+    imgClass="shadowbringer"
+    imgs={[{ src: img_4, alt: '', title: '处理流程 5 / 6' }]}
+  />
+  <ImgRow
+    slot="5"
+    wrapperClass="max-w-150"
+    bordered={false}
+    imgClass="shadowbringer"
+    imgs={[{ src: img_5, alt: '', title: '处理流程 6 / 6' }]}
+  />
+</Carousel>
