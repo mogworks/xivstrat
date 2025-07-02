@@ -2,6 +2,7 @@
 import { computed, nextTick, onMounted, useTemplateRef } from 'vue'
 
 import type { Duty } from '@/data/duty'
+import type { Log } from '@/lib/global-update-logs'
 
 import LogSVG from '@/assets/svg/log.svg?component'
 import {
@@ -14,17 +15,6 @@ import {
 } from '@/components/shadcn-vue/dialog'
 import { Separator } from '@/components/shadcn-vue/separator'
 import { cn } from '@/lib/utils'
-
-interface LogContent {
-  text: string
-  isSignificant?: boolean
-  isNew?: boolean
-}
-
-interface Log {
-  date: string
-  content: LogContent[]
-}
 
 const props = defineProps<{
   duty: Duty
@@ -155,8 +145,11 @@ onMounted(async () => {
                 >
                   <span class="self-start font-extrabold italic">{{ index + 1 }}.</span>
                   <span>{{ content.text }}</span>
-                  <span v-if="content.isNew" :class="cn(tagBaseClass, 'border-emerald-200/75 bg-emerald-600/90')">
-                    新功能
+                  <span
+                    v-if="content.isNew && logIndex === 0"
+                    :class="cn(tagBaseClass, 'border-emerald-200/75 bg-emerald-600/90')"
+                  >
+                    NEW!
                   </span>
                   <span v-if="content.isSignificant" :class="cn(tagBaseClass, 'border-red-200/75 bg-red-700/90')">
                     重要改动
