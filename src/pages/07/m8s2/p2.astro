@@ -18,6 +18,9 @@ import ChampionsCircuit from './_mechanics/ChampionsCircuit.astro'
 import ProwlingGale from './_mechanics/ProwlingGale.astro'
 
 import { translations } from './_translations'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import HowlingBlade from './_components/entities/HowlingBlade.astro'
+import Span from '@/components/Span.vue'
 
 const dutyId = '07/m8s2'
 
@@ -42,29 +45,33 @@ const twinbite = translations.twinbite
   <SeparatorSection id="rise-of-the-howling-wind" title=`${riseOfTheHowlingWind}` />
   <RiseOfTheHowlingWind />
 
-  <SeparatorSection id="champions-circuit" title=`${bareFangs} + ${championsCircuit}` />
+  <SeparatorSection id="bare-fangs-champions-circuit" title=`${bareFangs} + ${championsCircuit}` />
   <ChampionsCircuit
     start="10:03.132"
     activateTimes={['10:19.279', '10:23.683', '10:28.038', '10:32.395', '10:36.755']}
   />
 
-  <EventSection time="10:40.0">
-    传送冷却时长恢复至<ImmobileSuitDebuff tag="2" />
-    <Badge variant="emerald">传送间隔-</Badge>
-  </EventSection>
+  <SeparatorSection id="QURT" title=`${quakeIII} + ${ultraviolentRay} + ${twinbite}` />
   <QuakeIIICast start="10:41.608" />
   <UltraviolentRayCast start="10:54.772" />
   <TwinbiteCast start="11:04.913" />
-  <NoteSection>
+  <SolutionSection>
     <div class="flex flex-col gap-4">
       <P>
-        请参考P1的
-        <StratLink variant="cyan" href="/07/m8s2/p1#quake-iii">{quakeIII}</StratLink>
-        ,
-        <StratLink variant="cyan" href="/07/m8s2/p1#ultraviolent-ray">{ultraviolentRay}</StratLink>
-        和
-        <StratLink variant="cyan" href="/07/m8s2/p1#twinbite">{twinbite}</StratLink>
+        参考P1阶段
+        <StratLink variant="yellow" href="/07/m8s2/p1#quake-iii">{quakeIII}</StratLink>
+        、
+        <StratLink variant="yellow" href="/07/m8s2/p1#ultraviolent-ray">{ultraviolentRay}</StratLink>
+        、
+        <StratLink variant="yellow" href="/07/m8s2/p1#twinbite">{twinbite}</StratLink>
+        的处理方法
+      </P>
+      <P>
+        注意：此时
+        <HowlingBlade />
+        面向
+        <Span variant="cyan">不一定指向初始平台（即之前被破坏又恢复的平台），请以初始平台为南作为基准</Span>
       </P>
     </div>
-  </NoteSection>
+  </SolutionSection>
 </DutyStratLayout>

@@ -85,11 +85,12 @@
           "name": "魔狼战形・飓风之相"
         },
         {
-          "href": "#champions-circuit",
-          "name": "回天动地",
-          "name_en": "Champion's Circuit",
-          "name_ja": "廻天動地",
-          "name_ch": "回天动地"
+          "href": "#bare-fangs-champions-circuit",
+          "name": "光牙召唤 + 回天动地"
+        },
+        {
+          "href": "#QURT",
+          "name": "爆震 + 魔光 + 双牙击"
         }
       ]
     },
