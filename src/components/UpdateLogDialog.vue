@@ -98,7 +98,7 @@ onMounted(async () => {
   <Dialog v-if="logs && logs.length > 0" v-model:open="isOpen">
     <DialogTrigger>
       <button
-        class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-zinc-400/80 bg-transparent p-2 px-4 align-middle hover:opacity-60"
+        class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-zinc-400/80 bg-transparent p-2 px-4 align-middle shadow-sm transition-all hover:border-blue-400 hover:opacity-80"
         @click="handleOpen"
       >
         <LogSVG class="mr-2 h-5 w-5" />
