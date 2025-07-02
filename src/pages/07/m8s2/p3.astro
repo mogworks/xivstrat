@@ -12,6 +12,10 @@ import Skill from '@/components/typography/Skill.astro'
 import Quote from '@/components/typography/Quote.astro'
 import Span from '@/components/Span.vue'
 import ListDot from '@/components/ListDot.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Badge from '@/components/Badge.astro'
+import StratLink from '@/components/StratLink.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
 
 import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
 import HerosBlowCast from './_components/HerosBlowCast.astro'
@@ -32,6 +36,10 @@ import lone_wolfs_lament_preposition from '@/assets/07/m8s2/p3/lone_wolfs_lament
 import lone_wolfs_lament_tower_preposition from '@/assets/07/m8s2/p3/lone_wolfs_lament_tower_preposition.png'
 import lone_wolfs_lament_solution1 from '@/assets/07/m8s2/p3/lone_wolfs_lament_solution1.png'
 import lone_wolfs_lament_solution2 from '@/assets/07/m8s2/p3/lone_wolfs_lament_solution2.png'
+import herosBlow1 from '@/assets/07/m8s2/p3/herosBlow1.png'
+import herosBlow2 from '@/assets/07/m8s2/p3/herosBlow2.png'
+import ultraviolentRay_img from '@/assets/07/m8s2/p3/ultraviolentRay.png'
+import BossAttackSection from './_components/BossAttackSection.astro'
 
 const dutyId = '07/m8s2'
 
@@ -50,8 +58,21 @@ const twinbite = translations.twinbite
 <DutyStratLayout dutyId={dutyId} base={base}>
   <SeparatorSection id="rise-of-the-howling-wind" title=`${riseOfTheHuntersBlade}` />
   <RiseOfTheHuntersBladeCast start="11:20.127" />
+
+  <BossAttackSection time="11:28.667" damage="60000" damageType="physical" />
+
   <LoneWolfsLamentCast start="11:29.245" />
+
+  <BossAttackSection time="11:34.711" damage="60000" damageType="physical" />
+  <BossAttackSection time="11:37.732" damage="60000" damageType="physical" />
+
   <ProwlingGaleCast start="11:39.379" />
+
+  <BossAttackSection time="11:43.785" damage="60000" damageType="physical" />
+  <BossAttackSection time="11:46.810" damage="60000" damageType="physical" />
+  <BossAttackSection time="11:49.829" damage="60000" damageType="physical" />
+  <BossAttackSection time="11:52.848" damage="60000" damageType="physical" />
+
   <MechanicSection>
     <div class="flex flex-col gap-4">
       <T variant="yellow" text={riseOfTheHuntersBlade} />
@@ -245,10 +266,171 @@ const twinbite = translations.twinbite
 
   <SeparatorSection id="heros-blow-ultraviolent-ray" title=`${herosBlow} + ${ultraviolentRay}` />
   <HerosBlowCast start="11:53.603" />
+
+  <BossAttackSection time="12:01.908" damage="60000" damageType="physical" />
+
+  <EventSection time="12:02.603">
+    传送装置恢复正常
+    <Badge variant="emerald">传送间隔-</Badge>
+  </EventSection>
+
+  <BossAttackSection time="12:04.929" damage="60000" damageType="physical" />
+
   <UltraviolentRayCast start="12:06.753" />
+
+  <BossAttackSection time="12:13.952" damage="60000" damageType="physical" />
+  <BossAttackSection time="12:16.973" damage="60000" damageType="physical" />
+
   <SolutionSection>
     <div class="flex flex-col gap-4">
-      <P>TODO</P>
+      <P>
+        在处理完
+        <Skill name={loneWolfsLament} />
+        后，
+        <HowlingBlade />
+        会立刻面向随机玩家所在平台中心，读条
+        <Skill name={herosBlow} />
+      </P>
+      <P>由于此时传送装置尚未恢复，我们有且仅有一次传送到其它平台躲避的机会，因此一定要看好了再传</P>
+      <P>
+        以
+        <HowlingBlade />
+        面向右下平台，劈左边为例，踩完塔后，
+        <RoleIcon role="all" tag="全员" />
+        刚开始的站位如下图：
+      </P>
+      <ImgRow
+        bordered={false}
+        wrapperClass="max-w-150"
+        imgClass="shadowbringer"
+        imgs={[
+          {
+            src: herosBlow1,
+            alt: '',
+          },
+        ]}
+      />
+      <P>
+        显然
+        <HowlingBlade />
+        正面平台一定会有安全区，因此在正面平台的人可以不用传送
+      </P>
+      <P>
+        在
+        <HowlingBlade />
+        两侧平台（能看到侧身位标志）的人可以无脑往
+        <HowlingBlade />
+        正面平台传送
+      </P>
+      <P>
+        而在
+        <HowlingBlade />
+        身后两平台的人则必须先看好半场刀，已在安全侧的人不用动，危险侧的人则要传送到安全侧
+      </P>
+      <P>
+        最终，
+        <RoleIcon role="all" tag="全员" />
+        传送后的站位如下图：
+      </P>
+      <ImgRow
+        bordered={false}
+        wrapperClass="max-w-150"
+        imgClass="shadowbringer"
+        imgs={[
+          {
+            src: herosBlow2,
+            alt: '',
+          },
+        ]}
+      />
+
+      <P>
+        接下来要马上排队处理
+        <Skill name={ultraviolentRay} />
+        ，由于实战里已经过多次传送，此时基本是不知道初始平台在哪的
+      </P>
+      <P>
+        因此，我们
+        <Span variant="cyan">以</Span>
+        <HowlingBlade />
+        <Span variant="cyan">此时面对的平台作为正南基准</Span>
+        ，分两组排队预站位
+      </P>
+      <P>
+        以上图为例，显然
+        <RoleIcon role="tank" tag="MT" />
+        组的
+        <Span variant="default">4</Span>
+        人要去正下平台，
+        <RoleIcon role="tank" tag="ST" />
+        组的
+        <Span variant="default">4</Span>
+        人则要去右上平台
+      </P>
+      <P>
+        此时在
+        <HowlingBlade />
+        正面平台的人很简单，看好方向往左或右传送一次即可
+      </P>
+      <P>
+        而在
+        <HowlingBlade />
+        背面平台的人则务必看准方向，以上图为例：
+      </P>
+      <Quote variant="lime">
+        <P>
+          显然
+          <RoleIcon role="tank" tag="MT" />
+          <RoleIcon role="melee" tag="D1" />
+          应该逆时针传送一次，而
+          <RoleIcon role="tank" tag="ST" />
+          则需要
+          <Span variant="cyan">顺时针传送两次</Span>
+        </P>
+      </Quote>
+      <P>
+        这里需要注意，
+        <Skill name={herosBlow} />
+        <Span variant="cyan">判定后不要马上传送，务必等传送装置恢复正常再传送</Span>
+      </P>
+      <P>
+        最终
+        <RoleIcon role="all" tag="全员" />
+        排队预站位如下：
+      </P>
+      <ImgRow
+        bordered={false}
+        wrapperClass="max-w-150"
+        imgClass="shadowbringer"
+        imgs={[
+          {
+            src: ultraviolentRay_img,
+            alt: '',
+          },
+        ]}
+      />
+
+      <P>
+        之后就正常处理
+        <Skill name={ultraviolentRay} />
+        即可，忘了怎么处理的话可以
+        <StratLink variant="lime" href="/07/m8s2/p1#ultraviolent-ray">点击此处回P1复习</StratLink>
+      </P>
     </div>
   </SolutionSection>
+  <NoteSection>
+    <div class="flex flex-col gap-4">
+      <P>
+        最后这次
+        <Skill name={ultraviolentRay} />
+        有非常多的处理方法，但没有什么方法可以同时满足：
+      </P>
+      <Quote variant="cyan" class="gap-2 pl-2.5">
+        <P>1. 逻辑简单</P>
+        <P>2. 最坏情况下只需传送<Span variant="default">≤2</Span>次（从<Skill name={herosBlow} />判定后开始算起）</P>
+      </Quote>
+      <P>因此这里建议就用最朴素的思路即可，只需要牢记：</P>
+      <P>不管要去哪（一次性，多次不算），最多只需要传送两次，如果走的路线是3次，说明一定选错了方向</P>
+    </div>
+  </NoteSection>
 </DutyStratLayout>

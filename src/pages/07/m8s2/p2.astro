@@ -17,6 +17,7 @@ import ChampionsCircuit from './_mechanics/ChampionsCircuit.astro'
 import ProwlingGale from './_mechanics/ProwlingGale.astro'
 
 import { translations } from './_translations'
+import BossAttackSection from './_components/BossAttackSection.astro'
 
 const dutyId = '07/m8s2'
 
@@ -45,8 +46,21 @@ const twinbite = translations.twinbite
 
   <SeparatorSection id="QURT" title=`${quakeIII} + ${ultraviolentRay} + ${twinbite}` />
   <QuakeIIICast start="10:41.608" />
+
+  <BossAttackSection time="10:47.438" damage="60000" damageType="physical" />
+  <BossAttackSection time="10:50.461" damage="60000" damageType="physical" />
+  <BossAttackSection time="10:53.483" damage="60000" damageType="physical" />
+
   <UltraviolentRayCast start="10:54.772" />
+
+  <BossAttackSection time="11:02.509" damage="60000" damageType="physical" />
+
   <TwinbiteCast start="11:04.913" />
+
+  <BossAttackSection time="11:12.561" damage="60000" damageType="physical" />
+  <BossAttackSection time="11:15.586" damage="60000" damageType="physical" />
+  <BossAttackSection time="11:18.614" damage="60000" damageType="physical" />
+
   <SolutionSection>
     <div class="flex flex-col gap-4">
       <P>
