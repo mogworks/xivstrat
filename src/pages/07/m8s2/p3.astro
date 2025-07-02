@@ -1,21 +1,31 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
 import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
 import HerosBlowCast from './_components/HerosBlowCast.astro'
 import RiseOfTheHuntersBladeCast from './_components/RiseOfTheHuntersBladeCast.astro'
 import LoneWolfsLamentCast from './_components/LoneWolfsLamentCast.astro'
 import ProwlingGaleCast from './_components/ProwlingGaleCast.astro'
 
+import { translations } from './_translations'
+
 const dutyId = '07/m8s2'
 
 const base = '11:20.127'
+
+const riseOfTheHuntersBlade = translations.riseOfTheHuntersBlade
+const herosBlow = translations.herosBlow
+const ultraviolentRay = translations.ultraviolentRay
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
+  <SeparatorSection id="rise-of-the-howling-wind" title=`${riseOfTheHuntersBlade}` />
   <RiseOfTheHuntersBladeCast start="11:20.127" />
   <LoneWolfsLamentCast start="11:29.245" />
   <ProwlingGaleCast start="11:39.379" />
+  <SeparatorSection id="heros-blow-ultraviolent-ray" title=`${herosBlow} + ${ultraviolentRay}` />
   <HerosBlowCast start="11:53.603" />
   <UltraviolentRayCast start="12:06.753" />
 </DutyStratLayout>
