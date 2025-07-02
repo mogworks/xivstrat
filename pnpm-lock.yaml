@@ -47,6 +47,9 @@ importers:
       nanostores:
         specifier: 1.0.1
         version: 1.0.1
+      pinyin-pro:
+        specifier: ^3.26.0
+        version: 3.26.0
       pixi-filters:
         specifier: 6.1.3
         version: 6.1.3(pixi.js@8.10.2)
@@ -3123,6 +3126,9 @@ packages:
     resolution: {integrity: sha512-eG2dWTVw5bzqGRztnHExczNxt5VGsE6OwTeCG3fdUf9KBsZzO3R5OIIIzWR+iZA0NtZ+RDVdaoE2dK1cn6jH4g==}
     engines: {node: '>=0.10'}
     hasBin: true
+
+  pinyin-pro@3.26.0:
+    resolution: {integrity: sha512-HcBZZb0pvm0/JkPhZHWA5Hqp2cWHXrrW/WrV+OtaYYM+kf35ffvZppIUuGmyuQ7gDr1JDJKMkbEE+GN0wfMoGg==}
 
   pixi-filters@6.1.3:
     resolution: {integrity: sha512-bmdI2Ytz+z/NcADkjew2phKq300aQ9p9nVx9OfkMNuoYEl4gW99ZDNQZfsF834V/jj3CKTsIV4jxA+BI45UYOQ==}
@@ -7500,6 +7506,8 @@ snapshots:
   picomatch@4.0.2: {}
 
   pidtree@0.6.0: {}
+
+  pinyin-pro@3.26.0: {}
 
   pixi-filters@6.1.3(pixi.js@8.10.2):
     dependencies:
