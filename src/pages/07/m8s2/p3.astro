@@ -2,12 +2,20 @@
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import T from '@/components/typography/T.astro'
+import P from '@/components/typography/P.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
 
 import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
 import HerosBlowCast from './_components/HerosBlowCast.astro'
 import RiseOfTheHuntersBladeCast from './_components/RiseOfTheHuntersBladeCast.astro'
 import LoneWolfsLamentCast from './_components/LoneWolfsLamentCast.astro'
 import ProwlingGaleCast from './_components/ProwlingGaleCast.astro'
+import RiseOfTheEffect from './_components/RiseOfTheEffect.astro'
+import LamentOfTheClose from './_components/buff/LamentOfTheClose.astro'
+import LamentOfTheDistant from './_components/buff/LamentOfTheDistant.astro'
 
 import { translations } from './_translations'
 
@@ -16,6 +24,8 @@ const dutyId = '07/m8s2'
 const base = '11:20.127'
 
 const riseOfTheHuntersBlade = translations.riseOfTheHuntersBlade
+const loneWolfsLament = translations.loneWolfsLament
+const prowlingGale = translations.prowlingGale
 const herosBlow = translations.herosBlow
 const ultraviolentRay = translations.ultraviolentRay
 ---
@@ -25,7 +35,48 @@ const ultraviolentRay = translations.ultraviolentRay
   <RiseOfTheHuntersBladeCast start="11:20.127" />
   <LoneWolfsLamentCast start="11:29.245" />
   <ProwlingGaleCast start="11:39.379" />
+  <MechanicSection>
+    <div class="flex flex-col gap-4">
+      <T variant="yellow" text={riseOfTheHuntersBlade} />
+      <RiseOfTheEffect />
+
+      <T variant="yellow" text={loneWolfsLament} class="mt-8" />
+      <P>
+        <RoleIcon role="tank|healer" />
+        会和
+        <RoleIcon role="dps" />
+        两两连线，有近线和远线两种，
+        <RoleIcon role="tank" tag="双T" />
+        和
+        <RoleIcon role="healer" tag="双奶" />
+        都各会有一近一远连接
+        <RoleIcon role="dps" />
+        ，如下图：
+      </P>
+      <P>
+        连近线的人会被赋予
+        <LamentOfTheClose tag="21" hover />
+        ，相互不可远离；连远线的人则会被赋予
+        <LamentOfTheDistant tag="21" hover />
+        ，相互不可靠近
+      </P>
+
+      <T variant="yellow" text={prowlingGale} class="mt-8" />
+      <P>生成三座单人塔，一座两人塔，一座三人塔，分布模式仅有如下两种：</P>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="flex flex-col gap-4">
+      <P>TODO</P>
+    </div>
+  </SolutionSection>
+
   <SeparatorSection id="heros-blow-ultraviolent-ray" title=`${herosBlow} + ${ultraviolentRay}` />
   <HerosBlowCast start="11:53.603" />
   <UltraviolentRayCast start="12:06.753" />
+  <SolutionSection>
+    <div class="flex flex-col gap-4">
+      <P>TODO</P>
+    </div>
+  </SolutionSection>
 </DutyStratLayout>
