@@ -46,6 +46,7 @@ const handleOpen = (e?: MouseEvent) => {
 const handleUnderstood = () => {
   try {
     const latestLogDate = sortedLogs.value[0]?.date
+    const latestLogQuantity = sortedLogs.value[0]?.content.length
     const dutyName = props.duty.name.replaceAll(' ', '_').trim()
     if (!latestLogDate) {
       return
@@ -53,7 +54,7 @@ const handleUnderstood = () => {
 
     const logStatus = window.localStorage.getItem('log-status')
     const parsedLogStatus: Record<string, string> = JSON.parse(logStatus ?? '{}')
-    parsedLogStatus[dutyName] = latestLogDate
+    parsedLogStatus[dutyName] = `${latestLogDate}/${latestLogQuantity}`
 
     const newLogStatus = JSON.stringify(parsedLogStatus)
     window.localStorage.setItem('log-status', newLogStatus)
@@ -66,6 +67,7 @@ onMounted(async () => {
   try {
     await nextTick()
     const latestLogDate = sortedLogs.value[0]?.date
+    const latestLogQuantity = sortedLogs.value[0]?.content.length
     const dutyName = props.duty.name.replaceAll(' ', '_').trim()
     if (!latestLogDate) {
       return
@@ -74,7 +76,7 @@ onMounted(async () => {
     const logStatus = window.localStorage.getItem('log-status')
     const parsedLogStatus: Record<string, string> = JSON.parse(logStatus ?? '{}')
     const currentDutyLogStatus = parsedLogStatus?.[dutyName]
-    if (!currentDutyLogStatus || currentDutyLogStatus !== latestLogDate) {
+    if (!currentDutyLogStatus || currentDutyLogStatus !== `${latestLogDate}/${latestLogQuantity}`) {
       return handleOpen()
     }
   } catch (error) {
