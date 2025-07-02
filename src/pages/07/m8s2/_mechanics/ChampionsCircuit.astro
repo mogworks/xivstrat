@@ -70,9 +70,29 @@ const gleamingBarrage = translations.gleamingBarrage
       <DamageDown tag="30" percent={50} />
     </P>
     <T variant="yellow" text=`${championsCircuit}` class="mt-8" />
+    <P>
+      <HowlingBlade />
+      随机面向一个平台中心，读条
+      <Skill name={championsCircuit} />
+      ，
+      <HowlingBlade />
+      周身出现环绕特效，各平台上也出现伤害范围预兆
+    </P>
+    <P>
+      之后
+      <HowlingBlade />
+      会按旋转提示方向，绕场一周释放
+      <Span variant="default">5</Span>
+      次
+      <Skill name={championsCircuit} />
+      ，对范围内玩家造成
+      <DamageInfo damage="170000" type="magical" />
+      <DamageDown tag="30" percent={50} />
+      ：
+    </P>
     <P>整个机制结束后，屏幕中央出现文字提示：</P>
     <P>
-      <Hint> 传送装置已恢复正常！ </Hint>
+      <Hint>传送装置已恢复正常！</Hint>
     </P>
     <P>
       此后，传送装置的颜色由
