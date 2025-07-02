@@ -24,6 +24,7 @@ import TwofoldTempestRRCarousel from '../_components/TwofoldTempestRRCarousel.as
 import { translations } from '../_translations'
 
 import twofoldTempest_img from '@/assets/07/m8s2/p2/twofoldTempest_mech.png'
+import BossAttackSection from '../_components/BossAttackSection.astro'
 
 const activateTimes = ['09:33.725', '09:40.823', '09:47.925', '09:55.027']
 
@@ -41,8 +42,20 @@ const defaultSolution = '解法：常规思路'
 ---
 
 <RiseOfTheHowlingWindCast start="09:17.549" />
+<BossAttackSection time="09:26.407" damage="60000" damageType="physical" />
 <TwofoldTempestCast start="09:26.675" />
 <TwofoldTempestActivate activateTimes={activateTimes} />
+
+<BossAttackSection time="09:36.448" damage="60000" damageType="physical" />
+<BossAttackSection time="09:39.483" damage="60000" damageType="physical" />
+<BossAttackSection time="09:42.519" damage="60000" damageType="physical" />
+<BossAttackSection time="09:45.559" damage="60000" damageType="physical" />
+<BossAttackSection time="09:48.593" damage="60000" damageType="physical" />
+<BossAttackSection time="09:51.630" damage="60000" damageType="physical" />
+<BossAttackSection time="09:54.669" damage="60000" damageType="physical" />
+<BossAttackSection time="09:57.702" damage="60000" damageType="physical" />
+<BossAttackSection time="10:00.725" damage="60000" damageType="physical" />
+
 <EventSection time="10:1.0">
   初始平台被修复，可以传送到该平台
   <Badge variant="emerald">修复平台</Badge>

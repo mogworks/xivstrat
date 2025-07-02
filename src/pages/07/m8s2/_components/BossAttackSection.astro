@@ -1,0 +1,24 @@
+---
+import type { Time } from '@/lib/utils'
+
+import AttackSection from '@/components/section/AttackSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+interface Props {
+  time: Time
+  damage: string
+  damageType: 'physical' | 'magical' | 'special'
+}
+
+const { time, damage, damageType }: Props = Astro.props
+---
+
+<AttackSection time={time} damage={damage} damageType={damageType}>
+  <HowlingBlade slot="source" />
+  <Fragment slot="target">
+    <RoleIcon role="tank" tag="一仇" />
+    <RoleIcon role="tank" tag="二仇" />
+  </Fragment>
+</AttackSection>

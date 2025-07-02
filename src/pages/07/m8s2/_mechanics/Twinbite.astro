@@ -19,6 +19,7 @@ import DamageInfo from '@/components/DamageInfo.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import Skill from '@/components/typography/Skill.astro'
+import BossAttackSection from '../_components/BossAttackSection.astro'
 
 interface Props {
   start: Time
@@ -30,6 +31,8 @@ const twinbite = translations.twinbite
 ---
 
 <TwinbiteCast start={start} />
+<BossAttackSection time="08:09.971" damage="60000" damageType="physical" />
+<BossAttackSection time="08:12.994" damage="60000" damageType="physical" />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
