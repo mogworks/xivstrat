@@ -3,19 +3,20 @@ import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import P from '@/components/typography/P.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import StratLink from '@/components/StratLink.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
 
 import QuakeIIICast from './_components/QuakeIIICast.astro'
 import RiseOfTheHowlingWind from './_mechanics/RiseOfTheHowlingWind.astro'
 import TwinbiteCast from './_components/TwinbiteCast.astro'
 import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
+import HowlingBlade from './_components/entities/HowlingBlade.astro'
 
 import ChampionsCircuit from './_mechanics/ChampionsCircuit.astro'
 import ProwlingGale from './_mechanics/ProwlingGale.astro'
 
 import { translations } from './_translations'
-import SolutionSection from '@/components/section/SolutionSection.astro'
-import HowlingBlade from './_components/entities/HowlingBlade.astro'
-import Span from '@/components/Span.vue'
 
 const dutyId = '07/m8s2'
 
@@ -58,10 +59,25 @@ const twinbite = translations.twinbite
         的处理方法
       </P>
       <P>
-        注意：此时
+        注意：由于
         <HowlingBlade />
-        面向
-        <Span variant="cyan">不一定指向初始平台（即之前被破坏又恢复的平台），请以初始平台为南作为基准</Span>
+        发动
+        <Skill name={championsCircuit} />
+        时是面向随机平台的，躲避完五轮后
+        <HowlingBlade />
+        依然面向随机平台
+      </P>
+      <P>
+        并且之后一段时间都不会变化，因此在处理本轮
+        <Skill name={[quakeIII, ultraviolentRay, twinbite]}>
+          <Fragment slot="separator">+</Fragment>
+        </Skill>
+        时，<Span variant="cyan">请以初始平台作为正南基准</Span>
+      </P>
+      <P>
+        <Span variant="cyan">初始平台即之前被破坏又恢复的平台，同时也是之前集合躲避</Span>
+        <Skill name={championsCircuit} />
+        <Span variant="cyan">的平台</Span>
       </P>
     </div>
   </SolutionSection>
