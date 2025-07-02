@@ -7,10 +7,18 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import T from '@/components/typography/T.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import Hint from '@/components/typography/Hint.astro'
+import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
 
 import BareFangsCast from '../_components/BareFangsCast.astro'
 import ChampionsCircuitActivate from '../_components/ChampionsCircuitActivate.astro'
 import ChampionsCircuitCast from '../_components/ChampionsCircuitCast.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import GleamingFang from '../_components/entities/GleamingFang.astro'
+import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
 
 import { translations } from '../_translations'
 
@@ -24,6 +32,7 @@ const { start, activateTimes }: Props = Astro.props
 
 const bareFangs = translations.bareFangs
 const championsCircuit = translations.championsCircuit
+const gleamingBarrage = translations.gleamingBarrage
 
 // 伤害参考：
 // REF: https://www.fflogs.com/reports/GrMAphvBQfqLT9KJ?fight=4&type=casts&hostility=1&phase=2&view=events
@@ -38,10 +47,43 @@ const championsCircuit = translations.championsCircuit
 </EventSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <T variant="yellow" text=`${bareFangs}` />
-    <P>TODO</P>
+    <T variant="yellow" text={bareFangs} />
+    <P>
+      <HowlingBlade />
+      读条
+      <Skill name={bareFangs} />
+      ，稍后会在每个平台后方（远离场中的方向）召唤一对
+      <GleamingFang />
+    </P>
+    <P>
+      <HowlingBlade />
+      每次释放
+      <Skill name={championsCircuit} />
+      时，每个平台的两个
+      <GleamingFang />
+      中，随机一个会同步释放覆盖半个平台的直线AoE
+    </P>
+    <P>
+      对范围内的玩家造成
+      <Skill name={gleamingBarrage} />
+      <DamageInfo damage="150000" type="magical" />
+      <DamageDown tag="30" percent={50} />
+    </P>
     <T variant="yellow" text=`${championsCircuit}` class="mt-8" />
-    <P>TODO</P>
+    <P>整个机制结束后，屏幕中央出现文字提示：</P>
+    <P>
+      <Hint> 传送装置已恢复正常！ </Hint>
+    </P>
+    <P>
+      此后，传送装置的颜色由
+      <Span variant="red">红色</Span>
+      变回
+      <Span variant="cyan">蓝色</Span>
+      ，原本每次使用传送装置被赋予的
+      <ImmobileSuitDebuff tag="7" hover />
+      也缩短为
+      <ImmobileSuitDebuff tag="2" hover />
+    </P>
   </div>
 </MechanicSection>
 <SolutionSection>
