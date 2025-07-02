@@ -7,6 +7,7 @@ import T from '@/components/typography/T.astro'
 import P from '@/components/typography/P.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
 import HerosBlowCast from './_components/HerosBlowCast.astro'
@@ -18,6 +19,10 @@ import LamentOfTheClose from './_components/buff/LamentOfTheClose.astro'
 import LamentOfTheDistant from './_components/buff/LamentOfTheDistant.astro'
 
 import { translations } from './_translations'
+
+import lone_wolfs_lament_tether from '@/assets/07/m8s2/p3/lone_wolfs_lament_tether.png'
+import lone_wolfs_lament_tower1 from '@/assets/07/m8s2/p3/lone_wolfs_lament_tower1.png'
+import lone_wolfs_lament_tower2 from '@/assets/07/m8s2/p3/lone_wolfs_lament_tower2.png'
 
 const dutyId = '07/m8s2'
 
@@ -53,6 +58,17 @@ const ultraviolentRay = translations.ultraviolentRay
         <RoleIcon role="dps" />
         ，如下图：
       </P>
+      <ImgRow
+        bordered={false}
+        wrapperClass="max-w-150"
+        imgClass="shadowbringer"
+        imgs={[
+          {
+            src: lone_wolfs_lament_tether,
+            alt: '孤狼连线',
+          },
+        ]}
+      />
       <P>
         连近线的人会被赋予
         <LamentOfTheClose tag="21" hover />
@@ -63,6 +79,21 @@ const ultraviolentRay = translations.ultraviolentRay
 
       <T variant="yellow" text={prowlingGale} class="mt-8" />
       <P>生成三座单人塔，一座两人塔，一座三人塔，分布模式仅有如下两种：</P>
+      <ImgRow
+        bordered={false}
+        wrapperClass="max-w-120"
+        imgClass="shadowbringer"
+        imgs={[
+          {
+            src: lone_wolfs_lament_tower1,
+            alt: '孤狼塔模式一',
+          },
+          {
+            src: lone_wolfs_lament_tower2,
+            alt: '孤狼塔模式二',
+          },
+        ]}
+      />
     </div>
   </MechanicSection>
   <SolutionSection>
