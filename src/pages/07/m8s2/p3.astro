@@ -8,6 +8,10 @@ import P from '@/components/typography/P.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import Skill from '@/components/typography/Skill.astro'
+import Quote from '@/components/typography/Quote.astro'
+import Span from '@/components/Span.vue'
+import ListDot from '@/components/ListDot.astro'
 
 import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
 import HerosBlowCast from './_components/HerosBlowCast.astro'
@@ -17,22 +21,30 @@ import ProwlingGaleCast from './_components/ProwlingGaleCast.astro'
 import RiseOfTheEffect from './_components/RiseOfTheEffect.astro'
 import LamentOfTheClose from './_components/buff/LamentOfTheClose.astro'
 import LamentOfTheDistant from './_components/buff/LamentOfTheDistant.astro'
+import HowlingBlade from './_components/entities/HowlingBlade.astro'
 
 import { translations } from './_translations'
 
 import lone_wolfs_lament_tether from '@/assets/07/m8s2/p3/lone_wolfs_lament_tether.png'
 import lone_wolfs_lament_tower1 from '@/assets/07/m8s2/p3/lone_wolfs_lament_tower1.png'
 import lone_wolfs_lament_tower2 from '@/assets/07/m8s2/p3/lone_wolfs_lament_tower2.png'
+import lone_wolfs_lament_preposition from '@/assets/07/m8s2/p3/lone_wolfs_lament_preposition.png'
+import lone_wolfs_lament_tower_preposition from '@/assets/07/m8s2/p3/lone_wolfs_lament_tower_preposition.png'
+import lone_wolfs_lament_solution1 from '@/assets/07/m8s2/p3/lone_wolfs_lament_solution1.png'
+import lone_wolfs_lament_solution2 from '@/assets/07/m8s2/p3/lone_wolfs_lament_solution2.png'
 
 const dutyId = '07/m8s2'
 
 const base = '11:20.127'
 
 const riseOfTheHuntersBlade = translations.riseOfTheHuntersBlade
+const championsCircuit = translations.championsCircuit
 const loneWolfsLament = translations.loneWolfsLament
 const prowlingGale = translations.prowlingGale
 const herosBlow = translations.herosBlow
 const ultraviolentRay = translations.ultraviolentRay
+const quakeIII = translations.quakeIII
+const twinbite = translations.twinbite
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
@@ -96,9 +108,138 @@ const ultraviolentRay = translations.ultraviolentRay
       />
     </div>
   </MechanicSection>
-  <SolutionSection>
+  <SolutionSection title="解法：日野主流（Alice）">
     <div class="flex flex-col gap-4">
-      <P>TODO</P>
+      <Quote variant="lime" class="gap-1 pl-2.5 opacity-80">
+        <P>注意：</P>
+        <P>
+          <ListDot />
+          从前面最后一轮
+          <Skill name={championsCircuit} />
+          后，
+          <HowlingBlade />
+          的面向都会保持不变，这里以面朝右上平台为例
+        </P>
+        <P>
+          <ListDot />
+          以下站位都是
+          <Span variant="cyan">以初始平台作为正南基准</Span>
+        </P>
+      </Quote>
+
+      <P class="mt-8">
+        处理完之前的
+        <Skill name={[quakeIII, ultraviolentRay, twinbite]}>
+          <Fragment slot="separator">+</Fragment>
+        </Skill>
+        后，
+        <RoleIcon role="all" tag="全员" />
+        按下图预站位，待连线出现后观察自身连线情况：
+      </P>
+      <ImgRow
+        bordered={false}
+        wrapperClass="max-w-150"
+        imgClass="shadowbringer"
+        imgs={[
+          {
+            src: lone_wolfs_lament_preposition,
+            alt: '孤狼预站位',
+          },
+        ]}
+      />
+
+      <P>
+        看好线后，在塔出现前，
+        <RoleIcon role="all" tag="全员" />
+        按下图转移到对应平台，并将线拉成下图所示情况：
+      </P>
+      <ImgRow
+        bordered={false}
+        wrapperClass="max-w-150"
+        imgClass="shadowbringer"
+        imgs={[
+          {
+            src: lone_wolfs_lament_tower_preposition,
+            alt: '孤狼踩塔预站位',
+          },
+        ]}
+      />
+      <P>具体来说：</P>
+      <Quote variant="lime" class="pl-2.5">
+        <P>
+          <ListDot />
+          远线
+          <RoleIcon role="tank" />
+          传到左下平台，与远线
+          <RoleIcon role="tank" />
+          相连的
+          <RoleIcon role="dps" />
+          不动
+        </P>
+        <P>
+          <ListDot />
+          近线
+          <RoleIcon role="tank" />
+          和与之相连的
+          <RoleIcon role="dps" />
+          传到右上平台汇合
+        </P>
+        <P>
+          <ListDot />
+          <RoleIcon role="healer" tag="双奶" />
+          始终在初始平台不动，与
+          <RoleIcon role="healer" />
+          相连的远线
+          <RoleIcon role="dps" />
+          传到右上平台，近线
+          <RoleIcon role="dps" />
+          则传到正下平台
+        </P>
+      </Quote>
+      <P class="mt-4">乍一看有点复杂，但其实各个职能只关注自己就非常简单：</P>
+      <Quote variant="lime" class="pl-2.5">
+        <P>
+          <ListDot />
+          <RoleIcon role="healer" tag="双奶" />
+          ：不用动，无脑站在初始平台
+        </P>
+        <P>
+          <ListDot />
+          <RoleIcon role="tank" tag="双T" />
+          ：自己是远线就往右（面向场中）移动一个平台，是近线就往左（面向场中）移动一个平台
+        </P>
+        <P>
+          <ListDot />
+          <RoleIcon role="dps" />
+          ：自己是近线就靠近另一端；自己是远线且足够远（连
+          <RoleIcon role="tank" />
+          ）就不动，太近（连
+          <RoleIcon role="healer" />
+          ）就远离
+        </P>
+      </Quote>
+
+      <P class="mt-8">
+        <HowlingBlade />
+        读条
+        <Skill name={prowlingGale} />
+        ，塔出现，左上/右上平台的三人根据塔的刷新模式调整位置踩塔，机制就处理完了：
+      </P>
+      <ImgRow
+        bordered={false}
+        wrapperClass="max-w-120"
+        imgClass="shadowbringer"
+        imgs={[
+          {
+            src: lone_wolfs_lament_solution1,
+            alt: '孤狼踩塔一',
+          },
+          {
+            src: lone_wolfs_lament_solution2,
+            alt: '孤狼踩塔二',
+          },
+        ]}
+      />
     </div>
   </SolutionSection>
 
