@@ -11,6 +11,9 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import StratLink from '@/components/StratLink.astro'
 import Skill from '@/components/typography/Skill.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Badge from '@/components/Badge.astro'
+import Hint from '@/components/typography/Hint.astro'
 
 import TwofoldTempestCarousel from '../_components/TwofoldTempestCarousel.astro'
 import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
@@ -43,17 +46,18 @@ const defaultSolution = '解法：常规思路'
 <RiseOfTheHowlingWindCast start="09:17.549" />
 <TwofoldTempestCast start="09:26.675" />
 <TwofoldTempestActivate activateTimes={activateTimes} />
+<EventSection time="10:1.0">
+  初始平台被修复，可以传送到该平台
+  <Badge variant="emerald">修复平台</Badge>
+</EventSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
     <T variant="yellow" text={translations.riseOfTheHowlingWind} />
-    <P>读条结束后，屏幕中央出现文字提示</P>
+    <P>读条结束后，屏幕中央出现文字提示：</P>
     <P>
-      <Span
-        variant="default"
-        class="bg-gradient-to-r from-transparent from-5% via-red-300 via-50% to-transparent to-95% px-20 text-lg font-medium text-amber-950 dark:via-red-900 dark:text-amber-100"
-      >
+      <Hint>
         {howlingBlade}使传送装置过载，限制了其可用性…
-      </Span>
+      </Hint>
     </P>
     <P>
       此后，传送装置的颜色由
