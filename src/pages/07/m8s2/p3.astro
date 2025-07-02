@@ -3,9 +3,9 @@ import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
 import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
 import HerosBlowCast from './_components/HerosBlowCast.astro'
-import RiseOfTheHuntersBlade from './_mechanics/RiseOfTheHuntersBlade.astro'
-import LoneWolfsLament from './_mechanics/LoneWolfsLament.astro'
-import ProwlingGaleP3 from './_mechanics/ProwlingGaleP3.astro'
+import RiseOfTheHuntersBladeCast from './_components/RiseOfTheHuntersBladeCast.astro'
+import LoneWolfsLamentCast from './_components/LoneWolfsLamentCast.astro'
+import ProwlingGaleCast from './_components/ProwlingGaleCast.astro'
 
 const dutyId = '07/m8s2'
 
@@ -13,9 +13,9 @@ const base = '11:20.127'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <RiseOfTheHuntersBlade start="11:20.127" />
-  <LoneWolfsLament start="11:29.245" />
-  <ProwlingGaleP3 start="11:39.379" />
+  <RiseOfTheHuntersBladeCast start="11:20.127" />
+  <LoneWolfsLamentCast start="11:29.245" />
+  <ProwlingGaleCast start="11:39.379" />
   <HerosBlowCast start="11:53.603" />
   <UltraviolentRayCast start="12:06.753" />
 </DutyStratLayout>
