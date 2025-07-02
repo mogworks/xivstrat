@@ -25,6 +25,7 @@ import ChampionsCircuitCarousel from '../_components/ChampionsCircuitCarousel.as
 import { translations } from '../_translations'
 
 import championsCircuit_img from '@/assets/07/m8s2/p2/championsCircuit.png'
+import BossAttackSection from '../_components/BossAttackSection.astro'
 
 interface Props {
   start: Time
@@ -45,6 +46,9 @@ const gleamingBarrage = translations.gleamingBarrage
 <BareFangsCast start={start} />
 <ChampionsCircuitCast start="10:11.323" />
 <ChampionsCircuitActivate activateTimes={activateTimes} />
+
+<BossAttackSection time="10:39.380" damage="60000" damageType="physical" />
+
 <EventSection time="10:40.0">
   传送装置恢复正常
   <Badge variant="emerald">传送间隔-</Badge>

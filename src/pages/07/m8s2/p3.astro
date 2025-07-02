@@ -39,6 +39,7 @@ import lone_wolfs_lament_solution2 from '@/assets/07/m8s2/p3/lone_wolfs_lament_s
 import herosBlow1 from '@/assets/07/m8s2/p3/herosBlow1.png'
 import herosBlow2 from '@/assets/07/m8s2/p3/herosBlow2.png'
 import ultraviolentRay_img from '@/assets/07/m8s2/p3/ultraviolentRay.png'
+import BossAttackSection from './_components/BossAttackSection.astro'
 
 const dutyId = '07/m8s2'
 
@@ -57,8 +58,21 @@ const twinbite = translations.twinbite
 <DutyStratLayout dutyId={dutyId} base={base}>
   <SeparatorSection id="rise-of-the-howling-wind" title=`${riseOfTheHuntersBlade}` />
   <RiseOfTheHuntersBladeCast start="11:20.127" />
+
+  <BossAttackSection time="11:28.667" damage="60000" damageType="physical" />
+
   <LoneWolfsLamentCast start="11:29.245" />
+
+  <BossAttackSection time="11:34.711" damage="60000" damageType="physical" />
+  <BossAttackSection time="11:37.732" damage="60000" damageType="physical" />
+
   <ProwlingGaleCast start="11:39.379" />
+
+  <BossAttackSection time="11:43.785" damage="60000" damageType="physical" />
+  <BossAttackSection time="11:46.810" damage="60000" damageType="physical" />
+  <BossAttackSection time="11:49.829" damage="60000" damageType="physical" />
+  <BossAttackSection time="11:52.848" damage="60000" damageType="physical" />
+
   <MechanicSection>
     <div class="flex flex-col gap-4">
       <T variant="yellow" text={riseOfTheHuntersBlade} />
@@ -252,11 +266,21 @@ const twinbite = translations.twinbite
 
   <SeparatorSection id="heros-blow-ultraviolent-ray" title=`${herosBlow} + ${ultraviolentRay}` />
   <HerosBlowCast start="11:53.603" />
+
+  <BossAttackSection time="12:01.908" damage="60000" damageType="physical" />
+
   <EventSection time="12:02.603">
     传送装置恢复正常
     <Badge variant="emerald">传送间隔-</Badge>
   </EventSection>
+
+  <BossAttackSection time="12:04.929" damage="60000" damageType="physical" />
+
   <UltraviolentRayCast start="12:06.753" />
+
+  <BossAttackSection time="12:13.952" damage="60000" damageType="physical" />
+  <BossAttackSection time="12:16.973" damage="60000" damageType="physical" />
+
   <SolutionSection>
     <div class="flex flex-col gap-4">
       <P>

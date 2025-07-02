@@ -20,6 +20,7 @@ import ultraviolentRay1 from '@/assets/07/m8s2/p1/ultraviolentRay1.png'
 import ultraviolentRay2 from '@/assets/07/m8s2/p1/ultraviolentRay2.png'
 
 import { translations } from '../_translations'
+import BossAttackSection from '../_components/BossAttackSection.astro'
 
 interface Props {
   start: Time
@@ -31,6 +32,7 @@ const ultraviolentRay = translations.ultraviolentRay
 ---
 
 <UltraviolentRayCast start={start} />
+<BossAttackSection time="07:59.921" damage="60000" damageType="physical" />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">
