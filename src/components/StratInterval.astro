@@ -38,10 +38,10 @@ if (start === undefined) {
 <div class="relative flex flex-col items-center">
   <div class="flex items-center gap-1.5">
     <StratTime time={startSeconds} />
-    <Separator class="bg-foreground/75 relative w-9" />
+    <Separator class="strat-time-duration-layer bg-foreground/75 relative w-9" />
     <StratTime time={endSeconds} />
   </div>
-  <span class="text-foreground/75 absolute bottom-3.5 text-xs">
+  <span class="strat-time-duration text-foreground/75 absolute bottom-3.5 text-xs">
     {`${durationSeconds.toFixed(1)}s`}
   </span>
 </div>

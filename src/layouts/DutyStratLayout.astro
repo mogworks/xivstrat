@@ -117,6 +117,21 @@ const duty = (await getEntry('duties', dutyId))!.data
       }
     }
 
+    if (stratSettings.viewMode === 'mechanic') {
+      document.querySelectorAll('section.strat-event-section').forEach((e) => {
+        e.classList.toggle('grid', !e.classList.toggle('hidden', true))
+      })
+      document.querySelectorAll('section.strat-cast-section').forEach((e) => {
+        e.classList.toggle('grid', !e.classList.toggle('hidden', true))
+      })
+      document.querySelectorAll('collapse-section.strat-collapse-section').forEach((e) => {
+        e.classList.toggle('grid', !e.classList.toggle('hidden', true))
+      })
+      document.querySelectorAll('section.strat-section.content-section').forEach((e) => {
+        e.classList.toggle('grid', !e.classList.toggle('hidden', e.classList.contains('note-section')))
+      })
+    }
+
     // 对于阅读模式
     const highlightTextQuery =
       'section.strat-section:not(.separator-section) span:not(.strat-time):not(.damage-info):not(.strat-title):not([data-icon="buff-icon"])'

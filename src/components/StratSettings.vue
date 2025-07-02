@@ -58,6 +58,11 @@ const viewModeSetting = {
       name: '仅伤害',
       description: '仅保留有伤害的事件，适合快速查阅伤害',
     },
+    {
+      id: 'mechanic',
+      name: '仅关键机制',
+      description: '隐藏重要机制解法以外的信息，如咏唱内容等，适合快速查阅关键机制解法',
+    },
   ],
   onChange: (value: string) => {
     $stratSettings.setKey('viewMode', value as 'default' | 'solution' | 'timeline' | 'damage')
@@ -89,21 +94,26 @@ const attackEventSetting = {
 }
 
 const timelineOriginSetting = {
-  name: '时间轴起点',
+  name: '时间轴模式',
   options: [
     {
       id: 'global',
-      name: '全局',
-      description: '以整场战斗起始点为准',
+      name: '全局基准显示',
+      description: '以整场战斗起始点为准显示时间轴',
     },
     {
       id: 'phase',
-      name: '阶段',
-      description: '以当前阶段起始点为准',
+      name: '阶段基准显示',
+      description: '以当前阶段起始点为准显示时间轴',
+    },
+    {
+      id: 'hidden',
+      name: '隐藏',
+      description: '隐藏时间轴',
     },
   ],
   onChange: (value: string) => {
-    $stratSettings.setKey('timelineOrigin', value as 'global' | 'phase')
+    $stratSettings.setKey('timelineOrigin', value as 'global' | 'phase' | 'hidden')
   },
 }
 
