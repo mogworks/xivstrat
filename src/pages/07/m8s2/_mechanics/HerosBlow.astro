@@ -19,6 +19,7 @@ import HerosBlow4 from '@/assets/07/m8s2/p1/herosBlow4.png'
 import { translations } from '../_translations'
 import Skill from '@/components/typography/Skill.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
+import BossAttackSection from '../_components/BossAttackSection.astro'
 
 interface Props {
   start: Time
@@ -30,6 +31,7 @@ const herosBlow = translations.herosBlow
 ---
 
 <HerosBlowCast start={start} />
+<BossAttackSection time="08:23.490" damage="60000" damageType="physical" />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

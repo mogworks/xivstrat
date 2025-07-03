@@ -13,7 +13,7 @@
   "phases": [
     {
       "href": "/07/zelenia/p1",
-      "title": "Part 1",
+      "title": "Phase 1",
       "subtitle": "前半",
       "name": "P1 - 前半",
       "mechanics": [
@@ -29,7 +29,7 @@
     },
     {
       "href": "/07/zelenia/p2",
-      "title": "Part 2",
+      "title": "Phase 2",
       "subtitle": "小怪阶段",
       "name": "P2 - 小怪阶段",
       "mechanics": [
@@ -41,7 +41,7 @@
     },
     {
       "href": "/07/zelenia/p3",
-      "title": "Part 3",
+      "title": "Phase 3",
       "subtitle": "后半",
       "name": "P3 - 后半",
       "mechanics": [
