@@ -11,17 +11,18 @@ import { translations } from '../_translations'
 
 interface Props {
   time: Time
+  num?: number
 }
 
 const ability = translations.prowlingGale
 const damage = '40000'
 const damageType = 'magical'
 
-const { time }: Props = Astro.props
+const { time, num = 4 }: Props = Astro.props
 ---
 
 <EventSection time={time}>
-  <Span variant="rose">塔×4</Span>
+  <Span variant="rose">塔×{num}</Span>
   <Span variant="rose" class="text-decimal">[伤害源BOSS]</Span>
   判定，对
   <RoleIcon role="all" tag="全员" />
