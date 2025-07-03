@@ -1,0 +1,7 @@
+---
+import { timeToSeconds } from '@/lib/utils'
+
+import Timeline from './_components/Timeline.astro'
+---
+
+<Timeline duty="m8s2" offset={timeToSeconds('7:0.0') * 1000} />

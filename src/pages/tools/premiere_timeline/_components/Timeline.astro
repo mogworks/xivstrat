@@ -16,14 +16,15 @@ import { timelineMap } from '../timeline'
 
 interface Props {
   duty: string
+  offset?: number
 }
 
-const { duty }: Props = Astro.props
+const { duty, offset = 0 }: Props = Astro.props
 ---
 
 <Layout lang="zh-CN" title={`${duty.toUpperCase()} PR 时间轴`} description={`${duty.toUpperCase()} PR 时间轴`}>
-  <div class="min-h-screen w-960">
-    <div class="relative flex h-72 items-center justify-center">
+  <div class="min-h-screen w-960" data-offset={offset}>
+    <div id="timeline" class="relative flex h-72 items-center justify-center">
       <DutyTimer class="absolute top-1/2 left-1/2 -translate-x-115 -translate-y-1/2" />
       <div class="grid grid-cols-6 place-items-center gap-x-1 gap-y-1.5">
         {['MT', 'ST', 'D1', 'D2', 'D3', 'D4'].map((role) => <RoleIcon role={role as Role} />)}
@@ -46,7 +47,11 @@ const { duty }: Props = Astro.props
 <script>
   import { startTimer } from '../_stores/timer'
 
-  setTimeout(() => {
-    startTimer()
-  }, 20000)
+  const timeline = document.getElementById('timeline')
+  if (timeline) {
+    const offset = timeline.dataset.offset ?? '0'
+    setTimeout(() => {
+      startTimer(Number(offset))
+    }, 20000)
+  }
 </script>

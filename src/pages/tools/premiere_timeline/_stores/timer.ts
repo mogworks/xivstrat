@@ -2,16 +2,18 @@ import { atom } from 'nanostores'
 
 export const $timer = atom(0)
 
-export let stopTimer: (() => void) | undefined
+let stopTimer: (() => void) | undefined
 
-export const startTimer = () => {
+export const startTimer = (offset = 0) => {
   const start = Date.now()
-  $timer.set(0)
+  $timer.set(offset)
   const updating = setInterval(() => {
-    $timer.set(Date.now() - start)
+    $timer.set(Date.now() - start + offset)
   }, 50)
   stopTimer = () => {
     clearInterval(updating)
   }
   return stopTimer
 }
+
+export const getStopTimer = () => stopTimer

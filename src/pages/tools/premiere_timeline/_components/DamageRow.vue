@@ -5,13 +5,13 @@ import { computed } from 'vue'
 
 import { cn, timeToSeconds } from '@/lib/utils'
 
-import type { DamageInfo } from '../timeline'
+import type { DamageInfoData } from '../damage'
 
-import { $timer, stopTimer } from '../_stores/timer'
+import { $timer, getStopTimer } from '../_stores/timer'
 import Damage from './Damage.vue'
 
 interface Props {
-  damages: DamageInfo[]
+  damages: DamageInfoData[]
   class?: string
 }
 
@@ -45,7 +45,7 @@ const visibleDamages = computed(() => {
     res[res.length - 1].value === '9999999' &&
     res[res.length - 1].timeInSeconds <= currentTime
   ) {
-    stopTimer?.()
+    getStopTimer()?.()
   }
   return res
 })
