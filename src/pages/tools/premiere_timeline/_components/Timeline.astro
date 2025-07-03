@@ -45,11 +45,12 @@ const { duty, offset = 0 }: Props = Astro.props
 </Layout>
 
 <script>
-  import { startTimer } from '../_stores/timer'
+  import { $timer, startTimer } from '../_stores/timer'
 
   const timeline = document.getElementById('timeline')
   if (timeline) {
     const offset = timeline.dataset.offset ?? '0'
+    $timer.set(Number(offset))
     setTimeout(() => {
       startTimer(Number(offset))
     }, 20000)
