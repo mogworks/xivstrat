@@ -17,6 +17,7 @@ import QuakeIIICast from '../_components/QuakeIIICast.astro'
 import quake_iii from '@/assets/07/m8s2/p1/quakeIII.png'
 
 import { translations } from '../_translations'
+import BossAttackSection from '../_components/BossAttackSection.astro'
 
 interface Props {
   start: Time
@@ -28,6 +29,8 @@ const quakeIII = translations.quakeIII
 ---
 
 <QuakeIIICast start={start} />
+<BossAttackSection time="07:47.871" damage="60000" damageType="physical" />
+<BossAttackSection time="07:50.896" damage="60000" damageType="physical" />
 
 <MechanicSection>
   <div class="flex flex-col gap-4">

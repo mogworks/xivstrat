@@ -1,0 +1,26 @@
+---
+import Span from '@/components/Span.vue'
+import Hint from '@/components/typography/Hint.astro'
+import P from '@/components/typography/P.astro'
+
+import ImmobileSuitDebuff from './ImmobileSuitDebuff.astro'
+
+import { translations } from '../_translations'
+---
+
+<P>读条结束后，屏幕中央出现文字提示：</P>
+<P>
+  <Hint>
+    在{translations.howlingBlade}的干涉下，再次使用传送装置的所需时间延长了……
+  </Hint>
+</P>
+<P>
+  此后，传送装置的颜色由
+  <Span variant="cyan">蓝色</Span>
+  变成
+  <Span variant="red">红色</Span>
+  ，原本每次使用传送装置被赋予的
+  <ImmobileSuitDebuff tag="2" hover />
+  也延长为
+  <ImmobileSuitDebuff tag="7" hover />
+</P>
