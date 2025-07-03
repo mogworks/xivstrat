@@ -1,18 +1,28 @@
 ---
 interface Props {
   class?: string
+  offset?: number
 }
 
-const { class: className }: Props = Astro.props
+const { class: className, offset = 0 }: Props = Astro.props
+
+const seconds = offset / 1000
+const m = Math.floor(seconds / 60)
+const s = Math.floor(seconds % 60)
+
+const MM = Math.floor(m / 10)
+const M = Math.floor(m % 10)
+const SS = Math.floor(s / 10)
+const S = Math.floor(s % 10)
 ---
 
 <duty-timer class={className}>
   <div class="flex items-center gap-0.5 text-5xl font-semibold text-shadow-lg/50">
-    <span data-spantype="MM">0</span>
-    <span data-spantype="M">0</span>
+    <span data-spantype="MM">{MM}</span>
+    <span data-spantype="M">{M}</span>
     :
-    <span data-spantype="SS">0</span>
-    <span data-spantype="S">0</span>
+    <span data-spantype="SS">{SS}</span>
+    <span data-spantype="S">{S}</span>
   </div>
 </duty-timer>
 
@@ -25,7 +35,7 @@ const { class: className }: Props = Astro.props
       const MSpan = this.querySelector('[data-spantype="M"]')!
       const SSSpan = this.querySelector('[data-spantype="SS"]')!
       const SSpan = this.querySelector('[data-spantype="S"]')!
-      $timer.subscribe((timer) => {
+      $timer.listen((timer) => {
         const s = timer / 1000
         const S = Math.floor(s % 10)
         const SS = (Math.floor(s % 60) - S) / 10
