@@ -9,7 +9,7 @@ export const thanksList = {
     'LuoLuoKe',
     'JiaoTangHaiYanBuDing',
     'Ling',
-    'FlyFish',
+    'FishFly',
     'cck',
   ],
   other: [],
