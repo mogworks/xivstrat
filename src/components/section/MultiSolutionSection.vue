@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-
 import { onMounted, onUnmounted, ref } from 'vue'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/shadcn-vue/tabs'
@@ -12,7 +10,6 @@ const prop = defineProps<{
     title: string // 必须唯一
   }[]
   defaultSolution: string // title
-  class?: HTMLAttributes['class']
 }>()
 const defaultSolutionRef = ref(prop.defaultSolution)
 

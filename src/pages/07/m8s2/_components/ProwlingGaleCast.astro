@@ -6,17 +6,19 @@ import CastSection from '@/components/section/CastSection.astro'
 
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 
+import { translations } from '../_translations'
+
 interface Props {
   start: Time
 }
 
 const { start }: Props = Astro.props
 
-const prowlingGale = '風狼陣'
+const prowlingGale = translations.prowlingGale
 ---
 
-<CastSection start={start} duration={7.7} ability={prowlingGale} damage="45000" damageType="magical">
+<CastSection start={start} duration={2.7} ability={prowlingGale}>
   <HowlingBlade slot="source" />
-
+  ，在场地上生成若干塔
   <Badge variant="yellow">踩塔</Badge>
 </CastSection>
