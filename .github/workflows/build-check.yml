@@ -1,0 +1,37 @@
+name: Build Check
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Switch Mirror
+        run: pnpm config set registry https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run Husky hooks (optional)
+        run: |
+          pnpm dlx husky install
+          pnpm exec husky run pre-commit
+
+      - name: Build Astro project
+        run: pnpm run build
+
+      - name: Run lint
+        run: pnpm run lint
