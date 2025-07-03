@@ -6,17 +6,21 @@
   "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级4 前半 超详解动态图文攻略",
   "navigationInfo": {
     "name": "前半",
-    "parent": ["阿卡狄亚零式登天斗技场 中量级", "M8S"]
+    "parent": [
+      "阿卡狄亚零式登天斗技场 中量级",
+      "M8S"
+    ]
   },
   "banner": "@/assets/banners/07/m8s.png",
   "date": "25/06/23 01:00",
   "href": "/07/m8s1",
   "status": "done",
   "indexAvailable": true,
+  "bilibili": "https://www.bilibili.com/video/BV1aT3tzrEnq/",
   "phases": [
     {
       "href": "/07/m8s1/p1",
-      "title": "Part 1",
+      "title": "Phase 1",
       "subtitle": "风啸剑嚎",
       "name": "P1 - 风啸剑嚎",
       "mechanics": [
@@ -59,7 +63,7 @@
     },
     {
       "href": "/07/m8s1/p2",
-      "title": "Part 2",
+      "title": "Phase 2",
       "subtitle": "光狼召唤",
       "name": "P2 - 光狼召唤",
       "mechanics": [
@@ -81,7 +85,7 @@
     },
     {
       "href": "/07/m8s1/p3",
-      "title": "Part 3",
+      "title": "Phase 3",
       "subtitle": "残影幻狼",
       "name": "P3 - 残影幻狼",
       "mechanics": [

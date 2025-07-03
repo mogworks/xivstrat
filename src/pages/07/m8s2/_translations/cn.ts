@@ -26,4 +26,9 @@ export const translations = {
   patienceOfStone: '土之残响',
   patienceOfStoneDesp: '体内残留着土属性的魔力。效果时间结束时对周围发动魔法',
   howlingBlade: '剑嚎',
+  gleamingBarrage: '连击闪光炮',
+  lamentOfTheClose: '孤狼的近咒',
+  lamentOfTheCloseDesp: '与受到同种诅咒的人距离过远时会引发大爆炸',
+  lamentOfTheDistant: '孤狼的远咒',
+  lamentOfTheDistantDesp: '与受到同种诅咒的人距离过近时会引发大爆炸',
 }

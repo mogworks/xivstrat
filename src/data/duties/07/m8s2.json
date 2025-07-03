@@ -12,14 +12,14 @@
     ]
   },
   "banner": "@/assets/banners/07/m8s.png",
-  "date": "25/06/30 18:20",
+  "date": "25/07/03 01:20",
   "href": "/07/m8s2",
-  "status": "live",
+  "status": "done",
   "indexAvailable": true,
   "phases": [
     {
       "href": "/07/m8s2/p1",
-      "title": "Part 1",
+      "title": "Phase 1",
       "subtitle": "风震魔印",
       "name": "P1 - 风震魔印",
       "mechanics": [
@@ -69,7 +69,7 @@
     },
     {
       "href": "/07/m8s2/p2",
-      "title": "Part 2",
+      "title": "Phase 2",
       "subtitle": "飓风之相",
       "name": "P2 - 飓风之相",
       "mechanics": [
@@ -85,17 +85,18 @@
           "name": "魔狼战形・飓风之相"
         },
         {
-          "href": "#champions-circuit",
-          "name": "回天动地",
-          "name_en": "Champion's Circuit",
-          "name_ja": "廻天動地",
-          "name_ch": "回天动地"
+          "href": "#bare-fangs-champions-circuit",
+          "name": "光牙召唤 + 回天动地"
+        },
+        {
+          "href": "#QURT",
+          "name": "爆震 + 魔光 + 双牙击"
         }
       ]
     },
     {
       "href": "/07/m8s2/p3",
-      "title": "Part 3",
+      "title": "Phase 3",
       "subtitle": "咒刃之相",
       "name": "P3 - 咒刃之相",
       "mechanics": [
@@ -111,7 +112,7 @@
     },
     {
       "href": "/07/m8s2/p4",
-      "title": "Part 4",
+      "title": "Phase 4",
       "subtitle": "八连光弹",
       "name": "P4 - 八连光弹",
       "mechanics": [

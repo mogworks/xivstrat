@@ -1,23 +1,31 @@
 ---
-import { Image } from 'astro:assets'
 import { type Time } from '@/lib/utils'
 
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import P from '@/components/typography/P.astro'
-import Quote from '@/components/typography/Quote.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import Span from '@/components/Span.vue'
 import T from '@/components/typography/T.astro'
-
-import img from '@/assets/07/m8s2/tmp.png'
+import EventSection from '@/components/section/EventSection.astro'
+import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import Hint from '@/components/typography/Hint.astro'
+import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 
 import BareFangsCast from '../_components/BareFangsCast.astro'
 import ChampionsCircuitActivate from '../_components/ChampionsCircuitActivate.astro'
 import ChampionsCircuitCast from '../_components/ChampionsCircuitCast.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import GleamingFang from '../_components/entities/GleamingFang.astro'
+import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
+import ChampionsCircuitCarousel from '../_components/ChampionsCircuitCarousel.astro'
 
 import { translations } from '../_translations'
+
+import championsCircuit_img from '@/assets/07/m8s2/p2/championsCircuit.png'
+import BossAttackSection from '../_components/BossAttackSection.astro'
 
 interface Props {
   start: Time
@@ -29,6 +37,7 @@ const { start, activateTimes }: Props = Astro.props
 
 const bareFangs = translations.bareFangs
 const championsCircuit = translations.championsCircuit
+const gleamingBarrage = translations.gleamingBarrage
 
 // 伤害参考：
 // REF: https://www.fflogs.com/reports/GrMAphvBQfqLT9KJ?fight=4&type=casts&hostility=1&phase=2&view=events
@@ -37,35 +46,88 @@ const championsCircuit = translations.championsCircuit
 <BareFangsCast start={start} />
 <ChampionsCircuitCast start="10:11.323" />
 <ChampionsCircuitActivate activateTimes={activateTimes} />
+
+<BossAttackSection time="10:39.380" damage="60000" damageType="physical" />
+
+<EventSection time="10:40.0">
+  传送装置恢复正常
+  <Badge variant="emerald">传送间隔-</Badge>
+</EventSection>
 <MechanicSection>
   <div class="flex flex-col gap-4">
-    <T variant="yellow" text=`${bareFangs}` />
+    <T variant="yellow" text={bareFangs} />
     <P>
-      在每个平台生成2个
+      <HowlingBlade />
+      读条
+      <Skill name={bareFangs} />
+      ，稍后会在每个平台后方（远离场中的方向）召唤一对
       <GleamingFang />
-      ，每次会有1个
-      <GleamingFang />
-      展开并对平台释放对应的半场AoE
     </P>
-    <T variant="yellow" text=`${championsCircuit}` />
-    <P> 读条过程中，各平台出现5种不同但顺序固定的AoE范围提示和旋转提示 </P>
     <P>
-      每次攻击判定后，AoE将根据提示进行顺时针或逆时针的旋转，每次旋转
-      <Span variant="emerald">72°</Span>
-      顺次移动到相邻平台
+      <HowlingBlade />
+      每次释放
+      <Skill name={championsCircuit} />
+      时，每个平台的两个
+      <GleamingFang />
+      中，随机一个会同步释放覆盖半个平台的直线AoE
     </P>
-    <Quote variant="cyan"> 注意：读条结束后范围提示和旋转方向都将消失，需要凭借记忆判断安全区 </Quote>
-
-    <P> 上述两种攻击将在每次判定时几乎同时释放 </P>
-    <Image src={img} alt="" class="max-w-100 border-2 border-cyan-600 dark:border-cyan-100" />
+    <P>
+      对范围内的玩家造成
+      <Skill name={gleamingBarrage} />
+      <DamageInfo damage="150000" type="magical" />
+      <DamageDown tag="30" percent={50} />
+    </P>
+    <T variant="yellow" text=`${championsCircuit}` class="mt-8" />
+    <P>
+      <HowlingBlade />
+      随机面向一个平台中心，读条
+      <Skill name={championsCircuit} />
+      ，
+      <HowlingBlade />
+      周身出现环绕特效，各平台上也出现伤害范围预兆
+    </P>
+    <P>
+      之后
+      <HowlingBlade />
+      会按旋转提示方向，绕场一周释放
+      <Span variant="default">5</Span>
+      次
+      <Skill name={championsCircuit} />
+      ，对范围内玩家造成
+      <DamageInfo damage="170000" type="magical" />
+      <DamageDown tag="30" percent={50} />
+      ：
+    </P>
+    <ImgRow
+      wrapperClass="max-w-150"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: championsCircuit_img, alt: '回天动地预兆' }]}
+    />
+    <P>整个机制结束后，屏幕中央出现文字提示：</P>
+    <P>
+      <Hint>再次使用传送装置的所需时间恢复了原状！</Hint>
+    </P>
+    <P>
+      此后，传送装置的颜色由
+      <Span variant="red">红色</Span>
+      变回
+      <Span variant="cyan">蓝色</Span>
+      ，原本每次使用传送装置被赋予的
+      <ImmobileSuitDebuff tag="7" hover />
+      也缩短为
+      <ImmobileSuitDebuff tag="2" hover />
+    </P>
   </div>
 </MechanicSection>
 <SolutionSection>
   <div class="flex flex-col gap-4">
-    <P> 待补充 </P>
+    <P>本质就是出啥躲啥，躲当前轮次的时候提前看好隔壁平台是什么类型，提前做好准备</P>
     <P>
-      <RoleIcon role="all" tag="全员" />
-      在初始平台中线位置集合，便于后续移动到安全区
+      每轮躲避时先别急着走，等确认了身后哪个
+      <GleamingFang />
+      亮起后再躲避。具体流程示意如下：
     </P>
+    <ChampionsCircuitCarousel />
   </div>
 </SolutionSection>

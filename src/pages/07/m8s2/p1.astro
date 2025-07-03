@@ -29,6 +29,7 @@ import { translations } from './_translations'
 
 import floor_img from '@/assets/07/m8s2/floor.png'
 import ElementalPurge from './_mechanics/ElementalPurge.astro'
+import BossAttackSection from './_components/BossAttackSection.astro'
 
 const dutyId = '07/m8s2'
 
@@ -52,6 +53,7 @@ const elementalPurge = translations.elementalPurge
     <DownForTheCount hover />消失，
     <HowlingBlade />可选中，场地变为五个平台，进入战斗的后半阶段
   </EventSection>
+  <BossAttackSection time="07:39.819" damage="60000" damageType="physical" />
 
   <NoteSection>
     <div class="flex flex-col gap-4">
@@ -113,7 +115,12 @@ const elementalPurge = translations.elementalPurge
   <SeparatorSection />
 
   <UltraviolentRayCast start="08:25.583" />
+  <BossAttackSection time="08:32.524" damage="60000" damageType="physical" />
+  <BossAttackSection time="08:35.546" damage="60000" damageType="physical" />
   <QuakeIIICast start="08:37.727" />
+  <BossAttackSection time="08:43.599" damage="60000" damageType="physical" />
+  <BossAttackSection time="08:46.626" damage="60000" damageType="physical" />
+  <BossAttackSection time="08:49.654" damage="60000" damageType="physical" />
   <SolutionSection>
     <div class="flex flex-col gap-4">
       <P>
