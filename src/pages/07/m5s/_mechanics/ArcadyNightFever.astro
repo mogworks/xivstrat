@@ -16,6 +16,9 @@ import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import CollapseSection from '@/components/section/CollapseSection.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import ListDot from '@/components/ListDot.astro'
 import RoleOrder from '../_components/GetDownOrder.vue'
 import Wavelength from '../_components/Wavelength.astro'
 import WavelengthEffect from '../_components/WavelengthEffect.astro'
@@ -40,7 +43,8 @@ interface Props {
   getDownTimes: Time[]
 }
 const { start, getDownTimes = [] }: Props = Astro.props
-const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '23']
+const wavelengthDurations1 = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '23']
+const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', '28']
 ---
 
 <CastSection start={start} duration={4.5} ability={translations.arcadyNightFever}>
@@ -63,7 +67,7 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
       getDownTimes.map((time, index) => (
         <EventSection time={time}>
           <Boss />
-          对随机不重复
+          对不重复
           {index % 2 === 0 ? (
             <>
               <RoleIcon role="tank" />
@@ -84,9 +88,17 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
           <DamageInfo damage="95000" type="magical" />
           <MagicVulnerabilityUp tag="9" hover />
           {index % 2 === 0 ? (
-            <Wavelength type="α" tag={wavelengthDurations[index]} hover />
+            <Fragment>
+              <Wavelength type="α" tag={wavelengthDurations1[index]} hover />
+              /
+              <Wavelength type="β" tag={wavelengthDurations2[index]} hover />
+            </Fragment>
           ) : (
-            <Wavelength type="β" tag={wavelengthDurations[index]} hover />
+            <Fragment>
+              <Wavelength type="β" tag={wavelengthDurations1[index]} hover />
+              /
+              <Wavelength type="α" tag={wavelengthDurations2[index]} hover />
+            </Fragment>
           )}
           <Badge variant="emerald">45°扇形</Badge>
           <Badge variant="emerald">八方</Badge>
@@ -182,43 +194,88 @@ const wavelengthDurations = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '
       <Wavelength type="α" hover />
       和
       <Wavelength type="β" hover />
+      ，有两种情况（无需记忆，仅列出作为参考）：
     </div>
-    <div class="paragraph">
-      第1、3、5、7次扇形赋予
-      <Wavelength type="α" hover tag={wavelengthDurations[0]} />
-      、
-      <Wavelength type="α" hover tag={wavelengthDurations[2]} />
-      、
-      <Wavelength type="α" hover tag={wavelengthDurations[4]} />
-      、
-      <Wavelength type="α" hover tag={wavelengthDurations[6]} />
-      ，第8次扇形时会变为
-      <Wavelength type="α" hover tag="23" />
-      、
-      <Wavelength type="α" hover tag="13" />
-      、
-      <Wavelength type="α" hover tag="18" />
-      、
-      <Wavelength type="α" hover tag="28" />
-    </div>
-    <div class="paragraph">
-      第2、4、6、8次扇形赋予
-      <Wavelength type="β" hover tag={wavelengthDurations[1]} />
-      、
-      <Wavelength type="β" hover tag={wavelengthDurations[3]} />
-      、
-      <Wavelength type="β" hover tag={wavelengthDurations[5]} />
-      、
-      <Wavelength type="β" hover tag={wavelengthDurations[7]} />
-      ，第8次扇形时会变为
-      <Wavelength type="β" hover tag="28" />
-      、
-      <Wavelength type="β" hover tag="18" />
-      、
-      <Wavelength type="β" hover tag="13" />
-      、
-      <Wavelength type="β" hover tag="23" />
-    </div>
+    <Quote variant="yellow">
+      <P>情况一：</P>
+      <P>
+        <ListDot />
+        第1、3、5、7次扇形赋予
+        <Wavelength type="α" hover tag={wavelengthDurations1[0]} />
+        、
+        <Wavelength type="α" hover tag={wavelengthDurations1[2]} />
+        、
+        <Wavelength type="α" hover tag={wavelengthDurations1[4]} />
+        、
+        <Wavelength type="α" hover tag={wavelengthDurations1[6]} />
+        ，第8次扇形时会变为
+        <Wavelength type="α" hover tag="23" />
+        、
+        <Wavelength type="α" hover tag="13" />
+        、
+        <Wavelength type="α" hover tag="18" />
+        、
+        <Wavelength type="α" hover tag="28" />
+      </P>
+      <P>
+        <ListDot />
+        第2、4、6、8次扇形赋予
+        <Wavelength type="β" hover tag={wavelengthDurations1[1]} />
+        、
+        <Wavelength type="β" hover tag={wavelengthDurations1[3]} />
+        、
+        <Wavelength type="β" hover tag={wavelengthDurations1[5]} />
+        、
+        <Wavelength type="β" hover tag={wavelengthDurations1[7]} />
+        ，第8次扇形时会变为
+        <Wavelength type="β" hover tag="28" />
+        、
+        <Wavelength type="β" hover tag="18" />
+        、
+        <Wavelength type="β" hover tag="13" />
+        、
+        <Wavelength type="β" hover tag="23" />
+      </P>
+      <P>情况二：</P>
+      <P>
+        <ListDot />
+        第1、3、5、7次扇形赋予
+        <Wavelength type="β" hover tag={wavelengthDurations2[0]} />
+        、
+        <Wavelength type="β" hover tag={wavelengthDurations2[2]} />
+        、
+        <Wavelength type="β" hover tag={wavelengthDurations2[4]} />
+        、
+        <Wavelength type="β" hover tag={wavelengthDurations2[6]} />
+        ，第8次扇形时会变为
+        <Wavelength type="β" hover tag="28" />
+        、
+        <Wavelength type="β" hover tag="18" />
+        、
+        <Wavelength type="β" hover tag="13" />
+        、
+        <Wavelength type="β" hover tag="23" />
+      </P>
+      <P>
+        <ListDot />
+        第2、4、6、8次扇形赋予
+        <Wavelength type="α" hover tag={wavelengthDurations2[1]} />
+        、
+        <Wavelength type="α" hover tag={wavelengthDurations2[3]} />
+        、
+        <Wavelength type="α" hover tag={wavelengthDurations2[5]} />
+        、
+        <Wavelength type="α" hover tag={wavelengthDurations2[7]} />
+        ，第8次扇形时会变为
+        <Wavelength type="α" hover tag="23" />
+        、
+        <Wavelength type="α" hover tag="13" />
+        、
+        <Wavelength type="α" hover tag="18" />
+        、
+        <Wavelength type="α" hover tag="28" />
+      </P>
+    </Quote>
     <WavelengthEffect />
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">节奏感</Span>
