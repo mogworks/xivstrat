@@ -46,7 +46,7 @@ const { start, getDownTimes = [] }: Props = Astro.props
       getDownTimes.map((time, index) => (
         <EventSection time={time}>
           <Boss />
-          对随机不重复
+          对不重复
           {index % 2 === 0 ? (
             <>
               <RoleIcon role="tank" />
