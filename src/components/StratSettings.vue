@@ -64,6 +64,25 @@ const viewModeSetting = {
   },
 }
 
+const mechanicChooseSetting = {
+  name: '机制显示模式',
+  options: [
+    {
+      id: 'default',
+      name: '全部',
+      description: '正常显示所有内容，包括咏唱、AOE等',
+    },
+    {
+      id: 'key-mechanic',
+      name: '仅关键机制',
+      description: '仅显示重要机制',
+    },
+  ],
+  onChange: (value: string) => {
+    $stratSettings.setKey('mechanicChoose', value as 'default' | 'key-mechanic')
+  },
+}
+
 const attackEventSetting = {
   name: '普通攻击',
   options: [
@@ -89,21 +108,26 @@ const attackEventSetting = {
 }
 
 const timelineOriginSetting = {
-  name: '时间轴起点',
+  name: '时间轴模式',
   options: [
     {
       id: 'global',
-      name: '全局',
-      description: '以整场战斗起始点为准',
+      name: '全局基准显示',
+      description: '以整场战斗起始点为准显示时间轴',
     },
     {
       id: 'phase',
-      name: '阶段',
-      description: '以当前阶段起始点为准',
+      name: '阶段基准显示',
+      description: '以当前阶段起始点为准显示时间轴',
+    },
+    {
+      id: 'hidden',
+      name: '隐藏',
+      description: '隐藏时间轴',
     },
   ],
   onChange: (value: string) => {
-    $stratSettings.setKey('timelineOrigin', value as 'global' | 'phase')
+    $stratSettings.setKey('timelineOrigin', value as 'global' | 'phase' | 'hidden')
   },
 }
 
@@ -193,6 +217,12 @@ const pixijsApiPreferenceSetting = {
           :options="viewModeSetting.options"
           :disabled="stratSettings.attackEvent === 'only'"
           :on-value-change="viewModeSetting.onChange"
+        />
+        <RadioGroup
+          :name="mechanicChooseSetting.name"
+          :default-value="stratSettings.mechanicChoose"
+          :options="mechanicChooseSetting.options"
+          :on-value-change="mechanicChooseSetting.onChange"
         />
         <RadioGroup
           :name="attackEventSetting.name"

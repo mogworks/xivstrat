@@ -98,3 +98,38 @@ export function findOrCreateRouteNode(parentLevel: Route[], nodeName: string): R
   }
   return node
 }
+
+export async function getJSONHash(data: unknown, algorithm: AlgorithmIdentifier = 'SHA-256'): Promise<string> {
+  function createCanonicalJSON(data: unknown): string {
+    if (data === null || typeof data !== 'object') {
+      return JSON.stringify(data)
+    }
+
+    if (Array.isArray(data)) {
+      const items = data.map(item => createCanonicalJSON(item))
+      return `[${items.join(',')}]`
+    }
+
+    const sortedKeys = Object.keys(data).sort()
+    const items = sortedKeys.map((key) => {
+      const value = createCanonicalJSON((data as Record<string, unknown>)[key])
+      return `${JSON.stringify(key)}:${value}`
+    })
+
+    return `{${items.join(',')}}`
+  }
+  function bufferToHex(buffer: ArrayBuffer): string {
+    const byteArray = new Uint8Array(buffer)
+    return Array.from(byteArray)
+      .map(byte => byte.toString(16).padStart(2, '0'))
+      .join('')
+  }
+  const jsonString = createCanonicalJSON(data)
+
+  const encoder = new TextEncoder()
+  const dataBuffer = encoder.encode(jsonString)
+
+  const hashBuffer = await crypto.subtle.digest(algorithm, dataBuffer)
+
+  return bufferToHex(hashBuffer)
+}

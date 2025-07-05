@@ -13,7 +13,7 @@ interface Props {
 const { time = 0, class: className = '', ...rest }: Props = Astro.props
 ---
 
-<Section class={className} {...rest}>
+<Section class={`${className} strat-event-section`} {...rest}>
   <div class="self-center justify-self-end px-4">
     <slot name="time">
       <StratTime time={time} />
