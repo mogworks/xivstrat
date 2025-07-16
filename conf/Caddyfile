@@ -1,7 +1,7 @@
 xivstrat.com {
 	root * /srv
 	file_server
-
+	encode gzip
 	handle_errors {
 		@custom_err file /{err.status_code}.html
 		handle @custom_err {
