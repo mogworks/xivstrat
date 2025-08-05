@@ -1,0 +1,22 @@
+{
+  "name": "The Minstrel's Ballad: Necron's Embrace",
+  "short": "Necron",
+  "type": "trial",
+  "title": "Necron歼殛战 攻略",
+  "description": "最终幻想14 Necron歼殛战 超详解动态图文攻略",
+  "banner": "@/assets/banners/07/necron.png",
+  "date": "25/08/05 12:00",
+  "href": "/07/necron",
+  "status": "live",
+  "indexAvailable": false,
+  "phases": [
+    {
+      "href": "/07/necron/p1",
+      "title": "Phase 1",
+      "subtitle": "前半",
+      "name": "P1 - 前半",
+      "mechanics": []
+    }
+  ],
+  "locales": {}
+}
