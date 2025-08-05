@@ -9,14 +9,18 @@ import Span from '@/components/Span.vue'
 import P from '@/components/typography/P.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
 import T from '@/components/typography/T.astro'
-
-import { combinedTranslations as translations } from './_translations'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
 
-const dutyId = '07/necron'
+import { combinedTranslations as translations } from './_translations'
 
+import ColdGrip_1 from '@/assets/07/necron/ColdGrip_1.png'
+import ColdGrip_2 from '@/assets/07/necron/ColdGrip_2.png'
+import ColdGrip_3 from '@/assets/07/necron/ColdGrip_3.png'
+
+const dutyId = '07/necron'
 const base = '00:00.00'
 ---
 
@@ -67,6 +71,45 @@ const base = '00:00.00'
           <PhysicalVulnerabilityUp tag="1" />
         </P>
         <P>左半场从上到下 MT D1 H1 D3，右半场从上到下 ST D2 H2 D4，每人将一只触手引导向场外即可</P>
+      </div>
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.ColdGrip} />
+        </T>
+        <P>辣翅 + 半场刀（暗紫色特效一侧）</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: ColdGrip_1,
+              alt: '',
+              title: '注意观察BOSS，有一侧的手会有暗紫色特效，上图为左侧',
+            },
+          ]}
+        />
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: ColdGrip_2,
+              alt: '',
+              title: '先在中间躲辣翅',
+            },
+          ]}
+        />
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: ColdGrip_3,
+              alt: '',
+              title: '然后去右侧躲半场刀',
+            },
+          ]}
+        />
       </div>
     </div>
   </MechanicSection>
