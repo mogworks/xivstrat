@@ -7,6 +7,13 @@ import Boss from '@/components/Boss.astro'
 import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 import Span from '@/components/Span.vue'
 import P from '@/components/typography/P.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+
+import { combinedTranslations as translations } from './_translations'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
 
 const dutyId = '07/necron'
 
@@ -27,8 +34,40 @@ const base = '00:00.00'
   <SeparatorSection />
   <EventSection time="00:00.0">
     <RoleIcon role="tank" tag="MT" />
-    开怪，将
-    <Boss />
-    固定在场中偏南一点的位置
+    开怪
   </EventSection>
+  <MechanicSection>
+    <div class="flex flex-col gap-12">
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.BlueShockwave} />
+        </T>
+        <P>
+          对
+          <RoleIcon role="all" tag="一仇" />
+          的大范围扇形死刑，有两段伤害，每段附带
+          <MagicVulnerabilityUp tag="5" />
+        </P>
+        <P>
+          <RoleIcon role="tank" tag="一仇" />
+          去角落开无敌单吃，或者
+          <RoleIcon role="tank" tag="双T" />
+          去左上/右上角落通过换T各吃一段，
+          <RoleIcon role="healer|dps" />
+          在场中躲避
+        </P>
+      </div>
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.FearOfDeath} />
+        </T>
+        <P>AoE，同时在场地上生成8只触手，不要站在触手生成的位置，否则会吃易伤</P>
+        <P>
+          触手出来后会锁定最近的人，对其释放不可躲避的直条AoE，附带
+          <PhysicalVulnerabilityUp tag="1" />
+        </P>
+        <P>左半场从上到下 MT D1 H1 D3，右半场从上到下 ST D2 H2 D4，每人将一只触手引导向场外即可</P>
+      </div>
+    </div>
+  </MechanicSection>
 </DutyStratLayout>
