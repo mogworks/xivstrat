@@ -78,7 +78,7 @@ const dutyRoutes = await (async () => {
           for (const duty of duties) {
             const dutyData = duty.data
 
-            if (!dutyData.indexAvailable) {
+            if (!dutyData.indexAvailable && dutyData.phases.length <= 0) {
               continue
             }
 
@@ -95,7 +95,10 @@ const dutyRoutes = await (async () => {
                 currentLevel = dirNode.children
               }
 
-              const leafNode: Route = { name: leafName, path: dutyData.href }
+              const leafNode: Route = {
+                name: leafName,
+                path: dutyData.indexAvailable ? dutyData.href : dutyData.phases[0].href,
+              }
 
               if (currentLevel.some((n) => n.name === leafName)) {
                 throw new Error(`节点 '${leafName}' 在当前层级已存在`)
