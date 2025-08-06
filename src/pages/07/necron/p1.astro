@@ -35,6 +35,10 @@ import SoulReaping_2 from '@/assets/07/necron/SoulReaping_2.png'
 import SoulReaping_omen from '@/assets/07/necron/SoulReaping_omen.png'
 import SoulReaping_activate from '@/assets/07/necron/SoulReaping_activate.png'
 import SoulReaping_demo from '@/assets/07/necron/SoulReaping_demo.png'
+import TheEndsEmbrace_1 from '@/assets/07/necron/TheEndsEmbrace_1.png'
+import TheEndsEmbrace_2 from '@/assets/07/necron/TheEndsEmbrace_2.png'
+import BlueShockwave_1 from '@/assets/07/necron/BlueShockwave_1.png'
+import BlueShockwave_2 from '@/assets/07/necron/BlueShockwave_2.png'
 
 const dutyId = '07/necron'
 const base = '00:00.00'
@@ -65,17 +69,30 @@ const base = '00:00.00'
         <P>
           对
           <RoleIcon role="all" tag="一仇" />
-          的大范围扇形死刑，有两段伤害，每段附带
+          的大范围扇形死刑，有两段，每段附带
           <MagicVulnerabilityUp tag="5" hover />
         </P>
         <P>
           <RoleIcon role="tank" tag="一仇" />
           去角落开无敌单吃，或者
-          <RoleIcon role="tank" tag="双T" />
-          去左上/右上角落通过换T各吃一段，
+          <RoleIcon role="tank" tag="MT" />
+          /
+          <RoleIcon role="tank" tag="ST" />
+          去西北/东北角落通过换T各吃一段，
           <RoleIcon role="healer|dps" />
           在场中躲避
         </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: BlueShockwave_1,
+              alt: '',
+              title: '一仇大范围扇形死刑',
+            },
+          ]}
+        />
       </div>
       <div class="flex flex-col gap-4">
         <T>
@@ -399,6 +416,63 @@ const base = '00:00.00'
           <Boss />
           再次读条<Skill name={translations.FearOfDeath} />，按前文处理
         </P>
+      </div>
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.TheEndsEmbrace} />
+        </T>
+        <P>点名全员小圆分散，判定后在脚下生成触手，触手会锁定最近的人释放直线AoE</P>
+        <P>处理方式和<Skill name={translations.FearOfDeath} />一样，每个人将自己的触手引导向场外即可</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: TheEndsEmbrace_1,
+              alt: '',
+              title: '点名全员小圆分散',
+            },
+          ]}
+        />
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: TheEndsEmbrace_2,
+              alt: '',
+              title: '判定后在脚下生成触手，全员向场外引导各自的触手',
+            },
+          ]}
+        />
+      </div>
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.BlueShockwave} />
+        </T>
+        <P>
+          <Boss />
+          再次读条<Skill name={translations.BlueShockwave} />（双T大范围扇形死刑）
+        </P>
+        <P>
+          <RoleIcon role="tank" tag="MT" />
+          /
+          <RoleIcon role="tank" tag="ST" />
+          去西北/东北角，
+          <RoleIcon role="healer|dps" />
+          回场中躲避
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: BlueShockwave_2,
+              alt: '',
+              title: '一仇大范围扇形死刑',
+            },
+          ]}
+        />
       </div>
     </div>
   </MechanicSection>
