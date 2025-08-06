@@ -14,9 +14,11 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
 import Bleeding from '@/components/buff/Bleeding.astro'
 import Quote from '@/components/typography/Quote.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
 
 import { combinedTranslations as translations } from './_translations'
 
+import Waymark from '@/assets/07/necron/waymark.png'
 import ColdGrip_1 from '@/assets/07/necron/ColdGrip_1.png'
 import ColdGrip_2 from '@/assets/07/necron/ColdGrip_2.png'
 import ColdGrip_3 from '@/assets/07/necron/ColdGrip_3.png'
@@ -57,6 +59,21 @@ const base = '00:00.00'
     </div>
   </DraftWarning>
   <SeparatorSection />
+  <NoteSection>
+    <div class="flex flex-col gap-4">
+      <T variant="cyan" text="参考标点" />
+      <ImgRow
+        borderVariant="cyan"
+        wrapperClass="max-w-120"
+        imgs={[
+          {
+            src: Waymark,
+            alt: '',
+          },
+        ]}
+      />
+    </div>
+  </NoteSection>
   <MechanicSection>
     <div class="flex flex-col gap-12">
       <!-- BlueShockwave -->
