@@ -23,8 +23,11 @@ import ColdGrip_3 from '@/assets/07/necron/ColdGrip_3.png'
 import MementoMori_1 from '@/assets/07/necron/MementoMori_1.png'
 import MementoMori_2 from '@/assets/07/necron/MementoMori_2.png'
 import MementoMori_3 from '@/assets/07/necron/MementoMori_3.png'
-import MementoMori_4 from '@/assets/tmp.jpg'
-import MementoMori_5 from '@/assets/tmp.jpg'
+import MementoMori_solution_1 from '@/assets/07/necron/MementoMori_solution_1.png'
+import MementoMori_solution_2 from '@/assets/07/necron/MementoMori_solution_2.png'
+import MementoMori_solution_3 from '@/assets/07/necron/MementoMori_solution_3.png'
+import MementoMori_solution_4 from '@/assets/07/necron/MementoMori_solution_4.png'
+import Quote from '@/components/typography/Quote.astro'
 
 const dutyId = '07/necron'
 const base = '00:00.00'
@@ -172,18 +175,67 @@ const base = '00:00.00'
         <P>按下图分散即可，每人只有两个位置，根据发光特效决定站哪边</P>
         <ImgRow
           borderVariant="cyan"
+          wrapperClass="max-w-120"
           imgs={[
             {
-              src: MementoMori_4,
+              src: MementoMori_solution_1,
               alt: '',
+              title: '西侧淡蓝，情形1',
             },
             {
-              src: MementoMori_5,
+              src: MementoMori_solution_2,
               alt: '',
+              title: '西侧淡蓝，情形2',
             },
           ]}
         />
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-120"
+          imgs={[
+            {
+              src: MementoMori_solution_3,
+              alt: '',
+              title: '西侧淡蓝，情形3',
+            },
+            {
+              src: MementoMori_solution_4,
+              alt: '',
+              title: '东侧淡蓝，情形1，其它情况不再赘述',
+            },
+          ]}
+        />
+        <P>具体来说：</P>
+        <Quote variant="lime">
+          <P>
+            1. 大体上按照西半场
+            <RoleIcon role="tank" tag="MT" />
+            组、东半场
+            <RoleIcon role="tank" tag="ST" />
+            组来分位置
+          </P>
+          <P>2. 淡蓝色一侧的第一排和最后一排必定安全，原本属于这侧的4人分别站四个角落即可</P>
+          <P>
+            3. 自己半场是暗紫色特效时，两个
+            <RoleIcon role="tank|dps" tag="近战" />
+            换边
+          </P>
+          <P>
+            4. 为了保证输出和方便治疗，让
+            <RoleIcon role="dps" tag="近战" />
+            和
+            <RoleIcon role="healer" />
+            贴近场中
+          </P>
+          <P>
+            5. 如果
+            <RoleIcon role="dps" tag="D2" />
+            是远程，那么把靠近场中的位置让给
+            <RoleIcon role="tank" />
+          </P>
+        </Quote>
         <P>注意不要站进场中触手所在的紫色区域，否则会吃到剧痛的<Bleeding hover /></P>
+        <P>（大圈判定后，紫色区域也还会留存一段时间）</P>
       </div>
     </div>
   </MechanicSection>
