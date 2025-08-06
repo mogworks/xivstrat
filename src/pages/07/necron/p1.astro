@@ -14,12 +14,15 @@ import T from '@/components/typography/T.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
 import Bleeding from '@/components/buff/Bleeding.astro'
+import Quote from '@/components/typography/Quote.astro'
 
 import { combinedTranslations as translations } from './_translations'
 
 import ColdGrip_1 from '@/assets/07/necron/ColdGrip_1.png'
 import ColdGrip_2 from '@/assets/07/necron/ColdGrip_2.png'
 import ColdGrip_3 from '@/assets/07/necron/ColdGrip_3.png'
+import FearOfDeath_1 from '@/assets/07/necron/FearOfDeath_1.png'
+import FearOfDeath_2 from '@/assets/07/necron/FearOfDeath_2.png'
 import MementoMori_1 from '@/assets/07/necron/MementoMori_1.png'
 import MementoMori_2 from '@/assets/07/necron/MementoMori_2.png'
 import MementoMori_3 from '@/assets/07/necron/MementoMori_3.png'
@@ -27,7 +30,11 @@ import MementoMori_solution_1 from '@/assets/07/necron/MementoMori_solution_1.pn
 import MementoMori_solution_2 from '@/assets/07/necron/MementoMori_solution_2.png'
 import MementoMori_solution_3 from '@/assets/07/necron/MementoMori_solution_3.png'
 import MementoMori_solution_4 from '@/assets/07/necron/MementoMori_solution_4.png'
-import Quote from '@/components/typography/Quote.astro'
+import SoulReaping_1 from '@/assets/07/necron/SoulReaping_1.png'
+import SoulReaping_2 from '@/assets/07/necron/SoulReaping_2.png'
+import SoulReaping_omen from '@/assets/07/necron/SoulReaping_omen.png'
+import SoulReaping_activate from '@/assets/07/necron/SoulReaping_activate.png'
+import SoulReaping_demo from '@/assets/07/necron/SoulReaping_demo.png'
 
 const dutyId = '07/necron'
 const base = '00:00.00'
@@ -74,12 +81,46 @@ const base = '00:00.00'
         <T>
           <Skill name={translations.FearOfDeath} />
         </T>
-        <P>AoE，同时在场地上生成8只触手，不要站在触手生成的位置，否则会吃易伤</P>
+        <P>AoE，同时在场地上均匀间隔生成8只触手，不要站在触手生成的位置，否则会吃易伤</P>
         <P>
           触手出来后会锁定最近的人，对其释放不可躲避的直条AoE，附带
           <PhysicalVulnerabilityUp tag="1" hover />
         </P>
-        <P>左半场从上到下 MT D1 H1 D3，右半场从上到下 ST D2 H2 D4，每人将一只触手引导向场外即可</P>
+        <P>
+          左半场从上到下
+          <RoleIcon role="tank" tag="MT" />
+          <RoleIcon role="melee" tag="D1" />
+          <RoleIcon role="healer" tag="H1" />
+          <RoleIcon role="ranged" tag="D3" />
+          ，右半场从上到下
+          <RoleIcon role="tank" tag="ST" />
+          <RoleIcon role="dps" tag="D2" />
+          <RoleIcon role="healer" tag="H2" />
+          <RoleIcon role="magic" tag="D4" />
+          ，每人将一只触手引导向场外
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: FearOfDeath_1,
+              alt: '',
+              title: '场地均匀间隔生成8只触手',
+            },
+          ]}
+        />
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: FearOfDeath_2,
+              alt: '',
+              title: '全员靠近自己的触手，向场外引导直线AoE',
+            },
+          ]}
+        />
       </div>
       <div class="flex flex-col gap-4">
         <T>
@@ -236,6 +277,128 @@ const base = '00:00.00'
         </Quote>
         <P>注意不要站进场中触手所在的紫色区域，否则会吃到剧痛的<Bleeding hover /></P>
         <P>（大圈判定后，紫色区域也还会留存一段时间）</P>
+      </div>
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.SoulReaping} />
+        </T>
+        <P>按照技能特效存储相应的技能，稍后释放</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: SoulReaping_1,
+              alt: '',
+              title: '情形1：辣翅（中间安全）',
+            },
+          ]}
+        />
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: SoulReaping_2,
+              alt: '',
+              title: '情形2：辣尾（两侧安全）',
+            },
+          ]}
+        />
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: SoulReaping_omen,
+              alt: '',
+              title: 'BOSS身前的圆形标记，表示储存了技能',
+            },
+          ]}
+        />
+      </div>
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={[translations.TwofoldBlight, translations.FourfoldBlight]}>
+            <Span variant="default" slot="separator">or</Span>
+          </Skill>
+        </T>
+        <P>
+          以
+          <Boss />
+          为中心的窄扇形44/2222分摊，与
+          <Skill name={translations.SoulReaping} />
+          （辣翅/辣尾）同时判定
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: SoulReaping_activate,
+              alt: '',
+              title: 'BOSS身前的标记变红，表示储存的技能即将释放',
+            },
+          ]}
+        />
+        <P>在躲避辣翅/辣尾的同时，按照经典分组处理44/2222分摊即可，具体如下：</P>
+        <Quote variant="lime">
+          <P>
+            44分摊：
+            <RoleIcon role="tank" tag="MT" />
+            <RoleIcon role="melee" tag="D1" />
+            <RoleIcon role="healer" tag="H1" />
+            <RoleIcon role="ranged" tag="D3" />
+            、
+            <RoleIcon role="tank" tag="ST" />
+            <RoleIcon role="dps" tag="D2" />
+            <RoleIcon role="healer" tag="H2" />
+            <RoleIcon role="magic" tag="D4" />
+          </P>
+          <P>
+            2222分摊：
+            <RoleIcon role="tank" tag="MT" />
+            <RoleIcon role="melee" tag="D1" />
+            、
+            <RoleIcon role="healer" tag="H1" />
+            <RoleIcon role="ranged" tag="D3" />
+            、
+            <RoleIcon role="tank" tag="ST" />
+            <RoleIcon role="dps" tag="D2" />
+            、
+            <RoleIcon role="healer" tag="H2" />
+            <RoleIcon role="magic" tag="D4" />
+          </P>
+        </Quote>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: SoulReaping_demo,
+              alt: '',
+              title: '示例：辣翅 + 44分摊',
+            },
+          ]}
+        />
+      </div>
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.SoulReaping} />
+        </T>
+        <P>
+          <Boss />
+          再次读条<Skill name={translations.SoulReaping} />，存储辣翅/辣尾，这次必定和前一次不同
+        </P>
+      </div>
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.FearOfDeath} />
+        </T>
+        <P>
+          <Boss />
+          再次读条<Skill name={translations.FearOfDeath} />，按前文处理
+        </P>
       </div>
     </div>
   </MechanicSection>
