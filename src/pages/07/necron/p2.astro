@@ -1,9 +1,31 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Boss from '@/components/Boss.astro'
 import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 import Span from '@/components/Span.vue'
 import P from '@/components/typography/P.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import T from '@/components/typography/T.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
+import Bleeding from '@/components/buff/Bleeding.astro'
+import Quote from '@/components/typography/Quote.astro'
+
+import { combinedTranslations as translations } from './_translations'
+
+import GrandCross_1 from '@/assets/07/necron/GrandCross_1.png'
+import GrandCross_2 from '@/assets/07/necron/GrandCross_2.png'
+import GrandCross_3 from '@/assets/07/necron/GrandCross_3.png'
+import GrandCross_4 from '@/assets/07/necron/GrandCross_4.png'
+import GrandCross_5 from '@/assets/07/necron/GrandCross_5.png'
+import GrandCross_solution_1 from '@/assets/07/necron/GrandCross_solution_1.png'
+import GrandCross_solution_2 from '@/assets/07/necron/GrandCross_solution_2.png'
+import NeutronRing_1 from '@/assets/07/necron/NeutronRing_1.png'
+import NeutronRing_2 from '@/assets/07/necron/NeutronRing_2.png'
 
 const dutyId = '07/necron'
 const base = '00:00.00'
@@ -21,4 +43,154 @@ const base = '00:00.00'
     </div>
   </DraftWarning>
   <SeparatorSection />
+  <MechanicSection>
+    <div class="flex flex-col gap-12">
+      <!-- GrandCross -->
+      <div class="flex flex-col gap-4" id="grand-cross">
+        <T>
+          <Skill name={translations.GrandCross} />
+        </T>
+        <P>
+          场地变换后，玩家脚下会生成2个黄圈，场外会有两对激光旋转，
+          <RoleIcon role="all" tag="全员" />
+          先在场中引导黄圈
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: GrandCross_1,
+              alt: '',
+              title: '全员引导黄圈',
+            },
+          ]}
+        />
+        <P>两对激光会顺时针旋转并开始倒计时，结束时判定伤害，其中一对会转得比较快</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: GrandCross_2,
+              alt: '',
+              title: '激光旋转并开始倒计时',
+            },
+          ]}
+        />
+        <P>
+          同时会有两轮分散 + 踩塔，都附带
+          <MagicVulnerabilityUp tag="1" hover />
+          ，所以点名分散的人不能踩塔，类似极朱雀
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: GrandCross_3,
+              alt: '',
+              title: '分散 + 踩塔',
+            },
+          ]}
+        />
+        <P>
+          分散一定是同时点名4
+          <RoleIcon role="tank|healer" />
+          或
+          <RoleIcon role="dps" />
+          ，没点名的职能负责踩塔即可
+        </P>
+        <P>
+          如果减员并且分散点名
+          <RoleIcon role="tank|healer" />，
+          <RoleIcon role="tank" />可以开无敌补塔
+        </P>
+        <P>踩塔和分散按下图，经典X字和十字，但把近战放到前半场以免罚站；注意同时躲避旋转激光</P>
+        <ImgRow
+          rounded
+          borderVariant="cyan"
+          wrapperClass="max-w-120"
+          imgs={[
+            {
+              src: GrandCross_solution_1,
+              alt: '',
+              title: '情形1：斜点塔',
+            },
+            {
+              src: GrandCross_solution_2,
+              alt: '',
+              title: '情形2：正点塔',
+            },
+          ]}
+        />
+        <P>
+          处理完两轮塔后，
+          <RoleIcon role="all" tag="全员" />
+          <Span variant="pink">务必回场中引导两轮黄圈</Span>
+          ，以免覆盖之后的安全区
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: GrandCross_4,
+              alt: '',
+              title: '回场中引导两轮黄圈',
+            },
+          ]}
+        />
+        <P>同时会有横向和纵向的距离衰减伤害，引导完黄圈后去任意斜点方向贴边躲避</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: GrandCross_5,
+              alt: '',
+              title: '去任意斜点方向贴边',
+            },
+          ]}
+        />
+        <P>整个机制类似千年风化青春版</P>
+      </div>
+      <!-- NeutronRing -->
+      <div class="flex flex-col gap-4" id="neutron-ring">
+        <T>
+          <Skill name={translations.NeutronRing} />
+        </T>
+        <P>AoE + 恢复场地 + 触手小怪 + DPS Check</P>
+        <P>恢复场地后，场地上会不断刷新触手小怪，触手会点名一仇释放直条AoE，可躲避</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: NeutronRing_1,
+              alt: '',
+              title: '小触手怪',
+            },
+          ]}
+        />
+        <P>
+          注意下图这种大触手，会对一仇释放死刑（不是很痛），
+          <RoleIcon role="tank" />
+          注意及时接仇
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: NeutronRing_2,
+              alt: '',
+              title: '大触手怪',
+            },
+          ]}
+        />
+        <P>同时这也是一个输出检测阶段，如果在计量槽满100前，没有打完全部小怪，则会团灭</P>
+      </div>
+    </div>
+  </MechanicSection>
 </DutyStratLayout>
