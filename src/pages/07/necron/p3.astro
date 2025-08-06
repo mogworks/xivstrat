@@ -19,6 +19,11 @@ import Doom from '@/components/buff/Doom.astro'
 
 import { combinedTranslations as translations } from './_translations'
 
+import SpecterOfDeath_1 from '@/assets/07/necron/SpecterOfDeath_1.png'
+import TheEndsEmbrace_3 from '@/assets/07/necron/TheEndsEmbrace_3.png'
+import TheEndsEmbrace_4 from '@/assets/07/necron/TheEndsEmbrace_4.png'
+import ColdGrip_4 from '@/assets/07/necron/ColdGrip_4.png'
+
 const dutyId = '07/necron'
 const base = '00:00.00'
 ---
@@ -35,4 +40,93 @@ const base = '00:00.00'
     </div>
   </DraftWarning>
   <SeparatorSection />
+  <MechanicSection>
+    <div class="flex flex-col gap-12">
+      <!-- SpecterOfDeath -->
+      <div class="flex flex-col gap-4" id="specter-of-death">
+        <T>
+          <Skill name={translations.SpecterOfDeath} />
+        </T>
+        <P>先连线场边，稍后对应位置会释放横向的、覆盖 1/3 场地的直线AoE，只有剩下 1/3 场地安全</P>
+        <P>连线有两条，似乎不会连线前两排（即安全区必定是前 2/3 半场，存疑，待确定）</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: SpecterOfDeath_1,
+              alt: '',
+              title: '连线场边，上图为第1排和第3排危险，第2排安全',
+            },
+          ]}
+        />
+      </div>
+      <!-- TheEndsEmbrace -->
+      <div class="flex flex-col gap-4" id="the-ends-embrace">
+        <T>
+          <Skill name={translations.TheEndsEmbrace} />
+        </T>
+        <P>8人分散 + 触手引导，P1已经见过</P>
+        <P>点名全员小圆分散，判定后在脚下生成触手，触手会锁定最近的人释放直线AoE</P>
+        <P>
+          由于这次会有直线AoE，因此
+          <RoleIcon role="all" tag="全员" />
+          在安全区内站成一排，灵性分散即可
+        </P>
+        <P>这里时间很长，似乎没有必要规定站位</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: TheEndsEmbrace_3,
+              alt: '',
+              title: '全员站成一横排，灵性分散',
+            },
+          ]}
+        />
+        <P>随后全员引导各自的触手，建议统一往前半场引导，下图比较混乱</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: TheEndsEmbrace_4,
+              alt: '',
+              title: '全员引导各自的触手',
+            },
+          ]}
+        />
+      </div>
+      <!-- ColdGrip -->
+      <div class="flex flex-col gap-4" id="cold-grip">
+        <T>
+          <Skill name={translations.ColdGrip} />
+        </T>
+        <P>辣翅 + 2/3 半场刀（暗紫色特效一侧），P1已经见过</P>
+        <P>
+          躲避触手的同时，
+          <Boss />
+          还会读条辣翅 + 2/3 半场刀
+        </P>
+        <P>全员统一将触手的直线引导向前半场，之后先去场中躲避辣翅</P>
+        <P>
+          再根据
+          <Boss />
+          手特效去西/东侧的 1/3 半场躲避半场刀
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: ColdGrip_4,
+              alt: '',
+              title: '上图暗紫色特效手在东侧：先去中间躲辣翅，再去西侧躲 2/3 半场刀',
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </MechanicSection>
 </DutyStratLayout>
