@@ -1,0 +1,24 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
+import Span from '@/components/Span.vue'
+import P from '@/components/typography/P.astro'
+
+const dutyId = '07/necron'
+const base = '00:00.00'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <DraftWarning showDialog={false}>
+    <div
+      class="my-8 flex flex-col gap-8 text-4xl text-cyan-600 [text-shadow:_0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
+    >
+      <P class="justify-center">本页内容尚在编辑中......</P>
+      <P class="justify-center">
+        开荒早期不保证正确性，<Span variant="red">请谨慎参考本页内容！</Span>
+      </P>
+    </div>
+  </DraftWarning>
+  <SeparatorSection />
+</DutyStratLayout>

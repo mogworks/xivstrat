@@ -2,6 +2,12 @@
 import NoteSection from '@/components/section/NoteSection.astro'
 import WarningDialog from './WarningDialog.vue'
 import DefaultWarningContent from './DefaultWarningContent.astro'
+
+interface Props {
+  showDialog?: boolean
+}
+
+const { showDialog = true }: Props = Astro.props
 ---
 
 <NoteSection title="">
@@ -9,8 +15,12 @@ import DefaultWarningContent from './DefaultWarningContent.astro'
     <DefaultWarningContent />
   </slot>
 </NoteSection>
-<WarningDialog client:idle>
-  <slot>
-    <DefaultWarningContent />
-  </slot>
-</WarningDialog>
+{
+  showDialog && (
+    <WarningDialog client:idle>
+      <slot>
+        <DefaultWarningContent />
+      </slot>
+    </WarningDialog>
+  )
+}
