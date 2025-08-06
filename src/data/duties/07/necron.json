@@ -5,7 +5,7 @@
   "title": "極永遠の闇討滅戦 攻略",
   "description": "最终幻想14 極永遠の闇討滅戦 超详解动态图文攻略",
   "banner": "@/assets/banners/07/necron.png",
-  "date": "25/08/06 17:50",
+  "date": "25/08/06 18:30",
   "href": "/07/necron",
   "status": "live",
   "indexAvailable": false,
@@ -75,7 +75,20 @@
       "title": "Phase 3",
       "subtitle": "后半",
       "name": "P3 - 后半",
-      "mechanics": []
+      "mechanics": [
+        {
+          "href": "#specter-of-death",
+          "name": "闇の巨腕"
+        },
+        {
+          "href": "#the-ends-embrace",
+          "name": "導きの翼"
+        },
+        {
+          "href": "#cold-grip",
+          "name": "暗き死の腕"
+        }
+      ]
     }
   ],
   "locales": {}
