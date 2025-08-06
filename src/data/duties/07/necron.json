@@ -13,8 +13,48 @@
     {
       "href": "/07/necron/p1",
       "title": "Phase 1",
-      "subtitle": "前半",
-      "name": "P1 - 前半",
+      "subtitle": "基础机制",
+      "name": "P1 - 基础机制",
+      "mechanics": [
+        {
+          "href": "#blue-shockwave",
+          "name": "青の衝撃"
+        },
+        {
+          "href": "#fear-of-death",
+          "name": "死の恐怖"
+        },
+        {
+          "href": "#cold-grip",
+          "name": "暗き死の腕"
+        },
+        {
+          "href": "#memento-mori",
+          "name": "メメント・モリ"
+        },
+        {
+          "href": "#soul-reaping",
+          "name": "青き魂"
+        },
+        {
+          "href": "#twofold-fourfold-blight",
+          "name": "青の二/四重波"
+        },
+        {
+          "href": "#the-ends-embrace",
+          "name": "導きの翼"
+        },
+        {
+          "href": "#grand-cross",
+          "name": "グランドクロス"
+        }
+      ]
+    },
+    {
+      "href": "/07/necron/p2",
+      "title": "Phase 2",
+      "subtitle": "百年风化 + 小怪",
+      "name": "P2 - 百年风化 + 小怪",
       "mechanics": []
     }
   ],

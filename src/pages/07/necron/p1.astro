@@ -1,6 +1,5 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
-import EventSection from '@/components/section/EventSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Boss from '@/components/Boss.astro'
@@ -34,18 +33,20 @@ import SoulReaping_1 from '@/assets/07/necron/SoulReaping_1.png'
 import SoulReaping_2 from '@/assets/07/necron/SoulReaping_2.png'
 import SoulReaping_omen from '@/assets/07/necron/SoulReaping_omen.png'
 import SoulReaping_activate from '@/assets/07/necron/SoulReaping_activate.png'
-import SoulReaping_demo from '@/assets/07/necron/SoulReaping_demo.png'
+import SoulReaping_demo_1 from '@/assets/07/necron/SoulReaping_demo_1.png'
+import SoulReaping_demo_2 from '@/assets/07/necron/SoulReaping_demo_2.png'
 import TheEndsEmbrace_1 from '@/assets/07/necron/TheEndsEmbrace_1.png'
 import TheEndsEmbrace_2 from '@/assets/07/necron/TheEndsEmbrace_2.png'
 import BlueShockwave_1 from '@/assets/07/necron/BlueShockwave_1.png'
 import BlueShockwave_2 from '@/assets/07/necron/BlueShockwave_2.png'
+import GrandCross from '@/assets/07/necron/GrandCross.png'
 
 const dutyId = '07/necron'
 const base = '00:00.00'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <DraftWarning>
+  <DraftWarning showDialog={false}>
     <div
       class="my-8 flex flex-col gap-8 text-4xl text-cyan-600 [text-shadow:_0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
     >
@@ -56,13 +57,10 @@ const base = '00:00.00'
     </div>
   </DraftWarning>
   <SeparatorSection />
-  <EventSection time="00:00.0">
-    <RoleIcon role="tank" tag="MT" />
-    开怪
-  </EventSection>
   <MechanicSection>
     <div class="flex flex-col gap-12">
-      <div class="flex flex-col gap-4">
+      <!-- BlueShockwave -->
+      <div class="flex flex-col gap-4" id="blue-shockwave">
         <T>
           <Skill name={translations.BlueShockwave} />
         </T>
@@ -94,7 +92,8 @@ const base = '00:00.00'
           ]}
         />
       </div>
-      <div class="flex flex-col gap-4">
+      <!-- FearOfDeath -->
+      <div class="flex flex-col gap-4" id="fear-of-death">
         <T>
           <Skill name={translations.FearOfDeath} />
         </T>
@@ -139,7 +138,8 @@ const base = '00:00.00'
           ]}
         />
       </div>
-      <div class="flex flex-col gap-4">
+      <!-- ColdGrip -->
+      <div class="flex flex-col gap-4" id="cold-grip">
         <T>
           <Skill name={translations.ColdGrip} />
         </T>
@@ -178,7 +178,8 @@ const base = '00:00.00'
           ]}
         />
       </div>
-      <div class="flex flex-col gap-4">
+      <!-- MementoMori -->
+      <div class="flex flex-col gap-4" id="memento-mori">
         <T>
           <Skill name={translations.MementoMori} />
         </T>
@@ -295,7 +296,8 @@ const base = '00:00.00'
         <P>注意不要站进场中触手所在的紫色区域，否则会吃到剧痛的<Bleeding hover /></P>
         <P>（大圈判定后，紫色区域也还会留存一段时间）</P>
       </div>
-      <div class="flex flex-col gap-4">
+      <!-- SoulReaping -->
+      <div class="flex flex-col gap-4" id="soul-reaping">
         <T>
           <Skill name={translations.SoulReaping} />
         </T>
@@ -334,7 +336,8 @@ const base = '00:00.00'
           ]}
         />
       </div>
-      <div class="flex flex-col gap-4">
+      <!-- TwofoldBlight、FourfoldBlight -->
+      <div class="flex flex-col gap-4" id="twofold-fourfold-blight">
         <T>
           <Skill name={[translations.TwofoldBlight, translations.FourfoldBlight]}>
             <Span variant="default" slot="separator">or</Span>
@@ -392,13 +395,14 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: SoulReaping_demo,
+              src: SoulReaping_demo_1,
               alt: '',
               title: '示例：辣翅 + 44分摊',
             },
           ]}
         />
       </div>
+      <!-- SoulReaping -->
       <div class="flex flex-col gap-4">
         <T>
           <Skill name={translations.SoulReaping} />
@@ -408,6 +412,7 @@ const base = '00:00.00'
           再次读条<Skill name={translations.SoulReaping} />，存储辣翅/辣尾，这次必定和前一次不同
         </P>
       </div>
+      <!-- FearOfDeath -->
       <div class="flex flex-col gap-4">
         <T>
           <Skill name={translations.FearOfDeath} />
@@ -417,7 +422,8 @@ const base = '00:00.00'
           再次读条<Skill name={translations.FearOfDeath} />，按前文处理
         </P>
       </div>
-      <div class="flex flex-col gap-4">
+      <!-- TheEndsEmbrace -->
+      <div class="flex flex-col gap-4" id="the-ends-embrace">
         <T>
           <Skill name={translations.TheEndsEmbrace} />
         </T>
@@ -446,6 +452,7 @@ const base = '00:00.00'
           ]}
         />
       </div>
+      <!-- BlueShockwave -->
       <div class="flex flex-col gap-4">
         <T>
           <Skill name={translations.BlueShockwave} />
@@ -470,6 +477,48 @@ const base = '00:00.00'
               src: BlueShockwave_2,
               alt: '',
               title: '一仇大范围扇形死刑',
+            },
+          ]}
+        />
+      </div>
+      <!-- TwofoldBlight、FourfoldBlight -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={[translations.TwofoldBlight, translations.FourfoldBlight]}>
+            <Span variant="default" slot="separator">or</Span>
+          </Skill>
+        </T>
+        <P>
+          <Boss />
+          再次读条44/2222分摊，与之前存储的
+          <Skill name={translations.SoulReaping} />
+          （辣翅/辣尾）同时判定
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: SoulReaping_demo_2,
+              alt: '',
+              title: '示例：辣尾 + 2222分摊',
+            },
+          ]}
+        />
+      </div>
+      <!-- GrandCross -->
+      <div class="flex flex-col gap-4" id="grand-cross">
+        <T>
+          <Skill name={translations.GrandCross} />
+        </T>
+        <P>AoE + 月环 + 场地破坏，场地只会留下中间的圆形区域</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: GrandCross,
+              alt: '',
             },
           ]}
         />
