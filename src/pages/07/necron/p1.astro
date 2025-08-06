@@ -13,12 +13,18 @@ import ImgRow from '@/components/typography/ImgRow.astro'
 import T from '@/components/typography/T.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
+import Bleeding from '@/components/buff/Bleeding.astro'
 
 import { combinedTranslations as translations } from './_translations'
 
 import ColdGrip_1 from '@/assets/07/necron/ColdGrip_1.png'
 import ColdGrip_2 from '@/assets/07/necron/ColdGrip_2.png'
 import ColdGrip_3 from '@/assets/07/necron/ColdGrip_3.png'
+import MementoMori_1 from '@/assets/07/necron/MementoMori_1.png'
+import MementoMori_2 from '@/assets/07/necron/MementoMori_2.png'
+import MementoMori_3 from '@/assets/07/necron/MementoMori_3.png'
+import MementoMori_4 from '@/assets/tmp.jpg'
+import MementoMori_5 from '@/assets/tmp.jpg'
 
 const dutyId = '07/necron'
 const base = '00:00.00'
@@ -50,7 +56,7 @@ const base = '00:00.00'
           对
           <RoleIcon role="all" tag="一仇" />
           的大范围扇形死刑，有两段伤害，每段附带
-          <MagicVulnerabilityUp tag="5" />
+          <MagicVulnerabilityUp tag="5" hover />
         </P>
         <P>
           <RoleIcon role="tank" tag="一仇" />
@@ -68,7 +74,7 @@ const base = '00:00.00'
         <P>AoE，同时在场地上生成8只触手，不要站在触手生成的位置，否则会吃易伤</P>
         <P>
           触手出来后会锁定最近的人，对其释放不可躲避的直条AoE，附带
-          <PhysicalVulnerabilityUp tag="1" />
+          <PhysicalVulnerabilityUp tag="1" hover />
         </P>
         <P>左半场从上到下 MT D1 H1 D3，右半场从上到下 ST D2 H2 D4，每人将一只触手引导向场外即可</P>
       </div>
@@ -110,6 +116,74 @@ const base = '00:00.00'
             },
           ]}
         />
+      </div>
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.MementoMori} />
+        </T>
+        <P>辣尾 + 场中5触手 + 8人大圈分散</P>
+        <P>
+          <Boss />两侧手发光，随机一侧是淡蓝色特效，另一侧是暗紫色特效
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: MementoMori_1,
+              alt: '',
+              title: '上图左/西侧为淡蓝色特效，右/东侧为暗紫色特效',
+            },
+          ]}
+        />
+        <P>场中触手有1只会朝向淡蓝色特效一侧，剩余4只会朝向暗紫色特效一侧</P>
+        <P>朝向淡蓝色特效一侧的触手一定在第2/3/4排，不会在第一排和最后一排</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: MementoMori_2,
+              alt: '',
+              title: '上图西侧（图片右侧）为淡蓝色特效，东侧（图片左侧）为暗紫色特效',
+            },
+          ]}
+        />
+        <P>
+          <Boss />读条<Skill name={translations.SmiteOfGloom} />
+          点名
+          <RoleIcon role="all" tag="全员" />
+          大圈分散
+        </P>
+        <P>
+          同时触手读条<Skill name={translations.ChokingGrasp} />释放直线攻击
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: MementoMori_3,
+              alt: '',
+            },
+          ]}
+        />
+        <P>由于暗紫色特效的一侧只有一行安全，只能站下两人，所以需要 2 : 6 分散</P>
+        <P>按下图分散即可，每人只有两个位置，根据发光特效决定站哪边</P>
+        <ImgRow
+          borderVariant="cyan"
+          imgs={[
+            {
+              src: MementoMori_4,
+              alt: '',
+            },
+            {
+              src: MementoMori_5,
+              alt: '',
+            },
+          ]}
+        />
+        <P>注意不要站进场中触手所在的紫色区域，否则会吃到剧痛的<Bleeding hover /></P>
       </div>
     </div>
   </MechanicSection>
