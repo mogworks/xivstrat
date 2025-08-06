@@ -23,6 +23,8 @@ import SpecterOfDeath_1 from '@/assets/07/necron/SpecterOfDeath_1.png'
 import TheEndsEmbrace_3 from '@/assets/07/necron/TheEndsEmbrace_3.png'
 import TheEndsEmbrace_4 from '@/assets/07/necron/TheEndsEmbrace_4.png'
 import ColdGrip_4 from '@/assets/07/necron/ColdGrip_4.png'
+import RelentlessReaping_1 from '@/assets/07/necron/RelentlessReaping_1.png'
+import CropRotation_1 from '@/assets/07/necron/CropRotation_1.png'
 
 const dutyId = '07/necron'
 const base = '00:00.00'
@@ -126,6 +128,52 @@ const base = '00:00.00'
             },
           ]}
         />
+      </div>
+      <!-- RelentlessReaping -->
+      <div class="flex flex-col gap-4" id="relentless-reaping">
+        <T>
+          <Skill name={translations.RelentlessReaping} />
+        </T>
+        <P>回天动地青春版</P>
+        <P><Boss />会按随机顺序依次存储钢铁、月环、辣翅、辣尾，如下图：</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: RelentlessReaping_1,
+              alt: '',
+              title: '上图已经存储两个技能，正在存储第3个（钢铁）',
+            },
+          ]}
+        />
+      </div>
+      <!-- CropRotation -->
+      <div class="flex flex-col gap-4" id="crop-rotation">
+        <T>
+          <Skill name={translations.CropRotation} />
+        </T>
+        <P>读条后把身前的轮盘随机旋转，之后会按新的顺序释放技能</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: CropRotation_1,
+              alt: '',
+              title: '以上图为例，会按照 3->4->1->2 的顺序释放技能',
+            },
+          ]}
+        />
+      </div>
+      <!-- TheSecondSeason、TheFourthSeason -->
+      <div class="flex flex-col gap-4" id="the-second-fourth-season">
+        <T>
+          <Skill name={['The Second/Fourth Season', '青の式波・二/四重']}>
+            <Span variant="default" slot="separator">|</Span>
+          </Skill>
+        </T>
+        <P>存储44/2222分摊，会与第4次（最后一次）钢铁/月环/辣翅/辣尾同时判定</P>
       </div>
     </div>
   </MechanicSection>

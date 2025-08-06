@@ -28,4 +28,7 @@ export const translations = {
   SmiteOfGloom: 'Smite of Gloom',
   SpecterOfDeath: 'Specter of Death',
   CropRotation: 'Crop Rotation',
+  TheFourthSeason: 'The Fourth Season',
+  TheSecondSeason: 'The Second Season',
+  SeasonsOfBlight: 'Seasons of Blight',
 }

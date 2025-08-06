@@ -28,4 +28,7 @@ export const translations = {
   SmiteOfGloom: '闇の一撃',
   SpecterOfDeath: '闇の巨腕',
   CropRotation: '魂の輪転',
+  TheFourthSeason: '青の式波・四重',
+  TheSecondSeason: '青の式波・二重',
+  SeasonsOfBlight: '連なる青の式波',
 }
