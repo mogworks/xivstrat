@@ -33,6 +33,10 @@ import SoulReaping_demo_4 from '@/assets/07/necron/SoulReaping_demo_4.png'
 import MassMacabre_1 from '@/assets/07/necron/MassMacabre_1.png'
 import MassMacabre_2 from '@/assets/07/necron/MassMacabre_2.png'
 import MassMacabre_3 from '@/assets/07/necron/MassMacabre_3.png'
+import MassMacabre_solution_1 from '@/assets/07/necron/MassMacabre_solution_1.png'
+import MassMacabre_solution_2 from '@/assets/07/necron/MassMacabre_solution_2.png'
+import MassMacabre_solution_3 from '@/assets/07/necron/MassMacabre_solution_3.png'
+import MassMacabre_solution_4 from '@/assets/07/necron/MassMacabre_solution_4.png'
 
 const dutyId = '07/necron'
 const base = '00:00.00'
@@ -360,8 +364,39 @@ const base = '00:00.00'
       </div>
       <div class="flex flex-col gap-4">
         <T variant="lime" class="text-xl" text="解法二：正攻" />
-        <P>正攻踩塔顺序也有很多种，这里介绍一种 44 -> 2222 -> 33/T死刑 -> 33 的处理顺序</P>
-        <P>待编辑</P>
+        <P>正攻踩塔顺序也有很多种，这里介绍一种 44 -> 2222 -> 33/MT死刑 -> 33/ST死刑 的处理顺序：</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-120"
+          imgs={[
+            {
+              src: MassMacabre_solution_1,
+              alt: '',
+              title: '第1轮，44',
+            },
+            {
+              src: MassMacabre_solution_2,
+              alt: '',
+              title: '第2轮，2222',
+            },
+          ]}
+        />
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-120"
+          imgs={[
+            {
+              src: MassMacabre_solution_3,
+              alt: '',
+              title: '第3轮，33 + MT死刑',
+            },
+            {
+              src: MassMacabre_solution_4,
+              alt: '',
+              title: '第4轮，33 + ST死刑',
+            },
+          ]}
+        />
       </div>
     </div>
   </MechanicSection>
