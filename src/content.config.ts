@@ -7,6 +7,8 @@ const duties = defineCollection({
     z.object({
       name: z.string(),
       short: z.string(),
+      spoilerFree: z.boolean().optional(), // 首页卡片入口是否防剧透
+      spoilerFreeName: z.string().optional(), // 首页卡片入口防剧透的情况下，显示的副本名称
       type: z.union([z.literal('raid'), z.literal('ultimate'), z.literal('trial')]),
       title: z.string(),
       description: z.string(),
