@@ -361,7 +361,28 @@ const base = '00:00.00'
         </P>
       </div>
       <div class="flex flex-col gap-4">
-        <T variant="lime" class="text-xl" text="解法二：正攻" />
+        <T variant="lime" class="text-xl" text="解法二：全员异空间整活" />
+        <P>这个打法纯负收益，会少几十秒的对<Boss />输出时间，不是很推荐，760可以整活</P>
+        <P>
+          原理同解法一，
+          <RoleIcon role="all" tag="全员" />
+          都故意吃
+          <Skill name={translations.SpecterOfDeath} />
+          的直线，被大手抓到异空间
+        </P>
+        <P>
+          之后各自处理完自己的小怪，等
+          <Doom hover />
+          倒计时剩余5s时再出来
+        </P>
+        <P>
+          此时
+          <RoleIcon role="all" tag="全员" />
+          身上会有临时的无敌buff，刚好可以覆盖炸塔的伤害
+        </P>
+      </div>
+      <div class="flex flex-col gap-4">
+        <T variant="lime" class="text-xl" text="解法三：正攻" />
         <P>正攻踩塔顺序也有很多种，这里介绍一种 44 -> 2222 -> 33/MT死刑 -> 33/ST死刑 的处理顺序：</P>
         <ImgRow
           borderVariant="cyan"
