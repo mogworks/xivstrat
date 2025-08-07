@@ -1,11 +1,11 @@
 {
-  "name": "極永遠の闇討滅戦",
+  "name": "極永遠の闇討滅戦（已初步更新完毕）",
   "short": "Necron",
   "type": "trial",
   "title": "極永遠の闇討滅戦 攻略",
   "description": "最终幻想14 極永遠の闇討滅戦 超详解动态图文攻略",
   "banner": "@/assets/banners/07/necron.png",
-  "date": "25/08/07 11:50",
+  "date": "25/08/07 12:00",
   "href": "/07/necron",
   "status": "live",
   "indexAvailable": false,
@@ -107,6 +107,10 @@
         {
           "href": "#mass-macabre",
           "name": "集団恐慌"
+        },
+        {
+          "href": "#darkness-of-eternity",
+          "name": "エターナルダークネス"
         }
       ]
     }

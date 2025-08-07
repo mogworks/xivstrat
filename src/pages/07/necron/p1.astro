@@ -50,12 +50,13 @@ const base = '00:00.00'
 <DutyStratLayout dutyId={dutyId} base={base}>
   <DraftWarning showDialog={false}>
     <div
-      class="my-8 flex flex-col gap-8 text-4xl text-cyan-600 [text-shadow:_0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
+      class="my-4 flex flex-col gap-4 text-3xl text-cyan-600 [text-shadow:_0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
     >
-      <P class="justify-center">本页内容尚在编辑中......</P>
+      <P class="justify-center"><Span variant="lime">所有机制和解法已按时间顺序整理完毕</Span></P>
       <P class="justify-center">
-        开荒早期不保证正确性，<Span variant="red">请谨慎参考本页内容！</Span>
+        开荒早期不保证100%正确性，<Span variant="red">请谨慎参考本页内容！</Span>
       </P>
+      <P class="justify-center">TODO：详细时间轴、补充站位示意图</P>
     </div>
   </DraftWarning>
   <SeparatorSection />

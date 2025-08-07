@@ -11,10 +11,6 @@ import Skill from '@/components/typography/Skill.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import T from '@/components/typography/T.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
-import Bleeding from '@/components/buff/Bleeding.astro'
-import Quote from '@/components/typography/Quote.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
 import Doom from '@/components/buff/Doom.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
 
@@ -45,12 +41,13 @@ const base = '00:00.00'
 <DutyStratLayout dutyId={dutyId} base={base}>
   <DraftWarning showDialog={false}>
     <div
-      class="my-8 flex flex-col gap-8 text-4xl text-cyan-600 [text-shadow:_0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
+      class="my-4 flex flex-col gap-4 text-3xl text-cyan-600 [text-shadow:_0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
     >
-      <P class="justify-center">本页内容尚在编辑中......</P>
+      <P class="justify-center"><Span variant="lime">所有机制和解法已按时间顺序整理完毕</Span></P>
       <P class="justify-center">
-        开荒早期不保证正确性，<Span variant="red">请谨慎参考本页内容！</Span>
+        开荒早期不保证100%正确性，<Span variant="red">请谨慎参考本页内容！</Span>
       </P>
+      <P class="justify-center">TODO：详细时间轴、补充站位示意图</P>
     </div>
   </DraftWarning>
   <SeparatorSection />
@@ -273,7 +270,8 @@ const base = '00:00.00'
       </div>
     </div>
   </MechanicSection>
-  <MechanicSection>
+  <SeparatorSection />
+  <MechanicSection title="重难点机制">
     <div class="flex flex-col gap-12">
       <!-- MassMacabre -->
       <div class="flex flex-col gap-4" id="mass-macabre">
@@ -397,6 +395,104 @@ const base = '00:00.00'
             },
           ]}
         />
+      </div>
+    </div>
+  </MechanicSection>
+  <SeparatorSection />
+  <MechanicSection title="机制复读">
+    <div class="flex flex-col gap-12">
+      <!-- ColdGrip -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.ColdGrip} />
+        </T>
+        <P>辣翅 + 2/3 半场刀（暗紫色特效一侧），前面已经见过</P>
+      </div>
+      <!-- RelentlessReaping -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.RelentlessReaping} />
+        </T>
+        <P>回天动地青春版复读，前面已经见过</P>
+      </div>
+      <!-- CropRotation -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.CropRotation} />
+        </T>
+        <P>读条后把身前的轮盘随机旋转，之后会按新的顺序释放技能，前面已经见过</P>
+      </div>
+      <!-- TheSecondSeason、TheFourthSeason -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={['The Second/Fourth Season', '青の式波・二/四重']}>
+            <Span variant="default" slot="separator">|</Span>
+          </Skill>
+        </T>
+        <P>存储44/2222分摊，会与第4次（最后一次）钢铁/月环/辣翅/辣尾同时判定，前面已经见过</P>
+      </div>
+      <!-- FearOfDeath -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.FearOfDeath} />
+        </T>
+        <P>AoE + 引导触手，前面已经见过</P>
+      </div>
+      <!-- CircleOfLives -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.CircleOfLives} />
+        </T>
+        <P>超链理论青春版（这次是连续躲避4个月环），前面已经见过</P>
+      </div>
+      <!-- SpecterOfDeath -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.SpecterOfDeath} />
+        </T>
+        <P>连线场边，稍后释放覆盖 1/3 场地的横向直线AoE，这次是一条连线，前面已经见过</P>
+      </div>
+      <!-- SpecterOfDeath -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.SpecterOfDeath} />
+        </T>
+        <P>连线场边，稍后释放覆盖 1/3 场地的横向直线AoE，这次是两条连线，前面已经见过</P>
+      </div>
+      <!-- MementoMori -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.MementoMori} />
+        </T>
+        <P>辣尾 + 场中5触手 + 8人大圈分散，前面已经见过</P>
+      </div>
+      <!-- ColdGrip -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.ColdGrip} />
+        </T>
+        <P>辣翅 + 2/3 半场刀（暗紫色特效一侧），前面已经见过</P>
+      </div>
+      <!-- GrandCross -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.GrandCross} />
+        </T>
+        <P>AoE + 月环 + 场地破坏 + “百年风化”（激光+踩塔），前面已经见过</P>
+      </div>
+      <!-- NeutronRing -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.NeutronRing} />
+        </T>
+        <P>AoE + 恢复场地</P>
+      </div>
+      <!-- DarknessOfEternity -->
+      <div class="flex flex-col gap-4" id="darkness-of-eternity">
+        <T>
+          <Skill name={translations.DarknessOfEternity} />
+        </T>
+        <P>狂暴</P>
       </div>
     </div>
   </MechanicSection>
