@@ -44,19 +44,26 @@ const href = (() => {
         <span
           class="rounded-full bg-zinc-200 px-3 py-0.5 text-sm font-medium text-zinc-700 dark:bg-zinc-700 dark:text-zinc-300"
         >
-          {duty.short}
+          {duty.spoilerFree ? '? ? ?' : duty.short}
         </span>
       </div>
     </div>
 
-    <div class="flex justify-center overflow-hidden rounded-md">
+    <div class="relative flex justify-center overflow-hidden rounded-md">
       <Image
         src={duty.banner}
         alt={duty.name}
         class="h-36 w-full scale-105 object-cover duration-300 hover:scale-110"
       />
+      {
+        duty.spoilerFree && (
+          <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">
+            <span class="text-2xl font-semibold text-white">Secret</span>
+          </div>
+        )
+      }
     </div>
 
-    <h3 class="text-lg font-semibold">{duty.name}</h3>
+    <h3 class="text-lg font-semibold">{duty.spoilerFree ? (duty.spoilerFreeName ?? duty.name) : duty.name}</h3>
   </div>
 </a>
