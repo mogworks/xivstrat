@@ -24,6 +24,7 @@ const { time = 0, class: className = '' }: Props = Astro.props
   subscribeKeys($stratSettings, ['timelineOrigin', 'timeFormat'], (stratSettings) => {
     document.querySelectorAll('span.strat-time').forEach((ele) => {
       const span = ele as HTMLSpanElement
+      stratSettings.timelineOrigin === 'hidden' ? span.classList.add('hidden') : span.classList.remove('hidden')
       const time = span.dataset.time ?? '0'
       const seconds = timeToSeconds(time)
       const baseSeconds = timeToSeconds(base)
@@ -40,6 +41,14 @@ const { time = 0, class: className = '' }: Props = Astro.props
         const sStr = s < 10 ? `0${s.toFixed(1)}` : s.toFixed(1)
         span.textContent = `${mStr}:${sStr}`
       }
+    })
+    document.querySelectorAll('span.strat-time-duration').forEach((ele) => {
+      const span = ele as HTMLSpanElement
+      stratSettings.timelineOrigin === 'hidden' ? span.classList.add('hidden') : span.classList.remove('hidden')
+    })
+    document.querySelectorAll('div.strat-time-duration-layer').forEach((ele) => {
+      const div = ele as HTMLDivElement
+      stratSettings.timelineOrigin === 'hidden' ? div.classList.add('hidden') : div.classList.remove('hidden')
     })
   })
 </script>
