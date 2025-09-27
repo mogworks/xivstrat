@@ -14,13 +14,18 @@ import Macro from '@/components/Macro.astro'
 import ReferenceItem from '@/components/ReferenceItem.astro'
 import Thanks from '@/components/thanks/Thanks.astro'
 
+import ImgRow from '@/components/typography/ImgRow.astro'
+import T from '@/components/typography/T.astro'
+import P from '@/components/typography/P.astro'
+
 import CheatsheetsImage from '@/assets/cheatsheets/07/necron.png'
+import Waymark from '@/assets/07/necron/waymark.png'
 
 const dutyId = '07/necron'
 const duty = (await getEntry('duties', dutyId))!.data
 const navList = [
   { label: '小抄速览', id: 'cheatsheet' },
-  // { label: '场地标点', id: 'waymark' },
+  { label: '场地标点', id: 'waymark' },
   // { label: '宏', id: 'macro' },
   // { label: '简易时间轴', id: 'timeline' },
   // { label: '参考资料', id: 'reference' },
@@ -59,5 +64,26 @@ const videoLink = duty.bilibili ?? undefined
         <Image src={CheatsheetsImage} alt="necron 副本小抄" loading="lazy" class="h-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
+  </CollapsibleBox>
+  <CollapsibleBox id="waymark" client:idle class="w-full">
+    <div class="flex flex-col gap-4">
+      <T variant="cyan" text="参考标点" />
+      <ImgRow
+        borderVariant="cyan"
+        wrapperClass="max-w-120"
+        imgs={[
+          {
+            src: Waymark,
+            alt: '',
+          },
+        ]}
+      />
+      <P>字母点：月环 + 2222分摊 的位置</P>
+      <P>数字点：纵向的5等分点（中央触手的横向直线AoE边界会穿过标点中心）</P>
+      <P>同时，A13的右侧边界、D24的左侧边界是场地横向的3等分点，用以处理辣翅/辣尾</P>
+    </div>
+    <Fragment slot="header">
+      <span>场地标点</span>
+    </Fragment>
   </CollapsibleBox>
 </DutyHomeLayout>
