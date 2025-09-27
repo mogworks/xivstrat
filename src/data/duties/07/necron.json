@@ -10,7 +10,8 @@
   "date": "25/08/07 12:00",
   "href": "/07/necron",
   "status": "live",
-  "indexAvailable": false,
+  "indexAvailable": true,
+  "bilibili": "https://www.bilibili.com/video/BV1xWatzpEdU/",
   "phases": [
     {
       "href": "/07/necron/p1",

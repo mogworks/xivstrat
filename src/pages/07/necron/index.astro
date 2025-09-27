@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets'
+import { getEntry } from 'astro:content'
+
+import ScannerSVG from '@/assets/svg/scanner.svg'
+import BiliBiliSVG from '@/assets/svg/bilibili.svg'
+
+import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
+import WaymarkBox from '@/components/WaymarkBox.astro'
+import CollapsibleBox from '@/components/CollapsibleBox.vue'
+import AreaBox from '@/components/AreaBox.astro'
+import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
+import Macro from '@/components/Macro.astro'
+import ReferenceItem from '@/components/ReferenceItem.astro'
+import Thanks from '@/components/thanks/Thanks.astro'
+
+import CheatsheetsImage from '@/assets/cheatsheets/07/necron.png'
+
+const dutyId = '07/necron'
+const duty = (await getEntry('duties', dutyId))!.data
+const navList = [
+  { label: '小抄速览', id: 'cheatsheet' },
+  // { label: '场地标点', id: 'waymark' },
+  // { label: '宏', id: 'macro' },
+  // { label: '简易时间轴', id: 'timeline' },
+  // { label: '参考资料', id: 'reference' },
+  // { label: '鸣谢', id: 'thanks' },
+]
+const videoLink = duty.bilibili ?? undefined
+---
+
+<DutyHomeLayout dutyId={dutyId} navList={navList}>
+  <Fragment slot="operation">
+    <a href="/07/necron/p1">
+      <button
+        class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
+      >
+        <ScannerSVG class="mr-2 h-5 w-5" />
+        查看正文
+      </button>
+    </a>
+    {
+      videoLink && (
+        <a href={videoLink} target="_blank">
+          <button class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75">
+            <BiliBiliSVG class="mr-2 h-5 w-5" />
+            查看视频攻略
+          </button>
+        </a>
+      )
+    }
+  </Fragment>
+  <CollapsibleBox id="cheatsheet" client:idle class="w-full">
+    <Fragment slot="header">
+      <span>小抄速览</span>
+    </Fragment>
+    <AreaBox>
+      <ResizableImageDialog client:idle>
+        <Image src={CheatsheetsImage} alt="necron 副本小抄" loading="lazy" class="h-full object-contain" />
+      </ResizableImageDialog>
+    </AreaBox>
+  </CollapsibleBox>
+</DutyHomeLayout>
