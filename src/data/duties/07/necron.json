@@ -1,7 +1,7 @@
 {
   "name": "極永遠の闇討滅戦",
   "short": "Necron",
-  "spoilerFree": true,
+  "spoilerFree": false,
   "spoilerFreeName": "極 ? ? ? 討滅戦（已初步更新完毕）",
   "type": "trial",
   "title": "極永遠の闇討滅戦 攻略",
@@ -9,7 +9,7 @@
   "banner": "@/assets/banners/07/necron.png",
   "date": "25/08/07 12:00",
   "href": "/07/necron",
-  "status": "live",
+  "status": "done",
   "indexAvailable": true,
   "bilibili": "https://www.bilibili.com/video/BV1xWatzpEdU/",
   "phases": [
