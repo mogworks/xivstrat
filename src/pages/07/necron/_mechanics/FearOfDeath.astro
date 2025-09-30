@@ -1,0 +1,82 @@
+---
+import type { Time } from '@/lib/utils'
+
+import P from '@/components/typography/P.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import { combinedTranslations as translations } from '../_translations'
+
+import FearOfDeathCast from '../_components/FearOfDeathCast.astro'
+
+import FearOfDeath_1 from '@/assets/07/necron/FearOfDeath_1.png'
+import FearOfDeath_2 from '@/assets/07/necron/FearOfDeath_2.png'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<FearOfDeathCast start={start} />
+<!-- TODO: add adds cast -->
+
+<MechanicSection>
+  <!-- FearOfDeath -->
+  <div class="flex flex-col gap-4" id="fear-of-death">
+    <T>
+      <Skill name={translations.FearOfDeath} />
+    </T>
+    <P>AoE，同时在场地上均匀间隔生成8只触手，不要站在触手生成的位置，否则会吃易伤</P>
+    <P>
+      触手出来后会锁定最近的人，对其释放不可躲避的直条AoE，附带
+      <PhysicalVulnerabilityUp tag="1" hover />
+    </P>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4" id="fear-of-death-sol">
+    <P>
+      左半场从上到下
+      <RoleIcon role="tank" tag="MT" />
+      <RoleIcon role="melee" tag="D1" />
+      <RoleIcon role="healer" tag="H1" />
+      <RoleIcon role="ranged" tag="D3" />
+      ，右半场从上到下
+      <RoleIcon role="tank" tag="ST" />
+      <RoleIcon role="dps" tag="D2" />
+      <RoleIcon role="healer" tag="H2" />
+      <RoleIcon role="magic" tag="D4" />
+      ，每人将一只触手引导向场外
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      wrapperClass="max-w-160"
+      imgs={[
+        {
+          src: FearOfDeath_1,
+          alt: '',
+          title: '场地均匀间隔生成8只触手',
+        },
+      ]}
+    />
+    <ImgRow
+      borderVariant="cyan"
+      wrapperClass="max-w-160"
+      imgs={[
+        {
+          src: FearOfDeath_2,
+          alt: '',
+          title: '全员靠近自己的触手，向场外引导直线AoE',
+        },
+      ]}
+    />
+  </div>
+</SolutionSection>
