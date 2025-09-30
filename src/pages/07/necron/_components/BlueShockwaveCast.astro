@@ -1,0 +1,25 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+import { combinedTranslations as translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection
+  start={start}
+  duration={5.7}
+  target="tank"
+  targetTag="一仇"
+  damage="210000"
+  damageType="magical"
+  ability={translations.BlueShockwave}
+>
+  <Badge variant="red">死刑</Badge>
+</CastSection>

@@ -1,0 +1,71 @@
+---
+import type { Time } from '@/lib/utils'
+
+import P from '@/components/typography/P.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import { combinedTranslations as translations } from '../_translations'
+
+import BlueShockwaveCast from '../_components/BlueShockwaveCast.astro'
+
+import BlueShockwave_1 from '@/assets/07/necron/BlueShockwave_1.png'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<BlueShockwaveCast start={start} />
+<MechanicSection>
+  <div class="flex flex-col gap-12">
+    <!-- BlueShockwave -->
+    <div class="flex flex-col gap-4" id="blue-shockwave">
+      <T>
+        <Skill name={translations.BlueShockwave} />
+      </T>
+      <P>
+        对
+        <RoleIcon role="all" tag="一仇" />
+        的大范围扇形死刑，有两段，每段附带
+        <MagicVulnerabilityUp tag="5" hover />
+      </P>
+    </div>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-12">
+    <!-- BlueShockwave -->
+    <div class="flex flex-col gap-4" id="blue-shockwave">
+      <P>
+        <RoleIcon role="tank" tag="一仇" />
+        去角落开无敌单吃，或者
+        <RoleIcon role="tank" tag="MT" />
+        /
+        <RoleIcon role="tank" tag="ST" />
+        去西北/东北角落通过换T各吃一段，
+        <RoleIcon role="healer|dps" />
+        在场中躲避
+      </P>
+      <ImgRow
+        borderVariant="cyan"
+        wrapperClass="max-w-160"
+        imgs={[
+          {
+            src: BlueShockwave_1,
+            alt: '',
+            title: '一仇大范围扇形死刑',
+          },
+        ]}
+      />
+    </div>
+  </div>
+</SolutionSection>

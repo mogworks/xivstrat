@@ -1,0 +1,27 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+import { combinedTranslations as translations } from '../_translations'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection
+  start={start}
+  duration={4.7}
+  target="all"
+  targetTag="全员"
+  damage="130000"
+  damageType="magical"
+  ability={translations.SmiteOfGloom}
+>
+  <MagicVulnerabilityUp tag="1" hover />
+  <Badge variant="yellow">分散</Badge>
+</CastSection>

@@ -1,0 +1,17 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+import { combinedTranslations as translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={4.7} ability={translations.ColdGrip}>
+  <Badge variant="emerald">2/3半场刀</Badge>
+</CastSection>
