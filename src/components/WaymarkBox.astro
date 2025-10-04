@@ -12,9 +12,12 @@ interface Props {
   href?: string
   downloadLabel?: string
   img?: ImageMetadata
+  pageNumber?: number
+  slotStart?: number
+  slotEnd?: number
 }
 
-const { href, img, downloadLabel = '下载标点文件' }: Props = Astro.props
+const { href, img, downloadLabel = '下载标点文件', pageNumber, slotStart, slotEnd }: Props = Astro.props
 ---
 
 <div class="flex gap-4">
@@ -55,7 +58,8 @@ const { href, img, downloadLabel = '下载标点文件' }: Props = Astro.props
       </p>
       <p>3. 用下载的 UISAVE.DAT 覆盖</p>
       <p>
-        4. 进入游戏相应副本并标点（标点信息储存在第3页的11号槽位~14号槽位），<span class="font-extrabold"
+        4. 进入游戏相应副本并标点（标点信息储存在第{pageNumber}页的{slotStart}号槽位
+        {slotEnd && slotEnd !== slotStart ? `~${slotEnd}号槽位` : ''}），<span class="font-extrabold"
           >让队友保存标点信息</span
         >
       </p>
