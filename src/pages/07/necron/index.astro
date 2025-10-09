@@ -19,7 +19,7 @@ import T from '@/components/typography/T.astro'
 import P from '@/components/typography/P.astro'
 
 import CheatsheetsImage from '@/assets/cheatsheets/07/necron.png'
-import Waymark from '@/assets/07/necron/waymark.png'
+import WaymarkImage from '@/assets/07/necron/waymark.png'
 
 const dutyId = '07/necron'
 const duty = (await getEntry('duties', dutyId))!.data
@@ -64,5 +64,19 @@ const videoLink = duty.bilibili ?? undefined
         <Image src={CheatsheetsImage} alt="necron 副本小抄" loading="lazy" class="h-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
+  </CollapsibleBox>
+
+  <CollapsibleBox id="waymark" client:idle class="w-full">
+    <WaymarkBox
+      href="/waymarks/07/Necron/UISAVE.DAT?v=1"
+      img={WaymarkImage}
+      downloadLabel="下载标点文件"
+      pageNumber={1}
+      slotStart={1}
+      slotEnd={1}
+    />
+    <Fragment slot="header">
+      <span>场地标点</span>
+    </Fragment>
   </CollapsibleBox>
 </DutyHomeLayout>
