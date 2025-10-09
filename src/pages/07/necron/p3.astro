@@ -14,7 +14,7 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import Doom from '@/components/buff/Doom.astro'
 import LimitBreak from '@/components/action/LimitBreak.astro'
 
-import { combinedTranslations as translations } from './_translations'
+import { translations } from './_translations'
 
 import SpecterOfDeath_1 from '@/assets/07/necron/SpecterOfDeath_1.png'
 import TheEndsEmbrace_3 from '@/assets/07/necron/TheEndsEmbrace_3.png'
@@ -182,9 +182,7 @@ const base = '00:00.00'
       <!-- TheSecondSeason、TheFourthSeason -->
       <div class="flex flex-col gap-4" id="the-second-fourth-season">
         <T>
-          <Skill name={['The Second/Fourth Season', '青の式波・二/四重']}>
-            <Span variant="default" slot="separator">|</Span>
-          </Skill>
+          <Skill name={translations.TheSecondSeason + '/' + translations.TheFourthSeason} />
         </T>
         <P>存储44/2222分摊，会与第4次（最后一次）钢铁/月环/辣翅/辣尾同时判定</P>
       </div>
@@ -484,9 +482,7 @@ const base = '00:00.00'
       <!-- TheSecondSeason、TheFourthSeason -->
       <div class="flex flex-col gap-4">
         <T>
-          <Skill name={['The Second/Fourth Season', '青の式波・二/四重']}>
-            <Span variant="default" slot="separator">|</Span>
-          </Skill>
+          <Skill name={translations.TheSecondSeason + '/' + translations.TheFourthSeason} />
         </T>
         <P>存储44/2222分摊，会与第4次（最后一次）钢铁/月环/辣翅/辣尾同时判定，前面已经见过</P>
       </div>
