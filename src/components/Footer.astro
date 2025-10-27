@@ -1,16 +1,63 @@
+---
+import { Image } from 'astro:assets'
+import BeianIcon from '@/assets/beian.png'
+---
+
 <footer class="absolute bottom-0 w-full border-t py-8">
-  <div class="bg-dots fade-t absolute inset-0 opacity-60"></div>
-  <div class="relative z-10 mx-auto text-center text-zinc-400">
-    © {new Date().getFullYear()} XivStrat ·
-    <a href="/" class="hover:underline">首页</a>
-    ·
-    <a href="/about" class="hover:underline">关于我们</a>
-    <br />
-    By
-    <a href="https://github.com/mogworks" target="_blank" class="hover:underline">莫古力工坊</a>
-    &
-    <a href="https://space.bilibili.com/25787773" target="_blank" class="hover:underline">苏帕酱噗</a>
-    &
-    <a href="https://space.bilibili.com/1578887" target="_blank" class="hover:underline">MMW攻略组</a>
+  <div class="bg-dots fade-t absolute inset-0 opacity-60 pointer-events-none"></div>
+  <div class="mx-auto flex w-full items-end justify-between px-8 @md:max-w-md @3xl:max-w-4xl @7xl:max-w-7xl">
+    <div class="text-left text-sm text-zinc-400">
+      <div class="mb-2">
+        © {new Date().getFullYear()} XivStrat ·
+        <a href="/" class="transition-colors duration-200 hover:text-zinc-300 hover:underline">首页</a>
+        ·
+        <a href="/about" class="transition-colors duration-200 hover:text-zinc-300 hover:underline">关于我们</a>
+      </div>
+      <div>
+        <span class="text-zinc-500">By </span>
+        <a
+          href="https://github.com/mogworks"
+          target="_blank"
+          class="transition-colors duration-200 hover:text-zinc-300 hover:underline">莫古力工坊</a
+        >
+        <span class="text-zinc-500"> & </span>
+        <a
+          href="https://space.bilibili.com/25787773"
+          target="_blank"
+          class="transition-colors duration-200 hover:text-zinc-300 hover:underline">苏帕酱噗</a
+        >
+        <span class="text-zinc-500"> & </span>
+        <a
+          href="https://space.bilibili.com/1578887"
+          target="_blank"
+          class="transition-colors duration-200 hover:text-zinc-300 hover:underline">MMW攻略组</a
+        >
+      </div>
+    </div>
+
+    <div class="text-right text-sm text-zinc-500">
+      <div class="mb-2">
+        <a
+          href="https://beian.miit.gov.cn/"
+          target="_blank"
+          rel="noreferrer"
+          class="transition-colors duration-200 hover:text-zinc-400 hover:underline"
+        >
+          粤ICP备2025483310号
+        </a>
+      </div>
+
+      <div class="flex items-center justify-end">
+        <Image src={BeianIcon} alt="公安备案图标" class="mr-1.5 h-3.5 w-3.5" draggable="false" loading="eager" />
+        <a
+          href="https://beian.mps.gov.cn/#/query/webSearch?code=36072602000122"
+          rel="noreferrer"
+          target="_blank"
+          class="transition-colors duration-200 hover:text-zinc-400 hover:underline"
+        >
+          赣公网安备36072602000122号
+        </a>
+      </div>
+    </div>
   </div>
 </footer>
