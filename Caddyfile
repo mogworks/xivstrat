@@ -1,0 +1,89 @@
+# 全局配置
+{
+	admin off
+}
+
+:11452 {
+	# 静态文件服务
+	root * /srv
+	file_server
+
+	handle_errors {
+		@custom_err file /{err.status_code}.html
+		handle @custom_err {
+			rewrite * {file_match.relative}
+			file_server
+		}
+		respond "{err.status_code} {err.status_text}"
+	}
+	
+	# 缓存配置
+	
+	# astro
+	@astro_assets {
+		path /_astro/*
+	}
+	header @astro_assets {
+		Cache-Control "public, max-age=604800, immutable"
+		Vary "Accept-Encoding"
+	}
+	
+	# pixi
+	@pixi_assets {
+		path /pixi/* /videos/*
+	}
+	header @pixi_assets {
+		Cache-Control "public, max-age=604800"
+		Vary "Accept-Encoding"
+	}
+	
+	# code
+	@code {
+		path *.html *.js *.css
+		not path /_astro/*
+	}
+	header @code {
+		Cache-Control "public, max-age=300"
+		Vary "Accept-Encoding"
+	}
+	
+	# favicon
+	@favicon {
+		path /favicon.png /favicon.ico
+	}
+	header @favicon {
+		Cache-Control "public, max-age=2592000"
+		Vary "Accept-Encoding"
+	}
+	
+	# .DAT 文件特殊处理
+	@attachment {
+		path *.dat *.DAT
+	}
+	header @attachment {
+		Content-Disposition "attachment"
+		Cache-Control "no-cache, no-store, must-revalidate"
+	}
+	
+	# 安全头
+	header {
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		X-XSS-Protection "1; mode=block"
+		Referrer-Policy strict-origin-when-cross-origin
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self' blob:;"
+		# EdgeOne 头部
+		X-Real-IP {http.request.header.EO-Client-IP}
+		X-Client-IP {http.request.header.EO-Client-IP}
+		X-Client-Country {http.request.header.EO-Client-IPCountry}
+		# 保留标准头部以兼容其他 CDN
+		X-Forwarded-For {http.request.header.X-Forwarded-For}
+		-Server
+	}
+	
+	# 日志
+	log {
+		output stdout
+		format console
+	}
+}
