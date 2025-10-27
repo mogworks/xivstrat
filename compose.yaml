@@ -1,19 +1,6 @@
 services:
-  caddy:
-    image: caddy:2
-    restart: unless-stopped
-    cap_add:
-      - NET_ADMIN
-    ports:
-      - '80:80'
-      - '443:443'
-      - '443:443/udp'
-    volumes:
-      - $PWD/conf:/etc/caddy
-      - $PWD/dist:/srv
-      - caddy_data:/data
-      - caddy_config:/config
-
-volumes:
-  caddy_data:
-  caddy_config:
+  xivstrat:
+    build:
+      context: .
+    container_name: xivstrat
+    network_mode: host
