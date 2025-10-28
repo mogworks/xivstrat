@@ -39,12 +39,20 @@
 	
 	# code
 	@code {
-		path *.html *.js *.css
+		path *.html *.js *.css *.mjs
 		not path /_astro/*
 	}
 	header @code {
 		Cache-Control "public, max-age=300"
 		Vary "Accept-Encoding"
+	}
+	
+	# js
+	@js_modules {
+		path *.js *.mjs
+	}
+	header @js_modules {
+		Content-Type "application/javascript; charset=utf-8"
 	}
 	
 	# favicon
@@ -71,7 +79,7 @@
 		X-Frame-Options DENY
 		X-XSS-Protection "1; mode=block"
 		Referrer-Policy strict-origin-when-cross-origin
-		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; worker-src 'self' blob:;"
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self';"
 		# EdgeOne 头部
 		X-Real-IP {http.request.header.EO-Client-IP}
 		X-Client-IP {http.request.header.EO-Client-IP}
