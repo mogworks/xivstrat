@@ -16,27 +16,25 @@
 		}
 		respond "{err.status_code} {err.status_text}"
 	}
-	
+
 	# 缓存配置
-	
+
 	# astro
 	@header_astro {
 		path /_astro/*
 	}
 	header @header_astro {
 		Cache-Control "public, max-age=604800, immutable"
-		Vary "Accept-Encoding"
 	}
-	
+
 	# pixi
 	@header_pixi {
 		path /pixi/* /videos/*
 	}
 	header @header_pixi {
 		Cache-Control "public, max-age=604800"
-		Vary "Accept-Encoding"
 	}
-	
+
 	# code
 	@header_code {
 		path *.html *.js *.css *.mjs
@@ -44,26 +42,16 @@
 	}
 	header @header_code {
 		Cache-Control "public, max-age=300"
-		Vary "Accept-Encoding"
 	}
-	
-	# js mime
-	@header_js_modules {
-		path *.js *.mjs
-	}
-	header @header_js_modules {
-		Content-Type "application/javascript; charset=utf-8"
-	}
-	
+
 	# favicon
 	@favicon {
 		path /favicon.png /favicon.ico
 	}
 	header @favicon {
 		Cache-Control "public, max-age=2592000"
-		Vary "Accept-Encoding"
 	}
-	
+
 	# .DAT 文件特殊处理
 	@header_dat {
 		path *.dat *.DAT
@@ -72,7 +60,7 @@
 		Content-Disposition "attachment"
 		Cache-Control "no-cache, no-store, must-revalidate"
 	}
-	
+
 	# 安全头
 	header {
 		X-Content-Type-Options nosniff
@@ -88,7 +76,7 @@
 		X-Forwarded-For {http.request.header.X-Forwarded-For}
 		-Server
 	}
-	
+
 	# 日志
 	log {
 		output stdout
