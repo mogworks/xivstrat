@@ -1,14 +1,6 @@
 # 全局配置
 {
 	admin off
-	servers :11452 {
-		trusted_proxies edgeone {
-			version v4
-			area global
-			interval 24h
-			timeout 20s
-		}
-	}
 }
 
 :11452 {
