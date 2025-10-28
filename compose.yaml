@@ -1,9 +1,9 @@
 services:
   xivstrat:
-    image: caddy:alpine
+    build:
+      context: .
     container_name: xivstrat
     restart: unless-stopped
-    volumes:
-      - /root/xivstrat/conf:/etc/caddy
-      - /root/xivstrat/dist:/srv
     network_mode: host
+    volumes:
+      - /root/xivstrat/dist:/srv
