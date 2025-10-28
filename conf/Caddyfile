@@ -20,38 +20,38 @@
 	# 缓存配置
 	
 	# astro
-	@astro_assets {
+	@header_astro {
 		path /_astro/*
 	}
-	header @astro_assets {
+	header @header_astro {
 		Cache-Control "public, max-age=604800, immutable"
 		Vary "Accept-Encoding"
 	}
 	
 	# pixi
-	@pixi_assets {
+	@header_pixi {
 		path /pixi/* /videos/*
 	}
-	header @pixi_assets {
+	header @header_pixi {
 		Cache-Control "public, max-age=604800"
 		Vary "Accept-Encoding"
 	}
 	
 	# code
-	@code {
+	@header_code {
 		path *.html *.js *.css *.mjs
 		not path /_astro/*
 	}
-	header @code {
+	header @header_code {
 		Cache-Control "public, max-age=300"
 		Vary "Accept-Encoding"
 	}
 	
-	# js
-	@js_modules {
+	# js mime
+	@header_js_modules {
 		path *.js *.mjs
 	}
-	header @js_modules {
+	header @header_js_modules {
 		Content-Type "application/javascript; charset=utf-8"
 	}
 	
@@ -65,10 +65,10 @@
 	}
 	
 	# .DAT 文件特殊处理
-	@attachment {
+	@header_dat {
 		path *.dat *.DAT
 	}
-	header @attachment {
+	header @header_dat {
 		Content-Disposition "attachment"
 		Cache-Control "no-cache, no-store, must-revalidate"
 	}
