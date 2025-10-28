@@ -9,6 +9,11 @@
 	file_server
 
 	handle_errors {
+		# 避免 CDN 缓存错误页（如 404/5xx），防止把 HTML 错误页缓存到 JS 资源路径下
+		header {
+			Cache-Control "no-store, no-cache, must-revalidate"
+			Pragma "no-cache"
+		}
 		@custom_err file /{err.status_code}.html
 		handle @custom_err {
 			rewrite * {file_match.relative}
