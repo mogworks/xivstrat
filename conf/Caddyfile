@@ -7,7 +7,7 @@
 	# 静态文件服务
 	root * /srv
 	file_server
-
+	encode gzip
 	handle_errors {
 		# 避免 CDN 缓存错误页（如 404/5xx），防止把 HTML 错误页缓存到 JS 资源路径下
 		header {
