@@ -24,7 +24,10 @@
 	}
 
 	# 缓存配置
-	header {
+	@header_general {
+		path / */
+	}
+	header @header_general {
 		Cache-Control "public, max-age=300"
 	}
 
@@ -74,7 +77,7 @@
 		X-Content-Type-Options nosniff
 		X-Frame-Options DENY
 		Referrer-Policy strict-origin-when-cross-origin
-		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self';"
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self';"
 		# EdgeOne 头部
 		X-Real-IP {http.request.header.EO-Client-IP}
 		X-Client-IP {http.request.header.EO-Client-IP}
