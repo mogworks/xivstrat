@@ -11,6 +11,7 @@
 	handle_errors {
 		# 避免 CDN 缓存错误页（如 404/5xx），防止把 HTML 错误页缓存到 JS 资源路径下
 		header {
+			-Cache-Control
 			Cache-Control "no-store, no-cache, must-revalidate"
 			Pragma "no-cache"
 		}
@@ -23,6 +24,9 @@
 	}
 
 	# 缓存配置
+	header {
+		Cache-Control "public, max-age=300"
+	}
 
 	# astro
 	@header_astro {
@@ -40,13 +44,12 @@
 		Cache-Control "public, max-age=604800"
 	}
 
-	# code
-	@header_code {
-		path *.html *.js *.css *.mjs
-		not path /_astro/*
+	# scripts
+	@header_scripts {
+		path /scripts/*
 	}
-	header @header_code {
-		Cache-Control "public, max-age=300"
+	header @header_scripts {
+		Cache-Control "public, max-age=604800"
 	}
 
 	# favicon
@@ -70,7 +73,6 @@
 	header {
 		X-Content-Type-Options nosniff
 		X-Frame-Options DENY
-		X-XSS-Protection "1; mode=block"
 		Referrer-Policy strict-origin-when-cross-origin
 		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self';"
 		# EdgeOne 头部
