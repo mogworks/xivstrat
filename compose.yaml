@@ -5,5 +5,5 @@ services:
     restart: unless-stopped
     network_mode: host
     volumes:
-      - /root/xivstrat/conf:/etc/caddy
-      - /root/xivstrat/dist:/srv
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./dist:/srv
