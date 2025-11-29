@@ -19,5 +19,7 @@ export default defineConfig({
 
   adapter: node({
     mode: 'standalone',
+    // EdgeOne 不支持缓存流式HTML
+    experimentalDisableStreaming: true,
   }),
 })
