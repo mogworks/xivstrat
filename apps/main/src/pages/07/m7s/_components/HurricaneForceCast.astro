@@ -1,0 +1,24 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+
+import BloomingAbomination from './BloomingAbomination.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const hurricaneForce = translations.hurricaneForce
+---
+
+<CastSection start={start} duration={5.7} damage="9999999" damageType="special">
+  <BloomingAbomination slot="source" num={4} />
+  <Span slot="ability" variant="fuchsia">{hurricaneForce}</Span>
+  <Badge variant="fuchsia">狂暴</Badge>
+  <Badge variant="red">团灭</Badge>
+</CastSection>

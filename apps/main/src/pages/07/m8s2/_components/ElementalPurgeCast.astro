@@ -1,0 +1,36 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Bind from '@/components/buff/Bind.astro'
+
+import PatienceOfStoneDebuff from '../_components/buff/PatienceOfStoneDebuff.astro'
+import PatienceOfWindDebuff from '../_components/buff/PatienceOfWindDebuff.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const elementalPurge = translations.elementalPurge
+---
+
+<CastSection start={start} duration={4.7} ability={elementalPurge}>
+  <HowlingBlade slot="source" />
+  ，点名
+  <RoleIcon role="healer|dps" tag="随机" />
+  和
+  <RoleIcon role="tank" tag="随机" />
+  ，读条结束时分别赋予其
+  <PatienceOfStoneDebuff tag="5" hover />
+  和
+  <PatienceOfWindDebuff tag="5" hover />
+  ，并赋予
+  <RoleIcon role="tank" tag="一仇" />
+  <Bind tag="6" hover />
+</CastSection>

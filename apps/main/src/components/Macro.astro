@@ -1,0 +1,160 @@
+---
+import { cn } from '@/lib/utils'
+
+import CopySVG from '@/svg/copy.svg'
+
+import Separator from '@/components/Separator.astro'
+import AreaBox from '@/components/AreaBox.astro'
+
+interface Props {
+  text: string
+  title?: string
+  class?: string
+}
+
+const { text, title = '宏', class: className = '' }: Props = Astro.props
+
+const lineList = text?.split('\n') ?? []
+---
+
+<article class={cn('w-fit text-sm ', className)}>
+  <AreaBox class="relative">
+    <div class="flex w-full items-center justify-between">
+      <div class="flex items-center gap-2">
+        <p class="font-semibold opacity-60">{title}</p>
+        <Separator orientation="vertical" class="h-5" />
+        <div class="w-min">
+          <copy-button target={text}>
+            <button
+              class="flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
+            >
+              <CopySVG class="h-3 w-3" />
+              以小队频道复制
+            </button>
+          </copy-button>
+        </div>
+        <div class="w-min">
+          <copy-button target={text.replaceAll('/p', '/e')}>
+            <button
+              class="flex w-max cursor-pointer items-center justify-between gap-1 rounded-lg border border-purple-400 bg-purple-500 p-1 px-2 align-middle text-xs text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
+            >
+              <CopySVG class="h-3 w-3" />
+              以默语复制
+            </button>
+          </copy-button>
+        </div>
+      </div>
+      <p class="ml-20 scale-y-80 text-xl font-extrabold opacity-20 select-none">{lineList.length}/15</p>
+    </div>
+    <Separator class="my-2" />
+    <code>
+      {
+        lineList.map((line) => (
+          <div class="group flex w-full justify-between">
+            <pre>{line}</pre>
+            <div class="flex">
+              <copy-button
+                target={line}
+                class="invisible ml-10 flex cursor-pointer items-center justify-center rounded-lg rounded-r-none border px-2 underline-offset-2 group-hover:visible hover:underline"
+              >
+                <button
+                  is="marco-copy-button"
+                  class="flex cursor-pointer items-center justify-center gap-1 align-middle"
+                >
+                  <CopySVG class="h-3 w-3 text-black/60 dark:text-white/80" />
+                  <span class="text-xs text-black/60 select-none dark:text-white/50">小队</span>
+                </button>
+              </copy-button>
+              <copy-button
+                target={line.replaceAll('/p', '/e')}
+                class="invisible flex cursor-pointer items-center justify-center rounded-lg rounded-l-none border px-2 underline-offset-2 group-hover:visible hover:underline"
+              >
+                <button
+                  is="marco-copy-button"
+                  class="flex cursor-pointer items-center justify-center gap-1 align-middle"
+                >
+                  <span class="text-xs text-black/60 select-none dark:text-white/50">默语</span>
+                </button>
+              </copy-button>
+            </div>
+          </div>
+        ))
+      }
+    </code>
+  </AreaBox>
+</article>
+<script>
+  import { copyToClipboard } from '@/lib/utils'
+
+  class CopyButton extends HTMLElement {
+    static observedAttributes = ['target']
+
+    constructor() {
+      super()
+    }
+
+    #target = this.getAttribute('target')
+    #bubbleClassName = '__copy-button-bubble'
+    #bubbleTimeout: number | null = null
+    #handleClick() {
+      if (!this.#target) {
+        return
+      }
+      const res = this.#copyToClipboard(this.#target)
+      this.#showBubble(res)
+    }
+
+    #copyToClipboard(text: string | null) {
+      return copyToClipboard(text)
+    }
+
+    #showBubble(res: boolean) {
+      const bubble = document.createElement('div')
+      const uniqueId = `bubble-${new Date().getTime()}-${Math.floor(Math.random() * 100)}` // 唯一标识
+      bubble.className = this.#bubbleClassName
+      bubble.id = uniqueId
+      bubble.textContent = `复制${res ? '成功' : '失败'}！`
+      document.body.appendChild(bubble)
+
+      // 气泡样式
+      const rect = this.getBoundingClientRect()
+      bubble.className = `${this.#bubbleClassName} absolute z-40 flex items-center justify-center rounded-lg border px-2 py-1 text-xs
+        transition-opacity duration-300 ease-in-out select-none bg-white`
+      bubble.style.color = res ? 'green' : 'red'
+      bubble.style.top = `${window.scrollY + rect.top - bubble.offsetHeight}px`
+      bubble.style.left = `${window.scrollX + rect.left + 60}px`
+
+      setTimeout(() => {
+        bubble.style.opacity = '1'
+      }, 10)
+
+      // 1.5秒后移除气泡
+      this.#bubbleTimeout = window.setTimeout(() => {
+        bubble.style.opacity = '0'
+        setTimeout(() => {
+          if (document.body.contains(bubble)) {
+            document.body.removeChild(bubble)
+          }
+        }, 300)
+      }, 1500)
+    }
+
+    connectedCallback() {
+      this.addEventListener('click', this.#handleClick.bind(this))
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener('click', this.#handleClick.bind(this))
+      if (this.#bubbleTimeout) {
+        clearTimeout(this.#bubbleTimeout)
+      }
+    }
+
+    attributeChangedCallback(name: string, oldValue: string, newValue: string) {
+      if (name === 'target' && oldValue !== newValue) {
+        this.#target = newValue
+      }
+    }
+  }
+  customElements.define('copy-button', CopyButton)
+</script>

@@ -1,0 +1,301 @@
+---
+import { timeToSeconds, type Time } from '@/lib/utils'
+
+import CosImage from '@/components/CosImage.astro'
+
+import Badge from '@/components/Badge.astro'
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import Separator from '@/components/Separator.astro'
+import StratLink from '@/components/StratLink.astro'
+import Span from '@/components/Span.vue'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import SustainedDamage from '@/components/buff/SustainedDamage.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import LimitBreak from '@/components/action/LimitBreak.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+
+import Wavelength from '../_components/Wavelength.astro'
+import WavelengthEffect from '../_components/WavelengthEffect.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  wavelengthStart?: Time
+}
+
+const { start, wavelengthStart = 0 }: Props = Astro.props
+const wavelengthStartSeconds = timeToSeconds(wavelengthStart)
+const wavelengthTimes = [
+  wavelengthStartSeconds,
+  wavelengthStartSeconds + 5,
+  wavelengthStartSeconds + 10,
+  wavelengthStartSeconds + 15,
+]
+
+const solutions = [
+  {
+    id: 'lets-dance-jp',
+    title: '解法：日野主流',
+  },
+  {
+    id: 'lets-dance-better-queue',
+    title: '解法：排队优化',
+  },
+]
+const defaultSolution = '解法：日野主流'
+---
+
+<CastSection start={start} duration={5.5} ability={translations.letsDance}>
+  <Badge variant="yellow">连续左右刀</Badge>
+</CastSection>
+<CollapseSection>
+  <Fragment slot="summary">
+    场外青蛙发动8次左/右半场刀，同时对玩家进行4次
+    <Wavelength type="α" hover />
+    <Wavelength type="β" hover />
+    范围检定
+  </Fragment>
+  <Fragment slot="details">
+    {
+      wavelengthTimes.map((time, index) => (
+        <EventSection time={time}>
+          第{index + 1}组
+          <Wavelength type="α" hover />
+          <Wavelength type="β" hover />
+          范围检定
+          <Separator orientation="vertical" class="mx-1 h-28 w-0.5 bg-teal-500" />
+          <ul class="list-none space-y-4">
+            <li class="flex items-center gap-1 text-lg">
+              <span class="text-sm opacity-80">正确</span>
+              <Span variant="yellow">{translations.minorFreakOut}</Span>
+              <DamageInfo damage="30000" type="magical" />
+              <MagicVulnerabilityUp tag="19" hover />
+              <Badge variant="green">小范围AoE</Badge>
+            </li>
+            <li class="flex items-center gap-1 text-lg">
+              <span class="text-sm opacity-80">错误</span>
+              <Span variant="yellow">{translations.freakOut}</Span>
+              <DamageInfo damage="100000" type="magical" />
+              <SustainedDamage tag="15" hover />
+              <DotInfo damage="30000" />
+              <Badge variant="purple">单体</Badge>
+            </li>
+            <li class="flex items-center gap-1 text-lg">
+              <span class="text-sm opacity-80">寄了</span>
+              <Span variant="yellow">{translations.majorFreakOut}</Span>
+              <DamageInfo damage=">1000000" type="magical" />
+              <Badge variant="red">团灭</Badge>
+            </li>
+          </ul>
+        </EventSection>
+      ))
+    }
+  </Fragment>
+</CollapseSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">{translations.letsDance}</Span>
+    </h4>
+    <div class="paragraph">
+      <Boss />
+      从左到右依次连线北侧场外的8只青蛙，根据青蛙的姿态连续发动左/右半场刀
+    </div>
+    <div class="paragraph">
+      可对玩家造成
+      <Span variant="yellow">{translations.letsDance}</Span>
+      <DamageInfo damage="125000" type="magical" />
+      <DamageDown tag="30" hover />
+      <Span variant="rose" class="text-decimal">25%↓</Span>
+    </div>
+    <div class="max-w-187.5">
+      <CosImage src="imgs/07/m5s/lets_dance.png" alt="Let's Dance!" class="border-2 border-amber-800/75 dark:border-amber-100" />
+    </div>
+    <div class="flex max-w-104 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/lets_dance/left.png"
+          alt="Let's Dance! Left"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">攻击左/西半场</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/lets_dance/right.png"
+          alt="Let's Dance! Right"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">攻击右/东半场</div>
+      </div>
+    </div>
+    <div class="paragraph">注意观察青蛙举起的手，其指向即为BOSS发动左/右刀的方向</div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow"
+        >{translations.wavelength}
+        <Span variant="violet">(</Span>α<Span variant="violet">|</Span>β<Span variant="violet">)</Span></Span
+      >
+    </h4>
+    <div class="paragraph">
+      <Span variant="yellow">{translations.letsDance}</Span>
+      读条开始时，
+      <Wavelength type="α" hover />
+      <Wavelength type="β" hover />
+      倒计时剩余
+      <Span variant="pink">8</Span>
+      、
+      <Span variant="pink">13</Span>
+      、
+      <Span variant="pink">18</Span>
+      、
+      <Span variant="pink">23</Span>
+      秒
+    </div>
+    <div class="paragraph">如前文所述：</div>
+    <div class="flex flex-col gap-4 border-l-2 pl-4 opacity-80">
+      <WavelengthEffect />
+    </div>
+    <div class="paragraph">因此，在躲避连续左右刀的同时，还需要处理这些debuff</div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">节奏感</Span>
+    </h4>
+    <div class="paragraph">
+      <Span variant="yellow">{translations.arcadyNightFever}</Span>
+      机制开始时会出现一个计量槽，累积满时会奖励<LimitBreak stage={1} />
+    </div>
+    <div class="paragraph">
+      错误处理会导致计量值积攒变慢，若本阶段完全正确处理则会累积
+      <Span variant="pink">34</Span>
+      点计量值
+    </div>
+    <div class="paragraph">
+      算上
+      <StratLink variant="yellow" href="#arcady-night-fever">{translations.arcadyNightFever}</StratLink>
+      阶段正确处理累积的
+      <Span variant="pink">66</Span>
+      点，恰好可以攒满计量槽
+    </div>
+    <CosImage src="imgs/07/m5s/Grooviness100.png" alt="Grooviness 100" class="w-75" />
+  </div>
+</MechanicSection>
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：日野主流" class="flex flex-col gap-4">
+    <div class="paragraph">
+      <Span variant="yellow">{translations.letsDance}</Span>
+      读条开始时，
+      <Wavelength type="α" hover />
+      <Wavelength type="β" hover />
+      倒计时剩余
+      <Span variant="pink">8</Span>
+      、
+      <Span variant="pink">13</Span>
+      、
+      <Span variant="pink">18</Span>
+      、
+      <Span variant="pink">23</Span>
+      秒
+    </div>
+    <div class="paragraph">众人按自身倒计时长短，沿场地中轴线自北向南如下排队</div>
+    <div class="max-w-90">
+      <CosImage
+        src="imgs/07/m5s/lets_dance/solution_1.png"
+        alt="Let's Dance! Solution 1"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+    </div>
+    <div class="paragraph">
+      之后只需专注躲避左右刀，
+      <Wavelength type="α" hover />
+      <Wavelength type="β" hover />
+      倒计时结束时会自动配对处理
+    </div>
+    <div class="paragraph">
+      注意
+      <Wavelength type="α" hover />
+      <Wavelength type="β" hover />
+      的范围检定非常小，只有
+      <Span variant="pink">2m</Span>
+      ，因此躲避左右刀时不要离开中轴线太远，以免判定失败
+    </div>
+  </div>
+  <div slot="解法：排队优化" class="flex flex-col gap-4">
+    <div class="paragraph">
+      由于
+      <Wavelength type="α" hover />
+      <Wavelength type="β" hover />
+      配对处理后会赋予玩家
+      <MagicVulnerabilityUp tag="19" hover />
+      ，而左右刀是魔法伤害，处理完
+      <Wavelength type="α" hover />
+      <Wavelength type="β" hover />
+      的玩家一旦失误就会暴毙
+    </div>
+    <div class="paragraph">又因为视角限制，越靠近场地北边越不利于观察场外的青蛙</div>
+    <div class="paragraph">
+      因此将主流解法中的排队顺序倒转，让更先处理
+      <Wavelength type="α" hover />
+      <Wavelength type="β" hover />
+      的玩家离北边更远，增加后续躲避左右刀的容错
+    </div>
+    <div class="max-w-90">
+      <CosImage
+        src="imgs/07/m5s/lets_dance/solution_2.png"
+        alt="Let's Dance! Solution 2"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+    </div>
+  </div>
+</MultiSolutionSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      一般来说，由于扇形附带
+      <MagicVulnerabilityUp tag="9" hover />
+      ，重复吃扇形会直接去世，但也有例外情况：
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      假设初始有两个人站一起，其中一人被点名扇形，则他们会被赋予相同时长的
+      <Wavelength type="α" hover />
+      或
+      <Wavelength type="β" hover />
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      之后若等
+      <MagicVulnerabilityUp hover />
+      消失后另一人被点名扇形，并不会覆盖已有的
+      <Wavelength type="α" hover />
+      或
+      <Wavelength type="β" hover />
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      这样就出现了
+      <Span variant="red">同时长同种debuff</Span>
+      的特殊情况
+    </div>
+    <div class="paragraph">
+      若范围检定时他们站在一起，就会造成
+      <Span variant="red">团灭级全屏伤害</Span>
+      <Span variant="yellow">{translations.majorFreakOut}</Span>
+      <DamageInfo damage=">1000000" type="magical" />
+    </div>
+    <div class="paragraph">
+      有兴趣的话，可以参考
+      <StratLink variant="yellow" href="https://www.fflogs.com/reports/a:R3b281zGmrdjBaMN?fight=2" target="_blank">
+        该Logs
+      </StratLink>
+    </div>
+  </div>
+</NoteSection>

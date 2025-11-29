@@ -1,0 +1,192 @@
+---
+import CosImage from '@/components/CosImage.astro'
+
+import LimitBreak from '@/components/action/LimitBreak.astro'
+import Separator from '@/components/Separator.astro'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import Dropsy from '@/components/buff/Dropsy.astro'
+import SustainedDamage from '@/components/buff/SustainedDamage.astro'
+import VulnerabilityUp from '@/components/buff/VulnerabilityUp.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import FeatherRay from '../_components/FeatherRay.astro'
+import GimmeCat from '../_components/GimmeCat.astro'
+import Mu from '../_components/Mu.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+import AttackSection from '../_components/SugarRiotAttackSection.astro'
+import SoulSugarCast from '../_components/SoulSugarCast.astro'
+import SoulSugarTable from '../_components/SoulSugarTable.astro'
+
+import { translations } from '../_translations'
+
+const { LivePainting, ReadyOreNot, UnlimitedCraving, OreRigato, WaterIII, Wave } = translations
+const SoulSugarName = translations.SoulSugar
+---
+
+<SoulSugarCast start="03:34.629" end="03:37.609" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph border-l-2 border-yellow-500 pl-2 opacity-80">
+      准备好了吗，冒险者？即将进入本次零式最重量级的阶段
+    </div>
+    <h4 class="mt-12 text-2xl">
+      <Span variant="yellow">{LivePainting}</Span>
+    </h4>
+    <div class="paragraph">
+      <SugarRiot />
+      读条
+      <Span variant="yellow">{SoulSugarName}</Span>
+      后，场上会每隔一段时间生成若干软糊怪，共4轮（后文称
+      <Span variant="default">{Wave}</Span>
+      <Span variant="red">#1</Span>
+      <Span variant="orange">#2</Span>
+      <Span variant="blue">#3</Span>
+      <Span variant="purple">#4</Span>
+      ）
+    </div>
+    <div class="paragraph">
+      每轮开始，
+      <SugarRiot />
+      会读条
+      <Span variant="yellow">{LivePainting}</Span>
+      将软糊怪激活为不同类型的小可爱：
+    </div>
+    <SoulSugarTable />
+    <h4 class="mt-12 text-2xl">
+      <Span variant="yellow">{ReadyOreNot}</Span>
+    </h4>
+    <div class="paragraph -my-4">
+      <SugarRiot />
+      画出
+      <CosImage src="imgs/07/m6s/paint_mark/genseki@3x.png" alt="Paint Mark: Ready Ore Not" class="-mr-2 -ml-3 w-25 drop-shadow-sm drop-shadow-black" />
+      ，对
+      <RoleIcon role="all" tag="全员" />
+      造成全屏AoE
+      <DamageInfo damage="200000" type="magical" />
+    </div>
+    <div class="paragraph">
+      若此时场上还有
+      <Mu />
+      ，则引发其读条
+      <Span variant="yellow">{OreRigato}</Span>
+      ，造成全屏AoE
+      <DamageInfo damage="100000" type="physical" />
+      <SustainedDamage layer={1} tag="15" hover />
+      <DotInfo damage="30000" />
+    </div>
+    <h4 class="mt-12 text-2xl">
+      <Span variant="yellow">{UnlimitedCraving}</Span>
+    </h4>
+    <div class="paragraph">
+      <GimmeCat />
+      一出现就会发动的特殊机制，会偷取<LimitBreak stage="full" />，主要是为了防止玩家以此逃课
+    </div>
+    <div class="paragraph">
+      相应的，在通关本阶段后，
+      <Span variant="cyan" class="flex items-center gap-1">会获得<LimitBreak stage={3} />的奖励补偿</Span>
+    </div>
+    <h4 class="mt-12 text-2xl">
+      <Span variant="yellow">{WaterIII}</Span>
+    </h4>
+    <div class="paragraph">
+      <FeatherRay />
+      每隔约
+      <Span variant="pink">9s</Span>
+      对连线玩家读条
+      <Span variant="yellow">{WaterIII}</Span>
+      喷水
+    </div>
+    <div class="paragraph">
+      喷水是半径
+      <Span variant="pink">8m</Span>
+      的圆形AoE，造成
+      <DamageInfo damage="45000" type="magical" />
+      <VulnerabilityUp tag="8" hover />
+      <Span variant="rose" class="text-decimal">3100%↑</Span>
+      ，如果拉怪的
+      <RoleIcon role="tank" />
+      被蹭到就会因
+      <VulnerabilityUp tag="8" hover />
+      暴毙
+    </div>
+    <div class="paragraph">
+      喷完约
+      <Span variant="pink">2s</Span>
+      后才会在连线玩家脚下留下半径
+      <Span variant="pink">9m</Span>
+      的水圈，踩进去会被赋予
+      <Dropsy tag="15" hover />
+      <DotInfo damage="48000" />
+    </div>
+    <div class="paragraph">
+      由于读条结束就判定易伤，约
+      <Span variant="pink">2s</Span>
+      后才会留下水圈，故不能以水圈位置作为分锅依据，要十分小心
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection title="解法：正式开始之前">
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="lime">Limit Break 预读</Span>
+    </h4>
+    <div class="paragraph">
+      由于
+      <GimmeCat />
+      一出现就会偷取<LimitBreak stage="full" />，为了不浪费，可以在本阶段正式开始前用掉
+    </div>
+    <div class="flex gap-3">
+      <div class="flex max-w-96 flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m6s/soul_sugar/ranged_lb.png"
+          alt="Soul Sugar: Ranged LB"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div class="paragraph">
+          <LimitBreak stage={1} />
+          <Separator orientation="vertical" class="mx-2 ml-3" />
+          远敏覆盖4目标
+        </div>
+      </div>
+      <div class="flex max-w-96 flex-col items-center gap-2">
+        <CosImage src="imgs/07/m6s/soul_sugar/magic_lb.png" alt="Soul Sugar: Magic LB" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <div class="paragraph">
+          <LimitBreak stage={2} operation="gte" />
+          <Separator orientation="vertical" class="mx-2 ml-3" />
+          法系覆盖4目标
+        </div>
+      </div>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      如果只有<LimitBreak stage={1} />，由
+      <RoleIcon role="ranged" tag="D3" />
+      覆盖4目标，预先选中
+      <SugarRiot />
+      释放
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      如果有<LimitBreak stage={2} operation="gte" />，由
+      <RoleIcon role="magic" tag="D4" />
+      覆盖4目标（
+      <GimmeCat />
+      此时不可选中，无法覆盖）
+    </div>
+    <div class="paragraph">
+      释放时机为：
+      <SugarRiot />
+      连线软糊怪，软糊怪周围的环绕特效
+      <Span variant="pink">闪烁4~5次</Span>
+      时
+    </div>
+    <div class="paragraph">释放时机需要大量的练习，因此作为锦上添花的选项吧，失败了也没关系！</div>
+  </div>
+</SolutionSection>
+<AttackSection time="03:38.455" damage="57000" damageType="magical" />

@@ -1,0 +1,17 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={6.7} damage="150000" damageType="magical" ability={translations.GrandCross}>
+  <Badge variant="yellow">AoE</Badge>
+</CastSection>

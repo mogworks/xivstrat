@@ -1,0 +1,28 @@
+---
+import type { Time } from '@/lib/utils'
+
+import EventSection from '@/components/section/EventSection.astro'
+
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
+import WolfOfStone from '../_components/entities/WolfOfStone.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+---
+
+<EventSection time={time}>
+  <WolfOfWind />
+  <WolfOfStone />
+  出现，各连线
+  <Span variant="default">1</Span>
+  <RoleIcon role="tank" />
+  <Span variant="default">1</Span>
+  <RoleIcon role="healer" />
+  <Span variant="default">2</Span>
+  <RoleIcon role="dps" />
+</EventSection>

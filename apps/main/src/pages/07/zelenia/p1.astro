@@ -1,0 +1,47 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+
+import ThornedCatharsis from './_components/ThornedCatharsisCast.astro'
+import SpecterOfTheLost from './_mechanics/SpecterOfTheLost.astro'
+import Shock from './_mechanics/Shock.astro'
+import AlexandrianHoly from './_mechanics/AlexandrianHoly.astro'
+import EscelonsFall from './_mechanics/EscelonsFall.astro'
+import EscelonsFallActivate from './_components/EscelonsFallActivate.astro'
+
+import StockBreakCast from './_components/StockBreakCast.astro'
+import { translations } from './_translations'
+
+const dutyId = '07/zelenia'
+
+const base = '00:00.00'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <EventSection time={base}>
+    <RoleIcon role="tank" tag="MT" />
+    开怪
+  </EventSection>
+
+  <ThornedCatharsis start="00:11.120" />
+
+  <SeparatorSection id="shock" title={translations.Shock} />
+  <Shock start="00:18.574" type="all" />
+  <AlexandrianHoly start="00:24.727" />
+
+  <SeparatorSection id="specter-of-the-lost" title={translations.SpecterOfTheLost} />
+  <SpecterOfTheLost start="00:36.897" />
+
+  <SeparatorSection id="escelons-fall" title={translations.EscelonsFall} />
+  <EscelonsFall start="00:51.330" />
+
+  <EscelonsFallActivate time="01:05.185" num={1} />
+  <EscelonsFallActivate time="01:08.308" num={2} />
+  <EscelonsFallActivate time="01:11.383" num={3} />
+  <EscelonsFallActivate time="01:14.455" num={4} />
+
+  <!-- <SeparatorSection id="stock-break" title="Stock Break 4连分摊" /> -->
+  <StockBreakCast start="01:16.677" />
+</DutyStratLayout>

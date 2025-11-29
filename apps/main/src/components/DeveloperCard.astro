@@ -1,0 +1,60 @@
+---
+import CosImage from '@/components/CosImage.astro'
+
+import DefaultAvatarSVG from '@/svg/default-avatar.svg'
+
+import type { Developer } from '@/data/developer'
+
+import { cn, isValidURL } from '@/lib/utils'
+
+interface Props {
+  developer: Developer
+  class?: string
+}
+
+const { developer, class: className = '' }: Props = Astro.props
+---
+
+<div
+  class={cn(
+    'group relative flex flex-col items-center overflow-hidden rounded-2xl border bg-white/70 p-6 text-center shadow-lg   backdrop-blur-sm  hover:bg-white/90 hover:shadow-xl dark:bg-zinc-800/50 dark:hover:bg-zinc-800/70 border-zinc-200/80 hover:border-cyan-500/50 dark:border-zinc-700/50  dark:hover:border-cyan-500/30',
+    className,
+  )}
+>
+  <div class="absolute inset-0 -z-10 overflow-hidden">
+    <div
+      class="absolute -inset-16 bg-[conic-gradient(var(--tw-gradient-stops))] from-transparent via-cyan-200/0 to-transparent opacity-0 group-hover:via-cyan-200/30 group-hover:opacity-100 dark:via-cyan-500/0 dark:group-hover:via-cyan-500/30"
+    >
+    </div>
+  </div>
+  <div class="relative mb-5">
+    <a href={isValidURL(developer.link) ? developer.link : '#'} target="_blank">
+      {
+        developer.avatar ? (
+          <CosImage
+            src={developer.avatar}
+            alt={developer.name}
+            class="h-24 w-24 rounded-full border-2 border-white object-cover shadow-md select-none group-hover:border-cyan-400 dark:border-zinc-700"
+          />
+        ) : (
+          <div class="flex h-24 w-24 items-center justify-center rounded-full bg-zinc-100 shadow-inner dark:bg-zinc-700/80">
+            <DefaultAvatarSVG class="text-zinc-400 dark:text-zinc-500" />
+          </div>
+        )
+      }
+    </a>
+    <div
+      class="pointer-events-none absolute -inset-2 rounded-full border-2 border-cyan-400/20 opacity-0 transition-opacity select-none group-hover:opacity-100"
+    >
+    </div>
+  </div>
+  <div class="transition-transform group-hover:-translate-y-0.5">
+    <h1
+      class="text-lg font-bold tracking-wide text-zinc-800 transition-colors group-hover:text-cyan-600 dark:text-cyan-100 dark:group-hover:text-cyan-300"
+    >
+      {developer.name}
+    </h1>
+
+    {developer.gameName && <p class="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{developer.gameName}</p>}
+  </div>
+</div>

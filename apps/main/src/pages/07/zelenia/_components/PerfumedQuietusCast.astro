@@ -1,0 +1,26 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import Zelenia from './Zelenia.astro'
+import { translations } from '../_translations'
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection
+  start={start}
+  duration={2.7}
+  ability={translations.PerfumedQuietus}
+  target
+  damage="100000"
+  damageType="magical"
+>
+  <Zelenia slot="source" />
+  <Badge variant="purple">AoE</Badge>
+</CastSection>

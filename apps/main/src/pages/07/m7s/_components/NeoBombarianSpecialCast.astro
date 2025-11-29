@@ -1,0 +1,21 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const neoBombarianSpecial = translations.neoBombarianSpecial
+---
+
+<CastSection start={start} duration={7.7} ability={neoBombarianSpecial} damage="180000" damageType="physical">
+  <BruteAbombinator slot="source" />
+  <Badge variant="purple">击飞</Badge>
+</CastSection>

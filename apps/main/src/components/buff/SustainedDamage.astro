@@ -1,0 +1,25 @@
+---
+import Buff from '@/components/Buff.astro'
+
+interface Props {
+  layer?: number
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '', layer = 0 }: Props = Astro.props
+const layer_0 = 'imgs/buff/215067.png'
+const layer_1 = 'imgs/buff/219941.png'
+const icon = layer === 0 ? layer_0 : layer_1
+---
+
+<Buff
+  icon={icon}
+  name="持续伤害"
+  nameVariant="yellow"
+  description="无属性持续伤害，体力逐渐流失"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

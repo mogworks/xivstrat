@@ -1,0 +1,60 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import Separator from '@/components/Separator.astro'
+import Skill from '@/components/typography/Skill.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  type: 'line' | 'circle_or_fan'
+}
+
+const { start, type }: Props = Astro.props
+
+const duration = 1.2
+const abilityName = translations.wolvesReign
+const revolutionaryReign = translations.revolutionaryReign
+const eminentReign = translations.eminentReign
+---
+
+{
+  type === 'line' ? (
+    <CastSection start={start} duration={duration} ability={abilityName}>
+      <HowlingBlade slot="source" />
+      ，释放直线冲锋，冲至场地对侧
+      <Badge variant="emerald">10m宽直线</Badge>
+    </CastSection>
+  ) : (
+    <CastSection start={start} duration={duration} ability={abilityName}>
+      <HowlingBlade slot="source" />
+      ，释放附带击退效果的
+      <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
+      <ul class="list-none space-y-4">
+        <li class="flex items-center gap-1 text-lg">
+          <span class="text-sm opacity-80">
+            若先前为
+            <Skill name={revolutionaryReign} />：
+          </span>
+          圆形范围伤害
+          <Badge variant="emerald">14m圆形</Badge>
+          <Badge variant="purple">击退</Badge>
+        </li>
+        <li class="flex items-center gap-1 text-lg">
+          <span class="text-sm opacity-80">
+            若先前为
+            <Skill name={eminentReign} />：
+          </span>
+          扇形范围伤害
+          <Badge variant="emerald">120°扇形</Badge>
+          <Badge variant="purple">击退</Badge>
+        </li>
+      </ul>
+    </CastSection>
+  )
+}

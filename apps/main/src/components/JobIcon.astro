@@ -1,0 +1,82 @@
+---
+import type { JobType } from '@/lib/job'
+
+import EntityIcon from '@/components/EntityIcon.astro'
+import EntityText from '@/components/EntityText.astro'
+
+interface Props {
+  job: JobType
+  tag?: string
+  class?: string
+}
+
+const { job, tag = '', class: className = '' }: Props = Astro.props
+const icon = {
+  PLD: 'PLD',
+  WAR: 'WAR',
+  DRK: 'DRK',
+  GNB: 'GNB',
+  WHM: 'WHM',
+  SCH: 'SCH',
+  AST: 'AST',
+  SGE: 'SGE',
+  MNK: 'MNK',
+  DRG: 'DRG',
+  NIN: 'NIN',
+  SAM: 'SAM',
+  RPR: 'RPR',
+  VPR: 'VPR',
+  BRD: 'BRD',
+  MCH: 'MCH',
+  DNC: 'DNC',
+  BLM: 'BLM',
+  SMN: 'SMN',
+  RDM: 'RDM',
+  PCT: 'PCT',
+  tank: 'TANK',
+  healer: 'HEALER',
+  dps: 'DPS',
+  melee: 'MELEE',
+  ranged: 'RANGED',
+  magic: 'MAGIC',
+}[job]
+const text = {
+  PLD: '骑士',
+  WAR: '战士',
+  DRK: '暗骑',
+  GNB: '绝枪',
+  WHM: '白魔',
+  SCH: '学者',
+  AST: '占星',
+  SGE: '贤者',
+  MNK: '武僧',
+  DRG: '龙骑',
+  NIN: '忍者',
+  SAM: '武士',
+  RPR: '钐镰',
+  VPR: '蝰蛇',
+  BRD: '诗人',
+  MCH: '机工',
+  DNC: '舞者',
+  BLM: '黑魔',
+  SMN: '召唤',
+  RDM: '赤魔',
+  PCT: '画家',
+  tank: 'T',
+  healer: 'H',
+  dps: 'D',
+  melee: '近战',
+  ranged: '远敏',
+  magic: '法系',
+}[job]
+---
+
+<EntityIcon
+  icon={`public/pixi/job/${icon}.png?width=64&height=64`}
+  tag={tag}
+  alt={tag ?? job}
+  class={className}
+>
+  <slot />
+</EntityIcon>
+<EntityText class={className}>{text}<slot /></EntityText>

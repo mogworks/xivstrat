@@ -1,0 +1,21 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const ability = translations.terrestrialTitans
+---
+
+<CastSection start={start} duration={3.7} ability={ability}>
+  <HowlingBlade slot="source" />
+  ，使场地一对正点方向升起两根石柱
+</CastSection>

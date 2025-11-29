@@ -1,0 +1,24 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import SustainedDamage from '@/components/buff/SustainedDamage.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const OreRigato = translations.OreRigato
+---
+
+<CastSection start={start} duration={4.7} ability={OreRigato} target damage="100000" damageType="physical">
+  <slot slot="source" />
+  <SustainedDamage layer={1} tag="15" hover />
+  <DotInfo damage="30000" />
+  <Badge variant="purple">AoE</Badge>
+</CastSection>

@@ -1,0 +1,230 @@
+---
+import CosImage from '@/components/CosImage.astro'
+
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import Zelenia from '../_components/Zelenia.astro'
+
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+const a1g = 'imgs/07/zelenia/P3-5/P3-5-1a-g.png'
+const a1 = 'imgs/07/zelenia/P3-5/P3-5-1a.png'
+const a2 = 'imgs/07/zelenia/P3-5/P3-5-2a.png'
+const a3 = 'imgs/07/zelenia/P3-5/P3-5-3a.png'
+const a4 = 'imgs/07/zelenia/P3-5/P3-5-4a.png'
+const a4g = 'imgs/07/zelenia/P3-5/P3-5-4a-g.png'
+const a5 = 'imgs/07/zelenia/P3-5/P3-5-5a.png'
+const a6 = 'imgs/07/zelenia/P3-5/P3-5-6a.png'
+
+const ga4 = 'imgs/07/zelenia/P3-5/P3-5-ga4.png'
+
+const ya4 = 'imgs/07/zelenia/P3-5/P3-5-ya4.png'
+---
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <Zelenia />
+      同时召唤以下aoe预兆：
+    </div>
+
+    <div class="paragraph">
+      <Span variant="yellow">场外刀：</Span>在对应半场释放直线aoe
+    </div>
+    <div class="paragraph">
+      <Span variant="orange">六连劈：</Span>六组扇形aoe
+    </div>
+    <div class="paragraph">
+      <Span variant="blue">钢铁/月环：</Span>圆形/月环aoe，会引爆<Span variant="red">红色地板</Span>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-6">
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <div class="paragraph">
+        <Span variant="yellow">释放顺序说明</Span>
+      </div>
+      <table class="mt-4 min-w-full border">
+        <thead>
+          <tr>
+            <th class="border px-3 py-2">次序</th>
+            <th class="border px-3 py-2">六连劈</th>
+            <th class="border px-3 py-2">钢铁/月环</th>
+            <th class="border px-3 py-2">场外刀</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border px-3 py-2 text-center">1</td>
+            <td class="border px-3 py-2 text-center">一劈</td>
+            <td class="border px-3 py-2 text-center">第一次钢铁/月环</td>
+            <td class="border px-3 py-2 text-center">第一轮场外刀</td>
+          </tr>
+          <tr>
+            <td class="border px-3 py-2 text-center">2</td>
+            <td class="border px-3 py-2 text-center">二劈</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+          </tr><tr>
+            <td class="border px-3 py-2 text-center">3</td>
+            <td class="border px-3 py-2 text-center">三劈</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+          </tr><tr>
+            <td class="border px-3 py-2 text-center">4</td>
+            <td class="border px-3 py-2 text-center">四劈</td>
+            <td class="border px-3 py-2 text-center">第二次钢铁/月环</td>
+            <td class="border px-3 py-2 text-center">第二轮场外刀</td>
+          </tr><tr>
+            <td class="border px-3 py-2 text-center">5</td>
+            <td class="border px-3 py-2 text-center">五劈</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+          </tr><tr>
+            <td class="border px-3 py-2 text-center">6</td>
+            <td class="border px-3 py-2 text-center">六劈</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+            <td class="border px-3 py-2 text-center">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="paragraph">
+      每轮伤害判定示意图<ToggleSwitch
+        id="damage-toggle"
+        lVariant="blue"
+        rVariant="yellow"
+        lLabel="先钢铁"
+        rLabel="先月环"
+      />
+    </div>
+    <div id="six-damage-grid" class="grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-2">
+      {/* 第一行第一列 */}
+      <div class="flex justify-center px-3 py-2">
+        <CosImage src={a1g} alt="sixdamage: 1" class="omen-img border-cyan-700 dark:border-cyan-100" />
+        <CosImage src={a1} alt="sixdamage: 3" class="activate-img hidden border-cyan-700 dark:border-cyan-100" />
+      </div>
+
+      {/* 第一行第二列 */}
+      <div class="flex justify-center px-3 py-2">
+        <CosImage src={a2} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
+      </div>
+
+      {/* 第一行第三列 */}
+      <div class="flex justify-center px-3 py-2">
+        <CosImage src={a3} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
+      </div>
+
+      {/* 第二行第一列 */}
+      <div class="flex justify-center px-3 py-2">
+        <CosImage src={a4g} alt="Windfang: 1" class="omen-img border-cyan-700 dark:border-cyan-100" />
+        <CosImage src={a4} alt="Windfang: 3" class="activate-img hidden border-cyan-700 dark:border-cyan-100" />
+      </div>
+
+      {/* 第二行第二列 */}
+      <div class="flex justify-center px-3 py-2">
+        <CosImage src={a5} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
+      </div>
+
+      {/* 第二行第三列 */}
+      <div class="flex justify-center px-3 py-2">
+        <CosImage src={a6} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">根据技能的释放顺序，只需要按照以下方法跑路即可：</div>
+    <div class="paragraph">
+      <Span variant="yellow">Step 1：</Span>
+      <RoleIcon role="all" tag="全员" />到<Span variant="red">第二次场外刀</Span>覆盖的灰色地板集合，并根据<Span
+        variant="blue">钢铁/月环</Span
+      >的提示站到外圈/内圈
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">Step 2：</Span>
+      第一轮伤害判定后，<RoleIcon role="all" tag="全员" />顺时针（约120°）前往<Zelenia /><Span variant="yellow"
+        >一劈扇形范围</Span
+      >的灰色地板，并穿内外圈躲避<Span variant="blue">第二轮钢铁/月环</Span>
+    </div>
+    <div class="paragraph">起点和终点的安全区示意图如下</div>
+    <div class="paragraph">只分为两种情况，需要从第一刀结束开始跑，在第四刀前跑到终点（可以跑直线，记得穿内外圈）</div>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: ga4,
+          alt: 'Zelenia：P3-5 先钢铁起点',
+          title: '先钢铁',
+        },
+        {
+          src: ya4,
+          alt: 'Zelenia：P3-5 先钢铁起点',
+          title: '先月环',
+        },
+      ]}
+    />
+    <!-- <div class="paragraph">
+      <Span variant="yellow">先月环</Span>
+    </div>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      imgs={[
+        {
+          src: ya1,
+          alt: 'Zelenia：P3-5 先月环起点',
+          title: '起点（1-3刀安全）',
+        },
+        {
+          src: ya2,
+          alt: 'Zelenia：P3-5 先月环终点',
+          title: '终点（2-6刀安全）',
+        },
+        {
+          src: ya3,
+          alt: 'Zelenia：P3-5 先月环路径',
+          title: '跑路示意路径',
+        },
+      ]}
+    /> -->
+    <div class="paragraph">
+      <Span variant="yellow">注意：</Span>
+      跑路示意路径图为了看清重点，故只显示了第一劈的扇形范围&场外刀&钢铁月环
+    </div>
+  </div>
+</SolutionSection>
+
+<script>
+  const mechanicToggle = document.getElementById('damage-toggle') as HTMLInputElement
+
+  function toggleImages(id: string, activate: boolean) {
+    const section = document.getElementById(id)
+
+    if (section) {
+      const omenImgs = section.querySelectorAll('.omen-img')
+      const activateImgs = section.querySelectorAll('.activate-img')
+
+      if (activate) {
+        omenImgs.forEach((img) => img.classList.add('hidden'))
+        activateImgs.forEach((img) => img.classList.remove('hidden'))
+      } else {
+        activateImgs.forEach((img) => img.classList.add('hidden'))
+        omenImgs.forEach((img) => img.classList.remove('hidden'))
+      }
+    }
+  }
+  if (mechanicToggle) {
+    mechanicToggle.addEventListener('change', function () {
+      toggleImages('six-damage-grid', this.checked)
+    })
+  }
+</script>

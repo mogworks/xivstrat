@@ -1,0 +1,13 @@
+---
+import type { Time } from '@/lib/utils'
+
+import EventSection from '@/components/section/EventSection.astro'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+---
+
+<EventSection time={time}>石柱崩塌，造成直线范围伤害</EventSection>

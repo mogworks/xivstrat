@@ -1,0 +1,24 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const ability = translations.aeroIII
+
+const { start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={4.7} ability={ability} target damage="60000" damageType="magical">
+  <HowlingBlade slot="source" />
+  <Badge variant="emerald">击退</Badge>
+  <Badge variant="yellow">AoE</Badge>
+</CastSection>

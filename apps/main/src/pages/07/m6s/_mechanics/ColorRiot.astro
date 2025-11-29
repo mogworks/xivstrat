@@ -1,0 +1,172 @@
+---
+
+import CosImage from '@/components/CosImage.astro'
+
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import ColorRiotBomb from '../_components/ColorRiotBomb.astro'
+import ColorRiotBombEffect from '../_components/ColorRiotBombEffect.astro'
+import ColorRiotCast from '../_components/ColorRiotCast.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+
+import { translations } from '../_translations'
+
+const { WarmBomb, CoolBomb } = translations
+---
+
+<ColorRiotCast start="00:17.322" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      需要
+      <RoleIcon role="tank" tag="双T" />
+      <Span variant="pink">引导</Span>
+      的
+      <Span variant="pink">远近死刑</Span>
+      ，在
+      <SugarRiot />
+      读条期间，需观察其动作和特效
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-50 shrink">
+        <CosImage
+          src="imgs/07/m6s/color_riot_1.png"
+          alt="Color Riot 1"
+          class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="shrink-0 grow space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形1</Span>
+        </h4>
+        <div class="paragraph">
+          对最远的人释放
+          <ColorRiotBomb type="cool" />
+          ，对最近的人释放
+          <ColorRiotBomb type="warm" />
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-50 shrink">
+        <CosImage
+          src="imgs/07/m6s/color_riot_2.png"
+          alt="Color Riot 2"
+          class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="shrink-0 grow space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形2</Span>
+        </h4>
+        <div class="paragraph">
+          对最远的人释放
+          <ColorRiotBomb type="warm" />
+          ，对最近的人释放
+          <ColorRiotBomb type="cool" />
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4 rounded-md border border-dashed p-4">
+      <h4 class="text-xl">
+        <Span variant="blue">{CoolBomb}</Span>
+      </h4>
+      <ColorRiotBombEffect type="cool" hover />
+    </div>
+    <div class="flex flex-col gap-4 rounded-md border border-dashed p-4">
+      <h4 class="text-xl">
+        <Span variant="orange">{WarmBomb}</Span>
+      </h4>
+      <ColorRiotBombEffect type="warm" hover />
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      首次固定由
+      <RoleIcon role="tank" tag="MT" />
+      进入目标圈
+      <Span variant="pink">引导近</Span>，
+      <RoleIcon role="tank" tag="ST" />
+      远离目标圈
+      <Span variant="pink">引导远</Span>
+    </div>
+    <div class="paragraph">
+      之后
+      <RoleIcon role="tank" tag="双T" />
+      <Span variant="pink">根据自身debuff情况，引导反色的炸弹</Span>
+      ，
+      <SugarRiot />
+      高举的右手代表打近，向下的左手代表打远
+    </div>
+    <div class="paragraph">可以只看高举的右手，自身debuff颜色相同就远离，不同就靠近</div>
+    <div class="paragraph">口诀：看高手，同远异近</div>
+    <div class="paragraph mt-8">
+      远引导
+      <RoleIcon role="tank" />
+      在
+      <SugarRiot />
+      侧面保持最大近战距离输出，近引导
+      <RoleIcon role="tank" />
+      在
+      <SugarRiot />
+      脚下偏前一点
+    </div>
+    <div class="paragraph">
+      <RoleIcon role="healer" />
+      <RoleIcon role="dps" />
+      在
+      <SugarRiot />
+      <Span variant="pink">身后集合</Span>
+      ，贴着
+      <SugarRiot />
+      <Span variant="pink">目标圈外沿</Span>
+      ，别站进目标圈，也别离
+      <SugarRiot />
+      太远
+    </div>
+    <CosImage
+      src="imgs/07/m6s/color_riot_solution.png"
+      alt="Color Riot Solution"
+      class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+    />
+    <div class="paragraph mt-8">
+      <RoleIcon role="healer" />
+      <RoleIcon role="dps" />
+      注意：
+      <Span variant="pink">请务必</Span>
+      在
+      <SugarRiot />
+      <Span variant="pink">身后集合</Span>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      后续会有其它机制紧跟死刑，彼时
+      <SugarRiot />
+      位置和面向可能都是乱的
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      彼时请
+      <RoleIcon role="healer" />
+      <RoleIcon role="dps" />
+      迅速在
+      <SugarRiot />
+      身后目标圈外沿集合，以免引导到死刑
+    </div>
+  </div>
+</SolutionSection>
+<NoteSection>
+  <div class="paragraph">
+    <SugarRiot />
+    目标圈半径为
+    <Span variant="pink">4m</Span>
+    ，恰好等于死刑范围
+  </div>
+</NoteSection>

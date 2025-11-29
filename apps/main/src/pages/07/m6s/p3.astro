@@ -1,0 +1,101 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import Badge from '@/components/Badge.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import DamageUp from '@/components/buff/DamageUp.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import AttentionSection from './_components/AttentionSection.astro'
+import ColorRiotCast from './_components/ColorRiotCast.astro'
+import MousseMuralCast from './_components/MousseMuralCast.astro'
+import SugarRiot from './_components/SugarRiot.astro'
+import AttackSection from './_components/SugarRiotAttackSection.astro'
+import Yan from './_components/Yan.astro'
+
+import RoastedWholeLamb from './_mechanics/RoastedWholeLamb.astro'
+import SingleStyle from './_mechanics/SingleStyle.astro'
+import SoulSugar from './_mechanics/SoulSugar.astro'
+import Wave1 from './_mechanics/Wave1.astro'
+import Wave2 from './_mechanics/Wave2.astro'
+import Wave3 from './_mechanics/Wave3.astro'
+import Wave4 from './_mechanics/Wave4.astro'
+import { translations } from './_translations'
+
+const dutyId = '07/m6s'
+
+const base = '03:22.353'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <ColorRiotCast start="03:22.353" />
+  <NoteSection>
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        由于前一阶段紧跟本次死刑，
+        <SugarRiot />
+        面向可能是乱的，
+        <RoleIcon role="healer" />
+        <RoleIcon role="dps" />
+        务必在
+        <SugarRiot />
+        <Span variant="pink">身后贴着目标圈外沿集合</Span>
+      </div>
+    </div>
+  </NoteSection>
+  <AttackSection time="03:32.407" damage="57000" damageType="magical" />
+  <SeparatorSection id="soul-sugar" title={translations.SoulSugar} class="mt-8" />
+  <SoulSugar />
+  <SeparatorSection />
+  <AttentionSection class="mt-8 opacity-80" />
+  <SeparatorSection id="wave-1" title={`${translations.Wave} #1`} variant="red" class="mt-8" />
+  <Wave1 />
+  <SeparatorSection id="wave-2" title={`${translations.Wave} #2`} variant="orange" class="mt-8" />
+  <Wave2 />
+  <SeparatorSection id="wave-3" title={`${translations.Wave} #3`} variant="blue" class="mt-8" />
+  <Wave3 />
+  <SeparatorSection id="wave-4" title={`${translations.Wave} #4`} variant="purple" class="mt-8" />
+  <Wave4 />
+  <SeparatorSection id="roasted-whole-lamb" title="补充：双T无敌烤全羊" class="mt-8" />
+  <RoastedWholeLamb />
+  <SeparatorSection id="single-style" title={translations.SingleStyle} class="mt-8" />
+  <SingleStyle />
+  <SeparatorSection />
+  <AttackSection time="06:39.969" damage="57000" damageType="magical" />
+  <AttackSection time="06:43.000" damage="57000" damageType="magical" />
+  <AttackSection time="06:46.029" damage="57000" damageType="magical" />
+  <ColorRiotCast start="06:46.876" />
+  <NoteSection>
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        由于
+        <Span variant="yellow">{translations.SingleStyle}</Span>
+        紧跟本次死刑，
+        <SugarRiot />
+        面向可能是乱的，
+        <RoleIcon role="healer" />
+        <RoleIcon role="dps" />
+        务必在
+        <SugarRiot />
+        <Span variant="pink">身后贴着目标圈外沿集合</Span>
+      </div>
+    </div>
+  </NoteSection>
+  <EventSection time="06:54.938">
+    <Yan wave={1} />
+    <Yan wave={3} />
+    <Yan wave={4} />
+    不可选中，连线
+    <SugarRiot />
+    ，赋予其
+    <DamageUp hover />
+    <Span variant="lime" class="text-decimal">900%↑</Span>
+    <Badge variant="fuchsia">狂暴</Badge>
+  </EventSection>
+  <MousseMuralCast start="06:55.028" />
+  <AttackSection time="07:03.095" damage="57000" damageType="magical" />
+  <AttackSection time="07:06.127" damage="57000" damageType="magical" />
+</DutyStratLayout>

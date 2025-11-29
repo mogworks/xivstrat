@@ -1,0 +1,28 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection
+  start={start}
+  duration="9.7"
+  ability={translations.starcleaver}
+  target
+  damage="9999999"
+  damageType="special"
+>
+  <HowlingBlade slot="source" />
+  <Badge variant="fuchsia">狂暴</Badge>
+  <Badge variant="red">团灭</Badge>
+</CastSection>

@@ -1,0 +1,24 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import GimmeCat from './GimmeCat.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  wave: number
+}
+
+const { start, wave }: Props = Astro.props
+const HangryHiss = translations.HangryHiss
+---
+
+<CastSection start={start} duration={4.7} ability={HangryHiss}>
+  <GimmeCat slot="source" wave={wave} />
+  <Badge variant="fuchsia">狂暴</Badge>
+  <Badge variant="red">团灭</Badge>
+</CastSection>

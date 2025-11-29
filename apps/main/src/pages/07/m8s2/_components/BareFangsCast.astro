@@ -1,0 +1,31 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Span from '@/components/Span.vue'
+
+import HowlingBlade from './entities/HowlingBlade.astro'
+import GleamingFang from './entities/GleamingFang.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const duration = 3.7
+
+const bareFangs = translations.bareFangs
+---
+
+<CastSection start={start} duration={duration} ability={bareFangs}>
+  <HowlingBlade slot="source" />
+  ，召唤
+  <GleamingFang>
+    <div class="text-decimal">
+      <Span variant="rose" class="ml-0.5">光牙×10</Span>
+    </div>
+  </GleamingFang>
+  ，每个平台后方各两个
+</CastSection>

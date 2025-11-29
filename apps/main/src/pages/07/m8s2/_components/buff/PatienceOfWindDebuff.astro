@@ -1,0 +1,21 @@
+---
+import Buff from '@/components/Buff.astro'
+import { translations } from '../../_translations'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+}
+
+const { tag = '', hover = false }: Props = Astro.props
+const patience_of_wind = 'imgs/buff/07/m8s2/214269.png'
+---
+
+<Buff
+  icon={patience_of_wind}
+  name={translations.patienceOfWind}
+  nameVariant="yellow"
+  description={translations.patienceOfWindDesp}
+  tag={tag}
+  hover={hover}
+/>

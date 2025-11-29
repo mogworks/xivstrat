@@ -1,0 +1,18 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  phase: 'p2' | 'p3'
+  start: Time
+}
+
+const { phase, start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={2.7} ability={translations.frogtourage}>
+  <Badge variant="emerald">{phase === 'p2' ? '“龙龙凤凤笨笨”' : '小运动会'}</Badge>
+</CastSection>

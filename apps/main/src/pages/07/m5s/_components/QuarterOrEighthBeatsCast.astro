@@ -1,0 +1,57 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Separator from '@/components/Separator.astro'
+import Span from '@/components/Span.vue'
+import StratInterval from '@/components/StratInterval.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start?: Time
+  end?: Time
+}
+
+const { start = undefined, end = undefined }: Props = Astro.props
+
+// 修正延迟
+const duration = 4.7
+const adjustedDuration = duration + 0.3
+---
+
+<EventSection>
+  <StratInterval slot="time" start={start} duration={adjustedDuration} end={end} />
+  <span class="text-sm opacity-80">或</span>
+  <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
+  <ul class="list-none space-y-4">
+    <li class="flex items-center gap-1 text-lg">
+      <Boss />
+      对
+      <Span variant="default">4</Span><RoleIcon role="tank" /><RoleIcon role="healer" />
+      或
+      <Span variant="default">4</Span><RoleIcon role="dps" />
+      读条
+      <Span variant="yellow">{translations.quarterBeats}</Span>
+      <DamageInfo damage="125000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+      <Badge variant="emerald">4m圆形</Badge>
+      <Badge variant="yellow">二二分摊</Badge>
+    </li>
+    <li class="flex items-center gap-1 text-lg">
+      <Boss />
+      对
+      <RoleIcon role="all" tag="全员" />
+      读条
+      <Span variant="yellow">{translations.eighthBeats}</Span>
+      <DamageInfo damage="125000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+      <Badge variant="emerald">5m圆形</Badge>
+      <Badge variant="yellow">分散</Badge>
+    </li>
+  </ul>
+</EventSection>

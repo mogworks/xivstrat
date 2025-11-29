@@ -1,0 +1,64 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Separator from '@/components/Separator.astro'
+import Span from '@/components/Span.vue'
+import StratInterval from '@/components/StratInterval.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import Skill from '@/components/typography/Skill.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const stonefang = translations.stonefang
+const windfang = translations.windfang
+
+// 修正延迟
+const duration = 5.7
+const adjustedDuration = duration + 0.3
+---
+
+<EventSection>
+  <StratInterval slot="time" start={start} duration={adjustedDuration} />
+  <span class="text-sm opacity-80">或</span>
+  <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
+  <ul class="list-none space-y-4">
+    <li class="flex items-center gap-1 text-lg">
+      <HowlingBlade />
+      对
+      <RoleIcon role="all" tag="全员" />
+      读条
+      <Skill name={stonefang} variant="orange" />
+      <DamageInfo damage="160000" type="magical" />
+      <MagicVulnerabilityUp tag="1" hover />
+      <Badge variant="emerald">25°扇形</Badge>
+      <Badge variant="emerald">八方</Badge>
+      <Badge variant="yellow">分散</Badge>
+    </li>
+    <li class="flex items-center gap-1 text-lg">
+      <HowlingBlade />
+      对
+      <Span variant="default">4</Span><RoleIcon role="tank" /><RoleIcon role="healer" />
+      或
+      <Span variant="default">4</Span><RoleIcon role="dps" />
+      读条
+      <Skill name={windfang} variant="green" />
+      <DamageInfo damage="190000" type="magical" />
+      <MagicVulnerabilityUp tag="1" hover />
+      <Badge variant="emerald">25°扇形</Badge>
+      <Badge variant="emerald">四方</Badge>
+      <Badge variant="purple">二二分摊</Badge>
+    </li>
+  </ul>
+</EventSection>

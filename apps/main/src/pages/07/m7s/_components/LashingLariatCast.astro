@@ -1,0 +1,24 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const lashingLariat = translations.lashingLariat
+// debuff数据来源：
+// ref: https://www.fflogs.com/reports/hbRdpDkTtZBznHKY?fight=4&type=casts&phase=3&view=events&hostility=1
+// （谢谢你黑魔）
+---
+
+<CastSection start={start} duration={3.2} ability={lashingLariat}>
+  <BruteAbombinator slot="source" />
+  <Badge variant="emerald">27m宽半场刀</Badge>
+</CastSection>

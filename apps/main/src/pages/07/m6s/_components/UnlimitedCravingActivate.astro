@@ -1,0 +1,27 @@
+---
+import type { Time } from '@/lib/utils'
+
+import LimitBreak from '@/components/action/LimitBreak.astro'
+
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+
+import GimmeCat from './GimmeCat.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+
+  wave: number
+}
+
+const { time, wave }: Props = Astro.props
+const UnlimitedCraving = translations.UnlimitedCraving
+---
+
+<EventSection time={time}>
+  <GimmeCat wave={wave} />
+  发动
+  <Span variant="yellow">{UnlimitedCraving}</Span>
+  偷取<LimitBreak stage="full" />
+</EventSection>

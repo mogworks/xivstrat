@@ -1,0 +1,46 @@
+---
+import type { VariantType } from '@/lib/variant'
+
+import EntityIcon from '@/components/EntityIcon.astro'
+import EntityText from '@/components/EntityText.astro'
+import Span from '@/components/Span.vue'
+
+interface Props {
+  wave?: number
+}
+
+const { wave = 0 }: Props = Astro.props
+const variant =
+  {
+    1: 'red',
+    2: 'orange',
+    3: 'blue',
+    4: 'purple',
+  }[wave] ?? 'zinc'
+---
+
+<EntityIcon icon="imgs/07/m6s/entity_icons/yan.png" iconClass="drop-shadow-xs drop-shadow-black">
+  <slot>
+    {
+      wave !== 0 && (
+        <div class="text-decimal">
+          <Span variant={variant as VariantType}>羊</Span>
+          <Span variant={variant as VariantType}>#{wave}</Span>
+        </div>
+      )
+    }
+  </slot>
+</EntityIcon>
+<EntityText>
+  {
+    wave !== 0 ? (
+      <>
+        <Span variant="default">羊</Span>
+        <Span variant="default">#{wave}</Span>
+      </>
+    ) : (
+      <Span variant="default">羊</Span>
+    )
+  }
+  <slot />
+</EntityText>

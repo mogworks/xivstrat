@@ -1,0 +1,264 @@
+---
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import Skill from '@/components/typography/Skill.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import DebrisDeathmatchCast from '../_components/DebrisDeathmatchCast.astro'
+import SporeSacCast2 from '../_components/SporeSacCast2.astro'
+import PollenCast from '../_components/PollenCast.astro'
+import KillerSeedsAppear from '../_components/KillerSeedsAppear.astro'
+import KillerSeedsActivate from '../_components/KillerSeedsActivate.astro'
+import BloomingAbomination from '../_components/BloomingAbomination.astro'
+import TendrilsofTerrorAppear2 from '../_components/TendrilsofTerrorAppear2.astro'
+import QuarrySwampCast from '../_components/QuarrySwampCast.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
+import { translations } from '../_translations'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
+import StratLink from '@/components/StratLink.astro'
+import Quote from '@/components/typography/Quote.astro'
+
+import NoteSection from '@/components/section/NoteSection.astro'
+import ListDot from '@/components/ListDot.astro'
+
+const debrisDeathmatch = translations.debrisDeathmatch
+const thornsofDeath = translations.thornsOfDeath
+const sporeSac = translations.sporeSac
+const pollen = translations.pollen
+const killerSeeds = translations.killerSeeds
+const quarrySwamp = translations.quarrySwamp
+---
+
+<DebrisDeathmatchCast start="07:53.308" />
+<EventSection time="07:57.598">四面墙各自连线最近的人虚线预兆</EventSection>
+<SporeSacCast2 start="07:58.431" />
+<AttackSection time="08:08.593" damage="57000" damageType="physical" />
+<KillerSeedsAppear time="08:10.685" />
+<AttackSection time="08:11.620" damage="57000" damageType="physical" />
+<PollenCast start="08:08.192" />
+
+<EventSection time="08:14.297">
+  <BloomingAbomination num={4} />可选中
+</EventSection>
+<AttackSection time="08:14.654" damage="57000" damageType="physical" />
+<KillerSeedsActivate time="08:15.680" />
+<AttackSection time="08:17.684" damage="57000" damageType="physical" />
+<TendrilsofTerrorAppear2 time="08:17.328" />
+<AttackSection time="08:20.714" damage="57000" damageType="physical" />
+<AttackSection time="08:23.746" damage="57000" damageType="physical" />
+<AttackSection time="08:26.779" damage="57000" damageType="physical" />
+<QuarrySwampCast start="08:28.695" />
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <T><Skill name={debrisDeathmatch} /></T>
+    <P>
+      <BruteAbombinator />读条完毕约<Span variant="pink">1.6s</Span>后，场边<Span variant="pink">四面</Span
+      >墙壁各自对<Span variant="pink">距离最近</Span>的一人施加虚线连线预兆
+    </P>
+    <P
+      >约<Span variant="pink">5s</Span>后，虚线预兆变为荆棘连线，根据虚线长度对当前连线者附加<ThornsOfDeathDebuff
+        level={1}
+        hover
+      />/<ThornsOfDeathDebuff level={2} hover />/<ThornsOfDeathDebuff level={3} hover />/<ThornsOfDeathDebuff
+        level={4}
+        hover
+      /></P
+    >
+    <P>
+      <ThornsOfDeathDebuff hover /><Skill name={thornsofDeath} />的效果与<StratLink
+        variant="yellow"
+        href="./p2/#thornsofdeath">P2</StratLink
+      >时相同</P
+    >
+  </div>
+  <div class="mt-8 flex flex-col gap-4">
+    <P
+      ><StratLink variant="yellow" href="./p1/#sporesacmc">{sporeSac} </StratLink>与<StratLink
+        variant="yellow"
+        href="./p1/#pollenmc"
+        >{pollen}
+      </StratLink>机制效果与P1时相同（落下种子+长出藤蔓+生成小怪+石化波动）</P
+    >
+    <P
+      >但此处的<BloomingAbomination />会被<BruteAbombinator />石化，之后<span style="text-decoration: line-through;"
+        >一碰就碎</span
+      >可一招击杀</P
+    >
+    <P>因此只需<RoleIcon role="tank" tag="双T" />拉住仇恨，无需浪费资源输出</P>
+    <P class="mt-4"
+      >此处还复合了一次<StratLink variant="yellow" href="./p2/#killerseedsmc">{killerSeeds}</StratLink
+      >（双人分摊+放冰花）</P
+    >
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      <Span variant="cyan">
+        流程总结：接线 > 躲孢子和藤蔓 > 分组分摊并放冰花 > 躲避冰花，
+        <RoleIcon role="tank" tag="双T" />
+        拉小怪 > 躲避石化
+      </Span>
+    </P>
+    <P>
+      此处由
+      <RoleIcon role="healer" tag="双奶" />
+      和
+      <RoleIcon role="ranged_magic" tag="D34" />
+      接线，以场地<Span variant="pink">标点A</Span>为正北：
+    </P>
+    <Quote variant="lime">
+      <P
+        ><RoleIcon role="ranged" tag="D3" />引导<Span variant="pink">北面</Span>墙，<RoleIcon
+          role="healer"
+          tag="H1"
+        />引导<Span variant="pink">西面</Span>墙，<RoleIcon role="ranged" tag="D4" />引导<Span variant="pink">南面</Span
+        >墙，<RoleIcon role="healer" tag="H2" />引导<Span variant="pink">东面</Span>墙</P
+      >
+      <P>在<Skill name={sporeSac} />读条结束（虚线预兆变为荆棘连线）之前，靠近所连墙壁</P>
+    </Quote>
+    <P>
+      这是为了让
+      <RoleIcon role="ranged_magic" tag="D34" />
+      分布在
+      <RoleIcon role="healer" tag="双奶" />
+      的左右两侧而不是对面，方便抬血
+    </P>
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: 'imgs/07/m7s/debris_deathmatch_sporesac/1.png',
+          alt: '接线站位',
+        },
+      ]}
+    />
+
+    <P class="mt-4"
+      ><Span variant="green">孢子</Span>落下，观察<Skill name={pollen} />安全区的位置，此处AoE分布情况与P1时相同
+    </P>
+    <P>近战在内场安全区，远程在外场安全区躲避</P>
+    <P
+      >此处由于远程身上存在<ThornsOfDeathDebuff hover />，请注意站位，尽量靠近场边，<Span variant="pink">保持</Span
+      ><ThornsOfDeathDebuff level={1} hover />/<ThornsOfDeathDebuff level={2} hover /></P
+    >
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: 'imgs/07/m7s/debris_deathmatch_sporesac/2.png',
+          alt: '孢子站位',
+        },
+      ]}
+    />
+
+    <P class="mt-4"><Skill name={pollen} />AoE判定后，按照：</P>
+    <P>
+      <Quote variant="lime">
+        <P>
+          <RoleIcon role="tank" tag="MT" /><RoleIcon role="ranged" tag="D3" />，<RoleIcon
+            role="melee"
+            tag="D1"
+          /><RoleIcon role="healer" tag="H1" />，<RoleIcon role="tank" tag="ST" /><RoleIcon
+            role="magic"
+            tag="D4"
+          />，<RoleIcon role="melee" tag="D2" /><RoleIcon role="healer" tag="H2" /></P
+        ></Quote
+      >
+      的分组进行<Span variant="pink">分摊</Span>，将冰花贴边放在<Span variant="pink">场边中点</Span></P
+    ><P> 躲开随后的冰花AoE </P>
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: 'imgs/07/m7s/debris_deathmatch_sporesac/tendrilsOfTerror_stack.png',
+          alt: '分摊放冰花站位',
+        },
+        {
+          src: 'imgs/07/m7s/debris_deathmatch_sporesac/3.png',
+          alt: '躲避冰花站位',
+        },
+      ]}
+    />
+    <P class="mt-4"
+      >冰花伤害判定后，
+      <Quote variant="lime">
+        <P
+          ><RoleIcon role="tank" tag="MT" />拉住场地<Span variant="pink">西</Span>侧和<Span variant="pink">北</Span
+          >侧的<BloomingAbomination />x2至西北内场（<Span variant="red">标点1</Span>）
+        </P>
+        <P
+          ><RoleIcon role="tank" tag="ST" />拉住场地<Span variant="pink">东</Span>侧和<Span variant="pink">南</Span
+          >侧的<BloomingAbomination />x2至东南内场（<Span variant="sky">标点3</Span>）
+        </P></Quote
+      ></P
+    >
+    <P>
+      <RoleIcon role="tank" tag="MT" />
+      注意
+      <Span variant="cyan">开好减伤</Span>
+      ，三目标平A非常疼，
+      <RoleIcon role="tank" tag="双T" />
+      注意多做仇恨，不要只打一个1，避免OT
+    </P>
+    <P>人群此时完全不用打小怪</P>
+
+    <P class="mt-4"
+      >在<BruteAbombinator />读条<Skill name={quarrySwamp} />结束前，全员前往下图位置，躲在<BloomingAbomination
+      />身后躲避石化</P
+    >
+    <ImgRow
+      wrapperClass="max-w-100 flex-1"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: 'imgs/07/m7s/debris_deathmatch_sporesac/quarrySwamp.png',
+          alt: '石化波动站位示意图',
+          title: '1层debuff站位',
+        },
+        {
+          src: 'imgs/07/m7s/debris_deathmatch_sporesac/quarrySwamp_1.png',
+          alt: '石化波动站位示意图',
+          title: '30m团辅站位',
+        },
+      ]}
+    />
+    <P>
+      <Span variant="cyan">
+        注：右图位置远程身上为
+        <ThornsOfDeathDebuff level={2} hover />
+        ，再靠近场中会变为
+        <ThornsOfDeathDebuff level={3} hover />
+      </Span>
+    </P>
+    <P>
+      <Span variant="cyan">
+        实际站位请根据
+        <BloomingAbomination />
+        的位置微调，优先躲石化，关于团辅的补充说明见下方
+      </Span>
+    </P>
+  </div>
+</SolutionSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <P><ListDot />因为分摊冰花需要贴场边放置，而P3场地边长40m，团辅技能半径30m范围 </P>
+    <P> <ListDot />又因为此时对<BloomingAbomination />的输出没意义，同时为了能够在P3落地爆发药之后的10：35再吃一瓶</P>
+    <P><ListDot />且狂暴轴11：07，延后不会少时间和次数</P>
+    <P>因此，通常此处的团辅会延后至8：35，即<BloomingAbomination />刚被石化后约1s</P>
+    <Quote variant="lime"
+      ><P>如果P3开场2GCD团辅，则延后8个GCD</P>
+      <P>如果3GCD团辅，则延后7个GCD</P>
+    </Quote>
+  </div>
+</NoteSection>

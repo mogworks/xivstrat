@@ -1,0 +1,334 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+
+import Stoneringer2Cast from '../_components/Stoneringer2Cast.astro'
+import { translations } from '../_translations'
+
+import ImgRow from '@/components/typography/ImgRow.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
+import LashingLariatCast from '../_components/LashingLariatCast.astro'
+
+import SlaminatorCast from '../_components/SlaminatorCast.astro'
+import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import MoveToCenterEvent from '../_components/MoveToCenterEvent.astro'
+import StrangeSeedsAppear from '../_components/StrangeSeedsAppear.astro'
+import StrangeSeedsActivate from '../_components/StrangeSeedsActivate.astro'
+import TendrilsofTerrorAppear from '../_components/TendrilsofTerrorAppear.astro'
+import Quote from '@/components/typography/Quote.astro'
+import P from '@/components/typography/P.astro'
+import StratLink from '@/components/StratLink.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
+const strangeSeeds = translations.strangeSeeds
+
+const solutions = [
+  {
+    id: 'stoneringer-2-second-solution-fixed',
+    title: '解法：本站（场地基准冰花）',
+  },
+  {
+    id: 'stoneringer-2-second-solution-boss-relative',
+    title: '解法：日野主流（近战追车冰花）',
+  },
+]
+const defaultSolution = '解法：本站（场地基准冰花）'
+---
+
+<Stoneringer2Cast start={time} />
+<MoveToCenterEvent time="09:34.096" />
+<StrangeSeedsCast start="09:36.193" />
+<StrangeSeedsAppear time="09:41.315" num={1} />
+<StrangeSeedsActivate time="09:46.310" num={1} />
+<TendrilsofTerrorAppear time="09:48.451" num={1} />
+<BrutishSwingCast start="09:44.461" duration={6.7} />
+<LashingLariatCast start="09:52.017" />
+<StrangeSeedsAppear time="09:55.541" num={2} />
+<StrangeSeedsActivate time="10:00.534" num={2} />
+<TendrilsofTerrorAppear time="10:02.6701" num={2} />
+<BrutishSwingCast start="09:58.661" duration={6.7} />
+<SlaminatorCast start="10:06.990" />
+<AttackSection time="10:13.726" damage="57000" damageType="physical" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <Quote variant="yellow" class="opacity-80">
+      <P
+        >注意：此处为<StratLink variant="yellow" href="#Stoneringer2Stoneringers">{stoneringer2Stoneringers}</StratLink
+        >在P3第2次出现，其中穿插了<Skill name={strangeSeeds} />，参考上方时间轴</P
+      >
+    </Quote>
+  </div>
+  <div class="flex flex-col gap-4">
+    <T class="mt-8"><Skill name={strangeSeeds} /></T>
+    <P
+      >依旧是点名放花 + 米字形AoE，造成<DamageInfo damage="90000" type="magical" />，并附加<MagicVulnerabilityUp
+        tag="7"
+        hover
+      /></P
+    >
+    <P
+      >与<StratLink variant="yellow" href="./p2/#strangeSeeds">P2时</StratLink>不同，此处每轮点名<Span variant="pink"
+        >4</Span
+      ><RoleIcon role="tank|healer" />或<Span variant="pink">4</Span><RoleIcon role="dps" />，共<Span variant="pink"
+        >2轮</Span
+      ></P
+    >
+  </div>
+</MechanicSection>
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot={solutions[0].title} class="flex flex-col gap-4">
+    <P>冰花以<Span variant="pink">场地标点A</Span>为正北：</P>
+    <Quote variant="lime">
+      <P class="pl-1">
+        <RoleIcon role="tank" tag="MT" /><RoleIcon role="ranged" tag="D3" />在<Span variant="red">标点1</Span>处， <RoleIcon
+          role="tank"
+          tag="ST"
+        /><RoleIcon role="magic" tag="D4" />在<Span variant="yellow">标点2</Span>处，
+        <RoleIcon role="healer" tag="H1" />
+        <RoleIcon role="melee" tag="D1" />在<Span variant="purple">标点4</Span>处，
+        <RoleIcon role="healer" tag="H2" /><RoleIcon role="dps" tag="D2" />
+        在<Span variant="blue">标点3</Span>处，放置冰花
+      </P></Quote
+    >
+    <T variant="lime" text="第1轮放花位置示意图" class="mt-4" />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      id="strange-seeds-solution-omen"
+      imgs={[
+        {
+          src: 'imgs/07/m7s/stoneringer2/p3_strange_seeds_3.png',
+          alt: `${strangeSeeds} 第1轮TN位置`,
+          title: '第1轮TN放置',
+        },
+        {
+          src: 'imgs/07/m7s/stoneringer2/p3_strange_seeds_1.png',
+          alt: `${strangeSeeds} 第1轮DPS位置`,
+          title: '第1轮DPS位置',
+        },
+      ]}
+    />
+    <P class="mt-4"
+      ><Skill name={strangeSeeds} />读条时，<RoleIcon role="all" tag="全员" /><Span variant="pink">靠近</Span
+      >自己的点位预站位</P
+    >
+    <P
+      >点名出现时，<RoleIcon role="any" tag="点名" />前往对应的位置放置，<RoleIcon
+        role="any"
+        tag="其他"
+      />离开AoE范围，并同时观察<BruteAbombinator />手中武器，判断钢月</P
+    >
+    <P class="mt-4">
+      点名伤害判定后，<RoleIcon role="all" tag="全员" />前往钢月和冰花安全区<Span variant="pink">重合</Span
+      >的部分，躲避钢月和冰花AoE
+    </P><P><Span variant="pink">同时</Span>观察半场刀的安全区</P>
+    <T class="mt-4" variant="lime" text=`冰花与钢月安全区` />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: 'imgs/07/m7s/stoneringer2/p3_seeds_circle.png',
+          alt: 'm7sp3: 结尾冰花',
+          title: '冰花与钢铁',
+        },
+        {
+          src: 'imgs/07/m7s/stoneringer2/p3_seeds_ring.png',
+          alt: 'm7sp3: 结尾冰花',
+          title: '冰花与月环',
+        },
+      ]}
+    />
+
+    <P class="mt-4">冰花AoE判定后，全员前往安全区躲避半场刀，期间第2轮点名会出现</P>
+    <P>和之前一样</P>
+    <Quote variant="lime">
+      <P class="pl-1">
+        <RoleIcon role="tank" tag="MT" /><RoleIcon role="ranged" tag="D3" />
+        在<Span variant="red">标点1</Span>处，
+        <RoleIcon role="tank" tag="ST" /><RoleIcon role="magic" tag="D4" />
+        在<Span variant="yellow">标点2</Span>处，
+        <RoleIcon role="healer" tag="H1" />
+        <RoleIcon role="melee" tag="D1" />
+        在<Span variant="purple">标点4</Span>处
+        <RoleIcon role="healer" tag="H2" /><RoleIcon role="dps" tag="D2" />
+        在<Span variant="blue">标点3</Span>处，
+      </P></Quote
+    >
+    <P>放置冰花</P>
+    <T variant="lime" text="第2轮放花位置示意图" class="mt-4" />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      id="strange-seeds-solution"
+      imgs={[
+        {
+          src: 'imgs/07/m7s/stoneringer2/p3_strange_seeds_2.png',
+          alt: `${strangeSeeds} 第2次TN放置`,
+          title: '第2次TN放置',
+        },
+        {
+          src: 'imgs/07/m7s/stoneringer2/p3_strange_seeds_4_fixed.png',
+          alt: `${strangeSeeds} 第2次DPS放置`,
+          title: '第2次DPS放置',
+        },
+      ]}
+    />
+    <P>
+      放花时要做的事和第1次一样，且不再有半场刀，最后场中出现塔，<RoleIcon role="tank" tag="双T" /><Span variant="pink"
+        >开减伤分摊</Span
+      >处理
+    </P>
+  </div>
+  <div slot={solutions[1].title} class="flex flex-col gap-4">
+    <P>冰花以<Span variant="pink">场地标点A</Span>为正北：</P>
+    <Quote variant="lime">
+      <P class="pl-1">
+        <RoleIcon role="tank" tag="MT" /><RoleIcon role="ranged" tag="D3" />在<Span variant="red">标点1</Span>处， <RoleIcon
+          role="tank"
+          tag="ST"
+        /><RoleIcon role="magic" tag="D4" />在<Span variant="yellow">标点2</Span>处，
+        <RoleIcon role="healer" tag="H1" />
+        <RoleIcon role="melee" tag="D1" />在<Span variant="purple">标点4</Span>处，
+        <RoleIcon role="healer" tag="H2" /><RoleIcon role="dps" tag="D2" />
+        在<Span variant="blue">标点3</Span>处，放置冰花
+      </P></Quote
+    >
+    <T variant="lime" text="第1轮放花位置示意图" class="mt-4" />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      id="strange-seeds-solution-omen"
+      imgs={[
+        {
+          src: 'imgs/07/m7s/stoneringer2/p3_strange_seeds_3.png',
+          alt: `${strangeSeeds} 第1轮TN位置`,
+          title: '第1轮TN放置',
+        },
+        {
+          src: 'imgs/07/m7s/stoneringer2/p3_strange_seeds_1.png',
+          alt: `${strangeSeeds} 第1轮DPS位置`,
+          title: '第1轮DPS位置',
+        },
+      ]}
+    />
+    <P class="mt-4"
+      ><Skill name={strangeSeeds} />读条时，<RoleIcon role="all" tag="全员" /><Span variant="pink">靠近</Span
+      >自己的点位预站位</P
+    >
+    <P
+      >点名出现时，<RoleIcon role="any" tag="点名" />前往对应的位置放置，<RoleIcon
+        role="any"
+        tag="其他"
+      />离开AoE范围，并同时观察<BruteAbombinator />手中武器，判断钢月</P
+    >
+    <P class="mt-4">
+      点名伤害判定后，<RoleIcon role="all" tag="全员" />前往钢月和冰花安全区<Span variant="pink">重合</Span
+      >的部分，躲避钢月和冰花AoE
+    </P><P><Span variant="pink">同时</Span>观察半场刀的安全区</P>
+    <T class="mt-4" variant="lime" text=`冰花与钢月安全区` />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      imgs={[
+        {
+          src: 'imgs/07/m7s/stoneringer2/p3_seeds_circle.png',
+          alt: 'm7sp3: 结尾冰花',
+          title: '冰花与钢铁',
+        },
+        {
+          src: 'imgs/07/m7s/stoneringer2/p3_seeds_ring.png',
+          alt: 'm7sp3: 结尾冰花',
+          title: '冰花与月环',
+        },
+      ]}
+    />
+
+    <P class="mt-4">冰花AoE判定后，全员前往安全区躲避半场刀，期间第2轮点名会出现</P>
+
+    <P>这一次以<BruteAbombinator /><Span variant="pink">所在墙</Span>为正北：</P>
+    <Quote variant="lime">
+      <P class="pl-1">
+        <RoleIcon role="tank" tag="MT" /><RoleIcon role="melee" tag="D1" />在<Span variant="pink">西北</Span>标点处， <RoleIcon
+          role="tank"
+          tag="ST"
+        /><RoleIcon role="dps" tag="D2" />在<Span variant="pink">东北</Span>标点处，<RoleIcon
+          role="healer"
+          tag="H1"
+        /><RoleIcon role="ranged" tag="D3" />在<Span variant="pink">西南</Span>标点处，<RoleIcon
+          role="healer"
+          tag="H2"
+        /><RoleIcon role="magic" tag="D4" />在<Span variant="pink">东南</Span>标点处
+      </P></Quote
+    >
+    <P>放置冰花</P>
+
+    <P>换一种说法</P>
+    <Quote variant="lime">
+      <P class="pl-1">
+        <RoleIcon role="tank" tag="MT" /><RoleIcon role="melee" tag="D1" />
+        在<Span variant="pink">靠近BOSS左侧的</Span>标点处，
+        <RoleIcon role="tank" tag="ST" /><RoleIcon role="dps" tag="D2" />
+        在<Span variant="pink">靠近BOSS右侧的</Span>标点处
+      </P>
+      <P class="pl-1">
+        <RoleIcon role="healer" tag="H1" />
+        <RoleIcon role="ranged" tag="D3" />
+        在<Span variant="pink">远离BOSS的左侧</Span>标点处，
+        <RoleIcon role="healer" tag="H2" /><RoleIcon role="magic" tag="D4" />
+        在<Span variant="pink">远离BOSS的右侧</Span>标点处
+      </P></Quote
+    >
+    <P>放置冰花</P>
+
+    <T variant="lime" text="第2轮放花位置示意图" class="mt-4" />
+    <ImgRow
+      wrapperClass="max-w-100"
+      borderVariant="yellow"
+      id="strange-seeds-solution-boss-relative"
+      imgs={[
+        {
+          src: 'imgs/07/m7s/stoneringer2/p3_strange_seeds_2.png',
+          alt: `${strangeSeeds} 第2次TN放置`,
+          title: '第2次TN放置',
+        },
+        {
+          src: 'imgs/07/m7s/stoneringer2/p3_strange_seeds_4.png',
+          alt: `${strangeSeeds} 第2次DPS放置`,
+          title: '第2次DPS放置',
+        },
+      ]}
+    />
+    <P>
+      放花时要做的事和第1次一样，且不再有半场刀，最后场中出现塔，<RoleIcon role="tank" tag="双T" /><Span variant="pink"
+        >开减伤分摊</Span
+      >处理
+    </P>
+  </div>
+</MultiSolutionSection>
+
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      在第2轮放花时，如果远程站在标点正中心处，会打不到<BruteAbombinator />
+    </P>
+    <P>往场中方向靠近<Span variant="pink">约1个人物模型</Span>的距离，就可以在几乎不影响冰花安全区的同时打到</P>
+  </div>
+</NoteSection>

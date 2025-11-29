@@ -1,0 +1,30 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Span from '@/components/Span.vue'
+
+import EventSection from '@/components/section/EventSection.astro'
+import SlashingResistanceDown from '@/components/buff/SlashingResistanceDown.astro'
+import { translations } from '../_translations'
+interface Props {
+  time: Time
+
+  num: number
+  // toln: number
+}
+
+const { time, num }: Props = Astro.props
+---
+
+<EventSection time={time}>
+  <Span variant="yellow">{translations.EscelonsFall}</Span>
+  第
+  <Span variant="pink">{num}</Span>
+  段伤害判定
+  <DamageInfo damage="40000" type="physical" />
+  <SlashingResistanceDown tag="5" hover />
+  <Badge variant="purple">远近引导</Badge>
+  <!-- <Badge variant="purple">远近引导 x{toln}</Badge> -->
+</EventSection>

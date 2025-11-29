@@ -1,0 +1,21 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const ReadyOreNot = translations.ReadyOreNot
+---
+
+<CastSection start={start} duration={6.7} ability={ReadyOreNot} target damage="200000" damageType="magical">
+  <SugarRiot slot="source" />
+  <Badge variant="purple">AoE</Badge>
+</CastSection>

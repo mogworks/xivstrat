@@ -1,0 +1,32 @@
+---
+import type { Time } from '@/lib/utils'
+
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Skill from '@/components/typography/Skill.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Badge from '@/components/Badge.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+  damage: string
+}
+
+const { time, damage }: Props = Astro.props
+const damageNum = Number(damage)
+const variant = damageNum < 60000 ? 'green' : damageNum < 160000 ? 'yellow' : 'purple'
+---
+
+<EventSection time={time}>
+  <HowlingBlade />
+  对
+  <RoleIcon role="all" tag="全员" />
+  发动无读条全屏伤害
+  <Skill name={translations.ravenousSaber} />
+  <DamageInfo damage={damage} type="physical" />
+  <Badge variant={variant}>AoE</Badge>
+</EventSection>

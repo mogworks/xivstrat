@@ -1,0 +1,105 @@
+---
+import { type Time } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import RoleIcon from '@/components/RoleIcon.astro'
+import JobIcon from '@/components/JobIcon.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import Quote from '@/components/typography/Quote.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import TwinbiteCast from '../_components/TwinbiteCast.astro'
+import { translations } from '../_translations'
+import DamageInfo from '@/components/DamageInfo.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import Skill from '@/components/typography/Skill.astro'
+import BossAttackSection from '../_components/BossAttackSection.astro'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const twinbite = translations.twinbite
+---
+
+<TwinbiteCast start={start} />
+<BossAttackSection time="08:09.971" damage="60000" damageType="physical" />
+<BossAttackSection time="08:12.994" damage="60000" damageType="physical" />
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <T>
+      <Span variant="yellow">{twinbite}</Span>
+    </T>
+    <P>
+      对
+      <RoleIcon role="all" tag="一仇" />
+      和
+      <RoleIcon role="all" tag="二仇" />
+      所在整个平台释放死刑，可对
+      <Span variant="blue">防护职业</Span>
+      造成
+      <DamageInfo damage="600000" type="magical" />
+      <MagicVulnerabilityUp tag="9" hover />
+    </P>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      人群回到
+      <HowlingBlade />
+      正面平台，
+      <RoleIcon role="tank" tag="双T" />
+      则回到左右平台引导死刑
+    </P>
+    <P>
+      死刑伤害很高：
+      <Quote variant="lime">
+        <P>
+          如果是
+          <JobIcon job="WAR" />/<JobIcon job="DRK" />且这里有无敌，可以选择开启无敌处理，不会影响后续的安排
+        </P>
+        <P>
+          如果是
+          <JobIcon job="PLD" />/<JobIcon job="GNB" />则建议减伤吃，否则会导致软狂暴阶段无敌转不好
+        </P>
+      </Quote>
+    </P>
+
+    <ImgRow
+      bordered={false}
+      wrapperClass="max-w-110"
+      imgClass="shadowbringer"
+      imgs={[
+        {
+          src: 'imgs/07/m8s2/p1/twinbite.png',
+          alt: '双牙击',
+        },
+      ]}
+    />
+
+    <P>注意：</P>
+    <P>
+      由于之后要集合引导
+      <Skill name={translations.herosBlow} />
+      ，<RoleIcon role="healer|dps" />
+      <Span variant="cyan">务必在</Span>
+      <HowlingBlade />
+      <Span variant="cyan">正面平台待机</Span>
+    </P>
+    <P>
+      <RoleIcon role="tank" tag="双T" />
+      也不要耍小聪明去其它平台，否则之后可能会来不及回到
+      <HowlingBlade />
+      正面平台
+    </P>
+  </div>
+</SolutionSection>

@@ -1,0 +1,63 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import { timeToSeconds } from '@/lib/utils'
+
+import DotInfo from '@/components/DotInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import MousseMuralCast from './_components/MousseMuralCast.astro'
+import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+import MoveToNorthEvent from './_components/MoveToNorthEvent.astro'
+import PuddingGrafCast from './_components/PuddingGrafCast.astro'
+import StickyMousseCast from './_components/StickyMousseCast.astro'
+import AttackSection from './_components/SugarRiotAttackSection.astro'
+import SwelteringDebuff from './_components/SwelteringDebuff.astro'
+
+import Layer1 from './_mechanics/Layer1.astro'
+import Layer2 from './_mechanics/Layer2.astro'
+import SugarscapeP2 from './_mechanics/SugarscapeP2.astro'
+import DoubleStyleP2 from './_mechanics/DoubleStyleP2.astro'
+import { translations } from './_translations'
+
+const dutyId = '07/m6s'
+
+const base = '01:29.093'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <MoveToNorthEvent time="01:29.093" />
+  <AttackSection time="01:29.897" damage="57000" damageType="magical" />
+  <SeparatorSection id="sugarscape" title={translations.Sugarscape} />
+  <SugarscapeP2 />
+  <AttackSection time="01:39.351" damage="57000" damageType="magical" />
+  <AttackSection time="01:42.384" damage="57000" damageType="magical" />
+  <AttackSection time="01:45.418" damage="57000" damageType="magical" />
+  <SeparatorSection id="layer-1" title={`${translations.Layer} #1`} />
+  <Layer1 />
+  <SeparatorSection />
+  <MoveToCenterEvent time="02:22.765" />
+  <StickyMousseCast start="02:24.104" end="02:29.898" />
+  <SeparatorSection id="layer-2" title={`${translations.Layer} #2`} />
+  <Layer2 />
+  <SeparatorSection />
+  <AttackSection time="02:53.567" damage="57000" damageType="magical" />
+  <PuddingGrafCast start="02:53.612" />
+  <EventSection time={timeToSeconds('02:53.612') + 5}><Span variant="zinc">场中流沙消失</Span></EventSection>
+  <AttackSection time="02:59.634" damage="57000" damageType="magical" />
+  <MoveToCenterEvent time="02:59.768" />
+  <SeparatorSection id="double-style" title={translations.DoubleStyle} />
+  <DoubleStyleP2 />
+  <SeparatorSection />
+  <MousseMuralCast start="03:14.202" />
+  <EventSection time="03:19.952"><Span variant="zinc">场地北/南侧流沙消失</Span></EventSection>
+  <EventSection time="03:19.952">
+    场地复原，
+    <RoleIcon role="all" tag="全员" />
+    消除
+    <SwelteringDebuff hover />
+    <DotInfo damage="15000" />
+  </EventSection>
+</DutyStratLayout>

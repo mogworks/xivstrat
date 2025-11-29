@@ -1,0 +1,132 @@
+---
+import CosImage from '@/components/CosImage.astro'
+import { getEntry } from 'astro:content'
+
+import ScannerSVG from '@/svg/scanner.svg'
+import BiliBiliSVG from '@/svg/bilibili.svg'
+
+import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
+import Separator from '@/components/Separator.astro'
+import CollapsibleBox from '@/components/CollapsibleBox.vue'
+import AreaBox from '@/components/AreaBox.astro'
+import WaymarkBox from '@/components/WaymarkBox.astro'
+import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
+import Macro from '@/components/Macro.astro'
+import ReferenceItem from '@/components/ReferenceItem.astro'
+import Thanks from '@/components/thanks/Thanks.astro'
+
+import { macro1, macro2 } from './_data/macro'
+import { referenceList } from './_data/reference'
+import { thanksList } from './_data/thanks'
+
+const dutyId = '07/m7s'
+const duty = (await getEntry('duties', dutyId))!.data
+const navList = [
+  { label: '小抄速览', id: 'cheatsheet' },
+  { label: '场地标点', id: 'waymark' },
+  { label: '宏', id: 'macro' },
+  { label: '简易时间轴', id: 'timeline' },
+  { label: '参考资料', id: 'reference' },
+  { label: '鸣谢', id: 'thanks' },
+]
+const videoLink = duty.bilibili ?? undefined
+---
+
+<DutyHomeLayout dutyId={dutyId} navList={navList}>
+  <Fragment slot="operation">
+    <a href="/07/m7s/p1">
+      <button
+        class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
+      >
+        <ScannerSVG class="mr-2 h-5 w-5" />
+        查看正文
+      </button>
+    </a>
+    {
+      videoLink && (
+        <a href={videoLink} target="_blank">
+          <button class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75">
+            <BiliBiliSVG class="mr-2 h-5 w-5" />
+            查看视频攻略
+          </button>
+        </a>
+      )
+    }
+  </Fragment>
+  <CollapsibleBox id="cheatsheet" client:idle class="w-full">
+    <Fragment slot="header">
+      <span>小抄速览</span>
+    </Fragment>
+    <div class="grid grid-cols-2 gap-4">
+      <AreaBox>
+        <strong class="mb-2 inline-block text-sm opacity-60">P1</strong>
+        <ResizableImageDialog client:idle>
+          <CosImage src="imgs/cheatsheets/07/m7s_p1.png" alt="m7s P1小抄" loading="lazy" class="h-full object-contain" />
+        </ResizableImageDialog>
+      </AreaBox>
+      <AreaBox>
+        <strong class="mb-2 inline-block text-sm opacity-60">P2</strong>
+        <ResizableImageDialog client:idle>
+          <CosImage src="imgs/cheatsheets/07/m7s_p2.jpg" alt="m7s P2小抄" loading="lazy" class="h-full object-contain" />
+        </ResizableImageDialog>
+      </AreaBox>
+      <AreaBox>
+        <strong class="mb-2 inline-block text-sm opacity-60">P3</strong>
+        <ResizableImageDialog client:idle>
+          <CosImage src="imgs/cheatsheets/07/m7s_p3.jpg" alt="m7s P3小抄" loading="lazy" class="h-full object-contain" />
+        </ResizableImageDialog>
+      </AreaBox>
+    </div>
+  </CollapsibleBox>
+  <CollapsibleBox id="waymark" client:idle class="w-full">
+    <WaymarkBox
+      href="public/waymarks/07/AacCruiserweight/UISAVE.DAT"
+      downloadLabel="下载5~8层标点文件"
+      pageNumber={3}
+      slotStart={11}
+      slotEnd={14}
+    >
+      <Separator class="my-2 mb-3" />
+      <strong class="text-sm opacity-60">P2场地</strong>
+      <ResizableImageDialog client:idle>
+        <CosImage src="imgs/waymarks/07/m7s_p2.png" alt="m7s 场地标点 1" class="mb-2 w-full object-contain" />
+      </ResizableImageDialog>
+      <strong class="text-sm opacity-60">P3场地</strong>
+      <ResizableImageDialog client:idle>
+        <CosImage src="imgs/waymarks/07/m7s_p3.png" alt="m7s 场地标点 2" class="w-full object-contain" />
+      </ResizableImageDialog>
+    </WaymarkBox>
+    <Fragment slot="header">
+      <span>场地标点</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox id="macro" client:idle class="w-full">
+    <Macro text={macro1} class="mb-4" title="M7S站位1" />
+    <Macro text={macro2} class="mb-4" title="M7S站位2" />
+    <Fragment slot="header">
+      <span>宏</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox id="timeline" client:idle class="w-full">
+    <AreaBox>
+      <ResizableImageDialog client:idle>
+        <CosImage src="imgs/timelines/07/m7s.png" alt="m7s 简易时间轴" class="w-full object-contain" />
+      </ResizableImageDialog>
+    </AreaBox>
+    <Fragment slot="header">
+      <span>简易时间轴</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox id="reference" client:idle class="w-full">
+    <ReferenceItem list={referenceList} />
+    <Fragment slot="header">
+      <span>参考资料</span>
+    </Fragment>
+  </CollapsibleBox>
+  <CollapsibleBox id="thanks" client:idle class="w-full">
+    <Thanks devList={thanksList.devList} other={thanksList.other ?? []} groupList={thanksList.groupList} />
+    <Fragment slot="header">
+      <span>鸣谢</span>
+    </Fragment>
+  </CollapsibleBox>
+</DutyHomeLayout>

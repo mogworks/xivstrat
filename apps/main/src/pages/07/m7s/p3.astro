@@ -1,0 +1,156 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import P from '@/components/typography/P.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+
+import BruteAbombinator from './_components/BruteAbombinator.astro'
+import BrutalImpactCast from './_components/BrutalImpactCast.astro'
+import AttackSection from './_components/BossAttackSection.astro'
+import StoneringerCast from './_components/StoneringerCast.astro'
+import SmashHereThereCast from './_components/SmashHereThereCast.astro'
+import BrutishSwingActivate from './_components/BrutishSwingActivate.astro'
+import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+
+import SpecialBombarianSpecial from './_mechanics/SpecialBombarianSpecial.astro'
+import Stoneringer2First from './_mechanics/Stoneringer2First.astro'
+import Stoneringer2Second from './_mechanics/Stoneringer2Second.astro'
+import SinisterSeedsP3 from './_mechanics/SinisterSeedsP3.astro'
+import DebrisDeathmatch from './_mechanics/DebrisDeathmatch.astro'
+
+import { translations } from './_translations'
+
+const dutyId = '07/m7s'
+
+const base = '06:09.184'
+
+const sinisterSeeds = translations.sinisterSeeds
+const specialBombarianSpecial = translations.specialBombarianSpecial
+const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
+const debrisDeathmatch = translations.debrisDeathmatch
+const strangeSeeds = translations.strangeSeeds
+const sporesac = translations.sporeSac
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <NoteSection>
+    <div class="flex flex-col gap-4">
+      <P>P3机制多为前2P已出现的相同机制或少数机制稍微修改后的重新组合，故部分重复机制后文不再赘述</P>
+      <P>
+        本阶段机制速度较快，场地较大，容易吃
+        <DamageDown hover />
+        和打不到
+        <BruteAbombinator />
+        ，是与爆弹哥力量与反应力的正面对决
+      </P>
+      <P>
+        在落地后、
+        <BruteAbombinator />
+        可选中前，可以提前吃爆发药，这样狂暴轴后续还能多吃一次且能对齐团辅
+      </P>
+    </div>
+  </NoteSection>
+  <EventSection time="06:09.184">
+    <BruteAbombinator />可选中
+  </EventSection>
+  <AttackSection time="06:09.184" damage="57000" damageType="physical" />
+  <AttackSection time="06:12.213" damage="57000" damageType="physical" />
+  <AttackSection time="06:15.240" damage="57000" damageType="physical" />
+
+  <BrutalImpactCast
+    start="06:16.310"
+    activateTimes={['06:21.518', '06:22.587', '06:23.658', '06:24.727', '06:25.797', '06:26.867', '06:27.935']}
+  />
+  <AttackSection time="06:29.986" damage="57000" damageType="physical" />
+  <MoveToCenterEvent time="06:31.100" />
+
+  <SeparatorSection id="S2RG" title=`${stoneringer2Stoneringers}` />
+  <Stoneringer2First time="06:33.194" />
+
+  <SeparatorSection />
+
+  <BrutalImpactCast
+    start="07:16.318"
+    activateTimes={[
+      '07:21.535',
+      '07:22.606',
+      '07:23.678',
+      '07:24.749',
+      '07:25.819',
+      '07:26.887',
+      '07:27.956',
+      '07:29.028',
+    ]}
+  />
+  <StoneringerCast start="07:32.145" />
+  <BrutishSwingActivate time="07:43.955" />
+  <SmashHereThereCast start="07:39.990" />
+  <SolutionSection>
+    <P>
+      与P1时完全一致，P3共会出现2次，按照
+      <RoleIcon role="tank" tag="MT" />
+      >
+      <RoleIcon role="tank" tag="ST" />
+      的次序依次开无敌引导单吃
+    </P>
+  </SolutionSection>
+
+  <AttackSection time="07:47.162" damage="57000" damageType="physical" />
+  <AttackSection time="07:50.190" damage="57000" damageType="physical" />
+
+  <SeparatorSection id="debris-deathmatch-sporesac" title=`${debrisDeathmatch} + ${sporesac}` />
+  <DebrisDeathmatch />
+
+  <SeparatorSection id="sinister-seeds" title={sinisterSeeds} />
+  <SinisterSeedsP3 />
+
+  <SeparatorSection />
+  <BrutalImpactCast
+    start="09:05.357"
+    activateTimes={[
+      '09:10.574',
+      '09:11.643',
+      '09:12.713',
+      '09:13.782',
+      '09:14.851',
+      '09:15.921',
+      '09:16.988',
+      '09:18.056',
+    ]}
+  />
+  <AttackSection time="09:20.106" damage="57000" damageType="physical" />
+  <AttackSection time="09:23.132" damage="57000" damageType="physical" />
+
+  <SeparatorSection id="S2S" title=`${stoneringer2Stoneringers} + ${strangeSeeds}` />
+  <Stoneringer2Second time="09:26.252" />
+
+  <SeparatorSection />
+  <StoneringerCast start="10:16.130" />
+  <BrutishSwingActivate time="10:27.935" />
+  <SmashHereThereCast start="10:23.968" />
+  <AttackSection time="10:31.146" damage="57000" damageType="physical" />
+
+  <BrutalImpactCast
+    start="10:33.242"
+    activateTimes={[
+      '10:38.459',
+      '10:39.528',
+      '10:40.599',
+      '10:41.669',
+      '10:42.738',
+      '10:43.805',
+      '10:44.872',
+      '10:45.944',
+    ]}
+  />
+  <AttackSection time="10:47.993" damage="57000" damageType="physical" />
+  <AttackSection time="10:51.019" damage="57000" damageType="physical" />
+  <AttackSection time="10:54.047" damage="57000" damageType="physical" />
+  <MoveToCenterEvent time="10:55.164" />
+  <SeparatorSection id="special-bombarian-special" title={specialBombarianSpecial} />
+  <SpecialBombarianSpecial />
+</DutyStratLayout>

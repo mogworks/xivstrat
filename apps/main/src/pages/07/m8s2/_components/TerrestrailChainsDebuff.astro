@@ -1,0 +1,22 @@
+---
+import Buff from '@/components/Buff.astro'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const terrestrail_chains = 'imgs/buff/07/m8s2/214268.png'
+---
+
+<Buff
+  icon={terrestrail_chains}
+  name="Terrestrail Chains"
+  nameVariant="yellow"
+  description="Bound to the ground and unable to jump."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

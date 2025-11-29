@@ -1,0 +1,22 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+
+import EventSection from '@/components/section/EventSection.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+const glowerPower = translations.glowerPower
+---
+
+<EventSection time={time}>
+  <Span variant="yellow">{glowerPower}</Span>
+  伤害判定
+  <Badge variant="emerald">14m宽直线</Badge>
+</EventSection>

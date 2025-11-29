@@ -1,0 +1,112 @@
+---
+import { type Time } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import P from '@/components/typography/P.astro'
+import T from '@/components/typography/T.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import HerosBlowCast from '../_components/HerosBlowCast.astro'
+import GleamingFang from '../_components/entities/GleamingFang.astro'
+import { translations } from '../_translations'
+import Skill from '@/components/typography/Skill.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import BossAttackSection from '../_components/BossAttackSection.astro'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const herosBlow = translations.herosBlow
+---
+
+<HerosBlowCast start={start} />
+<BossAttackSection time="08:23.490" damage="60000" damageType="physical" />
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <T>
+      <Span variant="yellow">{herosBlow}</Span>
+    </T>
+
+    <P>
+      <HowlingBlade />高举光剑，面向
+      <Span variant="cyan">随机玩家所在平台中心</Span>
+      ，对其释放【左/右半场刀】
+    </P>
+
+    <P>
+      与此同时，会有一圈
+      <GleamingFang />
+      朝向场地内圈或者外圈发光，释放【钢铁/月环】
+    </P>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      在该机制读条开始前，所有玩家
+      <Span variant="cyan">务必在</Span>
+      <HowlingBlade />
+      <Span variant="cyan">面前的平台集合引导</Span>
+    </P>
+
+    <P>
+      <HowlingBlade />举起刀后，观察安全半场，同时确认
+      <GleamingFang />发光的方向是朝内还是朝外，再进行躲避：
+    </P>
+
+    <ImgRow
+      bordered={false}
+      imgClass="max-w-110 shadowbringer"
+      class="gap-20"
+      imgs={[
+        {
+          src: 'imgs/07/m8s2/p1/herosBlow3.png',
+          alt: '月环+右半场刀',
+        },
+        {
+          src: 'imgs/07/m8s2/p1/herosBlow4.png',
+          alt: '月环+左半场刀',
+        },
+      ]}
+    />
+
+    <ImgRow
+      bordered={false}
+      imgClass="max-w-110 shadowbringer"
+      class="gap-20"
+      imgs={[
+        {
+          src: 'imgs/07/m8s2/p1/herosBlow1.png',
+          alt: '钢铁+右半场刀',
+        },
+        {
+          src: 'imgs/07/m8s2/p1/herosBlow2.png',
+          alt: '钢铁+左半场刀',
+        },
+      ]}
+    />
+
+    <P>
+      <RoleIcon role="tank" />
+      <RoleIcon role="melee" />
+      注意：钢铁的情况下，保持最大近战距离是可以无损处理的，但要非常小心
+    </P>
+    <P>
+      <RoleIcon role="all" tag="全员" />
+      注意：处理完该机制后，
+      <Span variant="cyan">立刻分组前往左右平台</Span>
+      ，准备处理
+      <Skill name={translations.ultraviolentRay} />
+      +
+      <Skill name={translations.quakeIII} />
+    </P>
+  </div>
+</SolutionSection>

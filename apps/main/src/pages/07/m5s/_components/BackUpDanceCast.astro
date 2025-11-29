@@ -1,0 +1,35 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+import FrogtourageFan from './FrogtourageFan.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start?: Time
+  end?: Time
+}
+
+const { start = undefined, end = undefined }: Props = Astro.props
+---
+
+<CastSection
+  start={start}
+  end={end}
+  duration={8.6}
+  ability={translations.backupDance}
+  target
+  damage="90000"
+  damageType="magical"
+>
+  <RoleIcon slot="source" role="enemy_level1">
+    <Span variant="rose">青蛙[实际BOSS分身]×4</Span>
+  </RoleIcon>
+  <RoleIcon slot="target" role="all" tag="最近">×4</RoleIcon>
+  <FrogtourageFan tag="18" hover />
+  <Badge variant="emerald">45°扇形</Badge>
+  <Badge variant="yellow">近引导</Badge>
+</CastSection>

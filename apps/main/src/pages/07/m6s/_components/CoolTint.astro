@@ -1,0 +1,29 @@
+---
+import Buff from '@/components/Buff.astro'
+import Span from '@/components/Span.vue'
+import { translations } from '../_translations'
+
+interface Props {
+  hover?: boolean
+  class?: string
+}
+
+const { hover = false, class: className = '' }: Props = Astro.props
+const cool_tint = 'imgs/buff/07/m6s/214276.png'
+const { CoolTintName, CoolTintDescription } = translations
+---
+
+<Buff
+  icon={cool_tint}
+  name={CoolTintName}
+  nameVariant="blue"
+  description={CoolTintDescription}
+  hover={hover}
+  class={className}
+>
+  <p>
+    受到<Span variant="blue">冷色爆弹怪</Span>的影响，体内的属性以太发生了偏移。再次受到<Span variant="blue"
+      >同种攻击</Span
+    >时伤害大幅提高
+  </p>
+</Buff>

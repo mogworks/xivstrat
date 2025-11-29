@@ -1,0 +1,25 @@
+---
+import type { DutyGroup } from '@/data/duty'
+
+import { getEntries } from 'astro:content'
+
+import DutyCard from '@/components/DutyCard.astro'
+
+interface Props {
+  dutyGroup: DutyGroup
+}
+
+const { dutyGroup }: Props = Astro.props
+const duties = await getEntries(dutyGroup.duties)
+---
+
+<section>
+  <h2
+    class="relative mb-9 inline-block text-3xl font-bold after:absolute after:-bottom-2 after:left-0 after:h-1 after:w-full after:bg-blue-600 after:content-[''] dark:after:bg-blue-300"
+  >
+    {dutyGroup.group}
+  </h2>
+  <div class="grid grid-cols-[repeat(auto-fill,minmax(min(20rem,100%),1fr))] gap-6">
+    {duties.map((duty) => <DutyCard duty={duty.data} />)}
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+import Buff from '@/components/Buff.astro'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const lament_of_the_close = 'imgs/buff/07/m8s2/214271.png'
+---
+
+<Buff
+  icon={lament_of_the_close}
+  name="Lament of the Close"
+  nameVariant="yellow"
+  description="Moving too far from the bearer of the same lament will result in a massive explosion."
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

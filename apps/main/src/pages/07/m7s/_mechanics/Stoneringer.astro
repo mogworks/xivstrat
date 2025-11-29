@@ -1,0 +1,198 @@
+---
+import CosImage from '@/components/CosImage.astro'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import Quote from '@/components/typography/Quote.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import P from '@/components/typography/P.astro'
+
+import StoneringerCast from '../_components/StoneringerCast.astro'
+import SmashHereThereCast from '../_components/SmashHereThereCast.astro'
+import BrutishSwingActivate from '../_components/BrutishSwingActivate.astro'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
+
+import { translations } from '../_translations'
+
+const smashHere = translations.smashHere
+const smashThere = translations.smashThere
+const stoneringer = translations.stoneringer
+const smashHereThere = translations.smashHereThere
+const brutishswing = translations.brutishSwing
+---
+
+<StoneringerCast start="00:20.89" />
+<BrutishSwingActivate time="00:32.704" />
+<SmashHereThereCast start="00:28.76" />
+<AttackSection time="00:35.110" damage="57000" damageType="physical" />
+<AttackSection time="00:38.939" damage="57000" damageType="physical" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <T>
+      <Skill name={stoneringer} />
+    </T>
+    <P>
+      <Span variant="yellow">{stoneringer}</Span>
+      读条期间，<BruteAbombinator />掏出<Span variant="pink">一把</Span>武器
+    </P>
+    <P>
+      <Span variant="yellow">{smashHereThere}</Span>
+      读条的同时武器<Span variant="pink">发光</Span>，读条结束后发动对应
+      <Span variant="yellow">{brutishswing}（钢铁/月环）</Span>
+    </P>
+    <div class="flex gap-4">
+      <div class="max-w-88 flex-1">
+        <CosImage src="imgs/07/m7s/stoneringer/stoneringer_1.png" alt="" class="rounded border-2 border-yellow-800 dark:border-yellow-100" />
+      </div>
+      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形1</Span>
+        </h4>
+        <P>
+          <BruteAbombinator />掏出一根石制<Span variant="pink">棍棒</Span>，发光后释放半径<Span variant="pink">12m</Span
+          >的<Span variant="yellow">钢铁</Span>
+        </P>
+        <P>范围<Span variant="pink">大于</Span>最大近战攻击距离</P>
+        <P>
+          对范围内的玩家造成
+          <DamageInfo damage="134000" type="physical" />
+          <DamageDown tag="30" hover />
+          <Span variant="rose" class="text-decimal">35%↓</Span>
+        </P>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-88 flex-1">
+        <CosImage src="imgs/07/m7s/stoneringer/stoneringer_2.png" alt="" class="rounded border-2 border-yellow-800 dark:border-yellow-100" />
+      </div>
+      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形2</Span>
+        </h4>
+        <P>
+          <BruteAbombinator />掏出一把石制<Span variant="pink">长刀</Span>，发光后释放<Span variant="yellow">月环</Span>
+        </P>
+        <P>中间安全场地半径 <Span variant="pink">9m</Span></P>
+        <P>
+          对范围内的玩家造成
+          <DamageInfo damage="134000" type="physical" />
+          <DamageDown tag="30" hover />
+          <Span variant="rose" class="text-decimal">35%↓</Span>
+        </P>
+      </div>
+    </div>
+
+    <T class="mt-8">
+      <Span variant="yellow">钢铁月环范围如图所示</Span>
+    </T>
+    <ImgRow
+      wrapperClass="max-w-100"
+      bordered={false}
+      imgs={[
+        {
+          src: 'imgs/07/m7s/stoneringer/stoneringer_circle.png',
+          alt: '棒槌释放钢铁',
+          title: '钢铁',
+        },
+        {
+          src: 'imgs/07/m7s/stoneringer/stoneringer_ring.png',
+          alt: '长刀释放月环',
+          title: '月环',
+        },
+      ]}
+    />
+  </div>
+  <div class="flex flex-col gap-4">
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{smashHereThere}</Span>
+    </h4>
+    <P>
+      <Span variant="yellow">{stoneringer}</Span>判定后<Span variant="pink">约1秒</Span>，<BruteAbombinator />释放<Span
+        variant="pink">距离诱导</Span
+      >的<Span variant="pink">6m</Span>圆形AoE物理<Span variant="red">死刑</Span>，需要
+      <RoleIcon role="tank" tag="双T" />分摊或<RoleIcon role="tank" tag="单T" />无敌处理
+    </P>
+
+    <div class="flex gap-4">
+      <div class="flex-1 shrink">
+        <CosImage src="imgs/07/m7s/smash_here.png" alt={`${smashHere}`} />
+      </div>
+      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形1：{smashHere}</Span>
+        </h4>
+        <P>
+          <!--想保留读条文字高亮色强调，又想中英文可切换 -->
+          读条 <Span variant="pink">近侧</Span>挥打，对距离<Span variant="pink">最近</Span>的玩家释放<Span
+            variant="pink">范围</Span
+          >死刑
+        </P>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div class="flex-1 shrink">
+        <CosImage src="imgs/07/m7s/smash_there.png" alt={`${smashThere}`} />
+      </div>
+      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="yellow">情形2：{smashThere}</Span>
+        </h4>
+        <P>
+          读条<Span variant="pink">远侧</Span>挥打，对距离<Span variant="pink">最远</Span>的玩家释放<Span variant="pink"
+            >范围</Span
+          >死刑
+        </P>
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      <RoleIcon role="any" tag="全员" />
+      先根据<Span variant="pink">发光</Span>的武器，判断读条结束后躲钢铁还是躲月环
+    </P>
+    <P>
+      再根据
+      <Skill name={smashHereThere} />
+      的读条情况预先判断接下来靠近还是远离
+      <BruteAbombinator />
+      ，并调整站位
+    </P>
+    <P class="mt-4">钢月黄色预兆<Span variant="pink">消失</Span>的瞬间：</P>
+    <Quote variant="lime">
+      <P class="pl-1">
+        <RoleIcon role="tank" tag="引导T" />
+        引导对应的<Span variant="pink">最近</Span>/<Span variant="pink">最远</Span>死刑，无敌处理
+      </P>
+      <P class="pl-1">
+        <RoleIcon role="all" tag="其他" />
+        根据死刑读条<Span variant="pink">远离</Span>/<Span variant="pink">靠近</Span><BruteAbombinator />
+      </P>
+    </Quote>
+    <P class="mt-4">
+      <Skill name={stoneringer} />
+      +
+      <Skill name={smashHereThere} />
+      的组合技在P1、P3阶段各有两次，近/远死刑可全部用无敌覆盖
+    </P>
+    <P>
+      我们规定按照
+      <RoleIcon role="tank" tag="MT" />
+      >
+      <RoleIcon role="tank" tag="ST" />
+      >
+      <RoleIcon role="tank" tag="MT" />
+      >
+      <RoleIcon role="tank" tag="ST" />
+      的次序依次开无敌引导单吃
+    </P>
+  </div>
+</SolutionSection>

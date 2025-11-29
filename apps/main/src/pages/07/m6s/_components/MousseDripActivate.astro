@@ -1,0 +1,37 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+
+  num: number
+}
+
+const { time, num }: Props = Astro.props
+const MousseDrip = translations.MousseDrip
+---
+
+<EventSection time={time}>
+  <Span variant="yellow">{MousseDrip}</Span>
+  第
+  <Span variant="pink">{num}</Span>
+  段伤害判定，
+  <RoleIcon role="healer" tag="H1" />
+  <RoleIcon role="ranged" tag="D3" />
+  、
+  <RoleIcon role="healer" tag="H2" />
+  <RoleIcon role="magic" tag="D4" />
+  受到
+  <DamageInfo damage="45000" type="magical" />
+  <MagicVulnerabilityUp tag="1" hover />
+  <Badge variant="emerald">5m圆形</Badge>
+  <Badge variant="yellow">分摊</Badge>
+</EventSection>

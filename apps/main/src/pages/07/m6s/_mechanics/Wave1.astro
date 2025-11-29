@@ -1,0 +1,270 @@
+---
+
+import CosImage from '@/components/CosImage.astro'
+
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import GimmeCat from '../_components/GimmeCat.astro'
+import LivePaintingCast from '../_components/LivePaintingCast.astro'
+import Mu from '../_components/Mu.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+import AttackSection from '../_components/SugarRiotAttackSection.astro'
+import UnlimitedCravingActivate from '../_components/UnlimitedCravingActivate.astro'
+import Yan from '../_components/Yan.astro'
+
+import { translations } from '../_translations'
+---
+
+<LivePaintingCast start="03:40.768" class="-my-5">
+  <CosImage src="imgs/07/m6s/paint_mark/wave1@3x.png" alt="Paint Mark: Wave #1" class="-mx-2 w-30 drop-shadow-sm drop-shadow-black" />
+  ，激活
+  <Mu>
+    <Span variant="red">×2</Span>
+  </Mu>
+  <Yan>
+    <Span variant="red">×1</Span>
+  </Yan>
+  <GimmeCat>
+    <Span variant="red">×1</Span>
+  </GimmeCat>
+</LivePaintingCast>
+<AttackSection time="03:45.487" damage="57000" damageType="magical" />
+<UnlimitedCravingActivate time="03:47.892" wave={1} />
+<SolutionSection title={`${translations.Wave} #1`}>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      目标优先级：
+      <Yan />
+      &gt;
+      <GimmeCat />
+      &gt;
+      <Mu />
+    </div>
+    <div class="paragraph mt-12">
+      由于
+      <GimmeCat />
+      会跳到随机玩家处，除
+      <RoleIcon role="tank" tag="MT" />
+      外，其他人都在
+      <Span variant="purple">D</Span>
+      点集合单点
+      <Yan />
+      ，
+      <RoleIcon role="tank" tag="MT" />
+      拉好
+      <SugarRiot />
+      和
+      <Mu />
+    </div>
+    <div class="paragraph">
+      这样
+      <GimmeCat />
+      有
+      <Span variant="pink">7/8</Span>
+      的概率跳到人群处，部分职业打
+      <Yan />
+      的同时可以顺便溅射到
+      <GimmeCat />
+      ，如下图
+    </div>
+    <div class="flex gap-3">
+      <div class="flex max-w-96 flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m6s/soul_sugar/wave1_solution_1.png"
+          alt="Wave #1: Solution 1/2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div class="paragraph">初始站位</div>
+      </div>
+      <div class="flex max-w-96 flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m6s/soul_sugar/wave1_solution_2.png"
+          alt="Wave #1: Solution 2/2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div class="paragraph">猫7/8概率跳人群</div>
+      </div>
+    </div>
+    <div class="paragraph mt-12">
+      <RoleIcon role="tank" tag="MT" />
+      ：先在
+      <Span variant="yellow">B</Span>
+      点拉
+      <Mu />
+      ，建立仇恨后，把
+      <SugarRiot />
+      和
+      <Mu />
+      拉到
+      <Span variant="sky">C</Span>
+      点
+    </div>
+    <div class="paragraph">
+      <RoleIcon role="tank" tag="ST" />
+      ：先在
+      <Span variant="purple">D</Span>
+      点拉
+      <Yan />
+      ，打完
+      <Yan />
+      后，
+      <Span variant="pink">关闭盾姿</Span>
+      再AoE
+      <SugarRiot />
+      和
+      <Mu />
+    </div>
+    <div class="paragraph">
+      <RoleIcon role="healer" />
+      ：注意
+      <RoleIcon role="tank" />
+      血，先在
+      <Span variant="purple">D</Span>
+      点打
+      <Yan />
+      ，打完
+      <Yan />
+      后转火
+      <GimmeCat />
+    </div>
+    <div class="paragraph">
+      <RoleIcon role="melee" />
+      ：先在
+      <Span variant="purple">D</Span>
+      点打
+      <Yan />
+      ，打完
+      <Yan />
+      后AoE
+      <SugarRiot />
+      和
+      <Mu />
+    </div>
+    <div class="paragraph">
+      <RoleIcon role="ranged" />
+      <RoleIcon role="magic" />
+      ：先在
+      <Span variant="purple">D</Span>
+      点打
+      <Yan />
+      ，打完
+      <Yan />
+      后转火
+      <GimmeCat />
+    </div>
+    <div class="paragraph mt-12">注意：</div>
+    <div class="paragraph">
+      <ListDot />
+      除
+      <RoleIcon role="tank" tag="MT" />
+      外，其他人优先
+      <Span variant="pink">集火</Span>
+      <Yan />
+      ，在下次团辅期（4分钟）前尽量压低
+      <Yan />
+      的血量
+    </div>
+    <div class="paragraph pl-6">
+      <ListDot />
+      这是为了尽早击杀
+      <Yan />
+      ，解放
+      <RoleIcon role="tank" tag="ST" />
+      和
+      <RoleIcon role="melee" />
+      ，使他们能在下次团辅期一起AoE
+      <Mu />
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      打完
+      <Yan />
+      后，远程
+      <Span variant="pink">转火</Span>
+      <GimmeCat />
+      ，
+      <RoleIcon role="tank" tag="ST" />
+      <RoleIcon role="melee" />
+      和
+      <RoleIcon role="tank" tag="MT" />
+      一起
+      <Span variant="pink">AoE</Span>
+      <SugarRiot />
+      和
+      <Mu />
+    </div>
+    <div class="paragraph pl-6">
+      <ListDot />
+      <RoleIcon role="tank" tag="ST" />
+      注意
+      <Span variant="pink">关闭盾姿</Span>
+      ，以免抢走
+      <RoleIcon role="tank" tag="MT" />
+      的仇恨
+    </div>
+    <h4 class="mt-12 text-xl">
+      <Span variant="lime">团辅的两种开法</Span>
+    </h4>
+    <h4 class="text-lg">
+      <Span variant="lime">1. 不延后团辅</Span>
+    </h4>
+    <div class="paragraph pl-6">
+      <ListDot />
+      首周装等大概率无法在团辅期前击杀
+      <Yan />
+      ，团辅期开始后，若
+      <Yan />
+      没死，继续
+      <Span variant="pink">集火</Span>
+      <Yan />
+    </div>
+    <div class="paragraph pl-6">
+      <ListDot />
+      一般可以在团辅期的
+      <Span variant="pink">前半段</Span>
+      击杀
+      <Yan />
+      ，因此可以把
+      <Span variant="cyan">溅射能力强的技能</Span>
+      留给
+      <Span variant="pink">后半段</Span>
+      <Span variant="orange">{translations.Wave} #2</Span>
+    </div>
+    <div class="paragraph">
+      好处是
+      <Span variant="purple">{translations.Wave} #4</Span>
+      可以更早开出团辅，减轻
+      <RoleIcon role="tank" tag="ST" />
+      和
+      <RoleIcon role="healer" />
+      压力
+    </div>
+    <h4 class="mt-4 text-lg">
+      <Span variant="lime">2. 延后团辅</Span>
+    </h4>
+    <div class="paragraph pl-6">
+      <ListDot />
+      大致延后约
+      <Span variant="pink">10s</Span>
+      ，在
+      <Span variant="orange">{translations.Wave} #2</Span>
+      连线出现时开启
+    </div>
+    <div class="paragraph">
+      好处是
+      <Span variant="orange">{translations.Wave} #2</Span>
+      AoE质量更高
+    </div>
+  </div>
+</SolutionSection>
+<AttackSection time="03:48.517" damage="57000" damageType="magical" />
+<AttackSection time="03:51.544" damage="57000" damageType="magical" />
+<AttackSection time="03:54.573" damage="57000" damageType="magical" />
+<AttackSection time="03:57.599" damage="57000" damageType="magical" />
+<AttackSection time="04:00.625" damage="57000" damageType="magical" />
+<AttackSection time="04:03.651" damage="57000" damageType="magical" />
+<AttackSection time="04:06.681" damage="57000" damageType="magical" />
+<AttackSection time="04:09.712" damage="57000" damageType="magical" />

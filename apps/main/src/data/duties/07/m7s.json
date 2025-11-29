@@ -1,0 +1,167 @@
+{
+  "name": "阿卡狄亚零式登天斗技场 中量级3",
+  "short": "M7S",
+  "type": "raid",
+  "title": "阿卡狄亚零式登天斗技场 中量级3 攻略",
+  "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级3 超详解动态图文攻略",
+  "navigationInfo": {
+    "name": "M7S",
+    "parent": ["阿卡狄亚零式登天斗技场 中量级"]
+  },
+  "banner": "imgs/banners/07/m7s.png",
+  "date": "25/06/28 23:30",
+  "href": "/07/m7s",
+  "status": "done",
+  "indexAvailable": true,
+  "bilibili": "https://www.bilibili.com/video/BV1293AzAESs/",
+  "phases": [
+    {
+      "href": "/07/m7s/p1",
+      "title": "Phase 1",
+      "subtitle": "爆裂开场",
+      "name": "P1 - 爆裂开场",
+      "mechanics": [
+        {
+          "href": "#brutal-impact",
+          "name": "野蛮碎击"
+        },
+        {
+          "href": "#stoneringer-smash-here-there",
+          "name": "石制武器 + 近/远侧挥打",
+          "name_en": "Stoneringer",
+          "name_ja": "",
+          "name_ch": "石制武器"
+        },
+        {
+          "href": "#sinister-seeds",
+          "name": "种弹播撒",
+          "name_en": "Sinister Seeds",
+          "name_ja": "",
+          "name_ch": "种弹播撒"
+        },
+        {
+          "href": "#explosion",
+          "name": "爆炸",
+          "name_en": "Explosion",
+          "name_ja": "",
+          "name_ch": "爆炸"
+        },
+        {
+          "href": "#pulp-smash",
+          "name": "荆棘挥打",
+          "name_en": "Pulp Smash",
+          "name_ja": "",
+          "name_ch": "荆棘挥打"
+        },
+        {
+          "href": "#neo-bombarian-special",
+          "name": "新式超豪华野蛮大乱击",
+          "name_en": "Neo Bombarian Special",
+          "name_ja": "",
+          "name_ch": "新式超豪华野蛮大乱击"
+        }
+      ]
+    },
+    {
+      "href": "/07/m7s/p2",
+      "title": "Phase 2",
+      "subtitle": "野蛮交锋",
+      "name": "P2 - 野蛮交锋",
+      "mechanics": [
+        {
+          "href": "#SBGR",
+          "name": "石制武器 + 野蛮横扫 #1",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
+        },
+        {
+          "href": "#TDAB",
+          "name": "荆棘生死战",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
+        },
+        {
+          "href": "#sporesplosion",
+          "name": "孢子云",
+          "name_en": "Sporesplosion",
+          "name_ja": "",
+          "name_ch": "孢子云"
+        },
+        {
+          "href": "#DDAB",
+          "name": "荆棘生死战：楼体",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
+        },
+        {
+          "href": "#strange-seeds",
+          "name": "种弹炸裂",
+          "name_en": "Strange Seeds",
+          "name_ja": "",
+          "name_ch": "种弹炸裂"
+        },
+        {
+          "href": "#SBGR2",
+          "name": "石制武器 + 野蛮横扫 #2",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
+        },
+        {
+          "href": "#powerslam",
+          "name": "强震冲",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
+        }
+      ]
+    },
+    {
+      "href": "/07/m7s/p3",
+      "title": "Phase 3",
+      "subtitle": "终极狂潮",
+      "name": "P3 - 终极狂潮",
+      "mechanics": [
+        {
+          "href": "#S2RG",
+          "name": "双持石制武器 #1",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
+        },
+        {
+          "href": "#debris-deathmatch-sporesac",
+          "name": "荆棘生死战：墙面 + 孢囊",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
+        },
+        {
+          "href": "#sinister-seeds",
+          "name": "种弹播撒",
+          "name_en": "Sinister Seeds",
+          "name_ja": "",
+          "name_ch": "种弹播撒"
+        },
+        {
+          "href": "#S2S",
+          "name": "双持石制武器 #2",
+          "name_en": "",
+          "name_ja": "",
+          "name_ch": ""
+        },
+        {
+          "href": "#special-bombarian-special",
+          "name": "究极超豪华野蛮大乱击",
+          "name_en": "Special Bombarian Special",
+          "name_ja": "",
+          "name_ch": "究极超豪华野蛮大乱击"
+        }
+      ]
+    }
+  ],
+  "locales": {}
+}

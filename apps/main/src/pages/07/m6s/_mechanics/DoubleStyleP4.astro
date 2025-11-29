@@ -1,0 +1,343 @@
+---
+
+import CosImage from '@/components/CosImage.astro'
+
+import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Separator from '@/components/Separator.astro'
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import FireResistanceUp from '@/components/buff/FireResistanceUp.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import LightningResistanceDownII from '@/components/buff/LightningResistanceDownII.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import DoubleStyleCast from '../_components/DoubleStyleCast.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+
+import { translations } from '../_translations'
+
+const { TasteofFire, TasteofThunder, Rush, DoubleStyle, SingleStyle, Sugarscape } = translations
+---
+
+<DoubleStyleCast start="07:23.731" duration={6.6} />
+<CastSection start="07:32.868" duration={0.7} ability={Rush}>
+  <RoleIcon slot="source" role="enemy_level1">
+    <Span variant="rose">绘画图案：箭矢</Span>
+  </RoleIcon>
+  <Badge variant="emerald">7m宽井字切</Badge>
+</CastSection>
+<EventSection time="07:33.934">
+  <span class="text-sm opacity-80">或</span>
+  <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
+  <ul class="list-none space-y-4">
+    <li class="flex items-center gap-1 text-lg">
+      <Span variant="yellow">{TasteofFire}</Span>
+      伤害判定
+      <DamageInfo damage="130000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+      <Badge variant="emerald">6m圆形</Badge>
+      <Badge variant="yellow">四四分摊</Badge>
+    </li>
+    <li class="flex items-center gap-1 text-lg">
+      <Span variant="yellow">{TasteofThunder}</Span>
+      伤害判定
+      <DamageInfo damage="130000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+      <Badge variant="emerald">6m圆形</Badge>
+      <Badge variant="yellow">八人分散</Badge>
+    </li>
+  </ul>
+</EventSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">{DoubleStyle}</Span>
+    </h4>
+    <div class="paragraph">
+      <SugarRiot />
+      双手各画出一幅图案，预示接下来要发动的攻击
+    </div>
+    <div class="paragraph -my-4">
+      左手有
+      <CosImage src="imgs/07/m6s/paint_mark/fire@3x.png" alt="Paint Mark: Fire" class="-mr-4.5 -ml-5 w-25 drop-shadow-sm drop-shadow-black" />
+      <CosImage src="imgs/07/m6s/paint_mark/thunder@3x.png" alt="Paint Mark: Thunder" class="-mx-4.5 w-25 drop-shadow-sm drop-shadow-black" />
+      两种可能，右手则固定为
+      <CosImage src="imgs/07/m6s/paint_mark/arrow@3x.png" alt="Paint Mark: Arrow" class="-mx-4.5 w-25 drop-shadow-sm drop-shadow-black" />
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      火焰：点名
+      <RoleIcon role="healer" tag="双H" />
+      的四四分摊，
+      <Span variant="pink">站入溪流中时</Span>
+      ，受到
+      <Span variant="yellow">{TasteofFire}</Span>
+      <DamageInfo damage="130000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+      （四人分摊）
+    </div>
+    <div class="paragraph pl-6">
+      <ListDot />
+      站入溪流中会获得
+      <FireResistanceUp hover />
+      ，从而减轻受到的伤害，否则暴毙
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      闪电：点名
+      <RoleIcon role="all" tag="全员" />
+      的八人分散，
+      <Span variant="pink">不站入溪流中时</Span>
+      ，受到
+      <Span variant="yellow">{TasteofThunder}</Span>
+      <DamageInfo damage="130000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+    </div>
+    <div class="paragraph pl-6">
+      <ListDot />
+      站入溪流中会获得
+      <LightningResistanceDownII hover />
+      ，从而增加受到的伤害，导致暴毙
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      箭矢：和
+      <StratLink variant="yellow" href="/07/m6s/p3#single-style">{SingleStyle}</StratLink>
+      机制中一样，形成井字形AoE（见下文）
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{Rush}</Span>
+    </h4>
+    <div class="paragraph">
+      箭矢出现后，读条
+      <Span variant="yellow">{Rush}</Span>
+      <DamageInfo damage="170000" type="physical" />
+      <DamageDown tag="30" />
+      <Span variant="rose" class="text-decimal">30%↓</Span>
+      ，形成宽度
+      <Span variant="pink">7m</Span>
+      的井字形AoE，只有如下两种情况：
+    </div>
+    <div class="paragraph">
+      <Span variant="cyan">注：下图已省略左手图案，仅用以说明箭矢的分布模式</Span>
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/arrow_1.png"
+          alt="Double Style P4: Arrow 1"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/arrow_2.png"
+          alt="Double Style P4: Arrow 2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">玩家需要处理【火焰 + 箭矢】或【闪电 + 箭矢】两种组合模式</div>
+    <div class="paragraph">
+      <ListDot />
+      火焰 + 箭矢：在安全区的溪流区域处理四四分摊
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      闪电 + 箭矢：在安全区的非溪流区域处理八人分散
+    </div>
+    <div class="paragraph mt-8">
+      <SugarRiot />
+      读条
+      <StratLink variant="yellow" href="#sugarscape">{Sugarscape}</StratLink>
+      后，
+      <RoleIcon role="tank" tag="MT" />
+      迅速将
+      <SugarRiot />
+      从场地北边拉到
+      <Span variant="pink">左下桥</Span>
+      上，如下图
+    </div>
+    <CosImage
+      src="imgs/07/m6s/double_style_p4/solution/initial.png"
+      alt="Double Style P4 Solution: Initial"
+      class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+    />
+    <div class="paragraph">
+      注意一定要在
+      <SugarRiot />
+      读条
+      <StratLink variant="yellow" href="#sugarscape">{Sugarscape}</StratLink>
+      后立刻带位，等读条
+      <Span variant="yellow">{DoubleStyle}</Span>
+      就来不及了
+    </div>
+    <div class="paragraph">
+      接着
+      <SugarRiot />
+      读条
+      <Span variant="yellow">{DoubleStyle}</Span>
+      ，我们视情况采取不同策略
+    </div>
+    <h4 class="mt-12 text-2xl"><Span variant="lime">火焰 + 箭矢</Span></h4>
+    <div class="paragraph">
+      分成两组人，在
+      <Span variant="pink">溪流区域</Span>
+      里四四分摊
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/fire_1.png"
+          alt="Double Style P4 Solution: Fire 1"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/fire_2.png"
+          alt="Double Style P4 Solution: Fire 2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      <RoleIcon role="tank" tag="MT" />
+      <RoleIcon role="healer" tag="H1" />
+      <RoleIcon role="melee" tag="D1" />
+      <RoleIcon role="melee" tag="D2" />
+      一组，去场地
+      <Span variant="pink">左下角</Span>
+      附近的
+      <Span variant="pink">溪流区域</Span>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      <RoleIcon role="tank" tag="ST" />
+      <RoleIcon role="healer" tag="H2" />
+      <RoleIcon role="ranged" tag="D3" />
+      <RoleIcon role="magic" tag="D4" />
+      一组，去场地
+      <Span variant="pink">中央</Span>
+      附近的
+      <Span variant="pink">溪流区域</Span>
+    </div>
+    <div class="paragraph">
+      注意是
+      <RoleIcon role="melee" tag="D2" />
+      和
+      <RoleIcon role="healer" tag="H1" />
+      同组，而非
+      <RoleIcon role="ranged" tag="D3" />
+      和
+      <RoleIcon role="healer" tag="H1" />
+      同组，这样可以减少近战罚站的可能
+    </div>
+    <h4 class="mt-12 text-2xl"><Span variant="lime">闪电 + 箭矢</Span></h4>
+    <div class="paragraph">
+      如下图，每人一块安全区，在
+      <Span variant="pink">非溪流区域</Span>
+      里分散
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/thunder_1.png"
+          alt="Double Style P4 Solution: Thunder 1"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/thunder_2.png"
+          alt="Double Style P4 Solution: Thunder 2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="paragraph">
+      注意
+      <Span variant="pink">不要站入溪流区域</Span>
+      ，草地和桥上都是可以站的
+    </div>
+    <h4 class="mt-12 text-2xl"><Span variant="lime">站位逻辑解析</Span></h4>
+    <h4 class="mt-4 text-xl"><Span variant="lime">1. 安全区分配逻辑</Span></h4>
+    <div class="paragraph">
+      <RoleIcon role="all" tag="全员" />
+      在各自
+      <Span variant="default">2×2</Span>
+      的区域里找安全区
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/spread_1.png"
+          alt="Double Style P4 Solution: Spread 1"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/spread_2.png"
+          alt="Double Style P4 Solution: Spread 2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <h4 class="mt-4 text-xl"><Span variant="lime">2. 若按分散预站位，实际为分摊时的集合跑动逻辑</Span></h4>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/spread_to_stack_1.png"
+          alt="Double Style P4: Spread to Stack 1"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/spread_to_stack_2.png"
+          alt="Double Style P4: Spread to Stack 2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="paragraph">
+      <RoleIcon role="tank" tag="MT" />
+      <RoleIcon role="healer" tag="H1" />
+      <RoleIcon role="melee" tag="D1" />
+      <RoleIcon role="melee" tag="D2" />
+      一组，
+      <RoleIcon role="tank" tag="ST" />
+      <RoleIcon role="healer" tag="H2" />
+      <RoleIcon role="ranged" tag="D3" />
+      <RoleIcon role="magic" tag="D4" />
+      一组，每个人都不至于跑太远
+    </div>
+    <div class="paragraph">注：这里并不是说一定要按分散预站位，仅是阐述逻辑，实际操作时怎么跑大家自行决定</div>
+    <div class="paragraph">
+      既可以按分散预站位，也可以等
+      <SugarRiot />
+      画好图案后再根据图案就位，up to you!
+    </div>
+  </div>
+</SolutionSection>
+<NoteSection>
+  <div class="paragraph">
+    安全格子是
+    <Span variant="pink">7m×7m</Span>
+    ，理论上部分格子可以容纳多个AoE圈，但风险很高，不建议这么搞
+  </div>
+</NoteSection>

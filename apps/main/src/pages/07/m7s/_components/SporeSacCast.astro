@@ -1,0 +1,34 @@
+---
+import { timeToSeconds, type Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import Badge from '@/components/Badge.astro'
+
+import MoveToCenterEvent from './MoveToCenterEvent.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  end: Time
+}
+
+const { start, end }: Props = Astro.props
+const moveToCenter = timeToSeconds(end) + 2
+const seedFallen = timeToSeconds(end) + 1.16 + 4.0
+const sporeSac = translations.sporeSac
+---
+
+<CastSection start={start} end={end} duration={2.7} ability={sporeSac}>
+  <BruteAbombinator slot="source" />，完毕后1s场地出现<Span variant="green">孢子×4</Span>范围提示</CastSection
+>
+
+<MoveToCenterEvent time={moveToCenter} />
+<EventSection time={seedFallen}>
+  <Span variant="green">孢子×4</Span>
+  落下，判定伤害
+  <Badge variant="emerald">8m圆形</Badge>
+</EventSection>

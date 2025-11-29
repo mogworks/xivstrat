@@ -1,0 +1,285 @@
+---
+
+import CosImage from '@/components/CosImage.astro'
+
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import StratBoard from '@/components/StratBoard.astro'
+import Span from '@/components/Span.vue'
+import AttackSection from '@/components/section/AttackSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import BackUpDanceCast from '../_components/BackUpDanceCast.astro'
+import BurnBabyBurn from '../_components/BurnBabyBurn.astro'
+import BurnBabyBurnEffect from '../_components/BurnBabyBurnEffect.astro'
+import DiscoInfernalCast from '../_components/DiscoInfernalCast.astro'
+import FlipToXSideCast from '../_components/FlipToXSideCast.astro'
+import FrogtourageFan from '../_components/FrogtourageFan.astro'
+import InTheSpotlight from '../_components/InTheSpotlight.astro'
+
+import { translations } from '../_translations'
+---
+
+<DiscoInfernalCast start="05:20.141" />
+<AttackSection time="05:25.0" damage="55000" damageType="physical" />
+<AttackSection time="05:28.1" damage="55000" damageType="physical" />
+<BackUpDanceCast start="05:26.423" end="05:35.964" />
+<FlipToXSideCast start="05:41.402" />
+<BackUpDanceCast start="05:36.542" end="05:46.038" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">{translations.discoInfernal}</Span>
+    </h4>
+    <div class="paragraph">
+      对
+      <RoleIcon role="all" tag="全员" />
+      造成
+      <DamageInfo damage="125000" type="magical" />
+      ，附加
+      <BurnBabyBurn tag="10" hover />
+      或
+      <BurnBabyBurn tag="20" hover />
+      ，
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      必定是同一种，
+      <RoleIcon role="dps" />
+      必定是另一种
+    </div>
+    <div class="paragraph">
+      同时，场地外围会刷新
+      <Span variant="pink">4</Span>盏<Span variant="cyan">聚光灯</Span>
+      ，按顺时针或逆时针移动，每
+      <Span variant="pink">10</Span>
+      秒移动到下一个正/斜点
+    </div>
+    <div class="paragraph border-l-2 border-teal-500 pl-2 opacity-80">下图以顺时针移动为例</div>
+    <StratBoard
+      width={400}
+      height={400}
+      key="disco-infernal-p2-dynamic"
+      class="max-h-90 max-w-90 shrink"
+      canvasClass="h-full w-full border-2 border-amber-800/75 dark:border-amber-100"
+    />
+    <div class="paragraph mt-4">
+      <BurnBabyBurn hover />和<Span variant="cyan">聚光灯</Span>
+      的效果如
+      <Span variant="yellow" class="underline underline-offset-2">
+        <a href="/07/m5s/p1#disco-infernal">前文</a>
+      </Span>
+      所述：
+    </div>
+    <div class="flex flex-col gap-4 border-l-2 pl-4 opacity-80">
+      <BurnBabyBurnEffect />
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{translations.backupDance}</Span>
+    </h4>
+    <div class="paragraph">
+      <Boss />
+      目标圈附近正/斜点方向刷新4只
+      <Span variant="rose">青蛙</Span>
+      ，如下图
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+      <CosImage
+        src="imgs/07/m5s/frog_1.png"
+        alt="Frogtourage Frog Position 1/2"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+        <div class="paragraph">情形1：斜点方向</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/frog_2.png"
+          alt="Frogtourage Frog Position 2/2"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形2：正点方向</div>
+      </div>
+    </div>
+    <div class="paragraph">
+      它们一出现就会对最近的人读条可引导的
+      <Span variant="pink">45°</Span>
+      扇形
+      <Span variant="yellow">{translations.backupDance}</Span>
+      <DamageInfo damage="90000" type="magical" />
+      <FrogtourageFan tag="18" hover />
+      ，共两轮（8只）
+    </div>
+    <div class="paragraph">
+      注意这里
+      <Span variant="rose">青蛙</Span>
+      只是
+      <Span variant="pink">假读条</Span>
+      ，实际伤害来源还是
+      <Boss />
+      ，目标减有效
+    </div>
+    <div class="paragraph">
+      引导过1次扇形的人会被赋予
+      <FrogtourageFan tag="18" hover />
+      ，若再次引导则会暴毙
+    </div>
+    <div class="paragraph">
+      此外，扇形判定的时机与
+      <BurnBabyBurn hover />
+      一致，而持有
+      <InTheSpotlight hover />
+      的玩家会有
+      <Span variant="pink">魔法受伤加重</Span>
+      效果，不能同时引导扇形
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      由于
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      和
+      <RoleIcon role="dps" />
+      的
+      <BurnBabyBurn hover />
+      时长不同，可分为TH组和DPS组
+    </div>
+    <div class="paragraph">
+      第1轮时，倒计时短的组先去找
+      <Span variant="cyan">聚光灯</Span>
+      ，倒计时长的组先去找
+      <Span variant="rose">青蛙</Span>
+      引导扇形，第2轮时则反过来
+    </div>
+    <div class="paragraph">
+      无论是找
+      <Span variant="cyan">聚光灯</Span>
+      还是找
+      <Span variant="rose">青蛙</Span>
+      ，都遵从
+      <Span variant="pink">同色标点</Span>
+      原则
+    </div>
+    <div class="paragraph">
+      例如
+      <RoleIcon role="tank" tag="ST" />
+      和
+      <RoleIcon role="dps" tag="D4" />
+      总是找
+      <Span variant="yellow">黄色</Span>
+      的标点
+      <Span variant="yellow">2</Span>/<Span variant="yellow">B</Span>
+      方向的
+      <Span variant="cyan">聚光灯</Span>/<Span variant="rose">青蛙</Span>
+      ，如下图
+    </div>
+    <div class="max-w-90">
+      <CosImage
+        src="imgs/07/m5s/disco_infernal_p2/solution_1.png"
+        alt="Disco Infernal P3 Solution 1/3"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+    </div>
+    <div class="paragraph mt-4">
+      引导扇形时注意避开
+      <Span variant="cyan">聚光灯</Span>
+      ，如下图（注：并未展示所有情况，请举一反三）
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div>
+        <CosImage
+          src="imgs/07/m5s/disco_infernal_p2/solution_2.png"
+          alt="Disco Infernal P3 Solution 2/3"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+      </div>
+      <div>
+        <CosImage
+          src="imgs/07/m5s/disco_infernal_p2/solution_3.png"
+          alt="Disco Infernal P3 Solution 3/3"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+      </div>
+    </div>
+  </div>
+</SolutionSection>
+
+<script>
+  import { listenKeys } from 'nanostores'
+  import { Assets, Container, Graphics, Sprite } from 'pixi.js'
+
+  import { getScale, YmToPx } from '@/pixi/utils'
+  import { setWaymark } from '@/pixi/waymark'
+  import { $stratBoards } from '@/stores/stratBoards'
+
+  import { waymarkData } from '../_data/waymark'
+
+  function calcSpotlightPositions(s: number) {
+    const y = -15
+    let x
+    if (s % 20 < 5) {
+      x = -15 + 3 * (s % 10)
+    } else if (s % 20 < 10) {
+      x = 0
+    } else if (s % 20 < 15) {
+      x = 3 * (s % 10)
+    } else {
+      x = 15
+    }
+
+    return [
+      { x, y },
+      { x: -x, y: -y },
+      { x: y, y: -x },
+      { x: -y, y: x },
+    ]
+  }
+
+  listenKeys($stratBoards, ['disco-infernal-p2-dynamic'], async (stratBoards) => {
+    const app = stratBoards['disco-infernal-p2-dynamic']
+
+    const container = new Container()
+    container.position.set(app.screen.width / 2, app.screen.height / 2)
+    app.stage.addChild(container)
+
+    const floorTexture = await Assets.load('07/m5s/floor_1.png')
+    const floor = Sprite.from(floorTexture)
+    floor.anchor.set(0.5, 0.5)
+    floor.scale.set(getScale())
+    container.addChild(floor)
+
+    await setWaymark(container, waymarkData, 0.5)
+
+    const squareMask = new Graphics()
+    const width = 40 * YmToPx
+    squareMask.rect(-width / 2, -width / 2, width, width)
+    squareMask.fill({ color: 'white' })
+    container.mask = squareMask
+    container.addChild(squareMask)
+
+    const spotlightTexture = await Assets.load('07/m5s/spotlight.png')
+
+    const spotlights = new Container()
+    container.addChild(spotlights)
+
+    let elapsedMS = 0
+    app.ticker.add((ticker) => {
+      elapsedMS += ticker.elapsedMS
+
+      const positions = calcSpotlightPositions(elapsedMS / 1000)
+
+      spotlights.removeChildren()
+      for (const position of positions) {
+        const spotlight = new Sprite(spotlightTexture)
+        spotlight.anchor.set(0.5, 0.5)
+        spotlight.scale.set(getScale())
+        spotlight.position.set(position.x * YmToPx, position.y * YmToPx)
+        spotlights.addChild(spotlight)
+      }
+    })
+  })
+</script>

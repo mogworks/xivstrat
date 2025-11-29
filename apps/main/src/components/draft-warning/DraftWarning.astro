@@ -1,0 +1,26 @@
+---
+import NoteSection from '@/components/section/NoteSection.astro'
+import WarningDialog from './WarningDialog.vue'
+import DefaultWarningContent from './DefaultWarningContent.astro'
+
+interface Props {
+  showDialog?: boolean
+}
+
+const { showDialog = true }: Props = Astro.props
+---
+
+<NoteSection title="">
+  <slot>
+    <DefaultWarningContent />
+  </slot>
+</NoteSection>
+{
+  showDialog && (
+    <WarningDialog client:idle>
+      <slot>
+        <DefaultWarningContent />
+      </slot>
+    </WarningDialog>
+  )
+}

@@ -1,0 +1,54 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
+
+import GleamingFang from './entities/GleamingFang.astro'
+import HowlingBlade from './entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  activateTimes: Time[]
+}
+
+const { activateTimes }: Props = Astro.props
+
+const championsCircuit = translations.championsCircuit
+const gleamingBarrage = translations.gleamingBarrage
+---
+
+<CollapseSection>
+  <Fragment slot="summary">
+    依次判定<Span variant="pink">5</Span>次范围伤害
+  </Fragment>
+  <Fragment slot="details">
+    {
+      activateTimes.map((time, index) => (
+        <EventSection time={time}>
+          第<Span variant="pink">{index + 1}</Span>次范围伤害
+          <Quote variant="zinc" class="ml-1">
+            <P>
+              <GleamingFang />
+              读条释放
+              <Skill name={gleamingBarrage} />
+              <Badge variant="yellow">半岛刀</Badge>
+            </P>
+            <P>
+              <HowlingBlade />
+              释放
+              <Skill name={championsCircuit} />
+              <Badge variant="yellow">“转转乐”</Badge>
+            </P>
+          </Quote>
+        </EventSection>
+      ))
+    }
+  </Fragment>
+</CollapseSection>

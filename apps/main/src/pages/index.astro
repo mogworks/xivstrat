@@ -1,0 +1,36 @@
+---
+import CosImage from '@/components/CosImage.astro'
+import { getCollection } from 'astro:content'
+
+import Layout from '@/layouts/Layout.astro'
+import Footer from '@/components/Footer.astro'
+import DutyGroup from '@/components/DutyGroup.astro'
+import LinkIcons from '@/components/LinkIcons.astro'
+
+const XivStratLightLogo = 'imgs/developer/group/XivStrat/XivStrat_light.png'
+const XivStratDarkLogo = 'imgs/developer/group/XivStrat/XivStrat_dark.png'
+const XivStratHoverLogo = 'imgs/developer/group/XivStrat/XivStrat_hover.png'
+
+const dutyGroups = await getCollection('dutyGroups')
+---
+
+<Layout>
+  <div class="@container relative flex min-h-dvh min-w-sm flex-col items-center">
+    <div class="bg-dots fade-b absolute inset-x-0 top-0 h-48"></div>
+    <LinkIcons class="fixed top-8 right-8 z-50 px-0" />
+    <header class="mt-20 text-center">
+      <div class="group flex items-center justify-center">
+        <CosImage src={XivStratHoverLogo} alt="XivStrat" class="hidden h-18 w-auto scale-300 group-hover:block" draggable="false" loading="eager" />
+        <CosImage src={XivStratLightLogo} alt="XivStrat" class="h-18 w-auto scale-300 group-hover:hidden dark:hidden" draggable="false" loading="eager" />
+        <CosImage src={XivStratDarkLogo} alt="XivStrat" class="hidden h-18 w-auto scale-300 dark:block dark:group-hover:hidden" draggable="false" loading="eager" />
+      </div>
+      <p class="mt-8 text-lg leading-relaxed font-medium text-zinc-400">从7.2开始的最终幻想14中文攻略站</p>
+    </header>
+    <main class="mb-24 w-full px-8 py-16 @md:max-w-md @3xl:max-w-4xl @7xl:max-w-7xl">
+      <div class="space-y-16">
+        {dutyGroups.map((dutyGroup) => <DutyGroup dutyGroup={dutyGroup.data} />)}
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

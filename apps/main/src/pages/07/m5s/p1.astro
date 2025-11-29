@@ -1,0 +1,119 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import Boss from '@/components/Boss.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import AttackSection from '@/components/section/AttackSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import CelebrateGoodTimesCast from './_components/CelebrateGoodTimesCast.astro'
+import DeepCutCast from './_components/DeepCutCast.astro'
+import FlipToXSideCast from './_components/FlipToXSideCast.astro'
+import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+import PlayXSideCast from './_components/PlayXSideCast.astro'
+import XSnapTwistAndDropTheNeedleCast from './_components/XSnapTwistAndDropTheNeedleCast.astro'
+
+import ArcadyNightFever from './_mechanics/ArcadyNightFever.astro'
+import DeepCut from './_mechanics/DeepCut.astro'
+import DiscoInfernalP1 from './_mechanics/DiscoInfernalP1.astro'
+import EnsembleAssembleCast from './_components/EnsembleAssembleCast.astro'
+import FlipToXSide from './_mechanics/FlipToXSide.astro'
+import FunkyFloor from './_mechanics/FunkyFloor.astro'
+import InsideOutOrOutsideIn from './_mechanics/InsideOutOrOutsideIn.astro'
+import LetsDance from './_mechanics/LetsDance.astro'
+import LetsPose from './_mechanics/LetsPose.astro'
+import { translations } from './_translations/index'
+
+const dutyId = '07/m5s'
+
+const base = 0
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <EventSection time="00:00.0">
+    <RoleIcon role="tank" tag="MT" />
+    开怪，将
+    <Boss />
+    固定在场中偏南一点的位置
+  </EventSection>
+  <AttackSection time="00:03.0" damage="55000" damageType="physical" />
+  <AttackSection time="00:06.1" damage="55000" damageType="physical" />
+  <AttackSection time="00:09.1" damage="55000" damageType="physical" />
+  <SeparatorSection id="deep-cut" title={translations.deepCut} />
+  <DeepCut start="00:09.173" />
+  <SeparatorSection />
+  <AttackSection time="00:17.2" damage="55000" damageType="physical" />
+  <AttackSection time="00:20.2" damage="55000" damageType="physical" />
+  <MoveToCenterEvent time="00:20.362" />
+  <SeparatorSection id="flip-to-x-side" title={translations.flipToAOrB} />
+  <FlipToXSide />
+  <SeparatorSection />
+  <FlipToXSideCast start="00:41.873" />
+  <NoteSection>
+    <div class="paragraph">必定和前一次不同</div>
+  </NoteSection>
+  <XSnapTwistAndDropTheNeedleCast start="00:47.978" />
+  <NoteSection>
+    <div class="paragraph">必定和前一次不同</div>
+  </NoteSection>
+  <PlayXSideCast time="00:58.273" />
+  <AttackSection time="00:59.1" damage="55000" damageType="physical" />
+  <CelebrateGoodTimesCast start="00:59.210" />
+  <AttackSection time="01:07.2" damage="55000" damageType="physical" />
+  <AttackSection time="01:10.2" damage="55000" damageType="physical" />
+  <MoveToCenterEvent time="01:10.395" />
+  <SeparatorSection id="disco-infernal" title={translations.discoInfernal} />
+  <DiscoInfernalP1 />
+  <SeparatorSection id="funky-floor" title={translations.funkyFloor} />
+  <FunkyFloor start="01:18.684" />
+  <SeparatorSection id="inside-out-or-outside-in" title={`${translations.insideOut} | ${translations.outSideIn}`} />
+  <InsideOutOrOutsideIn start="01:24.837" />
+  <SeparatorSection />
+  <FlipToXSideCast start="01:34.821" />
+  <AttackSection time="01:40.8" damage="55000" damageType="physical" />
+  <AttackSection time="01:43.9" damage="55000" damageType="physical" />
+  <AttackSection time="01:46.9" damage="55000" damageType="physical" />
+  <AttackSection time="01:49.9" damage="55000" damageType="physical" />
+  <XSnapTwistAndDropTheNeedleCast start="01:51.352" />
+  <NoteSection>
+    <div class="paragraph">
+      此时
+      <StratLink variant="yellow" href="#funky-floor">{translations.funkyFloor}</StratLink>
+      的效果还未结束，注意同时躲避
+      <Span variant="rose">地面AoE</Span>
+    </div>
+  </NoteSection>
+  <EventSection time="01:59.483">
+    <Span variant="yellow">{translations.funkyFloor}</Span>
+    效果结束
+  </EventSection>
+  <PlayXSideCast time="02:01.642" />
+  <CelebrateGoodTimesCast start="02:02.580" />
+  <DeepCutCast start="02:09.711" />
+  <AttackSection time="02:16.8" damage="55000" damageType="physical" />
+  <AttackSection time="02:19.8" damage="55000" damageType="physical" />
+  <MoveToCenterEvent time="02:20.891" />
+  <EnsembleAssembleCast start="02:23.300" />
+  <SeparatorSection id="arcady-night-fever" title={translations.arcadyNightFever} />
+  <ArcadyNightFever
+    start="02:29.450"
+    getDownTimes={[
+      '02:34.924',
+      '02:37.377',
+      '02:39.829',
+      '02:42.281',
+      '02:44.729',
+      '02:47.178',
+      '02:49.668',
+      '02:52.120',
+    ]}
+  />
+  <SeparatorSection id="lets-dance" title={translations.letsDance} />
+  <LetsDance start="02:56.259" wavelengthStart="03:05.533" />
+  <SeparatorSection id="lets-pose" title={translations.letsPose} />
+  <LetsPose phase="p1" start="03:23.445" />
+</DutyStratLayout>

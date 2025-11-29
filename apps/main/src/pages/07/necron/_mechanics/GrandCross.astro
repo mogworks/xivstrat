@@ -1,0 +1,41 @@
+---
+import type { Time } from '@/lib/utils'
+
+import P from '@/components/typography/P.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import { translations } from '../_translations'
+
+import GrandCrossCast from '../_components/GrandCrossCast.astro'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<GrandCrossCast start={start} />
+
+<MechanicSection>
+  <!-- GrandCross -->
+  <div class="flex flex-col gap-4" id="grand-cross">
+    <T>
+      <Skill name={translations.GrandCross} />
+    </T>
+    <P>AoE + 月环 + 场地破坏，场地只会留下中间的圆形区域</P>
+    <ImgRow
+      borderVariant="cyan"
+      wrapperClass="max-w-160"
+      imgs={[
+        {
+          src: 'imgs/07/necron/GrandCross.png',
+          alt: '',
+        },
+      ]}
+    />
+  </div>
+</MechanicSection>

@@ -1,0 +1,145 @@
+---
+import Span from '@/components/Span.vue'
+import RoleIcon from '@/components/RoleIcon.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import T from '@/components/typography/T.astro'
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import ElementalPurgeCast from '../_components/ElementalPurgeCast.astro'
+import AerotemporalBlast from '../_components/AerotemporalBlastEvent.astro'
+import GeotemporalBlast from '../_components/GeotemporalBlastEvent.astro'
+import HuntersHarvestEvent from '../_components/HuntersHarvestEvent.astro'
+import PatienceOfStoneDebuff from '../_components/buff/PatienceOfStoneDebuff.astro'
+import PatienceOfWindDebuff from '../_components/buff/PatienceOfWindDebuff.astro'
+
+import { translations } from '../_translations'
+import BossAttackSection from '../_components/BossAttackSection.astro'
+
+const elementalPurge = translations.elementalPurge
+
+// 该机制不会复用，直接写入时间
+const temporalBlastTime = '09:08.204'
+const huntersHarvestTime = '09:08.249'
+---
+
+<ElementalPurgeCast start="08:58.105" />
+<GeotemporalBlast start={temporalBlastTime} />
+<AerotemporalBlast start={temporalBlastTime} />
+<HuntersHarvestEvent time={huntersHarvestTime} />
+<BossAttackSection time="09:10.295" damage="60000" damageType="physical" />
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <T variant="yellow" text={elementalPurge} />
+    <P>
+      <HowlingBlade />开始读条
+      <Skill name={elementalPurge} />
+      ，<RoleIcon role="tank" tag="随机" />
+      和
+      <RoleIcon role="healer|dps" tag="随机" />
+      头顶出现点名标志
+    </P>
+
+    <P>读条结束后：</P>
+    <P>
+      <RoleIcon role="tank" tag="点名" />
+      被赋予
+      <PatienceOfWindDebuff tag="5" />
+      ：倒计时结束后产生半径
+      <Span variant="pink">16m</Span>
+      的圆形范围死刑，附带易伤
+    </P>
+
+    <P>
+      <RoleIcon role="healer|dps" tag="点名" />
+      则被赋予
+      <PatienceOfStoneDebuff tag="5" />
+      ：倒计时结束后产生半径
+      <Span variant="pink">6m</Span>
+      的圆形范围分摊伤害，同样附带易伤
+    </P>
+
+    <P>
+      同时，
+      <HowlingBlade />
+      会锁定并止步当前
+      <RoleIcon role="all" tag="一仇" />
+      ，稍后面朝其所在平台中心，释放
+      <Span variant="pink">210°</Span>
+      扇形斩击
+    </P>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      处理完
+      <Skill name={translations.mooncleaver} />
+      后，
+      <RoleIcon role="all" tag="全员" />
+      如下图位置待机：
+    </P>
+    <ImgRow
+      class="-mt-3 mb-4 ml-3"
+      wrapperClass="max-w-100 scale-110"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[{ src: 'imgs/07/m8s2/p1/mooncleaver_3.png', alt: '准备处理风震魔印' }]}
+    />
+
+    <P>
+      <HowlingBlade />
+      开始读条
+      <Skill name={elementalPurge} />
+      ，
+      <RoleIcon role="healer|dps" />
+      观察
+      <RoleIcon role="tank" tag="双T" />
+      头上是否出现点名标记，去
+      <HowlingBlade />
+      身后靠近
+      <RoleIcon role="tank" tag="点名" />
+      一侧的平台集合
+    </P>
+    <P>
+      <RoleIcon role="tank" tag="ST" />
+      则需要观察自身是否有点名标记，如果
+      <Span variant="cyan">没被点名</Span>
+      ，则需要挑衅成为一仇，以免
+      <RoleIcon role="tank" tag="MT" />
+      同时吃两个死刑
+    </P>
+    <ImgRow
+      class="mx-3 -mt-3 mb-4 gap-10"
+      wrapperClass="max-w-100 scale-110 flex-1"
+      bordered={false}
+      imgClass="shadowbringer"
+      imgs={[
+        { src: 'imgs/07/m8s2/p1/elemental_purge_1.png', alt: '风震魔印1' },
+        { src: 'imgs/07/m8s2/p1/elemental_purge_2.png', alt: '风震魔印2' },
+      ]}
+    />
+
+    <P>
+      随后，
+      <RoleIcon role="all" tag="全员" />
+      站在
+      <Span variant="cyan">各自平台的中心</Span>
+      ，处理死刑和分摊即可
+    </P>
+    <ImgRow
+      bordered={false}
+      imgClass="max-w-116 shadowbringer"
+      class="-mx-4 gap-16"
+      imgs={[
+        { src: 'imgs/07/m8s2/p1/elemental_purge_3.png', alt: '风震魔印3' },
+        { src: 'imgs/07/m8s2/p1/elemental_purge_4.png', alt: '风震魔印4' },
+      ]}
+    />
+  </div>
+</SolutionSection>

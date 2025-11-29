@@ -1,0 +1,533 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Boss from '@/components/Boss.astro'
+import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
+import Span from '@/components/Span.vue'
+import P from '@/components/typography/P.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import T from '@/components/typography/T.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import Doom from '@/components/buff/Doom.astro'
+import LimitBreak from '@/components/action/LimitBreak.astro'
+
+import { translations } from './_translations'
+
+const dutyId = '07/necron'
+const base = '00:00.00'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <DraftWarning showDialog={false}>
+    <div
+      class="my-4 flex flex-col gap-4 text-3xl text-cyan-600 [text-shadow:0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
+    >
+      <P class="justify-center"><Span variant="lime">所有机制和解法已按时间顺序整理完毕</Span></P>
+      <P class="justify-center">
+        开荒早期不保证100%正确性，<Span variant="red">请谨慎参考本页内容！</Span>
+      </P>
+      <P class="justify-center">TODO：详细时间轴、补充站位示意图</P>
+    </div>
+  </DraftWarning>
+  <SeparatorSection />
+  <MechanicSection>
+    <div class="flex flex-col gap-12">
+      <!-- SpecterOfDeath -->
+      <div class="flex flex-col gap-4" id="specter-of-death">
+        <T>
+          <Skill name={translations.SpecterOfDeath} />
+        </T>
+        <P>先连线场边，稍后对应位置会释放横向的、覆盖 1/3 场地的直线AoE，只有剩下 1/3 场地安全</P>
+        <P>连线有两条，似乎不会连线前两排（即安全区必定是前 2/3 半场，存疑，待确定）</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/SpecterOfDeath_1.png',
+              alt: '',
+              title: '连线场边，上图为第1排和第3排危险，第2排安全',
+            },
+          ]}
+        />
+        <P>如果吃到直线AoE，会被有形的大手抓到异空间（与职能小怪阶段相同），打死小怪才能回来</P>
+      </div>
+      <!-- TheEndsEmbrace -->
+      <div class="flex flex-col gap-4" id="the-ends-embrace">
+        <T>
+          <Skill name={translations.TheEndsEmbrace} />
+        </T>
+        <P>8人分散 + 触手引导，P1已经见过</P>
+        <P>点名全员小圆分散，判定后在脚下生成触手，触手会锁定最近的人释放直线AoE</P>
+        <P>
+          由于这次会有直线AoE，因此
+          <RoleIcon role="all" tag="全员" />
+          在安全区内站成一排，灵性分散即可
+        </P>
+        <P>这里时间很长，似乎没有必要规定站位</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/TheEndsEmbrace_3.png',
+              alt: '',
+              title: '全员站成一横排，灵性分散',
+            },
+          ]}
+        />
+        <P>随后全员引导各自的触手，建议统一往前半场引导，下图比较混乱</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/TheEndsEmbrace_4.png',
+              alt: '',
+              title: '全员引导各自的触手',
+            },
+          ]}
+        />
+      </div>
+      <!-- ColdGrip -->
+      <div class="flex flex-col gap-4" id="cold-grip">
+        <T>
+          <Skill name={translations.ColdGrip} />
+        </T>
+        <P>辣翅 + 2/3 半场刀（暗紫色特效一侧），P1已经见过</P>
+        <P>
+          躲避触手的同时，
+          <Boss />
+          还会读条辣翅 + 2/3 半场刀
+        </P>
+        <P>全员统一将触手的直线引导向前半场，之后先去场中躲避辣翅</P>
+        <P>
+          再根据
+          <Boss />
+          手特效去西/东侧的 1/3 半场躲避半场刀
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/ColdGrip_4.png',
+              alt: '',
+              title: '上图暗紫色特效手在东侧：先去中间躲辣翅，再去西侧躲 2/3 半场刀',
+            },
+          ]}
+        />
+      </div>
+      <!-- RelentlessReaping -->
+      <div class="flex flex-col gap-4" id="relentless-reaping">
+        <T>
+          <Skill name={translations.RelentlessReaping} />
+        </T>
+        <P>回天动地青春版</P>
+        <P><Boss />会按随机顺序依次存储钢铁、月环、辣翅、辣尾，如下图：</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/RelentlessReaping_1.png',
+              alt: '',
+              title: '上图已经存储两个技能，正在存储第3个（钢铁）',
+            },
+          ]}
+        />
+      </div>
+      <!-- CropRotation -->
+      <div class="flex flex-col gap-4" id="crop-rotation">
+        <T>
+          <Skill name={translations.CropRotation} />
+        </T>
+        <P>读条后把身前的轮盘随机旋转，之后会按新的顺序释放技能</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/CropRotation_1.png',
+              alt: '',
+              title: '以上图为例，会按照 3->4->1->2 的顺序释放技能',
+            },
+          ]}
+        />
+      </div>
+      <!-- TheSecondSeason、TheFourthSeason -->
+      <div class="flex flex-col gap-4" id="the-second-fourth-season">
+        <T>
+          <Skill name={translations.TheSecondSeason + '/' + translations.TheFourthSeason} />
+        </T>
+        <P>存储44/2222分摊，会与第4次（最后一次）钢铁/月环/辣翅/辣尾同时判定</P>
+      </div>
+      <!-- CircleOfLives -->
+      <div class="flex flex-col gap-4" id="circle-of-lives">
+        <T>
+          <Skill name={translations.CircleOfLives} />
+        </T>
+        <P>超链理论青春版（连续躲避5个月环）</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/CircleOfLives_1.png',
+              alt: '',
+              title: '大圈特效缩到最小的时候判定',
+            },
+          ]}
+        />
+      </div>
+      <!-- SpecterOfDeath -->
+      <div class="flex flex-col gap-4" id="specter-of-death">
+        <T>
+          <Skill name={translations.SpecterOfDeath} />
+        </T>
+        <P>前文已经见过，连线场边，稍后释放覆盖 1/3 场地的横向直线AoE，这次只会有一条连线</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/SpecterOfDeath_2.png',
+              alt: '',
+              title: '判定时机在第2和3个月环之间，所以不要急着去躲第3个月环',
+            },
+          ]}
+        />
+      </div>
+      <!-- SoulReaping -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.SoulReaping} />
+        </T>
+        <P>
+          在躲第3个月环的同时，<Boss />
+          再次读条<Skill name={translations.SoulReaping} />
+        </P>
+        <P>
+          随机存储钢铁/月环/辣翅/辣尾之一，注意躲月环的同时观察<Boss />
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/SoulReaping_demo_3.png',
+              alt: '',
+              title: '上图BOSS正在读条存储月环',
+            },
+          ]}
+        />
+      </div>
+      <!-- TwofoldBlight、FourfoldBlight -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={[translations.TwofoldBlight, translations.FourfoldBlight]}>
+            <Span variant="default" slot="separator">or</Span>
+          </Skill>
+        </T>
+        <P>
+          <Boss />
+          再次读条44/2222分摊，与之前存储的钢铁/月环/辣翅/辣尾同时判定
+        </P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/SoulReaping_demo_4.png',
+              alt: '',
+              title: '示例：月环 + 2222分摊',
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </MechanicSection>
+  <SeparatorSection />
+  <MechanicSection title="重难点机制">
+    <div class="flex flex-col gap-12">
+      <!-- MassMacabre -->
+      <div class="flex flex-col gap-4" id="mass-macabre">
+        <T>
+          <Skill name={translations.MassMacabre} />
+        </T>
+        <T class="text-xl">
+          + <Skill name={translations.MementoMori} /> + <Skill name={translations.BlueShockwave} />
+        </T>
+        <P>踩塔 + 辣尾 + 触手 + 死刑</P>
+        <P>先生成10座塔：2个4人塔、4个3人塔、4个2人塔</P>
+        <P>
+          必须有足够人数同时站进去，才能解除对应的塔，踩塔有伤害，并且附带
+          <MagicVulnerabilityUp tag="4" hover />
+        </P>
+        <P>也就是不能连续踩塔，至少要间隔4s，且如果机制结束前，没有解除所有的塔，则会炸团</P>
+        <P>塔分布是固定的，中间一列是2个4人塔，然后东西两侧从上到下分别是 3-2-2-3 人塔</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/MassMacabre_1.png',
+              alt: '',
+              title: '生成10座塔：2个4人塔、4个3人塔、4个2人塔',
+            },
+          ]}
+        />
+        <P>大概在踩完两轮塔的时候，BOSS释放辣尾，场中生成一列DOT区和5只触手，同P1</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/MassMacabre_2.png',
+              alt: '',
+              title: '场中一列DOT区，生成触手，释放横向的直线AoE',
+            },
+          ]}
+        />
+        <P>大概在踩第三轮塔的时候，BOSS读条扇形死刑，同P1</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-160"
+          imgs={[
+            {
+              src: 'imgs/07/necron/MassMacabre_3.png',
+              alt: '',
+              title: '死刑',
+            },
+          ]}
+        />
+      </div>
+      <div class="flex flex-col gap-4">
+        <T variant="lime" class="text-xl" text="解法一：HLB逃课" />
+        <P>
+          要求有
+          <LimitBreak stage={3} />
+        </P>
+        <P>
+          前面“超链理论”的时候，任意
+          <RoleIcon role="healer" />
+          故意吃
+          <Skill name={translations.SpecterOfDeath} />
+          的直线，被大手抓到异空间
+        </P>
+        <P>
+          之后该
+          <RoleIcon role="healer" />
+          处理完自己的小怪，等
+          <Doom hover />
+          倒计时剩余5s时再出来
+        </P>
+        <P>
+          此时该
+          <RoleIcon role="healer" />
+          身上会有临时的无敌buff，刚好可以覆盖炸塔的伤害
+        </P>
+        <P>
+          再用
+          <LimitBreak role="healer" stage={3} />
+          把
+          <RoleIcon role="all" tag="全员" />
+          拉起来，其它人完全不用管踩塔，一直输出
+          <Boss />
+          即可
+        </P>
+      </div>
+      <div class="flex flex-col gap-4">
+        <T variant="lime" class="text-xl" text="解法二：全员异空间整活" />
+        <P>这个打法纯负收益，会少几十秒的对<Boss />输出时间，不是很推荐，760可以整活</P>
+        <P>
+          原理同解法一，
+          <RoleIcon role="all" tag="全员" />
+          都故意吃
+          <Skill name={translations.SpecterOfDeath} />
+          的直线，被大手抓到异空间
+        </P>
+        <P>
+          之后各自处理完自己的小怪，等
+          <Doom hover />
+          倒计时剩余5s时再出来
+        </P>
+        <P>
+          此时
+          <RoleIcon role="all" tag="全员" />
+          身上会有临时的无敌buff，刚好可以覆盖炸塔的伤害
+        </P>
+      </div>
+      <div class="flex flex-col gap-4">
+        <T variant="lime" class="text-xl" text="解法三：正攻" />
+        <P>正攻踩塔顺序也有很多种，这里介绍一种 44 -> 2222 -> 33/MT死刑 -> 33/ST死刑 的处理顺序：</P>
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-120"
+          imgs={[
+            {
+              src: 'imgs/07/necron/MassMacabre_solution_1.png',
+              alt: '',
+              title: '第1轮，44',
+            },
+            {
+              src: 'imgs/07/necron/MassMacabre_solution_2.png',
+              alt: '',
+              title: '第2轮，2222',
+            },
+          ]}
+        />
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-120"
+          imgs={[
+            {
+              src: 'imgs/07/necron/MassMacabre_solution_3.png',
+              alt: '',
+              title: '第3轮，33 + MT死刑',
+            },
+            {
+              src: 'imgs/07/necron/MassMacabre_solution_4.png',
+              alt: '',
+              title: '第4轮，33 + ST死刑',
+            },
+          ]}
+        />
+      </div>
+      <div class="flex flex-col gap-4">
+        <T variant="lime" class="text-xl" text="解法四：正攻（近战优化，G8）" />
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-120"
+          imgs={[
+            {
+              src: 'imgs/07/necron/MassMacabre_solution_1.png',
+              alt: '',
+              title: '第1轮，44',
+            },
+            {
+              src: 'imgs/07/necron/MassMacabre_solution_op_2.png',
+              alt: '',
+              title: '第2轮，2222',
+            },
+          ]}
+        />
+        <ImgRow
+          borderVariant="cyan"
+          wrapperClass="max-w-120"
+          imgs={[
+            {
+              src: 'imgs/07/necron/MassMacabre_solution_op_3.png',
+              alt: '',
+              title: '第3轮，33 + MT死刑',
+            },
+            {
+              src: 'imgs/07/necron/MassMacabre_solution_op_4.png',
+              alt: '',
+              title: '第4轮，33 + ST死刑',
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </MechanicSection>
+  <SeparatorSection />
+  <MechanicSection title="机制复读">
+    <div class="flex flex-col gap-12">
+      <!-- ColdGrip -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.ColdGrip} />
+        </T>
+        <P>辣翅 + 2/3 半场刀（暗紫色特效一侧），前面已经见过</P>
+      </div>
+      <!-- RelentlessReaping -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.RelentlessReaping} />
+        </T>
+        <P>回天动地青春版复读，前面已经见过</P>
+      </div>
+      <!-- CropRotation -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.CropRotation} />
+        </T>
+        <P>读条后把身前的轮盘随机旋转，之后会按新的顺序释放技能，前面已经见过</P>
+      </div>
+      <!-- TheSecondSeason、TheFourthSeason -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.TheSecondSeason + '/' + translations.TheFourthSeason} />
+        </T>
+        <P>存储44/2222分摊，会与第4次（最后一次）钢铁/月环/辣翅/辣尾同时判定，前面已经见过</P>
+      </div>
+      <!-- FearOfDeath -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.FearOfDeath} />
+        </T>
+        <P>AoE + 引导触手，前面已经见过</P>
+      </div>
+      <!-- CircleOfLives -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.CircleOfLives} />
+        </T>
+        <P>超链理论青春版（这次是连续躲避4个月环），前面已经见过</P>
+      </div>
+      <!-- SpecterOfDeath -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.SpecterOfDeath} />
+        </T>
+        <P>连线场边，稍后释放覆盖 1/3 场地的横向直线AoE，这次是一条连线，前面已经见过</P>
+      </div>
+      <!-- SpecterOfDeath -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.SpecterOfDeath} />
+        </T>
+        <P>连线场边，稍后释放覆盖 1/3 场地的横向直线AoE，这次是两条连线，前面已经见过</P>
+      </div>
+      <!-- MementoMori -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.MementoMori} />
+        </T>
+        <P>辣尾 + 场中5触手 + 8人大圈分散，前面已经见过</P>
+      </div>
+      <!-- ColdGrip -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.ColdGrip} />
+        </T>
+        <P>辣翅 + 2/3 半场刀（暗紫色特效一侧），前面已经见过</P>
+      </div>
+      <!-- GrandCross -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.GrandCross} />
+        </T>
+        <P>AoE + 月环 + 场地破坏 + “百年风化”（激光+踩塔），前面已经见过</P>
+      </div>
+      <!-- NeutronRing -->
+      <div class="flex flex-col gap-4">
+        <T>
+          <Skill name={translations.NeutronRing} />
+        </T>
+        <P>AoE + 恢复场地</P>
+      </div>
+      <!-- DarknessOfEternity -->
+      <div class="flex flex-col gap-4" id="darkness-of-eternity">
+        <T>
+          <Skill name={translations.DarknessOfEternity} />
+        </T>
+        <P>狂暴</P>
+      </div>
+    </div>
+  </MechanicSection>
+</DutyStratLayout>

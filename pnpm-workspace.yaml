@@ -1,0 +1,14 @@
+packages:
+  - apps/*
+  - packages/*
+
+onlyBuiltDependencies:
+  - "@ffmpeg-installer/linux-x64"
+  - "@tailwindcss/oxide"
+  - "core-js"
+  - "cpu-features"
+  - "esbuild"
+  - "lefthook"
+  - "sharp"
+  - "unrs-resolver"
+  - "vue-demi"

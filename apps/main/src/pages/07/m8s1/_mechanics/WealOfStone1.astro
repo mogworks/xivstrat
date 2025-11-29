@@ -1,0 +1,70 @@
+---
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import P from '@/components/typography/P.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import WealOfStoneCast from '../_components/WealOfStoneCast.astro'
+import WolfOfStone from '../_components/entities/WolfOfStone.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+---
+
+<WealOfStoneCast start="05:11.624" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <T text={translations.wealOfStone} variant="yellow" />
+    <P>
+      本次
+      <Skill name={[translations.revolutionaryReign, translations.eminentReign]} />
+      后会紧跟
+      <Skill name={translations.wealOfStone} />
+      ，由
+      <HowlingBlade />
+      冲锋终点场边出现的
+      <WolfOfStone>
+        <Span variant="orange">土狼首×2</Span>
+      </WolfOfStone>
+      释放：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgClass="scale-125"
+      imgs={[
+        {
+          src: 'imgs/07/m8s1/xreign/weal_of_stone_1.png',
+          alt: '地烈波情形1',
+          title: '情形1',
+        },
+        {
+          src: 'imgs/07/m8s1/xreign/weal_of_stone_2.png',
+          alt: '地烈波情形2',
+          title: '情形2',
+        },
+      ]}
+    />
+    <P>
+      两只
+      <WolfOfStone />
+      一定是间隔分布的，且
+      <HowlingBlade />
+      目标圈会有一半是安全的
+    </P>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <P>
+    先正常处理
+    <Skill name={[translations.revolutionaryReign, translations.eminentReign]} />
+    ，之后别忘了观察
+    <WolfOfStone />
+    位置，躲开
+    <WolfOfStone />
+    正面即可
+  </P>
+</SolutionSection>

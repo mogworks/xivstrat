@@ -1,0 +1,133 @@
+---
+import RoleIcon from '@/components/RoleIcon.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import PulpSmashCast from '../_components/PulpSmashCast.astro'
+import TheUnpottedActivate from '../_components/TheUnpottedActivate.astro'
+
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import ICftDActivate from '../_components/ICftDActivate.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import { translations } from '../_translations'
+import Span from '@/components/Span.vue'
+import P from '@/components/typography/P.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import NoteSection from '@/components/section/NoteSection.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
+
+const pulpSmash = translations.pulpSmash
+const ITCD = translations.itCameFromTheDirt
+const theUnpotted = translations.theUnpotted
+
+const solutions = [
+  {
+    id: 'PulpSmash-game8',
+    title: '解法：日野主流（面基）',
+  },
+  {
+    id: 'PulpSmash-EU',
+    title: '解法：欧野主流（场基）',
+  },
+]
+const defaultSolution = '解法：日野主流（面基）'
+---
+
+<PulpSmashCast start="02:01.981" />
+<ICftDActivate time="02:08.978" />
+<TheUnpottedActivate time="02:09.025" />
+<AttackSection time="02:10.267" damage="57000" damageType="physical" />
+<AttackSection time="02:13.303" damage="57000" damageType="physical" />
+<AttackSection time="02:16.335" damage="57000" damageType="physical" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-4">
+      <T>
+        <Skill name={pulpSmash} />
+      </T>
+      <div class="paragraph">
+        <BruteAbombinator />点名<RoleIcon role="healer" tag="随机" />释放可分摊伤害，总伤害约
+        <DamageInfo damage="880000" type="physical" />，8人分摊时每人受到<DamageInfo damage="110000" type="physical" />
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <T class="gap-strat mt-8 inline-flex">
+        <Skill name={ITCD} />
+      </T>
+      <P>
+        <Skill name={pulpSmash} />判定后，<BruteAbombinator />脚底还会释放半径<Span variant="pink">6m</Span
+        >的钢铁，对范围内的玩家造成<DamageInfo damage="123000" type="magical" /><DamageDown tag="30" hover />
+      </P>
+    </div>
+    <div class="flex flex-col gap-4">
+      <T class="gap-strat mt-8 inline-flex">
+        <Skill name={theUnpotted} />
+      </T>
+      <P>
+        <Skill name={ITCD} />几乎同时，释放以8人为目标的<Span variant="pink">25°</Span>扇形AoE，造成
+        <DamageInfo damage="80000" type="magical" />
+        <MagicVulnerabilityUp tag="2" hover />，<Span variant="pink">重合即死</Span>
+      </P>
+    </div>
+  </div>
+</MechanicSection>
+
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：日野主流（面基）">
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        分摊预兆出现后，
+        <RoleIcon role="all" tag="全员" />
+        前往被点名的
+        <RoleIcon role="healer" />
+        处集合分摊
+      </div><div class="paragraph">
+        为了避免BOSS在空中大回旋，我们规定被点名的奶妈固定站在<BruteAbombinator />当前面向的<Span variant="pink"
+          >正面</Span
+        >
+      </div><div class="paragraph">
+        接着以
+        <BruteAbombinator />
+        的
+        <Span variant="pink">面向</Span>
+        为基准，按
+        <Span variant="pink">标准八方分散</Span>
+      </div>
+      <div class="paragraph">分散示意图如下：</div>
+      <ImgRow wrapperClass="max-w-100" bordered={false} imgs={[{ src: 'imgs/07/m7s/pulp_smash/pulp_smash.png', alt: '以BOSS面向为准' }]} />
+    </div>
+  </div>
+  <div slot="解法：欧野主流（场基）">
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        分摊预兆出现后，<RoleIcon role="all" tag="全员" />前往<Span variant="pink">场中</Span>集合分摊，接着以
+        <Span variant="pink">场地</Span>为基准，按<Span variant="pink">标准八方分散</Span>
+      </div>
+
+      <div class="paragraph">分散示意图如下：</div>
+      <ImgRow
+        wrapperClass="max-w-100"
+        bordered={false}
+        imgs={[
+          {
+            src: 'imgs/07/m7s/pulp_smash/pulp_smash_arena_base.png',
+            alt: '以场地方向为准',
+          },
+        ]}
+      />
+    </div>
+  </div>
+</MultiSolutionSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">分摊伤害生效后，小钢铁和扇形AoE的判定时间约为出动画时间的一半</div>
+    <div class="paragraph">
+      故请在<BruteAbombinator />
+      跳完（分摊伤害生效）<Span variant="pink">后立刻离开原地</Span>并<Span variant="pink">分散</Span>
+    </div>
+  </div>
+</NoteSection>

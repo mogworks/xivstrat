@@ -1,0 +1,69 @@
+---
+import { timeToSeconds, type Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+
+import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
+
+import Skill from '@/components/typography/Skill.astro'
+
+import WolvesReignCast from '../_components/WolvesReignCast.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const revolutionaryReign = translations.revolutionaryReign
+const eminentReign = translations.eminentReign
+const reignsEnd = translations.reignsEnd
+const sovereignScar = translations.sovereignScar
+
+const duration = 4.8
+
+const startSeconds = timeToSeconds(start)
+const reign1Time = startSeconds + 8
+const reign2Time = startSeconds + 11
+
+const damageApplyTime = reign2Time + 1.2 + 0.3 // 1.2s读条，0.3s延迟补正
+---
+
+<CastSection start={start} duration={duration}>
+  <HowlingBlade slot="source" />
+  <Skill slot="ability" name={[revolutionaryReign, eminentReign]} />
+  <Badge variant="yellow">复合机制</Badge>
+</CastSection>
+<WolvesReignCast start={reign1Time} type="line" />
+<WolvesReignCast start={reign2Time} type="circle_or_fan" />
+<EventSection time={damageApplyTime}>
+  <HowlingBlade />
+  对
+  <RoleIcon role="tank" tag="一仇" />
+  <RoleIcon role="tank" tag="二仇" />
+  释放
+  <Skill name={reignsEnd} />
+  <DamageInfo damage="360000" type="physical" />
+  <PhysicalVulnerabilityUp tag="1" hover />
+  <Badge variant="emerald">60°扇形</Badge>
+  <Badge variant="red">死刑</Badge>
+</EventSection>
+<EventSection time={damageApplyTime}>
+  <HowlingBlade />
+  对
+  <RoleIcon role="healer" tag="H1" />
+  <RoleIcon role="healer" tag="H2" />
+  释放
+  <Skill name={sovereignScar} />
+  <DamageInfo damage="170000" type="physical" />
+  <PhysicalVulnerabilityUp tag="1" hover />
+  <Badge variant="emerald">30°扇形</Badge>
+  <Badge variant="purple">三三分摊</Badge>
+</EventSection>

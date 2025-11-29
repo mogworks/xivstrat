@@ -1,0 +1,22 @@
+---
+import type { Time } from '@/lib/utils'
+import CastSection from '../../../../components/section/CastSection.astro'
+import Span from '@/components/Span.vue'
+import Badge from '@/components/Badge.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  duration?: Time
+  num?: number
+}
+
+const { start, duration = 3.7, num = 4 }: Props = Astro.props
+const pollen = translations.pollen
+---
+
+<CastSection start={start} duration={duration} ability={pollen}>
+  <Span variant="green" slot="source">孢子×{num}</Span>
+  <Badge variant="emerald">8m圆形</Badge>
+</CastSection>

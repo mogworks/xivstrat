@@ -1,0 +1,34 @@
+---
+import type { Time } from '@/lib/utils'
+import type { VariantType } from '@/lib/variant'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+
+  num: number
+}
+
+const { time, num }: Props = Astro.props
+const strangeseeds = translations.strangeSeeds
+
+const color: Record<number, VariantType> = {
+  1: 'red',
+  2: 'orange',
+  3: 'blue',
+  4: 'purple',
+}
+---
+
+<EventSection time={time}>
+  第<Span variant={color[num]}>{num}</Span>轮
+  <Skill name={strangeseeds} />
+  预兆出现
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="yellow">分散</Badge>
+</EventSection>

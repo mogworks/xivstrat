@@ -1,0 +1,22 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const herosBlow = translations.herosBlow
+---
+
+<CastSection start={start} duration={6.7} ability={herosBlow}>
+  <HowlingBlade slot="source" />
+  <Badge variant="emerald">半场刀 + 钢铁/月环</Badge>
+</CastSection>

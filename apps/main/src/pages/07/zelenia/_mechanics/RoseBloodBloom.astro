@@ -1,0 +1,67 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import RoseBloodBloomCast from '../_components/RoseBloodBloomCast.astro'
+import Zelenia from '../_components/Zelenia.astro'
+
+interface Props {
+  start: Time
+
+  num: number
+}
+
+const floorMap: Record<number, string> = {
+  1: 'imgs/07/zelenia/RoseBloodFloor/RoseBlood_floor_1.png',
+  2: 'imgs/07/zelenia/RoseBloodFloor/RoseBlood_floor_2.png',
+  3: 'imgs/07/zelenia/RoseBloodFloor/RoseBlood_floor_3.png',
+  4: 'imgs/07/zelenia/RoseBloodFloor/RoseBlood_floor_4.png',
+  5: 'imgs/07/zelenia/RoseBloodFloor/RoseBlood_floor_5.png',
+  6: 'imgs/07/zelenia/RoseBloodFloor/RoseBlood_floor_6.png',
+}
+
+const { start, num }: Props = Astro.props
+---
+
+<RoseBloodBloomCast start={start} num={num} />
+
+<MechanicSection>
+  <div class="flex gap-4">
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: floorMap[num],
+          alt: 'Zelenia：P3 场地图',
+          // title: '先钢铁',
+        },
+      ]}
+    />
+
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <div class="paragraph">
+        <h4 class="text-xl">
+          <Span variant="yellow">场地变换</Span>
+        </h4>
+      </div>
+      <div class="paragraph">
+        <Span variant="pink">红色玫瑰花纹地板</Span>会被
+        <Zelenia />
+        的某些技能引爆
+      </div>
+      <div class="paragraph">
+        相连的<Span variant="pink">红色地板</Span>也会被同时引爆
+      </div>
+      <div class="paragraph"></div>
+      <div class="paragraph">
+        <Span variant="yellow">注意：</Span>场中会出现一小块<Span variant="purple">圆形区域</Span>，会有剧痛DOT
+      </div>
+    </div>
+  </div>
+</MechanicSection>

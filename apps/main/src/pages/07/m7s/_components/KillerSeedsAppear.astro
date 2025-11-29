@@ -1,0 +1,22 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Skill from '@/components/typography/Skill.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+const killerSeeds = translations.killerSeeds
+---
+
+<EventSection time={time}>
+  <Skill name={killerSeeds} />
+  预兆出现
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="yellow">二二分摊</Badge>
+</EventSection>

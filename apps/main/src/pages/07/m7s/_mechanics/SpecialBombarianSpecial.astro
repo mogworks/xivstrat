@@ -1,0 +1,40 @@
+---
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+
+import SpecialBombarianSpecialCast from '../_components/SpecialBombarianSpecialCast.astro'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import { translations } from '../_translations'
+
+const specialBombarianSpecial = translations.specialBombarianSpecial
+---
+
+<SpecialBombarianSpecialCast start="10:57.570" />
+<EventSection time="11:07.554">
+  <BruteAbombinator />上天，不可选中
+</EventSection>
+<EventSection time="11:11.473">
+  <Fragment>
+    <Span variant="fuchsia">{specialBombarianSpecial}</Span>
+    <DamageInfo damage="9999999" type="special" />
+    <Badge variant="red">团灭</Badge>
+    伤害结算，副本进程终结
+  </Fragment>
+</EventSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="gap-strat flex items-center">
+      <BruteAbombinator />在
+      <Span variant="yellow">{specialBombarianSpecial}</Span>
+      读条完成后，变为不可选中状态
+    </div>
+    <div class="gap-strat flex items-center">
+      随后<BruteAbombinator />跳向北侧墙壁，再砸向场中，将所有玩家击退出电网并造成
+      <DamageInfo damage="9999999" type="special" />
+    </div>
+  </div>
+</MechanicSection>

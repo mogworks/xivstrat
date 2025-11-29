@@ -1,0 +1,18 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+
+import Zelenia from './Zelenia.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={4.7} ability={translations.AlexandrianThunder2}>
+  <Zelenia slot="source" />
+</CastSection>

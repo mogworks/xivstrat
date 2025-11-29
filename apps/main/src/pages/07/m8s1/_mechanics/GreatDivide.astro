@@ -1,0 +1,88 @@
+---
+import type { Time } from '@/lib/utils'
+
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import Span from '@/components/Span.vue'
+import JobIcon from '@/components/JobIcon.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Quote from '@/components/typography/Quote.astro'
+
+import P from '@/components/typography/P.astro'
+
+import GreatDivideCast from '../_components/GreatDivideCast.astro'
+
+interface Props {
+  start: Time
+
+  phase: 'P1' | 'P3'
+}
+
+const { start, phase }: Props = Astro.props
+---
+
+<GreatDivideCast start={start} />
+{
+  phase === 'P1' ? (
+    <>
+      <MechanicSection>
+        <div class="flex flex-col gap-4">
+          <P>
+            点名
+            <RoleIcon role="tank" tag="一仇" />
+            的宽度
+            <Span variant="pink">6m</Span>
+            的可分摊直线死刑，除P1这次外，P3阶段还会再发动一次
+          </P>
+        </div>
+      </MechanicSection>
+      <SolutionSection>
+        <div class="flex flex-col gap-4">
+          <P>
+            由于
+            <RoleIcon role="tank" tag="双T" />
+            减伤要留给P2阶段，建议用无敌类技能处理该死刑：
+          </P>
+          <Quote variant="lime">
+            <P>
+              如果队伍有
+              <JobIcon job="WAR" />
+              /
+              <JobIcon job="DRK" />
+              ，本次可以让
+              <JobIcon job="WAR" />
+              /
+              <JobIcon job="DRK" />
+              开无敌单吃，这样后半阶段
+              <JobIcon job="WAR" />
+              /
+              <JobIcon job="DRK" />
+              可以多开一次无敌
+            </P>
+            <P>
+              如果队伍只有
+              <JobIcon job="PLD" />
+              /
+              <JobIcon job="GNB" />
+              ，那么本次就由
+              <RoleIcon role="tank" tag="MT" />
+              开无敌单吃，下一次再由
+              <RoleIcon role="tank" tag="ST" />
+              开无敌单吃
+            </P>
+          </Quote>
+        </div>
+      </SolutionSection>
+    </>
+  ) : (
+    <SolutionSection>
+      <div class="flex flex-col gap-4">
+        <P>
+          本次由前一轮轮空的
+          <RoleIcon role="tank" />
+          开无敌单吃，记得提前获取一仇
+        </P>
+      </div>
+    </SolutionSection>
+  )
+}

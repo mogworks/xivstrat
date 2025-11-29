@@ -1,0 +1,21 @@
+---
+import type { Time } from '@/lib/utils'
+
+import EventSection from '@/components/section/EventSection.astro'
+import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+---
+
+<EventSection time={time}>
+  <HowlingBlade />
+  瞬移至场地北侧，新增
+  <DirectionalDisregard hover />
+  ，目标圈取消身位限制
+</EventSection>

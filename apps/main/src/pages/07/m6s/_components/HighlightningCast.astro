@@ -1,0 +1,28 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const Highlightning = translations.Highlightning
+---
+
+<CastSection start={start} duration={1.7} ability={Highlightning}>
+  <Fragment slot="source">
+    <RoleIcon role="enemy_level1">
+      <Span variant="rose">雷云</Span>
+    </RoleIcon>
+  </Fragment>
+  <Badge variant="emerald">21m圆形</Badge>
+  <Badge variant="red">即死</Badge>
+</CastSection>

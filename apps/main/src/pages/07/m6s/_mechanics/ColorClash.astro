@@ -1,0 +1,70 @@
+---
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+
+import ColorClashCast from '../_components/ColorClashCast.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+import { translations } from '../_translations'
+
+const DoubleStyle = translations.DoubleStyle
+---
+
+<ColorClashCast start="00:38.027" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      读条结束后
+      <SugarRiot />
+      朝天开枪
+      <Span variant="pink">2</Span>
+      或
+      <Span variant="pink">4</Span>
+      次，延迟一段时间后判定半径
+      <Span variant="pink">6m</Span>
+      的四四或二二分摊
+      <DamageInfo damage="180000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+    </div>
+  </div>
+</MechanicSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <ListDot />
+      开枪
+      <Span variant="pink">2</Span>
+      次：点名
+      <Span variant="default">2</Span><RoleIcon role="healer" />
+      分成
+      <Span variant="pink">2</Span>
+      组人
+      <Span variant="yellow">四四分摊</Span>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      开枪
+      <Span variant="pink">4</Span>
+      次：点名
+      <Span variant="default">4</Span><RoleIcon role="tank" /><RoleIcon role="healer" />
+      或
+      <Span variant="default">4</Span><RoleIcon role="dps" />
+      分成
+      <Span variant="pink">4</Span>
+      组人
+      <Span variant="yellow">二二分摊</Span>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      暂时还无需处理该机制，在之后的
+      <StratLink variant="yellow" href="#double-style">{DoubleStyle}</StratLink>
+      中会一并处理
+    </div>
+  </div>
+</NoteSection>

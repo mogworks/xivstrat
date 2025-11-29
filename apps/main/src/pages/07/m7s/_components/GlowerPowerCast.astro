@@ -1,0 +1,23 @@
+---
+import type { Time } from '@/lib/utils'
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  duartion?: Time
+}
+
+const { start }: Props = Astro.props
+const { duartion = 3.7 }: Props = Astro.props
+const glowerPower = translations.glowerPower
+---
+
+<CastSection start={start} duration={duartion} ability={glowerPower}>
+  <BruteAbombinator slot="source" />
+  <Badge variant="emerald">14m宽直线</Badge>
+</CastSection>

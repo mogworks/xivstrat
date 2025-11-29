@@ -1,0 +1,49 @@
+---
+import { cn } from '@/lib/utils'
+
+import LinkSVG from '@/svg/link.svg'
+import BiliBiliSVG from '@/svg/bilibili.svg'
+import YouTubeSVG from '@/svg/youtube.svg'
+
+import Separator from '@/components/Separator.astro'
+import AreaBox from '@/components/AreaBox.astro'
+
+interface Props {
+  class?: string
+  listClass?: string
+  list: {
+    url: string
+    label: string
+    embed?: string
+  }[]
+}
+
+const { class: className = '', listClass = '', list }: Props = Astro.props
+---
+
+<AreaBox>
+  <ol class={cn('flex flex-col', className)}>
+    {
+      list.map((item, index) => (
+        <div>
+          <li class={cn('flex items-start gap-2', listClass)}>
+            <div class="relative w-6.5">
+              <em class="absolute -bottom-0.5 left-4.5 w-min text-[0.6em]">{index + 1}</em>
+              {item.url?.includes('bilibili') ? (
+                <BiliBiliSVG class="w-5 px-[0.075em]" />
+              ) : item.url?.includes('youtube') || item.url?.includes('you.tube') ? (
+                <YouTubeSVG class="w-5 px-0.5" />
+              ) : (
+                <LinkSVG class="w-5 pt-0.5" />
+              )}
+            </div>
+            <Separator orientation="vertical" class="h-full min-h-5 w-0.25" />
+            <a class="w-full hover:underline" href={item.url} target="_blank">
+              <em>{item.label}</em>
+            </a>
+          </li>
+        </div>
+      ))
+    }
+  </ol>
+</AreaBox>

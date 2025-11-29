@@ -1,0 +1,27 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Skill from '@/components/typography/Skill.astro'
+import { translations } from '../_translations'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+const sinisterSeeds = translations.sinisterSeeds
+---
+
+<EventSection time={time}>
+  <Skill name={sinisterSeeds} />
+  伤害判定
+  <DamageInfo damage="130000" type="magical" />
+  <MagicVulnerabilityUp tag="2" hover />
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="yellow">分散</Badge>
+  <Badge variant="cyan">放冰花</Badge>
+</EventSection>

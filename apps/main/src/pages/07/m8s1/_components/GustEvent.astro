@@ -1,0 +1,46 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import GustEffect from '../_components/GustEffect.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+
+  reverse?: boolean
+}
+
+const ability = translations.gust
+
+const { time, reverse = false }: Props = Astro.props
+---
+
+<EventSection time={time}>
+  <HowlingBlade />
+  {
+    reverse ? (
+      <>
+        点名<Span variant="pink">4</Span>
+        <RoleIcon role="dps" />或<Span variant="pink">4</Span>
+        <RoleIcon role="tank|healer" />
+      </>
+    ) : (
+      <>
+        点名<Span variant="pink">4</Span>
+        <RoleIcon role="tank|healer" />或<Span variant="pink">4</Span>
+        <RoleIcon role="dps" />
+      </>
+    )
+  }
+  <Span variant="yellow">{ability}</Span>
+  <GustEffect />
+  <Badge variant="emerald">5m圆形</Badge>
+  <Badge variant="yellow">分散</Badge>
+</EventSection>

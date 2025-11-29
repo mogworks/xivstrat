@@ -1,0 +1,69 @@
+---
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import Zelenia from '../_components/Zelenia.astro'
+---
+
+<MechanicSection>
+  <div class="flex gap-4">
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: 'imgs/07/zelenia/P3-1/P3-1-q.png',
+          alt: 'Zelenia：P3-1 旋转aoe',
+          // title: '先钢铁',
+        },
+      ]}
+    />
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <div class="paragraph">
+        <Zelenia />召唤一个旋转扇形aoe，<span>顺时针</span>或<span>逆时针</span>旋转
+      </div>
+      <div class="paragraph">
+        该aoe会引爆<Span variant="pink">红色地板</Span>
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      首先，<RoleIcon role="all" tag="全员" />前往三块相连的内圈灰色地板，如图1所示
+    </div>
+    <div class="paragraph">然后跟着箭头方向一同旋转即可</div>
+    <div class="paragraph">
+      <Span variant="yellow">注意：</Span>旋转过程中请不要踩到红色地板区域，总安全区域如图3所示
+    </div>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: 'imgs/07/zelenia/P3-1/P3-1-a1.png',
+          alt: 'Zelenia：P3-1 解法截图',
+          title: '[1] 找安全区',
+        },
+        {
+          src: 'imgs/07/zelenia/P3-1/P3-1-aq.png',
+          alt: 'Zelenia：P3-1 解法截图',
+          title: '[2] 人群在安全区集合',
+        },
+        {
+          src: 'imgs/07/zelenia/P3-1/P3-1-a2.png',
+          alt: 'Zelenia：P3-1 解法截图',
+          title: '[3] 无花纹的安全地板示意',
+        },
+      ]}
+    />
+  </div>
+</SolutionSection>

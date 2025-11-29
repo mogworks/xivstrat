@@ -1,0 +1,98 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import P from '@/components/typography/P.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import StratLink from '@/components/StratLink.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import Span from '@/components/Span.vue'
+import Skill from '@/components/typography/Skill.astro'
+
+import QuakeIIICast from './_components/QuakeIIICast.astro'
+import RiseOfTheHowlingWind from './_mechanics/RiseOfTheHowlingWind.astro'
+import TwinbiteCast from './_components/TwinbiteCast.astro'
+import UltraviolentRayCast from './_components/UltraviolentRayCast.astro'
+import HowlingBlade from './_components/entities/HowlingBlade.astro'
+
+import ChampionsCircuit from './_mechanics/ChampionsCircuit.astro'
+import ProwlingGale from './_mechanics/ProwlingGale.astro'
+
+import { translations } from './_translations'
+import BossAttackSection from './_components/BossAttackSection.astro'
+
+const dutyId = '07/m8s2'
+
+const base = '09:10.384'
+
+const prowlingGale = translations.prowlingGale
+const riseOfTheHowlingWind = translations.riseOfTheHowlingWind
+const bareFangs = translations.bareFangs
+const championsCircuit = translations.championsCircuit
+const quakeIII = translations.quakeIII
+const ultraviolentRay = translations.ultraviolentRay
+const twinbite = translations.twinbite
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <SeparatorSection id="prowling-gale" title=`${prowlingGale}` />
+  <ProwlingGale />
+  <SeparatorSection id="rise-of-the-howling-wind" title=`${riseOfTheHowlingWind}` />
+  <RiseOfTheHowlingWind />
+
+  <SeparatorSection id="bare-fangs-champions-circuit" title=`${bareFangs} + ${championsCircuit}` />
+  <ChampionsCircuit
+    start="10:03.132"
+    activateTimes={['10:19.279', '10:23.683', '10:28.038', '10:32.395', '10:36.755']}
+  />
+
+  <SeparatorSection id="QURT" title=`${quakeIII} + ${ultraviolentRay} + ${twinbite}` />
+  <QuakeIIICast start="10:41.608" />
+
+  <BossAttackSection time="10:47.438" damage="60000" damageType="physical" />
+  <BossAttackSection time="10:50.461" damage="60000" damageType="physical" />
+  <BossAttackSection time="10:53.483" damage="60000" damageType="physical" />
+
+  <UltraviolentRayCast start="10:54.772" />
+
+  <BossAttackSection time="11:02.509" damage="60000" damageType="physical" />
+
+  <TwinbiteCast start="11:04.913" />
+
+  <BossAttackSection time="11:12.561" damage="60000" damageType="physical" />
+  <BossAttackSection time="11:15.586" damage="60000" damageType="physical" />
+  <BossAttackSection time="11:18.614" damage="60000" damageType="physical" />
+
+  <SolutionSection>
+    <div class="flex flex-col gap-4">
+      <P>
+        参考P1阶段
+        <StratLink variant="yellow" href="/07/m8s2/p1#quake-iii">{quakeIII}</StratLink>
+        、
+        <StratLink variant="yellow" href="/07/m8s2/p1#ultraviolent-ray">{ultraviolentRay}</StratLink>
+        、
+        <StratLink variant="yellow" href="/07/m8s2/p1#twinbite">{twinbite}</StratLink>
+        的处理方法
+      </P>
+      <P>
+        注意：由于
+        <HowlingBlade />
+        发动
+        <Skill name={championsCircuit} />
+        时是面向随机平台的，躲避完五轮后
+        <HowlingBlade />
+        依然面向随机平台
+      </P>
+      <P>
+        并且之后一段时间都不会变化，因此在处理本轮
+        <Skill name={[quakeIII, ultraviolentRay, twinbite]}>
+          <Fragment slot="separator">+</Fragment>
+        </Skill>
+        时，<Span variant="cyan">请以初始平台作为正南基准</Span>
+      </P>
+      <P>
+        <Span variant="cyan">初始平台即之前被破坏又恢复的平台，同时也是之前集合躲避</Span>
+        <Skill name={championsCircuit} />
+        <Span variant="cyan">的平台</Span>
+      </P>
+    </div>
+  </SolutionSection>
+</DutyStratLayout>

@@ -1,0 +1,26 @@
+---
+import CosImage from '@/components/CosImage.astro'
+
+import { cn } from '@/lib/utils'
+
+interface Props {
+  icon: string
+  name: string
+  class?: string
+  [key: string]: unknown
+}
+
+const { icon, name, class: className = '', ...props }: Props = Astro.props
+---
+
+<span
+  class={cn(
+    'relative -mx-[calc(1em*2/18)] inline-block h-[calc(1em*30/18)] w-[calc(1em*30/18)] align-middle',
+    className,
+  )}
+  {...props}
+>
+  <div class="relative inline-block w-full">
+    <CosImage src={icon} alt={name} />
+  </div>
+</span>

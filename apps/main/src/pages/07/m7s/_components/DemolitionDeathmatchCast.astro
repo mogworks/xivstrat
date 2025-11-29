@@ -1,0 +1,25 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const demolitionDeathmatch = translations.demolitionDeathmatch
+// 连线dot伤害参考：
+// https://www.fflogs.com/reports/1wmf3zgKVaFyGJ2X?fight=6
+// https://www.fflogs.com/reports/yftNGbrFxadJQkH8?fight=7
+---
+
+<CastSection start={start} duration={2.7} ability={demolitionDeathmatch}>
+  <BruteAbombinator slot="source" />
+  <Badge variant="emerald">连线</Badge>
+  <Badge variant="orange">DoT</Badge>
+</CastSection>

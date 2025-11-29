@@ -1,0 +1,25 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection
+  start={start}
+  duration={4.7}
+  damage="100000"
+  damageType="magical"
+  ability={translations.TwofoldBlight + '或' + translations.FourfoldBlight}
+>
+  <MagicVulnerabilityUp tag="1" hover />
+  <Badge variant="yellow">分摊</Badge>
+</CastSection>

@@ -1,0 +1,57 @@
+---
+/*
+
+Skill.astro
+Author: Fish Fly
+
+Param:
+  - name              : string/array of skills' name
+  - variant?          : variant of the internal <Span> elements
+  - separatorVariant? : variant of the saparators
+  - slot separator    : replace the default separator '|'
+
+Example:  <Skill
+              name={['crychic', 'mygo', 'avemujica']}
+              variant='lime'
+              separatorVariant='white'
+          >
+              <Span slot="separator" variant="lime">&</span>    // uses custom separator
+          </Skill>
+
+*/
+
+import type { VariantType } from '@/lib/variant'
+
+import Span from '@/components/Span.vue'
+
+interface Props {
+  name: string | string[]
+  variant?: VariantType
+  separatorVariant?: VariantType
+}
+
+const { name = '', variant = 'yellow', separatorVariant = 'default' } = Astro.props
+---
+
+{
+  typeof name === 'string' ? (
+    // if name is a string
+    <Span variant={variant}>{name}</Span>
+  ) : (
+    <div class="gap-strat inline-flex items-center">
+      {
+        // or an Array
+        name.map((item, index) => (
+          <>
+            <Span variant={variant}>{item}</Span>
+            {index < name.length - 1 && (
+              <slot name="separator">
+                <Span variant={separatorVariant}>|</Span>
+              </slot>
+            )}
+          </>
+        ))
+      }
+    </div>
+  )
+}

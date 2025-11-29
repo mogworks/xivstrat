@@ -1,0 +1,182 @@
+{
+  "name": "永远之暗悲惶歼灭战",
+  "short": "Necron",
+  "spoilerFree": false,
+  "spoilerFreeName": "極 ? ? ? 討滅戦（已初步更新完毕）",
+  "type": "trial",
+  "title": "永远之暗悲惶歼灭战 攻略",
+  "description": "最终幻想14 永远之暗悲惶歼灭战 超详解动态图文攻略",
+  "banner": "imgs/banners/07/necron.png",
+  "date": "25/08/07 12:00",
+  "href": "/07/necron",
+  "status": "done",
+  "indexAvailable": true,
+  "bilibili": "https://www.bilibili.com/video/BV1xWatzpEdU/",
+  "phases": [
+    {
+      "href": "/07/necron/p1",
+      "title": "Phase 1",
+      "subtitle": "前半",
+      "name": "P1 - 前半",
+      "mechanics": [
+        {
+          "href": "#blue-shockwave",
+          "name": "青之冲击",
+          "name_en": "Blue Shockwave",
+          "name_ch": "青之冲击",
+          "name_ja": "青の衝撃"
+        },
+        {
+          "href": "#fear-of-death",
+          "name": "死之恐惧",
+          "name_en": "Fear of Death",
+          "name_ch": "死之恐惧",
+          "name_ja": "死の恐怖"
+        },
+        {
+          "href": "#cold-grip",
+          "name": "暗之死腕",
+          "name_en": "Cold Grip",
+          "name_ch": "暗之死腕",
+          "name_ja": "暗き死の腕"
+        },
+        {
+          "href": "#memento-mori",
+          "name": "死亡警告",
+          "name_en": "Memento Mori",
+          "name_ch": "死亡警告",
+          "name_ja": "メメント・モリ"
+        },
+        {
+          "href": "#soul-reaping",
+          "name": "青魂",
+          "name_en": "Soul Reaping",
+          "name_ch": "青魂",
+          "name_ja": "青き魂"
+        },
+        {
+          "href": "#twofold-fourfold-blight",
+          "name": "青之二重波/四重波",
+          "name_en": "Twofold/Fourfold Blight",
+          "name_ch": "青之二重波/四重波",
+          "name_ja": "青の二/四重波"
+        },
+        {
+          "href": "#the-ends-embrace",
+          "name": "引导之翼",
+          "name_en": "The End's Embrace",
+          "name_ch": "引导之翼",
+          "name_ja": "導きの翼"
+        },
+        {
+          "href": "#grand-cross",
+          "name": "大十字",
+          "name_en": "Grand Cross",
+          "name_ch": "大十字",
+          "name_ja": "グランドクロス"
+        }
+      ]
+    },
+    {
+      "href": "/07/necron/p2",
+      "title": "Phase 2",
+      "subtitle": "”百年风化“ + 小怪",
+      "name": "P2 - ”百年风化“ + 小怪",
+      "mechanics": [
+        {
+          "href": "#grand-cross",
+          "name": "大十字",
+          "name_en": "Grand Cross",
+          "name_ch": "大十字",
+          "name_ja": "グランドクロス"
+        },
+        {
+          "href": "#neutron-ring",
+          "name": "中子环",
+          "name_en": "Neutron Ring",
+          "name_ch": "中子环",
+          "name_ja": "ニュートンリング"
+        },
+        {
+          "href": "#darkness-of-eternity",
+          "name": "永远之暗",
+          "name_en": "Darkness of Eternity",
+          "name_ch": "永远之暗",
+          "name_ja": "エターナルダークネス"
+        }
+      ]
+    },
+    {
+      "href": "/07/necron/p3",
+      "title": "Phase 3",
+      "subtitle": "后半",
+      "name": "P3 - 后半",
+      "mechanics": [
+        {
+          "href": "#specter-of-death",
+          "name": "黑暗巨腕",
+          "name_en": "Specter of Death",
+          "name_ch": "黑暗巨腕",
+          "name_ja": "闇の巨腕"
+        },
+        {
+          "href": "#the-ends-embrace",
+          "name": "引导之翼",
+          "name_en": "The End's Embrace",
+          "name_ch": "引导之翼",
+          "name_ja": "導きの翼"
+        },
+        {
+          "href": "#cold-grip",
+          "name": "暗之死腕",
+          "name_en": "Cold Grip",
+          "name_ch": "暗之死腕",
+          "name_ja": "暗き死の腕"
+        },
+        {
+          "href": "#relentless-reaping",
+          "name": "青之连魂",
+          "name_en": "Relentless Reaping",
+          "name_ch": "青之连魂",
+          "name_ja": "連なる青き魂"
+        },
+        {
+          "href": "#crop-rotation",
+          "name": "灵魂轮转",
+          "name_en": "Crop Rotation",
+          "name_ch": "灵魂轮转",
+          "name_ja": "魂の輪転"
+        },
+        {
+          "href": "#the-second-fourth-season",
+          "name": "二重/四重青之波潮",
+          "name_en": "The Second/Fourth Season",
+          "name_ch": "二重/四重青之波潮",
+          "name_ja": "青の式波・二/四重"
+        },
+        {
+          "href": "#circle-of-lives",
+          "name": "青之环波",
+          "name_en": "Circle of Lives",
+          "name_ch": "青之环波",
+          "name_ja": "青の輪波"
+        },
+        {
+          "href": "#mass-macabre",
+          "name": "群体恐慌",
+          "name_en": "Mass Macabre",
+          "name_ch": "群体恐慌",
+          "name_ja": "集団恐慌"
+        },
+        {
+          "href": "#darkness-of-eternity",
+          "name": "永远之暗",
+          "name_en": "Darkness of Eternity",
+          "name_ch": "永远之暗",
+          "name_ja": "エターナルダークネス"
+        }
+      ]
+    }
+  ],
+  "locales": {}
+}

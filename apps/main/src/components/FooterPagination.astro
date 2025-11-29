@@ -1,0 +1,102 @@
+---
+import type { Duty } from '@/data/duty'
+import { cn } from '@/lib/utils'
+import LeftArrow from '@/svg/left-arrow.svg?raw'
+import RightArrow from '@/svg/right-arrow.svg?raw'
+
+interface Props {
+  duty: Duty
+}
+const { duty }: Props = Astro.props
+const phases = duty.phases
+const basePath = (() => {
+  if (duty.status === 'upcoming') return undefined
+  if (duty.indexAvailable) return duty.href
+  return undefined
+})()
+// 构造包含副本首页的fullPhases
+const fullPhases =
+  basePath !== undefined
+    ? [
+        {
+          name: 'home',
+          title: '首页',
+          href: basePath,
+          subtitle: '副本信息',
+          mechanics: [],
+        },
+        ...phases,
+      ]
+    : phases
+const currentPath = Astro.url.pathname
+const currentIndex = fullPhases.findIndex((phase) => currentPath === phase.href || currentPath === `${phase.href}/`)
+const prev = currentIndex > 0 ? fullPhases[currentIndex - 1] : null
+const next = currentIndex < fullPhases.length - 1 ? fullPhases[currentIndex + 1] : null
+const isHome = currentPath === duty.href || currentPath === `${duty.href}/`
+---
+
+<!-- 分别适配副本首页和攻略页排版 -->
+<div class={cn('mt-4 grid grid-cols-2 gap-4', !isHome && 'ml-64 px-4')}>
+  <div
+    class={cn(
+      prev
+        ? 'rounded-lg border-1 border-zinc-200 bg-zinc-50 shadow-md transition-all duration-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-100/50 dark:border-zinc-700 dark:bg-zinc-800/50 dark:hover:border-blue-500 dark:hover:shadow-blue-900/20'
+        : 'rounded-lg border border-dashed border-zinc-300 bg-zinc-100/50 opacity-60 dark:border-zinc-600 dark:bg-zinc-700/30',
+    )}
+  >
+    {
+      prev ? (
+        <a href={prev.href} rel="prev">
+          <div class="flex flex-col gap-3 p-6">
+            <div class="flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400">
+              <span set:html={LeftArrow} class="text-blue-600 dark:text-blue-400" />
+              上一页
+            </div>
+            <div class="text-xl">
+              {prev.title}：{prev.subtitle}
+            </div>
+          </div>
+        </a>
+      ) : (
+        <div class="flex cursor-not-allowed flex-col gap-3 p-6">
+          <div class="flex items-center gap-2 text-sm font-bold text-gray-400 dark:text-gray-500">
+            <span set:html={LeftArrow} class="text-gray-400 dark:text-gray-500" />
+            上一页
+          </div>
+          <div class="text-xl text-gray-400 dark:text-gray-500">已经是第一页</div>
+        </div>
+      )
+    }
+  </div>
+  <div
+    class={cn(
+      next
+        ? 'rounded-lg border-1 border-zinc-200 bg-zinc-50 shadow-md transition-all duration-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-100/50 dark:border-zinc-700 dark:bg-zinc-800/50 dark:hover:border-blue-500 dark:hover:shadow-blue-900/20'
+        : 'rounded-lg border border-dashed border-zinc-300 bg-zinc-100/50 opacity-60 dark:border-zinc-600 dark:bg-zinc-700/30',
+    )}
+  >
+    {
+      next ? (
+        <a href={next.href} rel="next">
+          <div class="flex flex-col gap-3 p-6 text-right">
+            <div class="flex items-center justify-end gap-2 text-sm font-bold text-blue-600 dark:text-blue-400">
+              下一页
+              <span set:html={RightArrow} class="text-blue-600 dark:text-blue-400" />
+            </div>
+            <div class="text-xl">
+              {next.title}：{next.subtitle}
+            </div>
+          </div>
+        </a>
+      ) : (
+        <div class="flex cursor-not-allowed flex-col gap-3 p-6 text-right">
+          <div class="flex items-center justify-end gap-2 text-sm font-bold text-gray-400 dark:text-gray-500">
+            下一页
+            <span set:html={RightArrow} class="text-gray-400 dark:text-gray-500" />
+          </div>
+          <div class="text-xl text-gray-400 dark:text-gray-500">已经是最后一页</div>
+        </div>
+      )
+    }
+  </div>
+</div>

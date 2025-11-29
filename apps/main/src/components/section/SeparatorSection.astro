@@ -1,0 +1,31 @@
+---
+import type { VariantType } from '@/lib/variant'
+
+import Separator from '@/components/Separator.astro'
+import Span from '@/components/Span.vue'
+import ContentSection from '@/components/section/ContentSection.astro'
+
+interface Props {
+  title?: string
+  variant?: VariantType
+  [key: string]: unknown
+}
+
+const { title = '', variant = 'zinc', ...rest }: Props = Astro.props
+---
+
+<ContentSection class="separator-section" {...rest}>
+  {
+    title ? (
+      <div class="flex items-center gap-4">
+        <Separator class="shrink" />
+        <Span variant={variant} class="grow text-nowrap">
+          {title}
+        </Span>
+        <Separator class="shrink" />
+      </div>
+    ) : (
+      <Separator />
+    )
+  }
+</ContentSection>

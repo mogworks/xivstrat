@@ -1,0 +1,25 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+
+import HowlingBlade from './entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const duration = 7.7
+
+const championsCircuit = translations.championsCircuit
+---
+
+<CastSection start={start} duration={duration} ability={championsCircuit}>
+  <HowlingBlade slot="source" />
+  <Fragment slot="cast">面向随机平台中心，读条</Fragment>
+  <Badge variant="yellow">“转转乐”</Badge>
+</CastSection>

@@ -1,0 +1,25 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const duration = 4.7
+
+const millennialDecay = translations.millennialDecay
+---
+
+<CastSection start={start} duration={duration} ability={millennialDecay} target damage="170000" damageType="magical">
+  <HowlingBlade slot="source" />
+  <Badge variant="purple">AoE</Badge>
+</CastSection>

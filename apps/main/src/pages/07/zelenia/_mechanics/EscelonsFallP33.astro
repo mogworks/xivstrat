@@ -1,0 +1,200 @@
+---
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+const first = 'imgs/07/zelenia/EP3/EP33-1.png'
+const AABB1 = 'imgs/07/zelenia/EP3/EP33-3.png'
+const AABB2 = 'imgs/07/zelenia/EP3/EP33-j-1.png'
+const AABB3 = 'imgs/07/zelenia/EP3/EP33-j-2.png'
+const AABB4 = 'imgs/07/zelenia/EP3/EP33-j-3.png'
+const AABB5 = 'imgs/07/zelenia/EP3/EP33-j-4.png'
+const ABBA1 = 'imgs/07/zelenia/EP3/EP33-5.png'
+const ABBA2 = 'imgs/07/zelenia/EP3/EP33-j2-1.png'
+const ABBA3 = 'imgs/07/zelenia/EP3/EP33-j2-2.png'
+const ABBA4 = 'imgs/07/zelenia/EP3/EP33-j2-3.png'
+const ABBA5 = 'imgs/07/zelenia/EP3/EP33-j2-4.png'
+---
+
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      这是一个组合机制，由<Span variant="purple">四连远近刀</Span>
+      +点名<RoleIcon role="tank" /><RoleIcon role="healer" />或<RoleIcon role="dps" />
+      <Span variant="blue">月环</Span>
+      + 点名<RoleIcon role="tank" /><RoleIcon role="healer" />和<RoleIcon role="dps" />
+      <Span variant="yellow">分摊</Span>组成
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">四连远近刀：</Span>
+    </div>
+    <div class="paragraph">
+      BOSS身上显示
+      <Span variant="purple">远引导标记</Span>
+      或
+      <Span variant="pink">近引导标记</Span>
+      <span></span>x4<span></span>次
+    </div>
+    <div class="paragraph">
+      代表接下来每次需要<span></span>4<span></span>人进行
+      <Span variant="purple">远引导</Span>
+      或
+      <Span variant="pink">近引导</Span>
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">月环：</Span>
+      BOSS会对<RoleIcon role="tank" /><RoleIcon role="healer" />或<RoleIcon role="dps" />释放和P1开场同款的月环点名
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">分摊：</Span>
+      BOSS会随机对1<RoleIcon role="tank" /><RoleIcon role="healer" />和1<RoleIcon role="dps" />释放圆形分摊
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex gap-4">
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: first,
+          alt: 'Zelenia：P1 四连远近刀',
+          title: '引导位置示意',
+        },
+      ]}
+    />
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <div class="paragraph">
+        由于被点名月环的人不能移动，因此这里需要另外4人先引导第一刀，然后根据远近刀情况进行位置调整。
+      </div>
+      <div class="paragraph">
+        机制开始时
+        <RoleIcon role="tank" /><RoleIcon role="healer" />在A方向<Span variant="pink">目标圈上</Span>集合，
+        <RoleIcon role="dps" />在C方向<Span variant="pink">目标圈上</Span>集合。
+      </div>
+      <div class="paragraph">分摊结束后，非月环组需要根据第一刀的情况进行位置调整：</div>
+      <div class="paragraph">
+        若第一刀为近刀，则需要向<Span variant="pink">目标圈内</Span>走一步并且分散。
+      </div>
+      <div class="paragraph">
+        若第一刀为远刀则需要向<Span variant="purple">目标圈外</Span>走一步分散。
+      </div>
+      <div class="paragraph">之后根据是AABB还是ABBA来进行位置调整</div>
+      <div class="paragraph">
+        <Span variant="yellow">AABB</Span>
+      </div>
+      <div class="paragraph">第一三刀后换位</div>
+      <div class="paragraph">
+        <Span variant="yellow">ABBA</Span>
+      </div>
+      <div class="paragraph">第二刀后换位</div>
+    </div>
+  </div>
+  <div class="mt-10 flex flex-col gap-4">
+    <div class="paragraph">
+      <Span variant="yellow">月环点名<RoleIcon role="tank" /><RoleIcon role="healer" />并且四连刀为远远近近：</Span>
+    </div>
+    <div class="paragraph">
+      分摊后<RoleIcon role="dps" />向<Span variant="purple">目标圈外</Span>一步，并且按图示站位分散。
+    </div>
+    <div class="paragraph">
+      第一刀后<RoleIcon role="tank" /><RoleIcon role="healer" />向外，来到<Span variant="purple">目标圈外</Span
+      >一步分散站位，<RoleIcon role="dps" />向内，来到<Span variant="pink">目标圈内</Span>一步
+    </div>
+    <div class="paragraph">第二刀后不动。</div>
+    <div class="paragraph">
+      第三刀后<RoleIcon role="tank" /><RoleIcon role="healer" />向内，来到<Span variant="pink">目标圈内</Span
+      >一步，<RoleIcon role="dps" />向外，来到<Span variant="purple">目标圈外</Span>一步
+    </div>
+    <div class="flex">
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-88"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: AABB1,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '初始站位',
+          },
+          {
+            src: AABB2,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+          {
+            src: AABB3,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+          {
+            src: AABB4,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+          {
+            src: AABB5,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+        ]}
+      />
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">月环点名<RoleIcon role="dps" />并且四连刀为近远远近：</Span>
+    </div>
+    <div class="paragraph">
+      分摊后<RoleIcon role="tank" /><RoleIcon role="healer" />向<Span variant="pink">目标圈内</Span
+      >一步，并且按图示站位分散。
+    </div>
+    <div class="paragraph">第一刀后不动。</div>
+    <div class="paragraph">
+      第二刀后<RoleIcon role="tank" /><RoleIcon role="healer" />向外，来到<Span variant="purple">目标圈外</Span
+      >一步分散站位，<RoleIcon role="dps" />向内，来到<Span variant="pink">目标圈内</Span>一步
+    </div>
+    <div class="paragraph">第三刀后不动。</div>
+    <div class="flex">
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-88"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: ABBA1,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '初始站位',
+          },
+          {
+            src: ABBA2,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+          {
+            src: ABBA3,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+          {
+            src: ABBA4,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+          {
+            src: ABBA5,
+            alt: 'Zelenia：P1 四连远近刀',
+            title: '引导位置示意',
+          },
+        ]}
+      />
+    </div>
+  </div>
+</SolutionSection>

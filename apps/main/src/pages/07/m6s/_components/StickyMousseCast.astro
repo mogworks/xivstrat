@@ -1,0 +1,53 @@
+---
+import { timeToSeconds, type Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+
+import MousseMineDebuff from './MousseMineDebuff.astro'
+import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  end: Time
+}
+
+const { start, end }: Props = Astro.props
+const { Burst, StickyMousse, MousseMine } = translations
+---
+
+<CastSection start={start} end={end} ability={StickyMousse} target damage="95000" damageType="magical">
+  <SugarRiot slot="source" />
+  <div slot="target" class="paragraph">
+    随机
+    <Span variant="default">2</Span>
+    <RoleIcon role="healer" />
+    或
+    <RoleIcon role="dps" />
+  </div>
+  <MagicVulnerabilityUp tag="2" hover />
+  <Badge variant="emerald">4m圆形</Badge>
+  <Badge variant="yellow">分散</Badge>
+</CastSection>
+<EventSection time={timeToSeconds(end) + 0.9}>
+  被
+  <Span variant="yellow">{StickyMousse}</Span>
+  命中的玩家被赋予
+  <MousseMineDebuff tag="5" hover />
+</EventSection>
+<EventSection time={timeToSeconds(end) + 0.9 + 5.0}>
+  <Span variant="yellow">{MousseMine}</Span>
+  <MousseMineDebuff hover />
+  伤害判定
+  <Span variant="yellow">{Burst}</Span>
+  <DamageInfo damage="160000" type="magical" />
+  <MagicVulnerabilityUp tag="2" hover />
+  <Badge variant="emerald">4m圆形</Badge>
+  <Badge variant="yellow">四四分摊</Badge>
+</EventSection>

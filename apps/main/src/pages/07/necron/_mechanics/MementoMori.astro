@@ -1,0 +1,153 @@
+---
+import type { Time } from '@/lib/utils'
+
+import P from '@/components/typography/P.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import Bleeding from '@/components/buff/Bleeding.astro'
+import Boss from '@/components/Boss.astro'
+import Quote from '@/components/typography/Quote.astro'
+
+import { translations } from '../_translations'
+
+import MementoMoriCast from '../_components/MementoMoriCast.astro'
+import SmiteOfGloomCast from '../_components/SmiteOfGloomCast.astro'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<MementoMoriCast start={start} />
+<SmiteOfGloomCast start="00:54.881" />
+
+<MechanicSection>
+  <!-- MementoMori -->
+  <div class="flex flex-col gap-4" id="memento-mori">
+    <T>
+      <Skill name={translations.MementoMori} />
+    </T>
+    <P>辣尾 + 场中5触手 + 8人大圈分散</P>
+    <P>
+      <Boss />两侧手发光，随机一侧是淡蓝色特效，另一侧是暗紫色特效
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      wrapperClass="max-w-160"
+      imgs={[
+        {
+          src: 'imgs/07/necron/MementoMori_1.png',
+          alt: '',
+          title: '上图左/西侧为淡蓝色特效，右/东侧为暗紫色特效',
+        },
+      ]}
+    />
+    <P>场中触手有1只会朝向淡蓝色特效一侧，剩余4只会朝向暗紫色特效一侧</P>
+    <P>朝向淡蓝色特效一侧的触手一定在第2/3/4排，不会在第一排和最后一排</P>
+    <ImgRow
+      borderVariant="cyan"
+      wrapperClass="max-w-160"
+      imgs={[
+        {
+          src: 'imgs/07/necron/MementoMori_2.png',
+          alt: '',
+          title: '上图西侧（图片右侧）为淡蓝色特效，东侧（图片左侧）为暗紫色特效',
+        },
+      ]}
+    />
+    <T>
+      <Skill name={translations.SmiteOfGloom} />
+    </T>
+    <P>
+      点名
+      <RoleIcon role="all" tag="全员" />
+      大圈分散并赋予魔法易伤，重叠即死。 同时触手读条<Skill name={translations.ChokingGrasp} />释放直线攻击
+      <ImgRow
+        borderVariant="cyan"
+        wrapperClass="max-w-160"
+        imgs={[
+          {
+            src: 'imgs/07/necron/MementoMori_3.png',
+            alt: '',
+          },
+        ]}
+      />
+    </P>
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4" id="memento-mori">
+    <P>由于暗紫色特效的一侧只有一行安全，只能站下两人，所以需要 2 : 6 分散</P>
+    <P>按下图分散即可，每人只有两个位置，根据发光特效决定站哪边</P>
+    <ImgRow
+      borderVariant="cyan"
+      wrapperClass="max-w-120"
+      imgs={[
+        {
+          src: 'imgs/07/necron/MementoMori_solution_1.png',
+          alt: '',
+          title: '西侧淡蓝，情形1',
+        },
+        {
+          src: 'imgs/07/necron/MementoMori_solution_2.png',
+          alt: '',
+          title: '西侧淡蓝，情形2',
+        },
+      ]}
+    />
+    <ImgRow
+      borderVariant="cyan"
+      wrapperClass="max-w-120"
+      imgs={[
+        {
+          src: 'imgs/07/necron/MementoMori_solution_3.png',
+          alt: '',
+          title: '西侧淡蓝，情形3',
+        },
+        {
+          src: 'imgs/07/necron/MementoMori_solution_4.png',
+          alt: '',
+          title: '东侧淡蓝，情形1，其它情况不再赘述',
+        },
+      ]}
+    />
+    <P>具体来说：</P>
+    <Quote variant="lime">
+      <P>
+        1. 大体上按照西半场
+        <RoleIcon role="tank" tag="MT" />
+        组、东半场
+        <RoleIcon role="tank" tag="ST" />
+        组来分位置
+      </P>
+      <P>2. 淡蓝色一侧的第一排和最后一排必定安全，原本属于这侧的4人分别站四个角落即可</P>
+      <P>
+        3. 自己半场是暗紫色特效时，两个
+        <RoleIcon role="tank|dps" tag="近战" />
+        换边
+      </P>
+      <P>
+        4. 为了保证输出和方便治疗，让
+        <RoleIcon role="dps" tag="近战" />
+        和
+        <RoleIcon role="healer" />
+        贴近场中
+      </P>
+      <P>
+        5. 如果
+        <RoleIcon role="dps" tag="D2" />
+        是远程，那么把靠近场中的位置让给
+        <RoleIcon role="tank" />
+      </P>
+    </Quote>
+    <P>注意不要站进场中触手所在的紫色区域，否则会吃到剧痛的<Bleeding hover /></P>
+    <P>（大圈判定后，紫色区域也还会留存一段时间）</P>
+  </div>
+</SolutionSection>

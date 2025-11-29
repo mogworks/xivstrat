@@ -1,0 +1,27 @@
+---
+import { cn } from '@/lib/utils'
+
+import Icon from '@/components/Icon.astro'
+
+interface Props {
+  icon: string
+  tag?: string
+  alt?: string
+  class?: string
+  iconClass?: string
+  [key: string]: unknown
+}
+
+const { icon, tag = '', alt = '', class: className = '', iconClass = '', ...rest }: Props = Astro.props
+---
+
+<div
+  class={cn('entity-icon relative h-full inline-flex items-center gap-px align-middle', className)}
+  data-icon="standard-icon"
+  {...rest}
+>
+  <slot name="icon">
+    <Icon img={icon} alt={alt ?? tag} tag={tag} iconClass={iconClass} />
+  </slot>
+  <slot />
+</div>

@@ -1,0 +1,92 @@
+---
+
+import CosImage from '@/components/CosImage.astro'
+
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import BurnBabyBurn from '../_components/BurnBabyBurn.astro'
+import InsideOutOrOutsideInCast from '../_components/InsideOutOrOutsideInCast.astro'
+import QuarterOrEighthBeatsCast from '../_components/QuarterOrEighthBeatsCast.astro'
+
+import { translations } from '../_translations'
+---
+
+<CastSection start="08:42.080" duration={2.2} ability={translations.funkyFloor} />
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <StratLink variant="yellow" href="/07/m5s/p1#funky-floor">{translations.funkyFloor}</StratLink>
+      返场，但本次没有
+      <Span variant="cyan">聚光灯</Span>
+      ，也无需处理
+      <BurnBabyBurn hover />
+      ，躲好
+      <Span variant="rose">地面AoE</Span>
+      即可
+    </div>
+  </div>
+</NoteSection>
+<QuarterOrEighthBeatsCast start="08:47.737" />
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      躲避
+      <Span variant="rose">地面AoE</Span>
+      的同时处理分摊/分散
+    </div>
+  </div>
+</NoteSection>
+<SolutionSection id="funky_floor/p3_beats_solution">
+  <div class="flex gap-4">
+    <div class="max-w-90 shrink">
+      <CosImage
+        src="imgs/07/m5s/funky_floor/p3_beats_solution.png"
+        alt="Funky Floor P3 Beats Solution"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+    </div>
+    <div class="shrink-0 grow space-y-4">
+      <div class="paragraph">
+        每人只在各自区域的两个格子间左右横穿躲避
+        <Span variant="rose">地面AoE</Span>
+      </div>
+      <div class="paragraph">若为分散，则按图示站位</div>
+      <div class="paragraph">若为分摊，则远程找近战即可</div>
+      <div class="paragraph">
+        分散圈的半径为
+        <Span variant="pink">5m</Span>
+        ，与格子边长相同
+      </div>
+      <div class="paragraph">图示任意两人距离都长于一格边长</div>
+    </div>
+  </div>
+</SolutionSection>
+<InsideOutOrOutsideInCast start="08:55.886" />
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      躲避
+      <Span variant="rose">地面AoE</Span>
+      的同时处理钢铁/月环
+    </div>
+  </div>
+</NoteSection>
+<QuarterOrEighthBeatsCast start="09:07.874" />
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      必定和前一次不同，按
+      <StratLink variant="lime" href="#funky_floor/p3_beats_solution">前文</StratLink>
+      处理
+    </div>
+  </div>
+</NoteSection>
+<EventSection time="09:15.0">
+  <Span variant="yellow">{translations.funkyFloor}</Span>
+  效果结束
+</EventSection>

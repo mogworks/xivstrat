@@ -1,0 +1,19 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import FlipToXSideAbility from './FlipToXSideAbility.astro'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={3.7}>
+  <FlipToXSideAbility slot="ability" />
+  <Badge variant="emerald">延迟生效</Badge>
+</CastSection>

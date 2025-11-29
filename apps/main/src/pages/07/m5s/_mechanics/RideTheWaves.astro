@@ -1,0 +1,411 @@
+---
+
+import CosImage from '@/components/CosImage.astro'
+
+import Badge from '@/components/Badge.astro'
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import StratLink from '@/components/StratLink.astro'
+import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import AttackSection from '@/components/section/AttackSection.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import P from '@/components/typography/P.astro'
+
+import QuarterOrEighthBeatsAbility from '../_components/QuarterOrEighthBeatsAbility.astro'
+import QuarterOrEighthBeatsCast from '../_components/QuarterOrEighthBeatsCast.astro'
+
+import { translations } from '../_translations'
+import JobIcon from '@/components/JobIcon.astro'
+
+const solutions = [
+  {
+    id: 'ride-the-waves-solution-optimize',
+    title: '解法：近战优化',
+  },
+  {
+    id: 'ride-the-waves-solution-jp',
+    title: '解法：日野主流',
+  },
+]
+const defaultSolution = '解法：近战优化'
+---
+
+<CastSection start="03:48.804" duration={3.2} ability={translations.rideTheWaves}>
+  <Badge variant="yellow">步进式地火</Badge>
+</CastSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <RoleIcon role="tank" tag="双T" />
+      注意：若采用
+      <StratLink variant="lime" href="#ride-the-waves-solution-jp">解法：日野主流</StratLink>
+      ，读条后只有
+      <Span variant="pink">5s</Span>
+      调整
+      <Boss />
+      位置
+    </div>
+    <div class="paragraph">
+      <RoleIcon role="tank" tag="MT" />
+      尽快拉到两列安全列之间，以免近战罚站，
+      <RoleIcon role="tank" tag="ST" />
+      可视情况挑衅带位
+    </div>
+  </div>
+</NoteSection>
+<AttackSection time="03:53.2" damage="55000" damageType="physical" />
+<AttackSection time="03:56.2" damage="55000" damageType="physical" />
+<QuarterOrEighthBeatsCast start="03:57.454" />
+<AttackSection time="04:04.3" damage="55000" damageType="physical" />
+<QuarterOrEighthBeatsCast start="04:05.611" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">{translations.rideTheWaves}</Span>
+    </h4>
+    <div class="paragraph">
+      场地
+      <Span variant="pink">北边</Span>
+      出现步进式地火预兆，地火行进方向固定由北向南，只有如下两种情况
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/25_omen.png"
+          alt="Ride the Waves Omen (2nd & 5th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形1：初始第2、5列安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/47_omen.png"
+          alt="Ride the Waves Omen (4th & 7th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形2：初始第4、7列安全</div>
+      </div>
+    </div>
+    <div class="paragraph mt-4">在地火行进至南半场时，安全区会固定向第3、6列拐一下，最终形成如下的图形</div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/25_final.png"
+          alt="Ride the Waves Final (Initial 2nd & 5th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形1：初始第2、5列安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/47_final.png"
+          alt="Ride the Waves Final (Initial 4th & 7th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形2：初始第4、7列安全</div>
+      </div>
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{translations.quarterBeats}</Span>
+    </h4>
+    <div class="paragraph">
+      点名
+      <Span variant="default">4</Span>
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      或
+      <Span variant="default">4</Span>
+      <RoleIcon role="dps" />
+      的半径
+      <Span variant="pink">4m</Span>
+      的圆形AoE，二人分摊时造成
+      <DamageInfo damage="125000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{translations.eighthBeats}</Span>
+    </h4>
+    <div class="paragraph">
+      点名
+      <RoleIcon role="all" tag="全员" />
+      的半径
+      <Span variant="pink">5m</Span>
+      的圆形AoE，造成
+      <DamageInfo damage="125000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+    </div>
+  </div>
+</MechanicSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <Span variant="yellow">{translations.rideTheWaves}</Span>
+      期间会有两次不同的
+      <QuarterOrEighthBeatsAbility />
+    </div>
+    <div class="paragraph">
+      第1次
+      <QuarterOrEighthBeatsAbility />
+      判定时，地火刚好跑完北半场
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/25_half.png"
+          alt="Ride the Waves Half (Initial 2nd & 5th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形1：初始第2、5列安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/47_half.png"
+          alt="Ride the Waves Half (Initial 4th & 7th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形2：初始第4、7列安全</div>
+      </div>
+    </div>
+    <div class="paragraph mt-4">
+      第2次
+      <QuarterOrEighthBeatsAbility />
+      判定时，地火刚好跑完整个场地
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/25_final.png"
+          alt="Ride the Waves Final (Initial 2nd & 5th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形1：初始第2、5列安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/47_final.png"
+          alt="Ride the Waves Final (Initial 4th & 7th Column)"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形2：初始第4、7列安全</div>
+      </div>
+    </div>
+  </div>
+</NoteSection>
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：近战优化" class="flex flex-col gap-4">
+    <div class="paragraph border-l-2 border-lime-500 pl-2 opacity-80">以初始第2、5列安全为例</div>
+    <div class="paragraph mt-4">
+      <RoleIcon role="tank" tag="MT" />
+      注意：在
+      <Boss />
+      目标圈
+      <StratLink variant="lime" href="#target-circle-restore">恢复身位限制时</StratLink>
+      ，预先将
+      <Boss />
+      拉到南半场
+    </div>
+    <div class="paragraph mt-4">
+      由于第1次
+      <QuarterOrEighthBeatsAbility />
+      判定时，南半场没有地火，近战组大可不必去北半场没苦硬吃
+    </div>
+    <div class="paragraph">且远程组去北半场也不会增加处理难度，因此，可以将近战组和远程组整体换位，如下</div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/optimize_1.png"
+          alt="Ride the Waves Optimize Solution 1/4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">
+          情形1：
+          <Span variant="yellow">{translations.quarterBeats}</Span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/optimize_2.png"
+          alt="Ride the Waves Optimize Solution 2/4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">
+          情形2：
+          <Span variant="yellow">{translations.eighthBeats}</Span>
+        </div>
+      </div>
+    </div>
+    <div class="paragraph">
+      这样一来，第1次
+      <QuarterOrEighthBeatsAbility />
+      判定时，近战组在南半场的站位就会非常宽松
+    </div>
+    <div class="paragraph">
+      且第2次
+      <QuarterOrEighthBeatsAbility />
+      判定前，
+      <RoleIcon role="tank" tag="MT" />
+      也会有更多时间将
+      <Boss />
+      拉到两列安全列之间
+    </div>
+    <div class="paragraph mt-4">
+      相应的，第2次
+      <QuarterOrEighthBeatsAbility />
+      判定时，站位如下
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/optimize_3.png"
+          alt="Ride the Waves Optimize Solution 3/4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">
+          情形1：
+          <Span variant="yellow">{translations.quarterBeats}</Span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/optimize_4.png"
+          alt="Ride the Waves Optimize Solution 4/4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">
+          情形2：
+          <Span variant="yellow">{translations.eighthBeats}</Span>
+        </div>
+      </div>
+    </div>
+    <P>
+      近战注意：第2次
+      <QuarterOrEighthBeatsAbility />
+      到
+      <Boss />
+      跳回场中有
+      <Span variant="cyan">3s</Span>
+      的间隔
+    </P>
+    <P>
+      图中
+      <Span variant="red">红框</Span>
+      标注的格子下一轮是安全的，分散/分摊判定后可以直接去，这样就不会被卡GCD了
+    </P>
+    <P class="mt-4">
+      考虑到
+      <Span variant="default">D3</Span>
+      <JobIcon job="DNC" />
+      和
+      <Span variant="default">D4</Span>
+      <JobIcon job="RDM" />
+      会有离
+      <Boss />
+      太远打不到的问题，这里远程组治疗和输出职业也可换位
+    </P>
+    <div class="paragraph mt-4">
+      对比
+      <StratLink variant="lime" href="#ride-the-waves-solution-jp">解法：日野主流</StratLink>
+      ，由于安全区的拐点尚未到来，无需调整
+      <Boss />
+      位置，近战始终不会罚站
+    </div>
+  </div>
+  <div slot="解法：日野主流" class="flex flex-col gap-4">
+    <div class="paragraph border-l-2 border-lime-500 pl-2 opacity-80">以初始第2、5列安全为例</div>
+    <div class="paragraph mt-4">
+      地火预兆出现后，
+      <RoleIcon role="tank" tag="MT" />
+      迅速将
+      <Boss />
+      拉到两列安全列之间，以免近战罚站，
+      <RoleIcon role="tank" tag="ST" />
+      可视情况挑衅带位
+    </div>
+    <div class="max-w-90">
+      <CosImage
+        src="imgs/07/m5s/ride_the_waves/jp_1.png"
+        alt="Ride the Waves JP Solution 1/5"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+    </div>
+    <div class="paragraph mt-4">
+      第1次
+      <QuarterOrEighthBeatsAbility />
+      站位如下
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/jp_2.png"
+          alt="Ride the Waves JP Solution 2/5"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">
+          情形1：
+          <Span variant="yellow">{translations.quarterBeats}</Span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/jp_3.png"
+          alt="Ride the Waves JP Solution 3/5"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">
+          情形2：
+          <Span variant="yellow">{translations.eighthBeats}</Span>
+        </div>
+      </div>
+    </div>
+    <div class="paragraph mt-4">
+      第2次
+      <QuarterOrEighthBeatsAbility />
+      站位如下
+    </div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+      <CosImage
+        src="imgs/07/m5s/ride_the_waves/jp_4.png"
+        alt="Ride the Waves JP Solution 4/5"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+        <div class="paragraph">
+          情形1：
+          <Span variant="yellow">{translations.quarterBeats}</Span>
+        </div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/jp_5.png"
+          alt="Ride the Waves JP Solution 5/5"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">
+          情形2：
+          <Span variant="yellow">{translations.eighthBeats}</Span>
+        </div>
+      </div>
+    </div>
+    <div class="paragraph">
+      此时由于
+      <Boss />
+      位置很难调整，近战有可能会罚站
+    </div>
+    <P class="mt-4">
+      考虑到
+      <Span variant="default">D3</Span>
+      <JobIcon job="DNC" />
+      和
+      <Span variant="default">D4</Span>
+      <JobIcon job="RDM" />
+      会有离
+      <Boss />
+      太远打不到的问题，这里远程组治疗和输出职业也可换位
+    </P>
+  </div>
+</MultiSolutionSection>

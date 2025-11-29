@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const in_the_spotlight = 'imgs/buff/07/m5s/214284.png'
+---
+
+<Buff
+  icon={in_the_spotlight}
+  name={translations.inTheSpotLight}
+  nameVariant="yellow"
+  description={translations.inTheSpotLightDesc}
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

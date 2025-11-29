@@ -1,0 +1,31 @@
+---
+import type { Time } from '@/lib/utils'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import Badge from '@/components/Badge.astro'
+import { translations } from '../_translations'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+const theUnpotted = translations.theUnpotted
+---
+
+<EventSection time={time}>
+  <BruteAbombinator />
+  对
+  <RoleIcon role="all" tag="全员" />
+  发动
+  <Span variant="yellow">{theUnpotted}</Span>
+  <DamageInfo damage="80000" type="magical" />
+  <MagicVulnerabilityUp tag="2" hover />
+  <Badge variant="emerald">25°扇形</Badge>
+</EventSection>

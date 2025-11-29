@@ -1,0 +1,67 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+
+import Windpack from '../_components/buff/Windpack.astro'
+import Stonepack from '../_components/buff/Stonepack.astro'
+import WindborneEnd from '../_components/buff/WindborneEnd.astro'
+import EarthborneEnd from '../_components/buff/EarthborneEnd.astro'
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
+import WolfOfStone from '../_components/entities/WolfOfStone.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const ability = translations.howlingHavoc
+const duration = 4.7
+
+const { start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={duration} ability={ability} target damage="110000" damageType="magical">
+  <WolfOfWind slot="source" />
+  <WolfOfStone slot="source" />
+  <Badge variant="yellow">AoE</Badge>
+</CastSection>
+<EventSection time="03:09.002">
+  被
+  <WolfOfWind />
+  连线的
+  <Span variant="default">4</Span>
+  人获得
+  <Windpack hover />
+  ，
+  <Span variant="default">3</Span>
+  位
+  <RoleIcon role="healer|dps" />
+  各获得
+  <EarthborneEnd hover tag="21" />
+  <EarthborneEnd hover tag="37" />
+  <EarthborneEnd hover tag="54" />
+  中的一个
+</EventSection>
+<EventSection time="03:09.002">
+  被
+  <WolfOfStone />
+  连线的
+  <Span variant="default">4</Span>
+  人获得
+  <Stonepack hover />
+  ，
+  <Span variant="default">3</Span>
+  位
+  <RoleIcon role="healer|dps" />
+  各获得
+  <WindborneEnd hover tag="21" />
+  <WindborneEnd hover tag="37" />
+  <WindborneEnd hover tag="54" />
+  中的一个
+</EventSection>

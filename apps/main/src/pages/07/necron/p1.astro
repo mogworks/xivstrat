@@ -1,0 +1,60 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
+import Span from '@/components/Span.vue'
+import P from '@/components/typography/P.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+
+import BlueShockwave from './_mechanics/BlueShockwave.astro'
+import FearOfDeath from './_mechanics/FearOfDeath.astro'
+import ColdGrip from './_mechanics/ColdGrip.astro'
+import MementoMori from './_mechanics/MementoMori.astro'
+import SoulReaping from './_mechanics/SoulReaping.astro'
+import XfoldBlight from './_mechanics/XfoldBlight.astro'
+import TheEndsEmbrace from './_mechanics/TheEndsEmbrace.astro'
+import GrandCross from './_mechanics/GrandCross.astro'
+
+import SoulReapingCast from './_components/SoulReapingCast.astro'
+import FearOfDeathCast from './_components/FearOfDeathCast.astro'
+import BlueShockwaveCast from './_components/BlueShockwaveCast.astro'
+import XfoldBlightCast from './_components/XfoldBlightCast.astro'
+import ChokingGraspEvent from './_components/ChokingGraspEvent.astro'
+
+const dutyId = '07/necron'
+const base = '00:00.00'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <DraftWarning showDialog={false}>
+    <div
+      class="my-4 flex flex-col gap-4 text-3xl text-cyan-600 [text-shadow:0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
+    >
+      <P class="justify-center"><Span variant="lime">所有机制和解法已按时间顺序整理完毕</Span></P>
+      <P class="justify-center">
+        开荒早期不保证100%正确性，<Span variant="red">请谨慎参考本页内容！</Span>
+      </P>
+      <P class="justify-center">TODO：详细时间轴、补充站位示意图</P>
+    </div>
+  </DraftWarning>
+  <SeparatorSection />
+
+  <BlueShockwave start="00:07.146" />
+  <FearOfDeath start="00:23.367" />
+  <ChokingGraspEvent start="00:34.257" />
+  <ColdGrip start="00:33.539" />
+  <MementoMori start="00:46.736" />
+  <SoulReaping start="01:05.041" />
+  <XfoldBlight start="01:12.159" />
+
+  <SoulReapingCast start="01:20.213" />
+  <NoteSection> 此次必定与上次相反。 </NoteSection>
+
+  <FearOfDeathCast start="01:27.331" />
+  <ChokingGraspEvent start="01:38.183" />
+  <TheEndsEmbrace start="01:38.493" />
+  <BlueShockwaveCast start="01:46.641" />
+  <XfoldBlightCast start="01:58.790" />
+
+  <GrandCross start="02:12.908" />
+</DutyStratLayout>

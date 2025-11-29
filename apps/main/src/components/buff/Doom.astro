@@ -1,0 +1,22 @@
+---
+import Buff from '@/components/Buff.astro'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const icon = 'imgs/buff/215503.png'
+---
+
+<Buff
+  icon={icon}
+  name="死亡宣告"
+  nameVariant="yellow"
+  description="倒计时为0时会陷入无法战斗状态"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

@@ -1,0 +1,74 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CosImage from '@/components/CosImage.astro'
+
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import AlexandrianHolyCast from '../_components/AlexandrianHolyCast.astro'
+const ttn = 'imgs/07/zelenia/P1/P1-t-tn.png'
+const tdps = 'imgs/07/zelenia/P1/P1-t-dps.png'
+const t = 'imgs/07/zelenia/P1/P1t.png'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<AlexandrianHolyCast start={start} />
+
+<MechanicSection>
+  <div class="flex gap-4">
+    <div class="max-w-88 flex-1">
+      <CosImage src={t} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    </div>
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <div class="paragraph">
+        在场地中召唤需要至少一人踩的
+        <Span variant="blue">塔×4</Span>
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      被点<Span variant="pink">钢铁</Span>
+      的玩家需要站在空地放置
+      <Span variant="pink">钢铁</Span>
+      ，在头顶倒计时结束后迅速离开
+      <Span variant="pink">钢铁</Span>
+      的范围，减少被攻击的次数
+    </div>
+    <div class="paragraph">
+      被点<Span variant="blue">月环</Span>
+      的玩家需要踩
+      <Span variant="blue">塔</Span>
+      ，并保持不动，直到<Span variant="blue">月环</Span>消失
+    </div>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: ttn,
+          alt: 'Zelenia：P2 球与分身',
+          title: 'TN点月环（踩塔）',
+        },
+        {
+          src: tdps,
+          alt: 'Zelenia：P2 球与分身',
+          title: 'DPS点月环（踩塔）',
+        },
+      ]}
+    />
+  </div>
+</SolutionSection>

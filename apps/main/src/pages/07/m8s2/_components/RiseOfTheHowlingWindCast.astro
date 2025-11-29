@@ -1,0 +1,23 @@
+---
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import type { Time } from '@/lib/utils'
+
+import HowlingBlade from './entities/HowlingBlade.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const duration = 6.7
+
+const riseOfTheHowlingWind = translations.riseOfTheHowlingWind
+---
+
+<CastSection start={start} duration={duration} ability={riseOfTheHowlingWind}>
+  <HowlingBlade slot="source" />
+  ，干扰传送装置
+  <Badge variant="emerald">传送间隔+</Badge>
+</CastSection>

@@ -1,0 +1,19 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import XSnapTwistAndDropTheNeedleAbility from './XSnapTwistAndDropTheNeedleAbility.astro'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={4.7}>
+  <XSnapTwistAndDropTheNeedleAbility slot="ability" />
+  <Badge variant="yellow">连续左右刀</Badge>
+</CastSection>

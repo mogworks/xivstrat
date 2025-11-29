@@ -1,0 +1,22 @@
+---
+import Buff from '@/components/Buff.astro'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const icon = 'imgs/buff/215529.png'
+---
+
+<Buff
+  icon={icon}
+  name="水毒"
+  nameVariant="yellow"
+  description="水属性持续伤害，体力逐渐流失"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

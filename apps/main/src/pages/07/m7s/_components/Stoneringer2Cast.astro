@@ -1,0 +1,20 @@
+---
+import type { Time } from '@/lib/utils'
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const stoneringer2Stoneringers = translations.stoneringer2Stoneringers
+---
+
+<CastSection start={start} duration={4.7} ability={stoneringer2Stoneringers}>
+  <BruteAbombinator slot="source" />
+  <Badge variant="emerald">掏出武器</Badge>
+</CastSection>

@@ -1,0 +1,24 @@
+---
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import type { Time } from '@/lib/utils'
+
+import HowlingBlade from './entities/HowlingBlade.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const duration = 6.7
+
+const twofoldTempest = translations.twofoldTempest
+---
+
+<CastSection start={start} duration={duration} ability={twofoldTempest}>
+  <HowlingBlade slot="source" />
+  <Badge variant="yellow">二二分摊</Badge>
+  <Badge variant="red">扩散毒圈</Badge>
+  <Badge variant="red">人数检测</Badge>
+</CastSection>

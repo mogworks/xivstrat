@@ -1,0 +1,22 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import BruteAbombinator from './BruteAbombinator.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+const powerslam = translations.powerslam
+---
+
+<CastSection start={time} duration={5.7} ability={powerslam} damage="205000" damageType="physical">
+  <BruteAbombinator slot="source" />
+  <Badge variant="emerald">场地切换</Badge>
+  <Badge variant="purple">AoE</Badge>
+</CastSection>

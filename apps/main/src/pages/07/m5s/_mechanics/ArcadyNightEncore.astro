@@ -1,0 +1,93 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CosImage from '@/components/CosImage.astro'
+
+import Badge from '@/components/Badge.astro'
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Span from '@/components/Span.vue'
+import RoleIcon from '@/components/RoleIcon.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import StratLink from '@/components/StratLink.astro'
+
+import Wavelength from '../_components/Wavelength.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  getDownTimes: Time[]
+}
+
+const { start, getDownTimes = [] }: Props = Astro.props
+---
+
+<CastSection start={start} duration={4.5} ability={translations.arcadyNightEncore}>
+  <Badge variant="yellow">连续钢铁月环</Badge>
+</CastSection>
+<CollapseSection>
+  <Fragment slot="summary">
+    <Boss />按职能交替点名
+    <RoleIcon role="tank" />
+    <RoleIcon role="healer" />
+    或
+    <RoleIcon role="dps" />
+    8轮扇形
+  </Fragment>
+  <Fragment slot="details">
+    {
+      getDownTimes.map((time, index) => (
+        <EventSection time={time}>
+          <Boss />
+          对不重复
+          {index % 2 === 0 ? (
+            <>
+              <RoleIcon role="tank" />
+              <RoleIcon role="healer" />
+              或
+              <RoleIcon role="dps" />
+            </>
+          ) : (
+            <>
+              <RoleIcon role="dps" />
+              或
+              <RoleIcon role="tank" />
+              <RoleIcon role="healer" />
+            </>
+          )}
+          发动
+          <Span variant="yellow">{translations.getDown}</Span>
+          <DamageInfo damage="95000" type="magical" />
+          <MagicVulnerabilityUp tag="9" hover />
+          <Badge variant="emerald">45°扇形</Badge>
+          <Badge variant="emerald">八方</Badge>
+          <Badge variant="yellow">分散</Badge>
+        </EventSection>
+      ))
+    }
+  </Fragment>
+</CollapseSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <StratLink variant="yellow" href="/07/m5s/p1#arcady-night-fever">{translations.arcadyNightFever}</StratLink>
+      返场，但这一次不会再附加
+      <Wavelength type="α" hover />
+      和
+      <Wavelength type="β" hover />
+      了，躲好钢铁/月环/复读扇形即可
+    </div>
+    <div class="paragraph mt-4">
+      此外，这次也同样会有计量槽，若本阶段完全正确处理会累积
+      <Span variant="pink">66</Span>
+      点计量值
+    </div>
+    <CosImage src="imgs/07/m5s/Grooviness66.png" alt="Grooviness 66" class="w-75" />
+  </div>
+</SolutionSection>

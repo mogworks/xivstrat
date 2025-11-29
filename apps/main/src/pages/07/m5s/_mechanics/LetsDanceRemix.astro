@@ -1,0 +1,87 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CosImage from '@/components/CosImage.astro'
+
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import Wavelength from '../_components/Wavelength.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={5.5} ability={translations.letsDanceRemix}>
+  <Badge variant="yellow">连续半场刀</Badge>
+</CastSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <StratLink variant="yellow" href="/07/m5s/p1#lets-dance">{translations.letsDance}</StratLink>
+      返场，本次无需处理
+      <Wavelength type="α" hover />
+      和
+      <Wavelength type="β" hover />
+      ，但半场刀会新增
+      <Span variant="pink">前</Span>/<Span variant="pink">后</Span>
+      两种可能，4种青蛙姿势如下：
+    </div>
+    <div class="flex max-w-212 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/lets_dance/left.png"
+          alt="Let's Dance! Remix: Left"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">攻击左/西半场</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/lets_dance/right.png"
+          alt="Let's Dance! Remix: Right"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">攻击右/东半场</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/lets_dance/front.png"
+          alt="Let's Dance! Remix: Front"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">攻击前/北半场</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/lets_dance/back.png"
+          alt="Let's Dance! Remix: Back"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">攻击后/南半场</div>
+      </div>
+    </div>
+    <div class="paragraph">注意观察青蛙举起的手，其指向即为BOSS发动半场刀的方向</div>
+    <div class="paragraph mt-4">
+      若本阶段完全正确处理会累积
+      <Span variant="pink">34</Span>
+      点计量值
+    </div>
+    <div class="paragraph">
+      算上
+      <StratLink variant="yellow" href="#arcady-night-encore">{translations.arcadyNightEncore}</StratLink>
+      阶段正确处理累积的
+      <Span variant="pink">66</Span>
+      点，恰好可以攒满计量槽
+    </div>
+    <CosImage src="imgs/07/m5s/Grooviness100.png" alt="Grooviness 100" class="w-75" />
+  </div>
+</SolutionSection>

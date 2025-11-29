@@ -1,0 +1,24 @@
+---
+import Buff from '@/components/Buff.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const burning_up = 'imgs/buff/07/m6s/214288.png'
+const { BurningUp, BurningUpDescription } = translations
+---
+
+<Buff
+  icon={burning_up}
+  name={BurningUp}
+  nameVariant="yellow"
+  description={BurningUpDescription}
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

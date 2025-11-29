@@ -1,0 +1,28 @@
+---
+import Buff from '@/components/Buff.astro'
+import Span from '@/components/Span.vue'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+  percent?: number
+  layer?: number
+}
+
+const { tag = '', hover = false, class: className = '', percent = undefined, layer = 0 }: Props = Astro.props
+const layer_0 = 'imgs/buff/215519.png'
+const layer_1 = 'imgs/buff/217061.png'
+const icon = layer === 0 ? layer_0 : layer_1
+---
+
+<Buff
+  icon={icon}
+  name="伤害提高"
+  nameVariant="yellow"
+  description="攻击所造成的伤害提高"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>
+{percent !== undefined && <Span variant="lime" class="text-decimal">{`${percent}%↑`}</Span>}

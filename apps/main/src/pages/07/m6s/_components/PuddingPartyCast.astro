@@ -1,0 +1,27 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const PuddingParty = translations.PuddingParty
+---
+
+<CastSection start={start} duration={4.7} ability={PuddingParty} target>
+  <SugarRiot slot="source" />
+  <Fragment slot="target">
+    随机
+    <RoleIcon role="healer" />
+  </Fragment>
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="yellow">分摊×5</Badge>
+</CastSection>

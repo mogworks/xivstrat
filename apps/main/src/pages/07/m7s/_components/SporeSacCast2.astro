@@ -1,0 +1,51 @@
+---
+import { type Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
+
+import MoveToCenterEvent from './MoveToCenterEvent.astro'
+import { translations } from '../_translations'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Badge from '@/components/Badge.astro'
+import ThornsOfDeathDebuff from './ThornsOfDeathDebuff.astro'
+import P from '@/components/typography/P.astro'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const moveToCenter = '08:03.560'
+const seedFallen = '08:06.542'
+const sporeSac = translations.sporeSac
+---
+
+<CastSection start={start} duration={2.7} ability={sporeSac}>
+  <BruteAbombinator slot="source" />
+  <P>，完毕后1s场地出现<Span variant="green">孢子×4</Span>范围提示</P>
+</CastSection>
+<EventSection time="08:02.492">
+  连线生效，四面墙各对一人（
+  <RoleIcon role="healer" tag="H1" />
+  <RoleIcon role="healer" tag="H2" />
+  <RoleIcon role="ranged" tag="D3" />
+  <RoleIcon role="magic" tag="D4" />
+  ）施加连线
+  <ThornsOfDeathDebuff hover />
+  <Span variant="orange">9000/3s</Span>
+  <Badge variant="orange">DoT</Badge>
+</EventSection>
+
+<MoveToCenterEvent time={moveToCenter} />
+<AttackSection time="08:05.562" damage="57000" damageType="physical" />
+
+<EventSection time={seedFallen}>
+  <Span variant="green">孢子×4</Span>
+  落下，判定伤害
+  <Badge variant="emerald">8m圆形</Badge>
+</EventSection>

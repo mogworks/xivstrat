@@ -1,0 +1,21 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const extraplanarPursuit = translations.extraplanarPursuit
+---
+
+<CastSection start={start} duration={3.7} ability={extraplanarPursuit} target damage="180000" damageType="physical">
+  <HowlingBlade slot="source" />
+  <Badge variant="purple">AoE</Badge>
+</CastSection>

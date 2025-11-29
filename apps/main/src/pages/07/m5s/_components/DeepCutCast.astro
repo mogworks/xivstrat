@@ -1,0 +1,31 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Bleeding from '@/components/buff/Bleeding.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import { translations } from '../_translations/index'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={4.7} ability={translations.deepCut} target damage="300000" damageType="magical">
+  <Fragment slot="target">
+    <RoleIcon role="tank" tag="一仇" />
+    <RoleIcon role="tank" tag="二仇" />
+  </Fragment>
+  <Fragment>
+    <MagicVulnerabilityUp tag="2" hover />
+    <Bleeding hover tag="15" />
+    <DotInfo damage="34000" />
+    <Badge variant="emerald">45°扇形</Badge>
+    <Badge variant="red">死刑</Badge>
+  </Fragment>
+</CastSection>

@@ -1,0 +1,42 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import Span from '@/components/Span.vue'
+
+import WolfOfWind from '../_components/entities/WolfOfWind.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+}
+
+const ability = translations.windsOfDecay
+const damage = '70000'
+const damageType = 'magical'
+
+const { time }: Props = Astro.props
+---
+
+<EventSection time={time}>
+  <WolfOfWind>
+    <Span variant="rose" class="-ml-0.5">风狼首×4</Span>
+  </WolfOfWind>
+  连线
+  <Span variant="pink">4</Span>
+  <RoleIcon role="dps" />
+  或
+  <Span variant="pink">4</Span>
+  <RoleIcon role="tank|healer" />
+  ，造成
+  <Span variant="yellow">{ability}</Span>
+  <DamageInfo damage={damage} type={damageType} />
+  <MagicVulnerabilityUp tag="1" />
+  <Badge variant="emerald">30°扇形</Badge>
+  <Badge variant="yellow">分散</Badge>
+</EventSection>

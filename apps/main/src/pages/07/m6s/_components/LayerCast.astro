@@ -1,0 +1,21 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  end: Time
+}
+
+const { start, end }: Props = Astro.props
+
+const Layer = translations.Layer
+---
+
+<CastSection start={start} end={end} ability={Layer}>
+  <SugarRiot slot="source" />
+</CastSection>

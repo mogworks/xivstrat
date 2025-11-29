@@ -1,0 +1,99 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import ThornedCatharsis from './_components/ThornedCatharsisCast.astro'
+import SpecterOfTheLostCast from './_components/SpecterOfTheLostCast.astro'
+import StockBreakCast from './_components/StockBreakCast.astro'
+
+import RoseBloodBloom from './_mechanics/RoseBloodBloom.astro'
+import RoseBloodBloom1 from './_mechanics/RoseBloodBloom_1.astro'
+import RoseBloodBloom2 from './_mechanics/RoseBloodBloom_2.astro'
+import RoseBloodBloom3 from './_mechanics/RoseBloodBloom_3.astro'
+import RoseBloodBloom4 from './_mechanics/RoseBloodBloom_4.astro'
+import RoseBloodBloom5 from './_mechanics/RoseBloodBloom_5.astro'
+import RoseBloodBloom6 from './_mechanics/RoseBloodBloom_6.astro'
+
+import AlexandrianBanish2Cast from './_components/AlexandrianBanish2Cast.astro'
+import AlexandrianThunder2 from './_components/AlexandrianThunder2Cast.astro'
+import AlexandrianThunder3 from './_components/AlexandrianThunder3Cast.astro'
+import AlexandrianBanish3 from './_mechanics/AlexandrianBanish3.astro'
+
+import BudofValorCast from './_components/BudofValorCast.astro'
+
+import RoseFloor from './_mechanics/RoseFloor.astro'
+import Shock from './_mechanics/Shock.astro'
+
+import EscelonsFallCast from './_components/EscelonsFallCast.astro'
+import EscelonsFallP33 from './_mechanics/EscelonsFallP33.astro'
+import EscelonsFallP34 from './_mechanics/EscelonsFallP34.astro'
+
+const dutyId = '07/zelenia'
+
+const base = '02:48.767'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <SeparatorSection id="roseblood-bloom-1" title="魔法阵展开 · 一式" />
+  <RoseBloodBloom start={base} num={1} />
+  <AlexandrianThunder2 start="02:54.915" />
+  <RoseBloodBloom1 />
+
+  <AlexandrianThunder3 start="03:15.416" />
+  <RoseFloor />
+  <ThornedCatharsis start="03:22.861" />
+
+  <SeparatorSection id="roseblood-bloom-2" title="魔法阵展开 · 二式" />
+  <RoseBloodBloom start="03:35.299" num={2} />
+  <RoseBloodBloom2 />
+
+  <SpecterOfTheLostCast start="03:55.571" />
+
+  <SeparatorSection id="roseblood-bloom-3" title="魔法阵展开 · 三式" />
+
+  <RoseBloodBloom start="04:10.005" num={3} />
+  <RoseBloodBloom3 />
+
+  <ThornedCatharsis start="04:42.488" />
+
+  <SeparatorSection id="budofvalor-three" title="生成幻影 & 震惊 & 凌空错" />
+
+  <BudofValorCast start="04:55.913" />
+
+  <EscelonsFallCast start="05:08.165" />
+
+  <Shock start="05:14.852" type="half" />
+
+  <AlexandrianBanish2Cast time="05:15.972" />
+  <EscelonsFallP33 />
+
+  <StockBreakCast start="05:33.532" />
+
+  <SeparatorSection id="roseblood-bloom-4" title="魔法阵展开 · 四式" />
+
+  <RoseBloodBloom start="05:49.927" num={4} />
+  <RoseBloodBloom4 />
+
+  <AlexandrianBanish3 start="06:15.411" />
+  <ThornedCatharsis start="06:26.547" />
+
+  <SeparatorSection id="budofvalor-four" title="生成幻影 & 凌空错" />
+
+  <BudofValorCast start="06:40.047" />
+
+  <EscelonsFallCast start="06:46.194" />
+  <EscelonsFallP34 />
+
+  <StockBreakCast start="07:11.559" />
+
+  <SeparatorSection id="roseblood-bloom-5" title="魔法阵展开 · 五式" />
+
+  <RoseBloodBloom start="07:29.945" num={5} />
+  <RoseBloodBloom5 />
+
+  <SeparatorSection id="roseblood-bloom-6" title="魔法阵展开 · 六式" />
+  <RoseBloodBloom start="08:14.821" num={6} />
+  <RoseBloodBloom6 />
+
+  <SpecterOfTheLostCast start="07:58.374" />
+</DutyStratLayout>

@@ -1,0 +1,95 @@
+---
+import { cn } from '@/lib/utils'
+
+interface Props {
+  key: string
+  width?: number // 400 500
+  height?: number // 400 500
+  resolution?: number
+  class?: string
+  canvasClass?: string
+  [key: string]: unknown
+}
+
+const {
+  key,
+  width = 864,
+  height = 864,
+  resolution = 0,
+  class: className = '',
+  canvasClass = '',
+  ...rest
+}: Props = Astro.props
+---
+
+<strat-board data-key={key} data-resolution={resolution} class={className} {...rest}>
+  <canvas width={width} height={height} class={cn('w-216 h-216', canvasClass)}> </canvas>
+</strat-board>
+
+<script>
+  import type { AssetsManifest } from 'pixi.js'
+
+  import { Application, Assets, isMobile } from 'pixi.js'
+
+  import manifestJson from '@/pixi/manifest.json'
+  import { resolutions } from '@/pixi/resolutions'
+  import { $stratBoards } from '@/stores/stratBoards'
+  import { $stratSettings } from '@/stores/stratSettings'
+
+  class StratBoard extends HTMLElement {
+    static assetsInitPromise: Promise<void>
+
+    static {
+      const manifest = manifestJson as AssetsManifest
+
+      StratBoard.assetsInitPromise = Assets.init({
+        basePath: `${import.meta.env.PUBLIC_COS_BASE_URL}/public/pixi`,
+        manifest,
+        texturePreference: {
+          resolution: (() => {
+            const maxResolution = Math.max(...resolutions)
+            const dpr = window.devicePixelRatio || 1
+            // if is mobile, use dpr, otherwise use maxResolution
+            const resolution = Math.min(isMobile.any ? dpr : maxResolution, maxResolution)
+            const higher = resolutions.filter((r) => r >= resolution)
+            const lower = resolutions.filter((r) => r < resolution)
+            // get the min resolution that not less than `resolution`, and those that are less than `resolution`
+            return [...(higher.length ? [Math.min(...higher)] : []), ...lower].sort((a, b) => b - a)
+          })(),
+        },
+      })
+    }
+
+    async connectedCallback() {
+      await StratBoard.assetsInitPromise
+
+      const canvasEl = this.querySelector('canvas')!
+      // try to use OffscreenCanvas if available to avoid white flash
+      const canvas = window.OffscreenCanvas ? canvasEl.transferControlToOffscreen() : canvasEl
+      // init the app
+      const app = new Application()
+      await app.init({
+        canvas,
+        width: canvas.width,
+        height: canvas.height,
+        // Set resolution to device pixel ratio to prevent image blur
+        // Example:
+        // With devicePixelRatio=2, canvas dimensions become 1728x1728
+        // Images will be rendered 4x larger
+        // But the actual dom size remains 864x864 due to CSS classes `h-[864px]`  `w-[864px]`
+        // This ensures sharp image quality while maintaining correct display size
+        resolution:
+          this.dataset.resolution === '0'
+            ? window.devicePixelRatio || 1
+            : Number.parseInt(this.dataset.resolution ?? '1'),
+        backgroundAlpha: 0,
+        preference: $stratSettings.get().pixijsApiPreference,
+        antialias: true,
+      })
+      // add the app to the store
+      $stratBoards.setKey(this.dataset.key!, app)
+    }
+  }
+
+  customElements.define('strat-board', StratBoard)
+</script>

@@ -1,0 +1,18 @@
+---
+import { cn } from '@/lib/utils'
+
+import Section from '@/components/section/Section.astro'
+
+interface Props {
+  class?: string
+  [key: string]: unknown
+}
+
+const { class: className = '', ...rest }: Props = Astro.props
+---
+
+<Section class={cn('content-section grid-cols-1 text-base', className)} {...rest}>
+  <div class="ml-64 px-4">
+    <slot />
+  </div>
+</Section>

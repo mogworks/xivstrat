@@ -1,0 +1,25 @@
+---
+import type { Time } from '@/lib/utils'
+import CastSection from '../../../../components/section/CastSection.astro'
+import Span from '@/components/Span.vue'
+import Badge from '@/components/Badge.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  num?: number
+}
+
+const { start, num }: Props = Astro.props
+const sporesplosion = translations.sporesplosion
+---
+
+<CastSection start={start} duration={4.7} ability={sporesplosion}>
+  <Fragment slot="source"
+    >第<Span variant="pink">{num}</Span>轮
+    <Span variant="green">孢子×6</Span></Fragment
+  >
+  <Fragment slot="cast">黄圈出现，消失后释放</Fragment>
+  <Badge variant="emerald">8m圆形</Badge>
+</CastSection>

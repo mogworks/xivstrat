@@ -1,0 +1,19 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const strangeSeeds = translations.strangeSeeds
+---
+
+<CastSection start={start} duration={3.7} ability={strangeSeeds}>
+  <BruteAbombinator slot="source" />
+</CastSection>

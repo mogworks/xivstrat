@@ -1,0 +1,12 @@
+[
+  {
+    "id": "7.3",
+    "group": "Patch 7.3",
+    "duties": ["07/necron"]
+  },
+  {
+    "id": "7.2",
+    "group": "Patch 7.2",
+    "duties": ["07/m5s", "07/m6s", "07/m7s", "07/m8s1", "07/m8s2", "07/zelenia"]
+  }
+]

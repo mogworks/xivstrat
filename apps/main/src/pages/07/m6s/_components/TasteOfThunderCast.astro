@@ -1,0 +1,27 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const TasteOfThunder = translations.TasteOfThunder
+---
+
+<CastSection start={start} duration={2.7} ability={TasteOfThunder}>
+  <Fragment slot="source">
+    <RoleIcon role="enemy_level1">
+      <Span variant="rose">BOSS分身[不可视]×8</Span>
+    </RoleIcon>
+  </Fragment>
+  <Badge variant="emerald">3m圆形</Badge>
+  <Badge variant="yellow">“旋风旋风”</Badge>
+</CastSection>

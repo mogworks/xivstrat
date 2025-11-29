@@ -1,0 +1,562 @@
+---
+import type { Time } from '@/lib/utils'
+
+import DamageDown from '@/components/buff/DamageDown.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import StratLink from '@/components/StratLink.astro'
+
+import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+
+import XReignCast from '../_components/XReignCast.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const revolutionaryReign = translations.revolutionaryReign
+const eminentReign = translations.eminentReign
+const wolvesReign = translations.wolvesReign
+
+const { start }: Props = Astro.props
+---
+
+<XReignCast start={start} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <T>
+      <Skill name={[revolutionaryReign, eminentReign]} />
+    </T>
+    <P>
+      <HowlingBlade />
+      读条期间，场地中心出现一个半径
+      <Span variant="pink">6m</Span>
+      的圆形范围伤害预兆，同时
+      <HowlingBlade />
+      周围浮现三个冲锋幻影
+    </P>
+    <P>
+      幻影的冲锋方向呈等边三角形分布，有正三角和倒三角两种情况，如下图：
+      <ToggleSwitch
+        id="xreign-game-strat-toggle"
+        lVariant="yellow"
+        rVariant="pink"
+        lLabel="游戏截图"
+        rLabel="战术视图"
+      />
+    </P>
+    <div id="xreign-game-strat-toggle-div">
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-100"
+        borderVariant="cyan"
+        imgs={[
+          {
+            src: 'imgs/07/m8s1/xreign/game_1.png',
+            alt: '群狼剑：正三角 游戏截图',
+            title: '正三角',
+          },
+          {
+            src: 'imgs/07/m8s1/xreign/game_2.png',
+            alt: '群狼剑：倒三角 游戏截图',
+            title: '倒三角',
+          },
+        ]}
+      />
+      <ImgRow
+        class="strat-img hidden"
+        wrapperClass="max-w-90"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: 'imgs/07/m8s1/xreign/1.png',
+            alt: '群狼剑：正三角 战术视图',
+            title: '正三角',
+          },
+          {
+            src: 'imgs/07/m8s1/xreign/2.png',
+            alt: '群狼剑：倒三角 战术视图',
+            title: '倒三角',
+          },
+        ]}
+      />
+    </div>
+    <P>
+      读条结束后，
+      <HowlingBlade />
+      随机移动至某一幻象处，同时三个幻象的方位均出现半径
+      <Span variant="pink">6m</Span>
+      的圆形范围伤害预兆：
+    </P>
+      <ImgRow
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: 'imgs/07/m8s1/xreign/3.png',
+            alt: '群狼剑：正三角 BOSS移动至左下',
+          },
+          {
+            src: 'imgs/07/m8s1/xreign/4.png',
+            alt: '群狼剑：倒三角 BOSS移动至正下',
+          },
+        ]}
+      />
+    <P>
+      接着，四个圆形预兆间隔
+      <Span variant="pink">0.1s</Span>
+      依次判定，场中的最早判定，
+      <HowlingBlade />
+      所在方向的则最晚判定
+    </P>
+    <P>因此，若近战在场中黄圈消失时就立刻突进，是有概率吃到最后一个黄圈的</P>
+    <P>
+      随后，
+      <HowlingBlade />
+      转身读条
+      <Skill name={wolvesReign} />
+      ，释放宽度
+      <Span variant="pink">10m</Span>
+      （恰为目标圈直径）的直线冲锋：
+      <ToggleSwitch
+        id="xreign-wolves-reign-omen-activate-toggle"
+        lVariant="yellow"
+        rVariant="pink"
+        lLabel="预兆"
+        rLabel="判定"
+      />
+    </P>
+    <div id="xreign-wolves-reign-omen-activate-toggle-div">
+      <ImgRow
+        class="omen-img"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: 'imgs/07/m8s1/xreign/5.png',
+            alt: '群狼剑：正三角 预兆 BOSS读条从左下往右上冲锋',
+          },
+          {
+            src: 'imgs/07/m8s1/xreign/6.png',
+            alt: '群狼剑：倒三角 预兆 BOSS读条从正下往正上冲锋',
+          },
+        ]}
+      />
+      <ImgRow
+        class="activate-img hidden"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: 'imgs/07/m8s1/xreign/7.png',
+            alt: '群狼剑：正三角 判定 BOSS读条从左下往右上冲锋',
+          },
+          {
+            src: 'imgs/07/m8s1/xreign/8.png',
+            alt: '群狼剑：倒三角 判定 BOSS读条从正下往正上冲锋',
+          },
+        ]}
+      />
+    </div>
+    <P>
+      冲锋到场地对侧后，
+      <HowlingBlade />
+      再次转身读条
+      <Skill name={wolvesReign} />
+      ，释放大范围的圆形或扇形伤害：
+    </P>
+      <ImgRow
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: 'imgs/07/m8s1/xreign/9.png',
+            alt: '群狼剑：BOSS冲锋至右上读条释放钢铁',
+          },
+          {
+            src: 'imgs/07/m8s1/xreign/10.png',
+            alt: '群狼剑：BOSS冲锋至正上读条释放扇形',
+          },
+        ]}
+      />
+    <Quote variant="yellow">
+      <P>
+        若先前读条为
+        <Skill name={revolutionaryReign} />
+        ，则释放半径
+        <Span variant="pink">14m</Span>
+        的圆形范围伤害
+        <DamageInfo damage="150000" type="physical" />
+        <DamageDown tag="30" hover />
+        <Span variant="rose" class="text-decimal">50%↓</Span>
+      </P>
+      <P>
+        若先前读条为
+        <Skill name={eminentReign} />
+        ，则释放角度
+        <Span variant="pink">120°</Span>
+        的扇形范围伤害
+        <DamageInfo damage="150000" type="physical" />
+        <DamageDown tag="30" hover />
+        <Span variant="rose" class="text-decimal">50%↓</Span>
+      </P>
+    </Quote>
+    <P>无论是圆形还是扇形，都附带击退效果，防击退有效</P>
+    <P>
+      圆形和扇形判定的同时，
+      <HowlingBlade />
+      还会对
+      <RoleIcon role="all" tag="一仇" />
+      <RoleIcon role="all" tag="二仇" />
+      释放
+      <Span variant="pink">60°</Span>
+      的扇形死刑，对
+      <RoleIcon role="healer" tag="H1" />
+      <RoleIcon role="healer" tag="H2" />
+      释放
+      <Span variant="pink">30°</Span>
+      的扇形分摊：
+    </P>
+      <ImgRow
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: 'imgs/07/m8s1/xreign/11.png',
+            alt: '群狼剑：BOSS冲锋至右上读条释放钢铁，并对玩家释放死刑和分摊',
+          },
+          {
+            src: 'imgs/07/m8s1/xreign/12.png',
+            alt: '群狼剑：BOSS冲锋至正上读条释放扇形，并对玩家释放死刑和分摊',
+          },
+        ]}
+      />
+    <P>
+      死刑对
+      <Span variant="blue">防护职业</Span>
+      造成
+      <DamageInfo damage="360000" type="physical" />
+      <PhysicalVulnerabilityUp tag="1" hover />
+      ，分摊则对
+      <Span variant="red">输出</Span>
+      /
+      <Span variant="green">治疗</Span>
+      造成
+      <DamageInfo damage="170000" type="physical" />
+      <PhysicalVulnerabilityUp tag="1" hover />
+      （三人分摊时人均）
+    </P>
+    <P>
+      <Span variant="cyan">注意：点名扇形有一定概率比大钢铁/大扇形先判定，导致坦克即使开防击退站进去，也会因为</Span>
+      <PhysicalVulnerabilityUp hover />
+      <Span variant="cyan">去世</Span>
+    </P>
+    <T id="xreign-bug" text="Bug" variant="yellow" class="mt-8 scroll-mt-[calc(5rem+1px)]" />
+    <P>
+      眼尖的同学可能已经发现，以下两张图，
+      <HowlingBlade />
+      与场地中心的距离有细微差别：
+    </P>
+    <ImgRow
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: 'imgs/07/m8s1/xreign/9.png',
+          alt: '群狼剑：BOSS冲锋至右上读条释放钢铁',
+        },
+        {
+          src: 'imgs/07/m8s1/xreign/10.png',
+          alt: '群狼剑：BOSS冲锋至正上读条释放扇形',
+        },
+      ]}
+    />
+    <P>
+      从目标环的缺口与电网的距离可以较容易看出：左图
+      <HowlingBlade />
+      与场地中心的距离更近，右图更远
+    </P>
+    <P>这并非我们作图错误，而是该机制的bug，具体来说：</P>
+    <Quote variant="yellow">
+      <P>
+        <HowlingBlade />
+        在东北、东南两个方向释放圆形/扇形时，距离场中约
+        <Span variant="pink">7m</Span>
+      </P>
+      <P>
+        <HowlingBlade />
+        在西北、正北、西南、正南四个方向释放圆形/扇形时，距离场中约
+        <Span variant="pink">7.5m</Span>
+      </P>
+    </Quote>
+    <P>前者会让我们更难躲避圆形范围伤害，但影响不是很大，如下图：</P>
+      <ImgRow
+        wrapperClass="max-w-90"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: 'imgs/07/m8s1/xreign/13.png',
+            alt: '群狼剑：西北和东北方向的圆形范围对比',
+          },
+        ]}
+      />
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      首先躲避初始黄圈，近战注意不要场中黄圈一消失就立刻突进，否则有概率吃到
+      <HowlingBlade />
+      脚下黄圈
+    </P>
+    <P>
+      接着在两侧躲避
+      <HowlingBlade />
+      的直线冲锋，以
+      <HowlingBlade />
+      冲锋的
+      <Span variant="pink">终点方向</Span>
+      为12点准备引导扇形，
+      <RoleIcon role="tank" tag="ST" />
+      提前建立好二仇
+    </P>
+    <T text={eminentReign} variant="lime" class="mt-8" />
+    <P>
+      首先是比较简单的<Skill name={eminentReign} />，按下图“1331”站位：
+    </P>
+    <ImgRow borderVariant="cyan" rounded imgs={[{ src: 'imgs/07/m8s1/xreign/solution/eminent.png', alt: '扫击群狼剑：站位图' }]} />
+    <Quote variant="lime">
+      <P>
+        <RoleIcon role="tank" />
+        一左一右站目标圈的<Span variant="pink">两个缺口处继续向背后偏一定角度</Span>并开好个人减伤，
+        <RoleIcon role="tank" tag="MT" />左，<RoleIcon role="tank" tag="ST" />右
+      </P>
+      <P>
+        <RoleIcon role="healer" />
+        一左一右站目标圈的<Span variant="pink">两个身位指示器箭头处</Span>，
+        <RoleIcon role="healer" tag="H1" />左，<RoleIcon role="healer" tag="H2" />右
+      </P>
+      <P>
+        <RoleIcon role="melee" tag="D1" /><RoleIcon role="ranged" tag="D3" />
+        找<RoleIcon role="healer" tag="H1" />分摊，
+        <RoleIcon role="dps" tag="D2" /><RoleIcon role="magic" tag="D4" />
+        找<RoleIcon role="healer" tag="H2" />分摊
+      </P>
+    </Quote>
+    <P>
+      由于<RoleIcon role="tank" /><RoleIcon role="healer" />的最小安全夹角是45°，
+      <RoleIcon role="tank" />注意不要太靠下，避免超过目标圈的缺口
+    </P>
+    <P>
+      并且由于分摊扇形的角度较窄，<RoleIcon role="dps" />注意不要偏离<RoleIcon role="healer" />太多
+    </P>
+    <T text={revolutionaryReign} variant="lime" class="mt-8" />
+    <P>
+      其次是比较复杂的<Skill name={revolutionaryReign} />，按下图“1331”站位：
+    </P>
+    <ImgRow borderVariant="cyan" rounded imgs={[{ src: 'imgs/07/m8s1/xreign/solution/revolutionary.png', alt: '旋击群狼剑：站位图' }]} />
+    <T text="1. 治疗和输出职业找安全点的方法" variant="lime" class="mt-4 text-xl" />
+    <P>这里我们把前一轮冲锋的范围和扇形引导点一并画出来，如下图：</P>
+      <ImgRow
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          { src: 'imgs/07/m8s1/xreign/solution/revolutionary_h_1.png', alt: '旋击群狼剑：治疗/输出安全点找法1' },
+          { src: 'imgs/07/m8s1/xreign/solution/revolutionary_h_2.png', alt: '旋击群狼剑：治疗/输出安全点找法2' },
+        ]}
+      />
+    <P>
+      由此可见，
+      <RoleIcon role="healer" />
+      <RoleIcon role="dps" />
+      只需要在躲完直线冲锋后，往冲锋范围内挪一步即可
+    </P>
+    <T text="2. 防护职业找安全点的方法" variant="lime" class="mt-4 text-xl" />
+    <T text="2.1 方法一：中垂线法" variant="lime" class="text-lg" />
+    <P>
+      由于前文提及的
+      <StratLink variant="yellow" href="#xreign-bug">Bug</StratLink>
+      ，我们可以统一按照更危险的情况来讨论，即统一按
+      <HowlingBlade />
+      距场中
+      <Span variant="pink">7m</Span>
+      来算，已知：
+    </P>
+    <Quote variant="lime">
+      <P>
+        <HowlingBlade />
+        距场中
+        <Span variant="pink">7m</Span>
+        ，圆形范围伤害半径为
+        <Span variant="pink">14m</Span>
+      </P>
+    </Quote>
+    <P>不难证明（略），圆形范围与场地边缘的交点，刚好在冲锋范围的中垂线上</P>
+    <P>因此，对于空间感较强的光呆，可以通过在脑内模拟出一条冲锋范围的中垂线来找安全点，如下图：</P>
+      <ImgRow
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          { src: 'imgs/07/m8s1/xreign/solution/revolutionary_t_1.png', alt: '旋击群狼剑：中垂线法1' },
+          { src: 'imgs/07/m8s1/xreign/solution/revolutionary_t_2.png', alt: '旋击群狼剑：中垂线法2' },
+        ]}
+      />
+    <T text="2.2 方法二：参考标点法" variant="lime" class="text-lg" />
+    <T text="2.2.1 情形一：A/C冲锋" variant="lime" class="text-base" />
+    <P>
+      这种情况较为简单，只需要去
+      <Span variant="yellow">B</Span>
+      /
+      <Span variant="purple">D</Span>
+      点正对的场边，然后往远离
+      <HowlingBlade />
+      冲锋终点的方向退一步，如下图：
+    </P>
+      <ImgRow
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          { src: 'imgs/07/m8s1/xreign/solution/revolutionary_t_3.png', alt: '旋击群狼剑：参考标点法 AC情况 1' },
+          { src: 'imgs/07/m8s1/xreign/solution/revolutionary_t_4.png', alt: '旋击群狼剑：参考标点法 AC情况 2' },
+        ]}
+      />
+    <P>
+      其实和中垂线法是一样的，因为
+      <Span variant="yellow">B</Span>
+      /
+      <Span variant="purple">D</Span>
+      刚好在冲锋范围的中垂线上
+    </P>
+    <T text="2.2.2 情形二：斜向冲锋" variant="lime" class="text-base" />
+    <P>原本斜向冲锋的4种情况（左上->右下、右上->左下、左下->右上、右下->左上）应该是对称的</P>
+    <P>
+      但由于前文提及的
+      <StratLink variant="yellow" href="#xreign-bug">Bug</StratLink>
+      ，【左上->右下】【左下->右上】这两种情况会更危险
+    </P>
+    <P>
+      故此处以【左下->右上】为例，其它情况也是类似的：<ToggleSwitch
+        id="xreign-revolutionary-tank-x-toggle"
+        lVariant="sky"
+        rVariant="fuchsia"
+        lLabel="场地基准"
+        rLabel="冲锋终点基准"
+      />
+    </P>
+    <div id="xreign-revolutionary-tank-x-toggle-div">
+      <ImgRow
+        class="absolute_base"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: 'imgs/07/m8s1/xreign/solution/revolutionary_t_5.png',
+            alt: '旋击群狼剑：参考标点法 斜向情况 1 场基',
+          },
+          {
+            src: 'imgs/07/m8s1/xreign/solution/revolutionary_t_6.png',
+            alt: '旋击群狼剑：参考标点法 斜向情况 2 场基',
+          },
+        ]}
+      />
+      <ImgRow
+        class="relative_base hidden"
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: 'imgs/07/m8s1/xreign/solution/revolutionary_t_7.png',
+            alt: '旋击群狼剑：参考标点法 斜向情况 1 冲锋终点基准',
+          },
+          {
+            src: 'imgs/07/m8s1/xreign/solution/revolutionary_t_8.png',
+            alt: '旋击群狼剑：参考标点法 斜向情况 2 冲锋终点基准',
+          },
+        ]}
+      />
+    </div>
+    <P>
+      先找冲锋范围两侧的标点，上图的情况即为
+      <Span variant="red">A</Span>、
+      <Span variant="red">1</Span>、
+      <Span variant="sky">C</Span>、
+      <Span variant="sky">3</Span>
+      ，接着找这样的两类参考点：
+    </P>
+    <P>
+      一是数字点对角线贴边，二是两标点中间贴边，也就是左图中
+      <Span variant="red">红色小圆点</Span>
+      标注的位置
+    </P>
+    <P>
+      最后，从中选择离
+      <HowlingBlade />
+      更远的那组，也就是右图中
+      <Span variant="blue">蓝色小圆点</Span>
+      标注的位置，再
+      <Span variant="cyan">根据范围预兆微调位置</Span>
+    </P>
+    <P>
+      总结一下：要么是
+      <Span variant="cyan">数字点的对角线贴边</Span>
+      ，要么是
+      <Span variant="cyan">两标点中间贴边</Span>
+      ，哪个离
+      <HowlingBlade />
+      更远就选哪个
+    </P>
+  </div>
+</SolutionSection>
+
+<script>
+  function toggleImages(id: string, checked: boolean, class1: string, class2: string) {
+    const div = document.getElementById(id)
+
+    if (div) {
+      const imgs1 = div.querySelectorAll(class1)
+      const imgs2 = div.querySelectorAll(class2)
+
+      if (checked) {
+        imgs1.forEach((img) => {
+          img.classList.toggle('flex', !img.classList.toggle('hidden', true))
+        })
+        imgs2.forEach((img) => {
+          img.classList.toggle('flex', !img.classList.toggle('hidden', false))
+        })
+      } else {
+        imgs2.forEach((img) => {
+          img.classList.toggle('flex', !img.classList.toggle('hidden', true))
+        })
+        imgs1.forEach((img) => {
+          img.classList.toggle('flex', !img.classList.toggle('hidden', false))
+        })
+      }
+    }
+  }
+
+  document.addEventListener('change', (event) => {
+    const target = event.target as HTMLInputElement
+
+    if (target && target.id === 'xreign-game-strat-toggle') {
+      toggleImages('xreign-game-strat-toggle-div', target.checked, '.game-img', '.strat-img')
+    } else if (target && target.id === 'xreign-wolves-reign-omen-activate-toggle') {
+      toggleImages('xreign-wolves-reign-omen-activate-toggle-div', target.checked, '.omen-img', '.activate-img')
+    } else if (target && target.id === 'xreign-revolutionary-tank-x-toggle') {
+      toggleImages('xreign-revolutionary-tank-x-toggle-div', target.checked, '.absolute_base', '.relative_base')
+    }
+  })
+</script>

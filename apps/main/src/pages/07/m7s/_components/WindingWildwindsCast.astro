@@ -1,0 +1,22 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import BloomingAbomination from './BloomingAbomination.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  num: number
+}
+
+const { start, num }: Props = Astro.props
+const windingWildwinds = translations.windingWildwinds
+---
+
+<CastSection start={start} duration={6.7} ability={windingWildwinds}>
+  <BloomingAbomination slot="source" num={num} />
+  <Badge variant="purple">月环AoE</Badge>
+</CastSection>

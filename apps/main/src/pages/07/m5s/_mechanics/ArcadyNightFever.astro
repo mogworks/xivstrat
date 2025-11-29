@@ -1,0 +1,850 @@
+---
+import type { Time } from '@/lib/utils'
+import CosImage from '@/components/CosImage.astro'
+import Badge from '@/components/Badge.astro'
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Span from '@/components/Span.vue'
+import StratBoard from '@/components/StratBoard.astro'
+import StratLink from '@/components/StratLink.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
+import LimitBreak from '@/components/action/LimitBreak.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleOrder from '../_components/GetDownOrder.vue'
+import Wavelength from '../_components/Wavelength.astro'
+import WavelengthEffect from '../_components/WavelengthEffect.astro'
+
+import VideoPlaySVG from '@/svg/video-play.svg'
+import ResetSVG from '@/svg/reset.svg'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  getDownTimes: Time[]
+}
+const { start, getDownTimes = [] }: Props = Astro.props
+const wavelengthDurations1 = ['40.5', '43', '25.5', '28', '25.5', '18', '30.5', '23']
+const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', '28']
+---
+
+<CastSection start={start} duration={4.5} ability={translations.arcadyNightFever}>
+  <Badge variant="yellow">连续钢铁月环</Badge>
+</CastSection>
+<CollapseSection>
+  <Fragment slot="summary">
+    <Boss />按职能交替点名
+    <RoleIcon role="tank" />
+    <RoleIcon role="healer" />
+    或
+    <RoleIcon role="dps" />
+    8轮扇形，并赋予玩家
+    <Wavelength type="α" hover />
+    或
+    <Wavelength type="β" hover />
+  </Fragment>
+  <Fragment slot="details">
+    {
+      getDownTimes.map((time, index) => (
+        <EventSection time={time}>
+          <Boss />
+          对不重复
+          {index % 2 === 0 ? (
+            <>
+              <RoleIcon role="tank" />
+              <RoleIcon role="healer" />
+              或
+              <RoleIcon role="dps" />
+            </>
+          ) : (
+            <>
+              <RoleIcon role="dps" />
+              或
+              <RoleIcon role="tank" />
+              <RoleIcon role="healer" />
+            </>
+          )}
+          发动
+          <Span variant="yellow">{translations.getDown}</Span>
+          <DamageInfo damage="95000" type="magical" />
+          <MagicVulnerabilityUp tag="9" hover />
+          {index % 2 === 0 ? (
+            <Fragment>
+              <Wavelength type="α" tag={wavelengthDurations1[index]} hover />
+              /
+              <Wavelength type="β" tag={wavelengthDurations2[index]} hover />
+            </Fragment>
+          ) : (
+            <Fragment>
+              <Wavelength type="β" tag={wavelengthDurations1[index]} hover />
+              /
+              <Wavelength type="α" tag={wavelengthDurations2[index]} hover />
+            </Fragment>
+          )}
+          <Badge variant="emerald">45°扇形</Badge>
+          <Badge variant="emerald">八方</Badge>
+          <Badge variant="yellow">分散</Badge>
+        </EventSection>
+      ))
+    }
+  </Fragment>
+</CollapseSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">{translations.arcadyNightFever}</Span>
+    </h4>
+    <div class="paragraph">
+      读条后，
+      <Boss />
+      会每隔约
+      <Span variant="pink">2.5s</Span>
+      交替释放钢铁/月环，首次固定为钢铁且有范围提示
+    </div>
+    <div class="paragraph">
+      钢铁/月环的范围与
+      <Span variant="yellow">{translations.insideOut}</Span>
+      /
+      <Span variant="yellow">{translations.outSideIn}</Span>
+      相同，半径分别为
+      <Span variant="pink">7m</Span>
+      和
+      <Span variant="pink">5m</Span>
+    </div>
+    <div class="paragraph">
+      每次钢铁/月环的同时，对随机不重复玩家发动一次名为
+      <Span variant="yellow">{translations.getDown}</Span>
+      的
+      <Span variant="pink">45°扇形</Span>
+      攻击
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{translations.getDown}</Span>
+    </h4>
+    <div class="paragraph">
+      <Span variant="pink">45°扇形</Span>
+      攻击，对玩家造成
+      <DamageInfo damage="95000" type="magical" />
+      <MagicVulnerabilityUp tag="9" hover />
+      ，并附加时长不等的
+      <Wavelength type="α" hover />
+      或
+      <Wavelength type="β" hover />
+    </div>
+    <div class="paragraph">
+      若已持有
+      <Wavelength type="α" hover />
+      或
+      <Wavelength type="β" hover />
+      ，并在
+      <MagicVulnerabilityUp hover />
+      消失后再次吃到扇形，则不会覆盖已有的
+      <Wavelength type="α" hover />
+      或
+      <Wavelength type="β" hover />
+    </div>
+    <div class="paragraph">
+      共计
+      <Span variant="pink">8</Span>
+      次，每次点名随机不重复玩家，且不会连续点名
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      ，亦不会连续点名
+      <RoleIcon role="dps" />
+    </div>
+    <div class="paragraph">
+      换言之，全员都会被点名1次，且这一轮点了
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      ，下一轮就必定点名
+      <RoleIcon role="dps" />
+      ，反之亦然
+    </div>
+    <div class="paragraph">
+      <Span variant="pink">每轮攻击都会被记录位置，并在下一轮的同位置再复读1次</Span>
+      （类似 M1S 的扇形引导）
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow"
+        >{translations.wavelength}
+        <Span variant="violet">(</Span>α<Span variant="violet">|</Span>β<Span variant="violet">)</Span></Span
+      >
+    </h4>
+    <div class="paragraph">
+      被扇形攻击的人会被依次赋予时长不等的
+      <Wavelength type="α" hover />
+      和
+      <Wavelength type="β" hover />
+      ，有两种情况（无需记忆，仅列出作为参考）：
+    </div>
+    <Quote variant="yellow">
+      <P>情况一：</P>
+      <P>
+        <ListDot />
+        第1、3、5、7次扇形赋予
+        <Wavelength type="α" hover tag={wavelengthDurations1[0]} />
+        、
+        <Wavelength type="α" hover tag={wavelengthDurations1[2]} />
+        、
+        <Wavelength type="α" hover tag={wavelengthDurations1[4]} />
+        、
+        <Wavelength type="α" hover tag={wavelengthDurations1[6]} />
+        ，第8次扇形时会变为
+        <Wavelength type="α" hover tag="23" />
+        、
+        <Wavelength type="α" hover tag="13" />
+        、
+        <Wavelength type="α" hover tag="18" />
+        、
+        <Wavelength type="α" hover tag="28" />
+      </P>
+      <P>
+        <ListDot />
+        第2、4、6、8次扇形赋予
+        <Wavelength type="β" hover tag={wavelengthDurations1[1]} />
+        、
+        <Wavelength type="β" hover tag={wavelengthDurations1[3]} />
+        、
+        <Wavelength type="β" hover tag={wavelengthDurations1[5]} />
+        、
+        <Wavelength type="β" hover tag={wavelengthDurations1[7]} />
+        ，第8次扇形时会变为
+        <Wavelength type="β" hover tag="28" />
+        、
+        <Wavelength type="β" hover tag="18" />
+        、
+        <Wavelength type="β" hover tag="13" />
+        、
+        <Wavelength type="β" hover tag="23" />
+      </P>
+      <P>情况二：</P>
+      <P>
+        <ListDot />
+        第1、3、5、7次扇形赋予
+        <Wavelength type="β" hover tag={wavelengthDurations2[0]} />
+        、
+        <Wavelength type="β" hover tag={wavelengthDurations2[2]} />
+        、
+        <Wavelength type="β" hover tag={wavelengthDurations2[4]} />
+        、
+        <Wavelength type="β" hover tag={wavelengthDurations2[6]} />
+        ，第8次扇形时会变为
+        <Wavelength type="β" hover tag="28" />
+        、
+        <Wavelength type="β" hover tag="18" />
+        、
+        <Wavelength type="β" hover tag="13" />
+        、
+        <Wavelength type="β" hover tag="23" />
+      </P>
+      <P>
+        <ListDot />
+        第2、4、6、8次扇形赋予
+        <Wavelength type="α" hover tag={wavelengthDurations2[1]} />
+        、
+        <Wavelength type="α" hover tag={wavelengthDurations2[3]} />
+        、
+        <Wavelength type="α" hover tag={wavelengthDurations2[5]} />
+        、
+        <Wavelength type="α" hover tag={wavelengthDurations2[7]} />
+        ，第8次扇形时会变为
+        <Wavelength type="α" hover tag="23" />
+        、
+        <Wavelength type="α" hover tag="13" />
+        、
+        <Wavelength type="α" hover tag="18" />
+        、
+        <Wavelength type="α" hover tag="28" />
+      </P>
+    </Quote>
+    <WavelengthEffect />
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">节奏感</Span>
+    </h4>
+    <div class="paragraph">机制开始时会出现一个计量槽，累积满时会奖励<LimitBreak stage={1} /></div>
+    <div class="paragraph">
+      错误处理会导致计量值积攒变慢，若本阶段完全正确处理则会累积
+      <Span variant="pink">66</Span>
+      点计量值
+    </div>
+    <CosImage src="imgs/07/m5s/Grooviness66.png" alt="Grooviness 66" class="w-75" />
+  </div>
+</MechanicSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">钢铁/月环共计8轮，首轮固定钢铁</div>
+    <div class="paragraph">第1轮时场上只有1个扇形，第2~8轮场上同时会有2个扇形（1个本轮次，1个上一轮复读）</div>
+    <div class="paragraph">最后第9轮时，没有钢铁/月环，但还有第8轮的扇形复读</div>
+    <div class="paragraph">
+      扇形总是交替点名
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      和
+      <RoleIcon role="dps" />
+      ，但首轮点名随机，以下图示以先点名
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      为例
+    </div>
+    <div class="grid grid-cols-[1fr_1fr_1fr_1fr] gap-2">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/1.png"
+          alt="Arcady Night Fever 1"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">第1轮</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/2.png"
+          alt="Arcady Night Fever 2"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">第2n轮，1≤n≤4</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/3.png"
+          alt="Arcady Night Fever 3"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">第2n+1轮，1≤n≤3</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/4.png"
+          alt="Arcady Night Fever 4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">第9轮</div>
+      </div>
+    </div>
+  </div>
+</NoteSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph border-l-2 border-teal-500 pl-2 opacity-80">
+      这里只阐述钢铁/月环+扇形的处理，至于debuff则会在下个机制
+      <StratLink variant="yellow" href="#lets-dance">{translations.letsDance}</StratLink>
+      中一并处理
+    </div>
+    <div class="paragraph mt-8">由于每人都会被点名1次扇形，显然应该按八方分散处理</div>
+    <div class="paragraph">而扇形还会在原地复读1次，被点名后需要临时去其他人处躲避</div>
+    <div class="paragraph">
+      又因为扇形会交替点名
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      和
+      <RoleIcon role="dps" />
+      ，故只能临时去
+      <Span variant="pink">同职能</Span>
+      位置处躲避，否则可能会再吃1次扇形
+    </div>
+    <div class="paragraph">
+      因此应该采用
+      <Span variant="pink">同职能相邻分布</Span>
+      的八方站位，而非
+      <Span variant="pink">同职能间隔分布</Span>
+      的标准八方站位
+    </div>
+    <div class="paragraph mt-8">
+      这里我们规定，
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      站上/北半场，
+      <RoleIcon role="dps" />
+      站下/南半场，处理流程如下：
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-78 shrink">
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/solution_1.png"
+          alt="Arcady Night Fever Solution 1"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+      </div>
+      <div class="flex shrink-0 grow flex-col gap-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="lime">初始站位</Span>
+        </h4>
+        <div class="paragraph">初始按斜八方站位</div>
+        <div class="paragraph">由于扇形仅有45°，这里站位不需要非常精确</div>
+        <div class="paragraph">只要相邻的人相互不要靠太近即可</div>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-78 shrink">
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/solution_2.png"
+          alt="Arcady Night Fever Solution 2"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+      </div>
+      <div class="flex shrink-0 grow flex-col gap-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="lime">第1轮</Span>
+        </h4>
+        <div class="paragraph">躲避钢铁</div>
+        <div class="paragraph">
+          假设扇形点名
+          <RoleIcon role="healer" tag="H1" />
+          ，则
+          <RoleIcon role="healer" tag="H1" />
+          下一轮要离开原位置躲避
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-78 shrink">
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/solution_3.png"
+          alt="Arcady Night Fever Solution 3"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+      </div>
+      <div class="flex shrink-0 grow flex-col gap-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="lime">第2n轮，1≤n≤3</Span>
+        </h4>
+        <div class="paragraph">躲避月环</div>
+        <div class="paragraph">
+          上一轮被点扇形的人注意在
+          <Span variant="pink">同职能的半场</Span>
+          躲避
+        </div>
+        <div class="paragraph">
+          如图中的
+          <RoleIcon role="healer" tag="H1" />
+          只能在上半场躲避，不应去下半场
+        </div>
+        <div class="paragraph">躲避完复读的扇形后，注意返回原位置</div>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-78 shrink">
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/solution_4.png"
+          alt="Arcady Night Fever Solution 4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+      </div>
+      <div class="flex shrink-0 grow flex-col gap-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="lime">第2n+1轮，1≤n≤3</Span>
+        </h4>
+        <div class="paragraph">躲避钢铁</div>
+        <div class="paragraph">
+          上一轮被点扇形的人注意在
+          <Span variant="pink">同职能的半场</Span>
+          躲避
+        </div>
+        <div class="paragraph">
+          如图中的
+          <RoleIcon role="melee" tag="D1" />
+          只能在下半场躲避，不应去上半场
+        </div>
+        <div class="paragraph">躲避完复读的扇形后，注意返回原位置</div>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-78 shrink">
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/solution_5.png"
+          alt="Arcady Night Fever Solution 5"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+      </div>
+      <div class="flex shrink-0 grow flex-col gap-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="lime">第8轮</Span>
+        </h4>
+        <div class="paragraph">躲避月环</div>
+        <div class="paragraph">
+          假设上一轮
+          <RoleIcon role="tank" tag="ST" />
+          被点扇形，本轮
+          <RoleIcon role="magic" tag="D4" />
+          被点扇形
+        </div>
+        <div class="paragraph">
+          上一轮被点扇形的人注意在
+          <Span variant="pink">同职能的半场</Span>
+          躲避
+        </div>
+        <div class="paragraph">躲避完复读的扇形后，注意返回原位置</div>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-78 shrink">
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/solution_6.png"
+          alt="Arcady Night Fever Solution 6"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+      </div>
+      <div class="flex shrink-0 grow flex-col gap-4 rounded-md border border-dashed p-4">
+        <h4 class="text-xl">
+          <Span variant="lime">第9轮</Span>
+        </h4>
+        <div class="paragraph">本轮没有钢铁/月环，但还有第8轮的扇形复读</div>
+      </div>
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="lime">动态演示</Span>
+    </h4>
+    <div class="flex gap-4">
+      <div class="flex shrink flex-col items-center gap-4">
+        <StratBoard
+          width={312}
+          height={312}
+          key="arcady-night-fever-solution-dynamic"
+          class="max-h-78 max-w-78"
+          canvasClass="h-full w-full border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div
+          class="flex items-center justify-start gap-2 rounded-full border border-lime-200 bg-lime-100/90 px-3 py-1 backdrop-blur-sm dark:border-lime-800/80 dark:bg-lime-900/80 dark:shadow-lime-900/30"
+        >
+          <button
+            id="arcady-night-fever-solution-dynamic-play-button"
+            class="group flex items-center gap-2"
+            title="开始演示"
+          >
+            <div
+              class="flex h-6 w-6 items-center justify-center rounded-full bg-lime-500 text-white shadow-inner shadow-lime-400/30 transition-all group-hover:scale-110 group-hover:bg-lime-600 group-hover:shadow group-active:scale-95 dark:bg-lime-600 dark:shadow-lime-500/10 dark:group-hover:bg-lime-500"
+            >
+              <VideoPlaySVG />
+            </div>
+            <span
+              class="text-sm font-medium text-lime-900 transition-all group-hover:scale-110 group-hover:text-lime-700 group-active:scale-95 dark:text-lime-100 dark:group-hover:text-white"
+              >开始演示</span
+            >
+          </button>
+          <span class="mx-0.5 h-5 border-l border-lime-400/80 dark:border-lime-400/60"></span>
+          <button
+            id="arcady-night-fever-solution-dynamic-random-button"
+            class="group flex items-center gap-2"
+            title="随机点名"
+          >
+            <div
+              class="flex h-6 w-6 items-center justify-center rounded-full bg-lime-500 text-white shadow-inner shadow-lime-400/30 transition-all group-hover:scale-110 group-hover:bg-lime-600 group-hover:shadow group-active:scale-95 dark:bg-lime-600 dark:shadow-lime-500/10 dark:group-hover:bg-lime-500"
+            >
+              <ResetSVG />
+            </div>
+            <span
+              class="text-sm font-medium text-lime-900 transition-all group-hover:scale-110 group-hover:text-lime-700 group-active:scale-95 dark:text-lime-100 dark:group-hover:text-white"
+              >重置点名</span
+            >
+          </button>
+        </div>
+      </div>
+      <div class="shrink-0 grow space-y-4">
+        <div class="paragraph">当前点名顺序：</div>
+        <div class="paragraph">
+          <RoleOrder client:only="vue">
+            <RoleIcon slot="MT" role="tank" tag="MT" />
+            <RoleIcon slot="ST" role="tank" tag="ST" />
+            <RoleIcon slot="H1" role="healer" tag="H1" />
+            <RoleIcon slot="H2" role="healer" tag="H2" />
+            <RoleIcon slot="D1" role="melee" tag="D1" />
+            <RoleIcon slot="D2" role="melee" tag="D2" />
+            <RoleIcon slot="D3" role="ranged" tag="D3" />
+            <RoleIcon slot="D4" role="magic" tag="D4" />
+          </RoleOrder>
+        </div>
+      </div>
+    </div>
+  </div>
+</SolutionSection>
+
+<script>
+  import type { AnimationSequence } from 'motion'
+  import type { Application, Ticker } from 'pixi.js'
+
+  import { animate } from 'motion'
+  import { listenKeys } from 'nanostores'
+  import { AnimatedSprite, Assets, Container, Graphics, Sprite, Texture } from 'pixi.js'
+
+  import type { RoleType } from '@/lib/role'
+
+  import { Role } from '@/pixi/role'
+  import { getScale, YmToPx, YmToPxMap } from '@/pixi/utils'
+  import { setWaymark } from '@/pixi/waymark'
+  import { $stratBoards } from '@/stores/stratBoards'
+
+  import type { RoleStr } from '../_stores/getDownOrder'
+
+  import { waymarkData } from '../_data/waymark'
+  import { $roleOrders, shuffleRoleOrder } from '../_stores/getDownOrder'
+
+  const radianMap: Record<RoleStr, number> = {
+    MT: -0.625 * Math.PI,
+    ST: -0.375 * Math.PI,
+    H1: -0.875 * Math.PI,
+    H2: -0.125 * Math.PI,
+    D1: 0.625 * Math.PI,
+    D2: 0.375 * Math.PI,
+    D3: 0.875 * Math.PI,
+    D4: 0.125 * Math.PI,
+  }
+
+  const ratio = 1.25
+  const circleRadius = 8 * YmToPx * ratio
+  const ringRadius = 3.6 * YmToPx * ratio
+
+  const roleTypeMap: Record<RoleStr, RoleType> = {
+    MT: 'tank',
+    ST: 'tank',
+    H1: 'healer',
+    H2: 'healer',
+    D1: 'melee',
+    D2: 'melee',
+    D3: 'ranged',
+    D4: 'magic',
+  }
+
+  let first = true
+  let removeTickerFn: (() => void) | null = null
+  let removeAnimFn: (() => void) | null = null
+
+  function playVfx(
+    app: Application,
+    container: Container,
+    circleFrames: Texture[],
+    ringFrames: Texture[],
+    fanFrames: Texture[],
+    startAt: number,
+  ) {
+    const played = Array.from({ length: 9 }).fill(false)
+
+    const createAnimSprite = (frames: Texture[]) => {
+      const sprite = new AnimatedSprite(frames)
+      sprite.anchor.set(0.5, 0.5)
+      sprite.loop = false
+      sprite.animationSpeed = 0.4
+      sprite.play()
+      container.addChild(sprite)
+      return sprite
+    }
+
+    let timeoutIds: NodeJS.Timeout[] = []
+    let elapsedMS = -startAt
+
+    const fn = (ticker: Ticker) => {
+      elapsedMS += ticker.elapsedMS
+
+      for (let i = 0; i < 9; i++) {
+        if (!played[i] && elapsedMS > 2500 * i) {
+          played[i] = true
+
+          const spritesToRemove: AnimatedSprite[] = []
+
+          if (i !== 8) {
+            const vfx = createAnimSprite(i % 2 === 0 ? circleFrames : ringFrames)
+            vfx.scale.set(i % 2 === 0 ? getScale() : getScale(90))
+            spritesToRemove.push(vfx)
+          }
+
+          if (i < 8) {
+            const fan = createAnimSprite(fanFrames)
+            fan.pivot.set((-20 * YmToPx) / 2 / getScale(), 0)
+            fan.scale.set(2 * getScale())
+            fan.rotation = radianMap[$roleOrders.get()[i]]
+            spritesToRemove.push(fan)
+          }
+
+          if (i >= 1) {
+            const fanRepeat = createAnimSprite(fanFrames)
+            fanRepeat.pivot.set((-20 * YmToPx) / 2 / getScale(), 0)
+            fanRepeat.scale.set(2 * getScale())
+            fanRepeat.rotation = radianMap[$roleOrders.get()[i - 1]]
+            spritesToRemove.push(fanRepeat)
+          }
+
+          const timeoutId = setTimeout(() => {
+            spritesToRemove.forEach((sprite) => container.removeChild(sprite))
+          }, 1750)
+
+          timeoutIds.push(timeoutId)
+        }
+      }
+    }
+
+    app.ticker.add(fn)
+
+    removeTickerFn = () => {
+      timeoutIds.forEach((id) => clearTimeout(id))
+      timeoutIds = []
+      app.ticker.remove(fn)
+    }
+  }
+
+  function playOmen(container: Container, omenTexture: Texture) {
+    const omen = Sprite.from(omenTexture)
+    omen.anchor.set(0.5, 0.5)
+    omen.scale.set(0)
+    omen.alpha = 0
+    const sequence: AnimationSequence = [
+      [omen.scale, { x: (getScale() * 7) / 20, y: (getScale() * 7) / 20 }, { duration: 0.5, at: 0.5 }],
+      [omen, { alpha: 1 }, { duration: 0.5, at: 0.5 }],
+      [omen, { alpha: 0 }, { duration: 0.5, at: 2 }],
+    ]
+    const anim = animate(sequence)
+    container.addChild(omen)
+    removeAnimFn = () => {
+      anim.cancel()
+    }
+  }
+
+  async function initFloorContainer(container: Container) {
+    const squareMask = new Graphics()
+    const width = 25 * YmToPx
+    squareMask.rect(-width / 2 + 0.01 * YmToPxMap[50], -width / 2 + 0.01 * YmToPxMap[50], width, width)
+    squareMask.fill({ color: 'white' })
+    container.mask = squareMask
+    container.addChild(squareMask)
+
+    const floorTexture = await Assets.load('07/m5s/floor_3.png')
+    const floor = Sprite.from(floorTexture)
+    floor.anchor.set(0.5, 0.5)
+    floor.scale.set(getScale())
+    container.addChild(floor)
+
+    await setWaymark(container, waymarkData, 0.5)
+
+    container.scale.set(ratio)
+  }
+
+  async function resetRolePositions(roles: Record<RoleStr, Role>, anim: boolean = false) {
+    const sequence: AnimationSequence = []
+    Object.entries(roleTypeMap).forEach(([id]) => {
+      const roleId = id as RoleStr
+      const role = roles[roleId]
+      if (anim) {
+        sequence.push([
+          role.position,
+          { x: circleRadius * Math.cos(radianMap[roleId]), y: circleRadius * Math.sin(radianMap[roleId]) },
+          { duration: 0.9, at: 0, ease: 'easeInOut' },
+        ])
+      } else {
+        role.position.set(circleRadius * Math.cos(radianMap[roleId]), circleRadius * Math.sin(radianMap[roleId]))
+      }
+    })
+    if (anim) {
+      await animate(sequence)
+    }
+  }
+
+  async function initPlayerContainer(container: Container) {
+    const roles: Record<RoleStr, Role> = {} as Record<RoleStr, Role>
+    Object.entries(roleTypeMap).forEach(([id, type]) => {
+      const roleId = id as RoleStr
+      const role = new Role(type, roleId)
+      role.scale.set(0.4)
+      container.addChild(role)
+      roles[roleId] = role
+    })
+
+    resetRolePositions(roles)
+
+    return roles
+  }
+
+  async function loadVfx() {
+    await Assets.load('game/vfx/monster/gimmick5/eff/x6r5_b1_g02_c0x')
+    await Assets.load('game/vfx/monster/gimmick5/eff/x6r5_b1_g03_c0x')
+    await Assets.load('game/vfx/monster/gimmick5/eff/x6r5_b1_g04_c0x')
+  }
+
+  function createFrameSequence(key: string): Texture[] {
+    return Array.from({ length: 42 }).map((_, i) => {
+      const frameNumber = i.toString().padStart(2, '0')
+      return Texture.from(`game/vfx/monster/gimmick5/eff/${key}/${key}${frameNumber}`)
+    })
+  }
+
+  listenKeys($stratBoards, ['arcady-night-fever-solution-dynamic'], async (stratBoards) => {
+    const app = stratBoards['arcady-night-fever-solution-dynamic']
+
+    const floorContainer = new Container()
+    floorContainer.position.set(app.screen.width / 2, app.screen.height / 2)
+    await initFloorContainer(floorContainer)
+    app.stage.addChild(floorContainer)
+
+    const vfxContainer = new Container()
+    floorContainer.addChild(vfxContainer)
+
+    const playerContainer = new Container()
+    playerContainer.position.set(app.screen.width / 2, app.screen.height / 2)
+    const roles = await initPlayerContainer(playerContainer)
+    app.stage.addChild(playerContainer)
+
+    let circleFrames: Texture[] = []
+    let ringFrames: Texture[] = []
+    let fanFrames: Texture[] = []
+
+    async function play() {
+      if (first) {
+        first = false
+      } else {
+        removeTickerFn?.()
+        removeAnimFn?.()
+        vfxContainer.removeChildren()
+        await resetRolePositions(roles, true)
+      }
+
+      await loadVfx()
+
+      circleFrames = circleFrames.length === 0 ? createFrameSequence('x6r5_b1_g02_c0x') : circleFrames
+      ringFrames = ringFrames.length === 0 ? createFrameSequence('x6r5_b1_g03_c0x') : ringFrames
+      fanFrames = fanFrames.length === 0 ? createFrameSequence('x6r5_b1_g04_c0x') : fanFrames
+
+      const omenTexture = await Assets.load('omen/fan/360_r20.png')
+      playOmen(vfxContainer, omenTexture)
+      playVfx(app, vfxContainer, circleFrames, ringFrames, fanFrames, 2500)
+      const sequence: AnimationSequence = []
+      for (let i = 0; i < 8; i++) {
+        const roleId = $roleOrders.get()[i] as RoleStr
+        const role = roles[roleId]
+        const roleType = roleTypeMap[roleId]
+        for (let j = 1; j < 10; j++) {
+          const radius = j % 2 === 0 ? ringRadius : circleRadius
+          let radian = radianMap[roleId]
+          if (i + 2 === j) {
+            if (['tank', 'melee'].includes(roleType)) {
+              radian += ((Math.PI * 3) / 16) * (Math.random() > 0.5 ? 1 : -1)
+            } else if (['H1', 'D4'].includes(roleId)) {
+              radian += (Math.PI * 3) / 16
+            } else {
+              radian -= (Math.PI * 3) / 16
+            }
+          }
+          sequence.push([
+            role.position,
+            { x: radius * Math.cos(radian), y: radius * Math.sin(radian) },
+            { duration: 0.9, at: 0.4 + 2.5 * (j - 1), ease: 'easeInOut' },
+          ])
+        }
+      }
+      animate(sequence)
+    }
+
+    document.getElementById('arcady-night-fever-solution-dynamic-play-button')?.addEventListener('click', () => {
+      play()
+    })
+
+    document.getElementById('arcady-night-fever-solution-dynamic-random-button')?.addEventListener('click', () => {
+      shuffleRoleOrder()
+      play()
+    })
+  })
+</script>

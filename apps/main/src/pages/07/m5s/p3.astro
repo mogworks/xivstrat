@@ -1,0 +1,71 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import Badge from '@/components/Badge.astro'
+import Boss from '@/components/Boss.astro'
+import Span from '@/components/Span.vue'
+import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
+import AttackSection from '@/components/section/AttackSection.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import CelebrateGoodTimesCast from './_components/CelebrateGoodTimesCast.astro'
+import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+
+import FrogtourageP3 from './_mechanics/FrogtourageP3.astro'
+import DeepCutCast from './_components/DeepCutCast.astro'
+import FunkyFloorP3 from './_mechanics/FunkyFloorP3.astro'
+import { translations } from './_translations'
+
+const dutyId = '07/m5s'
+
+const base = '07:14.7'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <EventSection time="07:14.7">
+    <Boss />
+    失去
+    <DirectionalDisregard hover />
+    ，目标圈恢复身位限制
+  </EventSection>
+  <AttackSection time="07:14.7" damage="55000" damageType="physical" />
+  <AttackSection time="07:17.7" damage="55000" damageType="physical" />
+  <AttackSection time="07:20.7" damage="55000" damageType="physical" />
+  <MoveToCenterEvent time="07:23.840" />
+  <SeparatorSection title={translations.frogtourage} />
+  <FrogtourageP3 />
+  <SeparatorSection />
+  <DeepCutCast start="08:28.712" />
+  <AttackSection time="08:35.8" damage="55000" damageType="physical" />
+  <AttackSection time="08:38.8" damage="55000" damageType="physical" />
+  <MoveToCenterEvent time="08:39.900" />
+  <SeparatorSection id="funky-floor" title={translations.funkyFloor} />
+  <FunkyFloorP3 />
+  <SeparatorSection />
+  <CelebrateGoodTimesCast start="09:14.998" />
+  <AttackSection time="09:22.0" damage="55000" damageType="physical" />
+  <AttackSection time="09:25.1" damage="55000" damageType="physical" />
+  <CelebrateGoodTimesCast start="09:25.162" />
+  <AttackSection time="09:33.1" damage="55000" damageType="physical" />
+  <AttackSection time="09:36.2" damage="55000" damageType="physical" />
+  <AttackSection time="09:39.2" damage="55000" damageType="physical" />
+  <AttackSection time="09:42.2" damage="55000" damageType="physical" />
+  <MoveToCenterEvent time="09:45.161" />
+  <SeparatorSection id="hi-nrg-fever" title={translations.HiNRGFever} />
+  <CastSection start="09:47.567" duration={2.7} ability={translations.frogtourageFinale} />
+  <NoteSection>
+    <div class="paragraph">无实际意义</div>
+  </NoteSection>
+  <CastSection start="09:53.711" duration={11.7} target ability="Hi-NRG Fever" damage="9999999" damageType="special">
+    <Span slot="ability" variant="fuchsia">{translations.HiNRGFever}</Span>
+    <Badge variant="fuchsia">狂暴</Badge>
+    <Badge variant="red">团灭</Badge>
+  </CastSection>
+  <EventSection time="10:07">
+    <Span variant="fuchsia">{translations.HiNRGFever}</Span>
+    伤害结算，副本进程终结
+  </EventSection>
+</DutyStratLayout>

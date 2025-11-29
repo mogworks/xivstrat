@@ -1,0 +1,63 @@
+---
+import DefaultAvatarSVG from '@/svg/default-avatar.svg'
+import StratEditSVG from '@/svg/strat-edit.svg'
+import CoOpSVG from '@/svg/co-op.svg'
+
+import AreaBox from '@/components/AreaBox.astro'
+import DevSimpleProfile from '@/components/thanks/DevSimpleProfile.astro'
+import DevGroupSimpleProfile from '@/components/thanks/DevGroupSimpleProfile.astro'
+import Separator from '@/components/Separator.astro'
+
+interface Props {
+  groupList: string[]
+  devList: string[]
+  other: {
+    type: string
+    label: string
+    link?: string
+  }[]
+}
+
+const { groupList, devList, other }: Props = Astro.props
+---
+
+<div class="flex flex-col gap-4">
+  <AreaBox>
+    <p class="flex items-center gap-1 font-bold opacity-90">
+      <StratEditSVG class="inline-block w-6" />
+      攻略制作
+    </p>
+    <Separator class="my-2 mb-4" />
+    {groupList.map((devId) => <DevGroupSimpleProfile targetId={devId.toLowerCase()} />)}
+  </AreaBox>
+  <AreaBox>
+    <p class="flex items-center gap-1 font-bold opacity-90">
+      <DefaultAvatarSVG class="inline-block w-6" />
+      莫古力工坊
+    </p>
+    <Separator class="my-2 mb-0" />
+    {devList.map((devId) => <DevSimpleProfile targetId={devId.toLowerCase()} />)}
+  </AreaBox>
+  {
+    other && other.length > 0 && (
+      <AreaBox>
+        <p class="flex items-center gap-1 font-bold opacity-90">
+          <CoOpSVG class="inline-block w-6" />
+          其它协力
+        </p>
+        <Separator class="my-2" />
+        <ol>
+          {other.map((user) => (
+            <li class="flex h-5 flex-row items-center gap-2">
+              <span class="font-semibold opacity-80">{user.type}</span>
+              <Separator orientation="vertical" />
+              <a href={user.link ?? '#'} target="_blank" class="italic hover:underline">
+                {user.label}
+              </a>
+            </li>
+          ))}
+        </ol>
+      </AreaBox>
+    )
+  }
+</div>

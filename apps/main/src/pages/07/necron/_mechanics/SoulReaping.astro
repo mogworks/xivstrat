@@ -1,0 +1,64 @@
+---
+import type { Time } from '@/lib/utils'
+
+import P from '@/components/typography/P.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import T from '@/components/typography/T.astro'
+import Skill from '@/components/typography/Skill.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import { translations } from '../_translations'
+
+import SoulReapingCast from '../_components/SoulReapingCast.astro'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<SoulReapingCast start={start} />
+
+<MechanicSection>
+  <!-- SoulReaping -->
+  <div class="flex flex-col gap-4" id="soul-reaping">
+    <T>
+      <Skill name={translations.SoulReaping} />
+    </T>
+    <P>按照技能特效存储相应的技能，稍后释放</P>
+    <ImgRow
+      borderVariant="cyan"
+      wrapperClass="max-w-160"
+      imgs={[
+        {
+          src: 'imgs/07/necron/SoulReaping_1.png',
+          alt: '',
+          title: '情形1：辣翅（中间安全）',
+        },
+      ]}
+    />
+    <ImgRow
+      borderVariant="cyan"
+      wrapperClass="max-w-160"
+      imgs={[
+        {
+          src: 'imgs/07/necron/SoulReaping_2.png',
+          alt: '',
+          title: '情形2：辣尾（两侧安全）',
+        },
+      ]}
+    />
+    <ImgRow
+      borderVariant="cyan"
+      wrapperClass="max-w-160"
+      imgs={[
+        {
+          src: 'imgs/07/necron/SoulReaping_omen.png',
+          alt: '',
+          title: 'BOSS身前的圆形标记，表示储存了技能',
+        },
+      ]}
+    />
+  </div>
+</MechanicSection>

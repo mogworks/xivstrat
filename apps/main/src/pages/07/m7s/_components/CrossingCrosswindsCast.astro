@@ -1,0 +1,22 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import BloomingAbomination from './BloomingAbomination.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  num: number
+}
+
+const { start, num }: Props = Astro.props
+const crossingCrosswinds = translations.crossingCrosswinds
+---
+
+<CastSection start={start} duration={6.7} ability={crossingCrosswinds}>
+  <BloomingAbomination slot="source" num={num} />
+  <Badge variant="purple">十字AoE</Badge>
+</CastSection>

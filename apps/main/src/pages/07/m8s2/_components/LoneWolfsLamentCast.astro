@@ -1,0 +1,26 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const loneWolfsLament = translations.loneWolfsLament
+
+// 如果要修改这个文件注意p2跟p3复用了同一个
+---
+
+<CastSection start={start} duration={2.7} ability={loneWolfsLament}>
+  <HowlingBlade slot="source" />
+
+  <Badge variant="yellow">连线出现</Badge>
+</CastSection>

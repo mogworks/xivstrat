@@ -1,0 +1,49 @@
+---
+import CosImage from '@/components/CosImage.astro'
+import { getCollection } from 'astro:content'
+
+import DefaultAvatarSVG from '@/svg/default-avatar.svg'
+
+import DevSimpleProfileHoverBase from './DevSimpleProfileHoverBase.vue'
+
+interface Props {
+  /** 全小写，与数据集合读取的 [developer].json 的文件名一致 */
+  targetId: string
+}
+
+const { targetId }: Props = Astro.props
+
+const developers = await getCollection('developers')
+
+const targetDeveloper = developers.find((item) => item.id === targetId)
+---
+
+{
+  targetDeveloper ? (
+    <span class="relative w-min">
+      <DevSimpleProfileHoverBase
+        client:only="vue"
+        userId={targetDeveloper.id}
+        link={targetDeveloper.data.link}
+        name={targetDeveloper.data.name}
+        gameName={targetDeveloper.data.gameName}
+        breakNames={targetDeveloper.data.breakNames}
+      >
+        {targetDeveloper.data.avatar ? (
+          <CosImage
+            src={targetDeveloper.data.avatar}
+            alt={targetDeveloper.data.name}
+            class="h-full w-full object-fill select-none"
+            draggable="false"
+          />
+        ) : (
+          <div class="flex h-full w-full items-center justify-center rounded-full bg-zinc-300 text-zinc-600">
+            <DefaultAvatarSVG class="p-3" />
+          </div>
+        )}
+      </DevSimpleProfileHoverBase>
+    </span>
+  ) : (
+    <span>未知开发者</span>
+  )
+}

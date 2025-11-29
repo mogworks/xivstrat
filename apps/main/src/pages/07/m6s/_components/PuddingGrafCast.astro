@@ -1,0 +1,23 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const PuddingGraf = translations.PuddingGraf
+---
+
+<CastSection start={start} duration={2.7} ability={PuddingGraf}>
+  <SugarRiot slot="source" />
+  <Badge variant="emerald">延迟生效</Badge>
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="yellow">分散</Badge>
+</CastSection>

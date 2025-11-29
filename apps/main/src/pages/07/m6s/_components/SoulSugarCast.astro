@@ -1,0 +1,22 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+  end: Time
+}
+
+const { start, end }: Props = Astro.props
+const SoulSugar = translations.SoulSugar
+---
+
+<CastSection start={start} end={end} ability={SoulSugar}>
+  <SugarRiot slot="source" />
+  <Badge variant="emerald">“集合啦！动物森友会”</Badge>
+</CastSection>

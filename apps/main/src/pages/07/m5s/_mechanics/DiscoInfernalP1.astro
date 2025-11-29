@@ -1,0 +1,55 @@
+---
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import StratLink from '@/components/StratLink.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+
+import BurnBabyBurn from '../_components/BurnBabyBurn.astro'
+import BurnBabyBurnEffect from '../_components/BurnBabyBurnEffect.astro'
+import DiscoInfernalCast from '../_components/DiscoInfernalCast.astro'
+import { translations } from '../_translations'
+---
+
+<DiscoInfernalCast start="01:12.578" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      对
+      <RoleIcon role="all" tag="全员" />
+      造成
+      <DamageInfo damage="125000" type="magical" />
+      ，附加
+      <BurnBabyBurn tag="24" hover />
+      或
+      <BurnBabyBurn tag="32" hover />
+      ，
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      必定是同一种，
+      <RoleIcon role="dps" />
+      必定是另一种
+    </div>
+    <div class="paragraph">
+      在稍后的
+      <StratLink variant="yellow" href="#funky-floor">{translations.funkyFloor}</StratLink>
+      机制中，场地上会出现
+      <Span variant="rose">地面AoE</Span>和<Span variant="cyan">聚光灯</Span>
+    </div>
+    <BurnBabyBurnEffect />
+    <div class="paragraph">
+      简而言之，玩家需要在
+      <BurnBabyBurn hover />
+      <Span variant="pink">倒计时结束</Span>时<Span variant="pink">独占</Span>
+      一盏
+      <Span variant="pink">安全</Span>的<Span variant="cyan">聚光灯</Span>
+    </div>
+    <div class="paragraph">
+      这里的
+      <Span variant="pink">独占</Span>
+      是指
+      <Span variant="pink">同时长</Span>
+    </div>
+  </div>
+</MechanicSection>

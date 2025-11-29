@@ -1,0 +1,25 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import SprayPain from '../_components/SprayPain.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  duration?: Time
+  num?: number
+}
+
+const { start, duration = 6.7, num = 5 }: Props = Astro.props
+const SprayPainName = translations.SprayPain
+---
+
+<CastSection start={start} duration={duration} ability={SprayPainName}>
+  <SprayPain slot="source" num={num} />
+  <Fragment slot="cast">逐渐变大并释放</Fragment>
+  <Badge variant="emerald">10m圆形</Badge>
+</CastSection>

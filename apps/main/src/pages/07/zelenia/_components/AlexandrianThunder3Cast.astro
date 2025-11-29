@@ -1,0 +1,24 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+
+import Zelenia from './Zelenia.astro'
+import { translations } from '../_translations'
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={4.7} target ability={translations.AlexandrianThunder3}>
+  <Zelenia slot="source" />
+  <Fragment slot="target">
+    <RoleIcon role="all" tag="全员" />
+  </Fragment>
+  <Badge variant="emerald">分散</Badge>
+  <Badge variant="yellow">圆形Aoe</Badge>
+</CastSection>

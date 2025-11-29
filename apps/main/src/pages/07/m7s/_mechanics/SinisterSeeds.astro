@@ -1,0 +1,823 @@
+---
+import CosImage from '@/components/CosImage.astro'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import Badge from '@/components/Badge.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import T from '@/components/typography/T.astro'
+
+import CrossingCrosswindsCast from '../_components/CrossingCrosswindsCast.astro'
+import SinisterSeedsCast from '../_components/SinisterSeedsCast.astro'
+import SporeSacCast from '../_components/SporeSacCast.astro'
+import WindingWildwindsCast from '../_components/WindingWildwindsCast.astro'
+import PollenCast from '../_components/PollenCast.astro'
+import QuarrySwampCast from '../_components/QuarrySwampCast.astro'
+import HurricaneForceCast from '../_components/HurricaneForceCast.astro'
+import BloomingAbomination from '../_components/BloomingAbomination.astro'
+import BruteAbombinator from '../_components/BruteAbombinator.astro'
+import AttackSection from '../_components/BossAttackSection.astro'
+import { translations } from '../_translations'
+import NoteSection from '@/components/section/NoteSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import Skill from '@/components/typography/Skill.astro'
+import ImgGrid from '@/components/typography/ImgGrid.astro'
+import SinisterSeedsMode2Activate from '../_components/SinisterSeedsMode2Activate.astro'
+import SinisterSeedsMode1Cast from '../_components/SinisterSeedsMode1Cast.astro'
+import TendrilsofTerrorAppear2 from '../_components/TendrilsofTerrorAppear2.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+import StratLink from '@/components/StratLink.astro'
+
+import RootsofEvilActivate from '../_components/RootsofEvilActivate.astro'
+
+const impact = translations.impact
+const sinisterSeeds = translations.sinisterSeeds
+const windingWildwinds = translations.windingWildwinds
+const crossingCrosswinds = translations.crossingCrosswinds
+const hurricaneForce = translations.hurricaneForce
+const quarrySwamp = translations.quarrySwamp
+const bloomingAbomination = translations.bloomingAbomination
+const sporeSac = translations.sporeSac
+const pollen = translations.pollen
+const rootsOfEvil = translations.rootsOfEvil
+const tendrilsofTerror = translations.tendrilsOfTerror
+
+const solutions = [
+  {
+    id: 'sinisterseeds-game8m',
+    title: '解法：日野主流【改】',
+  },
+  {
+    id: 'inisterseeds-nO2m',
+    title: '解法：nO2S改',
+  },
+]
+const defaultSolution = '解法：日野主流【改】'
+---
+
+<SporeSacCast start="00:40.052" end="00:43.039" />
+<SinisterSeedsCast start="00:48.384" />
+<PollenCast start="00:49.812" />
+<EventSection time="00:55.917">
+  <BloomingAbomination num={4} />可选中
+</EventSection>
+<SinisterSeedsMode1Cast start="00:53.511" />
+<SinisterSeedsMode1Cast start="00:55.515" />
+<SinisterSeedsMode1Cast start="00:57.521" />
+<SinisterSeedsMode2Activate time="01:00.508" />
+<SinisterSeedsMode1Cast start="00:59.527" />
+<EventSection time="01:05.052">
+  <Span variant="yellow">{impact}</Span>
+  判定
+  <DamageInfo damage="170000" type="magical" />
+  <MagicVulnerabilityUp tag="2" hover />
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="yellow">四四分摊</Badge>
+</EventSection>
+<TendrilsofTerrorAppear2 time="01:02.155" />
+
+<MechanicSection id="sporesacmc">
+  <div class="flex flex-col gap-4">
+    <T class="gap-strat inline-flex">
+      <Skill name={sporeSac} variant="yellow" />
+    </T>
+    <P>
+      读条完毕后，场上东南西北各出现1个
+      <Span variant="pink">8m圆形</Span>
+      范围提示，共计4个
+    </P>
+    <P>
+      随后在提示范围内落下
+      <Span variant="green">孢子</Span>
+      ，对范围内的玩家造成
+      <DamageInfo damage="110000" type="magical" />
+      <DamageDown tag="30" hover />
+    </P>
+    <P>
+      <Span variant="green">孢子</Span>
+      的范围仅有以下两种情况：
+    </P>
+    <ImgRow
+      id="pollenmc"
+      wrapperClass="max-w-96"
+      bordered={false}
+      imgs={[
+        { src: 'imgs/07/m7s/sinister_seeds/spore_case_1.png', alt: '' },
+        { src: 'imgs/07/m7s/sinister_seeds/spore_case_2.png', alt: '' },
+      ]}
+    />
+
+    <T class="mt-8">
+      <Span variant="yellow">{pollen}</Span>
+    </T>
+    <P>
+      <Span variant="green">孢子</Span>
+      向自身两个正点方向分别长出两根藤蔓
+    </P>
+    <P>
+      随后以<Span variant="green">孢子</Span>和藤蔓的<Span variant="pink">终点</Span>为中心释放半径<Span variant="pink"
+        >8m</Span
+      >的圆形AoE，对范围内的玩家造成
+      <DamageInfo damage="130000" type="magical" />
+      <DamageDown tag="30" hover />
+    </P>
+    <P>藤蔓的生长方向和最终的钢铁是有规律的，共有以下四种情况：</P>
+    <ImgRow
+      wrapperClass="w-1/4"
+      bordered={false}
+      imgs={[
+        { src: 'imgs/07/m7s/sinister_seeds/spore-sac_1-2.png', alt: '', title: '' },
+        { src: 'imgs/07/m7s/sinister_seeds/spore-sac_2-2.png', alt: '', title: '' },
+        { src: 'imgs/07/m7s/sinister_seeds/spore-sac_3-2.png', alt: '', title: '' },
+        { src: 'imgs/07/m7s/sinister_seeds/spore-sac_4-2.png', alt: '', title: '' },
+      ]}
+    />
+    <P>如果我们只看AoE的范围，则仅有以下两种情况：</P>
+    <ImgRow
+      wrapperClass="max-w-96"
+      bordered={false}
+      imgs={[
+        { src: 'imgs/07/m7s/sinister_seeds/pollen_safe_zone_1.png', alt: '内场左下安全区' },
+        { src: 'imgs/07/m7s/sinister_seeds/pollen_safe_zone_2.png', alt: '内场右下安全区' },
+      ]}
+    />
+    <P>
+      即一定会有四个安全区，其中<Span variant="pink">两个在内场</Span>，<Span variant="pink">两个在外场角落</Span
+      >，对角分布
+    </P>
+    <P>
+      <Span variant="yellow">{pollen}</Span>伤害判定后，在
+      <Span variant="green">孢子</Span>
+      落下的地方会生成<BloomingAbomination />共计4只，
+    </P>
+    <P id="sismc">
+      每3s释放对
+      <RoleIcon role="any" tag="一仇" />的普通攻击，每只
+      <Quote variant="yellow" class="ml-1">
+        <P>
+          对<RoleIcon role="tank" />造成<DamageInfo damage="28000" type="physical" />
+        </P>
+        <P>
+          对<RoleIcon role="healer|dps" />造成<DamageInfo damage="41000" type="physical" />
+        </P>
+      </Quote>
+    </P>
+
+    <div class="flex flex-col gap-4" id="tendrilsofTerror">
+      <T class="gap-strat mt-8 inline-flex">
+        <Skill name={sinisterSeeds} variant="yellow" />
+      </T>
+      <P><BruteAbombinator />读条完毕，对<RoleIcon role="all" tag="全员" />释放两种点名攻击：</P>
+      <Quote variant="yellow">
+        <P>
+          点名距离自己
+          <Span variant="pink">最近/最远</Span>
+          的
+          <Span variant="pink">4</Span>
+          名玩家半径
+          <Span variant="pink">6m</Span>
+          的
+          <Span variant="purple">分散圆形AoE</Span>
+          ，造成
+          <DamageInfo damage="130000" type="magical" /><MagicVulnerabilityUp tag="2" hover />
+        </P>
+        <P
+          >并点名其余4人半径<Span variant="pink">7m</Span>的四连<Span variant="yellow">黄圈追踪AoE</Span
+          >，对范围内的玩家造成<DamageInfo damage="125000" type="magical" /><DamageDown tag="30" hover /></P
+        >
+      </Quote>
+      <P>同时，这两个点名都有特殊效果：</P>
+      <Quote variant="yellow">
+        <P>
+          <Span variant="purple">分散点名</Span>
+          在判定时，会在判定的位置生成
+          <Span variant="pink">米字形AoE</Span>
+          提示，也就是我们俗称的
+          <Span variant="pink">“冰花”</Span>
+        </P>
+        <P>
+          四连<Span variant="yellow">追踪AoE</Span>
+          在判定时，会<Span variant="pink">记录每次判定的位置</Span>，之后会<Span variant="pink">扩大范围</Span
+          >再统一判定一次
+        </P>
+      </Quote>
+    </div>
+
+    <T class="mt-8">
+      <Span variant="yellow">{impact}</Span>
+    </T>
+    <P>
+      点名 <RoleIcon role="healer" tag="双奶" />释放半径
+      <Span variant="pink">6m</Span>的圆形分摊，
+      <Span variant="pink">4</Span>人分摊时，每人约
+      <DamageInfo damage="170000" type="magical" />
+      <MagicVulnerabilityUp tag="2" hover />
+    </P>
+
+    <T class="mt-8">
+      <Skill name={tendrilsofTerror} />
+    </T>
+    <P>
+      “冰花”，预兆出现<Span variant="pink">3s</Span>后释放米字形AoE攻击，对范围内的玩家造成<DamageInfo
+        damage="123000"
+        type="magical"
+      /><DamageDown tag="30" hover />，每条直线AoE宽<Span variant="pink">4m</Span>
+    </P>
+  </div>
+</MechanicSection>
+
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：日野主流【改】">
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4">
+        <h4 class="text-2xl">
+          <Span variant="lime">初始站位</Span>
+        </h4>
+        <div class="shrink-0 grow space-y-4">
+          <P>
+            在<Span variant="green">孢子</Span>落下后，全员根据职能与位置，如下图所示进行预站位：
+          </P>
+        </div>
+        <div class="flex gap-4">
+          <div class="max-w-90 shrink">
+            <CosImage src="imgs/07/m7s/sinister_seeds/sinister_seeds_preparation.png" alt="" class="w-96" />
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <h4 class="mt-8 text-2xl">
+          <Span variant="lime">躲避藤蔓</Span>
+        </h4>
+        <P>藤蔓开始生长后，我们规定：</P>
+        <Quote variant="lime">
+          <P>
+            近战组（即
+            <RoleIcon role="tank" tag="MT" /><RoleIcon role="tank" tag="ST" />
+            <RoleIcon role="melee" tag="D1" /><RoleIcon role="dps" tag="D2" />） 在
+            <Span variant="pink">内场南边</Span>的安全区集合
+          </P>
+          <P>
+            远程组前往指定角落躲避，其中
+            <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />在
+            <Span variant="pink">北半场</Span>的安全角落，
+            <RoleIcon role="healer" tag="H1" /><RoleIcon role="healer" tag="H2" />在
+            <Span variant="pink">南半场</Span>的安全角落
+          </P>
+        </Quote>
+        <P>根据安全区的两种情况，站位分别如下所示：</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          bordered={false}
+          imgs={[
+            { src: 'imgs/07/m7s/sinister_seeds/pollen_solution_case_1.png', alt: '', title: '情况1' },
+            { src: 'imgs/07/m7s/sinister_seeds/pollen_solution_case_2.png', alt: '', title: '情况2' },
+          ]}
+        />
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <h4 class="mt-8 text-2xl">
+          <Span variant="lime">放置冰花与追踪AoE</Span>
+        </h4>
+        <P>
+          由于<Span variant="yellow">{sinisterSeeds}</Span>
+          的机制效果为选择<Span variant="orange">最近</Span>或<Span variant="blue">最远</Span>
+          的四人释放放置<Span variant="pink">冰花</Span>的分散点名，
+        </P>
+        <P>
+          并点其余四人<Span variant="yellow">追踪AoE</Span>，且我们在<Span variant="lime">躲避藤蔓</Span>
+          时，就确保了：
+        </P>
+        <Quote variant="lime">
+          <P>
+            近战组四人一定是距离<BruteAbombinator /><Span variant="orange">最近</Span>的四人
+          </P>
+          <P>
+            远程组四人一定是距离<BruteAbombinator /><Span variant="blue">最远</Span>的四人
+          </P>
+        </Quote>
+        <P>
+          因此，放置<Span variant="pink">冰花</Span>点名必定会同时点近战组或者远程组四人
+        </P>
+        <P>根据点名的不同，我们将其分为两种情况分别讲解：</P>
+        <T text="情形1：近战组放冰花（远程组放黄圈）" variant="lime" class="mt-4 text-xl" />
+        <P>
+          近战组
+          <RoleIcon role="tank" tag="MT" />
+          <RoleIcon role="tank" tag="ST" />
+          <RoleIcon role="melee" tag="D1" />
+          <RoleIcon role="dps" tag="D2" />
+        </P>
+        <Quote variant="lime">
+          <P>
+            直接前往内场斜点的<Span variant="pink">螺丝</Span>处，等待放置<Span variant="pink">冰花</Span>
+          </P></Quote
+        >
+        <P>
+          远程组
+          <RoleIcon role="ranged" tag="D3" />
+          <RoleIcon role="magic" tag="D4" />
+          <RoleIcon role="healer" tag="H1" />
+          <RoleIcon role="healer" tag="H2" />
+        </P>
+        <Quote variant="lime">
+          <P>
+            从角落出发，往场地<Span variant="pink">中轴线</Span>横向移动，沿着场边放下第<Span variant="pink"
+              >1、2、3</Span
+            >个黄圈
+          </P>
+          <P>
+            随后往场中拐，放下第<Span variant="pink">4</Span>个黄圈
+          </P>
+        </Quote>
+        <ImgRow
+          bordered={false}
+          imgs={[
+            { src: 'imgs/07/m7s/sinister_seeds/place_solution_case_3.png', alt: '远程初始在左上右下角落', title: '左上角和右下角为初始安全区' },
+            { src: 'imgs/07/m7s/sinister_seeds/place_solution_case_1.png', alt: '远程初始在右上左下角落', title: '右上角和左下角为初始安全区' },
+          ]}
+        />
+
+        <T text="情形2：远程组放冰花（近战组放黄圈）" variant="lime" class="mt-4 text-xl" />
+        <P>
+          近战组
+          <RoleIcon role="tank" tag="MT" />
+          <RoleIcon role="tank" tag="ST" />
+          <RoleIcon role="melee" tag="D1" />
+          <RoleIcon role="dps" tag="D2" />
+        </P>
+        <Quote variant="lime">
+          <P>
+            Game8改：
+            <Span variant="pink">横移</Span>放下第<Span variant="pink">2</Span>个圈， 回到<Span variant="pink"
+              >场中</Span
+            >放第<Span variant="pink">3</Span>个圈， 随后<Span variant="pink">往北</Span>放下第<Span variant="pink"
+              >4</Span
+            >个圈
+          </P>
+          <P>
+            Game8原版：
+            <Span variant="pink">往北</Span>放下第<Span variant="pink">2</Span>个圈，
+            <Span variant="pink">横移</Span>放下第<Span variant="pink">3</Span>个圈， 随后<Span variant="pink"
+              >往南</Span
+            >放下第<Span variant="pink">4</Span>个圈
+          </P>
+        </Quote>
+        <P>
+          远程组
+          <RoleIcon role="ranged" tag="D3" />
+          <RoleIcon role="magic" tag="D4" />
+          <RoleIcon role="healer" tag="H1" />
+          <RoleIcon role="healer" tag="H2" />
+        </P>
+        <Quote variant="lime">
+          <P>
+            先在自己的点位旁<Span variant="pink">躲避黄圈</Span>，在自身点名判定前，前往内场斜点的<Span variant="pink"
+              >螺丝</Span
+            >处放置<Span variant="pink">冰花</Span>
+          </P>
+        </Quote>
+        <P>
+          近战注意：初始要
+          <Span variant="cyan">尽量在安全区靠右</Span>
+          放黄圈，这样可以给之后场地西侧留下更大的安全空间
+        </P>
+        <ImgGrid
+          cols={[{ title: 'Game8改' }, { title: 'Game8原版' }]}
+          defaultImgWrapperStyle={{
+            bordered: false,
+            rounded: false,
+            borderVariant: 'rose',
+          }}
+          rows={[
+            {
+              title: '内场左下为初始安全区',
+              cells: [
+                {
+                  img: {
+                    src: 'imgs/07/m7s/sinister_seeds/g8g_place_solution_case_2.png',
+                    alt: 'Game8改近战左下出发放黄圈',
+                  },
+                },
+                {
+                  img: {
+                    src: 'imgs/07/m7s/sinister_seeds/place_solution_case_2.png',
+                    alt: 'Game8原版近战左下出发放黄圈',
+                  },
+                },
+              ],
+            },
+            {
+              title: '内场右下为初始安全区',
+              cells: [
+                {
+                  img: {
+                    src: 'imgs/07/m7s/sinister_seeds/g8g_place_solution_case_1.png',
+                    alt: 'Game8改近战右下出发放黄圈',
+                  },
+                },
+                {
+                  img: {
+                    src: 'imgs/07/m7s/sinister_seeds/place_solution_case_4.png',
+                    alt: 'Game8原版近战右下出发放黄圈',
+                  },
+                },
+              ],
+            },
+          ]}
+        />
+
+        <div class="flex flex-col gap-4">
+          <T text="拉住小怪" variant="lime" class="mt-8" />
+          <P>
+            在放置<Span variant="pink">冰花</Span>或<Span variant="yellow">追踪AoE</Span>的过程中，
+            <BloomingAbomination num={4} />会生成在<Span variant="green">孢子</Span>落下的地方
+          </P>
+          <P>
+            我们规定：
+            <Quote variant="lime">
+              <P>
+                <RoleIcon role="tank" tag="MT" />拉
+                <Span variant="pink">西侧和北侧</Span>两只<BloomingAbomination />
+              </P>
+              <P>
+                <RoleIcon role="tank" tag="ST" />拉
+                <Span variant="pink">东侧和南侧</Span>两只<BloomingAbomination />
+              </P>
+            </Quote>， 以便处理后续机制
+          </P>
+          <P>
+            由于此时角色处于跑位过程中，
+            <RoleIcon role="tank" tag="MT" />和<RoleIcon role="tank" tag="ST" />
+            可以酌情使用挑衅、飞斧等远程技能来获取仇恨
+          </P>
+          <P>小怪刷新方位与敌对列表中的位置有一定关系</P>
+          <P>
+            将敌对列表视为一个循环列表，则西南东北四个方向的小怪分别对应
+            <BruteAbombinator />下方第一二三四位的小怪
+          </P>
+          <CosImage src="imgs/07/m7s/sinister_seeds/bloomings.png" alt="" class="w-62 rounded border-2 border-yellow-800 dark:border-yellow-100" />
+          <P>
+            以上图为例，
+            <BruteAbombinator />
+            处于列表中最后一位，我们将列表视为头尾相连的循环列表，可知：
+          </P>
+          <P>列表第1位是场地西侧小怪，第2位是场地南侧小怪，第3位是场地东侧小怪，第4位是场地北侧小怪</P>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <h4 class="mt-8 text-2xl">
+          <Span variant="lime">躲避冰花并分摊</Span>
+        </h4>
+        <P>
+          由于<Span variant="pink">冰花</Span>的位置是固定的，在放置完
+          <Span variant="pink">冰花</Span>
+          和<Span variant="yellow">追踪AoE</Span>后，我们分为H1组和H2组：
+        </P>
+        <Quote variant="lime">
+          <P>
+            H1组：
+            <RoleIcon role="tank" tag="MT" />
+            <RoleIcon role="healer" tag="H1" />
+            <RoleIcon role="melee" tag="D1" />
+            <RoleIcon role="ranged" tag="D3" />
+          </P>
+          <P>
+            H2组：
+            <RoleIcon role="tank" tag="ST" />
+            <RoleIcon role="healer" tag="H2" />
+            <RoleIcon role="dps" tag="D2" />
+            <RoleIcon role="magic" tag="D4" />
+          </P>
+        </Quote>
+        <P>
+          分别前往场中的指定位置，躲避
+          <Span variant="pink">冰花</Span>
+          的同时参与自己分组
+          <RoleIcon role="healer" tag="治疗" />的分摊
+          <Span variant="yellow">{impact}</Span>
+        </P>
+        <CosImage src="imgs/07/m7s/sinister_seeds/impact_solution.png" alt="" class="w-96" />
+      </div>
+    </div>
+  </div>
+  <div slot="解法：nO2S改">
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4">
+        <h4 class="text-2xl">
+          <Span variant="lime">初始站位</Span>
+        </h4>
+        <div class="shrink-0 grow space-y-4">
+          <P>
+            在<Span variant="green">孢子</Span>落下后，全员初始站位如图：
+          </P>
+          <div class="flex gap-4">
+            <div class="max-w-90 shrink">
+              <CosImage
+                src="imgs/07/m7s/sinister_seeds/no2g_solution2_preparation.png"
+                alt=""
+                class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4">
+        <h4 class="mt-8 text-2xl">
+          <Span variant="lime">躲避藤蔓</Span>
+        </h4>
+
+        <P>
+          观察<Span variant="pink">最南边一个</Span>藤蔓的生长方向，如果<Span variant="pink">没有向北</Span
+          >生长，则全员在其<Span variant="pink">正北</Span>的内场安全区集合
+        </P>
+        <P>
+          如果<Span variant="pink">向北</Span>生长，则全员在其北侧的<Span variant="pink">另一个</Span>内场安全区集合
+        </P>
+        <Quote variant="lime">
+          <P>
+            近战组（即
+            <RoleIcon role="tank" tag="MT" /><RoleIcon role="tank" tag="ST" />
+            <RoleIcon role="melee" tag="D1" /><RoleIcon role="melee" tag="D2" />） 在内场安全区
+            <Span variant="pink">靠近</Span><BruteAbombinator />处集合
+          </P>
+          <P>
+            远程组（即
+            <RoleIcon role="healer" tag="H1" /><RoleIcon role="healer" tag="H2" />
+            <RoleIcon role="ranged" tag="D3" /><RoleIcon role="magic" tag="D4" />）在内场安全区
+            <Span variant="pink">远离</Span><BruteAbombinator />处集合
+          </P>
+        </Quote>
+        <P>站位示意图如下：</P>
+        <ImgRow
+          bordered={false}
+          imgs={[
+            { src: 'imgs/07/m7s/sinister_seeds/no2g_pollen_solution_2_1.png', alt: '', title: '安全区左' },
+            { src: 'imgs/07/m7s/sinister_seeds/no2g_pollen_solution2_2.png', alt: '', title: '安全区右' },
+          ]}
+        />
+      </div>
+      <div class="flex flex-col gap-4">
+        <h4 class="mt-8 text-2xl">
+          <Span variant="lime">放置冰花与追踪AoE</Span>
+        </h4>
+        <P>
+          这里无论<RoleIcon role="tank|dps" tag="近战" />还是<RoleIcon role="healer|dps" tag="远程" />，均以<StratLink
+            variant="lime"
+            href="#sinisterseeds-game8m">Game8改</StratLink
+          >近战放置黄圈的路线移动
+        </P>
+        <P>由于第一次黄圈点名的不同，实际的放置位置有所差异，具体说明如下：</P>
+        <div class="paragraph mt-2">全员观察自身点名情况：</div>
+        <Quote variant="lime">
+          <P>
+            如果被点<Span variant="yellow">黄圈</Span>，则<Span variant="pink">横移</Span>放置第<Span variant="pink"
+              >2</Span
+            >个黄圈，<Span variant="pink">场中</Span>放置第<Span variant="pink">3</Span>个黄圈，然后<Span variant="pink"
+              >往北</Span
+            >放置第<Span variant="pink">4</Span>个黄圈
+          </P>
+          <P>
+            如果被点<Span variant="yellow">冰花</Span>，则<Span variant="pink">躲开黄圈</Span
+            >并前往自己放花位置所在的<Span variant="pink">螺丝</Span>附近，准时前往螺丝处放花
+          </P>
+        </Quote>
+      </div>
+      <P>四轮黄圈与放冰花示意图如下：</P>
+      <ImgRow
+        bordered={false}
+        imgs={[
+          { src: 'imgs/07/m7s/sinister_seeds/no2g_place_solution_case_2.png', alt: '', title: '安全区左近战放黄圈' },
+          { src: 'imgs/07/m7s/sinister_seeds/no2g_place_solution_case_1.png', alt: '', title: '安全区右近战放黄圈' },
+        ]}
+      />
+      <ImgRow
+        bordered={false}
+        imgs={[
+          { src: 'imgs/07/m7s/sinister_seeds/no2g_place_solution_case_2_1.png', alt: '', title: '安全区左远程放黄圈' },
+          { src: 'imgs/07/m7s/sinister_seeds/no2g_place_solution_case_2_2.png', alt: '', title: '安全区右远程放黄圈' },
+        ]}
+      />
+      <div class="flex flex-col gap-4">
+        <h4 class="mt-8 text-2xl">
+          <Span variant="lime">躲避冰花并分摊</Span>
+        </h4>
+        <P>
+          在<Span variant="pink">第四轮</Span>黄圈<Span variant="pink">消失</Span>后，前往分摊，解法与<StratLink
+            variant="lime"
+            href="#sinisterseeds-game8m">本站攻略</StratLink
+          >相同
+        </P>
+      </div>
+      <div class="mt-4 flex flex-col gap-4">
+        <P>
+          <span class="line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700"
+            >此解法魔改自欧服野队raidplan，其链接最后三个字符为nO2，在招募版上被如此称呼</span
+          >
+        </P>
+        <P>
+          与<StratLink variant="orange" href="https://raidplan.io/plan/PWFgPfz0vL7runO2" target="_blank">原版</StratLink
+          >相比，魔改后 <RoleIcon role="melee" tag="近战" />不再需要远离boss放置黄圈，uptime提高
+        </P>
+        <P>
+          与Game8原版相比，初始时全员站位集中，便于 <RoleIcon role="healer" tag="治疗" />预铺
+        </P>
+      </div>
+    </div>
+  </div>
+</MultiSolutionSection>
+
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      由于第<Span variant="pink">3</Span>轮黄圈与冰花点名<Span variant="pink">同时判定</Span
+      >，如果吃重会因为<MagicVulnerabilityUp tag="2" hover />的存在<Span variant="pink">直接去世</Span>
+    </P>
+    <P>
+      故请尽量<Span variant="pink">不要</Span>让第3轮黄圈<Span variant="pink">覆盖到放冰花的位置</Span>
+    </P>
+    <P
+      >如果放冰花的人发现原位置不幸被第3轮黄圈覆盖，可沿场地<Span variant="pink">对角线</Span>方向<Span variant="pink"
+        >远离</Span
+      >原位置放置冰花</P
+    >
+    <P>（或采用其他方式），保证最后原分摊集合点依旧安全就行</P>
+  </div>
+</NoteSection>
+
+<RootsofEvilActivate time="01:10.533" />
+<AttackSection time="01:15.121" damage="57000" damageType="physical" />
+<AttackSection time="01:18.150" damage="57000" damageType="physical" />
+<WindingWildwindsCast start="01:11.201" num={2} />
+<CrossingCrosswindsCast start="01:11.201" num={2} />
+<AttackSection time="01:21.180" damage="57000" damageType="physical" />
+<AttackSection time="01:24.206" damage="57000" damageType="physical" />
+<AttackSection time="01:27.238" damage="57000" damageType="physical" />
+<HurricaneForceCast start="01:24.200" />
+
+<QuarrySwampCast start="01:29.48" />
+<AttackSection time="01:34.272" damage="57000" damageType="physical" />
+
+<MechanicSection id="rootsofEvil">
+  <div class="flex flex-col gap-4">
+    <T text={rootsOfEvil} variant="yellow" />
+    <P>
+      之前的四连<Span variant="yellow">追踪AoE</Span>在<Span variant="pink">原位置</Span>扩大范围，变为半径<Span
+        variant="pink">12m</Span
+      >后，统一再判定一次
+    </P>
+    <P
+      >对范围内的玩家造成 <DamageInfo damage="120000" type="magical" />
+      <DamageDown tag="30" hover /></P
+    >
+    <P> 范围如下表所示（注：下表图中将黄圈所有的可能情况叠加）： </P>
+    <ImgGrid
+      cols={[{ title: 'Game8改' }, { title: 'Game8原版' }]}
+      defaultImgWrapperStyle={{
+        bordered: false,
+        rounded: false,
+        borderVariant: 'cyan',
+      }}
+      rows={[
+        {
+          title: '近战组放冰花',
+          cells: [
+            {
+              img: {
+                src: 'imgs/07/m7s/sinister_seeds/roots_of_evil_1.png',
+                alt: 'Game8改近战左下出发放黄圈',
+              },
+              class: 'translate-x-[calc(50%)]',
+            },
+          ],
+        },
+        {
+          title: '远程组放冰花',
+          cells: [
+            {
+              img: {
+                src: 'imgs/07/m7s/sinister_seeds/g8g_roots_of_evil.png',
+                alt: 'Game8近战左下出发放黄圈',
+              },
+            },
+            {
+              img: {
+                src: 'imgs/07/m7s/sinister_seeds/roots_of_evil_2.png',
+                alt: 'Game8近战右下出发放黄圈',
+              },
+            },
+          ],
+        },
+      ]}
+    />
+    <P>
+      从表中可以看出Game8改的优点： 当点名近战组<Span variant="yellow">追踪AoE</Span>时， 场地<Span variant="pink"
+        >西侧和西北侧</Span
+      >的安全区更大
+    </P>
+  </div>
+
+  <div class="flex flex-col gap-4">
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{windingWildwinds} / {crossingCrosswinds}</Span>
+    </h4>
+    <P>
+      <BloomingAbomination />
+      以自身为中心释放
+      <Span variant="pink">可被打断的</Span>
+      月环/十字形AoE
+    </P>
+    <P>
+      其中，必定有两只<BloomingAbomination />读条
+      <Span variant="yellow">{windingWildwinds}</Span>
+      ，释放月环
+    </P>
+    <P>
+      另外两只<BloomingAbomination />读条
+      <Span variant="yellow">{crossingCrosswinds}</Span>
+      ，释放十字形AoE
+    </P>
+    <ImgRow
+      bordered={false}
+      imgs={[
+        { src: 'imgs/07/m7s/sinister_seeds/winding_wildwinds.png', alt: '', title: `${windingWildwinds}` },
+        { src: 'imgs/07/m7s/sinister_seeds/crossing_crosswinds.png', alt: '', title: `${crossingCrosswinds}` },
+      ]}
+    />
+    <P>
+      小怪在AoE读条完毕不久后，会读条狂暴技能
+      <Span variant="yellow">{hurricaneForce}</Span>
+      <DamageInfo damage="9999999" type="special" />
+    </P>
+  </div>
+  <div class="flex flex-col gap-4">
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{quarrySwamp}</Span>
+    </h4>
+    <P>
+      <BruteAbombinator />
+      释放全屏石化，石化全体玩家
+    </P>
+    <P>
+      玩家可以躲在
+      <BloomingAbomination />
+      的尸体后（无需背对）来躲避石化
+    </P>
+    <P>
+      <span class="line-through decoration-zinc-500 decoration-20 hover:no-underline dark:decoration-zinc-700">
+        谢谢你，{bloomingAbomination}
+      </span></P
+    >
+  </div>
+</MechanicSection>
+
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <P>
+      在四四分摊后，<RoleIcon role="tank" tag="双T" />迅速将小怪拉到场地<Span variant="pink">西侧</Span>的安全区，东侧的
+      <RoleIcon role="melee" />跟着<RoleIcon role="tank" tag="ST" />穿到西侧
+    </P>
+    <P>
+      当小怪读条<Span variant="yellow">{windingWildwinds} / {crossingCrosswinds}</Span>时，
+    </P>
+    <P>
+      我们优先让<RoleIcon role="tank" tag="双T" />使用<Span variant="pink">插言</Span>
+      打断<Span variant="yellow">{windingWildwinds}</Span>（即<Span variant="pink">月环</Span>）
+    </P>
+    <P>
+      为了防止重复打断，这里我们规定，按照仇恨列表的顺序，
+      <RoleIcon role="tank" tag="MT" /><Span variant="pink">从上往下</Span>打断，
+      <RoleIcon role="tank" tag="ST" /><Span variant="pink">从下往上</Span>打断
+    </P>
+    <P>
+      例如，当仇恨列表如下图所示时，
+      <Quote variant="lime">
+        <P><RoleIcon role="tank" tag="MT" />应当打断第二只<BloomingAbomination /></P>
+        <P><RoleIcon role="tank" tag="ST" />应当打断第四只<BloomingAbomination /></P>
+      </Quote>
+    </P>
+    <CosImage src="imgs/07/m7s/sinister_seeds/bloomings_1.png" alt="" class="w-62 rounded border-2 border-yellow-800 dark:border-yellow-100" />
+    <P>
+      此外，<RoleIcon role="ranged" tag="D3" />也可以使用<Span variant="pink">伤头</Span>
+      帮助队友进行打断
+    </P>
+    <P>
+      同时，全员集火<BloomingAbomination />，在其狂暴之前将其全部击杀
+    </P>
+    <P>
+      击杀<BloomingAbomination />后，
+      <RoleIcon role="tank" tag="MT" />将<BruteAbombinator />
+      拉到<BloomingAbomination />的尸体附近，全员利用小怪尸体阻挡石化视线
+    </P>
+    <CosImage src="imgs/07/m7s/sinister_seeds/quarry_swamp.png" alt="" class="w-96" />
+  </div>
+</SolutionSection>

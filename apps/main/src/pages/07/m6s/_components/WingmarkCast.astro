@@ -1,0 +1,25 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+import WingmarkDebuff from './WingmarkDebuff.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  debuffDuration?: string
+}
+
+const { start, debuffDuration = '21' }: Props = Astro.props
+const Wingmark = translations.Wingmark
+---
+
+<CastSection start={start} duration={4.6} ability={Wingmark} target>
+  <SugarRiot slot="source" />
+  <WingmarkDebuff tag={debuffDuration} hover />
+  <Badge variant="emerald">强制飞行</Badge>
+</CastSection>

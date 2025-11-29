@@ -1,0 +1,22 @@
+---
+import Buff from '@/components/Buff.astro'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const down_for_the_count = 'imgs/buff/215044.png'
+---
+
+<Buff
+  icon={down_for_the_count}
+  name="击倒"
+  nameVariant="yellow"
+  description="被击倒在地，无法移动或发动技能"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

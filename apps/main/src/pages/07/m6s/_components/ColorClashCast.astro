@@ -1,0 +1,23 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const ColorClash = translations.ColorClash
+---
+
+<CastSection start={start} duration={2.7} ability={ColorClash}>
+  <SugarRiot slot="source" />
+  <Badge variant="emerald">延迟生效</Badge>
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="purple">四四/二二分摊</Badge>
+</CastSection>

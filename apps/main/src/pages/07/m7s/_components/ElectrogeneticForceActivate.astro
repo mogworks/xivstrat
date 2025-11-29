@@ -1,0 +1,32 @@
+---
+import type { Time } from '@/lib/utils'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import Badge from '@/components/Badge.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+const electrogeneticForce = translations.electrogeneticForce
+---
+
+<EventSection time={time}>
+  <BruteAbombinator />
+  对
+  <RoleIcon role="all" tag="全员" />
+  发动
+  <Span variant="yellow">{electrogeneticForce}</Span>
+  <DamageInfo damage="125000" type="magical" />
+  <MagicVulnerabilityUp tag="2" hover />
+  <Badge variant="emerald">6m圆形</Badge>
+</EventSection>

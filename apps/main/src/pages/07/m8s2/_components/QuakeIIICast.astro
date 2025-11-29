@@ -1,0 +1,36 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+
+const quakeIII = translations.quakeIII
+---
+
+<CastSection
+  start={start}
+  duration={4.7}
+  ability={quakeIII}
+  target="healer"
+  targetTag="双奶"
+  damage="200000"
+  damageType="magical"
+  damageVariant="stack"
+>
+  <HowlingBlade slot="source" />
+
+  <MagicVulnerabilityUp tag="1" />
+  <Badge variant="purple">四四分摊</Badge>
+  <Badge variant="red">人数检测</Badge>
+</CastSection>

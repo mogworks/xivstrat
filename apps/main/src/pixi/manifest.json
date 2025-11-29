@@ -1,0 +1,874 @@
+{
+  "bundles": [
+    {
+      "name": "default",
+      "assets": []
+    },
+    {
+      "name": "07/m5s",
+      "assets": [
+        {
+          "alias": [
+            "07/m5s/floor_1.png",
+            "07/m5s/floor_1"
+          ],
+          "src": [
+            "07/m5s/floor_1-uwAvPw@3x.avif",
+            "07/m5s/floor_1-RFG53w.png",
+            "07/m5s/floor_1-ph8iKA@2x.webp",
+            "07/m5s/floor_1-m7PUfQ.webp",
+            "07/m5s/floor_1-kdIPSw.avif",
+            "07/m5s/floor_1-hhYBkA@3x.webp",
+            "07/m5s/floor_1-7MP0-w@2x.avif"
+          ]
+        },
+        {
+          "alias": [
+            "07/m5s/floor_2.png",
+            "07/m5s/floor_2"
+          ],
+          "src": [
+            "07/m5s/floor_2-xjkikg@3x.webp",
+            "07/m5s/floor_2-TGzBqw@3x.avif",
+            "07/m5s/floor_2-SF583A.png",
+            "07/m5s/floor_2-mCp5Lg.avif",
+            "07/m5s/floor_2-i6_5UA@2x.avif",
+            "07/m5s/floor_2-6NGlOg.webp",
+            "07/m5s/floor_2-5e1zbQ@2x.webp"
+          ]
+        },
+        {
+          "alias": [
+            "07/m5s/floor_3.png",
+            "07/m5s/floor_3"
+          ],
+          "src": [
+            "07/m5s/floor_3-sW0w_Q.webp",
+            "07/m5s/floor_3-roXIGg@3x.avif",
+            "07/m5s/floor_3-q7f2jw.avif",
+            "07/m5s/floor_3-NIR9GA.png",
+            "07/m5s/floor_3-fbfPuw@3x.webp",
+            "07/m5s/floor_3-f2_wJA@2x.avif",
+            "07/m5s/floor_3-akveHw@2x.webp"
+          ]
+        },
+        {
+          "alias": [
+            "07/m5s/spotlight.png",
+            "07/m5s/spotlight"
+          ],
+          "src": [
+            "07/m5s/spotlight-YZZXdw.png",
+            "07/m5s/spotlight-YrROcw@2x.png",
+            "07/m5s/spotlight-wm5yIw@3x.avif",
+            "07/m5s/spotlight-WGS3Qg@2x.avif",
+            "07/m5s/spotlight-vuGgQw@3x.webp",
+            "07/m5s/spotlight-v2LRzg.avif",
+            "07/m5s/spotlight-uotO_g.webp",
+            "07/m5s/spotlight-FtbSig@3x.png",
+            "07/m5s/spotlight-ecj9OA@2x.webp"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "07/m7s",
+      "assets": [
+        {
+          "alias": [
+            "07/m7s/floor_p2_1.png",
+            "07/m7s/floor_p2_1"
+          ],
+          "src": [
+            "07/m7s/floor_p2_1-TIX-GQ@2x.webp",
+            "07/m7s/floor_p2_1-pqbxsg.webp",
+            "07/m7s/floor_p2_1-lcEb6g@2x.png",
+            "07/m7s/floor_p2_1-jWOLcg@3x.webp",
+            "07/m7s/floor_p2_1-cxu5iQ@3x.avif",
+            "07/m7s/floor_p2_1-cUCDcQ.avif",
+            "07/m7s/floor_p2_1-c8gzAQ.png",
+            "07/m7s/floor_p2_1-33jwOg@2x.avif"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "enemy",
+      "assets": [
+        {
+          "alias": [
+            "enemy/061701.png",
+            "enemy/061701"
+          ],
+          "src": [
+            "enemy/061701.png"
+          ]
+        },
+        {
+          "alias": [
+            "enemy/061702.png",
+            "enemy/061702"
+          ],
+          "src": [
+            "enemy/061702.png"
+          ]
+        },
+        {
+          "alias": [
+            "enemy/061703.png",
+            "enemy/061703"
+          ],
+          "src": [
+            "enemy/061703.png"
+          ]
+        },
+        {
+          "alias": [
+            "enemy/061704.png",
+            "enemy/061704"
+          ],
+          "src": [
+            "enemy/061704.png"
+          ]
+        },
+        {
+          "alias": [
+            "enemy/061705.png",
+            "enemy/061705"
+          ],
+          "src": [
+            "enemy/061705.png"
+          ]
+        },
+        {
+          "alias": [
+            "enemy/061706.png",
+            "enemy/061706"
+          ],
+          "src": [
+            "enemy/061706.png"
+          ]
+        },
+        {
+          "alias": [
+            "enemy/061707.png",
+            "enemy/061707"
+          ],
+          "src": [
+            "enemy/061707.png"
+          ]
+        },
+        {
+          "alias": [
+            "enemy/061708.png",
+            "enemy/061708"
+          ],
+          "src": [
+            "enemy/061708.png"
+          ]
+        },
+        {
+          "alias": [
+            "enemy/061709.png",
+            "enemy/061709"
+          ],
+          "src": [
+            "enemy/061709.png"
+          ]
+        },
+        {
+          "alias": [
+            "enemy/061710.png",
+            "enemy/061710"
+          ],
+          "src": [
+            "enemy/061710.png"
+          ]
+        },
+        {
+          "alias": [
+            "enemy/061711.png",
+            "enemy/061711"
+          ],
+          "src": [
+            "enemy/061711.png"
+          ]
+        },
+        {
+          "alias": [
+            "enemy/061712.png",
+            "enemy/061712"
+          ],
+          "src": [
+            "enemy/061712.png"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "game/vfx/monster/gimmick5/eff",
+      "assets": [
+        {
+          "alias": [
+            "game/vfx/monster/gimmick5/eff/x6r5_b1_g02_c0x"
+          ],
+          "src": [
+            "game/vfx/monster/gimmick5/eff/x6r5_b1_g02_c0x-b59wSA-0.png.json",
+            "game/vfx/monster/gimmick5/eff/x6r5_b1_g02_c0x-b59wSA-0.webp.json"
+          ]
+        },
+        {
+          "alias": [
+            "game/vfx/monster/gimmick5/eff/x6r5_b1_g03_c0x"
+          ],
+          "src": [
+            "game/vfx/monster/gimmick5/eff/x6r5_b1_g03_c0x-vCgStQ.png.json",
+            "game/vfx/monster/gimmick5/eff/x6r5_b1_g03_c0x-vCgStQ.webp.json"
+          ]
+        },
+        {
+          "alias": [
+            "game/vfx/monster/gimmick5/eff/x6r5_b1_g04_c0x"
+          ],
+          "src": [
+            "game/vfx/monster/gimmick5/eff/x6r5_b1_g04_c0x-HOJitQ-0.png.json",
+            "game/vfx/monster/gimmick5/eff/x6r5_b1_g04_c0x-HOJitQ-0.webp.json"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "job",
+      "assets": [
+        {
+          "alias": [
+            "job/AST.png",
+            "job/AST"
+          ],
+          "src": [
+            "job/AST.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/BLM.png",
+            "job/BLM"
+          ],
+          "src": [
+            "job/BLM.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/BRD.png",
+            "job/BRD"
+          ],
+          "src": [
+            "job/BRD.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/DNC.png",
+            "job/DNC"
+          ],
+          "src": [
+            "job/DNC.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/DPS.png",
+            "job/DPS"
+          ],
+          "src": [
+            "job/DPS.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/DRG.png",
+            "job/DRG"
+          ],
+          "src": [
+            "job/DRG.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/DRK.png",
+            "job/DRK"
+          ],
+          "src": [
+            "job/DRK.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/GNB.png",
+            "job/GNB"
+          ],
+          "src": [
+            "job/GNB.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/HEALER.png",
+            "job/HEALER"
+          ],
+          "src": [
+            "job/HEALER.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/MAGIC.png",
+            "job/MAGIC"
+          ],
+          "src": [
+            "job/MAGIC.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/MCH.png",
+            "job/MCH"
+          ],
+          "src": [
+            "job/MCH.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/MELEE.png",
+            "job/MELEE"
+          ],
+          "src": [
+            "job/MELEE.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/MNK.png",
+            "job/MNK"
+          ],
+          "src": [
+            "job/MNK.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/NIN.png",
+            "job/NIN"
+          ],
+          "src": [
+            "job/NIN.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/PCT.png",
+            "job/PCT"
+          ],
+          "src": [
+            "job/PCT.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/PLD.png",
+            "job/PLD"
+          ],
+          "src": [
+            "job/PLD.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/RANGED.png",
+            "job/RANGED"
+          ],
+          "src": [
+            "job/RANGED.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/RDM.png",
+            "job/RDM"
+          ],
+          "src": [
+            "job/RDM.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/RPR.png",
+            "job/RPR"
+          ],
+          "src": [
+            "job/RPR.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/SAM.png",
+            "job/SAM"
+          ],
+          "src": [
+            "job/SAM.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/SCH.png",
+            "job/SCH"
+          ],
+          "src": [
+            "job/SCH.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/SGE.png",
+            "job/SGE"
+          ],
+          "src": [
+            "job/SGE.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/SMN.png",
+            "job/SMN"
+          ],
+          "src": [
+            "job/SMN.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/TANK.png",
+            "job/TANK"
+          ],
+          "src": [
+            "job/TANK.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/VPR.png",
+            "job/VPR"
+          ],
+          "src": [
+            "job/VPR.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/WAR.png",
+            "job/WAR"
+          ],
+          "src": [
+            "job/WAR.png"
+          ]
+        },
+        {
+          "alias": [
+            "job/WHM.png",
+            "job/WHM"
+          ],
+          "src": [
+            "job/WHM.png"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "omen/fan",
+      "assets": [
+        {
+          "alias": [
+            "omen/fan/360_r20.png",
+            "omen/fan/360_r20"
+          ],
+          "src": [
+            "omen/fan/360_r20-u0BCRA.webp",
+            "omen/fan/360_r20-Oefvog.avif",
+            "omen/fan/360_r20-jylM-Q@2x.png",
+            "omen/fan/360_r20-H3aWnA@3x.webp",
+            "omen/fan/360_r20-ghlxcw@2x.webp",
+            "omen/fan/360_r20-fVQ9bw@3x.avif",
+            "omen/fan/360_r20-Ecbxmg@3x.png",
+            "omen/fan/360_r20-avjsGA@2x.avif",
+            "omen/fan/360_r20-5-haxA.png"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "role",
+      "assets": [
+        {
+          "alias": [
+            "role/all.png",
+            "role/all"
+          ],
+          "src": [
+            "role/all.png"
+          ]
+        },
+        {
+          "alias": [
+            "role/any.png",
+            "role/any"
+          ],
+          "src": [
+            "role/any.png"
+          ]
+        },
+        {
+          "alias": [
+            "role/dps.png",
+            "role/dps"
+          ],
+          "src": [
+            "role/dps.png"
+          ]
+        },
+        {
+          "alias": [
+            "role/healer.png",
+            "role/healer"
+          ],
+          "src": [
+            "role/healer.png"
+          ]
+        },
+        {
+          "alias": [
+            "role/magic.png",
+            "role/magic"
+          ],
+          "src": [
+            "role/magic.png"
+          ]
+        },
+        {
+          "alias": [
+            "role/melee.png",
+            "role/melee"
+          ],
+          "src": [
+            "role/melee.png"
+          ]
+        },
+        {
+          "alias": [
+            "role/ranged.png",
+            "role/ranged"
+          ],
+          "src": [
+            "role/ranged.png"
+          ]
+        },
+        {
+          "alias": [
+            "role/ranged_magic.png",
+            "role/ranged_magic"
+          ],
+          "src": [
+            "role/ranged_magic.png"
+          ]
+        },
+        {
+          "alias": [
+            "role/tank.png",
+            "role/tank"
+          ],
+          "src": [
+            "role/tank.png"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "waymark",
+      "assets": [
+        {
+          "alias": [
+            "waymark/1.png",
+            "waymark/1"
+          ],
+          "src": [
+            "waymark/1-qHj8vA.webp",
+            "waymark/1-O3LOCg.avif",
+            "waymark/1-mSSdZQ@3x.avif",
+            "waymark/1-m1QfXQ@3x.webp",
+            "waymark/1-lMh6rg@2x.png",
+            "waymark/1-JjOUtA@2x.avif",
+            "waymark/1-eRGr@3x.png",
+            "waymark/1-5cnDzg@2x.webp",
+            "waymark/1-20WLvw.png"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/1_bg.png",
+            "waymark/1_bg"
+          ],
+          "src": [
+            "waymark/1_bg-XJFc1g@2x.png",
+            "waymark/1_bg-XIuMsQ@3x.webp",
+            "waymark/1_bg-SyEWIw@3x.png",
+            "waymark/1_bg-S-OlEw@3x.avif",
+            "waymark/1_bg-Ol5JSw.png",
+            "waymark/1_bg-oihX6Q@2x.avif",
+            "waymark/1_bg-L92pMA@2x.webp",
+            "waymark/1_bg-Exx4Pw.webp",
+            "waymark/1_bg-b_5gcQ.avif"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/2.png",
+            "waymark/2"
+          ],
+          "src": [
+            "waymark/2-yAZLEw.png",
+            "waymark/2-USzZ@2x.webp",
+            "waymark/2-piZVig@3x.avif",
+            "waymark/2-NwaVSg@3x.png",
+            "waymark/2-n4GnUg@2x.avif",
+            "waymark/2-jearpA@3x.webp",
+            "waymark/2-g_nDJA@2x.png",
+            "waymark/2-fodyXw.webp",
+            "waymark/2-2aDqrA.avif"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/2_bg.png",
+            "waymark/2_bg"
+          ],
+          "src": [
+            "waymark/2_bg-VUngug@2x.webp",
+            "waymark/2_bg-r14U_w.avif",
+            "waymark/2_bg-oBskoA@2x.png",
+            "waymark/2_bg-l_zVAQ@3x.avif",
+            "waymark/2_bg-jDxofQ@3x.webp",
+            "waymark/2_bg-IzErYQ.webp",
+            "waymark/2_bg-IADK@2x.avif",
+            "waymark/2_bg-9TCL@3x.png",
+            "waymark/2_bg-19wHxA.png"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/3.png",
+            "waymark/3"
+          ],
+          "src": [
+            "waymark/3-w1hZOg@2x.avif",
+            "waymark/3-vw3g4w@2x.webp",
+            "waymark/3-MaBF@3x.avif",
+            "waymark/3-lx9qsw.avif",
+            "waymark/3-LEVuQg.png",
+            "waymark/3-iRl_iQ@2x.png",
+            "waymark/3-bXYsnw.webp",
+            "waymark/3-afH_ww@3x.webp",
+            "waymark/3-0HXESg@3x.png"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/3_bg.png",
+            "waymark/3_bg"
+          ],
+          "src": [
+            "waymark/3_bg-zSmSNw@2x.webp",
+            "waymark/3_bg-Vmv0uA@2x.png",
+            "waymark/3_bg-Vgk3mg@3x.png",
+            "waymark/3_bg-v9jYiA@3x.webp",
+            "waymark/3_bg-i55hgA@3x.avif",
+            "waymark/3_bg-GxL4.png",
+            "waymark/3_bg-4Qsk_Q@2x.avif",
+            "waymark/3_bg-2aTJiQ.avif",
+            "waymark/3_bg-_av93w.webp"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/4.png",
+            "waymark/4"
+          ],
+          "src": [
+            "waymark/4-Yp55Xg@3x.avif",
+            "waymark/4-VEMpyA@3x.png",
+            "waymark/4-SnzM_w.png",
+            "waymark/4-hdIkfw@3x.webp",
+            "waymark/4-f0qz7g@2x.avif",
+            "waymark/4-eWt3@2x.webp",
+            "waymark/4-ci7XGw@2x.png",
+            "waymark/4-2VvkUA.avif",
+            "waymark/4-1GhUNQ.webp"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/4_bg.png",
+            "waymark/4_bg"
+          ],
+          "src": [
+            "waymark/4_bg-ZqK1Cg.png",
+            "waymark/4_bg-wOd2wg@2x.webp",
+            "waymark/4_bg-UtNoag@2x.png",
+            "waymark/4_bg-sOt4rg@3x.avif",
+            "waymark/4_bg-kWbHUA.webp",
+            "waymark/4_bg-JODaCw@3x.png",
+            "waymark/4_bg-IkZytw@2x.avif",
+            "waymark/4_bg-5t4g4Q@3x.webp",
+            "waymark/4_bg--HMbYQ.avif"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/a.png",
+            "waymark/a"
+          ],
+          "src": [
+            "waymark/a-zirxdg@3x.avif",
+            "waymark/a-xsdV1A.avif",
+            "waymark/a-XHOLpw.png",
+            "waymark/a-Uf3nEw@3x.webp",
+            "waymark/a-Q2q3Jw@2x.avif",
+            "waymark/a-pF81oA@2x.png",
+            "waymark/a-gpGBmg@3x.png",
+            "waymark/a-FpelJw.webp",
+            "waymark/a-1blalg@2x.webp"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/a_bg.png",
+            "waymark/a_bg"
+          ],
+          "src": [
+            "waymark/a_bg-x6b3ww@2x.webp",
+            "waymark/a_bg-uBN5Ow@2x.avif",
+            "waymark/a_bg-oU_h9A.avif",
+            "waymark/a_bg-lqWRLQ@3x.png",
+            "waymark/a_bg-K99clw.png",
+            "waymark/a_bg-fTaLow@3x.webp",
+            "waymark/a_bg-EILjxQ.webp",
+            "waymark/a_bg-7kNtbw@2x.png",
+            "waymark/a_bg-5GhMrg@3x.avif"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/b.png",
+            "waymark/b"
+          ],
+          "src": [
+            "waymark/b-qXdLYQ@2x.avif",
+            "waymark/b-pEKOfw.avif",
+            "waymark/b-PB8UXg@2x.png",
+            "waymark/b-HkQK@3x.webp",
+            "waymark/b-hhss2w.webp",
+            "waymark/b-g_UAhQ@2x.webp",
+            "waymark/b-e3yOeA@3x.png",
+            "waymark/b-doKTYQ.png",
+            "waymark/b--nBZLA@3x.avif"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/b_bg.png",
+            "waymark/b_bg"
+          ],
+          "src": [
+            "waymark/b_bg-UUwVUQ@2x.avif",
+            "waymark/b_bg-rNinOA.png",
+            "waymark/b_bg-RexJxQ@3x.webp",
+            "waymark/b_bg-oyO4yg.avif",
+            "waymark/b_bg-oAJRUw.webp",
+            "waymark/b_bg-iggBZg@3x.avif",
+            "waymark/b_bg-gcRZ_w@3x.png",
+            "waymark/b_bg-g4xRlA@2x.webp",
+            "waymark/b_bg-5TspSw@2x.png"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/c.png",
+            "waymark/c"
+          ],
+          "src": [
+            "waymark/c-wPYJ4Q@3x.avif",
+            "waymark/c-VynVmA@2x.png",
+            "waymark/c-ToJVjg.avif",
+            "waymark/c-RVPN1w@2x.avif",
+            "waymark/c-PX91uQ@3x.webp",
+            "waymark/c-L7rCXg@2x.webp",
+            "waymark/c-5yhzJA.webp",
+            "waymark/c-4bMfQQ@3x.png",
+            "waymark/c-3Eb71g.png"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/c_bg.png",
+            "waymark/c_bg"
+          ],
+          "src": [
+            "waymark/c_bg-vi3EYA@2x.png",
+            "waymark/c_bg-O7rP_g@3x.webp",
+            "waymark/c_bg-KPUsOg@2x.avif",
+            "waymark/c_bg-kLQD_Q.webp",
+            "waymark/c_bg-kd0Uzw.avif",
+            "waymark/c_bg-iuQgXA@3x.avif",
+            "waymark/c_bg-esiPxg.png",
+            "waymark/c_bg-bKhI7w@2x.webp",
+            "waymark/c_bg-7fd2ng@3x.png"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/d.png",
+            "waymark/d"
+          ],
+          "src": [
+            "waymark/d-TGd3iQ@3x.webp",
+            "waymark/d-rL94Rw@3x.avif",
+            "waymark/d-me1Rzg@2x.avif",
+            "waymark/d-khurhg@2x.webp",
+            "waymark/d-cy5t2g.webp",
+            "waymark/d-b45xWg@3x.png",
+            "waymark/d-43XHzg.png",
+            "waymark/d-2d-0Cg@2x.png",
+            "waymark/d-0Tnngw.avif"
+          ]
+        },
+        {
+          "alias": [
+            "waymark/d_bg.png",
+            "waymark/d_bg"
+          ],
+          "src": [
+            "waymark/d_bg-SRCXhw@2x.webp",
+            "waymark/d_bg-smavhg@3x.avif",
+            "waymark/d_bg-R2G--Q.png",
+            "waymark/d_bg-Qsix.webp",
+            "waymark/d_bg-J649aQ.avif",
+            "waymark/d_bg-iX4cFw@2x.png",
+            "waymark/d_bg-iFhtow@2x.avif",
+            "waymark/d_bg-h1ARfw@3x.webp",
+            "waymark/d_bg-_mrdXQ@3x.png"
+          ]
+        }
+      ]
+    }
+  ]
+}

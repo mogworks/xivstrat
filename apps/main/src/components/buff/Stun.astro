@@ -1,0 +1,22 @@
+---
+import Buff from '@/components/Buff.astro'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const icon = 'imgs/buff/215004.png'
+---
+
+<Buff
+  icon={icon}
+  name="眩晕"
+  nameVariant="yellow"
+  description="无法做出任何行动"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

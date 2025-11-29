@@ -1,0 +1,18 @@
+---
+import EntityIcon from '@/components/EntityIcon.astro'
+import EntityText from '@/components/EntityText.astro'
+import Span from '@/components/Span.vue'
+
+interface Props {
+  num: number
+}
+
+const { num }: Props = Astro.props
+---
+
+<EntityIcon icon="imgs/07/m6s/entity_icons/cactus.png" alt="仙人掌" iconClass="drop-shadow-xs drop-shadow-black">
+  <div class="text-decimal">
+    <Span variant="rose">仙人掌×{num}</Span>
+  </div>
+</EntityIcon>
+<EntityText>仙人掌×{num}</EntityText>

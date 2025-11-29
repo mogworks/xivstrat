@@ -1,0 +1,25 @@
+---
+import Buff from '@/components/Buff.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  type: 'α' | 'β'
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { type, tag = '', hover = false, class: className = '' }: Props = Astro.props
+const α = 'imgs/buff/07/m5s/214281.png'
+const β = 'imgs/buff/07/m5s/214282.png'
+---
+
+<Buff
+  icon={type === 'α' ? α : β}
+  name={translations.wavelength + ' ' + (type === 'α' ? 'α' : 'β')}
+  nameVariant={type === 'α' ? 'amber' : 'indigo'}
+  description={translations.waveLengthDesc}
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

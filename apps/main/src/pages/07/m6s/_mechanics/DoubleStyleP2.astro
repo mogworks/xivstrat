@@ -1,0 +1,247 @@
+---
+import { timeToSeconds } from '@/lib/utils'
+
+import CosImage from '@/components/CosImage.astro'
+
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import SixFulmsUnder from '@/components/buff/SixFulmsUnder.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import DoubleStyleCast from '../_components/DoubleStyleCast.astro'
+import PuddingGrafActivate from '../_components/PuddingGrafActivate.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+
+import { translations } from '../_translations'
+
+const start = '03:01.061'
+const duration = 8.6
+const puddingGrafActivate = '03:10.063'
+const quicksandStart = '03:02.561'
+const quicksandActivate = timeToSeconds(start) + duration + 3
+
+const { PuddingGraf, DoubleStyle } = translations
+---
+
+<EventSection time={quicksandStart}><Span variant="zinc">场地北/南侧出现大范围流沙</Span></EventSection>
+<DoubleStyleCast start={start} duration={duration} />
+<PuddingGrafActivate time={puddingGrafActivate} />
+<EventSection time={quicksandActivate}><Span variant="zinc">场地北/南侧流沙开始下沉</Span></EventSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">{DoubleStyle}</Span>
+    </h4>
+    <div class="paragraph -my-3">
+      <SugarRiot />
+      左手绘制
+      <CosImage src="imgs/07/m6s/paint_mark/hanebomb@3x.png" alt="Paint Mark: Hanebomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
+      ，右手绘制
+      <CosImage src="imgs/07/m6s/paint_mark/bomb@3x.png" alt="Paint Mark: Bomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
+      ，两图案各连线
+      <Span variant="default">4</Span>
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      或
+      <Span variant="default">4</Span>
+      <RoleIcon role="dps" />
+    </div>
+    <div class="paragraph -my-3">
+      <ListDot />
+      若被
+      <CosImage src="imgs/07/m6s/paint_mark/hanebomb@3x.png" alt="Paint Mark: Hanebomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
+      连线，则
+      <Span variant="yellow">{PuddingGraf}</Span>
+      判定后会留下一个
+      <Span variant="blue">翅膀爆弹怪</Span>
+    </div>
+    <div class="paragraph -my-3">
+      <ListDot />
+      若被
+      <CosImage src="imgs/07/m6s/paint_mark/bomb@3x.png" alt="Paint Mark: Bomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
+      连线，则
+      <Span variant="yellow">{PuddingGraf}</Span>
+      判定后会留下一个
+      <Span variant="yellow">涂鸦爆弹怪</Span>
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">涂鸦爆弹怪</Span>
+      一段时间后会爆炸，产生半径
+      <Span variant="pink">15m</Span>
+      的圆形AoE
+    </div>
+    <div class="paragraph">
+      <Span variant="blue">翅膀爆弹怪</Span>
+      则会先飞行一段距离，飞行的方向是
+      <Span variant="yellow">{PuddingGraf}</Span>
+      判定时玩家面向的方向
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">涂鸦爆弹怪</Span>
+      和
+      <Span variant="pink">飞行落地后</Span>
+      的
+      <Span variant="blue">翅膀爆弹怪</Span>
+      可被流沙吸收
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{PuddingGraf}</Span>
+    </h4>
+    <div class="paragraph">
+      点名
+      <RoleIcon role="all" tag="全员" />
+      的半径
+      <Span variant="pink">6m</Span>
+      的圆形AoE，附带易伤，重合即死
+    </div>
+    <div class="paragraph">
+      判定后会在原地留下一个
+      <Span variant="yellow">涂鸦爆弹怪</Span>
+      /
+      <Span variant="blue">翅膀爆弹怪</Span>
+      （取决于连线）
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">流沙</Span>
+    </h4>
+    <div class="paragraph">场地北侧或南侧会出现大范围流沙</div>
+    <div class="paragraph">
+      流沙
+      <Span variant="pink">开始下沉</Span>
+      后，站入其中会被赋予
+      <SixFulmsUnder tag="3" hover />
+      ：移速逐渐降低，若倒计时结束时仍未走出流沙，则立刻死亡
+    </div>
+    <div class="flex gap-4">
+      <div class="flex max-w-96 flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m6s/double_style_p2/quicksand_n.png"
+          alt="Double Style P2 Quicksand North"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div class="paragraph">情形1：北侧流沙</div>
+      </div>
+      <div class="flex max-w-96 flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m6s/double_style_p2/quicksand_s.png"
+          alt="Double Style P2 Quicksand South"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div class="paragraph">情形2：南侧流沙</div>
+      </div>
+    </div>
+    <div class="paragraph">
+      流沙
+      <Span variant="pink">开始下沉</Span>
+      后可以吸收
+      <Span variant="yellow">涂鸦爆弹怪</Span>
+      和
+      <Span variant="pink">飞行落地后</Span>
+      的
+      <Span variant="blue">翅膀爆弹怪</Span>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      玩家需要在处理八人分散（
+      <Span variant="yellow">{PuddingGraf}</Span>
+      ）的同时，将
+      <Span variant="yellow">涂鸦爆弹怪</Span>
+      和
+      <Span variant="blue">翅膀爆弹怪</Span>
+      引入流沙中吸收
+    </div>
+    <div class="paragraph">
+      因此，在看清自己连线的图案后，
+      <Span variant="pink">以流沙为12点</Span>
+      ，按下图分散
+    </div>
+    <div class="flex gap-4">
+      <div class="flex max-w-96 flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m6s/double_style_p2/solution_1.png"
+          alt="Double Style P2 Solution 1/2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div class="paragraph">情形1：翅膀爆弹怪连线TH</div>
+      </div>
+      <div class="flex max-w-96 flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m6s/double_style_p2/solution_2.png"
+          alt="Double Style P2 Solution 2/2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+        <div class="paragraph">情形2：翅膀爆弹怪连线DPS</div>
+      </div>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      被普通
+      <Span variant="yellow">涂鸦爆弹怪</Span>
+      图案连线的人直接站入流沙中，之后
+      <Span variant="yellow">涂鸦爆弹怪</Span>
+      会落入流沙中被吸收
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      被
+      <Span variant="blue">翅膀爆弹怪</Span>
+      图案连线的人站在流沙外并
+      <Span variant="pink">面向流沙</Span>
+      ，之后
+      <Span variant="blue">翅膀爆弹怪</Span>
+      会飞入流沙中被吸收
+    </div>
+    <div class="paragraph mt-8">流沙中的四人注意：</div>
+    <div class="paragraph">
+      <ListDot />
+      在
+      <Span variant="yellow">{PuddingGraf}</Span>
+      伤害判定后，即看到自己出现
+      <MagicVulnerabilityUp tag="2" hover />
+      后，立刻走出流沙，以免被流沙吞噬
+    </div>
+    <div class="paragraph mt-8">流沙外的四人注意：</div>
+    <div class="paragraph">
+      <ListDot />
+      务必将自身面向调整为
+      <Span variant="pink">面向流沙</Span>
+      ，尤其是两侧的远程职业，不能无脑输出
+      <SugarRiot />
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      两侧的远程职业也可以站在近战职业后面，这样可以无需停手调整面向
+    </div>
+    <div class="paragraph pl-4">
+      <ListDot />
+      但也要注意不能太贴边，否则若超出
+      <Span variant="blue">翅膀爆弹怪</Span>
+      的飞行距离，
+      <Span variant="blue">翅膀爆弹怪</Span>
+      会落在流沙外
+    </div>
+    <div class="flex gap-4">
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/double_style_p2/supplement_1.png"
+          alt="Double Style P2 Supplement 1/2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/double_style_p2/supplement_2.png"
+          alt="Double Style P2 Supplement 2/2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+  </div>
+</SolutionSection>

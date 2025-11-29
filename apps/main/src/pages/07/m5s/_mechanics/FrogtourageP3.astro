@@ -1,0 +1,275 @@
+---
+
+import CosImage from '@/components/CosImage.astro'
+
+import Badge from '@/components/Badge.astro'
+import Boss from '@/components/Boss.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import AttackSection from '@/components/section/AttackSection.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import ContentSection from '@/components/section/ContentSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import FrogtourageCast from '../_components/FrogtourageCast.astro'
+import FrogDoTheHustleCast from '../_components/FrogDoTheHustleCast.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import BackUpDanceCast from '../_components/BackUpDanceCast.astro'
+
+import { translations } from '../_translations'
+---
+
+<FrogtourageCast phase="p3" start="07:26.025" />
+<ContentSection id="frogtourage-part-1" class="mt-8">
+  <Span variant="zinc" class="border-l-4 pl-2 text-2xl">{translations.frogtourage} Part 1</Span>
+</ContentSection>
+<AttackSection time="07:31.1" damage="55000" damageType="physical" />
+<AttackSection time="07:34.1" damage="55000" damageType="physical" />
+<FrogDoTheHustleCast start="07:31.194" />
+<AttackSection time="07:37.1" damage="55000" damageType="physical" />
+<FrogDoTheHustleCast start="07:35.293" />
+<CastSection start="07:39.255" duration={4.7} ability={translations.doTheHustle}>
+  <Badge variant="yellow">左右刀</Badge>
+</CastSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      随机相邻斜点方向出现
+      <RoleIcon role="enemy_level1">
+        <Span variant="rose">青蛙×2</Span>
+      </RoleIcon>
+      读条左右刀
+    </div>
+    <div class="paragraph">
+      4秒后，剩下两个相邻斜点方向也出现
+      <RoleIcon role="enemy_level1">
+        <Span variant="rose">青蛙×2</Span>
+      </RoleIcon>
+      读条左右刀
+    </div>
+    <div class="paragraph">
+      再4秒后，
+      <Boss />
+      面朝
+      <Span variant="red">A</Span>
+      点读条左右刀
+    </div>
+    <div class="paragraph">左右刀的提示特效比较明显，如下图</div>
+    <div class="grid max-w-278 grid-cols-3 gap-4">
+      <CosImage
+        src="imgs/07/m5s/frog_right.png"
+        alt="Do the Hustle Frog Right"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+      <CosImage
+        src="imgs/07/m5s/frog_left.png"
+        alt="Do the Hustle Frog Left"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+      <CosImage
+        src="imgs/07/m5s/boss_left.png"
+        alt="Do the Hustle Boss Left"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+    </div>
+    <div class="paragraph mt-4">
+      <RoleIcon role="enemy_level1">
+        <Span variant="rose">青蛙×2</Span>
+      </RoleIcon>
+      左右刀会形成
+      <Span variant="pink">随机1/4</Span>
+      半场的安全区，前后两轮左右刀的安全区
+      <Span variant="pink">有可能</Span>
+      是一样的，如下图
+    </div>
+    <div class="grid max-w-184 grid-cols-2 gap-4">
+      <CosImage
+        src="imgs/07/m5s/frogtourage_p3/part_1_1.png"
+        alt="Frogtourage P3 Part 1 1/2"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+      <CosImage
+        src="imgs/07/m5s/frogtourage_p3/part_1_2.png"
+        alt="Frogtourage P3 Part 1 2/2"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      躲完两轮
+      <RoleIcon role="enemy_level1">
+        <Span variant="rose">青蛙×2</Span>
+      </RoleIcon>
+      的左右刀后，再躲
+      <Boss />
+      的左右刀即可
+    </div>
+  </div>
+</SolutionSection>
+<ContentSection id="frogtourage-part-2" class="mt-8">
+  <Span variant="zinc" class="border-l-4 pl-2 text-2xl">{translations.frogtourage} Part 2</Span>
+</ContentSection>
+<AttackSection time="07:46.3" damage="55000" damageType="physical" />
+<AttackSection time="07:49.3" damage="55000" damageType="physical" />
+<EventSection time="07:50.574">
+  随机正点场边出现
+  <RoleIcon role="enemy_level1">
+    <Span variant="rose">青蛙×2</Span>
+  </RoleIcon>
+  对场地划线
+</EventSection>
+<AttackSection time="07:52.4" damage="55000" damageType="physical" />
+<AttackSection time="07:55.4" damage="55000" damageType="physical" />
+<BackUpDanceCast start="07:51.688" end="08:01.188" />
+<AttackSection time="08:02.5" damage="55000" damageType="physical" />
+<AttackSection time="08:05.6" damage="55000" damageType="physical" />
+<EventSection time="08:06.578">
+  随机正点场边出现
+  <RoleIcon role="enemy_level1">
+    <Span variant="rose">青蛙×2</Span>
+  </RoleIcon>
+  对场地划线
+</EventSection>
+<AttackSection time="08:08.6" damage="55000" damageType="physical" />
+<AttackSection time="08:11.6" damage="55000" damageType="physical" />
+<AttackSection time="08:14.6" damage="55000" damageType="physical" />
+<BackUpDanceCast start="08:07.689" end="08:17.178" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      划线效果和
+      <StratLink variant="yellow" href="/07/m5s/p2#frogtourage">P2：{translations.frogtourage}</StratLink>
+      相同，不同的是这次是2组
+      <RoleIcon role="enemy_level1">
+        <Span variant="rose">青蛙×2</Span>
+      </RoleIcon>
+      会间隔16秒分两轮划线
+    </div>
+    <div class="paragraph">两轮青蛙会从不同正点场边出现，且两轮划线必定一次两侧安全，一次中间安全，如下图</div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/frogtourage_p3/part_2_1.png"
+          alt="Frogtourage P3 Part 2 1/2"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形1：两侧安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/frogtourage_p3/part_2_2.png"
+          alt="Frogtourage P3 Part 2 2/2"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形2：中间安全</div>
+      </div>
+    </div>
+    <div class="paragraph mt-4">
+      在划线区域判定的同时，场内斜点方向还会有
+      <RoleIcon role="enemy_level1">
+        <Span variant="rose">青蛙×4</Span>
+      </RoleIcon>
+      对最近的人读条可引导的45°扇形
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      我们固定让
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      先引导，
+      <RoleIcon role="dps" />
+      后引导
+    </div>
+    <div class="paragraph">由于这里扇形青蛙只会出现在斜点方向，每个人引导的青蛙都是固定的，如下图</div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/frogtourage_p3/part_2_solution_1.png"
+          alt="Frogtourage P3 Part 2 Solution 1/2"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形1：两侧安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/frogtourage_p3/part_2_solution_2.png"
+          alt="Frogtourage P3 Part 2 Solution 2/2"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形2：中间安全</div>
+      </div>
+    </div>
+  </div>
+</SolutionSection>
+<ContentSection id="frogtourage-part-3" class="mt-8">
+  <Span variant="zinc" class="border-l-4 pl-2 text-2xl">{translations.frogtourage} Part 3</Span>
+</ContentSection>
+<AttackSection time="08:17.7" damage="55000" damageType="physical" />
+<CastSection start="08:21.584" duration={4.7} ability={translations.doTheHustle}>
+  <Badge variant="yellow">左右刀</Badge>
+</CastSection>
+<FrogDoTheHustleCast start="08:21.674" />
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <Boss />
+      和随机相邻斜点方向的
+      <RoleIcon role="enemy_level1">
+        <Span variant="rose">青蛙×2</Span>
+      </RoleIcon>
+      同时读条左右刀，存在如下规律：
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      <Boss />
+      必定面朝
+      <Span variant="red">A</Span>
+      点读条左右刀，安全区为左或右半场
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      <RoleIcon role="enemy_level1">
+        <Span variant="rose">青蛙×2</Span>
+      </RoleIcon>
+      无论如何刷新，无论打左还是打右，形成的安全区必定为
+      <Span variant="red">A</Span>
+      或
+      <Span variant="sky">C</Span>
+      点所在的
+      <Span variant="pink">1/4</Span>
+      半场
+    </div>
+    <div class="paragraph mt-4">
+      换言之，只需要看
+      <Boss />
+      和任意一只
+      <RoleIcon role="enemy_level1">
+        <Span variant="rose">青蛙</Span>
+      </RoleIcon>
+      即可找到最终的安全区
+    </div>
+    <div class="paragraph">
+      且最终的安全区必定为
+      <Span variant="red">A</Span>
+      或
+      <Span variant="sky">C</Span>
+      两侧的
+      <Span variant="pink">1/8</Span>
+      半场，如下图（其中一种情况）
+    </div>
+    <CosImage
+      src="imgs/07/m5s/frogtourage_p3/part_3.png"
+      alt="Frogtourage P3 Part 3"
+      class="w-90 border-2 border-amber-800/75 dark:border-amber-100"
+    />
+  </div>
+</SolutionSection>

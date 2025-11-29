@@ -1,0 +1,21 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Skill from '@/components/typography/Skill.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+const brutishswing = translations.brutishSwing
+---
+
+<EventSection time={time}>
+  <Skill name={brutishswing} />
+  伤害判定
+  <Badge variant="yellow">钢铁/月环</Badge>
+</EventSection>

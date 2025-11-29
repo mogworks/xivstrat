@@ -1,0 +1,18 @@
+---
+import type { Time } from '@/lib/utils'
+
+import EventSection from '@/components/section/EventSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+---
+
+<EventSection time={time}>
+  <SugarRiot />
+  瞬移至场地北侧
+</EventSection>

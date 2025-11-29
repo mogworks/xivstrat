@@ -1,0 +1,29 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const smashHereThere = translations.smashHereThere
+---
+
+<CastSection start={start} duration={4.7} ability={smashHereThere} target damage="760000" damageType="physical">
+  <BruteAbombinator slot="source" />
+  <Fragment slot="target">
+    <RoleIcon role="all" tag="最近" />
+    或
+    <RoleIcon role="all" tag="最远" />
+  </Fragment>
+  <Badge variant="emerald">近/远引导</Badge>
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="red">死刑</Badge>
+</CastSection>

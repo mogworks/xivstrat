@@ -1,0 +1,17 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Boss from '@/components/Boss.astro'
+import EventSection from '@/components/section/EventSection.astro'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+---
+
+<EventSection time={time}>
+  <Boss />
+  跳回场地中心
+</EventSection>

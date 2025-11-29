@@ -1,0 +1,24 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import Zelenia from './Zelenia.astro'
+import { translations } from '../_translations'
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={6.7} ability={translations.StockBreak} target damage="320000" damageType="magical">
+  <Zelenia slot="source" />
+  <Fragment slot="target">
+    <RoleIcon role="all" tag="随机" />
+  </Fragment>
+  <Badge variant="yellow">4连分摊</Badge>
+  <Badge variant="emerald">集合处理</Badge>
+</CastSection>

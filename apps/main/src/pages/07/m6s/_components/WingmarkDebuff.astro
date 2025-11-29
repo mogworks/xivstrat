@@ -1,0 +1,24 @@
+---
+import Buff from '@/components/Buff.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const wingmark = 'imgs/buff/07/m6s/214274.png'
+const { Wingmark, WingmarkDescription } = translations
+---
+
+<Buff
+  icon={wingmark}
+  name={Wingmark}
+  nameVariant="yellow"
+  description={WingmarkDescription}
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

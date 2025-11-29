@@ -1,0 +1,90 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CosImage from '@/components/CosImage.astro'
+
+import Boss from '@/components/Boss.astro'
+import ListDot from '@/components/ListDot.astro'
+import StratLink from '@/components/StratLink.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+
+import InsideOutOrOutsideInCast from '../_components/InsideOutOrOutsideInCast.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<InsideOutOrOutsideInCast start={start} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">{translations.insideOut}</Span>
+    </h4>
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        <Boss />
+        以自身为中心，先释放半径
+        <Span variant="pink">7m</Span>
+        的圆形AoE，再释放半径
+        <Span variant="pink">5m</Span>
+        的环形AoE
+      </div>
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{translations.outSideIn}</Span>
+    </h4>
+    <div class="flex flex-col gap-4">
+      <div class="paragraph">
+        <Boss />
+        以自身为中心，先释放半径
+        <Span variant="pink">5m</Span>
+        的环形AoE，再释放半径
+        <Span variant="pink">7m</Span>
+        的圆形AoE
+      </div>
+    </div>
+    <div class="flex gap-4">
+      <div class="flex max-w-112.5 shrink flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/inside_out_or_outside_in/out.png"
+          alt="Inside Out | Outside In: Circle"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">圆形AoE</div>
+      </div>
+      <div class="flex max-w-112.5 shrink flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/inside_out_or_outside_in/in.png"
+          alt="Inside Out | Outside In: Ring"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">环形AoE</div>
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <ListDot />
+      <Boss />
+      目标圈外环半径也是
+      <Span variant="pink">5m</Span>
+      ，站进目标圈即可躲避环形AoE
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      此时
+      <StratLink variant="yellow" href="#funky-floor">{translations.funkyFloor}</StratLink>
+      的效果还未结束，注意同时躲避
+      <Span variant="rose">地面AoE</Span>
+    </div>
+  </div>
+</NoteSection>

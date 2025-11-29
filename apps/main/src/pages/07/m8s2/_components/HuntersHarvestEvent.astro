@@ -1,0 +1,33 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Badge from '@/components/Badge.astro'
+
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import { translations } from '../_translations'
+import Bind from '@/components/buff/Bind.astro'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+
+const huntersHarvest = translations.huntersHarvest
+---
+
+<EventSection time={time}>
+  <HowlingBlade />
+  面朝
+  <RoleIcon role="tank" tag="一仇" />
+  <Bind hover />
+  所在平台中心，释放
+  <Span variant="yellow">{huntersHarvest}</Span>
+  <DamageInfo damage="280000" type="physical" />
+  <Badge variant="emerald">210°扇形</Badge>
+  <Badge variant="red">死刑</Badge>
+</EventSection>

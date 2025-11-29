@@ -1,0 +1,31 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  duration?: number
+}
+
+const { start, duration = 4.7 }: Props = Astro.props
+const revengeOfTheVines = translations.revengeOfTheVines
+---
+
+<CastSection
+  start={start}
+  duration={duration}
+  ability={revengeOfTheVines}
+  target
+  targetTag="全员"
+  damage="190000"
+  damageType="magical"
+>
+  <BruteAbombinator slot="source" />
+  <Badge variant="purple">AoE</Badge>
+</CastSection>

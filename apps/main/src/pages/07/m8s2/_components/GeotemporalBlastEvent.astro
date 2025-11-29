@@ -1,0 +1,31 @@
+---
+import type { Time } from '@/lib/utils'
+
+import EventSection from '@/components/section/EventSection.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Badge from '@/components/Badge.astro'
+import VulnerabilityUp from '@/components/buff/VulnerabilityUp.astro'
+
+import PatienceOfStoneDebuff from '../_components/buff/PatienceOfStoneDebuff.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Skill from '@/components/typography/Skill.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<EventSection time={start}>
+  <PatienceOfStoneDebuff />
+  判定，对
+  <RoleIcon role="healer|dps" />
+  造成
+  <Skill name={translations.geotemporalBlast} />
+  <DamageInfo damage="200000" type="magical" variant="stack" />
+  <VulnerabilityUp tag="2" />
+  <Badge variant="emerald">6m圆形</Badge>
+  <Badge variant="purple">分摊</Badge>
+</EventSection>

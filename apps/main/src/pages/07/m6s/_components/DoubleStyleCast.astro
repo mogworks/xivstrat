@@ -1,0 +1,22 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  duration: number
+}
+
+const { start, duration }: Props = Astro.props
+const DoubleStyle = translations.DoubleStyle
+---
+
+<CastSection start={start} duration={duration} adjustDuration={false} ability={DoubleStyle}>
+  <SugarRiot slot="source" />
+  绘制两种图案
+</CastSection>

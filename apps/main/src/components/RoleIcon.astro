@@ -1,0 +1,86 @@
+---
+import type { RoleType, CombinedRoleType } from '@/lib/role'
+
+import CombinedIcon from '@/components/CombinedIcon.astro'
+import EntityIcon from '@/components/EntityIcon.astro'
+import EntityText from '@/components/EntityText.astro'
+
+interface Props {
+  role: RoleType | CombinedRoleType
+  tag?: 'MT' | 'ST' | 'OT' | 'H1' | 'H2' | 'D1' | 'D2' | 'D3' | 'D4' | 'BOSS' | string
+  class?: string
+}
+
+const tagHandler = (tag: string): string => {
+  // 添加文本使攻略行文通顺
+  if (['最近', '最远', '随机', '点名', '连线'].includes(tag)) return `${tag}目标`
+  else return tag
+}
+
+const { role = 'any', tag = '', class: className = '' }: Props = Astro.props
+const img = {
+  any: 'role/any',
+  all: 'role/all',
+  tank: 'role/tank',
+  healer: 'role/healer',
+  dps: 'role/dps',
+  melee: 'role/melee',
+  ranged: 'role/ranged',
+  magic: 'role/magic',
+  ranged_magic: 'role/ranged_magic',
+  boss: 'enemy/061712',
+  enemy_level1: 'enemy/061707',
+  'tank|healer': ['role/tank', 'role/healer'],
+  'healer|tank': ['role/healer', 'role/tank'],
+  'tank|dps': ['role/tank', 'role/dps'],
+  'dps|tank': ['role/dps', 'role/tank'],
+  'healer|dps': ['role/healer', 'role/dps'],
+  'dps|healer': ['role/dps', 'role/healer'],
+}[role]
+const text =
+  tagHandler(tag) ||
+  {
+    any: '任一角色',
+    all: '全员',
+    tank: 'T',
+    healer: 'H',
+    dps: 'D',
+    melee: '近战',
+    ranged: '远敏',
+    magic: '法系',
+    ranged_magic: '远程',
+    boss: '', // 敌对生物slot都包含名称，直接隐藏图标
+    enemy_level1: '',
+    'tank|healer': 'T/H',
+    'healer|tank': 'H/T',
+    'tank|dps': 'T/D',
+    'dps|tank': 'D/T',
+    'healer|dps': 'H/D',
+    'dps|healer': 'D/H',
+  }[role]
+---
+
+{
+  role.includes("|") ? (
+    <EntityIcon icon="" tag={tag} alt={tag ?? role} class={className}>
+      <CombinedIcon
+        slot="icon"
+        img1={`public/pixi/${img[0]}.png?width=64&height=64`}
+        img2={`public/pixi/${img[1]}.png?width=64&height=64`}
+        tag={tag}
+        alt={tag ?? role}
+      />
+      <slot />
+    </EntityIcon>
+  ) : (
+    <EntityIcon
+      icon={`public/pixi/${img}.png?width=64&height=64`}
+      tag={tag}
+      alt={tag ?? role}
+      class={className}
+    >
+      <slot />
+    </EntityIcon>
+  )
+}
+<EntityText class={className}>{text}<slot /></EntityText>

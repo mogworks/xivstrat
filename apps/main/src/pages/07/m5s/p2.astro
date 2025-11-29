@@ -1,0 +1,106 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import Boss from '@/components/Boss.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import AttackSection from '@/components/section/AttackSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import CelebrateGoodTimesCast from './_components/CelebrateGoodTimesCast.astro'
+import DeepCutCast from './_components/DeepCutCast.astro'
+import FlipToXSideCast from './_components/FlipToXSideCast.astro'
+import InsideOutOrOutsideInCast from './_components/InsideOutOrOutsideInCast.astro'
+import MoveToCenterEvent from './_components/MoveToCenterEvent.astro'
+import PlayXSideCast from './_components/PlayXSideCast.astro'
+import XSnapTwistAndDropTheNeedleCast from './_components/XSnapTwistAndDropTheNeedleCast.astro'
+
+import ArcadyNightEncore from './_mechanics/ArcadyNightEncore.astro'
+import DiscoInfernalP2 from './_mechanics/DiscoInfernalP2.astro'
+import EnsembleAssembleCast from './_components/EnsembleAssembleCast.astro'
+import Frogtourage from './_mechanics/Frogtourage.astro'
+import LetsDanceRemix from './_mechanics/LetsDanceRemix.astro'
+import LetsPose from './_mechanics/LetsPose.astro'
+import RideTheWaves from './_mechanics/RideTheWaves.astro'
+import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
+import { translations } from './_translations'
+
+const dutyId = '07/m5s'
+
+const base = '03:33.5'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <EventSection time="03:33.5" id="target-circle-restore">
+    <Boss />
+    失去
+    <DirectionalDisregard hover />
+    ，目标圈恢复身位限制
+  </EventSection>
+  <NoteSection>
+    <div class="paragraph">
+      <RoleIcon role="tank" tag="MT" />
+      注意：若需要调整
+      <Boss />
+      位置（参见
+      <Span variant="yellow">{translations.rideTheWaves}</Span>
+      <StratLink variant="lime" href="#ride-the-waves-solution-optimize">解法：近战优化</StratLink>
+      ），此时是最佳时机
+    </div>
+  </NoteSection>
+  <AttackSection time="03:33.5" damage="55000" damageType="physical" />
+  <AttackSection time="03:36.5" damage="55000" damageType="physical" />
+  <AttackSection time="03:39.6" damage="55000" damageType="physical" />
+  <AttackSection time="03:42.6" damage="55000" damageType="physical" />
+  <FlipToXSideCast start="03:42.692" />
+  <SeparatorSection id="ride-the-waves" title={translations.rideTheWaves} />
+  <RideTheWaves />
+  <SeparatorSection />
+  <AttackSection time="04:13.4" damage="55000" damageType="physical" />
+  <MoveToCenterEvent time="04:13.760" />
+  <InsideOutOrOutsideInCast start="04:16.122" />
+  <NoteSection>
+    <div class="paragraph">此时北半场已经没有地火，简单躲避即可</div>
+  </NoteSection>
+  <XSnapTwistAndDropTheNeedleCast start="04:26.100" />
+  <PlayXSideCast time="04:35.233" />
+  <DeepCutCast start="04:38.355" />
+  <CelebrateGoodTimesCast start="04:45.481" />
+  <AttackSection time="04:52.5" damage="55000" damageType="physical" />
+  <AttackSection time="04:55.6" damage="55000" damageType="physical" />
+  <MoveToCenterEvent time="04:56.665" />
+  <SeparatorSection id="frogtourage" title={translations.frogtourage} />
+  <Frogtourage />
+  <AttackSection time="05:18.0" damage="55000" damageType="physical" />
+  <SeparatorSection id="disco-infernal" title={translations.discoInfernal} />
+  <DiscoInfernalP2 />
+  <SeparatorSection />
+  <XSnapTwistAndDropTheNeedleCast start="05:47.508" />
+  <PlayXSideCast time="05:56.641" />
+  <CelebrateGoodTimesCast start="05:58.734" />
+  <AttackSection time="06:05.8" damage="55000" damageType="physical" />
+  <AttackSection time="06:08.8" damage="55000" damageType="physical" />
+  <MoveToCenterEvent time="06:09.918" />
+  <EnsembleAssembleCast start="06:12.323" />
+  <SeparatorSection id="arcady-night-encore" title={translations.arcadyNightEncore} />
+  <ArcadyNightEncore
+    start="06:18.474"
+    getDownTimes={[
+      '06:23.956',
+      '06:26.404',
+      '06:28.855',
+      '06:31.306',
+      '06:33.757',
+      '06:36.208',
+      '06:38.656',
+      '06:41.111',
+    ]}
+  />
+  <SeparatorSection id="lets-dance-remix" title={translations.letsDanceRemix} />
+  <LetsDanceRemix start="06:45.250" />
+  <SeparatorSection id="lets-pose" title={translations.letsPose} />
+  <LetsPose phase="p2" start="07:04.596" />
+</DutyStratLayout>

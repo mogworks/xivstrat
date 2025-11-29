@@ -1,0 +1,37 @@
+---
+import { cn } from '@/lib/utils'
+
+import CosImage from '@/components/CosImage.astro'
+
+interface Props {
+  img1: string
+  img2: string
+  alt: string
+  tag?: string
+  iconClass?: string
+}
+
+const { img1, img2, alt, tag = undefined, iconClass = '' }: Props = Astro.props
+---
+
+<span class="relative h-[calc(1em*30/18)] w-[calc(1em*30/18)]">
+  <CosImage
+    src={img1}
+    alt={alt}
+    class={cn('absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2', iconClass)}
+    style="clip-path: polygon(0 0, 80% 0, 20% 100%, 0 100%)"
+  />
+  <CosImage
+    src={img2}
+    alt={alt}
+    class={cn('absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2', iconClass)}
+    style="clip-path: polygon(80% 0, 100% 0, 100% 100%, 20% 100%)"
+  />
+  {
+    tag && (
+      <span class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 text-[calc(1em*12/18)] whitespace-nowrap text-white [text-shadow:0_0_2px_black,0_0_2px_black,0_0_2px_black,0_0_3px_black,0_0_3px_black,0_0_3px_black]">
+        {tag}
+      </span>
+    )
+  }
+</span>

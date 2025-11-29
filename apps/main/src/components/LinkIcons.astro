@@ -1,0 +1,29 @@
+---
+import { cn } from '@/lib/utils'
+
+import DarkModeButton from '@/components/DarkModeButton.astro'
+
+import BilibiliSVG from '@/svg/bilibili.svg'
+import GitHubSVG from '@/svg/github.svg'
+import ArtboardSVG from '@/svg/artboard.svg'
+
+interface Props {
+  bilibili?: string
+  class?: string
+}
+
+const { class: className = '', bilibili = 'https://space.bilibili.com/25787773' }: Props = Astro.props
+---
+
+<section class={cn('flex items-center gap-2 px-4', className)}>
+  <DarkModeButton />
+  <a class="h-5 w-5 text-current/75 hover:text-current" href="https://github.com/mogworks/xivstrat" target="_blank">
+    <GitHubSVG />
+  </a>
+  <a class="h-5 w-5 text-current/75 hover:text-current" href="https://plan.xivstrat.cn" target="_blank">
+    <ArtboardSVG />
+  </a>
+  <a class="h-5 w-5 text-current/75 hover:text-current" href={bilibili} target="_blank">
+    <BilibiliSVG />
+  </a>
+</section>

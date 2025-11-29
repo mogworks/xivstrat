@@ -1,0 +1,41 @@
+---
+import VideoPlaySVG from '@/svg/video-play.svg'
+
+interface Props {
+  variant?: 'yellow' | 'lime'
+}
+
+const { variant = 'yellow' } = Astro.props
+
+const colorClasses = {
+  yellow: {
+    button:
+      'bg-yellow-500 shadow-yellow-400/30 group-hover:bg-yellow-600 dark:bg-yellow-600 dark:shadow-yellow-500/10 dark:group-hover:bg-yellow-500',
+    text: 'text-yellow-900 group-hover:text-yellow-500 dark:text-yellow-500 dark:group-hover:text-yellow-100',
+  },
+  lime: {
+    button:
+      'bg-lime-500 shadow-lime-400/30 group-hover:bg-lime-600 dark:bg-lime-600 dark:shadow-lime-500/10 dark:group-hover:bg-lime-500',
+    text: 'text-lime-900 group-hover:text-lime-500 dark:text-lime-500 dark:group-hover:text-lime-100',
+  },
+}
+
+const buttonColorClass = colorClasses[variant].button
+const textColorClass = colorClasses[variant].text
+---
+
+<button
+  class="taste-of-thunder-play-button group flex items-center gap-2 transition-all"
+  data-playing="false"
+  type="button"
+>
+  <div
+    class={`flex h-6 w-6 items-center justify-center rounded-full ${buttonColorClass} shadow-inner transition-all group-hover:scale-110 group-hover:shadow group-active:scale-95 group-data-[playing=true]:bg-gray-400 group-data-[playing=true]:shadow-none group-data-[playing=true]:hover:scale-100 group-data-[playing=true]:hover:bg-gray-400 dark:group-data-[playing=true]:bg-gray-600 dark:group-data-[playing=true]:hover:bg-gray-600`}
+  >
+    <VideoPlaySVG />
+  </div>
+  <span
+    class={`text-sm font-medium ${textColorClass} transition-all group-hover:scale-110 group-active:scale-95 group-data-[playing=true]:text-gray-500 group-data-[playing=true]:hover:scale-100 group-data-[playing=true]:hover:text-gray-500 dark:group-data-[playing=true]:text-gray-400 dark:group-data-[playing=true]:hover:text-gray-400`}
+    >动态演示</span
+  >
+</button>

@@ -1,0 +1,27 @@
+---
+import { timeToSeconds, type Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+import Boss from '@/components/Boss.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<EventSection time={timeToSeconds(start) - 0.4}>
+  <Boss />
+  新增
+  <DirectionalDisregard hover />
+  ，目标圈取消身位限制
+</EventSection>
+<CastSection start={start} duration={2.7} ability={translations.ensembleAssemble} />
+<NoteSection>
+  <div class="paragraph">无实际意义</div>
+</NoteSection>

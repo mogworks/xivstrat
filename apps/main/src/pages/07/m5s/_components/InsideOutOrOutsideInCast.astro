@@ -1,0 +1,44 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Boss from '@/components/Boss.astro'
+import Separator from '@/components/Separator.astro'
+import Span from '@/components/Span.vue'
+import StratInterval from '@/components/StratInterval.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Badge from '@/components/Badge.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start?: Time
+  end?: Time
+}
+
+const { start = undefined, end = undefined }: Props = Astro.props
+
+// 修正延迟
+const duration = 4.7
+const adjustedDuration = duration + 0.3
+---
+
+<EventSection>
+  <StratInterval slot="time" start={start} duration={adjustedDuration} end={end} />
+  <Fragment>
+    <span class="text-sm opacity-80">或</span>
+    <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
+    <ul class="list-none space-y-4">
+      <li class="flex items-center gap-1 text-lg">
+        <Boss />
+        读条
+        <Span variant="yellow">{translations.insideOut}</Span>
+        <Badge variant="yellow">钢铁+月环</Badge>
+      </li>
+      <li class="flex items-center gap-1 text-lg">
+        <Boss />
+        读条
+        <Span variant="yellow">{translations.outSideIn}</Span>
+        <Badge variant="yellow">月环+钢铁</Badge>
+      </li>
+    </ul>
+  </Fragment>
+</EventSection>

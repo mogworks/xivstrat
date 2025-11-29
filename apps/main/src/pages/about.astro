@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content'
+import { pinyin } from 'pinyin-pro'
+
+import Layout from '@/layouts/Layout.astro'
+import Footer from '@/components/Footer.astro'
+import LinkIcons from '@/components/LinkIcons.astro'
+import DeveloperCard from '@/components/DeveloperCard.astro'
+
+const developers = await getCollection('developers')
+
+const sortedDevelopers = developers.sort((a, b) => {
+  const aPinyin = pinyin(a.data.name, { toneType: 'none' }).replaceAll(' ', '').trim()
+  const bPinyin = pinyin(b.data.name, { toneType: 'none' }).replaceAll(' ', '').trim()
+  return aPinyin.localeCompare(bPinyin)
+})
+---
+
+<Layout title="关于我们">
+  <div class="@container relative flex min-h-dvh min-w-sm flex-col items-center">
+    <div class="bg-dots fade-b absolute inset-x-0 top-0 h-48"></div>
+    <LinkIcons class="fixed top-8 right-8 z-50 px-0" />
+    <header class="mt-20 text-center">
+      <h1 class="text-5xl leading-tight font-semibold tracking-tight">莫古力工坊</h1>
+      <p class="mt-7 text-lg leading-relaxed font-medium text-zinc-400">成员名单</p>
+    </header>
+    <main class="mb-24 w-full px-8 py-16 @md:max-w-md @3xl:max-w-4xl @7xl:max-w-7xl">
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(min(16em,100%),1fr))] gap-6">
+        {sortedDevelopers.map((developer) => <DeveloperCard developer={developer.data} />)}
+      </div>
+    </main>
+    <Footer />
+  </div>
+</Layout>

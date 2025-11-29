@@ -1,0 +1,23 @@
+---
+import Buff from '@/components/Buff.astro'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const immobile_suit = 'imgs/buff/07/m8s2/215370.png'
+// TODO: 翻译
+---
+
+<Buff
+  icon={immobile_suit}
+  name="无法使用传送装置"
+  nameVariant="yellow"
+  description="传送对身体造成了负担，暂时无法使用传送装置"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

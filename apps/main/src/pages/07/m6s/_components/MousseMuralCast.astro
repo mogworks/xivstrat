@@ -1,0 +1,23 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+
+  [key: string]: unknown
+}
+
+const { start, ...rest }: Props = Astro.props
+const MousseMural = translations.MousseMural
+---
+
+<CastSection start={start} duration={4.7} ability={MousseMural} target damage="180000" damageType="magical" {...rest}>
+  <SugarRiot slot="source" />
+  <Badge variant="purple">AoE</Badge>
+</CastSection>

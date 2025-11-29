@@ -1,0 +1,82 @@
+---
+import CosImage from '@/components/CosImage.astro'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import Zelenia from '../_components/Zelenia.astro'
+
+const thunder = 'imgs/07/zelenia/P3-4/P3-4-thunder.png'
+const dps = 'imgs/07/zelenia/P3-4/P3-4-dps.png'
+const tn = 'imgs/07/zelenia/P3-4/P3-4-tn.png'
+---
+
+<MechanicSection>
+  <div class="flex gap-4">
+    <div class="max-w-88 flex-1">
+      <CosImage src={thunder} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    </div>
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <div class="paragraph">
+        <Zelenia />
+        对
+        <RoleIcon role="all" tag="全员" />
+        附加 🌹<Span variant="red">玫瑰标记</Span>
+        或
+        <Span variant="blue">雷点名</Span>
+        ，
+        <RoleIcon role="tank" />
+        <RoleIcon role="healer" />
+        必定是同一种，
+        <RoleIcon role="dps" />
+        必定是另一种
+      </div>
+      <div class="paragraph"></div>
+      <div class="paragraph">
+        🌹<Span variant="red">玫瑰标记：</Span>携带此标记的玩家会把脚下的灰色地板染成<Span variant="red">红色地板</Span>
+      </div>
+      <div class="paragraph">
+        <Span variant="blue">雷点名：</Span>圆形aoe，会引爆<Span variant="red">红色地板</Span>
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-6">
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <div class="paragraph">
+        <Span variant="yellow">站位</Span>
+      </div>
+      <div class="paragraph">根据点名的不同，放花🌹和放雷站位如下所示</div>
+      <div class="paragraph">
+        <Span variant="yellow">注意</Span>
+      </div>
+      <div class="paragraph">
+        雷点名的圆形aoe范围<Span variant="yellow">绝对不能</Span>碰到<Span variant="red">红色危险区域</Span
+        >，否则会炸死花点名组
+      </div>
+      <div class="paragraph">花点名站位固定，雷点名可以灵性散开</div>
+    </div>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: tn,
+          alt: 'Zelenia：P3-4 dps点花',
+          title: 'TN被点🌹',
+        },
+        {
+          src: dps,
+          alt: 'Zelenia：P3-2 tn点花',
+          title: 'DPS被点🌹',
+        },
+      ]}
+    />
+  </div>
+</SolutionSection>

@@ -1,0 +1,31 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const ColorRiot = translations.ColorRiot
+---
+
+<CastSection start={start} duration={6.7} ability={ColorRiot} target damage="330000" damageType="magical">
+  <SugarRiot slot="source" />
+  <Fragment slot="target">
+    <RoleIcon role="all" tag="最远" />
+    和
+    <RoleIcon role="all" tag="最近" />
+  </Fragment>
+  <MagicVulnerabilityUp tag="2" hover />
+  <Badge variant="emerald">远近引导</Badge>
+  <Badge variant="emerald">4m圆形</Badge>
+  <Badge variant="red">死刑</Badge>
+</CastSection>

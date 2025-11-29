@@ -1,0 +1,27 @@
+---
+import type { Time } from '@/lib/utils'
+import CastSection from '@/components/section/CastSection.astro'
+import Badge from '@/components/Badge.astro'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import ThornsOfDeathDebuff from './ThornsOfDeathDebuff.astro'
+import { translations } from '../_translations'
+import Span from '@/components/Span.vue'
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const thornyDeathmatch = translations.thornyDeathmatch
+---
+
+<CastSection start={start} duration={2.7} ability={thornyDeathmatch}>
+  <BruteAbombinator slot="source" />
+  ，结束时对
+  <RoleIcon role="any" tag="一仇" />
+  施加连线
+  <ThornsOfDeathDebuff hover />
+  <Span variant="orange">9000/3s</Span>
+  <Badge variant="orange">DoT</Badge>
+</CastSection>

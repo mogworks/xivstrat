@@ -1,0 +1,468 @@
+---
+import { timeToSeconds } from '@/lib/utils'
+
+import CosImage from '@/components/CosImage.astro'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import DotInfo from '@/components/DotInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import StratBoard from '@/components/StratBoard.astro'
+import StratLink from '@/components/StratLink.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import Dropsy from '@/components/buff/Dropsy.astro'
+import LightningResistanceDownII from '@/components/buff/LightningResistanceDownII.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import HighlightningCast from '../_components/HighlightningCast.astro'
+import LayerCast from '../_components/LayerCast.astro'
+import LightningBoltCast from '../_components/LightningBoltCast.astro'
+import LightningStormActivate from '../_components/LightningStormActivate.astro'
+import PuddingPartyActivate from '../_components/PuddingPartyActivate.astro'
+import PuddingPartyCast from '../_components/PuddingPartyCast.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+import AttackSection from '../_components/SugarRiotAttackSection.astro'
+import TasteOfThunderCast from '../_components/TasteOfThunderCast.astro'
+import TasteOfThunderPlayButton from '../_components/TasteOfThunderPlayButton.astro'
+
+import { translations } from '../_translations'
+
+const start = '07:35.095'
+const duration = 6.7
+const adjustedDuration = duration + 0.3
+const end = timeToSeconds(start) + adjustedDuration
+
+const { DoubleStyle, Layer, TasteofThunder, Highlightning, LightningBolt, LightningStorm, PuddingParty } = translations
+---
+
+<LayerCast start={start} end={end} />
+<AttackSection time="07:43.160" damage="57000" damageType="magical" />
+<AttackSection time="07:46.188" damage="57000" damageType="magical" />
+<TasteOfThunderCast start="07:45.340" />
+<AttackSection time="07:49.217" damage="57000" damageType="magical" />
+<HighlightningCast start="07:48.235" />
+<AttackSection time="07:52.246" damage="57000" damageType="magical" />
+<LightningBoltCast start="07:51.755" />
+<AttackSection time="07:55.274" damage="57000" damageType="magical" />
+<LightningBoltCast start="07:54.297" />
+<AttackSection time="07:58.303" damage="57000" damageType="magical" />
+<LightningStormActivate time="08:00.796" />
+<HighlightningCast start="07:58.837" />
+<AttackSection time="08:01.330" damage="57000" damageType="magical" />
+<AttackSection time="08:04.365" damage="57000" damageType="magical" />
+<LightningBoltCast start="08:02.266" />
+<AttackSection time="08:07.395" damage="57000" damageType="magical" />
+<LightningBoltCast start="08:04.766" />
+<AttackSection time="08:10.425" damage="57000" damageType="magical" />
+<LightningStormActivate time="08:11.275" />
+<HighlightningCast start="08:09.445" />
+<AttackSection time="08:13.455" damage="57000" damageType="magical" />
+<LightningBoltCast start="08:12.787" />
+<AttackSection time="08:16.482" damage="57000" damageType="magical" />
+<LightningBoltCast start="08:15.326" />
+<AttackSection time="08:19.511" damage="57000" damageType="magical" />
+<LightningStormActivate time="08:21.823" />
+<HighlightningCast start="08:20.046" />
+<AttackSection time="08:22.536" damage="57000" damageType="magical" />
+<AttackSection time="08:25.563" damage="57000" damageType="magical" />
+<LightningBoltCast start="08:23.293" />
+<AttackSection time="08:28.594" damage="57000" damageType="magical" />
+<LightningBoltCast start="08:25.832" />
+<AttackSection time="08:31.622" damage="57000" damageType="magical" />
+<LightningStormActivate time="08:32.336" />
+<HighlightningCast start="08:30.644" />
+<PuddingPartyCast start="08:33.312" />
+<PuddingPartyActivate time="08:38.346" num={1} />
+<AttackSection time="08:38.658" damage="57000" damageType="magical" />
+<PuddingPartyActivate time="08:39.412" num={2} />
+<PuddingPartyActivate time="08:40.480" num={3} />
+<PuddingPartyActivate time="08:41.550" num={4} />
+<AttackSection time="08:41.684" damage="57000" damageType="magical" />
+<PuddingPartyActivate time="08:42.618" num={5} />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">{Layer}</Span>
+      {' '}
+      <Span variant="zinc">#3</Span>
+    </h4>
+    <div class="paragraph">
+      <SugarRiot />
+      连线场外北侧画卷，添加雷雨图层
+    </div>
+    <CosImage src="imgs/07/m6s/paint/5.png" alt="Layer Paint #3" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <div class="paragraph">同时溪流区域出现AoE提示，读条结束后，场地变化如下</div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/layer_3/floor_changing.png"
+          alt="Layer #3 Floor Changing"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <CosImage src="imgs/07/m6s/floor_p4_2.png" alt="Layer #3 Floor" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      </div>
+    </div>
+    <div class="paragraph">
+      此后若站在溪流区域中，会被赋予
+      <LightningResistanceDownII hover />
+      <Dropsy tag="15" hover />
+      <DotInfo damage="48000" />
+    </div>
+    <h4 id="taste-of-thunder" class="mt-8 scroll-mt-[calc(5rem+1px)] text-2xl">
+      <Span variant="yellow">{TasteofThunder}</Span>
+    </h4>
+    <StratBoard
+      id="taste-of-thunder-dynamic"
+      width={960}
+      height={540}
+      key="taste-of-thunder-dynamic"
+      class="pointer-events-none fixed top-0 left-0 z-50 h-full w-full"
+      canvasClass="h-full w-full object-cover"
+    />
+    <div class="paragraph">类似巴哈姆特绝境战里的双塔尼亚旋风</div>
+    <div class="paragraph">
+      当提示特效出现时，判定
+      <RoleIcon role="all" tag="全员" />
+      位置，
+      <Span variant="pink">3s</Span>
+      后在这些位置生成半径
+      <Span variant="pink">3m</Span>
+      的圆形AoE
+      <DamageInfo damage="130000" type="magical" />
+      <DamageDown tag="30" hover />
+      <Span variant="rose" class="text-decimal">30%↓</Span>
+    </div>
+    <div class="paragraph">
+      提示特效：
+      <TasteOfThunderPlayButton />
+    </div>
+    <div class="paragraph">
+      跟
+      <StratLink variant="yellow" href="#double-style">{DoubleStyle}</StratLink>
+      里的雷分散同名，但不是一个效果
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{Highlightning}</Span>
+    </h4>
+    <div class="paragraph">图层具现化后，随机小岛上空会生成一朵雷云</div>
+    <div class="paragraph">
+      雷云出现后会读条
+      <Span variant="yellow">{Highlightning}</Span>
+      ，半径
+      <Span variant="pink">21m</Span>
+      的大范围圆形AoE，伤害
+      <Span variant="pink">远超血量上限</Span>
+      ，吃到即死
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/layer_3/highlightning_1.png"
+          alt="Highlightning 1"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/layer_3/highlightning_2.png"
+          alt="Highlightning 2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="paragraph">
+      之后雷云每隔约
+      <Span variant="pink">10.6s</Span>
+      随机移动到其它小岛并读条
+      <Span variant="yellow">{Highlightning}</Span>
+      ，重复
+      <Span variant="pink">4</Span>
+      轮后消失
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{LightningBolt}</Span>
+    </h4>
+    <div class="paragraph">
+      每隔一段时间场地上会随机生成半径
+      <Span variant="pink">4m</Span>
+      的圆形AoE
+      <Span variant="yellow">{LightningBolt}</Span>
+      <DamageInfo damage="130000" type="magical" />
+      <DamageDown tag="30" hover />
+      <Span variant="rose" class="text-decimal">30%↓</Span>
+    </div>
+    <CosImage
+      src="imgs/07/m6s/layer_3/lightning_bolt_1.png"
+      alt="Lightning Bolt 1"
+      class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+    />
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{LightningStorm}</Span>
+    </h4>
+    <div class="paragraph">
+      <SugarRiot />
+      每隔约
+      <Span variant="pink">10.6s</Span>
+      点名随机不重复的
+      <Span variant="default">1</Span>
+      <RoleIcon role="tank" />
+      <Span variant="default">/</Span>
+      <RoleIcon role="healer" />
+      <Span variant="default">+</Span>
+      <Span variant="default">1</Span>
+      <RoleIcon role="dps" />
+      <Span variant="yellow">{LightningStorm}</Span>
+      <DamageInfo damage="150000" type="magical" />
+    </div>
+    <div class="paragraph">
+      总共4轮，即每个人都会被点名
+      <Span variant="default">1</Span>
+      次，每次判定与雷云
+      <Span variant="yellow">{Highlightning}</Span>
+      同步
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/layer_3/lightning_storm_1.png"
+          alt="Lightning Storm 1"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/layer_3/lightning_storm_2.png"
+          alt="Lightning Storm 2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="paragraph">
+      <Span variant="yellow">{LightningStorm}</Span>
+      是半径
+      <Span variant="pink">8m</Span>
+      的圆形AoE，并且会在整个岛上传导，每个岛最多只能容纳一个被点名者
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{PuddingParty}</Span>
+    </h4>
+    <div class="paragraph">
+      点名随机
+      <RoleIcon role="healer" />
+      、半径
+      <Span variant="pink">6m</Span>
+      的
+      <Span variant="default">5×</Span>
+      可分摊圆形伤害，八人分摊时每人受到
+      <Span variant="default">5×</Span>
+      <DamageInfo damage="90000" type="magical" />
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      初始
+      <RoleIcon role="any" tag="全员" />
+      先在
+      <Span variant="pink">左下桥</Span>
+      集合，看到雷云出现后
+      <Span variant="pink">先别着急走</Span>
+    </div>
+    <div class="paragraph">
+      等
+      <Span variant="yellow">{TasteofThunder}</Span>
+      的提示特效（
+      <TasteOfThunderPlayButton variant="lime" />
+      ）出现后，再离开桥并
+      <Span variant="pink">远离雷云</Span>
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/layer_3/highlightning_1.png"
+          alt="Highlightning 1"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/layer_3/highlightning_2.png"
+          alt="Highlightning 2"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="paragraph mt-8">
+      接着雷云开始随机朝其它岛移动，同时
+      <Span variant="yellow">{LightningStorm}</Span>
+      点名出现
+    </div>
+    <CosImage
+      src="imgs/07/m6s/layer_3/lightning_bolt_2.png"
+      alt="Lightning Bolt 2"
+      class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+    />
+    <div class="paragraph mt-8">
+      我们先调整视角，
+      <Span variant="pink">以雷云的终点小岛为12点</Span>
+      ：
+    </div>
+    <div class="flex gap-3">
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/layer_3/lightning_bolt_3.png"
+          alt="Lightning Bolt 3"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+      <div class="max-w-96">
+        <CosImage
+          src="imgs/07/m6s/layer_3/lightning_storm_3.png"
+          alt="Lightning Storm 3"
+          class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
+        />
+      </div>
+    </div>
+    <div class="paragraph">
+      人群在
+      <Span variant="pink">对侧的桥上</Span>
+      躲避；
+      <RoleIcon role="tank" />
+      <RoleIcon role="healer" />
+      去
+      <Span variant="pink">左下岛</Span>
+      放置点名；
+      <RoleIcon role="dps" />
+      去
+      <Span variant="pink">右下岛</Span>
+      放置点名
+    </div>
+    <div class="paragraph">
+      当
+      <RoleIcon role="tank" tag="MT" />
+      被点名时，
+      <RoleIcon role="tank" tag="ST" />
+      立刻挑衅接过仇恨，等
+      <RoleIcon role="tank" tag="MT" />
+      处理完点名后再换回来
+    </div>
+    <div class="paragraph">
+      注意
+      <Span variant="yellow">{LightningStorm}</Span>
+      点名本身也是个半径
+      <Span variant="pink">8m</Span>
+      的圆形AoE，近战不要为了贪输出靠近桥
+    </div>
+    <div class="paragraph mt-8">
+      如此重复
+      <Span variant="pink">4</Span>
+      轮后，雷云消失，
+      <RoleIcon role="any" tag="全员" />
+      在最后一轮的
+      <Span variant="pink">安全桥集合分摊</Span>
+      即可
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="lime">关于团辅</Span>
+    </h4>
+    <div class="paragraph">由于8分钟团辅会在雷云期间转好，而此时玩家在频繁移动，因此可以考虑延后团辅，我们建议：</div>
+    <div class="paragraph">
+      <ListDot />
+      零式开启后的
+      <Span variant="pink">首月，即1~4周</Span>
+      期间，将团辅
+      <Span variant="pink">延后至连续分摊时</Span>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      零式开启后的
+      <Span variant="pink">次月，即5~8周</Span>
+      期间，
+      <Span variant="pink">不延后团辅</Span>
+    </div>
+    <div class="paragraph pl-6">
+      <ListDot />
+      由于装等提升，延后会导致原本10分钟的那次团辅打不完，因此不延后
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      零式开启后的
+      <Span variant="pink">第3个月始，即&gt;8周</Span>
+      后，或
+      <Span variant="pink">毕业装等的伐木队伍</Span>
+      ，将团辅
+      <Span variant="pink">延后至连续分摊时</Span>
+    </div>
+    <div class="paragraph pl-6">
+      <ListDot />
+      由于装等进一步提升，原本10分钟的那次团辅怎么样都打不完（10分钟时已经过本），索性延后
+    </div>
+    <div class="paragraph">以上建议仅供参考，请根据实际情况灵活调整</div>
+  </div>
+</SolutionSection>
+<AttackSection time="08:44.714" damage="57000" damageType="magical" />
+<AttackSection time="08:47.746" damage="57000" damageType="magical" />
+
+<script>
+  import type { AnimationSequence } from 'motion'
+  import type { VideoSource } from 'pixi.js'
+
+  import { animate } from 'motion'
+  import { listenKeys } from 'nanostores'
+  import { Assets, Container, Sprite } from 'pixi.js'
+
+  import { $stratBoards } from '@/stores/stratBoards'
+
+  listenKeys($stratBoards, ['taste-of-thunder-dynamic'], async (stratBoards) => {
+    const app = stratBoards['taste-of-thunder-dynamic']
+
+    const container = new Container()
+    container.position.set(app.screen.width / 2, app.screen.height / 2)
+    app.stage.addChild(container)
+
+    const playButtons = document.getElementsByClassName('taste-of-thunder-play-button')
+    for (const playButton of playButtons) {
+      playButton.addEventListener('click', async () => {
+        if (playButton.getAttribute('data-playing') === 'true') {
+          return
+        }
+
+        for (const playButton of playButtons) {
+          playButton.setAttribute('data-playing', 'true')
+        }
+
+        container.removeChildren()
+        const videoTexture = await Assets.load({
+          src: `${import.meta.env.PUBLIC_COS_BASE_URL}/public/videos/07/m6s/taste_of_thunder@2x.mp4`,
+          data: {
+            autoPlay: false,
+            loop: false,
+            updateFPS: 24,
+          },
+        })
+        const videoSprite = Sprite.from(videoTexture)
+        videoSprite.anchor.set(0.5, 0.5)
+        videoSprite.alpha = 0
+        const videoSource = videoTexture.source as VideoSource
+        const videoElement = videoSource.resource as HTMLVideoElement
+        const sequence: AnimationSequence = [
+          [videoSprite, { alpha: 1 }, { duration: 0.4, at: 0 }],
+          [videoSprite, { alpha: 0 }, { duration: 0.4, at: 1.183 }],
+        ]
+        videoElement.play()
+        animate(sequence)
+        container.addChild(videoSprite)
+        setTimeout(() => {
+          for (const playButton of playButtons) {
+            playButton.setAttribute('data-playing', 'false')
+          }
+        }, 1583)
+      })
+    }
+  })
+</script>

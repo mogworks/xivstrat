@@ -1,0 +1,24 @@
+---
+import type { Time } from '@/lib/utils'
+
+import Badge from '@/components/Badge.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+
+import SugarRiot from './SugarRiot.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const MousseDrip = translations.MousseDrip
+---
+
+<CastSection start={start} duration={4.7} ability={MousseDrip} target>
+  <SugarRiot slot="source" />
+  <Span slot="target" variant="pink">距离最远的2人</Span>
+  <Badge variant="emerald">远引导</Badge>
+  <Badge variant="yellow">分摊×4</Badge>
+</CastSection>

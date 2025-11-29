@@ -1,0 +1,88 @@
+---
+import type { DutyPhase } from '@/data/duty'
+import CosImage from '@/components/CosImage.astro'
+
+import { cn } from '@/lib/utils'
+
+import LinkIcons from '@/components/LinkIcons.astro'
+import Separator from '@/components/Separator.astro'
+
+const XivStratLightLogo = 'imgs/developer/group/XivStrat/XivStrat_light.png'
+const XivStratDarkLogo = 'imgs/developer/group/XivStrat/XivStrat_dark.png'
+const XivStratHoverLogo = 'imgs/developer/group/XivStrat/XivStrat_hover.png'
+
+interface Props {
+  baseUrl?: string
+  name: string
+  phases: DutyPhase[]
+  bilibili?: string
+}
+
+const { baseUrl, name, phases, bilibili = 'https://space.bilibili.com/25787773' }: Props = Astro.props
+---
+
+<header
+  class="border-border/50 bg-background/95 supports-backdrop-filter:bg-background/80 sticky top-0 z-50 border-b py-2 backdrop-blur"
+>
+  <div class="max-w-strat-max min-w-strat-min mx-auto grid grid-cols-[16rem_1fr_16rem] px-4">
+    <section class="flex items-center justify-self-end px-4">
+      <a href="/" class="group relative">
+        <CosImage src={XivStratHoverLogo} alt="XivStrat" class="hidden h-8 w-auto -translate-x-5 scale-250 group-hover:block" draggable="false" loading="eager" />
+        <CosImage src={XivStratLightLogo} alt="XivStrat" class="h-8 w-auto -translate-x-5 scale-250 group-hover:hidden dark:hidden" draggable="false" loading="eager" />
+        <CosImage src={XivStratDarkLogo} alt="XivStrat" class="hidden h-8 w-auto -translate-x-5 scale-250 dark:block dark:group-hover:hidden" draggable="false" loading="eager" />
+      </a>
+    </section>
+    <section class="flex items-center">
+      <Separator orientation="vertical" class="h-8" />
+      {
+        baseUrl ? (
+          <a
+            href={baseUrl}
+            class="group relative px-4 text-xl font-medium whitespace-nowrap text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300"
+          >
+            {name}
+            <div
+              class={`pointer-events-none absolute inset-x-0 -bottom-5 mx-auto h-0.5 max-w-2/3 bg-yellow-600 ${Astro.url.pathname === baseUrl || Astro.url.pathname === `${baseUrl}/` ? 'opacity-50' : 'opacity-0'} mask-[linear-gradient(to_right,transparent,black,transparent)] transition-opacity duration-300 group-hover:opacity-50 dark:bg-yellow-400`}
+            />
+          </a>
+        ) : (
+          <span class="px-4 text-xl font-medium whitespace-nowrap text-yellow-600 [text-shadow:0_0_1px_yellow] dark:text-yellow-400">
+            {name}
+          </span>
+        )
+      }
+      <Separator orientation="vertical" class="h-8" />
+      <nav class="flex grow items-center gap-4 px-4">
+        {
+          phases.map((phase) => {
+            const isActive = Astro.url.pathname === phase.href || Astro.url.pathname === `${phase.href}/`
+            return (
+              <a
+                href={phase.href}
+                class="group relative flex h-12 flex-col items-center justify-center text-base font-medium hover:text-black dark:hover:text-white"
+              >
+                <div class={cn('flex h-12 items-center', phase.subtitle && 'h-6')}>
+                  <span class="text-lg whitespace-nowrap text-blue-600 group-hover:text-blue-700 dark:text-blue-400 dark:group-hover:text-blue-300">
+                    {phase.title}
+                  </span>
+                </div>
+                {phase.subtitle && (
+                  <div class="flex h-6 items-center">
+                    <span class="text-sm whitespace-nowrap text-zinc-600 group-hover:text-zinc-800 dark:text-zinc-300 dark:group-hover:text-zinc-100">
+                      {phase.subtitle}
+                    </span>
+                  </div>
+                )}
+                <div
+                  class={`pointer-events-none absolute inset-x-0 bottom-[-9px] h-0.5 bg-blue-600 ${isActive ? 'opacity-80' : 'opacity-0'} mask-[linear-gradient(to_right,transparent,black,transparent)] transition-opacity duration-300 group-hover:opacity-80 dark:bg-blue-400`}
+                />
+              </a>
+            )
+          })
+        }
+      </nav>
+      <Separator orientation="vertical" class="h-8" />
+    </section>
+    <LinkIcons bilibili={bilibili} />
+  </div>
+</header>

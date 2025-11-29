@@ -1,0 +1,251 @@
+---
+import { timeToSeconds } from '@/lib/utils'
+
+import CosImage from '@/components/CosImage.astro'
+
+import Badge from '@/components/Badge.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import FireResistanceDownII from '@/components/buff/FireResistanceDownII.astro'
+import SixFulmsUnder from '@/components/buff/SixFulmsUnder.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
+
+import HeatingUpDebuff from '../_components/HeatingUpDebuff.astro'
+import LayerCast from '../_components/LayerCast.astro'
+import SprayPainCast from '../_components/SprayPainCast.astro'
+import SugarRiot from '../_components/SugarRiot.astro'
+import AttackSection from '../_components/SugarRiotAttackSection.astro'
+
+import { translations } from '../_translations'
+
+const start = '02:36.461'
+const duration = 6.7
+const adjustedDuration = duration + 0.3
+const end = timeToSeconds(start) + adjustedDuration
+const sprayPainStart = '02:44.622'
+const quicksandStart = sprayPainStart
+const quicksandActivate = timeToSeconds(sprayPainStart) + 8.8
+const heatingUpTime = '02:52.408'
+
+const solutions = [
+  {
+    id: 'flip-to-x-side-solution-jp',
+    title: '解法：日野主流（场地基准）',
+  },
+  {
+    id: 'flip-to-x-side-solution-35',
+    title: '解法：仙人掌基准（危险角基准）',
+  },
+]
+const defaultSolution = '解法：仙人掌基准（危险角基准）'
+
+const { Layer, SprayPain, Brûlée } = translations
+---
+
+<LayerCast start={start} end={end} />
+<AttackSection time="02:44.489" damage="57000" damageType="magical" />
+<EventSection time={quicksandStart}><Span variant="zinc">场中出现大范围流沙</Span></EventSection>
+<AttackSection time="02:47.515" damage="57000" damageType="magical" />
+<AttackSection time="02:50.540" damage="57000" damageType="magical" />
+<EventSection time={heatingUpTime}>
+  <HeatingUpDebuff tag="74" hover />
+  倒计时结束判定伤害，
+  <RoleIcon role="healer" tag="H1" />
+  <RoleIcon role="healer" tag="H2" />
+  受到
+  <Span variant="yellow">{Brûlée}</Span>
+  <DamageInfo damage="100000" type="magical" />
+  <FireResistanceDownII tag="3" hover />
+  <Badge variant="emerald">15m圆形</Badge>
+  <Badge variant="yellow">分散</Badge>
+</EventSection>
+<SprayPainCast start={sprayPainStart} duration={8.2} num={9} />
+<EventSection time={quicksandActivate}><Span variant="zinc">场中流沙开始下沉</Span></EventSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <h4 class="text-2xl">
+      <Span variant="yellow">{Layer}</Span>
+      {' '}
+      <Span variant="zinc">#2</Span>
+    </h4>
+    <div class="paragraph">
+      <SugarRiot />
+      连线场外北侧画卷，添加流沙图层
+    </div>
+    <CosImage src="imgs/07/m6s/paint/3.png" alt="Layer Paint #2" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <div class="paragraph">
+      <SugarRiot />
+      读条结束后，图层具现化，场地出现大量仙人掌和流沙，仅有三个角落安全，如下图
+    </div>
+    <CosImage src="imgs/07/m6s/layer_2/floor.png" alt="Layer #2 Floor" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">{SprayPain}</Span>
+    </h4>
+    <div class="paragraph">
+      半径
+      <Span variant="pink">10m</Span>
+      的圆形AoE，对范围内的玩家造成
+      <DamageInfo damage="110000" type="physical" />
+      <DamageDown tag="30" hover />
+      <Span variant="rose" class="text-decimal">30%↓</Span>
+    </div>
+    <h4 class="mt-8 text-2xl">
+      <Span variant="yellow">流沙</Span>
+    </h4>
+    <div class="paragraph">
+      流沙
+      <Span variant="pink">开始下沉</Span>
+      后，站入其中会被赋予
+      <SixFulmsUnder tag="3" hover />
+      ：移速逐渐降低，若倒计时结束时仍未走出流沙，则立刻死亡
+    </div>
+  </div>
+</MechanicSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <ListDot />
+      随机一个角落会被仙人掌覆盖，剩下三个角落安全
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      <RoleIcon role="healer" tag="H1" />
+      <RoleIcon role="healer" tag="H2" />
+      的
+      <HeatingUpDebuff tag="74" hover />
+      、流沙、仙人掌几乎会在同时判定，
+      <RoleIcon role="tank" />
+      <RoleIcon role="dps" />
+      、
+      <RoleIcon role="healer" tag="H1" />
+      、
+      <RoleIcon role="healer" tag="H2" />
+      需要分散在三个安全角落
+    </div>
+  </div>
+</NoteSection>
+<MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
+  <div slot="解法：日野主流（场地基准）" class="flex flex-col gap-4">
+    <div class="paragraph">三个安全角落分配如下：</div>
+    <div class="paragraph">
+      <ListDot />
+      <RoleIcon role="healer" tag="H1" />
+      优先去
+      <Span variant="red">西北角</Span>
+      ，若西北角危险则去
+      <Span variant="purple">西南角</Span>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      <RoleIcon role="healer" tag="H2" />
+      优先去
+      <Span variant="blue">东南角</Span>
+      ，若东南角危险则去
+      <Span variant="purple">西南角</Span>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      <RoleIcon role="tank" />
+      <RoleIcon role="dps" />
+      优先去
+      <Span variant="yellow">东北角</Span>
+      ，若东北角危险则去
+      <Span variant="purple">西南角</Span>
+    </div>
+    <div class="paragraph">
+      即，每个人都有一个自己优先的角落和一个共有的备选角落，若自己的角落危险就去备选的
+      <Span variant="purple">西南角</Span>
+    </div>
+    <div class="paragraph mt-8">以西北角危险为例：</div>
+    <CosImage
+      src="imgs/07/m6s/layer_2/solution_jp.png"
+      alt="Layer #2 Solution JP"
+      class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+    />
+    <div class="paragraph">
+      <RoleIcon role="healer" tag="H1" />
+      因
+      <Span variant="red">西北角</Span>
+      危险，改去
+      <Span variant="purple">西南角</Span>
+      ，而
+      <RoleIcon role="healer" tag="H2" />
+      去
+      <Span variant="blue">东南角</Span>
+      ，
+      <RoleIcon role="tank" />
+      <RoleIcon role="dps" />
+      去
+      <Span variant="yellow">东北角</Span>
+    </div>
+    <div class="paragraph mt-8">
+      该解法的优点是判断简单，每个人只需关注自己的角落，若安全就直接前往，若危险则改去西南角
+    </div>
+    <div class="paragraph">
+      缺点是当东北角安全时，由于
+      <RoleIcon role="tank" />
+      <RoleIcon role="dps" />
+      带着
+      <SugarRiot />
+      在东北角，导致西南角的
+      <RoleIcon role="healer" />
+      会罚站
+    </div>
+  </div>
+  <div slot="解法：仙人掌基准（危险角基准）" class="flex flex-col gap-4">
+    <div class="paragraph">
+      首先找到危险角落，接着
+      <Span variant="pink">以危险角落为12点</Span>
+      ：
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      <RoleIcon role="healer" tag="H1" />
+      去
+      <Span variant="pink">左侧（9点）</Span>
+      角落
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      <RoleIcon role="healer" tag="H2" />
+      去
+      <Span variant="pink">右侧（3点）</Span>
+      角落
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      <RoleIcon role="tank" />
+      <RoleIcon role="dps" />
+      去
+      <Span variant="pink">对侧（6点）</Span>
+      角落
+    </div>
+    <div class="paragraph mt-8">以西北角危险为例：</div>
+    <CosImage
+      src="imgs/07/m6s/layer_2/solution_op.png"
+      alt="Layer #2 Solution Optimize"
+      class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
+    />
+    <div class="paragraph">
+      以西北角为12点，
+      <RoleIcon role="healer" tag="H1" />
+      去左，
+      <RoleIcon role="healer" tag="H2" />
+      去右，
+      <RoleIcon role="tank" />
+      <RoleIcon role="dps" />
+      去对侧
+    </div>
+    <div class="paragraph mt-8">
+      该解法的优点是不会出现
+      <RoleIcon role="healer" />
+      罚站的情况，缺点是多了【找危险角落】的步骤
+    </div>
+  </div>
+</MultiSolutionSection>

@@ -1,0 +1,155 @@
+---
+
+import CosImage from '@/components/CosImage.astro'
+
+import ListDot from '@/components/ListDot.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+
+import FrogtourageCast from '../_components/FrogtourageCast.astro'
+import AttackSection from '@/components/section/AttackSection.astro'
+import QuarterOrEighthBeatsAbility from '../_components/QuarterOrEighthBeatsAbility.astro'
+import QuarterOrEighthBeatsCast from '../_components/QuarterOrEighthBeatsCast.astro'
+
+import { translations } from '../_translations'
+---
+
+<FrogtourageCast phase="p2" start="04:58.849" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      场地一组相邻正点边缘出现
+      <Span variant="pink">4</Span>
+      只青蛙，
+      <Span variant="pink">两两一组</Span>
+    </div>
+    <div class="paragraph">它们会踩着太空步给场地划线，被线包围的区域会受到AoE攻击</div>
+    <div class="max-w-184">
+      <CosImage src="imgs/07/m5s/frogtourage.png" alt="Frogtourage" class="border-2 border-amber-800/75 dark:border-amber-100" />
+    </div>
+    <div class="paragraph mt-4">每组青蛙从场地一侧移动到对侧后会转90°继续移动，有相背而行或相向而行两种可能</div>
+    <div class="paragraph">下图以北边出现的青蛙为例，青蛙移动到南边后，左图青蛙相背而行，右图青蛙相向而行</div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage src="imgs/07/m5s/frogtourage/1.png" alt="Frogtourage 1/4" class="border-2 border-amber-800/75 dark:border-amber-100" />
+        <div class="paragraph">情形1：相背而行，最终两侧危险</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage src="imgs/07/m5s/frogtourage/2.png" alt="Frogtourage 2/4" class="border-2 border-amber-800/75 dark:border-amber-100" />
+        <div class="paragraph">情形2：相向而行，最终中央危险</div>
+      </div>
+    </div>
+    <div class="paragraph">于是，划线包围的区域便有场地两侧或中央两种可能</div>
+    <div class="paragraph mt-4">两组青蛙划线包围的危险区域必然是一组两侧、一组场中，最终形成的效果如下</div>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage src="imgs/07/m5s/frogtourage/3.png" alt="Frogtourage 3/4" class="border-2 border-amber-800/75 dark:border-amber-100" />
+        <div class="paragraph">情形1：AC外侧安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage src="imgs/07/m5s/frogtourage/4.png" alt="Frogtourage 3/4" class="border-2 border-amber-800/75 dark:border-amber-100" />
+        <div class="paragraph">情形2：BD外侧安全</div>
+      </div>
+    </div>
+  </div>
+</MechanicSection>
+<AttackSection time="05:03.9" damage="55000" damageType="physical" />
+<AttackSection time="05:06.9" damage="55000" damageType="physical" />
+<AttackSection time="05:09.9" damage="55000" damageType="physical" />
+<QuarterOrEighthBeatsCast start="05:11.014" />
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <Span variant="yellow">{translations.frogtourage}</Span>
+      会和
+      <QuarterOrEighthBeatsAbility />
+      同时判定，我们必须在限定的安全区内处理分摊/分散
+    </div>
+  </div>
+</NoteSection>
+<SolutionSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph border-l-2 border-lime-500 pl-2 opacity-80">
+      本解法采用中国服【零式万魔殿 炼净之狱4】的“龙龙凤凤”同款站位，而非日服站位
+    </div>
+    <div class="paragraph mt-4">
+      首先要做的是确定
+      <Span variant="yellow">{translations.frogtourage}</Span>
+      的安全区
+    </div>
+    <div class="paragraph">由于两组青蛙划线包围的危险区域必然是不同类型（场中或两侧），因此只需要固定观察一组青蛙</div>
+    <div class="paragraph">
+      以纵向出现的青蛙为例，在看到
+      <Span variant="red">A</Span>
+      /
+      <Span variant="sky">C</Span>
+      出现的青蛙
+      <Span variant="pink">移动到对侧</Span>
+      后：
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      若它们相背而行，则安全区为
+      <Span variant="red">A</Span>
+      /
+      <Span variant="sky">C</Span>
+      外侧
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      若它们相向而行，则安全区为
+      <Span variant="yellow">B</Span>
+      /
+      <Span variant="purple">D</Span>
+      外侧
+    </div>
+    <div class="paragraph mt-4">
+      接着视情况处理
+      <QuarterOrEighthBeatsAbility />
+    </div>
+    <h4 class="mt-4 text-2xl">
+      <Span variant="yellow">{translations.quarterBeats}</Span>
+    </h4>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/frogtourage/solution_1.png"
+          alt="Frogtourage Solution 1/4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形1：AC外侧安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/frogtourage/solution_2.png"
+          alt="Frogtourage Solution 2/4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形2：BD外侧安全</div>
+      </div>
+    </div>
+    <h4 class="mt-4 text-2xl">
+      <Span variant="yellow">{translations.eighthBeats}</Span>
+    </h4>
+    <div class="flex max-w-184 gap-4">
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/frogtourage/solution_3.png"
+          alt="Frogtourage Solution 3/4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形1：AC外侧安全</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <CosImage
+          src="imgs/07/m5s/frogtourage/solution_4.png"
+          alt="Frogtourage Solution 4/4"
+          class="border-2 border-amber-800/75 dark:border-amber-100"
+        />
+        <div class="paragraph">情形2：BD外侧安全</div>
+      </div>
+    </div>
+  </div>
+</SolutionSection>

@@ -1,0 +1,126 @@
+---
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+
+import Zelenia from '../_components/Zelenia.astro'
+
+const dps = 'imgs/07/zelenia/P3-3/P3-3-dps.png'
+const tn = 'imgs/07/zelenia/P3-3/P3-3-tn.png'
+const rose1 = 'imgs/07/zelenia/P3-3/P3-3-rose1.png'
+const rose2 = 'imgs/07/zelenia/P3-3/P3-3-rose2.png'
+const o = 'imgs/07/zelenia/P3-3/P3-3-o.png'
+const q = 'imgs/07/zelenia/P3-3/P3-3-q.png'
+---
+
+<MechanicSection>
+  <div class="flex gap-4">
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: o,
+          alt: 'Zelenia：P3-3 机制',
+          // title: '先钢铁',
+        },
+      ]}
+    />
+    <div class="flex flex-col gap-4">
+      <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+        <div class="paragraph">
+          <Zelenia />点名<RoleIcon role="tank|healer" />
+          或<RoleIcon role="dps" />
+          附加🌹标记，携带🌹的玩家会把无色地板染成<Span variant="red">红色地板</Span>
+        </div>
+        <div class="paragraph">
+          同时，在场中召唤<Span variant="blue">塔x4</Span>
+        </div>
+      </div>
+      <ImgRow
+        class="game-img"
+        wrapperClass="max-w-60"
+        borderVariant="cyan"
+        imgs={[
+          {
+            src: rose1,
+            alt: 'Zelenia：P3-3 机制',
+            // title: '先钢铁',
+          },
+          {
+            src: rose2,
+            alt: 'Zelenia：P3-3 机制',
+            // title: '先钢铁',
+          },
+        ]}
+      />
+    </div>
+  </div>
+</MechanicSection>
+<SolutionSection>
+  <div class="flex flex-col gap-6">
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <div class="paragraph">
+        <Span variant="yellow">Step 1</Span>
+        以这个形状为新的十二点
+      </div>
+      <div class="paragraph">
+        <Span variant="yellow">Step 2</Span>
+        根据点名的不同，放花🌹和踩塔站位如下所示
+      </div>
+      <div class="paragraph">
+        <Span variant="yellow">备注：</Span>
+        踩南北塔的玩家可以向前一步，站在内圈<Span variant="red">与塔相连的红色地板处</Span>踩塔
+      </div>
+    </div>
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: tn,
+          alt: 'Zelenia：P3-3 TN点花',
+          title: 'TN被点🌹',
+        },
+        {
+          src: dps,
+          alt: 'Zelenia：P3-3 DPS点花',
+          title: 'DPS被点🌹',
+        },
+      ]}
+    />
+  </div>
+</SolutionSection>
+<NoteSection>
+  <div class="flex gap-4">
+    <ImgRow
+      class="game-img"
+      wrapperClass="max-w-88"
+      borderVariant="cyan"
+      rounded
+      imgs={[
+        {
+          src: q,
+          alt: 'Zelenia：P3-3 正确处理机制图',
+          title: '正确处理',
+        },
+      ]}
+    />
+    <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
+      <div class="paragraph">
+        <Span variant="blue">踩塔</Span>的伤害可以引爆<Span variant="red">红色地板</Span>
+      </div>
+      <div class="paragraph">
+        所以不能让<Span variant="red">红色地板</Span>将塔连接起来
+      </div>
+      <div class="paragraph">否则会团灭</div>
+    </div>
+  </div>
+</NoteSection>

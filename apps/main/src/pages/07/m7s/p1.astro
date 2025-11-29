@@ -1,0 +1,65 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+import EventSection from '@/components/section/EventSection.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+
+import BruteAbombinator from './_components/BruteAbombinator.astro'
+import BrutalImpactCast from './_components/BrutalImpactCast.astro'
+import AttackSection from './_components/BossAttackSection.astro'
+
+import BrutalImpact from './_mechanics/BrutalImpact.astro'
+import Stoneringer from './_mechanics/Stoneringer.astro'
+import SinisterSeeds from './_mechanics/SinisterSeeds.astro'
+import Explosion from './_mechanics/Explosion.astro'
+import PulpSmash from './_mechanics/PulpSmash.astro'
+import NeoBombarianSpecial from './_mechanics/NeoBombarianSpecial.astro'
+
+import { translations } from './_translations'
+
+const dutyId = '07/m7s'
+
+const base = 0
+const brutalImpact = translations.brutalImpact
+const sinisterSeeds = translations.sinisterSeeds
+const explosion = translations.explosion
+const pulpSmash = translations.pulpSmash
+const neoBombarianSpecial = translations.neoBombarianSpecial
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <EventSection>
+    <RoleIcon role="tank" tag="MT" />
+    开怪，将
+    <BruteAbombinator />
+    固定在场中偏南一点的位置
+  </EventSection>
+  <AttackSection time="00:03.029" damage="57000" damageType="physical" />
+  <SeparatorSection id="brutal-impact" title={brutalImpact} />
+  <BrutalImpactCast
+    start="00:05.165"
+    activateTimes={['00:10.381', '00:11.451', '00:12.521', '00:13.589', '00:14.657', '00:15.727']}
+  />
+  <AttackSection time="00:17.775" damage="57000" damageType="physical" />
+  <BrutalImpact />
+
+  <SeparatorSection
+    id="stoneringer-smash-here-there"
+    title={`${translations.stoneringer} + ${translations.smashHereThere}`}
+  />
+  <Stoneringer />
+
+  <SeparatorSection id="sinister-seeds" title={sinisterSeeds} />
+  <SinisterSeeds />
+
+  <SeparatorSection id="explosion" title={explosion} />
+
+  <Explosion />
+
+  <SeparatorSection id="pulp-smash" title={pulpSmash} />
+  <PulpSmash />
+
+  <SeparatorSection id="neo-bombarian-special" title={neoBombarianSpecial} />
+  <NeoBombarianSpecial />
+</DutyStratLayout>

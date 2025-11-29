@@ -1,0 +1,177 @@
+{
+  "name": "阿卡狄亚零式登天斗技场 中量级1",
+  "short": "M5S",
+  "type": "raid",
+  "title": "阿卡狄亚零式登天斗技场 中量级1 攻略",
+  "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级1 超详解动态图文攻略",
+  "navigationInfo": {
+    "name": "M5S",
+    "parent": ["阿卡狄亚零式登天斗技场 中量级"]
+  },
+  "banner": "imgs/banners/07/m5s.png",
+  "date": "25/06/21 16:00",
+  "href": "/07/m5s",
+  "status": "done",
+  "indexAvailable": true,
+  "bilibili": "https://www.bilibili.com/video/BV1pNNyzxEh6/",
+  "phases": [
+    {
+      "href": "/07/m5s/p1",
+      "title": "Phase 1",
+      "subtitle": "登天夜狂热",
+      "name": "P1 - 登天夜狂热",
+      "mechanics": [
+        {
+          "href": "#deep-cut",
+          "name": "经典铭心",
+          "name_en": "Deep Cut",
+          "name_ja": "",
+          "name_ch": "经典铭心"
+        },
+        {
+          "href": "#flip-to-x-side",
+          "name": "放入A/B面",
+          "name_en": "Flip to (A|B)-side",
+          "name_ja": "",
+          "name_ch": "放入A/B面"
+        },
+        {
+          "href": "#disco-infernal",
+          "name": "激热跳舞街",
+          "name_en": "Disco Infernal",
+          "name_ja": "",
+          "name_ch": "激热跳舞街"
+        },
+        {
+          "href": "#funky-floor",
+          "name": "热舞场地",
+          "name_en": "Funky Floor",
+          "name_ja": "",
+          "name_ch": "热舞场地"
+        },
+        {
+          "href": "#inside-out-or-outside-in",
+          "name": "内翻外转 | 外翻内转",
+          "name_en": "Inside Out | Outside In",
+          "name_ja": "",
+          "name_ch": "内翻外转 | 外翻内转"
+        },
+        {
+          "href": "#arcady-night-fever",
+          "name": "登天夜狂热",
+          "name_en": "Arcady Night Fever",
+          "name_ja": "",
+          "name_ch": "登天夜狂热"
+        },
+        {
+          "href": "#lets-dance",
+          "name": "放纵劲舞！",
+          "name_en": "Let's Dance!",
+          "name_ja": "",
+          "name_ch": "放纵劲舞！"
+        },
+        {
+          "href": "#lets-pose",
+          "name": "在这停顿！",
+          "name_en": "Let's Pose!",
+          "name_ja": "",
+          "name_ch": "在这停顿！"
+        }
+      ]
+    },
+    {
+      "href": "/07/m5s/p2",
+      "title": "Phase 2",
+      "subtitle": "返场夜狂热",
+      "name": "P2 - 返场夜狂热",
+      "mechanics": [
+        {
+          "href": "#ride-the-waves",
+          "name": "舞浪全开",
+          "name_en": "Ride the Waves",
+          "name_ja": "",
+          "name_ch": "舞浪全开"
+        },
+        {
+          "href": "#frogtourage",
+          "name": "来吧！青蛙舞者！",
+          "name_en": "Frogtourage",
+          "name_ja": "",
+          "name_ch": "来吧！青蛙舞者！"
+        },
+        {
+          "href": "#disco-infernal",
+          "name": "激热跳舞街",
+          "name_en": "Disco Infernal",
+          "name_ja": "",
+          "name_ch": "激热跳舞街"
+        },
+        {
+          "href": "#arcady-night-encore",
+          "name": "返场夜狂热",
+          "name_en": "Arcady Night Encore",
+          "name_ja": "",
+          "name_ch": "返场夜狂热"
+        },
+        {
+          "href": "#lets-dance-remix",
+          "name": "彻夜狂欢，放纵劲舞！",
+          "name_en": "Let's Dance! Remix",
+          "name_ja": "",
+          "name_ch": "彻夜狂欢，放纵劲舞！"
+        },
+        {
+          "href": "#lets-pose",
+          "name": "在这停顿！",
+          "name_en": "Let's Pose!",
+          "name_ja": "",
+          "name_ch": "在这停顿！"
+        }
+      ]
+    },
+    {
+      "href": "/07/m5s/p3",
+      "title": "Phase 3",
+      "subtitle": "高能夜狂热",
+      "name": "P3 - 高能夜狂热",
+      "mechanics": [
+        {
+          "href": "#frogtourage-part-1",
+          "name": "来吧！青蛙舞者！#1",
+          "name_en": "Frogtourage Part 1",
+          "name_ja": "",
+          "name_ch": "来吧！青蛙舞者！#1"
+        },
+        {
+          "href": "#frogtourage-part-2",
+          "name": "来吧！青蛙舞者！#2",
+          "name_en": "Frogtourage Part 2",
+          "name_ja": "",
+          "name_ch": "来吧！青蛙舞者！#2"
+        },
+        {
+          "href": "#frogtourage-part-3",
+          "name": "来吧！青蛙舞者！#3",
+          "name_en": "Frogtourage Part 3",
+          "name_ja": "",
+          "name_ch": "来吧！青蛙舞者！#3"
+        },
+        {
+          "href": "#funky-floor",
+          "name": "热舞场地",
+          "name_en": "Funky Floor",
+          "name_ja": "",
+          "name_ch": "热舞场地"
+        },
+        {
+          "href": "#hi-nrg-fever",
+          "name": "高能夜狂热",
+          "name_en": "Hi-NRG Fever",
+          "name_ja": "",
+          "name_ch": "高能夜狂热"
+        }
+      ]
+    }
+  ],
+  "locales": {}
+}

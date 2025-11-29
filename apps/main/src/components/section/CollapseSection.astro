@@ -1,0 +1,112 @@
+---
+import { cn } from '@/lib/utils'
+
+import RightArrowSVG from '@/svg/right-arrow.svg'
+
+interface Props {
+  wider?: boolean
+}
+
+const { wider = false }: Props = Astro.props
+---
+
+<collapse-section>
+  <section class="strat-section collapse-summary mb-0 grid grid-cols-[16rem_1fr]">
+    <div class="self-center justify-self-end px-4">
+      <span class="collapse-toggle text-decimal inline-flex cursor-pointer items-center opacity-80 hover:underline">
+        <RightArrowSVG class="collapse-icon mr-1.5" />
+        <span class="collapse-open">展开</span>
+        <span class="collapse-close hidden">折叠</span>
+        细节
+      </span>
+    </div>
+    <div class="flex flex-wrap items-center gap-1 px-4 text-lg">
+      <slot name="summary" />
+    </div>
+  </section>
+  <div class="collapse-details relative flex max-h-0 flex-col gap-(--article-row-gap) opacity-0">
+    <div
+      class={cn(
+        'pointer-events-none absolute top-1/2 left-40 h-[calc(100%-1rem)] w-0.5 -translate-y-1/2 bg-teal-500',
+        wider ? 'left-12' : '',
+      )}
+    >
+    </div>
+    <slot name="details" />
+  </div>
+</collapse-section>
+
+<script>
+  import { animate } from 'motion'
+
+  class CollapseSection extends HTMLElement {
+    private _isOpen: boolean
+    private _openOpacity: number
+    private _toggleButton!: HTMLSpanElement
+    private _icon!: SVGElement
+    private _summarySection!: HTMLElement
+    private _detailsSection!: HTMLDivElement
+    private _openText!: HTMLSpanElement
+    private _closeText!: HTMLSpanElement
+    private _updateUI = (isOpen: boolean) => {
+      this._openText.classList.toggle('hidden', isOpen)
+      this._closeText.classList.toggle('hidden', !isOpen)
+      if (isOpen) {
+        // 先使元素可见
+        this._detailsSection.classList.toggle('hidden', false)
+        animate(this._icon, { rotate: 90 }, { duration: 0.3, ease: 'easeInOut' })
+        animate(this._summarySection, { marginBottom: 'var(--article-row-gap)' }, { duration: 0.3, ease: 'easeInOut' })
+        animate(
+          this._detailsSection,
+          {
+            maxHeight: `${this._detailsSection.scrollHeight}px`,
+            opacity: this._openOpacity,
+          },
+          { duration: 0.3, ease: 'easeInOut' },
+        )
+      } else {
+        Promise.all(
+          [
+            animate(this._icon, { rotate: 0 }, { duration: 0.3, ease: 'easeInOut' }),
+            animate(this._summarySection, { marginBottom: 0 }, { duration: 0.3, ease: 'easeInOut' }),
+            animate(this._detailsSection, { maxHeight: 0, opacity: 0 }, { duration: 0.3, ease: 'easeInOut' }),
+          ].map((anim) => anim.finished),
+        ).then(() => {
+          // 所有动画完成后隐藏元素
+          this._detailsSection.classList.toggle('hidden', true)
+        })
+      }
+    }
+
+    public forceOpen() {
+      this._openOpacity = 1
+      this._updateUI(true)
+    }
+
+    public reset() {
+      this._openOpacity = 0.85
+      this._updateUI(this._isOpen)
+    }
+
+    constructor() {
+      super()
+      this._isOpen = false
+      this._openOpacity = 0.85
+    }
+
+    connectedCallback() {
+      this._toggleButton = this.querySelector('.collapse-toggle') as HTMLSpanElement
+      this._icon = this.querySelector('.collapse-icon') as SVGElement
+      this._summarySection = this.querySelector('.collapse-summary') as HTMLElement
+      this._detailsSection = this.querySelector('.collapse-details') as HTMLDivElement
+      this._openText = this.querySelector('.collapse-open') as HTMLSpanElement
+      this._closeText = this.querySelector('.collapse-close') as HTMLSpanElement
+
+      this._toggleButton.addEventListener('click', () => {
+        this._isOpen = !this._isOpen
+        this._updateUI(this._isOpen)
+      })
+    }
+  }
+  customElements.get('collapse-section') || customElements.define('collapse-section', CollapseSection)
+</script>

@@ -1,0 +1,38 @@
+---
+import CosImage from '@/components/CosImage.astro'
+import { getCollection } from 'astro:content'
+
+import DevGroupSimpleProfileHoverBase from './DevGroupSimpleProfileHoverBase.vue'
+
+interface Props {
+  /** 全小写，与数据集合读取的 [devGroups].json 的文件名一致 */
+  targetId: string
+}
+
+const { targetId }: Props = Astro.props
+
+const devGroups = await getCollection('devGroups')
+
+const targetDevGroups = devGroups.find((item) => item.id === targetId)
+---
+
+{
+  targetDevGroups ? (
+    <span class="relative w-min">
+      <DevGroupSimpleProfileHoverBase
+        client:only="vue"
+        userId={targetDevGroups.id}
+        link={targetDevGroups.data.link}
+        name={targetDevGroups.data.name}
+        description={targetDevGroups.data.description}
+      >
+        <div class="inline-flex h-20 max-w-30 items-center">
+          <CosImage src={targetDevGroups.data.iconLight} alt={targetDevGroups.data.name} class="inline-flex h-full w-full object-contain select-none dark:hidden" draggable="false" />
+          <CosImage src={targetDevGroups.data.iconDark} alt={targetDevGroups.data.name} class="hidden h-full w-full object-contain select-none dark:inline-flex" draggable="false" />
+        </div>
+      </DevGroupSimpleProfileHoverBase>
+    </span>
+  ) : (
+    <span>未知攻略制作者</span>
+  )
+}

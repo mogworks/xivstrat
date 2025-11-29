@@ -1,0 +1,21 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CastSection from '@/components/section/CastSection.astro'
+
+import GleamingFang from '../_components/entities/GleamingFang.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const ability = translations.fangedCrossing
+---
+
+<CastSection start={start} duration={3.7} ability={ability}>
+  <GleamingFang slot="source" />
+  ，造成十字/X字形范围伤害
+</CastSection>

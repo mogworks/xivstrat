@@ -1,0 +1,29 @@
+---
+import Buff from '@/components/Buff.astro'
+import Span from '@/components/Span.vue'
+import { translations } from '../_translations'
+
+interface Props {
+  hover?: boolean
+  class?: string
+}
+
+const { hover = false, class: className = '' }: Props = Astro.props
+const warm_tint = 'imgs/buff/07/m6s/214275.png'
+const { WarmTintName, WarmTintDescription } = translations
+---
+
+<Buff
+  icon={warm_tint}
+  name={WarmTintName}
+  nameVariant="orange"
+  description={WarmTintDescription}
+  hover={hover}
+  class={className}
+>
+  <p>
+    受到<Span variant="orange">暖色爆弹怪</Span>的影响，体内的属性以太发生了偏移。再次受到<Span variant="orange"
+      >同种攻击</Span
+    >时伤害大幅提高
+  </p>
+</Buff>

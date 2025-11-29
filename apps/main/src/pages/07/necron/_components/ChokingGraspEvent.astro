@@ -1,0 +1,21 @@
+---
+import type { Time } from '@/lib/utils'
+
+import EventSection from '@/components/section/EventSection.astro'
+import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+---
+
+<EventSection time={start} ability={translations.ChokingGrasp}>
+  <RoleIcon role="all" tag="全员" />引导手
+  <DamageInfo damage="90000" type="physical" />
+  <PhysicalVulnerabilityUp tag="1" hover />
+</EventSection>

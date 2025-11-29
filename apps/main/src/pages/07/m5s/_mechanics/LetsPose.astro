@@ -1,0 +1,110 @@
+---
+import type { Time } from '@/lib/utils'
+
+import CosImage from '@/components/CosImage.astro'
+
+import DamageInfo from '@/components/DamageInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import Separator from '@/components/Separator.astro'
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+
+import PerfectGroove from '../_components/PerfectGroove.astro'
+import Wavelength from '../_components/Wavelength.astro'
+
+import { translations } from '../_translations'
+
+interface Props {
+  phase: 'p1' | 'p2'
+  start: Time
+}
+
+const { phase, start }: Props = Astro.props
+---
+
+<CastSection start={start} duration={4.7} ability={translations.letsPose} target>
+  <Separator orientation="vertical" class="mx-1 h-16 w-0.5 bg-teal-500" />
+  <ul class="list-none space-y-4">
+    <li class="flex items-center gap-1 text-lg">
+      <span class="text-sm opacity-80">全程正确</span>
+      <PerfectGroove tag="20" hover />
+      <Span variant="lime" class="text-decimal">3%↑</Span>
+    </li>
+    <li class="flex items-center gap-1 text-lg">
+      <span class="text-sm opacity-80">有过错误</span>
+      <DamageInfo damage="150000" type="magical" />
+    </li>
+  </ul>
+</CastSection>
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      奖/惩判定，从
+      {
+        phase === 'p1' ? (
+          <>
+            <StratLink variant="yellow" href="#arcady-night-fever">
+              {translations.arcadyNightFever}
+            </StratLink>
+            开始到
+            <StratLink variant="yellow" href="#lets-dance">
+              {translations.letsDance}
+            </StratLink>
+            结束期间：
+          </>
+        ) : (
+          <>
+            <StratLink variant="yellow" href="#arcady-night-encore">
+              {translations.arcadyNightEncore}
+            </StratLink>
+            开始到
+            <StratLink variant="yellow" href="#lets-dance-remix">
+              {translations.letsDanceRemix}
+            </StratLink>
+            结束期间：
+          </>
+        )
+      }
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      若全程正确处理：奖励
+      <PerfectGroove tag="20" hover />
+      <Span variant="lime" class="text-decimal">3%↑</Span>
+    </div>
+    <div class="paragraph">
+      <ListDot />
+      否则：惩罚
+      <Span variant="yellow">{translations.letsPose}</Span>
+      <DamageInfo damage="150000" type="magical" />
+    </div>
+    <div class="paragraph">
+      {
+        phase === 'p1' ? (
+          <>
+            错误处理包括但不限于：吃到钢铁/月环、吃到复读扇形、吃到左右刀、
+            <Wavelength type="α" hover />
+            <Wavelength type="β" hover />
+            配对失败等
+          </>
+        ) : (
+          <>错误处理包括但不限于：吃到钢铁/月环、吃到复读扇形、吃到半场刀等</>
+        )
+      }
+    </div>
+    {
+      phase === 'p1' && (
+        <div class="paragraph">
+          奖/惩判定是每个人独立计算的，但若
+          <Wavelength type="α" hover />
+          <Wavelength type="β" hover />
+          配对失败，两人均会受到惩罚
+        </div>
+      )
+    }
+    <div class="paragraph">获得奖励会有如下提示：</div>
+    <CosImage src="imgs/07/m5s/perfectgroove.png" alt="Perfect Groove" class="max-w-100" />
+  </div>
+</MechanicSection>

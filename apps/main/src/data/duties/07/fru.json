@@ -1,0 +1,54 @@
+{
+  "name": "光暗未来绝境战",
+  "short": "FRU",
+  "type": "ultimate",
+  "title": "光暗未来绝境战 攻略",
+  "description": "最终幻想14 光暗未来绝境战 超详解动态图文攻略",
+  "navigationInfo": {
+    "name": "光暗未来绝境战",
+    "parent": ["绝境战"]
+  },
+  "banner": "imgs/banners/07/fru.png",
+  "date": "",
+  "href": "/07/fru",
+  "status": "upcoming",
+  "indexAvailable": false,
+  "phases": [
+    {
+      "href": "/07/fru/p1",
+      "title": "Phase 1",
+      "subtitle": "绝命战士",
+      "name": "P1 - 绝命战士",
+      "mechanics": []
+    },
+    {
+      "href": "/07/fru/p2",
+      "title": "Phase 2",
+      "subtitle": "希瓦·米特隆",
+      "name": "P2 - 希瓦·米特隆",
+      "mechanics": []
+    },
+    {
+      "href": "/07/fru/p3",
+      "title": "Phase 3",
+      "subtitle": "暗之巫女",
+      "name": "P3 - 暗之巫女",
+      "mechanics": []
+    },
+    {
+      "href": "/07/fru/p4",
+      "title": "Phase 4",
+      "subtitle": "圣龙降临",
+      "name": "P4 - 圣龙降临",
+      "mechanics": []
+    },
+    {
+      "href": "/07/fru/p5",
+      "title": "Phase 5",
+      "subtitle": "潘多拉·米特隆",
+      "name": "P5 - 潘多拉·米特隆",
+      "mechanics": []
+    }
+  ],
+  "locales": {}
+}

@@ -1,0 +1,22 @@
+---
+import Buff from '@/components/Buff.astro'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const icon = 'imgs/buff/215769.png'
+---
+
+<Buff
+  icon={icon}
+  name="下陷"
+  nameVariant="yellow"
+  description="身体逐渐下沉，移动速度逐渐降低，身体完全沉下去会陷入无法战斗状态"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

@@ -1,0 +1,59 @@
+---
+
+import CosImage from '@/components/CosImage.astro'
+
+import RoleIcon from '@/components/RoleIcon.astro'
+import ListDot from '@/components/ListDot.astro'
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import Stun from '@/components/buff/Stun.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+
+import SugarRiot from '../_components/SugarRiot.astro'
+import WingmarkCast from '../_components/WingmarkCast.astro'
+import WingmarkDebuff from '../_components/WingmarkDebuff.astro'
+
+import { translations } from '../_translations'
+
+const DoubleStyle = translations.DoubleStyle
+---
+
+<WingmarkCast start="00:30.879" />
+<MechanicSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph -my-4">
+      <SugarRiot />
+      画出
+      <CosImage src="imgs/07/m6s/paint_mark/hane@3x.png" alt="Paint Mark: Wing" class="-mx-3 w-25 drop-shadow-sm drop-shadow-black" />
+      连线
+      <RoleIcon role="all" tag="全员" />
+      ，读条结束后赋予每人
+      <WingmarkDebuff tag="21" hover />
+    </div>
+    <div class="paragraph">
+      <WingmarkDebuff hover />
+      效果：倒计时结束后变为
+      <Stun tag="3" hover />
+      ，并强制让玩家向
+      <Span variant="pink">面向方向</Span>
+      飞行
+      <Span variant="pink">34m</Span>
+    </div>
+  </div>
+</MechanicSection>
+<NoteSection>
+  <div class="flex flex-col gap-4">
+    <div class="paragraph">
+      <ListDot />
+      飞行距离如下图所示，若采用本站标点，则略大于对角数字标点间距
+    </div>
+    <CosImage src="imgs/07/m6s/wingmark.png" alt="Wingmark" class="ml-4 w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <div class="paragraph">
+      <ListDot />
+      暂时还无需处理该机制，在之后的
+      <StratLink variant="yellow" href="#double-style">{DoubleStyle}</StratLink>
+      中会一并处理
+    </div>
+  </div>
+</NoteSection>

@@ -1,0 +1,18 @@
+---
+import type { Time } from '@/lib/utils'
+
+import BruteAbombinator from './BruteAbombinator.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Span from '@/components/Span.vue'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+---
+
+<EventSection time={time}>
+  <BruteAbombinator />
+  <Span variant="zinc">飞身至墙面，进入挂壁阶段</Span>
+</EventSection>

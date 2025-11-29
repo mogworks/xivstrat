@@ -1,0 +1,24 @@
+---
+import Buff from '@/components/Buff.astro'
+import { translations } from '../_translations'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const mousse_mine = 'imgs/buff/07/m6s/214277.png'
+const { MousseMine, MousseMineDescription } = translations
+---
+
+<Buff
+  icon={mousse_mine}
+  name={MousseMine}
+  nameVariant="yellow"
+  description={MousseMineDescription}
+  tag={tag}
+  hover={hover}
+  class={className}
+/>
