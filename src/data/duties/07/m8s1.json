@@ -6,10 +6,7 @@
   "description": "最终幻想14 阿卡狄亚零式登天斗技场 中量级4 前半 超详解动态图文攻略",
   "navigationInfo": {
     "name": "前半",
-    "parent": [
-      "阿卡狄亚零式登天斗技场 中量级",
-      "M8S"
-    ]
+    "parent": ["阿卡狄亚零式登天斗技场 中量级", "M8S"]
   },
   "banner": "@/assets/banners/07/m8s.png",
   "date": "25/06/23 01:00",

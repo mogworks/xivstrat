@@ -25,7 +25,7 @@ const props = defineProps<{
     </div>
     <span
       v-if="tag"
-      class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-3/5 text-[calc(1em*12/18)] whitespace-nowrap text-white [text-shadow:_0_0_2px_black,_0_0_2px_black,_0_0_2px_black,_0_0_3px_black,_0_0_3px_black,_0_0_3px_black]"
+      class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-3/5 text-[calc(1em*12/18)] whitespace-nowrap text-white [text-shadow:0_0_2px_black,0_0_2px_black,0_0_2px_black,0_0_3px_black,0_0_3px_black,0_0_3px_black]"
       data-icon="buff-icon"
     >
       {{ tag }}

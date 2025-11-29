@@ -140,7 +140,7 @@ export function useAnchorObserver(idList: string[]) {
         {
           threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
           rootMargin: `-${TOP_THRESHOLD}px 0px -${BOTTOM_THRESHOLD_RATE * 100}% 0px`,
-        }
+        },
       )
 
       const hash = window.location.hash.substring(1)

@@ -108,8 +108,8 @@ async function minifyFile(inputFile, outputFile) {
     // Report file processing results
     log(
       'minify',
-      `${colors.yellow}${path.basename(inputFile)}${colors.reset} → `
-      + `${colors.bold}${path.basename(outputFile)}${colors.reset}  ${formatSize(outputSize)} ${colors.dim}|${colors.reset} saved: ${colors.green}${savings}%${colors.reset}`,
+      `${colors.yellow}${path.basename(inputFile)}${colors.reset} → ` +
+        `${colors.bold}${path.basename(outputFile)}${colors.reset}  ${formatSize(outputSize)} ${colors.dim}|${colors.reset} saved: ${colors.green}${savings}%${colors.reset}`,
     )
 
     return { success: true }
@@ -146,7 +146,10 @@ async function processTypeScriptFile(inputFile, outputFile) {
       log('cleanup', `${colors.dim}Removed intermediate file ${path.basename(intermediateFile)}${colors.reset}`)
     } catch {
       // 删除失败不影响整体流程
-      log('cleanup', `${colors.yellow}Warning: Could not remove intermediate file ${path.basename(intermediateFile)}${colors.reset}`)
+      log(
+        'cleanup',
+        `${colors.yellow}Warning: Could not remove intermediate file ${path.basename(intermediateFile)}${colors.reset}`,
+      )
     }
 
     return minifyResult.success
@@ -189,10 +192,8 @@ async function processScriptsDirectory() {
   const files = fs.readdirSync(scriptsDir)
 
   // Count files to process
-  const scriptFiles = files.filter(file =>
-    (file.endsWith('.js') || file.endsWith('.ts'))
-    && !file.endsWith('.min.js')
-    && !file.startsWith('_'),
+  const scriptFiles = files.filter(
+    (file) => (file.endsWith('.js') || file.endsWith('.ts')) && !file.endsWith('.min.js') && !file.startsWith('_'),
   )
 
   if (scriptFiles.length === 0) {
@@ -233,7 +234,9 @@ async function processScriptsDirectory() {
     const savingsPercent = ((1 - totalOutputSize / totalInputSize) * 100).toFixed(1)
     const savedBytes = totalInputSize - totalOutputSize
 
-    logSuccess(`Processed ${processedCount} files in ${duration}ms (saved ${formatSize(savedBytes)}, ${savingsPercent}%)`)
+    logSuccess(
+      `Processed ${processedCount} files in ${duration}ms (saved ${formatSize(savedBytes)}, ${savingsPercent}%)`,
+    )
   }
 
   // Add blank line after group

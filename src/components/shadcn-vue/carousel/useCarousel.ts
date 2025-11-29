@@ -5,15 +5,14 @@ import { onMounted, ref } from 'vue'
 import type { UnwrapRefCarouselApi as CarouselApi, CarouselEmits, CarouselProps } from './interface'
 
 const [useProvideCarousel, useInjectCarousel] = createInjectionState(
-  ({
-    opts,
-    orientation,
-    plugins,
-  }: CarouselProps, emits: CarouselEmits) => {
-    const [emblaNode, emblaApi] = emblaCarouselVue({
-      ...opts,
-      axis: orientation === 'horizontal' ? 'x' : 'y',
-    }, plugins)
+  ({ opts, orientation, plugins }: CarouselProps, emits: CarouselEmits) => {
+    const [emblaNode, emblaApi] = emblaCarouselVue(
+      {
+        ...opts,
+        axis: orientation === 'horizontal' ? 'x' : 'y',
+      },
+      plugins,
+    )
 
     function scrollPrev() {
       emblaApi.value?.scrollPrev()
@@ -42,7 +41,15 @@ const [useProvideCarousel, useInjectCarousel] = createInjectionState(
       emits('init-api', emblaApi.value)
     })
 
-    return { carouselRef: emblaNode, carouselApi: emblaApi, canScrollPrev, canScrollNext, scrollPrev, scrollNext, orientation }
+    return {
+      carouselRef: emblaNode,
+      carouselApi: emblaApi,
+      canScrollPrev,
+      canScrollNext,
+      scrollPrev,
+      scrollNext,
+      orientation,
+    }
   },
 )
 

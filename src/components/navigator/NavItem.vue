@@ -16,7 +16,7 @@ const props = withDefaults(
     path: undefined,
     children: () => [],
     deepIndex: 0,
-  }
+  },
 )
 
 const expanded = ref(false)

@@ -21,7 +21,7 @@ withDefaults(
   }>(),
   {
     useScale: true,
-  }
+  },
 )
 
 const isOpen = ref(false)
@@ -112,7 +112,7 @@ watch(
     if (open) {
       handleReset()
     }
-  }
+  },
 )
 </script>
 
@@ -141,7 +141,7 @@ watch(
               min="0.1"
               max="3"
               step="0.01"
-              class="slider inline-flex h-2 max-w-50 flex-grow-1 appearance-none rounded-[4px] bg-[#e0e0e0] outline-none"
+              class="slider inline-flex h-2 max-w-50 grow appearance-none rounded-[4px] bg-[#e0e0e0] outline-none"
             >
             <div class="inline-flex min-w-[100px] text-center font-bold">
               缩放比例: {{ Math.round(scale * 100) }}%

@@ -23,7 +23,7 @@ export const translations = {
   MutedStruggle: 'Muted Struggle',
   NecroticPulse: 'Necrotic Pulse',
   ChillingFingers: 'Chilling Fingers',
-  TheEndsEmbrace: 'The End\'s Embrace',
+  TheEndsEmbrace: "The End's Embrace",
   CircleOfLives: 'Circle of Lives',
   SmiteOfGloom: 'Smite of Gloom',
   SpecterOfDeath: 'Specter of Death',

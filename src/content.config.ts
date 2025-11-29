@@ -34,15 +34,15 @@ const duties = defineCollection({
             z.object({
               href: z.string(),
               name: z.string(),
-            })
+            }),
           ),
-        })
+        }),
       ),
       locales: z.record(
         z.object({
           cn: z.string().optional(),
           jp: z.string().optional(),
-        })
+        }),
       ),
     }),
 })

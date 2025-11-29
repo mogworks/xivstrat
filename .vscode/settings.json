@@ -1,30 +1,52 @@
 {
-  "prettier.configPath": ".prettierrc",
-  "prettier.requireConfig": true,
-  "prettier.trailingComma": "es5",
-  "eslint.format.enable": true,
-  "eslint.codeActionsOnSave.rules": null,
-  "eslint.options": {
-    "rules": {
-      "no-console": "off",
-      "style/brace-style": ["error", "1tbs"],
-      "style/member-delimiter-style": ["error", { "multiline": { "delimiter": "none" } }],
-      "style/operator-linebreak": "off",
-      "perfectionist/sort-imports": ["error", { "tsconfigRootDir": "." }],
-      "unicorn/number-literal-case": "off",
-      "style/quotes": ["error", "single"],
-      "style/jsx-quotes": ["error", "prefer-double"],
-      "style/comma-dangle": ["error", "only-multiline"]
-    }
-  },
+  // 保存时自动格式化
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // 新增：针对 .astro 文件缩进
-  "[astro]": {
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true
+
+  // 使用项目本地的 TypeScript 版本
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+
+  // Biome 语言覆盖：只在受支持语言启用 Biome 格式化
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": { "source.organizeImports.biome": "explicit" }
   },
-  "[svg]": {
-    "editor.defaultFormatter": "jock.svg"
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": { "source.organizeImports.biome": "explicit" }
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": { "source.organizeImports.biome": "explicit" }
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": { "source.organizeImports.biome": "explicit" }
+  },
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": { "source.organizeImports.biome": "explicit" }
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": { "source.organizeImports.biome": "explicit" }
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
   }
 }

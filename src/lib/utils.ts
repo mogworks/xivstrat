@@ -12,8 +12,12 @@ export function cn(...inputs: ClassValue[]) {
 
 const timeSchema = z.union([
   z.number(), // 127.4
-  z.string().regex(/^\d+(?:\.\d+)?$/), // '127.4'
-  z.string().regex(/^(?:[0-5]\d|\d):(?:[0-5]\d|\d)(?:\.\d+)?$/), // '02:07.4'
+  z
+    .string()
+    .regex(/^\d+(?:\.\d+)?$/), // '127.4'
+  z
+    .string()
+    .regex(/^(?:[0-5]\d|\d):(?:[0-5]\d|\d)(?:\.\d+)?$/), // '02:07.4'
 ])
 export type Time = z.infer<typeof timeSchema>
 
@@ -88,7 +92,7 @@ export function splitDamage(damage: string): string {
 }
 
 export function findOrCreateRouteNode(parentLevel: Route[], nodeName: string): Route {
-  let node = parentLevel.find(item => item.name === nodeName)
+  let node = parentLevel.find((item) => item.name === nodeName)
   if (!node) {
     node = { name: nodeName, children: [] }
     parentLevel.push(node)

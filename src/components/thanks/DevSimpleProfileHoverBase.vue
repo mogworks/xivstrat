@@ -17,7 +17,7 @@ const props = withDefaults(
   }>(),
   {
     link: '#',
-  }
+  },
 )
 
 const displayNames = computed(() => {

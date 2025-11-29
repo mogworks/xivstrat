@@ -17,7 +17,7 @@ const props = withDefaults(
   }>(),
   {
     defaultStatus: true,
-  }
+  },
 )
 
 const isOpen = ref(props.defaultStatus)
@@ -41,7 +41,7 @@ watch(isOpen, (isOpen) => {
         height: `${height}px`,
         opacity: 1,
       },
-      { duration: 0.1, ease: 'easeInOut' }
+      { duration: 0.1, ease: 'easeInOut' },
     )
   } else {
     animate(content, { height: 0, opacity: 0 }, { duration: 0.1, ease: 'easeInOut' }).finished.then(() => {
