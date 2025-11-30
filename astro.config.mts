@@ -23,7 +23,8 @@ export default defineConfig({
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '**.cos.ap-guangzhou.myqcloud.com',
+        hostname: 'cos.xivstrat.cn',
+        pathname: '/imgs/**',
       },
     ],
     layout: 'constrained',
