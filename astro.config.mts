@@ -20,6 +20,12 @@ export default defineConfig({
   },
 
   image: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.cos.ap-guangzhou.myqcloud.com',
+      },
+    ],
     layout: 'constrained',
   },
 
