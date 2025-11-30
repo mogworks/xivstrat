@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets'
+
+interface Props {
+  src: string
+  alt: string | undefined
+  [key: string]: unknown
+}
+
+const { src, alt, ...rest }: Props = Astro.props
+
+const cosUrl = new URL(src, import.meta.env.PUBLIC_COS_DOMAIN).href
+---
+
+<Image src={cosUrl} alt={alt ?? ''} inferSize {...rest} />
