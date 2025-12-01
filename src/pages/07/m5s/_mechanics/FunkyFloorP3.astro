@@ -1,7 +1,7 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Span from '@/components/Span.vue'
 import StratLink from '@/components/StratLink.astro'
@@ -14,7 +14,7 @@ import BurnBabyBurn from '../_components/BurnBabyBurn.astro'
 import InsideOutOrOutsideInCast from '../_components/InsideOutOrOutsideInCast.astro'
 import QuarterOrEighthBeatsCast from '../_components/QuarterOrEighthBeatsCast.astro'
 
-import funky_floor_p3_beats_solution from '@/assets/07/m5s/funky_floor/p3_beats_solution.png'
+ 
 import { translations } from '../_translations'
 ---
 
@@ -46,8 +46,8 @@ import { translations } from '../_translations'
 <SolutionSection id="funky_floor/p3_beats_solution">
   <div class="flex gap-4">
     <div class="max-w-90 shrink">
-      <Image
-        src={funky_floor_p3_beats_solution}
+      <CosImage
+        src="imgs/07/m5s/funky_floor/p3_beats_solution.png"
         alt="Funky Floor P3 Beats Solution"
         class="border-2 border-amber-800/75 dark:border-amber-100"
       />

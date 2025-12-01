@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 import { getEntry } from 'astro:content'
 
 import ScannerSVG from '@/assets/svg/scanner.svg'
@@ -13,10 +13,6 @@ import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
 import Macro from '@/components/Macro.astro'
 import ReferenceItem from '@/components/ReferenceItem.astro'
 import Thanks from '@/components/thanks/Thanks.astro'
-
-import CheatsheetsImage from '@/assets/cheatsheets/07/m5s.png'
-import WaymarkImage from '@/assets/waymarks/07/m5s.png'
-import TimelineImage from '@/assets/timelines/07/m5s.png'
 
 import { macro } from './_data/macro'
 import { referenceList } from './_data/reference'
@@ -62,14 +58,14 @@ const videoLink = duty.bilibili ?? undefined
     </Fragment>
     <AreaBox>
       <ResizableImageDialog client:idle>
-        <Image src={CheatsheetsImage} alt="m5s 副本小抄" loading="lazy" class="h-full object-contain" />
+        <CosImage src="imgs/cheatsheets/07/m5s.png" alt="m5s 副本小抄" loading="lazy" class="h-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
     <WaymarkBox
-      href="/waymarks/07/AacCruiserweight/UISAVE.DAT?v=1"
-      img={WaymarkImage}
+      href="public/waymarks/07/AacCruiserweight/UISAVE.DAT"
+      img="imgs/waymarks/07/m5s.png"
       downloadLabel="下载5~8层标点文件"
       pageNumber={3}
       slotStart={11}
@@ -88,7 +84,7 @@ const videoLink = duty.bilibili ?? undefined
   <CollapsibleBox id="timeline" client:idle class="w-full">
     <AreaBox>
       <ResizableImageDialog client:idle>
-        <Image src={TimelineImage} alt="m5s 简易时间轴" class="w-full object-contain" />
+        <CosImage src="imgs/timelines/07/m5s.png" alt="m5s 简易时间轴" class="w-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
     <Fragment slot="header">

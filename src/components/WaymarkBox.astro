@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import AreaBox from '@/components/AreaBox.astro'
 import Separator from '@/components/Separator.astro'
@@ -11,13 +12,15 @@ import { cn } from '@/lib/utils'
 interface Props {
   href?: string
   downloadLabel?: string
-  img?: ImageMetadata
+  img?: ImageMetadata | string
   pageNumber?: number
   slotStart?: number
   slotEnd?: number
 }
 
-const { href, img, downloadLabel = '下载标点文件', pageNumber, slotStart, slotEnd }: Props = Astro.props
+const { href: hrefOrigin, img, downloadLabel = '下载标点文件', pageNumber, slotStart, slotEnd }: Props = Astro.props
+
+const href = hrefOrigin ? new URL(hrefOrigin, import.meta.env.PUBLIC_COS_BASE_URL).href : undefined
 ---
 
 <div class="flex gap-4">
@@ -38,7 +41,11 @@ const { href, img, downloadLabel = '下载标点文件', pageNumber, slotStart, 
           <>
             <Separator class="my-2 mb-3" />
             <ResizableImageDialog client:idle>
-              <Image src={img} alt="场地标点" class="w-full object-contain" />
+              {typeof img === 'string' ? (
+                <CosImage src={img} alt="场地标点" class="w-full object-contain" />
+              ) : (
+                <Image src={img} alt="场地标点" class="w-full object-contain" />
+              )}
             </ResizableImageDialog>
           </>
         )
