@@ -449,7 +449,7 @@ const { DoubleStyle, Layer, TasteofThunder, Highlightning, LightningBolt, Lightn
 
         container.removeChildren()
         const videoTexture = await Assets.load({
-          src: '/videos/07/m6s/taste_of_thunder@2x.mp4',
+          src: `${import.meta.env.PUBLIC_COS_BASE_URL}/public/videos/07/m6s/taste_of_thunder@2x.mp4`,
           data: {
             autoPlay: false,
             loop: false,

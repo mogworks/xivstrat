@@ -1,7 +1,7 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Separator from '@/components/Separator.astro'
 import StratLink from '@/components/StratLink.astro'
@@ -15,12 +15,6 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 
 import BurnBabyBurn from '../_components/BurnBabyBurn.astro'
 
-import funky_floor_solution_A from '@/assets/07/m5s/funky_floor/solution_1.png'
-import funky_floor_solution_B from '@/assets/07/m5s/funky_floor/solution_2.png'
-import funky_floor_implementation_1 from '@/assets/07/m5s/funky_floor/implementation_1.png'
-import funky_floor_implementation_2 from '@/assets/07/m5s/funky_floor/implementation_2.png'
-import funky_floor_implementation_3 from '@/assets/07/m5s/funky_floor/implementation_3.png'
-import funky_floor_implementation_4 from '@/assets/07/m5s/funky_floor/implementation_4.png'
 import { translations } from '../_translations'
 
 interface Props {
@@ -107,16 +101,16 @@ const { start }: Props = Astro.props
     <div class="paragraph">仅需关注场中4块方格的初始状态，共2种模式</div>
     <div class="flex gap-4">
       <div class="flex max-w-112.5 shrink grow flex-col items-center gap-2">
-        <Image
-          src={funky_floor_solution_A}
+        <CosImage
+          src="imgs/07/m5s/funky_floor/solution_1.png"
           alt="Funky Floor Solution A"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">模式1</div>
       </div>
       <div class="flex max-w-112.5 shrink grow flex-col items-center gap-2">
-        <Image
-          src={funky_floor_solution_B}
+        <CosImage
+          src="imgs/07/m5s/funky_floor/solution_2.png"
           alt="Funky Floor Solution B"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -205,23 +199,23 @@ const { start }: Props = Astro.props
       的初始状态仅有如下4种：
     </div>
     <div class="grid grid-cols-4 gap-2">
-      <Image
-        src={funky_floor_implementation_1}
+      <CosImage
+        src="imgs/07/m5s/funky_floor/implementation_1.png"
         alt="Funky Floor Implementation 1"
         class="border-2 border-amber-800/75 dark:border-amber-100"
       />
-      <Image
-        src={funky_floor_implementation_2}
+      <CosImage
+        src="imgs/07/m5s/funky_floor/implementation_2.png"
         alt="Funky Floor Implementation 2"
         class="border-2 border-amber-800/75 dark:border-amber-100"
       />
-      <Image
-        src={funky_floor_implementation_3}
+      <CosImage
+        src="imgs/07/m5s/funky_floor/implementation_3.png"
         alt="Funky Floor Implementation 3"
         class="border-2 border-amber-800/75 dark:border-amber-100"
       />
-      <Image
-        src={funky_floor_implementation_4}
+      <CosImage
+        src="imgs/07/m5s/funky_floor/implementation_4.png"
         alt="Funky Floor Implementation 4"
         class="border-2 border-amber-800/75 dark:border-amber-100"
       />
@@ -261,7 +255,7 @@ const { start }: Props = Astro.props
       <ListDot />
       亦即若干个完整周期 + 半个周期，这半个周期刚好会把危险地板和安全地板再交换1次
     </div>
-    <div class="paragraph text-green-600 [text-shadow:_0_0_1px_var(--color-green-600)] dark:text-green-400">
+    <div class="paragraph text-green-600 [text-shadow:0_0_1px_var(--color-green-600)] dark:text-green-400">
       <ListDot />
       故初始危险地板即为
       <BurnBabyBurn hover />
@@ -426,7 +420,7 @@ const { start }: Props = Astro.props
     container.addChild(floor)
 
     const funky_floor_texture = await Assets.load({
-      src: '/videos/07/m5s/funky_floor@2x.mp4',
+      src: `${import.meta.env.PUBLIC_COS_BASE_URL}/public/videos/07/m5s/funky_floor@2x.mp4`,
       data: {
         loop: true,
         updateFPS: 24,

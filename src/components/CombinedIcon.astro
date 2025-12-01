@@ -3,6 +3,7 @@ import type { ImageMetadata } from 'astro'
 import { cn } from '@/lib/utils'
 
 import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 interface Props {
   img1: string | ImageMetadata
@@ -18,7 +19,7 @@ const { img1, img2, alt, tag = undefined, iconClass = '' }: Props = Astro.props
 <span class="relative h-[calc(1em*30/18)] w-[calc(1em*30/18)]">
   {
     typeof img1 === 'string' ? (
-      <img
+      <CosImage
         src={img1}
         alt={alt}
         class={cn('absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2', iconClass)}
@@ -35,7 +36,7 @@ const { img1, img2, alt, tag = undefined, iconClass = '' }: Props = Astro.props
   }
   {
     typeof img2 === 'string' ? (
-      <img
+      <CosImage
         src={img2}
         alt={alt}
         class={cn('absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2', iconClass)}
@@ -52,7 +53,7 @@ const { img1, img2, alt, tag = undefined, iconClass = '' }: Props = Astro.props
   }
   {
     tag && (
-      <span class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 text-[calc(1em*12/18)] whitespace-nowrap text-white [text-shadow:_0_0_2px_black,_0_0_2px_black,_0_0_2px_black,_0_0_3px_black,_0_0_3px_black,_0_0_3px_black]">
+      <span class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 text-[calc(1em*12/18)] whitespace-nowrap text-white [text-shadow:0_0_2px_black,0_0_2px_black,0_0_2px_black,0_0_3px_black,0_0_3px_black,0_0_3px_black]">
         {tag}
       </span>
     )

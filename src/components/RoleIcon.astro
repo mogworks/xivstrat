@@ -5,18 +5,6 @@ import CombinedIcon from '@/components/CombinedIcon.astro'
 import EntityIcon from '@/components/EntityIcon.astro'
 import EntityText from '@/components/EntityText.astro'
 
-import any from '/pixi/role/any.png?url'
-import all from '/pixi/role/all.png?url'
-import tank from '/pixi/role/tank.png?url'
-import healer from '/pixi/role/healer.png?url'
-import dps from '/pixi/role/dps.png?url'
-import melee from '/pixi/role/melee.png?url'
-import ranged from '/pixi/role/ranged.png?url'
-import magic from '/pixi/role/magic.png?url'
-import ranged_magic from '/pixi/role/ranged_magic.png?url'
-import boss from '/pixi/enemy/061712.png?url'
-import enemy_level1 from '/pixi/enemy/061707.png?url'
-
 interface Props {
   role: RoleType | CombinedRoleType
   tag?: 'MT' | 'ST' | 'OT' | 'H1' | 'H2' | 'D1' | 'D2' | 'D3' | 'D4' | 'BOSS' | string
@@ -31,23 +19,23 @@ const tagHandler = (tag: string): string => {
 
 const { role = 'any', tag = '', class: className = '' }: Props = Astro.props
 const img = {
-  any,
-  all,
-  tank,
-  healer,
-  dps,
-  melee,
-  ranged,
-  magic,
-  ranged_magic,
-  boss,
-  enemy_level1,
-  'tank|healer': [tank, healer],
-  'healer|tank': [healer, tank],
-  'tank|dps': [tank, dps],
-  'dps|tank': [dps, tank],
-  'healer|dps': [healer, dps],
-  'dps|healer': [dps, healer],
+  any: 'role/any',
+  all: 'role/all',
+  tank: 'role/tank',
+  healer: 'role/healer',
+  dps: 'role/dps',
+  melee: 'role/melee',
+  ranged: 'role/ranged',
+  magic: 'role/magic',
+  ranged_magic: 'role/ranged_magic',
+  boss: 'enemy/061712',
+  enemy_level1: 'enemy/061707',
+  'tank|healer': ['role/tank', 'role/healer'],
+  'healer|tank': ['role/healer', 'role/tank'],
+  'tank|dps': ['role/tank', 'role/dps'],
+  'dps|tank': ['role/dps', 'role/tank'],
+  'healer|dps': ['role/healer', 'role/dps'],
+  'dps|healer': ['role/dps', 'role/healer'],
 }[role]
 const text =
   tagHandler(tag) ||
@@ -73,13 +61,24 @@ const text =
 ---
 
 {
-  role.includes('|') ? (
+  role.includes("|") ? (
     <EntityIcon icon="" tag={tag} alt={tag ?? role} class={className}>
-      <CombinedIcon slot="icon" img1={img[0]} img2={img[1]} tag={tag} alt={tag ?? role} />
+      <CombinedIcon
+        slot="icon"
+        img1={`public/pixi/${img[0]}.png?width=64&height=64`}
+        img2={`public/pixi/${img[1]}.png?width=64&height=64`}
+        tag={tag}
+        alt={tag ?? role}
+      />
       <slot />
     </EntityIcon>
   ) : (
-    <EntityIcon icon={img as string | ImageMetadata} tag={tag} alt={tag ?? role} class={className}>
+    <EntityIcon
+      icon={`public/pixi/${img}.png?width=64&height=64`}
+      tag={tag}
+      alt={tag ?? role}
+      class={className}
+    >
       <slot />
     </EntityIcon>
   )

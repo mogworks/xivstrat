@@ -1,7 +1,7 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Badge from '@/components/Badge.astro'
 import Boss from '@/components/Boss.astro'
@@ -17,7 +17,6 @@ import StratLink from '@/components/StratLink.astro'
 
 import Wavelength from '../_components/Wavelength.astro'
 
-import Grooviness66 from '@/assets/07/m5s/Grooviness66.png'
 import { translations } from '../_translations'
 
 interface Props {
@@ -89,6 +88,6 @@ const { start, getDownTimes = [] }: Props = Astro.props
       <Span variant="pink">66</Span>
       点计量值
     </div>
-    <Image src={Grooviness66} alt="Grooviness 66" class="w-75" />
+    <CosImage src="imgs/07/m5s/Grooviness66.png" alt="Grooviness 66" class="w-75" />
   </div>
 </SolutionSection>

@@ -3,13 +3,32 @@ import { Image } from 'astro:assets'
 
 interface Props {
   src: string
-  alt: string | undefined
+  alt?: string
   [key: string]: unknown
 }
 
 const { src, alt, ...rest }: Props = Astro.props
 
-const cosUrl = new URL(src, import.meta.env.PUBLIC_COS_DOMAIN).href
+const url = new URL(src, import.meta.env.PUBLIC_COS_BASE_URL)
+const width = url.searchParams.get('width')
+const height = url.searchParams.get('height')
+
+url.searchParams.delete('width')
+url.searchParams.delete('height')
+
+const inferSize = width === null || height === null
 ---
 
-<Image src={cosUrl} alt={alt ?? ''} inferSize {...rest} />
+{
+  inferSize ? (
+    <Image src={url.href} alt={alt ?? ""} inferSize {...rest} />
+  ) : (
+    <Image
+      src={url.href}
+      alt={alt ?? ""}
+      width={parseInt(width)}
+      height={parseInt(height)}
+      {...rest}
+    />
+  )
+}

@@ -1,7 +1,7 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import DamageInfo from '@/components/DamageInfo.astro'
 import ListDot from '@/components/ListDot.astro'
@@ -14,7 +14,6 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import PerfectGroove from '../_components/PerfectGroove.astro'
 import Wavelength from '../_components/Wavelength.astro'
 
-import perfect_groove from '@/assets/07/m5s/perfectgroove.png'
 import { translations } from '../_translations'
 
 interface Props {
@@ -106,6 +105,6 @@ const { phase, start }: Props = Astro.props
       )
     }
     <div class="paragraph">获得奖励会有如下提示：</div>
-    <Image src={perfect_groove} alt="Perfect Groove" class="max-w-100" />
+    <CosImage src="imgs/07/m5s/perfectgroove.png" alt="Perfect Groove" class="max-w-100" />
   </div>
 </MechanicSection>

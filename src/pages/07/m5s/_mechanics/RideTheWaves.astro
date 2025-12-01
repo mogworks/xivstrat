@@ -1,7 +1,7 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Badge from '@/components/Badge.astro'
 import Boss from '@/components/Boss.astro'
@@ -19,22 +19,6 @@ import P from '@/components/typography/P.astro'
 
 import QuarterOrEighthBeatsAbility from '../_components/QuarterOrEighthBeatsAbility.astro'
 import QuarterOrEighthBeatsCast from '../_components/QuarterOrEighthBeatsCast.astro'
-
-import ride_the_waves_25_omen from '@/assets/07/m5s/ride_the_waves/25_omen.png'
-import ride_the_waves_47_omen from '@/assets/07/m5s/ride_the_waves/47_omen.png'
-import ride_the_waves_25_half from '@/assets/07/m5s/ride_the_waves/25_half.png'
-import ride_the_waves_47_half from '@/assets/07/m5s/ride_the_waves/47_half.png'
-import ride_the_waves_25_final from '@/assets/07/m5s/ride_the_waves/25_final.png'
-import ride_the_waves_47_final from '@/assets/07/m5s/ride_the_waves/47_final.png'
-import ride_the_waves_jp_1 from '@/assets/07/m5s/ride_the_waves/jp_1.png'
-import ride_the_waves_jp_2 from '@/assets/07/m5s/ride_the_waves/jp_2.png'
-import ride_the_waves_jp_3 from '@/assets/07/m5s/ride_the_waves/jp_3.png'
-import ride_the_waves_jp_4 from '@/assets/07/m5s/ride_the_waves/jp_4.png'
-import ride_the_waves_jp_5 from '@/assets/07/m5s/ride_the_waves/jp_5.png'
-import ride_the_waves_optimize_1 from '@/assets/07/m5s/ride_the_waves/optimize_1.png'
-import ride_the_waves_optimize_2 from '@/assets/07/m5s/ride_the_waves/optimize_2.png'
-import ride_the_waves_optimize_3 from '@/assets/07/m5s/ride_the_waves/optimize_3.png'
-import ride_the_waves_optimize_4 from '@/assets/07/m5s/ride_the_waves/optimize_4.png'
 
 import { translations } from '../_translations'
 import JobIcon from '@/components/JobIcon.astro'
@@ -92,16 +76,16 @@ const defaultSolution = '解法：近战优化'
     </div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_25_omen}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/25_omen.png"
           alt="Ride the Waves Omen (2nd & 5th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">情形1：初始第2、5列安全</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_47_omen}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/47_omen.png"
           alt="Ride the Waves Omen (4th & 7th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -111,16 +95,16 @@ const defaultSolution = '解法：近战优化'
     <div class="paragraph mt-4">在地火行进至南半场时，安全区会固定向第3、6列拐一下，最终形成如下的图形</div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_25_final}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/25_final.png"
           alt="Ride the Waves Final (Initial 2nd & 5th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">情形1：初始第2、5列安全</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_47_final}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/47_final.png"
           alt="Ride the Waves Final (Initial 4th & 7th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -172,16 +156,16 @@ const defaultSolution = '解法：近战优化'
     </div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_25_half}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/25_half.png"
           alt="Ride the Waves Half (Initial 2nd & 5th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">情形1：初始第2、5列安全</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_47_half}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/47_half.png"
           alt="Ride the Waves Half (Initial 4th & 7th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -195,16 +179,16 @@ const defaultSolution = '解法：近战优化'
     </div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_25_final}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/25_final.png"
           alt="Ride the Waves Final (Initial 2nd & 5th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">情形1：初始第2、5列安全</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_47_final}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/47_final.png"
           alt="Ride the Waves Final (Initial 4th & 7th Column)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -234,8 +218,8 @@ const defaultSolution = '解法：近战优化'
     <div class="paragraph">且远程组去北半场也不会增加处理难度，因此，可以将近战组和远程组整体换位，如下</div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_optimize_1}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/optimize_1.png"
           alt="Ride the Waves Optimize Solution 1/4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -245,8 +229,8 @@ const defaultSolution = '解法：近战优化'
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_optimize_2}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/optimize_2.png"
           alt="Ride the Waves Optimize Solution 2/4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -277,8 +261,8 @@ const defaultSolution = '解法：近战优化'
     </div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_optimize_3}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/optimize_3.png"
           alt="Ride the Waves Optimize Solution 3/4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -288,8 +272,8 @@ const defaultSolution = '解法：近战优化'
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_optimize_4}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/optimize_4.png"
           alt="Ride the Waves Optimize Solution 4/4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -344,8 +328,8 @@ const defaultSolution = '解法：近战优化'
       可视情况挑衅带位
     </div>
     <div class="max-w-90">
-      <Image
-        src={ride_the_waves_jp_1}
+      <CosImage
+        src="imgs/07/m5s/ride_the_waves/jp_1.png"
         alt="Ride the Waves JP Solution 1/5"
         class="border-2 border-amber-800/75 dark:border-amber-100"
       />
@@ -357,8 +341,8 @@ const defaultSolution = '解法：近战优化'
     </div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_jp_2}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/jp_2.png"
           alt="Ride the Waves JP Solution 2/5"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -368,8 +352,8 @@ const defaultSolution = '解法：近战优化'
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_jp_3}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/jp_3.png"
           alt="Ride the Waves JP Solution 3/5"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -386,19 +370,19 @@ const defaultSolution = '解法：近战优化'
     </div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_jp_4}
-          alt="Ride the Waves JP Solution 4/5"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
+      <CosImage
+        src="imgs/07/m5s/ride_the_waves/jp_4.png"
+        alt="Ride the Waves JP Solution 4/5"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
         <div class="paragraph">
           情形1：
           <Span variant="yellow">{translations.quarterBeats}</Span>
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={ride_the_waves_jp_5}
+        <CosImage
+          src="imgs/07/m5s/ride_the_waves/jp_5.png"
           alt="Ride the Waves JP Solution 5/5"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />

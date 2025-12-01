@@ -1,6 +1,6 @@
 ---
 import type { Time } from '@/lib/utils'
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 import Badge from '@/components/Badge.astro'
 import Boss from '@/components/Boss.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
@@ -22,17 +22,7 @@ import ListDot from '@/components/ListDot.astro'
 import RoleOrder from '../_components/GetDownOrder.vue'
 import Wavelength from '../_components/Wavelength.astro'
 import WavelengthEffect from '../_components/WavelengthEffect.astro'
-import Grooviness66 from '@/assets/07/m5s/Grooviness66.png'
-import arcady_night_fever_1 from '@/assets/07/m5s/arcady_night_fever/1.png'
-import arcady_night_fever_2 from '@/assets/07/m5s/arcady_night_fever/2.png'
-import arcady_night_fever_3 from '@/assets/07/m5s/arcady_night_fever/3.png'
-import arcady_night_fever_4 from '@/assets/07/m5s/arcady_night_fever/4.png'
-import arcady_night_fever_solution_1 from '@/assets/07/m5s/arcady_night_fever/solution_1.png'
-import arcady_night_fever_solution_2 from '@/assets/07/m5s/arcady_night_fever/solution_2.png'
-import arcady_night_fever_solution_3 from '@/assets/07/m5s/arcady_night_fever/solution_3.png'
-import arcady_night_fever_solution_4 from '@/assets/07/m5s/arcady_night_fever/solution_4.png'
-import arcady_night_fever_solution_5 from '@/assets/07/m5s/arcady_night_fever/solution_5.png'
-import arcady_night_fever_solution_6 from '@/assets/07/m5s/arcady_night_fever/solution_6.png'
+
 import VideoPlaySVG from '@/assets/svg/video-play.svg'
 import ResetSVG from '@/assets/svg/reset.svg'
 import { translations } from '../_translations'
@@ -286,7 +276,7 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
       <Span variant="pink">66</Span>
       点计量值
     </div>
-    <Image src={Grooviness66} alt="Grooviness 66" class="w-75" />
+    <CosImage src="imgs/07/m5s/Grooviness66.png" alt="Grooviness 66" class="w-75" />
   </div>
 </MechanicSection>
 <NoteSection>
@@ -307,32 +297,32 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
     </div>
     <div class="grid grid-cols-[1fr_1fr_1fr_1fr] gap-2">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={arcady_night_fever_1}
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/1.png"
           alt="Arcady Night Fever 1"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">第1轮</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={arcady_night_fever_2}
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/2.png"
           alt="Arcady Night Fever 2"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">第2n轮，1≤n≤4</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={arcady_night_fever_3}
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/3.png"
           alt="Arcady Night Fever 3"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">第2n+1轮，1≤n≤3</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={arcady_night_fever_4}
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/4.png"
           alt="Arcady Night Fever 4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -377,8 +367,8 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
     </div>
     <div class="flex gap-4">
       <div class="max-w-78 shrink">
-        <Image
-          src={arcady_night_fever_solution_1}
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/solution_1.png"
           alt="Arcady Night Fever Solution 1"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -394,8 +384,8 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
     </div>
     <div class="flex gap-4">
       <div class="max-w-78 shrink">
-        <Image
-          src={arcady_night_fever_solution_2}
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/solution_2.png"
           alt="Arcady Night Fever Solution 2"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -416,8 +406,8 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
     </div>
     <div class="flex gap-4">
       <div class="max-w-78 shrink">
-        <Image
-          src={arcady_night_fever_solution_3}
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/solution_3.png"
           alt="Arcady Night Fever Solution 3"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -442,8 +432,8 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
     </div>
     <div class="flex gap-4">
       <div class="max-w-78 shrink">
-        <Image
-          src={arcady_night_fever_solution_4}
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/solution_4.png"
           alt="Arcady Night Fever Solution 4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -468,8 +458,8 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
     </div>
     <div class="flex gap-4">
       <div class="max-w-78 shrink">
-        <Image
-          src={arcady_night_fever_solution_5}
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/solution_5.png"
           alt="Arcady Night Fever Solution 5"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -496,8 +486,8 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
     </div>
     <div class="flex gap-4">
       <div class="max-w-78 shrink">
-        <Image
-          src={arcady_night_fever_solution_6}
+        <CosImage
+          src="imgs/07/m5s/arcady_night_fever/solution_6.png"
           alt="Arcady Night Fever Solution 6"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
