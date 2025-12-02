@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, useTemplateRef, watch } from 'vue'
 
-import MagnifierCursorSVGRaw from '@/assets/svg/magnifier-cursor.svg?raw'
+import MagnifierCursorSVGRaw from '@/svg/magnifier-cursor.svg?raw'
 import {
   Dialog,
   DialogContent,

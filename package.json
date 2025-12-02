@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "pnpm minify && astro check",
+    "prebuild": "astro check",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",

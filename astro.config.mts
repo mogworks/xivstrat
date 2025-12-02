@@ -20,7 +20,7 @@ export default defineConfig({
   },
 
   image: {
-    domains: ['xivstrat.cn'],
+    domains: ['cos.xivstrat.cn'], // 只有来自这些域名的远程图片才会被 Astro 的 <Image /> 组件优化处理
     layout: 'constrained',
   },
 

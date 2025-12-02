@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import CloseSVG from '@/assets/svg/close.svg?component'
-import MenuSVG from '@/assets/svg/menu.svg?component'
+import CloseSVG from '@/svg/close.svg?component'
+import MenuSVG from '@/svg/menu.svg?component'
 
 import type { Route } from './type'
 
