@@ -1,8 +1,6 @@
 ---
 import Buff from '@/components/Buff.astro'
 import Span from '@/components/Span.vue'
-
-import cool_tint from '@/assets/buff/07/m6s/214276.png'
 import { translations } from '../_translations'
 
 interface Props {
@@ -11,6 +9,7 @@ interface Props {
 }
 
 const { hover = false, class: className = '' }: Props = Astro.props
+const cool_tint = 'imgs/buff/07/m6s/214276.png'
 const { CoolTintName, CoolTintDescription } = translations
 ---
 

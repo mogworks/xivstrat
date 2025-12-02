@@ -1,8 +1,6 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-const icon = 'imgs/buff/215529.png'
-
 interface Props {
   tag?: string
   hover?: boolean
@@ -10,6 +8,7 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const icon = 'imgs/buff/215529.png'
 ---
 
 <Buff

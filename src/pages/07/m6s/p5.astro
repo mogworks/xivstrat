@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
@@ -23,8 +23,6 @@ import WingmarkCast from './_components/WingmarkCast.astro'
 
 import ArtisticAnarchy from './_mechanics/ArtisticAnarchy.astro'
 
-import explosion_3 from '@/assets/07/m6s/layer_4/explosion_3.png'
-import sticky_mousse from '@/assets/07/m6s/layer_4/sticky_mousse.png'
 import { translations } from './_translations'
 
 const dutyId = '07/m6s'
@@ -66,15 +64,15 @@ const base = '10:03.635'
       </div>
       <div class="flex gap-3">
         <div class="max-w-96">
-          <Image
-            src={explosion_3}
+          <CosImage
+            src="imgs/07/m6s/layer_4/explosion_3.png"
             alt="Layer #4 Explosion: 3"
             class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
           />
         </div>
         <div class="max-w-96">
-          <Image
-            src={sticky_mousse}
+          <CosImage
+            src="imgs/07/m6s/layer_4/sticky_mousse.png"
             alt="Sticky Mousse After Layer #4"
             class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
           />

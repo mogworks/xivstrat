@@ -2,8 +2,6 @@
 import Buff from '@/components/Buff.astro'
 import Span from '@/components/Span.vue'
 
-const icon = 'imgs/buff/215520.png'
-
 interface Props {
   tag?: string
   hover?: boolean
@@ -12,6 +10,7 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '', percent = undefined }: Props = Astro.props
+const icon = 'imgs/buff/215520.png'
 ---
 
 <Buff

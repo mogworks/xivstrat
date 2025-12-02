@@ -1,8 +1,5 @@
 ---
 import Buff from '@/components/Buff.astro'
-
-import α from '@/assets/buff/07/m5s/214281.png'
-import β from '@/assets/buff/07/m5s/214282.png'
 import { translations } from '../_translations'
 
 interface Props {
@@ -13,6 +10,8 @@ interface Props {
 }
 
 const { type, tag = '', hover = false, class: className = '' }: Props = Astro.props
+const α = 'imgs/buff/07/m5s/214281.png'
+const β = 'imgs/buff/07/m5s/214282.png'
 ---
 
 <Buff
