@@ -10,7 +10,7 @@ import { translations } from '../_translations'
 interface Props {
   start: Time
 
-  [key: string]: any
+  [key: string]: unknown
 }
 
 const { start, ...rest }: Props = Astro.props

@@ -5,8 +5,6 @@ import EntityIcon from '@/components/EntityIcon.astro'
 import EntityText from '@/components/EntityText.astro'
 import Span from '@/components/Span.vue'
 
-import icon from '@/assets/07/m6s/entity_icons/jabberwock.png'
-
 interface Props {
   wave?: number
 }
@@ -21,7 +19,7 @@ const variant =
   }[wave] ?? 'zinc'
 ---
 
-<EntityIcon icon={icon} iconClass="drop-shadow-xs drop-shadow-black">
+<EntityIcon icon="imgs/07/m6s/entity_icons/jabberwock.png" iconClass="drop-shadow-xs drop-shadow-black">
   <slot>
     {
       wave !== 0 && (

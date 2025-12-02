@@ -1,7 +1,5 @@
 ---
 import Buff from '@/components/Buff.astro'
-
-import mousse_mine from '@/assets/buff/07/m6s/214277.png'
 import { translations } from '../_translations'
 
 interface Props {
@@ -11,6 +9,7 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const mousse_mine = 'imgs/buff/07/m6s/214277.png'
 const { MousseMine, MousseMineDescription } = translations
 ---
 
