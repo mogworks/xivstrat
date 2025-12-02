@@ -23,8 +23,6 @@ import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
 import ChampionsCircuitCarousel from '../_components/ChampionsCircuitCarousel.astro'
 
 import { translations } from '../_translations'
-
-import championsCircuit_img from '@/assets/07/m8s2/p2/championsCircuit.png'
 import BossAttackSection from '../_components/BossAttackSection.astro'
 
 interface Props {
@@ -102,7 +100,7 @@ const gleamingBarrage = translations.gleamingBarrage
       wrapperClass="max-w-150"
       bordered={false}
       imgClass="shadowbringer"
-      imgs={[{ src: championsCircuit_img, alt: '回天动地预兆' }]}
+      imgs={[{ src: 'imgs/07/m8s2/p2/championsCircuit.png', alt: '回天动地预兆' }]}
     />
     <P>整个机制结束后，屏幕中央出现文字提示：</P>
     <P>

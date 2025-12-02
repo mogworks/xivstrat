@@ -17,14 +17,6 @@ import { translations } from '../_translations'
 import MementoMoriCast from '../_components/MementoMoriCast.astro'
 import SmiteOfGloomCast from '../_components/SmiteOfGloomCast.astro'
 
-import MementoMori_1 from '@/assets/07/necron/MementoMori_1.png'
-import MementoMori_2 from '@/assets/07/necron/MementoMori_2.png'
-import MementoMori_3 from '@/assets/07/necron/MementoMori_3.png'
-import MementoMori_solution_1 from '@/assets/07/necron/MementoMori_solution_1.png'
-import MementoMori_solution_2 from '@/assets/07/necron/MementoMori_solution_2.png'
-import MementoMori_solution_3 from '@/assets/07/necron/MementoMori_solution_3.png'
-import MementoMori_solution_4 from '@/assets/07/necron/MementoMori_solution_4.png'
-
 interface Props {
   start: Time
 }
@@ -50,7 +42,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-160"
       imgs={[
         {
-          src: MementoMori_1,
+          src: 'imgs/07/necron/MementoMori_1.png',
           alt: '',
           title: '上图左/西侧为淡蓝色特效，右/东侧为暗紫色特效',
         },
@@ -63,7 +55,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-160"
       imgs={[
         {
-          src: MementoMori_2,
+          src: 'imgs/07/necron/MementoMori_2.png',
           alt: '',
           title: '上图西侧（图片右侧）为淡蓝色特效，东侧（图片左侧）为暗紫色特效',
         },
@@ -81,7 +73,7 @@ const { start }: Props = Astro.props
         wrapperClass="max-w-160"
         imgs={[
           {
-            src: MementoMori_3,
+            src: 'imgs/07/necron/MementoMori_3.png',
             alt: '',
           },
         ]}
@@ -99,12 +91,12 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-120"
       imgs={[
         {
-          src: MementoMori_solution_1,
+          src: 'imgs/07/necron/MementoMori_solution_1.png',
           alt: '',
           title: '西侧淡蓝，情形1',
         },
         {
-          src: MementoMori_solution_2,
+          src: 'imgs/07/necron/MementoMori_solution_2.png',
           alt: '',
           title: '西侧淡蓝，情形2',
         },
@@ -115,12 +107,12 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-120"
       imgs={[
         {
-          src: MementoMori_solution_3,
+          src: 'imgs/07/necron/MementoMori_solution_3.png',
           alt: '',
           title: '西侧淡蓝，情形3',
         },
         {
-          src: MementoMori_solution_4,
+          src: 'imgs/07/necron/MementoMori_solution_4.png',
           alt: '',
           title: '东侧淡蓝，情形1，其它情况不再赘述',
         },

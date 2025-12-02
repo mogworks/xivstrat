@@ -1,8 +1,6 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import lament_of_the_distant from '@/assets/buff/07/m8s2/214272.png'
-
 interface Props {
   tag?: string
   hover?: boolean
@@ -10,6 +8,7 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const lament_of_the_distant = 'imgs/buff/07/m8s2/214272.png'
 ---
 
 <Buff

@@ -3,19 +3,13 @@ import type { Time } from '@/lib/utils'
 
 import P from '@/components/typography/P.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 
 import { translations } from '../_translations'
 
 import GrandCrossCast from '../_components/GrandCrossCast.astro'
-
-import BlueShockwave_1 from '@/assets/07/necron/BlueShockwave_1.png'
-import GrandCross_img from '@/assets/07/necron/GrandCross.png'
 
 interface Props {
   start: Time
@@ -38,7 +32,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-160"
       imgs={[
         {
-          src: GrandCross_img,
+          src: 'imgs/07/necron/GrandCross.png',
           alt: '',
         },
       ]}

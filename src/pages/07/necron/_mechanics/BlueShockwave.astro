@@ -14,8 +14,6 @@ import { translations } from '../_translations'
 
 import BlueShockwaveCast from '../_components/BlueShockwaveCast.astro'
 
-import BlueShockwave_1 from '@/assets/07/necron/BlueShockwave_1.png'
-
 interface Props {
   start: Time
 }
@@ -60,7 +58,7 @@ const { start }: Props = Astro.props
         wrapperClass="max-w-160"
         imgs={[
           {
-            src: BlueShockwave_1,
+            src: 'imgs/07/necron/BlueShockwave_1.png',
             alt: '',
             title: '一仇大范围扇形死刑',
           },

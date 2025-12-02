@@ -1,15 +1,9 @@
 ---
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
-import Boss from '@/components/Boss.astro'
 import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 import Span from '@/components/Span.vue'
 import P from '@/components/typography/P.astro'
-import MechanicSection from '@/components/section/MechanicSection.astro'
-import Skill from '@/components/typography/Skill.astro'
-import ImgRow from '@/components/typography/ImgRow.astro'
-import T from '@/components/typography/T.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 
 import BlueShockwave from './_mechanics/BlueShockwave.astro'
@@ -27,14 +21,6 @@ import BlueShockwaveCast from './_components/BlueShockwaveCast.astro'
 import XfoldBlightCast from './_components/XfoldBlightCast.astro'
 import ChokingGraspEvent from './_components/ChokingGraspEvent.astro'
 
-//import { combinedTranslations as translations } from './_translations'
-import { translations } from './_translations/index'
-
-import BlueShockwave_2 from '@/assets/07/necron/BlueShockwave_2.png'
-
-import Waymark from '@/assets/07/necron/waymark.png'
-import SoulReaping_demo_2 from '@/assets/07/necron/SoulReaping_demo_2.png'
-
 const dutyId = '07/necron'
 const base = '00:00.00'
 ---
@@ -42,7 +28,7 @@ const base = '00:00.00'
 <DutyStratLayout dutyId={dutyId} base={base}>
   <DraftWarning showDialog={false}>
     <div
-      class="my-4 flex flex-col gap-4 text-3xl text-cyan-600 [text-shadow:_0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
+      class="my-4 flex flex-col gap-4 text-3xl text-cyan-600 [text-shadow:0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
     >
       <P class="justify-center"><Span variant="lime">所有机制和解法已按时间顺序整理完毕</Span></P>
       <P class="justify-center">

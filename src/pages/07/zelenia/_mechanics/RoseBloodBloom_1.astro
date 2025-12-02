@@ -6,11 +6,6 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 
 import Zelenia from '../_components/Zelenia.astro'
-
-import a1 from '@/assets/07/zelenia/P3-1/P3-1-a1.png'
-import a2 from '@/assets/07/zelenia/P3-1/P3-1-a2.png'
-import aq from '@/assets/07/zelenia/P3-1/P3-1-aq.png'
-import q from '@/assets/07/zelenia/P3-1/P3-1-q.png'
 ---
 
 <MechanicSection>
@@ -22,15 +17,12 @@ import q from '@/assets/07/zelenia/P3-1/P3-1-q.png'
       rounded
       imgs={[
         {
-          src: q,
+          src: 'imgs/07/zelenia/P3-1/P3-1-q.png',
           alt: 'Zelenia：P3-1 旋转aoe',
           // title: '先钢铁',
         },
       ]}
     />
-    <!-- <div class="max-w-88 flex-1">
-      <Image src={q} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-    </div> -->
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
       <div class="paragraph">
         <Zelenia />召唤一个旋转扇形aoe，<span>顺时针</span>或<span>逆时针</span>旋转
@@ -57,41 +49,21 @@ import q from '@/assets/07/zelenia/P3-1/P3-1-q.png'
       rounded
       imgs={[
         {
-          src: a1,
+          src: 'imgs/07/zelenia/P3-1/P3-1-a1.png',
           alt: 'Zelenia：P3-1 解法截图',
           title: '[1] 找安全区',
         },
         {
-          src: aq,
+          src: 'imgs/07/zelenia/P3-1/P3-1-aq.png',
           alt: 'Zelenia：P3-1 解法截图',
           title: '[2] 人群在安全区集合',
         },
         {
-          src: a2,
+          src: 'imgs/07/zelenia/P3-1/P3-1-a2.png',
           alt: 'Zelenia：P3-1 解法截图',
           title: '[3] 无花纹的安全地板示意',
         },
       ]}
     />
-    <!-- <div class="flex gap-4">
-      <div class="flex max-w-88 shrink grow flex-col items-center gap-2">
-        <Image src={a1} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div class="paragraph">
-          [1] 找安全区
-        </div>
-      </div>
-      <div class="flex max-w-88 shrink grow flex-col items-center gap-2">
-        <Image src={aq} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div class="paragraph">
-          [2] 人群在安全区集合
-        </div>
-      </div>
-      <div class="flex max-w-88 shrink grow flex-col items-center gap-2">
-        <Image src={a2} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
-        <div class="paragraph">
-          [3] 无花纹的安全地板示意
-        </div>
-      </div>
-    </div> -->
   </div>
 </SolutionSection>

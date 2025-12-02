@@ -1,5 +1,4 @@
 ---
-import type { Time } from '@/lib/utils'
 
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
@@ -22,13 +21,6 @@ import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import FangedCrossingCast from '../_components/FangedCrossingCast.astro'
 
 import { translations } from '../_translations'
-
-import terrestrial_titans_1 from '@/assets/07/m8s1/terrestrial_titans/1.png'
-import terrestrial_titans_2 from '@/assets/07/m8s1/terrestrial_titans/2.png'
-import titanic_pursuit from '@/assets/07/m8s1/terrestrial_titans/titanic_pursuit.png'
-import fanged_crossing from '@/assets/07/m8s1/terrestrial_titans/fanged_crossing.png'
-import solution from '@/assets/07/m8s1/terrestrial_titans/solution.png'
-
 const {
   terrestrialTitans, // 召唤柱子 5m半径，离场中7m
   titanicPursuit, // 切断柱子+全屏aoe
@@ -58,12 +50,12 @@ const {
       rounded
       imgs={[
         {
-          src: terrestrial_titans_1,
+          src: 'imgs/07/m8s1/terrestrial_titans/1.png',
           alt: '石柱隆起前',
           title: '石柱隆起前',
         },
         {
-          src: terrestrial_titans_2,
+          src: 'imgs/07/m8s1/terrestrial_titans/2.png',
           alt: '石柱隆起后',
           title: '石柱隆起后',
         },
@@ -79,12 +71,12 @@ const {
       rounded
       imgs={[
         {
-          src: terrestrial_titans_2,
+          src: 'imgs/07/m8s1/terrestrial_titans/2.png',
           alt: '石柱隆起后',
           title: '【左上-右下】斜劈',
         },
         {
-          src: titanic_pursuit,
+          src: 'imgs/07/m8s1/terrestrial_titans/titanic_pursuit.png',
           alt: '全屏AoE + 斜劈石柱',
           title: '石柱崩塌（已略去光牙的AoE）',
         },
@@ -100,11 +92,11 @@ const {
       rounded
       imgs={[
         {
-          src: terrestrial_titans_2,
+          src: 'imgs/07/m8s1/terrestrial_titans/2.png',
           alt: '石柱隆起后',
           title: 'AC光牙',
         },
-        { src: fanged_crossing, alt: '十字/X字形光牙', title: '十字/X字形AoE（已略去石柱崩塌）' },
+        { src: 'imgs/07/m8s1/terrestrial_titans/fanged_crossing.png', alt: '十字/X字形光牙', title: '十字/X字形AoE（已略去石柱崩塌）' },
       ]}
     />
   </div>
@@ -128,10 +120,10 @@ const {
       rounded
       imgs={[
         {
-          src: terrestrial_titans_2,
+          src: 'imgs/07/m8s1/terrestrial_titans/2.png',
           alt: '石柱隆起后',
         },
-        { src: solution, alt: '石柱和光牙AoE叠加' },
+        { src: 'imgs/07/m8s1/terrestrial_titans/solution.png', alt: '石柱和光牙AoE叠加' },
       ]}
     />
     <P>

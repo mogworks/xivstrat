@@ -3,8 +3,6 @@ import Buff from '@/components/Buff.astro'
 
 import { translations } from '../../_translations'
 
-import stonepack from '@/assets/buff/07/m8s1/214265.png'
-
 interface Props {
   tag?: string
   hover?: boolean
@@ -13,6 +11,7 @@ interface Props {
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
 
+const stonepack = 'imgs/buff/07/m8s1/214265.png'
 const name = translations.stonepack
 const desp = translations.stonepackDesp
 ---

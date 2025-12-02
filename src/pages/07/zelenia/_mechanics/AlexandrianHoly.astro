@@ -1,7 +1,7 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
@@ -10,9 +10,9 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 
 import AlexandrianHolyCast from '../_components/AlexandrianHolyCast.astro'
-import ttn from '@/assets/07/zelenia/P1/P1-t-tn.png'
-import tdps from '@/assets/07/zelenia/P1/P1-t-dps.png'
-import t from '@/assets/07/zelenia/P1/P1t.png'
+const ttn = 'imgs/07/zelenia/P1/P1-t-tn.png'
+const tdps = 'imgs/07/zelenia/P1/P1-t-dps.png'
+const t = 'imgs/07/zelenia/P1/P1t.png'
 
 interface Props {
   start: Time
@@ -26,7 +26,7 @@ const { start }: Props = Astro.props
 <MechanicSection>
   <div class="flex gap-4">
     <div class="max-w-88 flex-1">
-      <Image src={t} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      <CosImage src={t} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     </div>
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
       <div class="paragraph">

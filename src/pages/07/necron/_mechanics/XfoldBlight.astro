@@ -3,7 +3,6 @@ import type { Time } from '@/lib/utils'
 
 import P from '@/components/typography/P.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
@@ -15,9 +14,6 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import { translations } from '../_translations'
 
 import XfoldBlightCast from '../_components/XfoldBlightCast.astro'
-
-import SoulReaping_activate from '@/assets/07/necron/SoulReaping_activate.png'
-import SoulReaping_demo_1 from '@/assets/07/necron/SoulReaping_demo_1.png'
 
 interface Props {
   start: Time
@@ -42,17 +38,17 @@ const { start }: Props = Astro.props
       <Skill name={translations.SoulReaping} />
       （辣翅/辣尾）同时判定
     </P>
-    <ImgRow
-      borderVariant="cyan"
-      wrapperClass="max-w-160"
-      imgs={[
-        {
-          src: SoulReaping_activate,
-          alt: '',
-          title: 'BOSS身前的标记变红，表示储存的技能即将释放',
-        },
-      ]}
-    />
+      <ImgRow
+        borderVariant="cyan"
+        wrapperClass="max-w-160"
+        imgs={[
+          {
+            src: 'imgs/07/necron/SoulReaping_activate.png',
+            alt: '',
+            title: 'BOSS身前的标记变红，表示储存的技能即将释放',
+          },
+        ]}
+      />
     <P>在躲避辣翅/辣尾的同时，按照经典分组处理44/2222分摊即可，具体如下：</P>
     <Quote variant="lime">
       <P>
@@ -87,7 +83,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-160"
       imgs={[
         {
-          src: SoulReaping_demo_1,
+          src: 'imgs/07/necron/SoulReaping_demo_1.png',
           alt: '',
           title: '示例：辣翅 + 44分摊',
         },

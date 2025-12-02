@@ -1,5 +1,4 @@
 ---
-import type { Time } from '@/lib/utils'
 
 import Span from '@/components/Span.vue'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
@@ -34,33 +33,6 @@ import BreathOfDecayEffect from '../_components/BreathOfDecayEffect.astro'
 import BossAttackSection from '../_components/BossAttackSection.astro'
 
 import { translations } from '../_translations'
-
-import aero_iii from '@/assets/07/m8s1/millennial_decay/aeroIII.png'
-import breath_of_decay from '@/assets/07/m8s1/millennial_decay/breath_of_decay.png'
-import gust_img from '@/assets/07/m8s1/millennial_decay/gust.png'
-import prowling_gale_1 from '@/assets/07/m8s1/millennial_decay/prowling_gale_1.png'
-import prowling_gale_2 from '@/assets/07/m8s1/millennial_decay/prowling_gale_2.png'
-import winds_of_decay_1 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_1.png'
-import winds_of_decay_2 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_2.png'
-import winds_of_decay_3 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_3.png'
-import winds_of_decay_4 from '@/assets/07/m8s1/millennial_decay/winds_of_decay_4.png'
-import solution_1 from '@/assets/07/m8s1/millennial_decay/solution_1.png'
-import solution_2 from '@/assets/07/m8s1/millennial_decay/solution_2.png'
-import solution_3 from '@/assets/07/m8s1/millennial_decay/solution_3.png'
-import solution_4 from '@/assets/07/m8s1/millennial_decay/solution_4.png'
-import solution_5 from '@/assets/07/m8s1/millennial_decay/solution_5.png'
-import solution_6 from '@/assets/07/m8s1/millennial_decay/solution_6.png'
-import solution_7 from '@/assets/07/m8s1/millennial_decay/solution_7.png'
-import solution_8 from '@/assets/07/m8s1/millennial_decay/solution_8.png'
-import solution_9 from '@/assets/07/m8s1/millennial_decay/solution_9.png'
-import solution_10 from '@/assets/07/m8s1/millennial_decay/solution_10.png'
-import solution_11 from '@/assets/07/m8s1/millennial_decay/solution_11.png'
-import solution_12 from '@/assets/07/m8s1/millennial_decay/solution_12.png'
-import solution_13 from '@/assets/07/m8s1/millennial_decay/solution_13.png'
-import solution_14 from '@/assets/07/m8s1/millennial_decay/solution_14.png'
-import solution_15 from '@/assets/07/m8s1/millennial_decay/solution_15.png'
-import solution_16 from '@/assets/07/m8s1/millennial_decay/solution_16.png'
-import solution_op from '@/assets/07/m8s1/millennial_decay/solution_op.png'
 
 const millennialDecay = translations.millennialDecay
 const aeroIII = translations.aeroIII
@@ -120,7 +92,7 @@ const defaultSolution = '解法：IQ6000【改】'
       rounded
       imgs={[
         {
-          src: aero_iii,
+          src: 'imgs/07/m8s1/millennial_decay/aeroIII.png',
           alt: '暴风',
         },
       ]}
@@ -154,7 +126,7 @@ const defaultSolution = '解法：IQ6000【改】'
       rounded
       imgs={[
         {
-          src: breath_of_decay,
+          src: 'imgs/07/m8s1/millennial_decay/breath_of_decay.png',
           alt: '千年风啸',
         },
       ]}
@@ -182,7 +154,7 @@ const defaultSolution = '解法：IQ6000【改】'
       rounded
       imgs={[
         {
-          src: gust_img,
+          src: 'imgs/07/m8s1/millennial_decay/gust.png',
           alt: '旋风',
         },
       ]}
@@ -211,11 +183,11 @@ const defaultSolution = '解法：IQ6000【改】'
       rounded
       imgs={[
         {
-          src: prowling_gale_1,
+          src: 'imgs/07/m8s1/millennial_decay/prowling_gale_1.png',
           alt: '风狼阵：正点塔',
         },
         {
-          src: prowling_gale_2,
+          src: 'imgs/07/m8s1/millennial_decay/prowling_gale_2.png',
           alt: '风狼阵：斜点塔',
         },
       ]}
@@ -241,11 +213,11 @@ const defaultSolution = '解法：IQ6000【改】'
       rounded
       imgs={[
         {
-          src: winds_of_decay_1,
+          src: 'imgs/07/m8s1/millennial_decay/winds_of_decay_1.png',
           alt: '正点千年狂风：粗线',
         },
         {
-          src: winds_of_decay_2,
+          src: 'imgs/07/m8s1/millennial_decay/winds_of_decay_2.png',
           alt: '斜点千年狂风：粗线',
         },
       ]}
@@ -276,11 +248,11 @@ const defaultSolution = '解法：IQ6000【改】'
       rounded
       imgs={[
         {
-          src: winds_of_decay_3,
+          src: 'imgs/07/m8s1/millennial_decay/winds_of_decay_3.png',
           alt: '正点千年狂风：细线',
         },
         {
-          src: winds_of_decay_4,
+          src: 'imgs/07/m8s1/millennial_decay/winds_of_decay_4.png',
           alt: '正点千年狂风：判定',
         },
       ]}
@@ -342,12 +314,12 @@ const defaultSolution = '解法：IQ6000【改】'
       rounded
       imgs={[
         {
-          src: solution_1,
+          src: 'imgs/07/m8s1/millennial_decay/solution_1.png',
           alt: '解法示意图1：TH先风圈',
           title: '情形1：TH先风圈',
         },
         {
-          src: solution_2,
+          src: 'imgs/07/m8s1/millennial_decay/solution_2.png',
           alt: '解法示意图2：DPS先风圈',
           title: '情形2：DPS先风圈',
         },
@@ -360,12 +332,12 @@ const defaultSolution = '解法：IQ6000【改】'
       rounded
       imgs={[
         {
-          src: solution_3,
+          src: 'imgs/07/m8s1/millennial_decay/solution_3.png',
           alt: '解法示意图3：TH先风圈',
           title: '情形1：TH先风圈',
         },
         {
-          src: solution_4,
+          src: 'imgs/07/m8s1/millennial_decay/solution_4.png',
           alt: '解法示意图4：DPS先风圈',
           title: '情形2：DPS先风圈',
         },
@@ -402,11 +374,11 @@ const defaultSolution = '解法：IQ6000【改】'
       rounded
       imgs={[
         {
-          src: solution_5,
+          src: 'imgs/07/m8s1/millennial_decay/solution_5.png',
           alt: '解法示意图5：TH先风圈',
         },
         {
-          src: solution_6,
+          src: 'imgs/07/m8s1/millennial_decay/solution_6.png',
           alt: '解法示意图6：DPS先风圈',
         },
       ]}
@@ -427,11 +399,11 @@ const defaultSolution = '解法：IQ6000【改】'
       rounded
       imgs={[
         {
-          src: solution_7,
+          src: 'imgs/07/m8s1/millennial_decay/solution_7.png',
           alt: '解法示意图7：TH先风圈',
         },
         {
-          src: solution_8,
+          src: 'imgs/07/m8s1/millennial_decay/solution_8.png',
           alt: '解法示意图8：DPS先风圈',
         },
       ]}
@@ -498,97 +470,97 @@ const defaultSolution = '解法：IQ6000【改】'
         rLabel="DPS踩塔"
       />
     </P>
-    <ImgGrid
-      id="millennial-decay-solution-th-tower-grid"
-      cols={[{ title: '击退前' }, { title: '击退后' }]}
-      defaultImgWrapperStyle={{
-        bordered: true,
-        rounded: true,
-        borderVariant: 'cyan',
-      }}
-      rows={[
-        {
-          title: '正点塔',
-          cells: [
-            {
-              img: {
-                src: solution_9,
-                alt: '解法示意图9: 正点塔 TH踩塔 击退前',
+      <ImgGrid
+        id="millennial-decay-solution-th-tower-grid"
+        cols={[{ title: '击退前' }, { title: '击退后' }]}
+        defaultImgWrapperStyle={{
+          bordered: true,
+          rounded: true,
+          borderVariant: 'cyan',
+        }}
+        rows={[
+          {
+            title: '正点塔',
+            cells: [
+              {
+                img: {
+                  src: 'imgs/07/m8s1/millennial_decay/solution_9.png',
+                  alt: '解法示意图9: 正点塔 TH踩塔 击退前',
+                },
               },
-            },
-            {
-              img: {
-                src: solution_10,
-                alt: '解法示意图10: 正点塔 TH踩塔 击退后',
+              {
+                img: {
+                  src: 'imgs/07/m8s1/millennial_decay/solution_10.png',
+                  alt: '解法示意图10: 正点塔 TH踩塔 击退后',
+                },
               },
-            },
-          ],
-        },
-        {
-          title: '斜点塔',
-          cells: [
-            {
-              img: {
-                src: solution_11,
-                alt: '解法示意图11: 斜点塔 TH踩塔 击退前',
+            ],
+          },
+          {
+            title: '斜点塔',
+            cells: [
+              {
+                img: {
+                  src: 'imgs/07/m8s1/millennial_decay/solution_11.png',
+                  alt: '解法示意图11: 斜点塔 TH踩塔 击退前',
+                },
               },
-            },
-            {
-              img: {
-                src: solution_12,
-                alt: '解法示意图12: 斜点塔 TH踩塔 击退后',
+              {
+                img: {
+                  src: 'imgs/07/m8s1/millennial_decay/solution_12.png',
+                  alt: '解法示意图12: 斜点塔 TH踩塔 击退后',
+                },
               },
-            },
-          ],
-        },
-      ]}
-    />
-    <ImgGrid
-      id="millennial-decay-solution-dps-tower-grid"
-      cols={[{ title: '击退前' }, { title: '击退后' }]}
-      defaultImgWrapperStyle={{
-        bordered: true,
-        rounded: true,
-        borderVariant: 'cyan',
-      }}
-      class="hidden"
-      rows={[
-        {
-          title: '正点塔',
-          cells: [
-            {
-              img: {
-                src: solution_13,
-                alt: '解法示意图13: 正点塔 DPS踩塔 击退前',
+            ],
+          },
+        ]}
+      />
+      <ImgGrid
+        id="millennial-decay-solution-dps-tower-grid"
+        cols={[{ title: '击退前' }, { title: '击退后' }]}
+        defaultImgWrapperStyle={{
+          bordered: true,
+          rounded: true,
+          borderVariant: 'cyan',
+        }}
+        class="hidden"
+        rows={[
+          {
+            title: '正点塔',
+            cells: [
+              {
+                img: {
+                  src: 'imgs/07/m8s1/millennial_decay/solution_13.png',
+                  alt: '解法示意图13: 正点塔 DPS踩塔 击退前',
+                },
               },
-            },
-            {
-              img: {
-                src: solution_14,
-                alt: '解法示意图14: 正点塔 DPS踩塔 击退后',
+              {
+                img: {
+                  src: 'imgs/07/m8s1/millennial_decay/solution_14.png',
+                  alt: '解法示意图14: 正点塔 DPS踩塔 击退后',
+                },
               },
-            },
-          ],
-        },
-        {
-          title: '斜点塔',
-          cells: [
-            {
-              img: {
-                src: solution_15,
-                alt: '解法示意图15: 斜点塔 DPS踩塔 击退前',
+            ],
+          },
+          {
+            title: '斜点塔',
+            cells: [
+              {
+                img: {
+                  src: 'imgs/07/m8s1/millennial_decay/solution_15.png',
+                  alt: '解法示意图15: 斜点塔 DPS踩塔 击退前',
+                },
               },
-            },
-            {
-              img: {
-                src: solution_16,
-                alt: '解法示意图16: 斜点塔 DPS踩塔 击退后',
+              {
+                img: {
+                  src: 'imgs/07/m8s1/millennial_decay/solution_16.png',
+                  alt: '解法示意图16: 斜点塔 DPS踩塔 击退后',
+                },
               },
-            },
-          ],
-        },
-      ]}
-    />
+            ],
+          },
+        ]}
+      />
 
     <P>具体来说：</P>
     <Quote variant="lime">
@@ -621,16 +593,16 @@ const defaultSolution = '解法：IQ6000【改】'
   </div>
   <div slot="解法：全员踩塔" class="flex flex-col gap-4">
     <P>虽然扇形有易伤，但踩塔没有易伤，因此可以全员参与踩塔，如下图：</P>
-    <ImgRow
-      borderVariant="cyan"
-      rounded
-      imgs={[
-        {
-          src: solution_op,
-          alt: '解法示意图: 全员踩塔',
-        },
-      ]}
-    />
+      <ImgRow
+        borderVariant="cyan"
+        rounded
+        imgs={[
+          {
+            src: 'imgs/07/m8s1/millennial_decay/solution_op.png',
+            alt: '解法示意图: 全员踩塔',
+          },
+        ]}
+      />
     <P>具体来说：</P>
     <Quote variant="lime">
       <P>

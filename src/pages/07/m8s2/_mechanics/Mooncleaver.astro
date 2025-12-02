@@ -10,10 +10,6 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 
-import mooncleaver_1 from '@/assets/07/m8s2/p1/mooncleaver_1.png'
-import mooncleaver_2 from '@/assets/07/m8s2/p1/mooncleaver_2.png'
-import mooncleaver_3 from '@/assets/07/m8s2/p1/mooncleaver_3.png'
-
 interface Props {
   start: Time
 }
@@ -42,7 +38,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-100 scale-110"
       bordered={false}
       imgClass="shadowbringer"
-      imgs={[{ src: mooncleaver_1, alt: '引导刚刃一闪' }]}
+      imgs={[{ src: 'imgs/07/m8s2/p1/mooncleaver_1.png', alt: '引导刚刃一闪' }]}
     />
 
     <P>
@@ -60,7 +56,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-100 scale-110"
       bordered={false}
       imgClass="shadowbringer"
-      imgs={[{ src: mooncleaver_2, alt: '躲避刚刃一闪' }]}
+      imgs={[{ src: 'imgs/07/m8s2/p1/mooncleaver_2.png', alt: '躲避刚刃一闪' }]}
     />
 
     <P>
@@ -78,7 +74,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-100 scale-110"
       bordered={false}
       imgClass="shadowbringer"
-      imgs={[{ src: mooncleaver_3, alt: '准备处理风震魔印' }]}
+      imgs={[{ src: 'imgs/07/m8s2/p1/mooncleaver_3.png', alt: '准备处理风震魔印' }]}
     />
   </div>
 </SolutionSection>
