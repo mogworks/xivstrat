@@ -1,14 +1,12 @@
 ---
-import type { ImageMetadata } from 'astro'
 import type { VariantType } from '@/lib/variant'
-
-import { Image } from 'astro:assets'
 
 import VueBuff from '@/components/Buff.vue'
 import VueHoverBuff from '@/components/HoverBuff.vue'
+import CosImage from '@/components/CosImage.astro'
 
 interface Props {
-  icon: ImageMetadata
+  icon: string
   name: string
   nameVariant?: VariantType
   description: string
@@ -26,12 +24,13 @@ const {
   hover = false,
   class: className = '',
 }: Props = Astro.props
+const iconUrl = new URL(icon, import.meta.env.PUBLIC_COS_BASE_URL).href
 ---
 
 {
   hover ? (
     <VueHoverBuff
-      icon={icon}
+      icon={iconUrl}
       name={name}
       nameVariant={nameVariant}
       description={description}
@@ -39,14 +38,14 @@ const {
       class={className}
       client:idle
     >
-      <Image slot="icon" src={icon} alt={description} />
+      <CosImage slot="icon" src={icon} alt={description} />
       <slot>
         <p>{description}</p>
       </slot>
     </VueHoverBuff>
   ) : (
-    <VueBuff icon={icon} name={name} description={description} tag={tag} class={className} client:idle>
-      <Image src={icon} alt={description} />
+    <VueBuff icon={iconUrl} name={name} description={description} tag={tag} class={className} client:idle>
+      <CosImage src={icon} alt={description} />
     </VueBuff>
   )
 }

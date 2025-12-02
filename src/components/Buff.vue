@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import type { ImageMetadata } from 'astro'
 import type { HTMLAttributes } from 'vue'
 
 import { cn } from '@/lib/utils'
 
 const props = defineProps<{
-  icon: ImageMetadata
+  icon: string
   name: string
   description: string
   tag?: string
@@ -20,7 +19,7 @@ const props = defineProps<{
   >
     <div class="relative inline-block w-full translate-y-[-12.5%] align-middle">
       <slot>
-        <img :src="icon.src" :alt="description">
+        <img :src="icon" :alt="description">
       </slot>
     </div>
     <span

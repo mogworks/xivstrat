@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets'
-import BeianIcon from '@/assets/beian.png'
+import CosImage from '@/components/CosImage.astro'
+const BeianIcon = 'imgs/beian.png'
 ---
 
 <footer class="absolute bottom-0 w-full border-t py-8">
@@ -48,7 +48,7 @@ import BeianIcon from '@/assets/beian.png'
       </div>
 
       <div class="flex items-center justify-end">
-        <Image src={BeianIcon} alt="公安备案图标" class="mr-1.5 h-3.5 w-3.5" draggable="false" loading="eager" />
+        <CosImage src={BeianIcon} alt="公安备案图标" class="mr-1.5 h-3.5 w-3.5" draggable="false" loading="eager" />
         <a
           href="https://beian.mps.gov.cn/#/query/webSearch?code=36072602000122"
           rel="noreferrer"

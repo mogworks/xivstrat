@@ -1,15 +1,13 @@
 ---
-import type { ImageMetadata } from 'astro'
-
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import { cn } from '@/lib/utils'
 
 interface Props {
-  icon: ImageMetadata
+  icon: string
   name: string
   class?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 const { icon, name, class: className = '', ...props }: Props = Astro.props
@@ -23,6 +21,6 @@ const { icon, name, class: className = '', ...props }: Props = Astro.props
   {...props}
 >
   <div class="relative inline-block w-full">
-    <Image src={icon} alt={name} />
+    <CosImage src={icon} alt={name} />
   </div>
 </span>
