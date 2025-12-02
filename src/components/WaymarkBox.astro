@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets'
 import CosImage from '@/components/CosImage.astro'
 
 import AreaBox from '@/components/AreaBox.astro'
@@ -12,7 +11,7 @@ import { cn } from '@/lib/utils'
 interface Props {
   href?: string
   downloadLabel?: string
-  img?: ImageMetadata | string
+  img?: string
   pageNumber?: number
   slotStart?: number
   slotEnd?: number
@@ -41,11 +40,7 @@ const href = hrefOrigin ? new URL(hrefOrigin, import.meta.env.PUBLIC_COS_BASE_UR
           <>
             <Separator class="my-2 mb-3" />
             <ResizableImageDialog client:idle>
-              {typeof img === 'string' ? (
-                <CosImage src={img} alt="场地标点" class="w-full object-contain" />
-              ) : (
-                <Image src={img} alt="场地标点" class="w-full object-contain" />
-              )}
+              <CosImage src={img} alt="场地标点" class="w-full object-contain" />
             </ResizableImageDialog>
           </>
         )

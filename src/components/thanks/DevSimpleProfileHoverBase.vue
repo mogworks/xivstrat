@@ -21,7 +21,7 @@ const props = withDefaults(
 )
 
 const displayNames = computed(() => {
-  if (props.breakNames && props.breakNames.length) {
+  if (props.breakNames?.length) {
     return props.breakNames
   }
   if (props.name) {

@@ -55,7 +55,7 @@ export function copyToClipboard(text?: string | null) {
   textArea.select()
 
   try {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
+    if (navigator.clipboard?.writeText) {
       navigator.clipboard.writeText(text)
     } else if (document.queryCommandSupported('copy')) {
       // fallback

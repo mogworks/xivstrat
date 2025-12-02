@@ -4,7 +4,7 @@ import ContentSection from '@/components/section/ContentSection.astro'
 
 interface Props {
   title?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 const { title = '说明', ...rest }: Props = Astro.props

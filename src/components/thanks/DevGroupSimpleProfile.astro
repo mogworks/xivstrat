@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 import { getCollection } from 'astro:content'
 
 import DevGroupSimpleProfileHoverBase from './DevGroupSimpleProfileHoverBase.vue'
@@ -27,18 +27,8 @@ const targetDevGroups = devGroups.find((item) => item.id === targetId)
         description={targetDevGroups.data.description}
       >
         <div class="inline-flex h-20 max-w-30 items-center">
-          <Image
-            src={targetDevGroups.data.iconLight}
-            alt={targetDevGroups.data.name}
-            class="inline-flex h-full w-full object-contain select-none dark:hidden"
-            draggable="false"
-          />
-          <Image
-            src={targetDevGroups.data.iconDark}
-            alt={targetDevGroups.data.name}
-            class="hidden h-full w-full object-contain select-none dark:inline-flex"
-            draggable="false"
-          />
+          <CosImage src={targetDevGroups.data.iconLight} alt={targetDevGroups.data.name} class="inline-flex h-full w-full object-contain select-none dark:hidden" draggable="false" />
+          <CosImage src={targetDevGroups.data.iconDark} alt={targetDevGroups.data.name} class="hidden h-full w-full object-contain select-none dark:inline-flex" draggable="false" />
         </div>
       </DevGroupSimpleProfileHoverBase>
     </span>

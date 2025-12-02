@@ -19,7 +19,7 @@ if (
 ) {
   throw new Error('At least two of start, duration and end are required')
 }
-let startSeconds, durationSeconds, endSeconds
+let startSeconds: number, durationSeconds: number, endSeconds: number
 if (start === undefined) {
   durationSeconds = timeToSeconds(duration!)
   endSeconds = timeToSeconds(end!)
