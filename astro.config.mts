@@ -20,13 +20,7 @@ export default defineConfig({
   },
 
   image: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cos.xivstrat.cn',
-        pathname: '/imgs/**',
-      },
-    ],
+    domains: ['xivstrat.cn'],
     layout: 'constrained',
   },
 
