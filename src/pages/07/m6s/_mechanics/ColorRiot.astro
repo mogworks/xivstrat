@@ -1,7 +1,6 @@
 ---
-import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import ListDot from '@/components/ListDot.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -15,9 +14,6 @@ import ColorRiotBombEffect from '../_components/ColorRiotBombEffect.astro'
 import ColorRiotCast from '../_components/ColorRiotCast.astro'
 import SugarRiot from '../_components/SugarRiot.astro'
 
-import color_riot_1 from '@/assets/07/m6s/color_riot_1.png'
-import color_riot_2 from '@/assets/07/m6s/color_riot_2.png'
-import color_riot_solution from '@/assets/07/m6s/color_riot_solution.png'
 import { translations } from '../_translations'
 
 const { WarmBomb, CoolBomb } = translations
@@ -38,8 +34,8 @@ const { WarmBomb, CoolBomb } = translations
     </div>
     <div class="flex gap-4">
       <div class="max-w-50 shrink">
-        <Image
-          src={color_riot_1}
+        <CosImage
+          src="imgs/07/m6s/color_riot_1.png"
           alt="Color Riot 1"
           class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
@@ -58,8 +54,8 @@ const { WarmBomb, CoolBomb } = translations
     </div>
     <div class="flex gap-4">
       <div class="max-w-50 shrink">
-        <Image
-          src={color_riot_2}
+        <CosImage
+          src="imgs/07/m6s/color_riot_2.png"
           alt="Color Riot 2"
           class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
@@ -135,8 +131,8 @@ const { WarmBomb, CoolBomb } = translations
       <SugarRiot />
       太远
     </div>
-    <Image
-      src={color_riot_solution}
+    <CosImage
+      src="imgs/07/m6s/color_riot_solution.png"
       alt="Color Riot Solution"
       class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
     />

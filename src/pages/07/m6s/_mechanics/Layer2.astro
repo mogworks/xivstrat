@@ -1,7 +1,7 @@
 ---
-import { timeToSeconds, type Time } from '@/lib/utils'
+import { timeToSeconds } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Badge from '@/components/Badge.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
@@ -22,10 +22,6 @@ import SprayPainCast from '../_components/SprayPainCast.astro'
 import SugarRiot from '../_components/SugarRiot.astro'
 import AttackSection from '../_components/SugarRiotAttackSection.astro'
 
-import paint_3 from '@/assets/07/m6s/paint/3.png'
-import floor from '@/assets/07/m6s/layer_2/floor.png'
-import solution_jp from '@/assets/07/m6s/layer_2/solution_jp.png'
-import solution_op from '@/assets/07/m6s/layer_2/solution_op.png'
 import { translations } from '../_translations'
 
 const start = '02:36.461'
@@ -82,12 +78,12 @@ const { Layer, SprayPain, Brûlée } = translations
       <SugarRiot />
       连线场外北侧画卷，添加流沙图层
     </div>
-    <Image src={paint_3} alt="Layer Paint #2" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <CosImage src="imgs/07/m6s/paint/3.png" alt="Layer Paint #2" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     <div class="paragraph">
       <SugarRiot />
       读条结束后，图层具现化，场地出现大量仙人掌和流沙，仅有三个角落安全，如下图
     </div>
-    <Image src={floor} alt="Layer #2 Floor" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <CosImage src="imgs/07/m6s/layer_2/floor.png" alt="Layer #2 Floor" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     <h4 class="mt-8 text-2xl">
       <Span variant="yellow">{SprayPain}</Span>
     </h4>
@@ -167,8 +163,8 @@ const { Layer, SprayPain, Brûlée } = translations
       <Span variant="purple">西南角</Span>
     </div>
     <div class="paragraph mt-8">以西北角危险为例：</div>
-    <Image
-      src={solution_jp}
+    <CosImage
+      src="imgs/07/m6s/layer_2/solution_jp.png"
       alt="Layer #2 Solution JP"
       class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
     />
@@ -231,8 +227,8 @@ const { Layer, SprayPain, Brûlée } = translations
       角落
     </div>
     <div class="paragraph mt-8">以西北角危险为例：</div>
-    <Image
-      src={solution_op}
+    <CosImage
+      src="imgs/07/m6s/layer_2/solution_op.png"
       alt="Layer #2 Solution Optimize"
       class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
     />

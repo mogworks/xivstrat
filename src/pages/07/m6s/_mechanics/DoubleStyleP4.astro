@@ -1,7 +1,6 @@
 ---
-import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Badge from '@/components/Badge.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
@@ -23,20 +22,6 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import DoubleStyleCast from '../_components/DoubleStyleCast.astro'
 import SugarRiot from '../_components/SugarRiot.astro'
 
-import arrow from '@/assets/07/m6s/paint_mark/arrow@3x.png'
-import fire from '@/assets/07/m6s/paint_mark/fire@3x.png'
-import thunder from '@/assets/07/m6s/paint_mark/thunder@3x.png'
-import arrow_1 from '@/assets/07/m6s/double_style_p4/arrow_1.png'
-import arrow_2 from '@/assets/07/m6s/double_style_p4/arrow_2.png'
-import initial from '@/assets/07/m6s/double_style_p4/solution/initial.png'
-import fire_1 from '@/assets/07/m6s/double_style_p4/solution/fire_1.png'
-import fire_2 from '@/assets/07/m6s/double_style_p4/solution/fire_2.png'
-import thunder_1 from '@/assets/07/m6s/double_style_p4/solution/thunder_1.png'
-import thunder_2 from '@/assets/07/m6s/double_style_p4/solution/thunder_2.png'
-import spread_1 from '@/assets/07/m6s/double_style_p4/solution/spread_1.png'
-import spread_2 from '@/assets/07/m6s/double_style_p4/solution/spread_2.png'
-import spread_to_stack_1 from '@/assets/07/m6s/double_style_p4/solution/spread_to_stack_1.png'
-import spread_to_stack_2 from '@/assets/07/m6s/double_style_p4/solution/spread_to_stack_2.png'
 import { translations } from '../_translations'
 
 const { TasteofFire, TasteofThunder, Rush, DoubleStyle, SingleStyle, Sugarscape } = translations
@@ -82,10 +67,10 @@ const { TasteofFire, TasteofThunder, Rush, DoubleStyle, SingleStyle, Sugarscape 
     </div>
     <div class="paragraph -my-4">
       左手有
-      <Image src={fire} alt="Paint Mark: Fire" class="-mr-4.5 -ml-5 w-25 drop-shadow-sm drop-shadow-black" />
-      <Image src={thunder} alt="Paint Mark: Thunder" class="-mx-4.5 w-25 drop-shadow-sm drop-shadow-black" />
+      <CosImage src="imgs/07/m6s/paint_mark/fire@3x.png" alt="Paint Mark: Fire" class="-mr-4.5 -ml-5 w-25 drop-shadow-sm drop-shadow-black" />
+      <CosImage src="imgs/07/m6s/paint_mark/thunder@3x.png" alt="Paint Mark: Thunder" class="-mx-4.5 w-25 drop-shadow-sm drop-shadow-black" />
       两种可能，右手则固定为
-      <Image src={arrow} alt="Paint Mark: Arrow" class="-mx-4.5 w-25 drop-shadow-sm drop-shadow-black" />
+      <CosImage src="imgs/07/m6s/paint_mark/arrow@3x.png" alt="Paint Mark: Arrow" class="-mx-4.5 w-25 drop-shadow-sm drop-shadow-black" />
     </div>
     <div class="paragraph">
       <ListDot />
@@ -146,15 +131,15 @@ const { TasteofFire, TasteofThunder, Rush, DoubleStyle, SingleStyle, Sugarscape 
     </div>
     <div class="flex gap-3">
       <div class="max-w-96">
-        <Image
-          src={arrow_1}
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/arrow_1.png"
           alt="Double Style P4: Arrow 1"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
       </div>
       <div class="max-w-96">
-        <Image
-          src={arrow_2}
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/arrow_2.png"
           alt="Double Style P4: Arrow 2"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
@@ -185,8 +170,8 @@ const { TasteofFire, TasteofThunder, Rush, DoubleStyle, SingleStyle, Sugarscape 
       <Span variant="pink">左下桥</Span>
       上，如下图
     </div>
-    <Image
-      src={initial}
+    <CosImage
+      src="imgs/07/m6s/double_style_p4/solution/initial.png"
       alt="Double Style P4 Solution: Initial"
       class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
     />
@@ -214,15 +199,15 @@ const { TasteofFire, TasteofThunder, Rush, DoubleStyle, SingleStyle, Sugarscape 
     </div>
     <div class="flex gap-3">
       <div class="max-w-96">
-        <Image
-          src={fire_1}
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/fire_1.png"
           alt="Double Style P4 Solution: Fire 1"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
       </div>
       <div class="max-w-96">
-        <Image
-          src={fire_2}
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/fire_2.png"
           alt="Double Style P4 Solution: Fire 2"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
@@ -269,15 +254,15 @@ const { TasteofFire, TasteofThunder, Rush, DoubleStyle, SingleStyle, Sugarscape 
     </div>
     <div class="flex gap-3">
       <div class="max-w-96">
-        <Image
-          src={thunder_1}
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/thunder_1.png"
           alt="Double Style P4 Solution: Thunder 1"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
       </div>
       <div class="max-w-96">
-        <Image
-          src={thunder_2}
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/thunder_2.png"
           alt="Double Style P4 Solution: Thunder 2"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
@@ -298,15 +283,15 @@ const { TasteofFire, TasteofThunder, Rush, DoubleStyle, SingleStyle, Sugarscape 
     </div>
     <div class="flex gap-3">
       <div class="max-w-96">
-        <Image
-          src={spread_1}
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/spread_1.png"
           alt="Double Style P4 Solution: Spread 1"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
       </div>
       <div class="max-w-96">
-        <Image
-          src={spread_2}
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/spread_2.png"
           alt="Double Style P4 Solution: Spread 2"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
@@ -315,15 +300,15 @@ const { TasteofFire, TasteofThunder, Rush, DoubleStyle, SingleStyle, Sugarscape 
     <h4 class="mt-4 text-xl"><Span variant="lime">2. 若按分散预站位，实际为分摊时的集合跑动逻辑</Span></h4>
     <div class="flex gap-3">
       <div class="max-w-96">
-        <Image
-          src={spread_to_stack_1}
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/spread_to_stack_1.png"
           alt="Double Style P4: Spread to Stack 1"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
       </div>
       <div class="max-w-96">
-        <Image
-          src={spread_to_stack_2}
+        <CosImage
+          src="imgs/07/m6s/double_style_p4/solution/spread_to_stack_2.png"
           alt="Double Style P4: Spread to Stack 2"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
