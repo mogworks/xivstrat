@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
@@ -7,8 +7,6 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import NeoBombarianSpecialCast from '../_components/NeoBombarianSpecialCast.astro'
 import Span from '@/components/Span.vue'
-
-import img from '@/assets/07/m7s/NeoBS.png'
 ---
 
 <NeoBombarianSpecialCast start="02:19.812" />
@@ -24,6 +22,6 @@ import img from '@/assets/07/m7s/NeoBS.png'
     <div class="paragraph">所有人在<Span variant="pink">场地北侧</Span>集合,等待被击飞到P2场地</div>
     <div class="paragraph">图中红点位置为击飞的极限距离点，比此点更靠近boss会在击飞后掉下平台</div>
     <div class="paragraph">站在点上会刚好落在平台边</div>
-    <Image src={img} alt="" class="w-96" />
+    <CosImage src="imgs/07/m7s/NeoBS.png" alt="" class="w-96" />
   </div>
 </SolutionSection>

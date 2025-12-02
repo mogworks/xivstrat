@@ -23,12 +23,6 @@ import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import StratLink from '@/components/StratLink.astro'
 import Quote from '@/components/typography/Quote.astro'
 
-import quarry_swamp from '@/assets/07/m7s/debris_deathmatch_sporesac/quarrySwamp.png'
-import quarry_swamp_1 from '@/assets/07/m7s/debris_deathmatch_sporesac/quarrySwamp_1.png'
-import tendrilsOfTerror_stack from '@/assets/07/m7s/debris_deathmatch_sporesac/tendrilsOfTerror_stack.png'
-import img_1 from '@/assets/07/m7s/debris_deathmatch_sporesac/1.png'
-import img_2 from '@/assets/07/m7s/debris_deathmatch_sporesac/2.png'
-import img_3 from '@/assets/07/m7s/debris_deathmatch_sporesac/3.png'
 import NoteSection from '@/components/section/NoteSection.astro'
 import ListDot from '@/components/ListDot.astro'
 
@@ -42,7 +36,7 @@ const quarrySwamp = translations.quarrySwamp
 
 <DebrisDeathmatchCast start="07:53.308" />
 <EventSection time="07:57.598">四面墙各自连线最近的人虚线预兆</EventSection>
-<SporeSacCast2 start="07:58.431" end="08:01.422" />
+<SporeSacCast2 start="07:58.431" />
 <AttackSection time="08:08.593" damage="57000" damageType="physical" />
 <KillerSeedsAppear time="08:10.685" />
 <AttackSection time="08:11.620" damage="57000" damageType="physical" />
@@ -142,7 +136,7 @@ const quarrySwamp = translations.quarrySwamp
       borderVariant="yellow"
       imgs={[
         {
-          src: img_1,
+          src: 'imgs/07/m7s/debris_deathmatch_sporesac/1.png',
           alt: '接线站位',
         },
       ]}
@@ -161,7 +155,7 @@ const quarrySwamp = translations.quarrySwamp
       borderVariant="yellow"
       imgs={[
         {
-          src: img_2,
+          src: 'imgs/07/m7s/debris_deathmatch_sporesac/2.png',
           alt: '孢子站位',
         },
       ]}
@@ -187,11 +181,11 @@ const quarrySwamp = translations.quarrySwamp
       borderVariant="yellow"
       imgs={[
         {
-          src: tendrilsOfTerror_stack,
+          src: 'imgs/07/m7s/debris_deathmatch_sporesac/tendrilsOfTerror_stack.png',
           alt: '分摊放冰花站位',
         },
         {
-          src: img_3,
+          src: 'imgs/07/m7s/debris_deathmatch_sporesac/3.png',
           alt: '躲避冰花站位',
         },
       ]}
@@ -228,12 +222,12 @@ const quarrySwamp = translations.quarrySwamp
       borderVariant="yellow"
       imgs={[
         {
-          src: quarry_swamp,
+          src: 'imgs/07/m7s/debris_deathmatch_sporesac/quarrySwamp.png',
           alt: '石化波动站位示意图',
           title: '1层debuff站位',
         },
         {
-          src: quarry_swamp_1,
+          src: 'imgs/07/m7s/debris_deathmatch_sporesac/quarrySwamp_1.png',
           alt: '石化波动站位示意图',
           title: '30m团辅站位',
         },

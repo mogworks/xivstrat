@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
@@ -20,13 +20,6 @@ import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import AttackSection from '../_components/BossAttackSection.astro'
 
 import { translations } from '../_translations'
-
-import stoneringer_1 from '@/assets/07/m7s/stoneringer/stoneringer_1.png'
-import stoneringer_2 from '@/assets/07/m7s/stoneringer/stoneringer_2.png'
-import stoneringer_circle from '@/assets/07/m7s/stoneringer/stoneringer_circle.png'
-import stoneringer_ring from '@/assets/07/m7s/stoneringer/stoneringer_ring.png'
-import smash_here from '@/assets/07/m7s/smash_here.png'
-import smash_there from '@/assets/07/m7s/smash_there.png'
 
 const smashHere = translations.smashHere
 const smashThere = translations.smashThere
@@ -56,7 +49,7 @@ const brutishswing = translations.brutishSwing
     </P>
     <div class="flex gap-4">
       <div class="max-w-88 flex-1">
-        <Image src={stoneringer_1} alt="" class="rounded border-2 border-yellow-800 dark:border-yellow-100" />
+        <CosImage src="imgs/07/m7s/stoneringer/stoneringer_1.png" alt="" class="rounded border-2 border-yellow-800 dark:border-yellow-100" />
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
@@ -77,7 +70,7 @@ const brutishswing = translations.brutishSwing
     </div>
     <div class="flex gap-4">
       <div class="max-w-88 flex-1">
-        <Image src={stoneringer_2} alt="" class="rounded border-2 border-yellow-800 dark:border-yellow-100" />
+        <CosImage src="imgs/07/m7s/stoneringer/stoneringer_2.png" alt="" class="rounded border-2 border-yellow-800 dark:border-yellow-100" />
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
@@ -104,12 +97,12 @@ const brutishswing = translations.brutishSwing
       bordered={false}
       imgs={[
         {
-          src: stoneringer_circle,
+          src: 'imgs/07/m7s/stoneringer/stoneringer_circle.png',
           alt: '棒槌释放钢铁',
           title: '钢铁',
         },
         {
-          src: stoneringer_ring,
+          src: 'imgs/07/m7s/stoneringer/stoneringer_ring.png',
           alt: '长刀释放月环',
           title: '月环',
         },
@@ -129,7 +122,7 @@ const brutishswing = translations.brutishSwing
 
     <div class="flex gap-4">
       <div class="flex-1 shrink">
-        <Image src={smash_here} alt=`${smashHere}` />
+        <CosImage src="imgs/07/m7s/smash_here.png" alt={`${smashHere}`} />
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
@@ -145,7 +138,7 @@ const brutishswing = translations.brutishSwing
     </div>
     <div class="flex gap-4">
       <div class="flex-1 shrink">
-        <Image src={smash_there} alt=`${smashThere}` />
+        <CosImage src="imgs/07/m7s/smash_there.png" alt={`${smashThere}`} />
       </div>
       <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
