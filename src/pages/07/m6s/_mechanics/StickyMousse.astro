@@ -1,7 +1,6 @@
 ---
-import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import DamageInfo from '@/components/DamageInfo.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -14,12 +13,6 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 import MousseMineDebuff from '../_components/MousseMineDebuff.astro'
 import StickyMousseCast from '../_components/StickyMousseCast.astro'
 import SugarRiot from '../_components/SugarRiot.astro'
-
-import spread from '@/assets/07/m6s/sticky_mousse/spread.png'
-import spread_h1_d1 from '@/assets/07/m6s/sticky_mousse/spread_h1_d1.png'
-import spread_d2_d4 from '@/assets/07/m6s/sticky_mousse/spread_d2_d4.png'
-import stack_h1_d1 from '@/assets/07/m6s/sticky_mousse/stack_h1_d1.png'
-import stack_d2_d4 from '@/assets/07/m6s/sticky_mousse/stack_d2_d4.png'
 ---
 
 <StickyMousseCast start="01:04.616" end="01:10.402" />
@@ -64,7 +57,7 @@ import stack_d2_d4 from '@/assets/07/m6s/sticky_mousse/stack_d2_d4.png'
       <Span variant="pink">面向为基准</Span>
       分散
     </div>
-    <Image src={spread} alt="Sticky Mousse Spread" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+    <CosImage src="imgs/07/m6s/sticky_mousse/spread.png" alt="Sticky Mousse Spread" class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     <div class="paragraph mt-8">
       分散点名确定后，
       <RoleIcon role="tank" tag="MT" />
@@ -84,13 +77,13 @@ import stack_d2_d4 from '@/assets/07/m6s/sticky_mousse/stack_d2_d4.png'
       找被点名的人集合分摊
     </div>
     <div class="flex gap-4">
-      <Image
-        src={spread_h1_d1}
+      <CosImage
+        src="imgs/07/m6s/sticky_mousse/spread_h1_d1.png"
         alt="Sticky Mousse: H1 D1"
         class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
       />
-      <Image
-        src={stack_h1_d1}
+      <CosImage
+        src="imgs/07/m6s/sticky_mousse/stack_h1_d1.png"
         alt="Sticky Mousse Stack: H1 D1"
         class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
       />
@@ -119,13 +112,13 @@ import stack_d2_d4 from '@/assets/07/m6s/sticky_mousse/stack_d2_d4.png'
       <RoleIcon role="melee" tag="D2" />
     </div>
     <div class="flex gap-4">
-      <Image
-        src={spread_d2_d4}
+      <CosImage
+        src="imgs/07/m6s/sticky_mousse/spread_d2_d4.png"
         alt="Sticky Mousse: D2 D4"
         class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
       />
-      <Image
-        src={stack_d2_d4}
+      <CosImage
+        src="imgs/07/m6s/sticky_mousse/stack_d2_d4.png"
         alt="Sticky Mousse Stack: D2 D4"
         class="w-96 border-2 border-fuchsia-400 dark:border-fuchsia-100"
       />

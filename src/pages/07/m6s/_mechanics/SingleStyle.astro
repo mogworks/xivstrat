@@ -1,7 +1,6 @@
 ---
-import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Badge from '@/components/Badge.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
@@ -13,16 +12,13 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 
 import SugarRiot from '../_components/SugarRiot.astro'
 
-import arrow from '@/assets/07/m6s/paint_mark/arrow@3x.png'
-import single_style_1 from '@/assets/07/m6s/single_style_1.png'
-import single_style_2 from '@/assets/07/m6s/single_style_2.png'
 import { translations } from '../_translations'
 ---
 
 <CastSection start="06:32.707" duration={6.6} adjustDuration={false} ability={translations.SingleStyle} class="-my-8">
   <SugarRiot slot="source" />
   绘制
-  <Image src={arrow} alt="Paint Mark: Arrow" class="-mx-5.5 w-30 drop-shadow-sm drop-shadow-black" />
+  <CosImage src="imgs/07/m6s/paint_mark/arrow@3x.png" alt="Paint Mark: Arrow" class="-mx-5.5 w-30 drop-shadow-sm drop-shadow-black" />
   <Badge variant="emerald">7m宽井字切</Badge>
 </CastSection>
 <MechanicSection>
@@ -43,10 +39,10 @@ import { translations } from '../_translations'
     </div>
     <div class="flex gap-3">
       <div class="max-w-96">
-        <Image src={single_style_1} alt="Single Style: 1" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <CosImage src="imgs/07/m6s/single_style_1.png" alt="Single Style: 1" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
       <div class="max-w-96">
-        <Image src={single_style_2} alt="Single Style: 2" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <CosImage src="imgs/07/m6s/single_style_2.png" alt="Single Style: 2" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
       </div>
     </div>
   </div>
