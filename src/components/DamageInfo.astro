@@ -1,13 +1,13 @@
 ---
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import { cn } from '@/lib/utils'
 
 import DamageVariant from '@/components/DamageVariant.astro'
 
-import physical from '@/assets/damage_type/physical.png'
-import magical from '@/assets/damage_type/magical.png'
-import special from '@/assets/damage_type/special.png'
+const physical = 'imgs/damage_type/physical.png?width=80&height=80'
+const magical = 'imgs/damage_type/magical.png?width=80&height=80'
+const special = 'imgs/damage_type/special.png?width=80&height=80'
 import type { DamageVariantType } from '@/lib/damage_variant'
 
 interface Props {
@@ -32,11 +32,11 @@ const img = { physical, magical, special }[type]
 <DamageVariant variant={variant} variants={variants} />
 <span
   class={cn(
-    'damage-info inline-flex items-center rounded border bg-gradient-to-r pr-[calc(1em*6/18)] text-decimal text-white',
+    'damage-info inline-flex items-center rounded border bg-linear-to-r pr-[calc(1em*6/18)] text-decimal text-white',
     style,
     className,
   )}
 >
-  <Image src={img} alt={type} class="ml-[calc(1em*2/18)] h-[calc(1em*20/18)] w-[calc(1em*20/18)]" />
+  <CosImage src={img} alt={type} class="ml-[calc(1em*2/18)] h-[calc(1em*20/18)] w-[calc(1em*20/18)]" />
   <span class="damage-specific-number text-white" data-damage={damage}>{damage}</span>
 </span>

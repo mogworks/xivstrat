@@ -1,5 +1,4 @@
 ---
-import type { Time } from '@/lib/utils'
 
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
@@ -25,25 +24,6 @@ import RoaringWindCast from '../_components/RoaringWindCast.astro'
 import FangedChargeCast from '../_components/FangedChargeCast.astro'
 
 import { translations } from '../_translations'
-
-import terrestrial_rage from '@/assets/07/m8s1/shadowchase/terrestrial_rage.png'
-import fanged_charge_1 from '@/assets/07/m8s1/shadowchase/fanged_charge_1.png'
-import fanged_charge_2 from '@/assets/07/m8s1/shadowchase/fanged_charge_2.png'
-import shadowchase_1 from '@/assets/07/m8s1/shadowchase/1.png'
-import shadowchase_2 from '@/assets/07/m8s1/shadowchase/2.png'
-import roaring_wind_1 from '@/assets/07/m8s1/shadowchase/roaring_wind_1.png'
-import roaring_wind_2 from '@/assets/07/m8s1/shadowchase/roaring_wind_2.png'
-import solution_1 from '@/assets/07/m8s1/shadowchase/solution_1.png'
-import solution_2 from '@/assets/07/m8s1/shadowchase/solution_2.png'
-import solution_3 from '@/assets/07/m8s1/shadowchase/solution_3.png'
-import solution_4 from '@/assets/07/m8s1/shadowchase/solution_4.png'
-import solution_5 from '@/assets/07/m8s1/shadowchase/solution_5.png'
-import solution_6 from '@/assets/07/m8s1/shadowchase/solution_6.png'
-import solution_7 from '@/assets/07/m8s1/shadowchase/solution_7.png'
-import solution_8 from '@/assets/07/m8s1/shadowchase/solution_8.png'
-import solution_9 from '@/assets/07/m8s1/shadowchase/solution_9.png'
-import solution_10 from '@/assets/07/m8s1/shadowchase/solution_10.png'
-import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
 ---
 
 <BareFangsEvent time="04:34.250" phase="P3" />
@@ -85,7 +65,7 @@ import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
       rounded
       imgs={[
         {
-          src: terrestrial_rage,
+          src: 'imgs/07/m8s1/shadowchase/terrestrial_rage.png',
           alt: '大地之怒',
         },
       ]}
@@ -107,12 +87,12 @@ import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
       rounded
       imgs={[
         {
-          src: fanged_charge_1,
+          src: 'imgs/07/m8s1/shadowchase/fanged_charge_1.png',
           alt: '突进光牙1',
           title: '第一轮',
         },
         {
-          src: fanged_charge_2,
+          src: 'imgs/07/m8s1/shadowchase/fanged_charge_2.png',
           alt: '突进光牙2',
           title: '第二轮',
         },
@@ -132,12 +112,12 @@ import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
       rounded
       imgs={[
         {
-          src: shadowchase_1,
+          src: 'imgs/07/m8s1/shadowchase/1.png',
           alt: '残影剑1',
           title: '模式一',
         },
         {
-          src: shadowchase_2,
+          src: 'imgs/07/m8s1/shadowchase/2.png',
           alt: '残影剑2',
           title: '模式二',
         },
@@ -160,12 +140,12 @@ import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
       rounded
       imgs={[
         {
-          src: roaring_wind_1,
+          src: 'imgs/07/m8s1/shadowchase/roaring_wind_1.png',
           alt: '风狼豪波1',
           title: '模式一',
         },
         {
-          src: roaring_wind_2,
+          src: 'imgs/07/m8s1/shadowchase/roaring_wind_2.png',
           alt: '风狼豪波2',
           title: '模式二',
         },
@@ -201,13 +181,13 @@ import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
           cells: [
             {
               img: {
-                src: solution_1,
+                src: 'imgs/07/m8s1/shadowchase/solution_1.png',
                 alt: '解法示意图1: TH分散DPS分摊 第一轮光牙',
               },
             },
             {
               img: {
-                src: solution_2,
+                src: 'imgs/07/m8s1/shadowchase/solution_2.png',
                 alt: '解法示意图2: DPS分散TH分摊 第一轮光牙',
               },
             },
@@ -218,13 +198,13 @@ import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
           cells: [
             {
               img: {
-                src: solution_3,
+                src: 'imgs/07/m8s1/shadowchase/solution_3.png',
                 alt: '解法示意图3: TH分散DPS分摊 第二轮光牙',
               },
             },
             {
               img: {
-                src: solution_4,
+                src: 'imgs/07/m8s1/shadowchase/solution_4.png',
                 alt: '解法示意图4: DPS分散TH分摊 第二轮光牙',
               },
             },
@@ -278,11 +258,11 @@ import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
       borderClass="rounded-b-full"
       imgs={[
         {
-          src: solution_5,
+          src: 'imgs/07/m8s1/shadowchase/solution_5.png',
           alt: '解法示意图5: 近战贪点',
         },
         {
-          src: solution_6,
+          src: 'imgs/07/m8s1/shadowchase/solution_6.png',
           alt: '解法示意图6: 近战贪点',
         },
       ]}
@@ -316,13 +296,13 @@ import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
           cells: [
             {
               img: {
-                src: solution_7,
+                src: 'imgs/07/m8s1/shadowchase/solution_7.png',
                 alt: '解法示意图7: TH分摊DPS分散 模式一',
               },
             },
             {
               img: {
-                src: solution_8,
+                src: 'imgs/07/m8s1/shadowchase/solution_8.png',
                 alt: '解法示意图8: DPS分摊TH分散 模式一',
               },
             },
@@ -333,13 +313,13 @@ import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
           cells: [
             {
               img: {
-                src: solution_9,
+                src: 'imgs/07/m8s1/shadowchase/solution_9.png',
                 alt: '解法示意图9: TH分摊DPS分散 模式二',
               },
             },
             {
               img: {
-                src: solution_10,
+                src: 'imgs/07/m8s1/shadowchase/solution_10.png',
                 alt: '解法示意图10: DPS分摊TH分散 模式二',
               },
             },
@@ -360,7 +340,7 @@ import solution_11 from '@/assets/07/m8s1/shadowchase/solution_11.png'
       rounded
       imgs={[
         {
-          src: solution_11,
+          src: 'imgs/07/m8s1/shadowchase/solution_11.png',
           alt: '解法示意图11: 躲避风狼豪波',
         },
       ]}

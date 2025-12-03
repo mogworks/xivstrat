@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
 
-import RightArrowSVG from '@/assets/svg/right-arrow.svg?component'
+import RightArrowSVG from '@/svg/right-arrow.svg?component'
 
 import type { Route } from './type'
 
@@ -16,7 +16,7 @@ const props = withDefaults(
     path: undefined,
     children: () => [],
     deepIndex: 0,
-  }
+  },
 )
 
 const expanded = ref(false)

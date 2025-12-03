@@ -32,7 +32,7 @@ const {
   activate: handleActivateAnchorObserver,
   deactivate: handleDeactivateAnchorObserver,
   activeId,
-} = useAnchorObserver(mechanics.value.map(item => item.href?.slice(1)))
+} = useAnchorObserver(mechanics.value.map((item) => item.href?.slice(1)))
 
 onMounted(async () => {
   await handleActivateAnchorObserver()

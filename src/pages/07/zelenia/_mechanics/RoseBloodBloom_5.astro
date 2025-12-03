@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
@@ -7,28 +7,22 @@ import SolutionSection from '@/components/section/SolutionSection.astro'
 
 import Zelenia from '../_components/Zelenia.astro'
 
-import a1g from '@/assets/07/zelenia/P3-5/P3-5-1a-g.png'
-import a1 from '@/assets/07/zelenia/P3-5/P3-5-1a.png'
-import a2 from '@/assets/07/zelenia/P3-5/P3-5-2a.png'
-import a3 from '@/assets/07/zelenia/P3-5/P3-5-3a.png'
-import a4 from '@/assets/07/zelenia/P3-5/P3-5-4a.png'
-import a4g from '@/assets/07/zelenia/P3-5/P3-5-4a-g.png'
-import a5 from '@/assets/07/zelenia/P3-5/P3-5-5a.png'
-import a6 from '@/assets/07/zelenia/P3-5/P3-5-6a.png'
-
-import ga1 from '@/assets/07/zelenia/P3-5/P3-5-ga1.png'
-import ga2 from '@/assets/07/zelenia/P3-5/P3-5-ga2.png'
-import ga3 from '@/assets/07/zelenia/P3-5/P3-5-ga3.png'
-import ga4 from '@/assets/07/zelenia/P3-5/P3-5-ga4.png'
-
-import ya1 from '@/assets/07/zelenia/P3-5/P3-5-ya1.png'
-import ya2 from '@/assets/07/zelenia/P3-5/P3-5-ya2.png'
-import ya3 from '@/assets/07/zelenia/P3-5/P3-5-ya3.png'
-import ya4 from '@/assets/07/zelenia/P3-5/P3-5-ya4.png'
-
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+
+const a1g = 'imgs/07/zelenia/P3-5/P3-5-1a-g.png'
+const a1 = 'imgs/07/zelenia/P3-5/P3-5-1a.png'
+const a2 = 'imgs/07/zelenia/P3-5/P3-5-2a.png'
+const a3 = 'imgs/07/zelenia/P3-5/P3-5-3a.png'
+const a4 = 'imgs/07/zelenia/P3-5/P3-5-4a.png'
+const a4g = 'imgs/07/zelenia/P3-5/P3-5-4a-g.png'
+const a5 = 'imgs/07/zelenia/P3-5/P3-5-5a.png'
+const a6 = 'imgs/07/zelenia/P3-5/P3-5-6a.png'
+
+const ga4 = 'imgs/07/zelenia/P3-5/P3-5-ga4.png'
+
+const ya4 = 'imgs/07/zelenia/P3-5/P3-5-ya4.png'
 ---
 
 <MechanicSection>
@@ -111,34 +105,34 @@ import ImgRow from '@/components/typography/ImgRow.astro'
     <div id="six-damage-grid" class="grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-2">
       {/* 第一行第一列 */}
       <div class="flex justify-center px-3 py-2">
-        <Image src={a1g} alt="sixdamage: 1" class="omen-img border-cyan-700 dark:border-cyan-100" />
-        <Image src={a1} alt="sixdamage: 3" class="activate-img hidden border-cyan-700 dark:border-cyan-100" />
+        <CosImage src={a1g} alt="sixdamage: 1" class="omen-img border-cyan-700 dark:border-cyan-100" />
+        <CosImage src={a1} alt="sixdamage: 3" class="activate-img hidden border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第一行第二列 */}
       <div class="flex justify-center px-3 py-2">
-        <Image src={a2} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
+        <CosImage src={a2} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第一行第三列 */}
       <div class="flex justify-center px-3 py-2">
-        <Image src={a3} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
+        <CosImage src={a3} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第二行第一列 */}
       <div class="flex justify-center px-3 py-2">
-        <Image src={a4g} alt="Windfang: 1" class="omen-img border-cyan-700 dark:border-cyan-100" />
-        <Image src={a4} alt="Windfang: 3" class="activate-img hidden border-cyan-700 dark:border-cyan-100" />
+        <CosImage src={a4g} alt="Windfang: 1" class="omen-img border-cyan-700 dark:border-cyan-100" />
+        <CosImage src={a4} alt="Windfang: 3" class="activate-img hidden border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第二行第二列 */}
       <div class="flex justify-center px-3 py-2">
-        <Image src={a5} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
+        <CosImage src={a5} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
 
       {/* 第二行第三列 */}
       <div class="flex justify-center px-3 py-2">
-        <Image src={a6} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
+        <CosImage src={a6} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
     </div>
   </div>

@@ -1,7 +1,5 @@
 ---
 import Buff from '@/components/Buff.astro'
-
-import frogtourage_fan from '@/assets/buff/07/m5s/214286.png'
 import { translations } from '../_translations'
 
 interface Props {
@@ -11,6 +9,7 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const frogtourage_fan = 'imgs/buff/07/m5s/214286.png'
 ---
 
 <Buff

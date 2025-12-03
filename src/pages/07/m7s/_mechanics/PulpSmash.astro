@@ -8,8 +8,6 @@ import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import PulpSmashCast from '../_components/PulpSmashCast.astro'
 import TheUnpottedActivate from '../_components/TheUnpottedActivate.astro'
 
-import pulp_smash from '@/assets/07/m7s/pulp_smash/pulp_smash.png'
-import pulp_smash_arena_base from '@/assets/07/m7s/pulp_smash/pulp_smash_arena_base.png'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import ICftDActivate from '../_components/ICftDActivate.astro'
 import T from '@/components/typography/T.astro'
@@ -100,7 +98,7 @@ const defaultSolution = '解法：日野主流（面基）'
         <Span variant="pink">标准八方分散</Span>
       </div>
       <div class="paragraph">分散示意图如下：</div>
-      <ImgRow wrapperClass="max-w-100" bordered={false} imgs={[{ src: pulp_smash, alt: '以BOSS面向为准' }]} />
+      <ImgRow wrapperClass="max-w-100" bordered={false} imgs={[{ src: 'imgs/07/m7s/pulp_smash/pulp_smash.png', alt: '以BOSS面向为准' }]} />
     </div>
   </div>
   <div slot="解法：欧野主流（场基）">
@@ -116,7 +114,7 @@ const defaultSolution = '解法：日野主流（面基）'
         bordered={false}
         imgs={[
           {
-            src: pulp_smash_arena_base,
+            src: 'imgs/07/m7s/pulp_smash/pulp_smash_arena_base.png',
             alt: '以场地方向为准',
           },
         ]}

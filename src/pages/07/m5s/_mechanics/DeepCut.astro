@@ -1,7 +1,7 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Boss from '@/components/Boss.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
@@ -12,8 +12,6 @@ import Bleeding from '@/components/buff/Bleeding.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-
-import deep_cut_img from '@/assets/07/m5s/deep_cut.png'
 
 import DeepCutCast from '../_components/DeepCutCast.astro'
 
@@ -44,7 +42,7 @@ const { start }: Props = Astro.props
 <SolutionSection>
   <div class="flex gap-4">
     <div class="max-w-90 shrink">
-      <Image src={deep_cut_img} alt="Deep Cut Solution" class="border-2 border-amber-800/75 dark:border-amber-100" />
+      <CosImage src="imgs/07/m5s/deep_cut.png" alt="Deep Cut Solution" class="border-2 border-amber-800/75 dark:border-amber-100" />
     </div>
     <div class="shrink-0 grow space-y-4">
       <div class="paragraph">

@@ -14,15 +14,12 @@ import RoseBloodBloom4 from './_mechanics/RoseBloodBloom_4.astro'
 import RoseBloodBloom5 from './_mechanics/RoseBloodBloom_5.astro'
 import RoseBloodBloom6 from './_mechanics/RoseBloodBloom_6.astro'
 
-import RoseBloodBloom2Dynamic from './_components/RoseBloodBloom2Dynamic.astro'
-
 import AlexandrianBanish2Cast from './_components/AlexandrianBanish2Cast.astro'
 import AlexandrianThunder2 from './_components/AlexandrianThunder2Cast.astro'
 import AlexandrianThunder3 from './_components/AlexandrianThunder3Cast.astro'
 import AlexandrianBanish3 from './_mechanics/AlexandrianBanish3.astro'
 
 import BudofValorCast from './_components/BudofValorCast.astro'
-import ShockCast from './_components/ShockCast.astro'
 
 import RoseFloor from './_mechanics/RoseFloor.astro'
 import Shock from './_mechanics/Shock.astro'
@@ -37,9 +34,6 @@ const base = '02:48.767'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <!-- <EventSection>
-    这里写P3阶段起手、走位、机制要点等文字内容。
-  </EventSection> -->
   <SeparatorSection id="roseblood-bloom-1" title="魔法阵展开 · 一式" />
   <RoseBloodBloom start={base} num={1} />
   <AlexandrianThunder2 start="02:54.915" />
@@ -52,8 +46,6 @@ const base = '02:48.767'
   <SeparatorSection id="roseblood-bloom-2" title="魔法阵展开 · 二式" />
   <RoseBloodBloom start="03:35.299" num={2} />
   <RoseBloodBloom2 />
-  <!-- 动态部分暂时先隐藏了 -->
-  <!-- <RoseBloodBloom2Dynamic /> -->
 
   <SpecterOfTheLostCast start="03:55.571" />
 
@@ -62,11 +54,6 @@ const base = '02:48.767'
   <RoseBloodBloom start="04:10.005" num={3} />
   <RoseBloodBloom3 />
 
-  <!-- <SeparatorSection id="emblazon" title="Emblazon" />
-
-  <SeparatorSection id="explosion" title="Explosion" />
-
-  <SeparatorSection id="thorned-catharsis" title="Thorned Catharsis" /> -->
   <ThornedCatharsis start="04:42.488" />
 
   <SeparatorSection id="budofvalor-three" title="生成幻影 & 震惊 & 凌空错" />
@@ -75,17 +62,11 @@ const base = '02:48.767'
 
   <EscelonsFallCast start="05:08.165" />
 
-  <!-- <ShockCast start="05:14.852"/> -->
   <Shock start="05:14.852" type="half" />
 
   <AlexandrianBanish2Cast time="05:15.972" />
   <EscelonsFallP33 />
 
-  <!-- <SeparatorSection id="alexandrian-banish-II" title="Alexandrian Banish II" />
-
-  <SeparatorSection id="escelons-fall " title="Escelons' Fall" />
-
-  <SeparatorSection id="stock-break" title="Stock Break 拍地板" /> -->
   <StockBreakCast start="05:33.532" />
 
   <SeparatorSection id="roseblood-bloom-4" title="魔法阵展开 · 四式" />
@@ -104,7 +85,6 @@ const base = '02:48.767'
   <EscelonsFallP34 />
 
   <StockBreakCast start="07:11.559" />
-  <!-- <SeparatorSection id="thorned-catharsis" title="Thorned Catharsis" /> -->
 
   <SeparatorSection id="roseblood-bloom-5" title="魔法阵展开 · 五式" />
 

@@ -104,8 +104,8 @@ const dutyRoutes = await (async () => {
                 throw new Error(`节点 '${leafName}' 在当前层级已存在`)
               }
               currentLevel.push(leafNode)
-            } catch (e: any) {
-              console.error(`[${groupName}] 添加节点失败`, e.message)
+            } catch (e: unknown) {
+              console.error(`[${groupName}] 添加节点失败`, e instanceof Error ? e.message : String(e))
             }
           }
           return rootRoutes
@@ -125,14 +125,23 @@ const routes: Route[] = [...staticRoutes, ...dutyRoutes]
 <!doctype html>
 <html lang={lang}>
   <head>
-    <title>{title?.trim() === defaultTitle ? defaultTitle : `${title} - XivStrat`}</title>
+    <title>
+      {title?.trim() === defaultTitle ? defaultTitle : `${title} - XivStrat`}
+    </title>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="keywords" content={keywords.join(',')} />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <script is:inline src="/scripts/initTheme.min.js"></script>
+    <meta name="keywords" content={keywords.join(",")} />
+    <link
+      rel="icon"
+      type="image/png"
+      href={`${import.meta.env.PUBLIC_COS_BASE_URL}/public/favicon.png`}
+    />
+    <script
+      is:inline
+      src={`${import.meta.env.PUBLIC_COS_BASE_URL}/public/scripts/initTheme.min.js`}
+    ></script>
   </head>
   <body>
     <slot />
@@ -141,7 +150,7 @@ const routes: Route[] = [...staticRoutes, ...dutyRoutes]
 </html>
 
 <script>
-  import { init } from '@/stores/theme'
+  import { init } from "@/stores/theme";
 
-  init()
+  init();
 </script>

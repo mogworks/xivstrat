@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 import { getCollection } from 'astro:content'
 
 import Layout from '@/layouts/Layout.astro'
@@ -7,9 +7,9 @@ import Footer from '@/components/Footer.astro'
 import DutyGroup from '@/components/DutyGroup.astro'
 import LinkIcons from '@/components/LinkIcons.astro'
 
-import XivStratLightLogo from '@/assets/developer/group/XivStrat/XivStrat_light.png'
-import XivStratDarkLogo from '@/assets/developer/group/XivStrat/XivStrat_dark.png'
-import XivStratHoverLogo from '@/assets/developer/group/XivStrat/XivStrat_hover.png'
+const XivStratLightLogo = 'imgs/developer/group/XivStrat/XivStrat_light.png'
+const XivStratDarkLogo = 'imgs/developer/group/XivStrat/XivStrat_dark.png'
+const XivStratHoverLogo = 'imgs/developer/group/XivStrat/XivStrat_hover.png'
 
 const dutyGroups = await getCollection('dutyGroups')
 ---
@@ -20,27 +20,9 @@ const dutyGroups = await getCollection('dutyGroups')
     <LinkIcons class="fixed top-8 right-8 z-50 px-0" />
     <header class="mt-20 text-center">
       <div class="group flex items-center justify-center">
-        <Image
-          src={XivStratHoverLogo}
-          alt="XivStrat"
-          class="hidden h-18 w-auto scale-300 group-hover:block"
-          draggable="false"
-          loading="eager"
-        />
-        <Image
-          src={XivStratLightLogo}
-          alt="XivStrat"
-          class="h-18 w-auto scale-300 group-hover:hidden dark:hidden"
-          draggable="false"
-          loading="eager"
-        />
-        <Image
-          src={XivStratDarkLogo}
-          alt="XivStrat"
-          class="hidden h-18 w-auto scale-300 dark:block dark:group-hover:hidden"
-          draggable="false"
-          loading="eager"
-        />
+        <CosImage src={XivStratHoverLogo} alt="XivStrat" class="hidden h-18 w-auto scale-300 group-hover:block" draggable="false" loading="eager" />
+        <CosImage src={XivStratLightLogo} alt="XivStrat" class="h-18 w-auto scale-300 group-hover:hidden dark:hidden" draggable="false" loading="eager" />
+        <CosImage src={XivStratDarkLogo} alt="XivStrat" class="hidden h-18 w-auto scale-300 dark:block dark:group-hover:hidden" draggable="false" loading="eager" />
       </div>
       <p class="mt-8 text-lg leading-relaxed font-medium text-zinc-400">从7.2开始的最终幻想14中文攻略站</p>
     </header>

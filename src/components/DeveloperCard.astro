@@ -1,7 +1,7 @@
 ---
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
-import DefaultAvatarSVG from '@/assets/svg/default-avatar.svg'
+import DefaultAvatarSVG from '@/svg/default-avatar.svg'
 
 import type { Developer } from '@/data/developer'
 
@@ -31,7 +31,7 @@ const { developer, class: className = '' }: Props = Astro.props
     <a href={isValidURL(developer.link) ? developer.link : '#'} target="_blank">
       {
         developer.avatar ? (
-          <Image
+          <CosImage
             src={developer.avatar}
             alt={developer.name}
             class="h-24 w-24 rounded-full border-2 border-white object-cover shadow-md select-none group-hover:border-cyan-400 dark:border-zinc-700"

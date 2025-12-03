@@ -20,7 +20,7 @@ const {
   activate: handleActivateAnchorObserver,
   deactivate: handleDeactivateAnchorObserver,
   activeId,
-} = useAnchorObserver(props.navList.map(item => item.id))
+} = useAnchorObserver(props.navList.map((item) => item.id))
 
 onMounted(async () => {
   await handleActivateAnchorObserver()

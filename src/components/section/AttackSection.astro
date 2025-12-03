@@ -15,7 +15,7 @@ interface Props {
   nameVariant?: VariantType
   damage: string
   damageType: 'physical' | 'magical' | 'special'
-  [key: string]: any
+  [key: string]: unknown
 }
 
 const { time = 0, name = '攻击', nameVariant = 'yellow', damage, damageType, ...rest }: Props = Astro.props

@@ -1,7 +1,5 @@
 ---
 import Buff from '@/components/Buff.astro'
-
-import burn_baby_burn from '@/assets/buff/07/m5s/214280.png'
 import { translations } from '../_translations/index'
 
 interface Props {
@@ -11,6 +9,7 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const burn_baby_burn = 'imgs/buff/07/m5s/214280.png'
 ---
 
 <Buff

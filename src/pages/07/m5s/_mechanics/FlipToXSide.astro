@@ -1,7 +1,5 @@
 ---
-import { Image } from 'astro:assets'
-
-import type { Time } from '@/lib/utils'
+import CosImage from '@/components/CosImage.astro'
 
 import Boss from '@/components/Boss.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
@@ -12,19 +10,6 @@ import StratLink from '@/components/StratLink.astro'
 import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
-
-import a_side_mark_img from '@/assets/07/m5s/A-side_mark.png'
-import b_side_mark_img from '@/assets/07/m5s/B-side_mark.png'
-import flip_to_a_side_img from '@/assets/07/m5s/flip_to_x_side/a.png'
-import flip_to_b_side_img from '@/assets/07/m5s/flip_to_x_side/b.png'
-import left_snap_img from '@/assets/07/m5s/left_snap.png'
-import right_snap_img from '@/assets/07/m5s/right_snap.png'
-import flip_to_x_side_1_img from '@/assets/07/m5s/flip_to_x_side/1.png'
-import flip_to_x_side_2_img from '@/assets/07/m5s/flip_to_x_side/2.png'
-import flip_to_x_side_3_img from '@/assets/07/m5s/flip_to_x_side/3.png'
-import flip_to_x_side_35_1_img from '@/assets/07/m5s/flip_to_x_side/35_1.png'
-import flip_to_x_side_35_2_img from '@/assets/07/m5s/flip_to_x_side/35_2.png'
-import flip_to_x_side_35_3_img from '@/assets/07/m5s/flip_to_x_side/35_3.png'
 
 import FlipToXSideAbility from '../_components/FlipToXSideAbility.astro'
 import FlipToXSideCast from '../_components/FlipToXSideCast.astro'
@@ -65,7 +50,7 @@ const defaultSolution = '解法：日野主流'
       <Span variant="pink">直线分摊</Span>
     </div>
     <div class="grid grid-cols-[minmax(0,22.5rem)_minmax(26rem,1fr)] gap-4">
-      <Image src={flip_to_a_side_img} alt="Flip to A-side" class="border-2 border-amber-800/75 dark:border-amber-100" />
+      <CosImage src="imgs/07/m5s/flip_to_x_side/a.png" alt="Flip to A-side" class="border-2 border-amber-800/75 dark:border-amber-100" />
       <div class="relative flex flex-col gap-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
           <Span variant="yellow">{translations.flipToA}</Span>
@@ -80,7 +65,7 @@ const defaultSolution = '解法：日野主流'
           <MagicVulnerabilityUp tag="2" hover />
         </div>
         <div class="absolute right-4 bottom-4 flex flex-col items-center">
-          <Image src={a_side_mark_img} alt="A-side Mark" class="w-60 drop-shadow-sm drop-shadow-black" />
+          <CosImage src="imgs/07/m5s/A-side_mark.png" alt="A-side Mark" class="w-60 drop-shadow-sm drop-shadow-black" />
           <div class="paragraph">
             <Boss />
             头上会出现此标记
@@ -88,7 +73,7 @@ const defaultSolution = '解法：日野主流'
         </div>
       </div>
 
-      <Image src={flip_to_b_side_img} alt="Flip to B-side" class="border-2 border-amber-800/75 dark:border-amber-100" />
+      <CosImage src="imgs/07/m5s/flip_to_x_side/b.png" alt="Flip to B-side" class="border-2 border-amber-800/75 dark:border-amber-100" />
       <div class="relative flex flex-col gap-4 rounded-md border border-dashed p-4">
         <h4 class="text-xl">
           <Span variant="yellow">{translations.flipToB}</Span>
@@ -108,7 +93,7 @@ const defaultSolution = '解法：日野主流'
           <MagicVulnerabilityUp tag="2" hover />
         </div>
         <div class="absolute right-4 bottom-4 flex flex-col items-center">
-          <Image src={b_side_mark_img} alt="B-side Mark" class="w-60 drop-shadow-sm drop-shadow-black" />
+          <CosImage src="imgs/07/m5s/B-side_mark.png" alt="B-side Mark" class="w-60 drop-shadow-sm drop-shadow-black" />
           <div class="paragraph">
             <Boss />
             头上会出现此标记
@@ -133,8 +118,8 @@ const defaultSolution = '解法：日野主流'
       </div>
       <div class="flex gap-4">
         <div class="flex flex-col items-center gap-2">
-          <Image
-            src={left_snap_img}
+          <CosImage
+            src="imgs/07/m5s/left_snap.png"
             alt="(2|3|4)-snap Twist & Drop the Needle (Left First)"
             class="border-2 border-amber-800/75 dark:border-amber-100"
           />
@@ -151,8 +136,8 @@ const defaultSolution = '解法：日野主流'
           </div>
         </div>
         <div class="flex flex-col items-center gap-2">
-          <Image
-            src={right_snap_img}
+          <CosImage
+            src="imgs/07/m5s/right_snap.png"
             alt="(2|3|4)-snap Twist & Drop the Needle (Right First)"
             class="border-2 border-amber-800/75 dark:border-amber-100"
           />
@@ -200,16 +185,16 @@ const defaultSolution = '解法：日野主流'
     </div>
     <div class="flex gap-2">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={flip_to_x_side_1_img}
+        <CosImage
+          src="imgs/07/m5s/flip_to_x_side/1.png"
           alt="Flip to (A|B)-side Solution"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">站位参考</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={flip_to_x_side_2_img}
+        <CosImage
+          src="imgs/07/m5s/flip_to_x_side/2.png"
           alt="Flip to (A|B)-side Solution: Flip to A-side"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -219,8 +204,8 @@ const defaultSolution = '解法：日野主流'
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={flip_to_x_side_3_img}
+        <CosImage
+          src="imgs/07/m5s/flip_to_x_side/3.png"
           alt="Flip to (A|B)-side Solution: Flip to B-side"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -266,16 +251,16 @@ const defaultSolution = '解法：日野主流'
     </div>
     <div class="flex gap-2">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={flip_to_x_side_35_1_img}
+        <CosImage
+          src="imgs/07/m5s/flip_to_x_side/35_1.png"
           alt="Flip to (A|B)-side Solution (35)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">站位参考</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={flip_to_x_side_35_2_img}
+        <CosImage
+          src="imgs/07/m5s/flip_to_x_side/35_2.png"
           alt="Flip to (A|B)-side Solution: Flip to A-side (35)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -285,8 +270,8 @@ const defaultSolution = '解法：日野主流'
         </div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={flip_to_x_side_35_3_img}
+        <CosImage
+          src="imgs/07/m5s/flip_to_x_side/35_3.png"
           alt="Flip to (A|B)-side Solution: Flip to B-side (35)"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />

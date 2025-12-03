@@ -5,9 +5,8 @@ import { cn } from '@/lib/utils'
 
 import Action from '@/components/Action.astro'
 
-import icon from '@/assets/action/31399.png'
-import RoleIcon from '@/components/RoleIcon.astro'
 import EntityText from '@/components/EntityText.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
 
 type OperationType =
   | 'mul'
@@ -46,19 +45,25 @@ const operationMap: Record<OperationType, string> = {
 }
 
 const { actionClass = '', class: className = '', operation = 'mul', role, stage }: Props = Astro.props
+
+const icon = 'imgs/action/31399.png'
 ---
 
-<div class={cn('relative inline-flex', className)} data-icon="standard-icon">
-  {role && <RoleIcon role={role} class="relative -bottom-2 left-2.5 z-10 -ml-3" />}
+<div class={cn("relative inline-flex", className)} data-icon="standard-icon">
+  {
+    role && (
+      <RoleIcon role={role} class="relative -bottom-2 left-2.5 z-10 -ml-3" />
+    )
+  }
   <Action icon={icon} name="极限技" class={actionClass} />
 
   <div
-    class="-ml-0.5 inline-flex items-center rounded-sm rounded-l-none border-1 border-l-0 border-[#E4C78B] bg-gradient-to-r from-amber-400 to-amber-600 pr-1.5 pl-2.5 text-sm font-semibold text-white dark:border-[#6E2913] dark:from-amber-500 dark:to-amber-700"
+    class="-ml-0.5 inline-flex items-center rounded-sm rounded-l-none border border-l-0 border-[#E4C78B] bg-linear-to-r from-amber-400 to-amber-600 pr-1.5 pl-2.5 text-sm font-semibold text-white dark:border-[#6E2913] dark:from-amber-500 dark:to-amber-700"
   >
-    {stage === 'full' && <span>全部&nbsp;</span>}
+    {stage === "full" && <span>全部&nbsp;</span>}
     <span class="mr-px">LB</span>
     {
-      stage && stage !== 'full' && (
+      stage && stage !== "full" && (
         <>
           <span class="text-white">{operationMap[operation]}</span>
           <span class="ml-px">{stage}</span>
@@ -67,9 +72,9 @@ const { actionClass = '', class: className = '', operation = 'mul', role, stage 
     }
   </div>
 </div>
-<EntityText class={cn('relative inline-flex font-bold', className)}>
+<EntityText class={cn("relative inline-flex font-bold", className)}>
   {role && <RoleIcon role={role} />}
-  {stage === 'full' && <span>全部</span>}
+  {stage === "full" && <span>全部</span>}
   <span>LB</span>
-  {stage && stage !== 'full' && <span>{operationMap[operation] + stage}</span>}
+  {stage && stage !== "full" && <span>{operationMap[operation] + stage}</span>}
 </EntityText>

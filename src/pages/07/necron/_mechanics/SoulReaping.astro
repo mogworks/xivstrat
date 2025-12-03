@@ -3,7 +3,6 @@ import type { Time } from '@/lib/utils'
 
 import P from '@/components/typography/P.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
@@ -11,10 +10,6 @@ import ImgRow from '@/components/typography/ImgRow.astro'
 import { translations } from '../_translations'
 
 import SoulReapingCast from '../_components/SoulReapingCast.astro'
-
-import SoulReaping_1 from '@/assets/07/necron/SoulReaping_1.png'
-import SoulReaping_2 from '@/assets/07/necron/SoulReaping_2.png'
-import SoulReaping_omen from '@/assets/07/necron/SoulReaping_omen.png'
 
 interface Props {
   start: Time
@@ -37,7 +32,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-160"
       imgs={[
         {
-          src: SoulReaping_1,
+          src: 'imgs/07/necron/SoulReaping_1.png',
           alt: '',
           title: '情形1：辣翅（中间安全）',
         },
@@ -48,7 +43,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-160"
       imgs={[
         {
-          src: SoulReaping_2,
+          src: 'imgs/07/necron/SoulReaping_2.png',
           alt: '',
           title: '情形2：辣尾（两侧安全）',
         },
@@ -59,7 +54,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-160"
       imgs={[
         {
-          src: SoulReaping_omen,
+          src: 'imgs/07/necron/SoulReaping_omen.png',
           alt: '',
           title: 'BOSS身前的圆形标记，表示储存了技能',
         },

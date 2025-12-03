@@ -1,8 +1,6 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import down_for_the_count from '@/assets/buff/215044.png'
-
 interface Props {
   tag?: string
   hover?: boolean
@@ -10,6 +8,7 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const down_for_the_count = 'imgs/buff/215044.png'
 ---
 
 <Buff

@@ -1,9 +1,6 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import layer_0 from '@/assets/buff/215067.png'
-import layer_1 from '@/assets/buff/219941.png'
-
 interface Props {
   layer?: number
   tag?: string
@@ -12,6 +9,8 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '', layer = 0 }: Props = Astro.props
+const layer_0 = 'imgs/buff/215067.png'
+const layer_1 = 'imgs/buff/219941.png'
 const icon = layer === 0 ? layer_0 : layer_1
 ---
 

@@ -3,7 +3,7 @@ import { file, glob } from 'astro/loaders'
 
 const duties = defineCollection({
   loader: glob({ pattern: '**/[^_]*.json', base: './src/data/duties' }),
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       name: z.string(),
       short: z.string(),
@@ -18,7 +18,7 @@ const duties = defineCollection({
           parent: z.array(z.string()).optional(),
         })
         .optional(),
-      banner: image(),
+      banner: z.string(),
       date: z.string(),
       href: z.string(),
       status: z.union([z.literal('upcoming'), z.literal('live'), z.literal('done')]),
@@ -34,15 +34,15 @@ const duties = defineCollection({
             z.object({
               href: z.string(),
               name: z.string(),
-            })
+            }),
           ),
-        })
+        }),
       ),
       locales: z.record(
         z.object({
           cn: z.string().optional(),
           jp: z.string().optional(),
-        })
+        }),
       ),
     }),
 })
@@ -58,24 +58,24 @@ const dutyGroups = defineCollection({
 
 const developers = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/data/developers' }),
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       name: z.string(),
       breakNames: z.array(z.string()).optional(),
       gameName: z.string(),
-      avatar: image(),
+      avatar: z.string(),
       link: z.string(),
     }),
 })
 
 const devGroups = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/data/dev-groups' }),
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       name: z.string(),
       description: z.string().optional(),
-      iconDark: image(),
-      iconLight: image(),
+      iconDark: z.string(),
+      iconLight: z.string(),
       link: z.string(),
     }),
 })

@@ -8,7 +8,7 @@ interface Props {
   resolution?: number
   class?: string
   canvasClass?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 const {
@@ -43,7 +43,7 @@ const {
       const manifest = manifestJson as AssetsManifest
 
       StratBoard.assetsInitPromise = Assets.init({
-        basePath: '/pixi',
+        basePath: `${import.meta.env.PUBLIC_COS_BASE_URL}/public/pixi`,
         manifest,
         texturePreference: {
           resolution: (() => {

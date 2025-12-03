@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import LimitBreak from '@/components/action/LimitBreak.astro'
 import Separator from '@/components/Separator.astro'
@@ -22,10 +22,6 @@ import SugarRiot from '../_components/SugarRiot.astro'
 import AttackSection from '../_components/SugarRiotAttackSection.astro'
 import SoulSugarCast from '../_components/SoulSugarCast.astro'
 import SoulSugarTable from '../_components/SoulSugarTable.astro'
-
-import genseki from '@/assets/07/m6s/paint_mark/genseki@3x.png'
-import ranged_lb from '@/assets/07/m6s/soul_sugar/ranged_lb.png'
-import magic_lb from '@/assets/07/m6s/soul_sugar/magic_lb.png'
 
 import { translations } from '../_translations'
 
@@ -68,7 +64,7 @@ const SoulSugarName = translations.SoulSugar
     <div class="paragraph -my-4">
       <SugarRiot />
       画出
-      <Image src={genseki} alt="Paint Mark: Ready Ore Not" class="-mr-2 -ml-3 w-25 drop-shadow-sm drop-shadow-black" />
+      <CosImage src="imgs/07/m6s/paint_mark/genseki@3x.png" alt="Paint Mark: Ready Ore Not" class="-mr-2 -ml-3 w-25 drop-shadow-sm drop-shadow-black" />
       ，对
       <RoleIcon role="all" tag="全员" />
       造成全屏AoE
@@ -147,8 +143,8 @@ const SoulSugarName = translations.SoulSugar
     </div>
     <div class="flex gap-3">
       <div class="flex max-w-96 flex-col items-center gap-2">
-        <Image
-          src={ranged_lb}
+        <CosImage
+          src="imgs/07/m6s/soul_sugar/ranged_lb.png"
           alt="Soul Sugar: Ranged LB"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
@@ -159,7 +155,7 @@ const SoulSugarName = translations.SoulSugar
         </div>
       </div>
       <div class="flex max-w-96 flex-col items-center gap-2">
-        <Image src={magic_lb} alt="Soul Sugar: Magic LB" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+        <CosImage src="imgs/07/m6s/soul_sugar/magic_lb.png" alt="Soul Sugar: Magic LB" class="border-2 border-fuchsia-400 dark:border-fuchsia-100" />
         <div class="paragraph">
           <LimitBreak stage={2} operation="gte" />
           <Separator orientation="vertical" class="mx-2 ml-3" />

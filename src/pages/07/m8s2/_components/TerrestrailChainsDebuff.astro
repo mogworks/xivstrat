@@ -1,8 +1,6 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import terrestrail_chains from '@/assets/buff/07/m8s2/214268.png'
-
 interface Props {
   tag?: string
   hover?: boolean
@@ -10,6 +8,7 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const terrestrail_chains = 'imgs/buff/07/m8s2/214268.png'
 ---
 
 <Buff

@@ -31,7 +31,7 @@ defineProps<Props>()
       <Label
         v-for="option in options"
         :key="option.id"
-        class="hover:bg-accent/50 flex items-start gap-2 rounded-lg border p-3 hover:shadow-sm has-[[data-state=checked]]:border-green-600 has-[[data-state=checked]]:bg-green-50 dark:has-[[data-state=checked]]:border-green-900 dark:has-[[data-state=checked]]:bg-green-950"
+        class="hover:bg-accent/50 flex items-start gap-2 rounded-lg border p-3 hover:shadow-sm has-data-[state=checked]:border-green-600 has-data-[state=checked]:bg-green-50 dark:has-data-[state=checked]:border-green-900 dark:has-data-[state=checked]:bg-green-950"
       >
         <RadioGroupItem
           :id="option.id"

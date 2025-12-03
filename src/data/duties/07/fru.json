@@ -8,7 +8,7 @@
     "name": "光暗未来绝境战",
     "parent": ["绝境战"]
   },
-  "banner": "@/assets/banners/07/fru.png",
+  "banner": "imgs/banners/07/fru.png",
   "date": "",
   "href": "/07/fru",
   "status": "upcoming",

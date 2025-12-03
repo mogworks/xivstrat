@@ -28,5 +28,5 @@ export const $stratSettings = persistentMap<StratSettings>(
   {
     encode: (value: StratSettingsValue) => value,
     decode: (encoded: string) => encoded as StratSettingsValue,
-  }
+  },
 )

@@ -1,7 +1,7 @@
 import type { VariantType } from '@/lib/variant'
 
 export interface Img {
-  src: ImageMetadata
+  src: string
   alt: string
   title?: string
   bordered?: boolean

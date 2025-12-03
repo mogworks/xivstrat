@@ -1,7 +1,7 @@
 ---
-import { timeToSeconds, type Time } from '@/lib/utils'
+import { timeToSeconds } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import ListDot from '@/components/ListDot.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
@@ -16,14 +16,6 @@ import DoubleStyleCast from '../_components/DoubleStyleCast.astro'
 import PuddingGrafActivate from '../_components/PuddingGrafActivate.astro'
 import SugarRiot from '../_components/SugarRiot.astro'
 
-import quicksand_n from '@/assets/07/m6s/double_style_p2/quicksand_n.png'
-import quicksand_s from '@/assets/07/m6s/double_style_p2/quicksand_s.png'
-import bomb from '@/assets/07/m6s/paint_mark/bomb@3x.png'
-import hanebomb from '@/assets/07/m6s/paint_mark/hanebomb@3x.png'
-import solution_1 from '@/assets/07/m6s/double_style_p2/solution_1.png'
-import solution_2 from '@/assets/07/m6s/double_style_p2/solution_2.png'
-import supplement_1 from '@/assets/07/m6s/double_style_p2/supplement_1.png'
-import supplement_2 from '@/assets/07/m6s/double_style_p2/supplement_2.png'
 import { translations } from '../_translations'
 
 const start = '03:01.061'
@@ -47,9 +39,9 @@ const { PuddingGraf, DoubleStyle } = translations
     <div class="paragraph -my-3">
       <SugarRiot />
       左手绘制
-      <Image src={hanebomb} alt="Paint Mark: Hanebomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
+      <CosImage src="imgs/07/m6s/paint_mark/hanebomb@3x.png" alt="Paint Mark: Hanebomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
       ，右手绘制
-      <Image src={bomb} alt="Paint Mark: Bomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
+      <CosImage src="imgs/07/m6s/paint_mark/bomb@3x.png" alt="Paint Mark: Bomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
       ，两图案各连线
       <Span variant="default">4</Span>
       <RoleIcon role="tank" />
@@ -61,7 +53,7 @@ const { PuddingGraf, DoubleStyle } = translations
     <div class="paragraph -my-3">
       <ListDot />
       若被
-      <Image src={hanebomb} alt="Paint Mark: Hanebomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
+      <CosImage src="imgs/07/m6s/paint_mark/hanebomb@3x.png" alt="Paint Mark: Hanebomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
       连线，则
       <Span variant="yellow">{PuddingGraf}</Span>
       判定后会留下一个
@@ -70,7 +62,7 @@ const { PuddingGraf, DoubleStyle } = translations
     <div class="paragraph -my-3">
       <ListDot />
       若被
-      <Image src={bomb} alt="Paint Mark: Bomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
+      <CosImage src="imgs/07/m6s/paint_mark/bomb@3x.png" alt="Paint Mark: Bomb" class="-mx-3 w-15 drop-shadow-sm drop-shadow-black" />
       连线，则
       <Span variant="yellow">{PuddingGraf}</Span>
       判定后会留下一个
@@ -126,16 +118,16 @@ const { PuddingGraf, DoubleStyle } = translations
     </div>
     <div class="flex gap-4">
       <div class="flex max-w-96 flex-col items-center gap-2">
-        <Image
-          src={quicksand_n}
+        <CosImage
+          src="imgs/07/m6s/double_style_p2/quicksand_n.png"
           alt="Double Style P2 Quicksand North"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
         <div class="paragraph">情形1：北侧流沙</div>
       </div>
       <div class="flex max-w-96 flex-col items-center gap-2">
-        <Image
-          src={quicksand_s}
+        <CosImage
+          src="imgs/07/m6s/double_style_p2/quicksand_s.png"
           alt="Double Style P2 Quicksand South"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
@@ -172,16 +164,16 @@ const { PuddingGraf, DoubleStyle } = translations
     </div>
     <div class="flex gap-4">
       <div class="flex max-w-96 flex-col items-center gap-2">
-        <Image
-          src={solution_1}
+        <CosImage
+          src="imgs/07/m6s/double_style_p2/solution_1.png"
           alt="Double Style P2 Solution 1/2"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
         <div class="paragraph">情形1：翅膀爆弹怪连线TH</div>
       </div>
       <div class="flex max-w-96 flex-col items-center gap-2">
-        <Image
-          src={solution_2}
+        <CosImage
+          src="imgs/07/m6s/double_style_p2/solution_2.png"
           alt="Double Style P2 Solution 2/2"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
@@ -237,15 +229,15 @@ const { PuddingGraf, DoubleStyle } = translations
     </div>
     <div class="flex gap-4">
       <div class="max-w-96">
-        <Image
-          src={supplement_1}
+        <CosImage
+          src="imgs/07/m6s/double_style_p2/supplement_1.png"
           alt="Double Style P2 Supplement 1/2"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />
       </div>
       <div class="max-w-96">
-        <Image
-          src={supplement_2}
+        <CosImage
+          src="imgs/07/m6s/double_style_p2/supplement_2.png"
           alt="Double Style P2 Supplement 2/2"
           class="border-2 border-fuchsia-400 dark:border-fuchsia-100"
         />

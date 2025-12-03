@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { ImageMetadata } from 'astro'
 import type { HTMLAttributes } from 'vue'
 
 import type { VariantType } from '@/lib/variant'
@@ -9,7 +8,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/shad
 import Span from '@/components/Span.vue'
 
 const props = defineProps<{
-  icon: ImageMetadata
+  icon: string
   name: string
   nameVariant: VariantType
   description: string
@@ -23,7 +22,7 @@ const props = defineProps<{
     <HoverCardTrigger as-child>
       <Buff :icon="icon" :name="name" :description="description" :tag="tag" :class="props.class">
         <slot name="icon">
-          <img :src="icon.src" :alt="description">
+          <img :src="icon" :alt="description">
         </slot>
       </Buff>
     </HoverCardTrigger>
@@ -32,7 +31,7 @@ const props = defineProps<{
         <h4 class="flex items-center gap-2 text-lg font-semibold">
           <Buff :icon="icon" :name="name" :description="description">
             <slot name="icon">
-              <img :src="icon.src" :alt="description">
+              <img :src="icon" :alt="description">
             </slot>
           </Buff>
           <Span :variant="nameVariant">{{ name }}</Span>

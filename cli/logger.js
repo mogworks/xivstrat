@@ -76,11 +76,7 @@ export function log(category, message, categoryColor = colors.blue) {
  * @param {string} details - Optional details
  */
 export function logGroup(title, details = '') {
-  console.log(
-    `\n${colors.bold}${colors.white}${colors.bgBlue} ${title} ${colors.reset}${
-      details ? ` ${details}` : ''
-    }`,
-  )
+  console.log(`\n${colors.bold}${colors.white}${colors.bgBlue} ${title} ${colors.reset}${details ? ` ${details}` : ''}`)
 }
 
 /**

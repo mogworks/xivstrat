@@ -4,12 +4,7 @@ import type { HTMLAttributes } from 'vue'
 
 import { reactiveOmit } from '@vueuse/core'
 import { CircleIcon } from 'lucide-vue-next'
-import {
-  RadioGroupIndicator,
-  RadioGroupItem,
-
-  useForwardProps,
-} from 'reka-ui'
+import { RadioGroupIndicator, RadioGroupItem, useForwardProps } from 'reka-ui'
 
 import { cn } from '@/lib/utils'
 

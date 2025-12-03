@@ -11,7 +11,6 @@ import StoneringerCast from '../_components/StoneringerCast.astro'
 import TendrilsofTerrorAppear from '../_components/TendrilsofTerrorAppear.astro'
 import KillerSeedsAppear from '../_components/KillerSeedsAppear.astro'
 import KillerSeedsActivate from '../_components/KillerSeedsActivate.astro'
-import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import ThornsOfDeathDebuff from '../_components/ThornsOfDeathDebuff.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
@@ -25,25 +24,6 @@ import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import Quote from '@/components/typography/Quote.astro'
 import ToggleSwitch from '@/components/ToggleSwitch.astro'
-
-import zari_safe_zone from '@/assets/07/m7s/strange_seeds/zari_safe_zone.png'
-import zari_safe_zone_only from '@/assets/07/m7s/strange_seeds/zari_safe_zone_only.png'
-import zari_place_overview from '@/assets/07/m7s/strange_seeds/zari_place_overview.png'
-import zari_place_tank_healer from '@/assets/07/m7s/strange_seeds/zari_place_tank_healer.png'
-import zari_place_melee from '@/assets/07/m7s/strange_seeds/zari_place_melee.png'
-import zari_place_ranged from '@/assets/07/m7s/strange_seeds/zari_place_ranged.png'
-import zari_place_magic from '@/assets/07/m7s/strange_seeds/zari_place_magic.png'
-import zari_odd_case_1 from '@/assets/07/m7s/strange_seeds/zari_odd_case_1.png'
-import zari_odd_case_2 from '@/assets/07/m7s/strange_seeds/zari_odd_case_2.png'
-import zari_even_case_1 from '@/assets/07/m7s/strange_seeds/zari_even_case_1.png'
-import zari_even_case_2 from '@/assets/07/m7s/strange_seeds/zari_even_case_2.png'
-import zari_stack from '@/assets/07/m7s/strange_seeds/zari_stack.png'
-
-import fs_place_overview from '@/assets/07/m7s/strange_seeds/fs_place_overview.png'
-import fs_place_overview_dot from '@/assets/07/m7s/strange_seeds/fs_place_overview_dot.png'
-import fs_place_cursed_1 from '@/assets/07/m7s/strange_seeds/fs_place_cursed_1.png'
-import fs_place_cursed_2 from '@/assets/07/m7s/strange_seeds/fs_place_cursed_2.png'
-import fs_stack from '@/assets/07/m7s/strange_seeds/fs_stack.png'
 
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import CollapseSection from '@/components/section/CollapseSection.astro'
@@ -219,7 +199,7 @@ const defaultSolution = '解法：日野主流（萨利式）'
           <ImgRow
             wrapperClass="max-w-180"
             bordered={false}
-            imgs={[{ src: zari_place_overview, alt: '萨利式冰花', title: '萨利式冰花全点位' }]}
+            imgs={[{ src: 'imgs/07/m7s/strange_seeds/zari_place_overview.png', alt: '萨利式冰花', title: '萨利式冰花全点位' }]}
           />
         </div>
         <div class="flex flex-col gap-4">
@@ -239,14 +219,14 @@ const defaultSolution = '解法：日野主流（萨利式）'
             id="zari-safe-zone-omen"
             wrapperClass="max-w-180"
             bordered={false}
-            imgs={[{ src: zari_safe_zone_only, alt: '仅显示安全区', title: '' }]}
+            imgs={[{ src: 'imgs/07/m7s/strange_seeds/zari_safe_zone_only.png', alt: '仅显示安全区', title: '' }]}
           />
           <ImgRow
             id="zari-safe-zone-activate"
             wrapperClass="max-w-180"
             bordered={false}
             class="hidden"
-            imgs={[{ src: zari_safe_zone, alt: '包含安全区与冰花范围', title: '' }]}
+            imgs={[{ src: 'imgs/07/m7s/strange_seeds/zari_safe_zone.png', alt: '包含安全区与冰花范围', title: '' }]}
           />
         </div>
         <div class="flex flex-col gap-4">
@@ -272,7 +252,7 @@ const defaultSolution = '解法：日野主流（萨利式）'
           <ImgRow
             wrapperClass="max-w-180"
             bordered={false}
-            imgs={[{ src: zari_place_tank_healer, alt: '萨利式冰花坦克/治疗点位', title: '' }]}
+            imgs={[{ src: 'imgs/07/m7s/strange_seeds/zari_place_tank_healer.png', alt: '萨利式冰花坦克/治疗点位', title: '' }]}
           />
         </div>
         <div class="flex flex-col gap-4">
@@ -295,7 +275,7 @@ const defaultSolution = '解法：日野主流（萨利式）'
           <ImgRow
             wrapperClass="max-w-180"
             bordered={false}
-            imgs={[{ src: zari_place_melee, alt: '萨利式冰花近战组点位', title: '' }]}
+            imgs={[{ src: 'imgs/07/m7s/strange_seeds/zari_place_melee.png', alt: '萨利式冰花近战组点位', title: '' }]}
           />
         </div>
         <div class="flex flex-col gap-4">
@@ -332,7 +312,7 @@ const defaultSolution = '解法：日野主流（萨利式）'
           <ImgRow
             wrapperClass="max-w-180"
             bordered={false}
-            imgs={[{ src: zari_place_ranged, alt: '萨利式冰花D3点位', title: '' }]}
+            imgs={[{ src: 'imgs/07/m7s/strange_seeds/zari_place_ranged.png', alt: '萨利式冰花D3点位', title: '' }]}
           />
         </div>
         <div class="flex flex-col gap-4">
@@ -352,7 +332,7 @@ const defaultSolution = '解法：日野主流（萨利式）'
           <ImgRow
             wrapperClass="max-w-180"
             bordered={false}
-            imgs={[{ src: zari_place_magic, alt: '萨利式冰花D4点位', title: '' }]}
+            imgs={[{ src: 'imgs/07/m7s/strange_seeds/zari_place_magic.png', alt: '萨利式冰花D4点位', title: '' }]}
           />
         </div>
         <P>
@@ -369,8 +349,8 @@ const defaultSolution = '解法：日野主流（萨利式）'
             wrapperClass="max-w-180"
             bordered={false}
             imgs={[
-              { src: zari_odd_case_1, alt: '奇数轮冰花', title: '奇数轮冰花' },
-              { src: zari_even_case_1, alt: '偶数轮冰花', title: '偶数轮冰花' },
+              { src: 'imgs/07/m7s/strange_seeds/zari_odd_case_1.png', alt: '奇数轮冰花', title: '奇数轮冰花' },
+              { src: 'imgs/07/m7s/strange_seeds/zari_even_case_1.png', alt: '偶数轮冰花', title: '偶数轮冰花' },
             ]}
           />
           <ImgRow
@@ -379,8 +359,8 @@ const defaultSolution = '解法：日野主流（萨利式）'
             bordered={false}
             class="hidden"
             imgs={[
-              { src: zari_odd_case_2, alt: '奇数轮冰花', title: '奇数轮冰花' },
-              { src: zari_even_case_2, alt: '偶数轮冰花', title: '偶数轮冰花' },
+              { src: 'imgs/07/m7s/strange_seeds/zari_odd_case_2.png', alt: '奇数轮冰花', title: '奇数轮冰花' },
+              { src: 'imgs/07/m7s/strange_seeds/zari_even_case_2.png', alt: '偶数轮冰花', title: '偶数轮冰花' },
             ]}
           />
         </div>
@@ -430,7 +410,7 @@ const defaultSolution = '解法：日野主流（萨利式）'
         <ImgRow
           wrapperClass="max-w-180"
           bordered={false}
-          imgs={[{ src: zari_stack, alt: '萨利式分摊站位图', title: '分摊站位' }]}
+          imgs={[{ src: 'imgs/07/m7s/strange_seeds/zari_stack.png', alt: '萨利式分摊站位图', title: '分摊站位' }]}
         />
         <P>
           <Span variant="cyan"
@@ -472,14 +452,14 @@ const defaultSolution = '解法：日野主流（萨利式）'
         id="fs-overview-icon"
         wrapperClass="max-w-180"
         bordered={false}
-        imgs={[{ src: fs_place_overview, alt: '显示职能图标', title: '' }]}
+        imgs={[{ src: 'imgs/07/m7s/strange_seeds/fs_place_overview.png', alt: '显示职能图标', title: '' }]}
       />
       <ImgRow
         id="fs-overview-dot"
         wrapperClass="max-w-180"
         bordered={false}
         class="hidden"
-        imgs={[{ src: fs_place_overview_dot, alt: '显示精确点位', title: '' }]}
+        imgs={[{ src: 'imgs/07/m7s/strange_seeds/fs_place_overview_dot.png', alt: '显示精确点位', title: '' }]}
       />
     </div>
     <div class="mt-4 flex flex-col gap-4">
@@ -504,14 +484,14 @@ const defaultSolution = '解法：日野主流（萨利式）'
       <ImgRow
         wrapperClass="max-w-180"
         bordered={false}
-        imgs={[{ src: fs_place_cursed_1, alt: '双近战情况1', title: '双近战情况1' }]}
+        imgs={[{ src: 'imgs/07/m7s/strange_seeds/fs_place_cursed_1.png', alt: '双近战情况1', title: '双近战情况1' }]}
       />
       <ImgRow
         wrapperClass="max-w-180"
         bordered={false}
         imgs={[
           {
-            src: fs_place_cursed_2,
+            src: 'imgs/07/m7s/strange_seeds/fs_place_cursed_2.png',
             alt: '双近战情况2',
             title: '双近战情况2（黄色点位有概率吃到冰花/超出近战最大攻击距离）',
           },
@@ -550,7 +530,7 @@ const defaultSolution = '解法：日野主流（萨利式）'
         <ImgRow
           wrapperClass="max-w-180"
           bordered={false}
-          imgs={[{ src: fs_stack, alt: 'fixed seeds分摊', title: '' }]}
+          imgs={[{ src: 'imgs/07/m7s/strange_seeds/fs_stack.png', alt: 'fixed seeds分摊', title: '' }]}
         />
       </div>
     </div>

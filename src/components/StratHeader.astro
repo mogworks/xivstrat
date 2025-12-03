@@ -1,15 +1,15 @@
 ---
 import type { DutyPhase } from '@/data/duty'
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import { cn } from '@/lib/utils'
 
 import LinkIcons from '@/components/LinkIcons.astro'
 import Separator from '@/components/Separator.astro'
 
-import XivStratLightLogo from '@/assets/developer/group/XivStrat/XivStrat_light.png'
-import XivStratDarkLogo from '@/assets/developer/group/XivStrat/XivStrat_dark.png'
-import XivStratHoverLogo from '@/assets/developer/group/XivStrat/XivStrat_hover.png'
+const XivStratLightLogo = 'imgs/developer/group/XivStrat/XivStrat_light.png'
+const XivStratDarkLogo = 'imgs/developer/group/XivStrat/XivStrat_dark.png'
+const XivStratHoverLogo = 'imgs/developer/group/XivStrat/XivStrat_hover.png'
 
 interface Props {
   baseUrl?: string
@@ -22,32 +22,14 @@ const { baseUrl, name, phases, bilibili = 'https://space.bilibili.com/25787773' 
 ---
 
 <header
-  class="border-border/50 bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50 border-b py-2 backdrop-blur"
+  class="border-border/50 bg-background/95 supports-backdrop-filter:bg-background/80 sticky top-0 z-50 border-b py-2 backdrop-blur"
 >
   <div class="max-w-strat-max min-w-strat-min mx-auto grid grid-cols-[16rem_1fr_16rem] px-4">
     <section class="flex items-center justify-self-end px-4">
       <a href="/" class="group relative">
-        <Image
-          src={XivStratHoverLogo}
-          alt="XivStrat"
-          class="hidden h-8 w-auto -translate-x-5 scale-250 group-hover:block"
-          draggable="false"
-          loading="eager"
-        />
-        <Image
-          src={XivStratLightLogo}
-          alt="XivStrat"
-          class="h-8 w-auto -translate-x-5 scale-250 group-hover:hidden dark:hidden"
-          draggable="false"
-          loading="eager"
-        />
-        <Image
-          src={XivStratDarkLogo}
-          alt="XivStrat"
-          class="hidden h-8 w-auto -translate-x-5 scale-250 dark:block dark:group-hover:hidden"
-          draggable="false"
-          loading="eager"
-        />
+        <CosImage src={XivStratHoverLogo} alt="XivStrat" class="hidden h-8 w-auto -translate-x-5 scale-250 group-hover:block" draggable="false" loading="eager" />
+        <CosImage src={XivStratLightLogo} alt="XivStrat" class="h-8 w-auto -translate-x-5 scale-250 group-hover:hidden dark:hidden" draggable="false" loading="eager" />
+        <CosImage src={XivStratDarkLogo} alt="XivStrat" class="hidden h-8 w-auto -translate-x-5 scale-250 dark:block dark:group-hover:hidden" draggable="false" loading="eager" />
       </a>
     </section>
     <section class="flex items-center">
@@ -56,21 +38,21 @@ const { baseUrl, name, phases, bilibili = 'https://space.bilibili.com/25787773' 
         baseUrl ? (
           <a
             href={baseUrl}
-            class="group relative px-4 text-xl font-medium whitespace-nowrap text-yellow-600 [text-shadow:_0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300"
+            class="group relative px-4 text-xl font-medium whitespace-nowrap text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300"
           >
             {name}
             <div
-              class={`pointer-events-none absolute inset-x-0 -bottom-5 mx-auto h-0.5 max-w-2/3 bg-yellow-600 ${Astro.url.pathname === baseUrl || Astro.url.pathname === `${baseUrl}/` ? 'opacity-50' : 'opacity-0'} [mask-image:linear-gradient(to_right,transparent,black,transparent)] transition-opacity duration-300 group-hover:opacity-50 dark:bg-yellow-400`}
+              class={`pointer-events-none absolute inset-x-0 -bottom-5 mx-auto h-0.5 max-w-2/3 bg-yellow-600 ${Astro.url.pathname === baseUrl || Astro.url.pathname === `${baseUrl}/` ? 'opacity-50' : 'opacity-0'} mask-[linear-gradient(to_right,transparent,black,transparent)] transition-opacity duration-300 group-hover:opacity-50 dark:bg-yellow-400`}
             />
           </a>
         ) : (
-          <span class="px-4 text-xl font-medium whitespace-nowrap text-yellow-600 [text-shadow:_0_0_1px_yellow] dark:text-yellow-400">
+          <span class="px-4 text-xl font-medium whitespace-nowrap text-yellow-600 [text-shadow:0_0_1px_yellow] dark:text-yellow-400">
             {name}
           </span>
         )
       }
       <Separator orientation="vertical" class="h-8" />
-      <nav class="flex flex-grow items-center gap-4 px-4">
+      <nav class="flex grow items-center gap-4 px-4">
         {
           phases.map((phase) => {
             const isActive = Astro.url.pathname === phase.href || Astro.url.pathname === `${phase.href}/`
@@ -92,7 +74,7 @@ const { baseUrl, name, phases, bilibili = 'https://space.bilibili.com/25787773' 
                   </div>
                 )}
                 <div
-                  class={`pointer-events-none absolute inset-x-0 [bottom:-9px] h-0.5 bg-blue-600 ${isActive ? 'opacity-80' : 'opacity-0'} [mask-image:linear-gradient(to_right,transparent,black,transparent)] transition-opacity duration-300 group-hover:opacity-80 dark:bg-blue-400`}
+                  class={`pointer-events-none absolute inset-x-0 bottom-[-9px] h-0.5 bg-blue-600 ${isActive ? 'opacity-80' : 'opacity-0'} mask-[linear-gradient(to_right,transparent,black,transparent)] transition-opacity duration-300 group-hover:opacity-80 dark:bg-blue-400`}
                 />
               </a>
             )

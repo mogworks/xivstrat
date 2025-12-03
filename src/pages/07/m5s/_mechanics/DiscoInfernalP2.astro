@@ -1,7 +1,6 @@
 ---
-import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Boss from '@/components/Boss.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
@@ -20,11 +19,6 @@ import FlipToXSideCast from '../_components/FlipToXSideCast.astro'
 import FrogtourageFan from '../_components/FrogtourageFan.astro'
 import InTheSpotlight from '../_components/InTheSpotlight.astro'
 
-import frog_1 from '@/assets/07/m5s/frog_1.png'
-import frog_2 from '@/assets/07/m5s/frog_2.png'
-import disco_infernal_p3_solution_1 from '@/assets/07/m5s/disco_infernal_p2/solution_1.png'
-import disco_infernal_p3_solution_2 from '@/assets/07/m5s/disco_infernal_p2/solution_2.png'
-import disco_infernal_p3_solution_3 from '@/assets/07/m5s/disco_infernal_p2/solution_3.png'
 import { translations } from '../_translations'
 ---
 
@@ -92,16 +86,16 @@ import { translations } from '../_translations'
     </div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={frog_1}
-          alt="Frogtourage Frog Position 1/2"
-          class="border-2 border-amber-800/75 dark:border-amber-100"
-        />
+      <CosImage
+        src="imgs/07/m5s/frog_1.png"
+        alt="Frogtourage Frog Position 1/2"
+        class="border-2 border-amber-800/75 dark:border-amber-100"
+      />
         <div class="paragraph">情形1：斜点方向</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={frog_2}
+        <CosImage
+          src="imgs/07/m5s/frog_2.png"
           alt="Frogtourage Frog Position 2/2"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -184,8 +178,8 @@ import { translations } from '../_translations'
       ，如下图
     </div>
     <div class="max-w-90">
-      <Image
-        src={disco_infernal_p3_solution_1}
+      <CosImage
+        src="imgs/07/m5s/disco_infernal_p2/solution_1.png"
         alt="Disco Infernal P3 Solution 1/3"
         class="border-2 border-amber-800/75 dark:border-amber-100"
       />
@@ -197,15 +191,15 @@ import { translations } from '../_translations'
     </div>
     <div class="flex max-w-184 gap-4">
       <div>
-        <Image
-          src={disco_infernal_p3_solution_2}
+        <CosImage
+          src="imgs/07/m5s/disco_infernal_p2/solution_2.png"
           alt="Disco Infernal P3 Solution 2/3"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
       </div>
       <div>
-        <Image
-          src={disco_infernal_p3_solution_3}
+        <CosImage
+          src="imgs/07/m5s/disco_infernal_p2/solution_3.png"
           alt="Disco Infernal P3 Solution 3/3"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />

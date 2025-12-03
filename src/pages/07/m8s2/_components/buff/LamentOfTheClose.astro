@@ -1,8 +1,5 @@
 ---
 import Buff from '@/components/Buff.astro'
-
-import icon from '@/assets/buff/07/m8s2/214271.png'
-
 import { translations } from '../../_translations'
 
 interface Props {
@@ -11,6 +8,7 @@ interface Props {
 }
 
 const { tag = '', hover = false }: Props = Astro.props
+const icon = 'imgs/buff/07/m8s2/214271.png'
 ---
 
 <Buff

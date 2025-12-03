@@ -1,12 +1,12 @@
 ---
 import { borderColorMap, type Img } from '@/components/typography/img'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import { cn } from '@/lib/utils'
 
 interface Props extends Img {
-  [key: string]: any
+  [key: string]: unknown
 }
 
 const {
@@ -30,7 +30,7 @@ const borderColorClass = borderColorMap[borderVariant]
   <div
     class={cn(bordered && 'border-2', bordered && rounded && 'rounded-full', bordered && borderColorClass, borderClass)}
   >
-    <Image src={src} alt={alt} class={imgClass} />
+    <CosImage src={src} alt={alt} class={imgClass} />
   </div>
   {title && <div class={titleClass}>{title}</div>}
 </div>

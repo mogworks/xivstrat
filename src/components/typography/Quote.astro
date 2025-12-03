@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 interface Props {
   variant?: VariantType
   class?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 const { variant = 'default', class: className, ...rest } = Astro.props

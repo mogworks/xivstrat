@@ -1,7 +1,5 @@
 ---
 import Buff from '@/components/Buff.astro'
-
-import sweltering from '@/assets/buff/07/m6s/214273.png'
 import { translations } from '../_translations'
 
 interface Props {
@@ -11,6 +9,7 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const sweltering = 'imgs/buff/07/m6s/214273.png'
 const { Sweltering, SwelteringDescription } = translations
 ---
 

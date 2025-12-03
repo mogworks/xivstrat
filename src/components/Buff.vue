@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import type { ImageMetadata } from 'astro'
 import type { HTMLAttributes } from 'vue'
 
 import { cn } from '@/lib/utils'
 
 const props = defineProps<{
-  icon: ImageMetadata
+  icon: string
   name: string
   description: string
   tag?: string
@@ -20,12 +19,12 @@ const props = defineProps<{
   >
     <div class="relative inline-block w-full translate-y-[-12.5%] align-middle">
       <slot>
-        <img :src="icon.src" :alt="description">
+        <img :src="icon" :alt="description">
       </slot>
     </div>
     <span
       v-if="tag"
-      class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-3/5 text-[calc(1em*12/18)] whitespace-nowrap text-white [text-shadow:_0_0_2px_black,_0_0_2px_black,_0_0_2px_black,_0_0_3px_black,_0_0_3px_black,_0_0_3px_black]"
+      class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-3/5 text-[calc(1em*12/18)] whitespace-nowrap text-white [text-shadow:0_0_2px_black,0_0_2px_black,0_0_2px_black,0_0_3px_black,0_0_3px_black,0_0_3px_black]"
       data-icon="buff-icon"
     >
       {{ tag }}

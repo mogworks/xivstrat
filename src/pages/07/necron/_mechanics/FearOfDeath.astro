@@ -14,9 +14,6 @@ import { translations } from '../_translations'
 
 import FearOfDeathCast from '../_components/FearOfDeathCast.astro'
 
-import FearOfDeath_1 from '@/assets/07/necron/FearOfDeath_1.png'
-import FearOfDeath_2 from '@/assets/07/necron/FearOfDeath_2.png'
-
 interface Props {
   start: Time
 }
@@ -61,7 +58,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-160"
       imgs={[
         {
-          src: FearOfDeath_1,
+          src: 'imgs/07/necron/FearOfDeath_1.png',
           alt: '',
           title: '场地均匀间隔生成8只触手',
         },
@@ -72,7 +69,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-160"
       imgs={[
         {
-          src: FearOfDeath_2,
+          src: 'imgs/07/necron/FearOfDeath_2.png',
           alt: '',
           title: '全员靠近自己的触手，向场外引导直线AoE',
         },

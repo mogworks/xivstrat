@@ -8,11 +8,10 @@ import { translations } from '../_translations'
 interface Props {
   start: Time
 
-  duration?: Time
   num?: number
 }
 
-const { start, duration = 3.7, num }: Props = Astro.props
+const { start, num }: Props = Astro.props
 const sporesplosion = translations.sporesplosion
 ---
 

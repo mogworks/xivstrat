@@ -3,8 +3,6 @@ import Buff from '@/components/Buff.astro'
 
 import { translations } from '../../_translations'
 
-import icon from '@/assets/buff/07/m8s2/214268.png'
-
 interface Props {
   tag?: string
   hover?: boolean
@@ -12,6 +10,7 @@ interface Props {
 
 const { tag = '', hover = false }: Props = Astro.props
 
+const icon = 'imgs/buff/07/m8s2/214268.png'
 const name = translations.terrestrialChains
 const desp = translations.terrestrialChainsDesp
 ---

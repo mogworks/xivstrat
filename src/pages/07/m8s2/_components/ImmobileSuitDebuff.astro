@@ -1,8 +1,6 @@
 ---
 import Buff from '@/components/Buff.astro'
 
-import immobile_suit from '@/assets/buff/07/m8s2/215370.png'
-
 interface Props {
   tag?: string
   hover?: boolean
@@ -10,6 +8,7 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const immobile_suit = 'imgs/buff/07/m8s2/215370.png'
 // TODO: 翻译
 ---
 

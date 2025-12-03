@@ -1,7 +1,7 @@
 {
   "name": "莫古力攻略组",
   "description": "MGL攻略组",
-  "iconLight": "/src/assets/developer/group/MGL.png",
-  "iconDark": "/src/assets/developer/group/MGL.png",
+  "iconLight": "imgs/developer/group/MGL.png",
+  "iconDark": "imgs/developer/group/MGL.png",
   "link": "https://space.bilibili.com/76006846"
 }

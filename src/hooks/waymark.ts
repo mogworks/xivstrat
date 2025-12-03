@@ -1,9 +1,8 @@
 import { listenKeys } from 'nanostores'
 import { Assets, Container, Sprite } from 'pixi.js'
 
-import type { WaymarkData } from '@/pixi/waymark'
-
 import { getScale } from '@/pixi/utils'
+import type { WaymarkData } from '@/pixi/waymark'
 import { setWaymark } from '@/pixi/waymark'
 import { $stratBoards } from '@/stores/stratBoards'
 

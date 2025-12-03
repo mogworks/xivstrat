@@ -20,7 +20,7 @@ const props = withDefaults(
   {
     variant: 'outline',
     size: 'icon',
-  }
+  },
 )
 
 const { orientation, canScrollNext, scrollNext } = useCarousel()

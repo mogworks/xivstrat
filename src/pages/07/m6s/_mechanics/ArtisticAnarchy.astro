@@ -1,7 +1,6 @@
 ---
-import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Badge from '@/components/Badge.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
@@ -13,8 +12,6 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 
 import ArtisticAnarchyCast from '../_components/ArtisticAnarchyCast.astro'
 import SugarRiot from '../_components/SugarRiot.astro'
-
-import final from '@/assets/07/m6s/paint_mark/final@3x.png'
 ---
 
 <ArtisticAnarchyCast start="11:09.425" />
@@ -35,7 +32,7 @@ import final from '@/assets/07/m6s/paint_mark/final@3x.png'
       <SugarRiot />
       绘制如下图案
     </div>
-    <Image src={final} alt="Artistic Anarchy: Final" class="w-50" />
+    <CosImage src="imgs/07/m6s/paint_mark/final@3x.png" alt="Artistic Anarchy: Final" class="w-50" />
     <div class="paragraph">
       最终所有图案效果同时发动，伤害均为
       <DamageInfo damage="9999999" type="special" />

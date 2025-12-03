@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-import BiliBiliSVG from '@/assets/svg/bilibili.svg?component'
-import GitHubSVG from '@/assets/svg/github.svg?component'
-import LinkSVG from '@/assets/svg/link.svg?component'
+import BiliBiliSVG from '@/svg/bilibili.svg?component'
+import GitHubSVG from '@/svg/github.svg?component'
+import LinkSVG from '@/svg/link.svg?component'
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/shadcn-vue/hover-card'
 import { isValidURL } from '@/lib/utils'
 
@@ -17,11 +17,11 @@ const props = withDefaults(
   }>(),
   {
     link: '#',
-  }
+  },
 )
 
 const displayNames = computed(() => {
-  if (props.breakNames && props.breakNames.length) {
+  if (props.breakNames?.length) {
     return props.breakNames
   }
   if (props.name) {

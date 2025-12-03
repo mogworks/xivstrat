@@ -8,7 +8,7 @@
     "name": "M7S",
     "parent": ["阿卡狄亚零式登天斗技场 中量级"]
   },
-  "banner": "@/assets/banners/07/m7s.png",
+  "banner": "imgs/banners/07/m7s.png",
   "date": "25/06/28 23:30",
   "href": "/07/m7s",
   "status": "done",

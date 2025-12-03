@@ -1,7 +1,7 @@
 ---
 import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import Boss from '@/components/Boss.astro'
 import ListDot from '@/components/ListDot.astro'
@@ -12,8 +12,6 @@ import NoteSection from '@/components/section/NoteSection.astro'
 
 import InsideOutOrOutsideInCast from '../_components/InsideOutOrOutsideInCast.astro'
 
-import in_img from '@/assets/07/m5s/inside_out_or_outside_in/in.png'
-import out_img from '@/assets/07/m5s/inside_out_or_outside_in/out.png'
 import { translations } from '../_translations'
 
 interface Props {
@@ -54,16 +52,16 @@ const { start }: Props = Astro.props
     </div>
     <div class="flex gap-4">
       <div class="flex max-w-112.5 shrink flex-col items-center gap-2">
-        <Image
-          src={out_img}
+        <CosImage
+          src="imgs/07/m5s/inside_out_or_outside_in/out.png"
           alt="Inside Out | Outside In: Circle"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">圆形AoE</div>
       </div>
       <div class="flex max-w-112.5 shrink flex-col items-center gap-2">
-        <Image
-          src={in_img}
+        <CosImage
+          src="imgs/07/m5s/inside_out_or_outside_in/in.png"
           alt="Inside Out | Outside In: Ring"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />

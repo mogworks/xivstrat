@@ -4,12 +4,12 @@ import { cn } from '@/lib/utils'
 import Icon from '@/components/Icon.astro'
 
 interface Props {
-  icon: string | ImageMetadata
+  icon: string
   tag?: string
   alt?: string
   class?: string
   iconClass?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 const { icon, tag = '', alt = '', class: className = '', iconClass = '', ...rest }: Props = Astro.props

@@ -17,12 +17,6 @@ import PatienceOfStoneDebuff from '../_components/buff/PatienceOfStoneDebuff.ast
 import PatienceOfWindDebuff from '../_components/buff/PatienceOfWindDebuff.astro'
 
 import { translations } from '../_translations'
-
-import mooncleaver_3 from '@/assets/07/m8s2/p1/mooncleaver_3.png'
-import elemental_purge_1 from '@/assets/07/m8s2/p1/elemental_purge_1.png'
-import elemental_purge_2 from '@/assets/07/m8s2/p1/elemental_purge_2.png'
-import elemental_purge_3 from '@/assets/07/m8s2/p1/elemental_purge_3.png'
-import elemental_purge_4 from '@/assets/07/m8s2/p1/elemental_purge_4.png'
 import BossAttackSection from '../_components/BossAttackSection.astro'
 
 const elementalPurge = translations.elementalPurge
@@ -95,7 +89,7 @@ const huntersHarvestTime = '09:08.249'
       wrapperClass="max-w-100 scale-110"
       bordered={false}
       imgClass="shadowbringer"
-      imgs={[{ src: mooncleaver_3, alt: '准备处理风震魔印' }]}
+      imgs={[{ src: 'imgs/07/m8s2/p1/mooncleaver_3.png', alt: '准备处理风震魔印' }]}
     />
 
     <P>
@@ -126,8 +120,8 @@ const huntersHarvestTime = '09:08.249'
       bordered={false}
       imgClass="shadowbringer"
       imgs={[
-        { src: elemental_purge_1, alt: '风震魔印1' },
-        { src: elemental_purge_2, alt: '风震魔印2' },
+        { src: 'imgs/07/m8s2/p1/elemental_purge_1.png', alt: '风震魔印1' },
+        { src: 'imgs/07/m8s2/p1/elemental_purge_2.png', alt: '风震魔印2' },
       ]}
     />
 
@@ -143,8 +137,8 @@ const huntersHarvestTime = '09:08.249'
       imgClass="max-w-116 shadowbringer"
       class="-mx-4 gap-16"
       imgs={[
-        { src: elemental_purge_3, alt: '风震魔印3' },
-        { src: elemental_purge_4, alt: '风震魔印4' },
+        { src: 'imgs/07/m8s2/p1/elemental_purge_3.png', alt: '风震魔印3' },
+        { src: 'imgs/07/m8s2/p1/elemental_purge_4.png', alt: '风震魔印4' },
       ]}
     />
   </div>

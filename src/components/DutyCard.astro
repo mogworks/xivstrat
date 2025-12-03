@@ -1,7 +1,7 @@
 ---
 import type { Duty } from '@/data/duty'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import { cn } from '@/lib/utils'
 
@@ -50,11 +50,7 @@ const href = (() => {
     </div>
 
     <div class="relative flex justify-center overflow-hidden rounded-md">
-      <Image
-        src={duty.banner}
-        alt={duty.name}
-        class="h-36 w-full scale-105 object-cover duration-300 hover:scale-110"
-      />
+      <CosImage src={duty.banner} alt={duty.name} class="h-36 w-full scale-105 object-cover duration-300 hover:scale-110" />
       {
         duty.spoilerFree && (
           <div class="absolute inset-0 flex items-center justify-center bg-zinc-800">

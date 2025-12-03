@@ -3,20 +3,13 @@ import type { Time } from '@/lib/utils'
 
 import P from '@/components/typography/P.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
-import Boss from '@/components/Boss.astro'
 
 import { translations } from '../_translations'
 
 import TheEndsEmbraceCast from '../_components/TheEndsEmbraceCast.astro'
-
-import TheEndsEmbrace_1 from '@/assets/07/necron/TheEndsEmbrace_1.png'
-import TheEndsEmbrace_2 from '@/assets/07/necron/TheEndsEmbrace_2.png'
 
 interface Props {
   start: Time
@@ -40,7 +33,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-160"
       imgs={[
         {
-          src: TheEndsEmbrace_1,
+          src: 'imgs/07/necron/TheEndsEmbrace_1.png',
           alt: '',
           title: '点名全员小圆分散',
         },
@@ -51,7 +44,7 @@ const { start }: Props = Astro.props
       wrapperClass="max-w-160"
       imgs={[
         {
-          src: TheEndsEmbrace_2,
+          src: 'imgs/07/necron/TheEndsEmbrace_2.png',
           alt: '',
           title: '判定后在脚下生成触手，全员向场外引导各自的触手',
         },

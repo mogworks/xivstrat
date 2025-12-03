@@ -1,7 +1,6 @@
 ---
-import type { Time } from '@/lib/utils'
 
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import ListDot from '@/components/ListDot.astro'
 import Span from '@/components/Span.vue'
@@ -14,15 +13,6 @@ import AttackSection from '@/components/section/AttackSection.astro'
 import QuarterOrEighthBeatsAbility from '../_components/QuarterOrEighthBeatsAbility.astro'
 import QuarterOrEighthBeatsCast from '../_components/QuarterOrEighthBeatsCast.astro'
 
-import frogtourage_0 from '@/assets/07/m5s/frogtourage.png'
-import frogtourage_1 from '@/assets/07/m5s/frogtourage/1.png'
-import frogtourage_2 from '@/assets/07/m5s/frogtourage/2.png'
-import frogtourage_3 from '@/assets/07/m5s/frogtourage/3.png'
-import frogtourage_4 from '@/assets/07/m5s/frogtourage/4.png'
-import frogtourage_solution_1 from '@/assets/07/m5s/frogtourage/solution_1.png'
-import frogtourage_solution_2 from '@/assets/07/m5s/frogtourage/solution_2.png'
-import frogtourage_solution_3 from '@/assets/07/m5s/frogtourage/solution_3.png'
-import frogtourage_solution_4 from '@/assets/07/m5s/frogtourage/solution_4.png'
 import { translations } from '../_translations'
 ---
 
@@ -37,17 +27,17 @@ import { translations } from '../_translations'
     </div>
     <div class="paragraph">它们会踩着太空步给场地划线，被线包围的区域会受到AoE攻击</div>
     <div class="max-w-184">
-      <Image src={frogtourage_0} alt="Frogtourage" class="border-2 border-amber-800/75 dark:border-amber-100" />
+      <CosImage src="imgs/07/m5s/frogtourage.png" alt="Frogtourage" class="border-2 border-amber-800/75 dark:border-amber-100" />
     </div>
     <div class="paragraph mt-4">每组青蛙从场地一侧移动到对侧后会转90°继续移动，有相背而行或相向而行两种可能</div>
     <div class="paragraph">下图以北边出现的青蛙为例，青蛙移动到南边后，左图青蛙相背而行，右图青蛙相向而行</div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image src={frogtourage_1} alt="Frogtourage 1/4" class="border-2 border-amber-800/75 dark:border-amber-100" />
+        <CosImage src="imgs/07/m5s/frogtourage/1.png" alt="Frogtourage 1/4" class="border-2 border-amber-800/75 dark:border-amber-100" />
         <div class="paragraph">情形1：相背而行，最终两侧危险</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image src={frogtourage_2} alt="Frogtourage 2/4" class="border-2 border-amber-800/75 dark:border-amber-100" />
+        <CosImage src="imgs/07/m5s/frogtourage/2.png" alt="Frogtourage 2/4" class="border-2 border-amber-800/75 dark:border-amber-100" />
         <div class="paragraph">情形2：相向而行，最终中央危险</div>
       </div>
     </div>
@@ -55,11 +45,11 @@ import { translations } from '../_translations'
     <div class="paragraph mt-4">两组青蛙划线包围的危险区域必然是一组两侧、一组场中，最终形成的效果如下</div>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image src={frogtourage_3} alt="Frogtourage 3/4" class="border-2 border-amber-800/75 dark:border-amber-100" />
+        <CosImage src="imgs/07/m5s/frogtourage/3.png" alt="Frogtourage 3/4" class="border-2 border-amber-800/75 dark:border-amber-100" />
         <div class="paragraph">情形1：AC外侧安全</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image src={frogtourage_4} alt="Frogtourage 3/4" class="border-2 border-amber-800/75 dark:border-amber-100" />
+        <CosImage src="imgs/07/m5s/frogtourage/4.png" alt="Frogtourage 3/4" class="border-2 border-amber-800/75 dark:border-amber-100" />
         <div class="paragraph">情形2：BD外侧安全</div>
       </div>
     </div>
@@ -124,16 +114,16 @@ import { translations } from '../_translations'
     </h4>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={frogtourage_solution_1}
+        <CosImage
+          src="imgs/07/m5s/frogtourage/solution_1.png"
           alt="Frogtourage Solution 1/4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">情形1：AC外侧安全</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={frogtourage_solution_2}
+        <CosImage
+          src="imgs/07/m5s/frogtourage/solution_2.png"
           alt="Frogtourage Solution 2/4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
@@ -145,16 +135,16 @@ import { translations } from '../_translations'
     </h4>
     <div class="flex max-w-184 gap-4">
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={frogtourage_solution_3}
+        <CosImage
+          src="imgs/07/m5s/frogtourage/solution_3.png"
           alt="Frogtourage Solution 3/4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />
         <div class="paragraph">情形1：AC外侧安全</div>
       </div>
       <div class="flex flex-col items-center gap-2">
-        <Image
-          src={frogtourage_solution_4}
+        <CosImage
+          src="imgs/07/m5s/frogtourage/solution_4.png"
           alt="Frogtourage Solution 4/4"
           class="border-2 border-amber-800/75 dark:border-amber-100"
         />

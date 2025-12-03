@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { motion } from 'motion-v'
 
-import SettingSVG from '@/assets/svg/setting.svg?component'
+import SettingSVG from '@/svg/setting.svg?component'
 </script>
 
 <template>

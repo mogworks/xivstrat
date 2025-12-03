@@ -3,20 +3,13 @@ import type { Time } from '@/lib/utils'
 
 import P from '@/components/typography/P.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 
 import { translations } from '../_translations'
 
 import ColdGripCast from '../_components/ColdGripCast.astro'
-
-import ColdGrip_1 from '@/assets/07/necron/ColdGrip_1.png'
-import ColdGrip_2 from '@/assets/07/necron/ColdGrip_2.png'
-import ColdGrip_3 from '@/assets/07/necron/ColdGrip_3.png'
 
 interface Props {
   start: Time
@@ -34,38 +27,38 @@ const { start }: Props = Astro.props
       <Skill name={translations.ColdGrip} />
     </T>
     <P>辣翅 + 2/3 半场刀（暗紫色特效一侧）</P>
-    <ImgRow
-      borderVariant="cyan"
-      wrapperClass="max-w-160"
-      imgs={[
-        {
-          src: ColdGrip_1,
-          alt: '',
-          title: '注意观察BOSS，有一侧的手会有暗紫色特效，上图为左侧',
-        },
-      ]}
-    />
-    <ImgRow
-      borderVariant="cyan"
-      wrapperClass="max-w-160"
-      imgs={[
-        {
-          src: ColdGrip_2,
-          alt: '',
-          title: '先在中间躲辣翅',
-        },
-      ]}
-    />
-    <ImgRow
-      borderVariant="cyan"
-      wrapperClass="max-w-160"
-      imgs={[
-        {
-          src: ColdGrip_3,
-          alt: '',
-          title: '然后去右侧躲 2/3 半场刀',
-        },
-      ]}
-    />
+      <ImgRow
+        borderVariant="cyan"
+        wrapperClass="max-w-160"
+        imgs={[
+          {
+            src: 'imgs/07/necron/ColdGrip_1.png',
+            alt: '',
+            title: '注意观察BOSS，有一侧的手会有暗紫色特效，上图为左侧',
+          },
+        ]}
+      />
+      <ImgRow
+        borderVariant="cyan"
+        wrapperClass="max-w-160"
+        imgs={[
+          {
+            src: 'imgs/07/necron/ColdGrip_2.png',
+            alt: '',
+            title: '先在中间躲辣翅',
+          },
+        ]}
+      />
+      <ImgRow
+        borderVariant="cyan"
+        wrapperClass="max-w-160"
+        imgs={[
+          {
+            src: 'imgs/07/necron/ColdGrip_3.png',
+            alt: '',
+            title: '然后去右侧躲 2/3 半场刀',
+          },
+        ]}
+      />
   </div>
 </MechanicSection>

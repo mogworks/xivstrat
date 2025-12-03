@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import CosImage from '@/components/CosImage.astro'
 
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
@@ -9,15 +9,15 @@ import ImgRow from '@/components/typography/ImgRow.astro'
 
 import Zelenia from '../_components/Zelenia.astro'
 
-import thunder from '@/assets/07/zelenia/P3-4/P3-4-thunder.png'
-import dps from '@/assets/07/zelenia/P3-4/P3-4-dps.png'
-import tn from '@/assets/07/zelenia/P3-4/P3-4-tn.png'
+const thunder = 'imgs/07/zelenia/P3-4/P3-4-thunder.png'
+const dps = 'imgs/07/zelenia/P3-4/P3-4-dps.png'
+const tn = 'imgs/07/zelenia/P3-4/P3-4-tn.png'
 ---
 
 <MechanicSection>
   <div class="flex gap-4">
     <div class="max-w-88 flex-1">
-      <Image src={thunder} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
+      <CosImage src={thunder} alt="" class="rounded border-2 border-fuchsia-400 dark:border-fuchsia-100" />
     </div>
     <div class="flex-2 space-y-4 rounded-md border border-dashed p-4">
       <div class="paragraph">

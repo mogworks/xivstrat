@@ -16,27 +16,6 @@ import LimitBreak from '@/components/action/LimitBreak.astro'
 
 import { translations } from './_translations'
 
-import SpecterOfDeath_1 from '@/assets/07/necron/SpecterOfDeath_1.png'
-import TheEndsEmbrace_3 from '@/assets/07/necron/TheEndsEmbrace_3.png'
-import TheEndsEmbrace_4 from '@/assets/07/necron/TheEndsEmbrace_4.png'
-import ColdGrip_4 from '@/assets/07/necron/ColdGrip_4.png'
-import RelentlessReaping_1 from '@/assets/07/necron/RelentlessReaping_1.png'
-import CropRotation_1 from '@/assets/07/necron/CropRotation_1.png'
-import CircleOfLives_1 from '@/assets/07/necron/CircleOfLives_1.png'
-import SpecterOfDeath_2 from '@/assets/07/necron/SpecterOfDeath_2.png'
-import SoulReaping_demo_3 from '@/assets/07/necron/SoulReaping_demo_3.png'
-import SoulReaping_demo_4 from '@/assets/07/necron/SoulReaping_demo_4.png'
-import MassMacabre_1 from '@/assets/07/necron/MassMacabre_1.png'
-import MassMacabre_2 from '@/assets/07/necron/MassMacabre_2.png'
-import MassMacabre_3 from '@/assets/07/necron/MassMacabre_3.png'
-import MassMacabre_solution_1 from '@/assets/07/necron/MassMacabre_solution_1.png'
-import MassMacabre_solution_2 from '@/assets/07/necron/MassMacabre_solution_2.png'
-import MassMacabre_solution_3 from '@/assets/07/necron/MassMacabre_solution_3.png'
-import MassMacabre_solution_4 from '@/assets/07/necron/MassMacabre_solution_4.png'
-import MassMacabre_solution_op_2 from '@/assets/07/necron/MassMacabre_solution_op_2.png'
-import MassMacabre_solution_op_3 from '@/assets/07/necron/MassMacabre_solution_op_3.png'
-import MassMacabre_solution_op_4 from '@/assets/07/necron/MassMacabre_solution_op_4.png'
-
 const dutyId = '07/necron'
 const base = '00:00.00'
 ---
@@ -44,7 +23,7 @@ const base = '00:00.00'
 <DutyStratLayout dutyId={dutyId} base={base}>
   <DraftWarning showDialog={false}>
     <div
-      class="my-4 flex flex-col gap-4 text-3xl text-cyan-600 [text-shadow:_0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
+      class="my-4 flex flex-col gap-4 text-3xl text-cyan-600 [text-shadow:0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
     >
       <P class="justify-center"><Span variant="lime">所有机制和解法已按时间顺序整理完毕</Span></P>
       <P class="justify-center">
@@ -68,7 +47,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: SpecterOfDeath_1,
+              src: 'imgs/07/necron/SpecterOfDeath_1.png',
               alt: '',
               title: '连线场边，上图为第1排和第3排危险，第2排安全',
             },
@@ -94,7 +73,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: TheEndsEmbrace_3,
+              src: 'imgs/07/necron/TheEndsEmbrace_3.png',
               alt: '',
               title: '全员站成一横排，灵性分散',
             },
@@ -106,7 +85,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: TheEndsEmbrace_4,
+              src: 'imgs/07/necron/TheEndsEmbrace_4.png',
               alt: '',
               title: '全员引导各自的触手',
             },
@@ -135,7 +114,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: ColdGrip_4,
+              src: 'imgs/07/necron/ColdGrip_4.png',
               alt: '',
               title: '上图暗紫色特效手在东侧：先去中间躲辣翅，再去西侧躲 2/3 半场刀',
             },
@@ -154,7 +133,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: RelentlessReaping_1,
+              src: 'imgs/07/necron/RelentlessReaping_1.png',
               alt: '',
               title: '上图已经存储两个技能，正在存储第3个（钢铁）',
             },
@@ -172,7 +151,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: CropRotation_1,
+              src: 'imgs/07/necron/CropRotation_1.png',
               alt: '',
               title: '以上图为例，会按照 3->4->1->2 的顺序释放技能',
             },
@@ -197,7 +176,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: CircleOfLives_1,
+              src: 'imgs/07/necron/CircleOfLives_1.png',
               alt: '',
               title: '大圈特效缩到最小的时候判定',
             },
@@ -215,7 +194,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: SpecterOfDeath_2,
+              src: 'imgs/07/necron/SpecterOfDeath_2.png',
               alt: '',
               title: '判定时机在第2和3个月环之间，所以不要急着去躲第3个月环',
             },
@@ -239,7 +218,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: SoulReaping_demo_3,
+              src: 'imgs/07/necron/SoulReaping_demo_3.png',
               alt: '',
               title: '上图BOSS正在读条存储月环',
             },
@@ -262,7 +241,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: SoulReaping_demo_4,
+              src: 'imgs/07/necron/SoulReaping_demo_4.png',
               alt: '',
               title: '示例：月环 + 2222分摊',
             },
@@ -295,7 +274,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: MassMacabre_1,
+              src: 'imgs/07/necron/MassMacabre_1.png',
               alt: '',
               title: '生成10座塔：2个4人塔、4个3人塔、4个2人塔',
             },
@@ -307,7 +286,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: MassMacabre_2,
+              src: 'imgs/07/necron/MassMacabre_2.png',
               alt: '',
               title: '场中一列DOT区，生成触手，释放横向的直线AoE',
             },
@@ -319,7 +298,7 @@ const base = '00:00.00'
           wrapperClass="max-w-160"
           imgs={[
             {
-              src: MassMacabre_3,
+              src: 'imgs/07/necron/MassMacabre_3.png',
               alt: '',
               title: '死刑',
             },
@@ -390,12 +369,12 @@ const base = '00:00.00'
           wrapperClass="max-w-120"
           imgs={[
             {
-              src: MassMacabre_solution_1,
+              src: 'imgs/07/necron/MassMacabre_solution_1.png',
               alt: '',
               title: '第1轮，44',
             },
             {
-              src: MassMacabre_solution_2,
+              src: 'imgs/07/necron/MassMacabre_solution_2.png',
               alt: '',
               title: '第2轮，2222',
             },
@@ -406,12 +385,12 @@ const base = '00:00.00'
           wrapperClass="max-w-120"
           imgs={[
             {
-              src: MassMacabre_solution_3,
+              src: 'imgs/07/necron/MassMacabre_solution_3.png',
               alt: '',
               title: '第3轮，33 + MT死刑',
             },
             {
-              src: MassMacabre_solution_4,
+              src: 'imgs/07/necron/MassMacabre_solution_4.png',
               alt: '',
               title: '第4轮，33 + ST死刑',
             },
@@ -425,12 +404,12 @@ const base = '00:00.00'
           wrapperClass="max-w-120"
           imgs={[
             {
-              src: MassMacabre_solution_1,
+              src: 'imgs/07/necron/MassMacabre_solution_1.png',
               alt: '',
               title: '第1轮，44',
             },
             {
-              src: MassMacabre_solution_op_2,
+              src: 'imgs/07/necron/MassMacabre_solution_op_2.png',
               alt: '',
               title: '第2轮，2222',
             },
@@ -441,12 +420,12 @@ const base = '00:00.00'
           wrapperClass="max-w-120"
           imgs={[
             {
-              src: MassMacabre_solution_op_3,
+              src: 'imgs/07/necron/MassMacabre_solution_op_3.png',
               alt: '',
               title: '第3轮，33 + MT死刑',
             },
             {
-              src: MassMacabre_solution_op_4,
+              src: 'imgs/07/necron/MassMacabre_solution_op_4.png',
               alt: '',
               title: '第4轮，33 + ST死刑',
             },
