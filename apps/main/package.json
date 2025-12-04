@@ -18,10 +18,8 @@
     "@nanostores/persistent": "1.2.0",
     "@nanostores/vue": "1.0.1",
     "@tailwindcss/vite": "4.1.17",
-    "@types/react": "19.2.7",
-    "@types/react-dom": "19.2.3",
     "@vueuse/core": "14.1.0",
-    "astro": "5.16.3",
+    "astro": "5.16.4",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "embla-carousel-vue": "8.6.0",
@@ -32,8 +30,8 @@
     "pinyin-pro": "3.27.0",
     "pixi-filters": "6.1.5",
     "pixi.js": "8.14.3",
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
+    "react": "19.2.1",
+    "react-dom": "19.2.1",
     "reka-ui": "2.6.1",
     "sharp": "0.34.5",
     "tailwind-merge": "3.4.0",
@@ -45,10 +43,9 @@
   "devDependencies": {
     "@astrojs/check": "0.9.6",
     "@astrojs/ts-plugin": "1.10.6",
-    "@biomejs/biome": "2.3.8",
-    "esbuild": "0.27.0",
-    "lefthook": "2.0.6",
-    "typescript": "5.9.3",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "esbuild": "0.27.1",
     "vite-svg-loader": "5.1.0"
   }
 }
