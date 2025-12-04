@@ -41,6 +41,10 @@
     "editor.defaultFormatter": "biomejs.biome",
     "editor.formatOnSave": true
   },
+  "[tailwindcss]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
   "[json]": {
     "editor.defaultFormatter": "biomejs.biome",
     "editor.formatOnSave": true
