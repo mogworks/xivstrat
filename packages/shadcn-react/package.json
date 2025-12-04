@@ -1,0 +1,17 @@
+{
+  "name": "shadcn-react",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "peerDependencies": {
+    "react": ">=19",
+    "react-dom": ">=19"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "react": "19.2.1",
+    "react-dom": "19.2.1"
+  }
+}

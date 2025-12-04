@@ -86,6 +86,9 @@ importers:
       reka-ui:
         specifier: 2.6.1
         version: 2.6.1(typescript@5.9.3)(vue@3.5.25(typescript@5.9.3))
+      shadcn-react:
+        specifier: workspace:*
+        version: link:../../packages/shadcn-react
       sharp:
         specifier: 0.34.5
         version: 0.34.5
@@ -123,6 +126,24 @@ importers:
       vite-svg-loader:
         specifier: 5.1.0
         version: 5.1.0(vue@3.5.25(typescript@5.9.3))
+
+  packages/shadcn-react:
+    devDependencies:
+      '@types/node':
+        specifier: 24.10.1
+        version: 24.10.1
+      '@types/react':
+        specifier: 19.2.7
+        version: 19.2.7
+      '@types/react-dom':
+        specifier: 19.2.3
+        version: 19.2.3(@types/react@19.2.7)
+      react:
+        specifier: 19.2.1
+        version: 19.2.1
+      react-dom:
+        specifier: 19.2.1
+        version: 19.2.1(react@19.2.1)
 
 packages:
 

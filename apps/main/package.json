@@ -1,7 +1,6 @@
 {
   "name": "main",
   "type": "module",
-  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -33,6 +32,7 @@
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "reka-ui": "2.6.1",
+    "shadcn-react": "workspace:*",
     "sharp": "0.34.5",
     "tailwind-merge": "3.4.0",
     "tailwindcss": "4.1.17",
