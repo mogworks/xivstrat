@@ -166,12 +166,18 @@ importers:
 
   packages/shadcn-vue:
     dependencies:
+      '@vueuse/core':
+        specifier: 14.1.0
+        version: 14.1.0(vue@3.5.25(typescript@5.9.3))
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
       clsx:
         specifier: 2.1.1
         version: 2.1.1
+      embla-carousel-vue:
+        specifier: 8.6.0
+        version: 8.6.0(vue@3.5.25(typescript@5.9.3))
       lucide-vue-next:
         specifier: 0.555.0
         version: 0.555.0(vue@3.5.25(typescript@5.9.3))
