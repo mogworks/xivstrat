@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
+import { cn } from '#/lib/utils'
 import { reactiveOmit } from '@vueuse/core'
 import type { RadioGroupRootEmits, RadioGroupRootProps } from 'reka-ui'
 import { RadioGroupRoot, useForwardPropsEmits } from 'reka-ui'

@@ -10,7 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/shadcn-vue/dialog'
+} from '@xivstrat/shadcn-vue'
 
 withDefaults(
   defineProps<{

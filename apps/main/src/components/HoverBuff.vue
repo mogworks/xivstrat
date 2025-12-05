@@ -4,8 +4,8 @@ import type { HTMLAttributes } from 'vue'
 import type { VariantType } from '@/lib/variant'
 
 import Buff from '@/components/Buff.vue'
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/shadcn-vue/hover-card'
 import Span from '@/components/Span.vue'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@xivstrat/shadcn-vue'
 
 const props = defineProps<{
   icon: string

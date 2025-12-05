@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+import { isValidURL } from '@/lib/utils'
 import BiliBiliSVG from '@/svg/bilibili.svg?component'
 import GitHubSVG from '@/svg/github.svg?component'
 import LinkSVG from '@/svg/link.svg?component'
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/shadcn-vue/hover-card'
-import { isValidURL } from '@/lib/utils'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@xivstrat/shadcn-vue'
 
 defineProps<{
   userId: string

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
+import { cn } from '#/lib/utils'
 import { reactiveOmit } from '@vueuse/core'
 import type { HoverCardContentProps } from 'reka-ui'
 import { HoverCardContent, HoverCardPortal, useForwardProps } from 'reka-ui'

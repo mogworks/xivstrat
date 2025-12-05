@@ -29,4 +29,6 @@ export default defineConfig({
     // EdgeOne 不支持缓存流式HTML
     experimentalDisableStreaming: true,
   }),
+
+  cacheDir: './cache',
 })

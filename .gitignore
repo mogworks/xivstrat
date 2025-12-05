@@ -22,6 +22,7 @@ coverage
 
 # Build Outputs
 .astro/
+apps/main/cache/
 .next/
 out/
 build

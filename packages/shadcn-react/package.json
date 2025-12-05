@@ -2,6 +2,9 @@
   "name": "@xivstrat/shadcn-react",
   "private": true,
   "type": "module",
+  "imports": {
+    "#/*": "./src/*"
+  },
   "exports": {
     ".": "./src/index.ts"
   },

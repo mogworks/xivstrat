@@ -5,9 +5,8 @@ import { ChevronsUpDown } from 'lucide-vue-next'
 import { animate } from 'motion-v'
 import { ref, useTemplateRef, watch } from 'vue'
 
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/shadcn-vue/collapsible'
-import { Separator } from '@/components/shadcn-vue/separator'
 import { cn } from '@/lib/utils'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger, Separator } from '@xivstrat/shadcn-vue'
 
 const props = withDefaults(
   defineProps<{

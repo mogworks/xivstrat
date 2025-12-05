@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, useTemplateRef } from 'vue'
 
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/shadcn-vue/dialog'
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@xivstrat/shadcn-vue'
 
 import DialogClose from '../shadcn-vue/dialog/DialogClose.vue'
 

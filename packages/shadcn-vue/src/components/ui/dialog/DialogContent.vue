@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
+import { cn } from '#/lib/utils'
 import { reactiveOmit } from '@vueuse/core'
 import { X } from 'lucide-vue-next'
 import type { DialogContentEmits, DialogContentProps } from 'reka-ui'

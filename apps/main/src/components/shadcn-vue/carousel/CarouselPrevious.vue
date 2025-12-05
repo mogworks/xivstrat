@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ArrowLeft } from 'lucide-vue-next'
 
-import type { ButtonVariants } from '@/components/shadcn-vue/button'
+import type { ButtonVariants } from '@xivstrat/shadcn-vue'
 
-import { Button } from '@/components/shadcn-vue/button'
 import { cn } from '@/lib/utils'
+import { Button } from '@xivstrat/shadcn-vue'
 
 import type { WithClassAsProps } from './interface'
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/lib/utils'
+import { cn } from '#/lib/utils'
 import { reactiveOmit } from '@vueuse/core'
 import type { TabsTriggerProps } from 'reka-ui'
 import { TabsTrigger, useForwardProps } from 'reka-ui'

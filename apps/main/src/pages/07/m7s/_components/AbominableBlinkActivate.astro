@@ -2,15 +2,15 @@
 import type { Time } from '@/lib/utils'
 
 import Badge from '@/components/Badge.astro'
-import EventSection from '@/components/section/EventSection.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
+import EventSection from '@/components/section/EventSection.astro'
 import Span from '@/components/Span.vue'
-import Quote from '@/components/typography/Quote.astro'
 import P from '@/components/typography/P.astro'
-import { Separator } from '@/components/shadcn-vue/separator'
+import Quote from '@/components/typography/Quote.astro'
+import { Separator } from '@xivstrat/shadcn-vue'
 
-import { translations } from '../_translations'
 import RoleIcon from '@/components/RoleIcon.astro'
+import { translations } from '../_translations'
 
 interface Props {
   time: Time
