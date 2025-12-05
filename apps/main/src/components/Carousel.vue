@@ -4,15 +4,9 @@ import type { HTMLAttributes } from 'vue'
 import { watchOnce } from '@vueuse/core'
 import { ref } from 'vue'
 
-import type { CarouselApi } from '@/components/shadcn-vue/carousel'
+import type { CarouselApi } from '@xivstrat/shadcn-vue'
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/shadcn-vue/carousel'
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@xivstrat/shadcn-vue'
 
 const props = defineProps<{
   slots: Slot[]

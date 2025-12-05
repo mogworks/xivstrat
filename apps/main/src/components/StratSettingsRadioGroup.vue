@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { Label } from '@/components/shadcn-vue/label'
-import { RadioGroup, RadioGroupItem } from '@/components/shadcn-vue/radio-group'
+import { Label, RadioGroup, RadioGroupItem } from '@xivstrat/shadcn-vue'
 
 interface SettingOption {
   id: string

@@ -3,8 +3,8 @@ import type { HTMLAttributes } from 'vue'
 
 import type { VariantType } from '@/lib/variant'
 
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/shadcn-vue/hover-card'
 import Span from '@/components/Span.vue'
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@xivstrat/shadcn-vue'
 
 const props = defineProps<{
   variant: VariantType

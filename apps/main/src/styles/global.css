@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@source "../../node_modules/@xivstrat";
 
 @custom-variant dark (&:where(.dark, .dark *));
 

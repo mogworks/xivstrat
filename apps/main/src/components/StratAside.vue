@@ -4,8 +4,8 @@ import { computed, onMounted, onUnmounted } from 'vue'
 
 import type { DutyMechanic, DutyPhase } from '@/data/duty'
 
-import { Separator } from '@/components/shadcn-vue/separator'
 import { useAnchorObserver } from '@/hooks/anchor'
+import { Separator } from '@xivstrat/shadcn-vue'
 
 const props = defineProps<{
   currentUrl: string
