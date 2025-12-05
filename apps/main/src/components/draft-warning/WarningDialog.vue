@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, useTemplateRef } from 'vue'
 
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@xivstrat/shadcn-vue'
-
-import DialogClose from '../shadcn-vue/dialog/DialogClose.vue'
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@xivstrat/shadcn-vue'
 
 const buttonRef = useTemplateRef<HTMLButtonElement>('button')
 const isDev = computed(() => import.meta.env.MODE === 'development')
