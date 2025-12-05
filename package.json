@@ -8,7 +8,9 @@
     "build": "turbo run build",
     "preview": "turbo run preview",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "clean": "pnpm dlx rimraf --glob \"apps/*/node_modules\" \"packages/*/node_modules\" node_modules pnpm-lock.yaml",
+    "reinstall": "pnpm clean && pnpm install"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.8",

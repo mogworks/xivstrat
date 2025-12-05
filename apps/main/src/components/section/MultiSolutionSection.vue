@@ -56,7 +56,7 @@ const handleTabSwitchComplete = () => {
           v-for="l in solutions"
           :key="l.id"
           :value="l.title"
-          class="cursor-pointer data-[state=active]:border-lime-700/50 data-[state=active]:text-lime-700 data-[state=active]:[text-shadow:_0_0_1px_var(--color-lime-600)] dark:data-[state=active]:border-lime-600/50 dark:data-[state=active]:text-lime-400"
+          class="cursor-pointer data-[state=active]:border-lime-700/50 data-[state=active]:text-lime-700 data-[state=active]:[text-shadow:0_0_1px_var(--color-lime-600)] dark:data-[state=active]:border-lime-600/50 dark:data-[state=active]:text-lime-400"
         >
           {{ l.title }}
         </TabsTrigger>
