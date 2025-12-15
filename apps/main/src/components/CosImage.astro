@@ -2,14 +2,14 @@
 import { Image } from 'astro:assets'
 
 interface Props {
-  src: string
+  src: string | URL // path or full URL, eg. 'imgs/icon.png' or URL('https://cos.xivstrat.cn/imgs/icon.png')
   alt?: string
   [key: string]: unknown
 }
 
 const { src, alt, ...rest }: Props = Astro.props
 
-const url = new URL(src, import.meta.env.PUBLIC_COS_BASE_URL)
+const url = typeof src === 'string' ? new URL(src, import.meta.env.PUBLIC_COS_BASE_URL) : src
 const width = url.searchParams.get('width')
 const height = url.searchParams.get('height')
 
