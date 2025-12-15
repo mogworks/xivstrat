@@ -15,10 +15,10 @@ interface Props {
   baseUrl?: string
   name: string
   phases: DutyPhase[]
-  bilibili?: string
+  videoLink?: string
 }
 
-const { baseUrl, name, phases, bilibili = 'https://space.bilibili.com/25787773' }: Props = Astro.props
+const { baseUrl, name, phases, videoLink = 'https://space.bilibili.com/25787773' }: Props = Astro.props
 ---
 
 <header
@@ -83,6 +83,6 @@ const { baseUrl, name, phases, bilibili = 'https://space.bilibili.com/25787773' 
       </nav>
       <Separator orientation="vertical" class="h-8" />
     </section>
-    <LinkIcons bilibili={bilibili} />
+    <LinkIcons videoLink={videoLink} />
   </div>
 </header>

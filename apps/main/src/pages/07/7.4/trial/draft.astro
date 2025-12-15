@@ -1,0 +1,51 @@
+---
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
+import Span from '@/components/Span.vue'
+import P from '@/components/typography/P.astro'
+
+const dutyId = '07/74_trial'
+
+const base = '00:00.00'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <DraftWarning>
+    <div
+      class="my-3 flex flex-col gap-4 text-2xl text-cyan-600 [text-shadow:0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
+    >
+      <P class="justify-center">
+        本页内容尚在编辑中，不保证打法优化，<Span variant="red">请谨慎参考本页内容！</Span>
+      </P>
+      <P class="justify-center">
+        网站内容为打法验证可用后不定时更新，
+        <a
+          href="https://docs.google.com/document/d/1h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300 underline"
+        >
+          文档
+        </a>
+        内容则为即时更新
+      </P>
+      <P class="justify-center">
+        文档传送门：
+        <a
+          href="https://docs.google.com/document/d/1h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300 underline"
+        >
+          腾讯文档
+        </a>
+      </P>
+    </div>
+  </DraftWarning>
+  <SeparatorSection />
+  <EventSection time="00:00.0">
+    待更新
+  </EventSection>
+</DutyStratLayout>

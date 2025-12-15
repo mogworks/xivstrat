@@ -26,7 +26,7 @@ const phaseTitle = phaseIndex > 0 ? ` - P${phaseIndex}` : ` - 首页`
 
 <Layout lang="zh-CN" title={duty.title + phaseTitle} description={duty.description}>
   <div class="min-w-strat-min relative min-h-dvh">
-    <StratHeader baseUrl={href} name={duty.name} phases={duty.phases} bilibili={duty.bilibili} />
+    <StratHeader baseUrl={href} name={duty.name} phases={duty.phases} videoLink={duty.videoLink} />
     <slot />
   </div>
 </Layout>

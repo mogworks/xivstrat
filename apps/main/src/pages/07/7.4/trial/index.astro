@@ -2,44 +2,40 @@
 import CosImage from '@/components/CosImage.astro'
 import { getEntry } from 'astro:content'
 
-import ScannerSVG from '@/svg/scanner.svg'
 import BiliBiliSVG from '@/svg/bilibili.svg'
+import ScannerSVG from '@/svg/scanner.svg'
+import DocsSVG from '@/svg/docs.svg'
 
-import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
-import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import AreaBox from '@/components/AreaBox.astro'
-
-import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
-import WaymarkBox from '@/components/WaymarkBox.astro'
+import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import Macro from '@/components/Macro.astro'
 import ReferenceItem from '@/components/ReferenceItem.astro'
+import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
 import Thanks from '@/components/thanks/Thanks.astro'
-
-const CheatsheetsImage = 'imgs/cheatsheets/07/zelenia.jpg'
-const WaymarkImage = 'imgs/waymarks/07/zelenia.png'
-const TimelineImage = 'imgs/timelines/07/zelenia.png'
+import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
 
 import { macro } from './_data/macro'
 import { referenceList } from './_data/reference'
 import { thanksList } from './_data/thanks'
 
-const dutyId = '07/zelenia'
+const dutyId = '07/74_trial'
 const duty = (await getEntry('duties', dutyId))!.data
 const navList = [
   { label: '小抄速览', id: 'cheatsheet' },
   { label: '场地标点', id: 'waymark' },
+  { label: '战术板', id: 'board' },
   { label: '宏', id: 'macro' },
   { label: '简易时间轴', id: 'timeline' },
   { label: '参考资料', id: 'reference' },
   { label: '鸣谢', id: 'thanks' },
 ]
+const docLink = duty.docLink ?? undefined
 const videoLink = duty.videoLink ?? undefined
-const waymarkLink = ''
 ---
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
   <Fragment slot="operation">
-    <a href="/07/zelenia/p1">
+    <a href="/07/7.4/trial/draft">
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
       >
@@ -47,6 +43,18 @@ const waymarkLink = ''
         查看正文
       </button>
     </a>
+    {
+      docLink && (
+        <a href="https://docs.qq.com/doc/" target="_blank">
+          <button
+            class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-blue-400 bg-blue-500 p-2 px-4 align-middle text-white hover:bg-blue-700/60 dark:border-blue-500 dark:bg-blue-700/75"
+          >
+            <DocsSVG class="mr-2 h-5 w-5" />
+            跳转文档
+          </button>
+        </a>
+      )
+    }
     {
       videoLink && (
         <a href={videoLink} target="_blank">
@@ -64,20 +72,23 @@ const waymarkLink = ''
     </Fragment>
     <AreaBox>
       <ResizableImageDialog client:idle>
-        <CosImage src={CheatsheetsImage} alt="泽莲尼娅歼殛战 副本小抄" loading="lazy" class="h-full object-contain" />
+        <CosImage src="imgs/tmp.jpg" alt="格莱杨拉波尔歼殛战·副本小抄" loading="lazy" class="h-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
-    <AreaBox>
-      <WaymarkBox href={waymarkLink} img={WaymarkImage} />
-    </AreaBox>
     <Fragment slot="header">
       <span>场地标点</span>
     </Fragment>
   </CollapsibleBox>
+  <CollapsibleBox id="board" client:idle class="w-full">
+    <Macro text={macro} title="格莱杨拉波尔歼殛战·战术板" />
+    <Fragment slot="header">
+      <span>战术板</span>
+    </Fragment>
+  </CollapsibleBox>
   <CollapsibleBox id="macro" client:idle class="w-full">
-    <Macro text={macro} title="极泽莲尼娅站位" />
+    <Macro text={macro} title="格莱杨拉波尔歼殛战·站位宏" />
     <Fragment slot="header">
       <span>宏</span>
     </Fragment>
@@ -85,7 +96,7 @@ const waymarkLink = ''
   <CollapsibleBox id="timeline" client:idle class="w-full">
     <AreaBox>
       <ResizableImageDialog client:idle>
-        <CosImage src={TimelineImage} alt="泽莲尼娅歼殛战 简易时间轴" class="w-full object-contain" />
+        <CosImage src="imgs/tmp.jpg" alt="格莱杨拉波尔歼殛战·简易时间轴" class="w-full object-contain" />
       </ResizableImageDialog>
     </AreaBox>
     <Fragment slot="header">

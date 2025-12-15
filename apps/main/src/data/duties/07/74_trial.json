@@ -1,0 +1,20 @@
+{
+  "name": "格莱杨拉波尔歼殛战",
+  "type": "trial",
+  "title": "格莱杨拉波尔歼殛战 攻略",
+  "description": "最终幻想14 格莱杨拉波尔歼殛战 超详解动态图文攻略",
+  "banner": "imgs/banners/07/74_trial.jpg",
+  "date": "25/12/16 18:00",
+  "href": "/07/7.4/trial",
+  "status": "live",
+  "indexAvailable": true,
+  "phases": [
+    {
+      "href": "/07/7.4/trial/draft",
+      "title": "Phase 1",
+      "subtitle": "待更新",
+      "name": "P1 - 待更新",
+      "mechanics": []
+    }
+  ]
+}

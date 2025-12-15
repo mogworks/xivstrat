@@ -1,5 +1,10 @@
 [
   {
+    "id": "7.4",
+    "group": "Patch 7.4",
+    "duties": ["07/74_trial"]
+  },
+  {
     "id": "7.3",
     "group": "Patch 7.3",
     "duties": ["07/necron"]
