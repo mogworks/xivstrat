@@ -24,6 +24,7 @@ interface Props {
   damageVariant?: DamageVariantType
   damageVariants?: DamageVariantType[]
   adjustDuration?: boolean
+  notime?: boolean
   [key: string]: unknown
 }
 
@@ -39,6 +40,7 @@ const {
   damageVariant = undefined,
   damageVariants = [],
   adjustDuration = true,
+  notime = false,
   ...rest
 }: Props = Astro.props
 
@@ -52,7 +54,7 @@ const adjustedDuration = adjustDuration
 
 <Section {...rest}>
   <div class="self-center justify-self-end px-4">
-    <StratInterval start={start} duration={adjustedDuration} end={end} />
+    {!notime && <StratInterval start={start} duration={adjustedDuration} end={end} />}
   </div>
   <div class="flex flex-wrap items-center gap-1 px-4 text-lg">
     <slot name="source">
