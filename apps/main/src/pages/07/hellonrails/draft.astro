@@ -1,12 +1,16 @@
 ---
-import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
-import EventSection from '@/components/section/EventSection.astro'
-import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
 import Span from '@/components/Span.vue'
 import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
-const dutyId = '07/74_trial'
+const dutyId = '07/hellonrails'
 
 const base = '00:00.00'
 ---
@@ -45,7 +49,18 @@ const base = '00:00.00'
     </div>
   </DraftWarning>
   <SeparatorSection />
-  <EventSection time="00:00.0">
-    待更新
-  </EventSection>
+
+  <CastSection notime ability="TODO" />
+  <MechanicSection>
+    <div class="flex flex-col gap-4">
+      <T><Skill name="TODO" /></T>
+      <P>TODO</P>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="flex flex-col gap-4">
+      <P>TODO</P>
+    </div>
+  </SolutionSection>
+
 </DutyStratLayout>
