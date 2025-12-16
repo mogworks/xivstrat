@@ -3,11 +3,11 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
-    "prebuild": "ASTRO_TELEMETRY_DISABLED=1 astro check",
-    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
-    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
-    "astro": "ASTRO_TELEMETRY_DISABLED=1 astro",
+    "dev": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "prebuild": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro check",
+    "build": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "astro": "cross-env ASTRO_TELEMETRY_DISABLED=1 astro",
     "minify": "node cli/minify_public_scripts.js"
   },
   "dependencies": {

@@ -3,10 +3,10 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "TURBO_TELEMETRY_DISABLED=1 turbo run dev",
-    "prebuild": "TURBO_TELEMETRY_DISABLED=1 turbo run prebuild",
-    "build": "TURBO_TELEMETRY_DISABLED=1 turbo run build",
-    "preview": "TURBO_TELEMETRY_DISABLED=1 turbo run preview",
+    "dev": "cross-env TURBO_TELEMETRY_DISABLED=1 turbo run dev",
+    "prebuild": "cross-env TURBO_TELEMETRY_DISABLED=1 turbo run prebuild",
+    "build": "cross-env TURBO_TELEMETRY_DISABLED=1 turbo run build",
+    "preview": "cross-env TURBO_TELEMETRY_DISABLED=1 turbo run preview",
     "lint": "biome check",
     "format": "biome format --write",
     "clean": "pnpm dlx rimraf --glob \"apps/*/node_modules\" \"packages/*/node_modules\" node_modules pnpm-lock.yaml",
@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.9",
+    "cross-env": "10.1.0",
     "lefthook": "2.0.12",
     "turbo": "2.6.3",
     "typescript": "5.9.3"
