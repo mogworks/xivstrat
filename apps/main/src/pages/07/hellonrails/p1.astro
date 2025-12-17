@@ -5,6 +5,7 @@ import MechanicSection from '@/components/section/MechanicSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import Span from '@/components/Span.vue'
+import ImgRow from '@/components/typography/ImgRow.astro'
 import P from '@/components/typography/P.astro'
 import Skill from '@/components/typography/Skill.astro'
 import T from '@/components/typography/T.astro'
@@ -58,15 +59,47 @@ const base = '00:00.00'
     <div class="space-y-8">
       <div class="space-y-4" id="超增压">
         <T><Skill name="超增压" /></T>
-        <P>TODO</P>
+        <ImgRow
+          wrapperClass="max-w-150"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/1.png',
+              title: '情形1：4球',
+            },
+            {
+              src: 'imgs/07/hellonrails/2.png',
+              title: '情形2：8球',
+            },
+          ]}
+        />
+        <P>BOSS读条时，前方浮现4/8个蓝色雷球，分别代表存储44分摊/8人分散，之后会延时释放</P>
       </div>
       <div class="space-y-4" id="超增压急行">
         <T><Skill name="超增压急行" /></T>
-        <P>TODO</P>
+        <ImgRow
+          wrapperClass="max-w-150"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/3.png',
+            }
+          ]}
+        />
+        <P>直线击退，可以被场地上的护栏（上图红圈）挡住，防击退有效</P>
       </div>
       <div class="space-y-4" id="等离子射线">
         <T><Skill name="等离子射线" /></T>
-        <P>TODO</P>
+        <ImgRow
+          wrapperClass="max-w-150"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/4.png',
+            },
+            {
+              src: 'imgs/07/hellonrails/5.png',
+            },
+          ]}
+        />
+        <P>BOSS前方浮现4个魔法阵，会释放直线攻击，有高度差分，分别攻击地面和空中</P>
       </div>
     </div>
   </MechanicSection>
