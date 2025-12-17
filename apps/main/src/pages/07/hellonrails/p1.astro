@@ -18,40 +18,6 @@ const base = '00:00.00'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <DraftWarning showDialog={false}>
-    <div
-      class="my-3 flex flex-col gap-4 text-2xl text-cyan-600 [text-shadow:0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
-    >
-      <P class="justify-center">
-        本页内容尚在编辑中，不保证打法优化，<Span variant="red">请谨慎参考本页内容！</Span>
-      </P>
-      <P class="justify-center">
-        网站内容为打法验证可用后不定时更新，
-        <a
-          href="https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300 underline"
-        >
-          文档
-        </a>
-        内容则为即时更新
-      </P>
-      <P class="justify-center">
-        文档传送门：
-        <a
-          href="https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300 underline"
-        >
-          腾讯文档
-        </a>
-      </P>
-    </div>
-  </DraftWarning>
-
-
   <SeparatorSection />
   <NoteSection>
     <div class="space-y-8">
@@ -61,7 +27,7 @@ const base = '00:00.00'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/1.png',
+              src: 'imgs/07/hellonrails/plan/p1/1.png',
             },
           ]}
         />
@@ -96,11 +62,11 @@ const base = '00:00.00'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/2.png',
+              src: 'imgs/07/hellonrails/plan/p1/2.png',
               title: '情形1：4球',
             },
             {
-              src: 'imgs/07/hellonrails/plan/3.png',
+              src: 'imgs/07/hellonrails/plan/p1/3.png',
               title: '情形2：8球',
             },
           ]}
@@ -143,7 +109,7 @@ const base = '00:00.00'
   <CastSection start="00:34.042" duration={5.7} ability="超增压抽雾" />
   <!-- <CastSection start="00:34.042" duration={6.7} ability="超增压抽雾" /> -->
   <!-- <CastSection start="00:40.107" duration={2.7} ability="超增压排雾" /> -->
-   <MechanicSection>
+  <MechanicSection>
     <div class="space-y-8">
       <div class="space-y-4" id="超增压抽雾">
         <T><Skill name="超增压抽雾" /></T>
@@ -176,7 +142,7 @@ const base = '00:00.00'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/4.png',
+              src: 'imgs/07/hellonrails/plan/p1/4.png',
             }
           ]}
         />

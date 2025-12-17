@@ -1,10 +1,11 @@
 ---
 import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
-import CastSection from '@/components/section/CastSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
 import Span from '@/components/Span.vue'
+import ImgRow from '@/components/typography/ImgRow.astro'
 import P from '@/components/typography/P.astro'
 import Skill from '@/components/typography/Skill.astro'
 import T from '@/components/typography/T.astro'
@@ -16,40 +17,107 @@ const base = '02:30.00'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <DraftWarning showDialog={false}>
-    <div
-      class="my-3 flex flex-col gap-4 text-2xl text-cyan-600 [text-shadow:0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
-    >
-      <P class="justify-center">
-        本页内容尚在编辑中，不保证打法优化，<Span variant="red">请谨慎参考本页内容！</Span>
-      </P>
-      <P class="justify-center">
-        网站内容为打法验证可用后不定时更新，
-        <a
-          href="https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300 underline"
-        >
-          文档
-        </a>
-        内容则为即时更新
-      </P>
-      <P class="justify-center">
-        文档传送门：
-        <a
-          href="https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300 underline"
-        >
-          腾讯文档
-        </a>
-      </P>
-    </div>
-  </DraftWarning>
   <SeparatorSection />
+  <NoteSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="超增压">
+        <P>P2场地如下图，中央固定有一个以太晶球（小怪）</P>
+        <ImgRow
+          bordered
+          rounded
+          wrapperClass="max-w-90"
+          imgClass="rounded-full"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/p2/1.png',
+            },
+          ]}
+        />
+        <P>进入P2后，会出现名为【格莱杨拉波尔的魔力】的进度条，进度条涨满即团灭，击杀以太晶球即可停止进度条</P>
+        <ImgRow
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/9.png',
+            },
+          ]}
+        />
+        <P>场地外围会有一大一小两列火车，小火车顺时针绕场地旋转，大火车逆时针绕场地旋转</P>
+        <ImgRow
+          wrapperClass="max-w-200"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/10.png',
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </NoteSection>
 
-  <CastSection notime ability="TODO" />
+
+  <SeparatorSection />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>整个P2只有三个机制：以太射线、以太炮、以太冲击波</P>
+        <P>每当进度条涨大概20点左右时，就会判定一次【以太射线】+【以太炮 / 以太冲击波】</P>
+      </div>
+      <div class="space-y-4" id="以太射线">
+        <T><Skill name="以太射线" /></T>
+        <P>小火车停下，对双T释放扇形死刑</P>
+      </div>
+      <div class="space-y-4" id="以太冲击波|以太炮">
+        <T><Skill name={["以太冲击波", "以太炮"]} /></T>
+        <P>每轮大火车绕场过程中，会鸣笛（有喷蓝火特效）【2】或【3】次，分别对应【以太冲击波】和【以太炮】</P>
+        <P>【以太冲击波】是点名双奶的圆形分摊，【以太炮】则是点名随机三名D/H的圆形分散</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>以【以太晶球】目标圈箭头指向为【正南方向】，假设小火车停在东北方向，则分散和分摊站位如下图：</P>
+        <ImgRow
+          bordered
+          rounded
+          wrapperClass="max-w-90"
+          imgClass="rounded-full"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/p2/2.png',
+              title: '分散（鸣笛3次）'
+            },
+            {
+              src: 'imgs/07/hellonrails/plan/p2/3.png',
+              title: '分摊（鸣笛2次）'
+            },
+          ]}
+        />
+        <P>分散时：H1 H2 D1 D2 固定站在【以太晶球】附近四个方向</P>
+        <P>分摊时：H1 H2 不动，D1 D2 找 H1 H2</P>
+        <P>MT ST 始终【以小火车为北】，左右分开吃死刑</P>
+        <P>D3 D4 始终【以小火车为北】，D3 去靠近小火车的一侧，D4 去远离小火车的一侧</P>
+      </div>
+      <div class="space-y-4">
+        <P>再举个例子，如果小火车停在东南方向，则站位变更如下图：</P>
+        <ImgRow
+          bordered
+          rounded
+          wrapperClass="max-w-90"
+          imgClass="rounded-full"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/p2/4.png',
+              title: '分散（鸣笛3次）'
+            },
+            {
+              src: 'imgs/07/hellonrails/plan/p2/5.png',
+              title: '分摊（鸣笛2次）'
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </SolutionSection>
 
 </DutyStratLayout>
