@@ -16,7 +16,9 @@ WORKDIR /app
 COPY --from=prepare /app/out/json/ .
 RUN pnpm install --frozen-lockfile
 COPY --from=prepare /app/out/full/ .
-RUN pnpm turbo run build
+RUN --mount=type=cache,target=/app/.turbo \
+    --mount=type=cache,target=/app/apps/main/cache \
+    pnpm turbo run build
 
 # ---
 FROM node:lts-alpine AS runtime
