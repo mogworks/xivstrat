@@ -60,7 +60,7 @@ const base = '00:00.00'
       <div class="space-y-4" id="超增压">
         <T><Skill name="超增压" /></T>
         <ImgRow
-          wrapperClass="max-w-150"
+          wrapperClass="max-w-100"
           imgs={[
             {
               src: 'imgs/07/hellonrails/1.png',
@@ -72,7 +72,21 @@ const base = '00:00.00'
             },
           ]}
         />
-        <P>BOSS读条时，前方浮现4/8个蓝色雷球，分别代表存储44分摊/8人分散，之后会延时释放</P>
+        <P>BOSS读条时，前方浮现4/8个蓝色雷球，分别代表存储44分摊/8人分散，之后会延时释放，大致按下图站位处理即可：</P>
+        <ImgRow
+          wrapperClass="max-w-60"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/1.png',
+              title: '情形1：4球',
+            },
+            {
+              src: 'imgs/07/hellonrails/plan/2.png',
+              title: '情形2：8球',
+            },
+          ]}
+        />
+        <P>紫色区域表示被围栏挡住的区域，无法站入其中</P>
       </div>
       <div class="space-y-4" id="超增压急行">
         <T><Skill name="超增压急行" /></T>
