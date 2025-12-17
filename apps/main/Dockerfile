@@ -14,7 +14,8 @@ RUN turbo prune main --docker
 FROM base AS build
 WORKDIR /app
 COPY --from=prepare /app/out/json/ .
-RUN pnpm install --frozen-lockfile
+RUN --mount=type=cache,target=/root/.pnpm-store \
+    pnpm install --frozen-lockfile
 COPY --from=prepare /app/out/full/ .
 RUN --mount=type=cache,target=/app/.turbo \
     --mount=type=cache,target=/app/apps/main/cache \
