@@ -9,7 +9,7 @@
     "preview": "cross-env TURBO_TELEMETRY_DISABLED=1 turbo run preview",
     "lint": "biome check",
     "format": "biome format --write",
-    "clean": "pnpm dlx rimraf --glob \"apps/*/node_modules\" \"packages/*/node_modules\" node_modules pnpm-lock.yaml",
+    "clean": "pnpm dlx rimraf --glob \"**/*/node_modules\" node_modules pnpm-lock.yaml",
     "reinstall": "pnpm clean && pnpm install"
   },
   "devDependencies": {

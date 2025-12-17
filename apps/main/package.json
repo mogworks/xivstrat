@@ -20,7 +20,7 @@
     "@vueuse/core": "14.1.0",
     "@xivstrat/shadcn-react": "workspace:*",
     "@xivstrat/shadcn-vue": "workspace:*",
-    "astro": "5.16.5",
+    "astro": "5.16.6",
     "clsx": "2.1.1",
     "lucide-vue-next": "0.561.0",
     "motion": "12.23.26",
@@ -43,7 +43,7 @@
     "@astrojs/ts-plugin": "1.10.6",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
-    "esbuild": "0.27.1",
+    "esbuild": "0.27.2",
     "vite-svg-loader": "5.1.0"
   }
 }
