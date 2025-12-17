@@ -4,17 +4,38 @@
   "title": "格莱杨拉波尔歼殛战 攻略",
   "description": "最终幻想14 格莱杨拉波尔歼殛战 超详解动态图文攻略",
   "banner": "imgs/banners/07/hellonrails.png",
-  "date": "25/12/16 18:00",
+  "date": "25/12/17 11:00",
   "href": "/07/hellonrails",
   "status": "live",
   "indexAvailable": true,
   "docLink": "https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn",
   "phases": [
     {
-      "href": "/07/hellonrails/draft",
+      "href": "/07/hellonrails/p1",
       "title": "Phase 1",
-      "subtitle": "待更新",
-      "name": "P1 - 待更新",
+      "subtitle": "",
+      "name": "P1",
+      "mechanics": []
+    },
+    {
+      "href": "/07/hellonrails/p2",
+      "title": "Phase 2",
+      "subtitle": "",
+      "name": "P2",
+      "mechanics": []
+    },
+    {
+      "href": "/07/hellonrails/p3",
+      "title": "Phase 3",
+      "subtitle": "",
+      "name": "P3",
+      "mechanics": []
+    },
+    {
+      "href": "/07/hellonrails/p4",
+      "title": "Phase 4",
+      "subtitle": "",
+      "name": "P4",
       "mechanics": []
     }
   ]

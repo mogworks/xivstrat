@@ -1,8 +1,15 @@
 ---
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
+
+interface Props {
+  name?: string
+  role?: 'boss' | 'enemy'
+}
+
+const { name = 'BOSS', role = 'boss' }: Props = Astro.props
 ---
 
-<RoleIcon role="boss">
-  <Span variant="red">BOSS</Span>
+<RoleIcon role={role === 'boss' ? 'boss' : 'enemy_level1'}>
+  <Span variant={role === 'boss' ? 'red' : 'rose'}>{name}</Span>
 </RoleIcon>

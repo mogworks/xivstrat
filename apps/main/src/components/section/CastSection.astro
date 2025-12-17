@@ -17,6 +17,8 @@ interface Props {
   end?: Time
 
   ability?: string
+  source?: string
+  sourceRole?: 'boss' | 'enemy'
   target?: boolean | RoleType | CombinedRoleType
   targetTag?: string
   damage?: string
@@ -33,6 +35,8 @@ const {
   duration = undefined,
   end = undefined,
   ability = '',
+  source = undefined,
+  sourceRole = undefined,
   target = false,
   targetTag = undefined,
   damage = undefined,
@@ -58,7 +62,7 @@ const adjustedDuration = adjustDuration
   </div>
   <div class="flex flex-wrap items-center gap-1 px-4 text-lg">
     <slot name="source">
-      <Boss />
+      <Boss name={source} role={sourceRole} />
     </slot>
     {
       target && (

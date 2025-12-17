@@ -1,0 +1,83 @@
+---
+import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import Span from '@/components/Span.vue'
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+const dutyId = '07/hellonrails'
+
+const base = '00:00.00'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <DraftWarning showDialog={false}>
+    <div
+      class="my-3 flex flex-col gap-4 text-2xl text-cyan-600 [text-shadow:0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
+    >
+      <P class="justify-center">
+        本页内容尚在编辑中，不保证打法优化，<Span variant="red">请谨慎参考本页内容！</Span>
+      </P>
+      <P class="justify-center">
+        网站内容为打法验证可用后不定时更新，
+        <a
+          href="https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300 underline"
+        >
+          文档
+        </a>
+        内容则为即时更新
+      </P>
+      <P class="justify-center">
+        文档传送门：
+        <a
+          href="https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300 underline"
+        >
+          腾讯文档
+        </a>
+      </P>
+    </div>
+  </DraftWarning>
+  <SeparatorSection />
+
+  <CastSection start="00:09.127" duration={3.7} ability="超增压" />
+  <CastSection start="00:15.147" duration={5.7} ability="超增压急行" />
+  <CastSection start="00:22.181" duration={0.7} ability="等离子射线" source="雷光环×4" sourceRole="enemy" />
+  <CastSection start="00:28.152" duration={3.7} ability="超增压" />
+  <CastSection start="00:34.169" duration={5.7} ability="超增压抽雾" />
+  <!-- <CastSection start="00:34.169" duration={6.7} ability="超增压抽雾" /> -->
+  <CastSection start="00:40.234" duration={2.7} ability="超增压排雾" />
+  <CastSection start="00:47.238" duration={4.7} ability="无控急行" />
+  <!-- <CastSection start="00:47.238" duration={5.6} ability="无控急行" /> -->
+  <CastSection start="01:01.272" duration={3.7} ability="超增压" />
+  <CastSection start="01:07.284" duration={2.7} ability="炮塔出击" />
+  <CastSection start="01:12.496" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
+  <CastSection start="01:14.326" duration={5.7} ability="超增压抽雾" />
+  <!-- <CastSection start="01:14.326" duration={6.7} ability="超增压抽雾" /> -->
+  <CastSection start="01:20.386" duration={2.7} ability="超增压排雾" />
+  <CastSection start="01:27.382" duration={3.7} ability="超增压" />
+  <CastSection start="01:29.067" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
+  <CastSection start="01:33.393" duration={4.7} ability="雷电爆发" />
+  <!-- <CastSection start="01:38.474" duration={0.2} ability="雷电爆发" />
+  <CastSection start="01:38.474" duration={0.2} ability="雷电爆发" /> -->
+  <CastSection start="01:40.655" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
+  <CastSection start="01:42.528" duration={5.7} ability="超增压急行" />
+  <CastSection start="01:49.552" duration={0.7} ability="等离子射线" source="雷光环×4" sourceRole="enemy" />
+  <CastSection start="01:55.667" duration={4.7} ability="无控急行" />
+  <!-- <CastSection start="01:55.667" duration={5.6} ability="无控急行" /> -->
+  <CastSection start="02:11.704" duration={4.7} ability="雷电爆发" />
+  <!-- <CastSection start="02:16.787" duration={0.2} ability="雷电爆发" />
+  <CastSection start="02:16.787" duration={0.2} ability="雷电爆发" /> -->
+  <CastSection start="02:24.944" duration={4.7} ability="无尽狂奔" />
+
+</DutyStratLayout>

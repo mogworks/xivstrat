@@ -1,0 +1,78 @@
+---
+import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import Span from '@/components/Span.vue'
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+const dutyId = '07/hellonrails'
+
+const base = '03:42.130'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <DraftWarning showDialog={false}>
+    <div
+      class="my-3 flex flex-col gap-4 text-2xl text-cyan-600 [text-shadow:0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
+    >
+      <P class="justify-center">
+        本页内容尚在编辑中，不保证打法优化，<Span variant="red">请谨慎参考本页内容！</Span>
+      </P>
+      <P class="justify-center">
+        网站内容为打法验证可用后不定时更新，
+        <a
+          href="https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300 underline"
+        >
+          文档
+        </a>
+        内容则为即时更新
+      </P>
+      <P class="justify-center">
+        文档传送门：
+        <a
+          href="https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300 underline"
+        >
+          腾讯文档
+        </a>
+      </P>
+    </div>
+  </DraftWarning>
+  <SeparatorSection />
+
+  <CastSection start="04:05.130" duration={4.7} ability="雷电爆发" />
+  <!-- <CastSection start="04:10.228" duration={0.2} ability="雷电爆发" />
+  <CastSection start="04:10.228" duration={0.2} ability="雷电爆发" /> -->
+  <CastSection start="04:12.270" duration={5.7} ability="脱轨捶打" />
+  <!-- <CastSection start="04:12.270" duration={9.7} ability="脱轨捶打" />
+  <CastSection start="04:21.285" duration={0.2} ability="脱轨捶打" /> -->
+  <CastSection start="04:22.408" duration={4.8} ability="脱轨" />
+  <!-- <CastSection start="04:22.408" duration={4.7} ability="脱轨" /> -->
+  <CastSection start="04:39.630" duration={2.7} ability="雷光一闪" />
+  <CastSection start="04:45.652" duration={5.7} ability="雷鸣吐息" />
+  <CastSection start="04:58.688" duration={1.7} ability="魔法阵展开" />
+  <CastSection start="05:12.562" duration={2.4} ability="雷光雨" />
+  <CastSection start="05:26.691" duration={2.4} ability="雷光雨" />
+  <CastSection start="05:37.798" duration={2.4} ability="雷光雨" />
+  <CastSection start="05:46.145" duration={5.7} ability="前照光" />
+  <CastSection start="05:59.127" duration={2.7} ability="雷光一闪" />
+  <CastSection start="06:05.154" duration={4.7} ability="雷电爆发" />
+  <!-- <CastSection start="06:10.233" duration={0.2} ability="雷电爆发" />
+  <CastSection start="06:10.233" duration={0.2} ability="雷电爆发" /> -->
+  <CastSection start="06:14.323" duration={5.7} ability="脱轨捶打" />
+  <!-- <CastSection start="06:14.323" duration={10.7} ability="脱轨捶打" />
+  <CastSection start="06:24.321" duration={0.2} ability="脱轨捶打" /> -->
+  <CastSection start="06:26.589" duration={4.8} ability="脱轨" />
+  <!-- <CastSection start="06:26.589" duration={4.7} ability="脱轨" /> -->
+
+</DutyStratLayout>
