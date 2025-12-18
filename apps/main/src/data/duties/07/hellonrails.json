@@ -4,7 +4,7 @@
   "title": "格莱杨拉波尔歼殛战 攻略",
   "description": "最终幻想14 格莱杨拉波尔歼殛战 超详解动态图文攻略",
   "banner": "imgs/banners/07/hellonrails.png",
-  "date": "25/12/18 09:50",
+  "date": "25/12/18 11:00",
   "href": "/07/hellonrails",
   "status": "live",
   "indexAvailable": true,
@@ -91,6 +91,14 @@
         {
           "href": "#雷鸣吐息|前照光",
           "name": "雷鸣吐息 | 前照光"
+        },
+        {
+          "href": "#魔法阵展开",
+          "name": "魔法阵展开"
+        },
+        {
+          "href": "#脱轨捶打|脱轨|2",
+          "name": "脱轨捶打 + 脱轨 #2"
         }
       ]
     },

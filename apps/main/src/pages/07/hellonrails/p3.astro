@@ -1,11 +1,13 @@
 ---
-import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
+
+import Boss from '@/components/Boss.astro'
+import Span from '@/components/Span.vue'
 import CastSection from '@/components/section/CastSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
-import Span from '@/components/Span.vue'
+import SolutionSection from '@/components/section/SolutionSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import P from '@/components/typography/P.astro'
 import Skill from '@/components/typography/Skill.astro'
@@ -18,40 +20,6 @@ const base = '00:00.00'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <DraftWarning showDialog={false}>
-    <div
-      class="my-3 flex flex-col gap-4 text-2xl text-cyan-600 [text-shadow:0_0_1px_var(--color-cyan-600)] dark:text-cyan-400"
-    >
-      <P class="justify-center">
-        本页内容尚在编辑中，不保证打法优化，<Span variant="red">请谨慎参考本页内容！</Span>
-      </P>
-      <P class="justify-center">
-        网站内容为打法验证可用后不定时更新，
-        <a
-          href="https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300 underline"
-        >
-          文档
-        </a>
-        内容则为即时更新
-      </P>
-      <P class="justify-center">
-        文档传送门：
-        <a
-          href="https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-yellow-600 [text-shadow:0_0_1px_yellow] hover:text-yellow-500 dark:text-yellow-400 dark:hover:text-yellow-300 underline"
-        >
-          腾讯文档
-        </a>
-      </P>
-    </div>
-  </DraftWarning>
-
-
   <SeparatorSection />
   <NoteSection>
     <div class="space-y-8">
@@ -160,7 +128,7 @@ const base = '00:00.00'
 
   <SeparatorSection />
   <EventSection time="01:03.826">
-    BOSS准备释放
+    <Boss />准备释放
     <Skill name={["雷鸣吐息", "前照光"]}><Span slot="separator">/</Span></Skill>
   </EventSection>
   <MechanicSection>
@@ -184,18 +152,67 @@ const base = '00:00.00'
 
   <SeparatorSection />
   <CastSection start="01:16.862" duration={1.7} ability="魔法阵展开" />
-  <CastSection start="01:30.736" duration={2.4} ability="雷光雨" />
-  <CastSection start="01:44.865" duration={2.4} ability="雷光雨" />
-  <CastSection start="01:55.972" duration={2.4} ability="雷光雨" />
-  <CastSection start="02:04.319" duration={5.7} ability="前照光" />
-  <CastSection start="02:17.301" duration={2.7} ability="雷光一闪" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="魔法阵展开">
+        <T><Skill name="魔法阵展开" /></T>
+        <ImgRow
+          wrapperClass="max-w-200"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/13.png',
+            },
+          ]}
+        />
+        <P>读条后，BOSS会累计使用3轮（P5时为2轮）魔法阵</P>
+        <P>地上会出现一个沿着菱形场地线移动的法阵（大范围圆形AoE），法阵会顺/逆时针转移2~4次，BOSS双手合拢时法阵即判定，移动次数取决于BOSS双手合拢的速度，合拢快就移动2次，慢点就3次，最慢时4次</P>
+        <P>同时，机制开始时，BOSS会指定 1T 1H 一个【选定目标：重雷】的 debuff，每次地面法阵判定的同时，以这俩人为中心，释放可分摊的大范围圆形AoE，附带魔法受伤加重，不能重叠</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>我们始终按下图固定站位，双T左上角不动，其它人右上角不动</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/p3/2.png',
+            },
+          ]}
+        />
+        <P>由于该机制总共有2~3轮（P3是3轮，P5是2轮），不太可能出现同一个角落被地面法阵炸3次的情况，因此我们固定站位硬吃地面法阵的伤害即可</P>
+        <P>双T适当开启减伤，当地面AoE覆盖右上角（人群）时，开启TLB，无TLB时叠群减即可，由于人群不太可能被地面法阵炸3次，因此一次用TLB覆盖，一次用群减覆盖刚好</P>
+      </div>
+    </div>
+  </SolutionSection>
+
+
+  <SeparatorSection />
+  <EventSection time="02:04.319">
+    <Boss />准备释放
+    <Skill name={["雷鸣吐息", "前照光"]}><Span slot="separator">/</Span></Skill>
+  </EventSection>
+  <EventSection time="02:17.301">
+    <Skill name="雷光一闪" />位置判定
+  </EventSection>
   <CastSection start="02:23.328" duration={4.7} ability="雷电爆发" />
   <!-- <CastSection start="02:28.407" duration={0.2} ability="雷电爆发" />
   <CastSection start="02:28.407" duration={0.2} ability="雷电爆发" /> -->
+
+
+  <SeparatorSection />
   <CastSection start="02:32.497" duration={5.7} ability="脱轨捶打" />
   <!-- <CastSection start="02:32.497" duration={10.7} ability="脱轨捶打" />
   <CastSection start="02:42.495" duration={0.2} ability="脱轨捶打" /> -->
   <CastSection start="02:44.763" duration={4.8} ability="脱轨" />
   <!-- <CastSection start="02:44.763" duration={4.7} ability="脱轨" /> -->
-
+  <MechanicSection id="脱轨捶打|脱轨|2">
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>本轮分摊塔会判定4次伤害，可以任一T无敌单吃，分摊完立刻跑到平台末尾，踩传送区域转移到后一节平台</P>
+      </div>
+    </div>
+  </MechanicSection>
 </DutyStratLayout>
