@@ -1,5 +1,7 @@
 ---
 
+
+
 import CosImage from '@/components/CosImage.astro'
 
 import Boss from '@/components/Boss.astro'
@@ -220,7 +222,7 @@ import { translations } from '../_translations'
 
   function calcSpotlightPositions(s: number) {
     const y = -15
-    let x
+    let x: number
     if (s % 20 < 5) {
       x = -15 + 3 * (s % 10)
     } else if (s % 20 < 10) {

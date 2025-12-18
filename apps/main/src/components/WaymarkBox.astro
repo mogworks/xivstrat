@@ -1,4 +1,5 @@
 ---
+
 import CosImage from '@/components/CosImage.astro'
 
 import AreaBox from '@/components/AreaBox.astro'
@@ -105,9 +106,11 @@ const href = hrefOrigin ? new URL(hrefOrigin, import.meta.env.PUBLIC_COS_BASE_UR
       }
     }
 
+    // biome-ignore lint/suspicious/noExplicitAny: 点击事件处理
     handleClick(e: { composedPath: () => any[] }) {
       const isClickInDialog = !!e
         .composedPath()
+        // biome-ignore lint/suspicious/noExplicitAny: 查找确认对话框元素
         .find((el: { classList: { contains: (arg0: string) => any } }) => el.classList?.contains('confirm-dialog'))
 
       if (!this.disabled && !this.#confirmOpen && !isClickInDialog) {

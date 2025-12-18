@@ -1,4 +1,5 @@
 ---
+
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
@@ -99,16 +100,16 @@ const elementalPurge = translations.elementalPurge
     </div>
   </NoteSection>
 
-  <SeparatorSection id="quake-iii" title=`${quakeIII}` />
+  <SeparatorSection id="quake-iii" title={`${quakeIII}`} />
   <QuakeIII start="07:40.930" />
 
-  <SeparatorSection id="ultraviolent-ray" title=`${ultraviolentRay}` />
+  <SeparatorSection id="ultraviolent-ray" title={`${ultraviolentRay}`} />
   <UltraviolentRay start="07:52.096" />
 
-  <SeparatorSection id="twinbite" title=`${twinbite}` />
+  <SeparatorSection id="twinbite" title={`${twinbite}`} />
   <Twinbite start="08:02.234" />
 
-  <SeparatorSection id="heros-blow" title=`${herosBlow}` />
+  <SeparatorSection id="heros-blow" title={`${herosBlow}`} />
   <HerosBlow start="08:14.462" />
   <SeparatorSection />
 
@@ -140,9 +141,9 @@ const elementalPurge = translations.elementalPurge
     </div>
   </SolutionSection>
 
-  <SeparatorSection id="mooncleaver" title=`${mooncleaver}` />
+  <SeparatorSection id="mooncleaver" title={`${mooncleaver}`} />
   <Mooncleaver start="08:50.987" />
 
-  <SeparatorSection id="elemental-purge" title=`${elementalPurge}` />
+  <SeparatorSection id="elemental-purge" title={`${elementalPurge}`} />
   <ElementalPurge />
 </DutyStratLayout>

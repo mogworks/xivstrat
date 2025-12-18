@@ -1,4 +1,5 @@
 ---
+
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import P from '@/components/typography/P.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
@@ -33,18 +34,18 @@ const twinbite = translations.twinbite
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <SeparatorSection id="prowling-gale" title=`${prowlingGale}` />
+  <SeparatorSection id="prowling-gale" title={`${prowlingGale}`} />
   <ProwlingGale />
-  <SeparatorSection id="rise-of-the-howling-wind" title=`${riseOfTheHowlingWind}` />
+  <SeparatorSection id="rise-of-the-howling-wind" title={`${riseOfTheHowlingWind}`} />
   <RiseOfTheHowlingWind />
 
-  <SeparatorSection id="bare-fangs-champions-circuit" title=`${bareFangs} + ${championsCircuit}` />
+  <SeparatorSection id="bare-fangs-champions-circuit" title={`${bareFangs} + ${championsCircuit}`} />
   <ChampionsCircuit
     start="10:03.132"
     activateTimes={['10:19.279', '10:23.683', '10:28.038', '10:32.395', '10:36.755']}
   />
 
-  <SeparatorSection id="QURT" title=`${quakeIII} + ${ultraviolentRay} + ${twinbite}` />
+  <SeparatorSection id="QURT" title={`${quakeIII} + ${ultraviolentRay} + ${twinbite}`} />
   <QuakeIIICast start="10:41.608" />
 
   <BossAttackSection time="10:47.438" damage="60000" damageType="physical" />

@@ -1,4 +1,5 @@
 ---
+
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
@@ -46,7 +47,7 @@ const twinbite = translations.twinbite
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
-  <SeparatorSection id="rise-of-the-howling-wind" title=`${riseOfTheHuntersBlade}` />
+  <SeparatorSection id="rise-of-the-howling-wind" title={`${riseOfTheHuntersBlade}`} />
   <RiseOfTheHuntersBladeCast start="11:20.127" />
 
   <BossAttackSection time="11:28.667" damage="60000" damageType="physical" />
@@ -257,7 +258,7 @@ const twinbite = translations.twinbite
     </div>
   </SolutionSection>
 
-  <SeparatorSection id="heros-blow-ultraviolent-ray" title=`${herosBlow} + ${ultraviolentRay}` />
+  <SeparatorSection id="heros-blow-ultraviolent-ray" title={`${herosBlow} + ${ultraviolentRay}`} />
   <HerosBlowCast start="11:53.603" />
 
   <BossAttackSection time="12:01.908" damage="60000" damageType="physical" />

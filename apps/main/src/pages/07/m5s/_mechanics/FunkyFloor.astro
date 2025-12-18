@@ -1,4 +1,5 @@
 ---
+
 import type { Time } from '@/lib/utils'
 
 import CosImage from '@/components/CosImage.astro'
@@ -373,7 +374,7 @@ const { start }: Props = Astro.props
   import { waymarkData } from '../_data/waymark'
 
   function calcSpotlightPositions(s: number) {
-    let x1, y1, x2, y2
+    let x1: number, y1: number, x2: number, y2: number
     if (s % 16 < 4) {
       x1 = -2.5
       y1 = -7.5 + 3.75 * (s % 8)

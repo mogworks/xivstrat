@@ -1,4 +1,5 @@
 ---
+
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
@@ -68,7 +69,7 @@ const sporesac = translations.sporeSac
   <AttackSection time="06:29.986" damage="57000" damageType="physical" />
   <MoveToCenterEvent time="06:31.100" />
 
-  <SeparatorSection id="S2RG" title=`${stoneringer2Stoneringers}` />
+  <SeparatorSection id="S2RG" title={`${stoneringer2Stoneringers}`} />
   <Stoneringer2First time="06:33.194" />
 
   <SeparatorSection />
@@ -93,7 +94,7 @@ const sporesac = translations.sporeSac
     <P>
       与P1时完全一致，P3共会出现2次，按照
       <RoleIcon role="tank" tag="MT" />
-      >
+      {'>'}
       <RoleIcon role="tank" tag="ST" />
       的次序依次开无敌引导单吃
     </P>
@@ -102,7 +103,7 @@ const sporesac = translations.sporeSac
   <AttackSection time="07:47.162" damage="57000" damageType="physical" />
   <AttackSection time="07:50.190" damage="57000" damageType="physical" />
 
-  <SeparatorSection id="debris-deathmatch-sporesac" title=`${debrisDeathmatch} + ${sporesac}` />
+  <SeparatorSection id="debris-deathmatch-sporesac" title={`${debrisDeathmatch} + ${sporesac}`} />
   <DebrisDeathmatch />
 
   <SeparatorSection id="sinister-seeds" title={sinisterSeeds} />
@@ -125,7 +126,7 @@ const sporesac = translations.sporeSac
   <AttackSection time="09:20.106" damage="57000" damageType="physical" />
   <AttackSection time="09:23.132" damage="57000" damageType="physical" />
 
-  <SeparatorSection id="S2S" title=`${stoneringer2Stoneringers} + ${strangeSeeds}` />
+  <SeparatorSection id="S2S" title={`${stoneringer2Stoneringers} + ${strangeSeeds}`} />
   <Stoneringer2Second time="09:26.252" />
 
   <SeparatorSection />

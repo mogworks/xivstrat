@@ -1,4 +1,5 @@
 ---
+
 import { cn } from '@/lib/utils'
 
 import CopySVG from '@/svg/copy.svg'
@@ -89,10 +90,6 @@ const lineList = text?.split('\n') ?? []
   class CopyButton extends HTMLElement {
     static observedAttributes = ['target']
 
-    constructor() {
-      super()
-    }
-
     #target = this.getAttribute('target')
     #bubbleClassName = '__copy-button-bubble'
     #bubbleTimeout: number | null = null
@@ -110,7 +107,7 @@ const lineList = text?.split('\n') ?? []
 
     #showBubble(res: boolean) {
       const bubble = document.createElement('div')
-      const uniqueId = `bubble-${new Date().getTime()}-${Math.floor(Math.random() * 100)}` // 唯一标识
+      const uniqueId = `bubble-${Date.now()}-${Math.floor(Math.random() * 100)}` // 唯一标识
       bubble.className = this.#bubbleClassName
       bubble.id = uniqueId
       bubble.textContent = `复制${res ? '成功' : '失败'}！`

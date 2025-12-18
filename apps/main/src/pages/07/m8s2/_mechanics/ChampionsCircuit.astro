@@ -1,4 +1,5 @@
 ---
+
 import { type Time } from '@/lib/utils'
 
 import MechanicSection from '@/components/section/MechanicSection.astro'
@@ -75,7 +76,7 @@ const gleamingBarrage = translations.gleamingBarrage
       <DamageInfo damage="150000" type="magical" />
       <DamageDown tag="30" percent={50} />
     </P>
-    <T variant="yellow" text=`${championsCircuit}` class="mt-8" />
+    <T variant="yellow" text={`${championsCircuit}`} class="mt-8" />
     <P>
       <HowlingBlade />
       随机面向一个平台中心，读条

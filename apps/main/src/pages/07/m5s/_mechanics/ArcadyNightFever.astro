@@ -1,4 +1,5 @@
 ---
+
 import type { Time } from '@/lib/utils'
 import CosImage from '@/components/CosImage.astro'
 import Badge from '@/components/Badge.astro'
@@ -671,7 +672,7 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
           }
 
           const timeoutId = setTimeout(() => {
-            spritesToRemove.forEach((sprite) => container.removeChild(sprite))
+            spritesToRemove.forEach((sprite) => {container.removeChild(sprite)})
           }, 1750)
 
           timeoutIds.push(timeoutId)
@@ -682,7 +683,7 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
     app.ticker.add(fn)
 
     removeTickerFn = () => {
-      timeoutIds.forEach((id) => clearTimeout(id))
+      timeoutIds.forEach((id) => {clearTimeout(id)})
       timeoutIds = []
       app.ticker.remove(fn)
     }

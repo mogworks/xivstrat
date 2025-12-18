@@ -1,4 +1,5 @@
 ---
+
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 
@@ -48,10 +49,10 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
   <AttackSection time="02:42.841" damage="57000" damageType="magical" />
   <AttackSection time="02:45.868" damage="57000" damageType="magical" />
 
-  <SeparatorSection id="SBGR" title=`${stoneringer} + ${brutishSwing}` />
+  <SeparatorSection id="SBGR" title={`${stoneringer} + ${brutishSwing}`} />
   <SBGR />
 
-  <SeparatorSection id="TDAB" title=`${thornyDeathmatch}` />
+  <SeparatorSection id="TDAB" title={`${thornyDeathmatch}`} />
   <ThornyDeathmatchCast start="03:22.806" />
   <StoneringerCast start="03:27.928" />
   <AbominableBlinkCast start="03:35.780" />
@@ -63,13 +64,13 @@ const demolitionDeathmatch = translations.demolitionDeathmatch
   <SeparatorSection id="sporesplosion" title={sporesplosion} />
   <Sporesplosion start="03:47.190" />
 
-  <SeparatorSection id="DDAB" title=`${demolitionDeathmatch}` />
+  <SeparatorSection id="DDAB" title={`${demolitionDeathmatch}`} />
   <DDAB />
 
   <SeparatorSection id="strange-seeds" title={strangeSeeds} />
   <StrangeSeeds />
 
-  <SeparatorSection id="SBGR2" title=`${stoneringer} + ${brutishSwing}` />
+  <SeparatorSection id="SBGR2" title={`${stoneringer} + ${brutishSwing}`} />
   <BrutishSwingCast start="05:20.887" />
   <ElectrogeneticForceActivate time="05:33.672" />
   <GlowerPowerCast start="05:29.839" />

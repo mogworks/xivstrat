@@ -1,4 +1,5 @@
 ---
+
 import CosImage from '@/components/CosImage.astro'
 
 import Span from '@/components/Span.vue'
@@ -103,34 +104,28 @@ const ya4 = 'imgs/07/zelenia/P3-5/P3-5-ya4.png'
       />
     </div>
     <div id="six-damage-grid" class="grid grid-cols-3 grid-rows-2 gap-x-2 gap-y-2">
-      {/* 第一行第一列 */}
       <div class="flex justify-center px-3 py-2">
         <CosImage src={a1g} alt="sixdamage: 1" class="omen-img border-cyan-700 dark:border-cyan-100" />
         <CosImage src={a1} alt="sixdamage: 3" class="activate-img hidden border-cyan-700 dark:border-cyan-100" />
       </div>
 
-      {/* 第一行第二列 */}
       <div class="flex justify-center px-3 py-2">
         <CosImage src={a2} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
 
-      {/* 第一行第三列 */}
       <div class="flex justify-center px-3 py-2">
         <CosImage src={a3} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
 
-      {/* 第二行第一列 */}
       <div class="flex justify-center px-3 py-2">
         <CosImage src={a4g} alt="Windfang: 1" class="omen-img border-cyan-700 dark:border-cyan-100" />
         <CosImage src={a4} alt="Windfang: 3" class="activate-img hidden border-cyan-700 dark:border-cyan-100" />
       </div>
 
-      {/* 第二行第二列 */}
       <div class="flex justify-center px-3 py-2">
         <CosImage src={a5} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
 
-      {/* 第二行第三列 */}
       <div class="flex justify-center px-3 py-2">
         <CosImage src={a6} alt="sixdamage: 2" class="border-cyan-700 dark:border-cyan-100" />
       </div>
@@ -214,11 +209,11 @@ const ya4 = 'imgs/07/zelenia/P3-5/P3-5-ya4.png'
       const activateImgs = section.querySelectorAll('.activate-img')
 
       if (activate) {
-        omenImgs.forEach((img) => img.classList.add('hidden'))
-        activateImgs.forEach((img) => img.classList.remove('hidden'))
+        omenImgs.forEach((img) => {img.classList.add('hidden')})
+        activateImgs.forEach((img) => {img.classList.remove('hidden')})
       } else {
-        activateImgs.forEach((img) => img.classList.add('hidden'))
-        omenImgs.forEach((img) => img.classList.remove('hidden'))
+        activateImgs.forEach((img) => {img.classList.add('hidden')})
+        omenImgs.forEach((img) => {img.classList.remove('hidden')})
       }
     }
   }
