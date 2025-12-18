@@ -21,7 +21,7 @@ const duties = defineCollection({
       banner: z.string(),
       date: z.string(),
       href: z.string(),
-      status: z.union([z.literal('upcoming'), z.literal('live'), z.literal('done')]),
+      status: z.union([z.literal('upcoming'), z.literal('live'), z.literal('new'), z.literal('done')]),
       indexAvailable: z.boolean(),
       docLink: z.string().optional(),
       videoLink: z.string().optional(),

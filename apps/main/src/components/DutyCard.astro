@@ -1,7 +1,9 @@
 ---
-import type { Duty } from '@/data/duty'
+
+
 
 import CosImage from '@/components/CosImage.astro'
+import type { Duty } from '@/data/duty'
 
 import { cn } from '@/lib/utils'
 
@@ -35,9 +37,10 @@ const href = (() => {
                 'rounded-full px-3 py-0.5 text-sm font-medium',
                 duty.status === 'upcoming' && 'bg-rose-200 text-rose-700 dark:bg-rose-800/90 dark:text-rose-200/90',
                 duty.status === 'live' && 'bg-green-200 text-green-700 dark:bg-green-800/90 dark:text-green-200/90',
+                duty.status === 'new' && 'bg-green-200 text-green-700 dark:bg-green-800/90 dark:text-green-200/90',
               )}
             >
-              {duty.status === 'upcoming' ? '待更新' : duty.status === 'live' ? '更新中' : '已完成'}
+              {duty.status === 'upcoming' ? '待更新' : duty.status === 'live' ? '更新中' : 'New'}
             </span>
           )
         }
