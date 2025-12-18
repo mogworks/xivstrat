@@ -1,5 +1,4 @@
 ---
-import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
@@ -21,7 +20,7 @@ const base = '00:00.00'
   <SeparatorSection />
   <NoteSection>
     <div class="space-y-8">
-      <div class="space-y-4" id="超增压">
+      <div class="space-y-4">
         <P>初始场地如下图，紫色区域表示被围栏挡住的区域，无法站入其中</P>
         <ImgRow
           wrapperClass="max-w-60"
@@ -158,7 +157,7 @@ const base = '00:00.00'
   <CastSection start="01:12.369" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
   <MechanicSection>
     <div class="space-y-8">
-      <div class="space-y-4" id="炮塔出击">
+      <div class="space-y-4" id="炮塔出击|雷转质射线">
         <T><Skill name={["炮塔出击", "雷转质射线"]}><Span slot="separator">+</Span></Skill></T>
         <ImgRow
           wrapperClass="max-w-150"

@@ -1,10 +1,12 @@
 ---
 import DraftWarning from '@/components/draft-warning/DraftWarning.astro'
 import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
 import Span from '@/components/Span.vue'
+import ImgRow from '@/components/typography/ImgRow.astro'
 import P from '@/components/typography/P.astro'
 import Skill from '@/components/typography/Skill.astro'
 import T from '@/components/typography/T.astro'
@@ -12,7 +14,7 @@ import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
 const dutyId = '07/hellonrails'
 
-const base = '03:42.003'
+const base = '00:00.00'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
@@ -48,31 +50,152 @@ const base = '03:42.003'
       </P>
     </div>
   </DraftWarning>
-  <SeparatorSection />
 
-  <CastSection start="04:05.003" duration={4.7} ability="雷电爆发" />
-  <!-- <CastSection start="04:10.101" duration={0.2} ability="雷电爆发" />
-  <CastSection start="04:10.101" duration={0.2} ability="雷电爆发" /> -->
-  <CastSection start="04:12.143" duration={5.7} ability="脱轨捶打" />
-  <!-- <CastSection start="04:12.143" duration={9.7} ability="脱轨捶打" />
-  <CastSection start="04:21.158" duration={0.2} ability="脱轨捶打" /> -->
-  <CastSection start="04:22.281" duration={4.8} ability="脱轨" />
-  <!-- <CastSection start="04:22.281" duration={4.7} ability="脱轨" /> -->
-  <CastSection start="04:39.503" duration={2.7} ability="雷光一闪" />
-  <CastSection start="04:45.525" duration={5.7} ability="雷鸣吐息" />
-  <CastSection start="04:58.561" duration={1.7} ability="魔法阵展开" />
-  <CastSection start="05:12.435" duration={2.4} ability="雷光雨" />
-  <CastSection start="05:26.564" duration={2.4} ability="雷光雨" />
-  <CastSection start="05:37.671" duration={2.4} ability="雷光雨" />
-  <CastSection start="05:46.018" duration={5.7} ability="前照光" />
-  <CastSection start="05:59.000" duration={2.7} ability="雷光一闪" />
-  <CastSection start="06:05.027" duration={4.7} ability="雷电爆发" />
-  <!-- <CastSection start="06:10.106" duration={0.2} ability="雷电爆发" />
-  <CastSection start="06:10.106" duration={0.2} ability="雷电爆发" /> -->
-  <CastSection start="06:14.196" duration={5.7} ability="脱轨捶打" />
-  <!-- <CastSection start="06:14.196" duration={10.7} ability="脱轨捶打" />
-  <CastSection start="06:24.194" duration={0.2} ability="脱轨捶打" /> -->
-  <CastSection start="06:26.462" duration={4.8} ability="脱轨" />
-  <!-- <CastSection start="06:26.462" duration={4.7} ability="脱轨" /> -->
+
+  <SeparatorSection />
+  <NoteSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>由于每个队伍通过P2的时间不同，从P3开始，以转场AoE【无尽狂奔】伤害判定为新的时间起点</P>
+      </div>
+    </div>
+  </NoteSection>
+
+  
+  <SeparatorSection />
+  <EventSection time="00:00.00">
+    <Skill name="无尽狂奔" />伤害判定
+  </EventSection>
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="无尽狂奔">
+        <T><Skill name="无尽狂奔" /></T>
+        <P>转场AoE，与P1不同，这次是有伤害的</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+
+  <SeparatorSection />
+  <EventSection time="00:18.298">
+    <Skill name="冲击波" />伤害判定
+  </EventSection>
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="冲击波">
+        <T><Skill name="冲击波" /></T>
+        <P>无读条AoE</P>
+      </div>
+    </div>
+  </MechanicSection>
+  
+  
+  <SeparatorSection />
+  <CastSection start="00:23.304" duration={4.7} ability="雷电爆发" />
+  <!-- <CastSection start="00:28.402" duration={0.2} ability="雷电爆发" />
+  <CastSection start="00:28.402" duration={0.2} ability="雷电爆发" /> -->
+
+
+  <SeparatorSection />
+  <CastSection start="00:30.444" duration={5.7} ability="脱轨捶打" />
+  <!-- <CastSection start="00:30.444" duration={9.7} ability="脱轨捶打" />
+  <CastSection start="00:39.459" duration={0.2} ability="脱轨捶打" /> -->
+  <CastSection start="00:40.582" duration={4.8} ability="脱轨" />
+  <!-- <CastSection start="00:40.582" duration={4.7} ability="脱轨" /> -->
+  <MechanicSection id="脱轨捶打|脱轨|1">
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="脱轨捶打" /></T>
+        <P>平台最前方的连续分摊踩塔，本轮判定3次伤害</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="脱轨" /></T>
+        <P>摧毁平台，踩完塔后需要立刻跑到平台末尾，踩传送区域转移到后一节平台</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+
+  <SeparatorSection />
+  <NoteSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>新平台场地如下图，紫色区域表示护栏围住的区域，不可进入，黑色区域表示高台，蓝色圆圈表示传送装置，可以传到高台上</P>
+        <ImgRow
+          wrapperClass="max-w-60"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/p3/1.png',
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </NoteSection>
+
+
+  <SeparatorSection />
+  <EventSection time="00:57.804">
+    <Skill name="雷光一闪" />位置判定
+  </EventSection>
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="雷光一闪">
+        <T><Skill name="雷光一闪" /></T>
+        <ImgRow
+          wrapperClass="max-w-200"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/11.png',
+            },
+          ]}
+        />
+        <P>BOSS举起双手打个响指，有发光特效，此时判定全员位置</P>
+        <P>类似【究极神兵绝境战】的【飞翎羽】，或【M6S】的【糖糖闪雷】，判定位置【3s】后，对这些位置处造成圆形AoE伤害，带易伤</P>
+        <P>在位置判定后离开原位即可</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+
+  <SeparatorSection />
+  <EventSection time="01:03.826">
+    BOSS准备释放
+    <Skill name={["雷鸣吐息", "前照光"]}><Span slot="separator">/</Span></Skill>
+  </EventSection>
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="雷鸣吐息|前照光">
+        <T><Skill name={["雷鸣吐息", "前照光"]}><Span slot="separator">/</Span></Skill></T>
+        <ImgRow
+          wrapperClass="max-w-200"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/12.png',
+            },
+          ]}
+        />
+        <P>观察BOSS身上特效的出现顺序，蓝色闪电代表攻击低层，红光代表攻击高层，攻击顺序与特效出现顺序一致</P>
+        <P>根据顺序决定先去高台上躲还是先留在地面躲</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+
+  <SeparatorSection />
+  <CastSection start="01:16.862" duration={1.7} ability="魔法阵展开" />
+  <CastSection start="01:30.736" duration={2.4} ability="雷光雨" />
+  <CastSection start="01:44.865" duration={2.4} ability="雷光雨" />
+  <CastSection start="01:55.972" duration={2.4} ability="雷光雨" />
+  <CastSection start="02:04.319" duration={5.7} ability="前照光" />
+  <CastSection start="02:17.301" duration={2.7} ability="雷光一闪" />
+  <CastSection start="02:23.328" duration={4.7} ability="雷电爆发" />
+  <!-- <CastSection start="02:28.407" duration={0.2} ability="雷电爆发" />
+  <CastSection start="02:28.407" duration={0.2} ability="雷电爆发" /> -->
+  <CastSection start="02:32.497" duration={5.7} ability="脱轨捶打" />
+  <!-- <CastSection start="02:32.497" duration={10.7} ability="脱轨捶打" />
+  <CastSection start="02:42.495" duration={0.2} ability="脱轨捶打" /> -->
+  <CastSection start="02:44.763" duration={4.8} ability="脱轨" />
+  <!-- <CastSection start="02:44.763" duration={4.7} ability="脱轨" /> -->
 
 </DutyStratLayout>

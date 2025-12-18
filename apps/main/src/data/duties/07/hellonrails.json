@@ -4,7 +4,7 @@
   "title": "格莱杨拉波尔歼殛战 攻略",
   "description": "最终幻想14 格莱杨拉波尔歼殛战 超详解动态图文攻略",
   "banner": "imgs/banners/07/hellonrails.png",
-  "date": "25/12/17 21:00",
+  "date": "25/12/18 09:50",
   "href": "/07/hellonrails",
   "status": "live",
   "indexAvailable": true,
@@ -37,8 +37,8 @@
           "name": "无控急行"
         },
         {
-          "href": "#炮塔出击",
-          "name": "炮塔出击"
+          "href": "#炮塔出击|雷转质射线",
+          "name": "炮塔出击 + 雷转质射线"
         },
         {
           "href": "#雷电爆发",
@@ -63,10 +63,6 @@
         {
           "href": "#以太冲击波|以太炮",
           "name": "以太冲击波 | 以太炮"
-        },
-        {
-          "href": "#无尽狂奔",
-          "name": "无尽狂奔"
         }
       ]
     },
@@ -75,7 +71,28 @@
       "title": "Phase 3",
       "subtitle": "",
       "name": "P3",
-      "mechanics": []
+      "mechanics": [
+        {
+          "href": "#无尽狂奔",
+          "name": "无尽狂奔"
+        },
+        {
+          "href": "#冲击波",
+          "name": "冲击波"
+        },
+        {
+          "href": "#脱轨捶打|脱轨|1",
+          "name": "脱轨捶打 + 脱轨 #1"
+        },
+        {
+          "href": "#雷光一闪",
+          "name": "雷光一闪"
+        },
+        {
+          "href": "#雷鸣吐息|前照光",
+          "name": "雷鸣吐息 | 前照光"
+        }
+      ]
     },
     {
       "href": "/07/hellonrails/p4",
