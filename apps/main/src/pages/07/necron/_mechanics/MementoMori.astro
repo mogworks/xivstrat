@@ -1,21 +1,18 @@
 ---
-import type { Time } from '@/lib/utils'
-
-import P from '@/components/typography/P.astro'
+import Boss from '@/components/Boss.astro'
+import Bleeding from '@/components/buff/Bleeding.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import T from '@/components/typography/T.astro'
-import Skill from '@/components/typography/Skill.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
-import Bleeding from '@/components/buff/Bleeding.astro'
-import Boss from '@/components/Boss.astro'
+import P from '@/components/typography/P.astro'
 import Quote from '@/components/typography/Quote.astro'
-
-import { translations } from '../_translations'
-
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import type { Time } from '@/lib/utils'
 import MementoMoriCast from '../_components/MementoMoriCast.astro'
 import SmiteOfGloomCast from '../_components/SmiteOfGloomCast.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time

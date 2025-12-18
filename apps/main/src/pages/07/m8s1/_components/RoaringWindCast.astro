@@ -1,13 +1,10 @@
 ---
-import type { Time } from '@/lib/utils'
-
-import CastSection from '@/components/section/CastSection.astro'
-import Span from '@/components/Span.vue'
 import Badge from '@/components/Badge.astro'
-
-import WolfOfWind from './entities/WolfOfWind.astro'
-
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+import type { Time } from '@/lib/utils'
 import { translations } from '../_translations'
+import WolfOfWind from './entities/WolfOfWind.astro'
 
 interface Props {
   start: Time

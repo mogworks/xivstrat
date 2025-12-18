@@ -81,7 +81,7 @@ const {
         resolution:
           this.dataset.resolution === '0'
             ? window.devicePixelRatio || 1
-            : Number.parseInt(this.dataset.resolution ?? '1'),
+            : Number.parseInt(this.dataset.resolution ?? '1', 10),
         backgroundAlpha: 0,
         preference: $stratSettings.get().pixijsApiPreference,
         antialias: true,

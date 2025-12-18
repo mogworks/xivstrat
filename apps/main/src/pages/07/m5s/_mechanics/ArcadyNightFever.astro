@@ -1,30 +1,29 @@
 ---
-import type { Time } from '@/lib/utils'
-import CosImage from '@/components/CosImage.astro'
+import LimitBreak from '@/components/action/LimitBreak.astro'
 import Badge from '@/components/Badge.astro'
 import Boss from '@/components/Boss.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import CosImage from '@/components/CosImage.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import StratBoard from '@/components/StratBoard.astro'
 import StratLink from '@/components/StratLink.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import CastSection from '@/components/section/CastSection.astro'
+import CollapseSection from '@/components/section/CollapseSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import CollapseSection from '@/components/section/CollapseSection.astro'
-import LimitBreak from '@/components/action/LimitBreak.astro'
 import P from '@/components/typography/P.astro'
 import Quote from '@/components/typography/Quote.astro'
-import ListDot from '@/components/ListDot.astro'
+import type { Time } from '@/lib/utils'
+import ResetSVG from '@/svg/reset.svg'
+import VideoPlaySVG from '@/svg/video-play.svg'
 import RoleOrder from '../_components/GetDownOrder.vue'
 import Wavelength from '../_components/Wavelength.astro'
 import WavelengthEffect from '../_components/WavelengthEffect.astro'
-
-import VideoPlaySVG from '@/svg/video-play.svg'
-import ResetSVG from '@/svg/reset.svg'
 import { translations } from '../_translations'
 
 interface Props {
@@ -568,10 +567,9 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
 
 <script>
   import type { AnimationSequence } from 'motion'
-  import type { Application, Ticker } from 'pixi.js'
-
   import { animate } from 'motion'
   import { listenKeys } from 'nanostores'
+  import type { Application, Ticker } from 'pixi.js'
   import { AnimatedSprite, Assets, Container, Graphics, Sprite, Texture } from 'pixi.js'
 
   import type { RoleType } from '@/lib/role'
@@ -580,10 +578,8 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
   import { getScale, YmToPx, YmToPxMap } from '@/pixi/utils'
   import { setWaymark } from '@/pixi/waymark'
   import { $stratBoards } from '@/stores/stratBoards'
-
-  import type { RoleStr } from '../_stores/getDownOrder'
-
   import { waymarkData } from '../_data/waymark'
+  import type { RoleStr } from '../_stores/getDownOrder'
   import { $roleOrders, shuffleRoleOrder } from '../_stores/getDownOrder'
 
   const radianMap: Record<RoleStr, number> = {
@@ -671,7 +667,7 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
           }
 
           const timeoutId = setTimeout(() => {
-            spritesToRemove.forEach((sprite) => container.removeChild(sprite))
+            spritesToRemove.forEach((sprite) => {container.removeChild(sprite)})
           }, 1750)
 
           timeoutIds.push(timeoutId)
@@ -682,7 +678,7 @@ const wavelengthDurations2 = ['45.5', '38', '30.5', '23', '20.5', '23', '25.5', 
     app.ticker.add(fn)
 
     removeTickerFn = () => {
-      timeoutIds.forEach((id) => clearTimeout(id))
+      timeoutIds.forEach((id) => {clearTimeout(id)})
       timeoutIds = []
       app.ticker.remove(fn)
     }

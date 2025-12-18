@@ -1,11 +1,10 @@
 <script setup lang="ts">
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@xivstrat/shadcn-vue'
 import { computed } from 'vue'
-
 import { isValidURL } from '@/lib/utils'
 import BiliBiliSVG from '@/svg/bilibili.svg?component'
 import GitHubSVG from '@/svg/github.svg?component'
 import LinkSVG from '@/svg/link.svg?component'
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@xivstrat/shadcn-vue'
 
 const props = withDefaults(
   defineProps<{

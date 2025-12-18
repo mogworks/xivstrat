@@ -1,0 +1,216 @@
+---
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+const dutyId = '07/hellonrails'
+
+const base = '00:00.00'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <SeparatorSection />
+  <NoteSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>初始场地如下图，紫色区域表示被围栏挡住的区域，无法站入其中</P>
+        <ImgRow
+          wrapperClass="max-w-60"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/p1/1.png',
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </NoteSection>
+  
+  
+  <SeparatorSection />
+  <CastSection start="00:09.000" duration={3.7} ability="超增压" />
+  <CastSection start="00:15.020" duration={5.7} ability="超增压急行" />
+  <CastSection start="00:22.054" duration={0.7} ability="等离子射线" source="雷光环×4" sourceRole="enemy" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="超增压">
+        <T><Skill name="超增压" /></T>
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/1.png',
+              title: '情形1：4球',
+            },
+            {
+              src: 'imgs/07/hellonrails/2.png',
+              title: '情形2：8球',
+            },
+          ]}
+        />
+        <P>BOSS读条时，前方浮现4/8个蓝色雷球，分别代表存储44分摊/8人分散，之后会延时释放，大致按下图站位处理即可：</P>
+        <ImgRow
+          wrapperClass="max-w-60"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/p1/2.png',
+              title: '情形1：4球',
+            },
+            {
+              src: 'imgs/07/hellonrails/plan/p1/3.png',
+              title: '情形2：8球',
+            },
+          ]}
+        />
+        <P>紫色区域表示被围栏挡住的区域，无法站入其中</P>
+      </div>
+      <div class="space-y-4" id="超增压急行">
+        <T><Skill name="超增压急行" /></T>
+        <ImgRow
+          wrapperClass="max-w-150"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/3.png',
+            }
+          ]}
+        />
+        <P>直线击退，可以被场地上的护栏区域（上图红圈）挡住，防击退有效</P>
+      </div>
+      <div class="space-y-4" id="等离子射线">
+        <T><Skill name="等离子射线" /></T>
+        <ImgRow
+          wrapperClass="max-w-150"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/4.png',
+            },
+            {
+              src: 'imgs/07/hellonrails/5.png',
+            },
+          ]}
+        />
+        <P>BOSS前方浮现4个魔法阵，会释放直线攻击，有高度差分，分别攻击地面和空中</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+
+  <SeparatorSection />
+  <CastSection start="00:28.025" duration={3.7} ability="超增压" />
+  <CastSection start="00:34.042" duration={5.7} ability="超增压抽雾" />
+  <!-- <CastSection start="00:34.042" duration={6.7} ability="超增压抽雾" /> -->
+  <!-- <CastSection start="00:40.107" duration={2.7} ability="超增压排雾" /> -->
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="超增压抽雾">
+        <T><Skill name="超增压抽雾" /></T>
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/6.png',
+            },
+            {
+              src: 'imgs/07/hellonrails/7.png',
+            },
+          ]}
+        />
+        <P>直线吸引（防击退有效，也可被护栏区域挡住）后接地面AoE，前两行方格地板会被攻击，注意之后会紧跟判定超增压</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+
+  <SeparatorSection />
+  <CastSection start="00:47.111" duration={4.7} ability="无控急行" />
+  <!-- <CastSection start="00:47.111" duration={5.6} ability="无控急行" /> -->
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="无控急行">
+        <T><Skill name="无控急行" /></T>
+        <P>全屏AoE，摧毁这节平台并把全员向后击飞到一块新平台：</P>
+        <ImgRow
+          wrapperClass="max-w-60"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/p1/4.png',
+            }
+          ]}
+        />
+        <P>紫色区域表示被围栏围住的区域，黑色区域表示隆起的高台</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+  
+  <SeparatorSection />
+  <CastSection start="01:01.145" duration={3.7} ability="超增压" />
+  <CastSection start="01:07.157" duration={2.7} ability="炮塔出击" />
+  <CastSection start="01:12.369" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="炮塔出击|雷转质射线">
+        <T><Skill name={["炮塔出击", "雷转质射线"]}><Span slot="separator">+</Span></Skill></T>
+        <ImgRow
+          wrapperClass="max-w-150"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/8.png',
+            }
+          ]}
+        />
+        <P>平台两侧出现护卫炮塔，发光后会发射横向的直线攻击，可以被高台（黑色区域）阻挡</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <CastSection start="01:14.199" duration={5.7} ability="超增压抽雾" />
+  <!-- <CastSection start="01:14.199" duration={6.7} ability="超增压抽雾" /> -->
+  <!-- <CastSection start="01:20.259" duration={2.7} ability="超增压排雾" /> -->
+
+
+  <SeparatorSection />
+  <CastSection start="01:27.255" duration={3.7} ability="超增压" />
+  <CastSection start="01:28.940" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
+  <CastSection start="01:33.266" duration={4.7} ability="雷电爆发" />
+  <!-- <CastSection start="01:38.347" duration={0.2} ability="雷电爆发" />
+  <CastSection start="01:38.347" duration={0.2} ability="雷电爆发" /> -->
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="雷电爆发">
+        <T><Skill name="雷电爆发" /></T>
+        <P>
+          双T圆形死刑，先躲雷转质射线，再<StratLink variant="teal" href="https://www.bilibili.com/video/BV1c34y1J7Bn/" target="_blank">【两个t左右出】</StratLink>
+        </P>
+      </div>
+    </div>
+  </MechanicSection>
+  <CastSection start="01:40.528" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
+  <CastSection start="01:42.401" duration={5.7} ability="超增压急行" />
+  <CastSection start="01:49.425" duration={0.7} ability="等离子射线" source="雷光环×4" sourceRole="enemy" />
+
+
+  <SeparatorSection />
+  <CastSection start="01:55.540" duration={4.7} ability="无控急行" />
+  <!-- <CastSection start="01:55.540" duration={5.6} ability="无控急行" /> -->
+  <CastSection start="02:11.577" duration={4.7} ability="雷电爆发" />
+  <!-- <CastSection start="02:16.660" duration={0.2} ability="雷电爆发" />
+  <CastSection start="02:16.660" duration={0.2} ability="雷电爆发" /> -->
+  <CastSection start="02:24.817" duration={4.7} ability="无尽狂奔" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="无尽狂奔">
+        <T><Skill name="无尽狂奔" /></T>
+        <P>转场，无实际意义</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+</DutyStratLayout>

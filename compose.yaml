@@ -1,0 +1,8 @@
+services:
+  xivstrat:
+    container_name: xivstrat
+    build:
+      context: .
+      dockerfile: ./apps/main/Dockerfile
+    restart: unless-stopped
+    network_mode: host

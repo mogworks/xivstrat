@@ -1,15 +1,13 @@
 ---
-import CosImage from '@/components/CosImage.astro'
 import { getEntry } from 'astro:content'
-
-import ScannerSVG from '@/svg/scanner.svg'
-import BiliBiliSVG from '@/svg/bilibili.svg'
-
-import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
-import WaymarkBox from '@/components/WaymarkBox.astro'
-import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import AreaBox from '@/components/AreaBox.astro'
+import CollapsibleBox from '@/components/CollapsibleBox.vue'
+import CosImage from '@/components/CosImage.astro'
 import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
+import WaymarkBox from '@/components/WaymarkBox.astro'
+import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
+import BiliBiliSVG from '@/svg/bilibili.svg'
+import ScannerSVG from '@/svg/scanner.svg'
 
 const CheatsheetsImage = 'imgs/cheatsheets/07/necron.png'
 const WaymarkImage = 'imgs/waymarks/07/necron.png'
@@ -24,7 +22,7 @@ const navList = [
   // { label: '参考资料', id: 'reference' },
   // { label: '鸣谢', id: 'thanks' },
 ]
-const videoLink = duty.bilibili ?? undefined
+const videoLink = duty.videoLink ?? undefined
 ---
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
@@ -40,9 +38,9 @@ const videoLink = duty.bilibili ?? undefined
     {
       videoLink && (
         <a href={videoLink} target="_blank">
-          <button class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75">
+          <button class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-blue-400 bg-blue-500 p-2 px-4 align-middle text-white hover:bg-blue-700/60 dark:border-blue-500 dark:bg-blue-700/75">
             <BiliBiliSVG class="mr-2 h-5 w-5" />
-            查看视频攻略
+            跳转视频攻略
           </button>
         </a>
       )

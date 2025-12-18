@@ -1,26 +1,24 @@
 ---
-
+import DamageDown from '@/components/buff/DamageDown.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import ListDot from '@/components/ListDot.astro'
+import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import DamageDown from '@/components/buff/DamageDown.astro'
-import Span from '@/components/Span.vue'
-import ListDot from '@/components/ListDot.astro'
-
-import T from '@/components/typography/T.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
-import Skill from '@/components/typography/Skill.astro'
 import P from '@/components/typography/P.astro'
 import Quote from '@/components/typography/Quote.astro'
-
-import TerrestrialTitansCast from '../_components/TerrestrialTitansCast.astro'
-import TitanicPursuitCast from '../_components/TitanicPursuitCast.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
 import BareFangsEvent from '../_components/BareFangsEvent.astro'
-import TowerfallActivate from '../_components/TowerfallActivate.astro'
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import FangedCrossingCast from '../_components/FangedCrossingCast.astro'
+import TerrestrialTitansCast from '../_components/TerrestrialTitansCast.astro'
+import TitanicPursuitCast from '../_components/TitanicPursuitCast.astro'
+import TowerfallActivate from '../_components/TowerfallActivate.astro'
 
 import { translations } from '../_translations'
+
 const {
   terrestrialTitans, // 召唤柱子 5m半径，离场中7m
   titanicPursuit, // 切断柱子+全屏aoe

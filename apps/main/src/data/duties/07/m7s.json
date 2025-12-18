@@ -13,7 +13,7 @@
   "href": "/07/m7s",
   "status": "done",
   "indexAvailable": true,
-  "bilibili": "https://www.bilibili.com/video/BV1293AzAESs/",
+  "videoLink": "https://www.bilibili.com/video/BV1293AzAESs/",
   "phases": [
     {
       "href": "/07/m7s/p1",
@@ -162,6 +162,5 @@
         }
       ]
     }
-  ],
-  "locales": {}
+  ]
 }

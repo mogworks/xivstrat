@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
-
-import { $stratSettings } from '@/stores/stratSettings'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@xivstrat/shadcn-vue'
+import { onMounted, onUnmounted, ref } from 'vue'
+import { $stratSettings } from '@/stores/stratSettings'
 
 const prop = defineProps<{
   solutions: {

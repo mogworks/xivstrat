@@ -6,7 +6,7 @@ const duties = defineCollection({
   schema: () =>
     z.object({
       name: z.string(),
-      short: z.string(),
+      short: z.string().optional(),
       spoilerFree: z.boolean().optional(), // 首页卡片入口是否防剧透
       spoilerFreeName: z.string().optional(), // 首页卡片入口防剧透的情况下，显示的副本名称
       type: z.union([z.literal('raid'), z.literal('ultimate'), z.literal('trial')]),
@@ -21,9 +21,10 @@ const duties = defineCollection({
       banner: z.string(),
       date: z.string(),
       href: z.string(),
-      status: z.union([z.literal('upcoming'), z.literal('live'), z.literal('done')]),
+      status: z.union([z.literal('upcoming'), z.literal('live'), z.literal('new'), z.literal('done')]),
       indexAvailable: z.boolean(),
-      bilibili: z.string().optional(),
+      docLink: z.string().optional(),
+      videoLink: z.string().optional(),
       phases: z.array(
         z.object({
           href: z.string(),
@@ -36,12 +37,6 @@ const duties = defineCollection({
               name: z.string(),
             }),
           ),
-        }),
-      ),
-      locales: z.record(
-        z.object({
-          cn: z.string().optional(),
-          jp: z.string().optional(),
         }),
       ),
     }),

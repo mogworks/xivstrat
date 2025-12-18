@@ -13,13 +13,13 @@
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "embla-carousel-vue": "8.6.0",
-    "lucide-vue-next": "0.559.0",
+    "lucide-vue-next": "0.561.0",
     "reka-ui": "2.6.1",
     "tailwind-merge": "3.4.0",
     "tw-animate-css": "1.4.0"
   },
   "devDependencies": {
-    "@types/node": "25.0.0",
+    "@types/node": "25.0.3",
     "vue": "3.5.25",
     "vue-tsc": "3.1.8"
   },

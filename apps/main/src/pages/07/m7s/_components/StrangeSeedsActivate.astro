@@ -1,14 +1,13 @@
 ---
+import Badge from '@/components/Badge.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import Skill from '@/components/typography/Skill.astro'
 import type { Time } from '@/lib/utils'
 import type { VariantType } from '@/lib/variant'
-
-import Badge from '@/components/Badge.astro'
-import EventSection from '@/components/section/EventSection.astro'
-import Span from '@/components/Span.vue'
-import DamageInfo from '@/components/DamageInfo.astro'
-import Skill from '@/components/typography/Skill.astro'
 import { translations } from '../_translations'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 
 interface Props {
   time: Time

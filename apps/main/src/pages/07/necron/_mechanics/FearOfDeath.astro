@@ -1,18 +1,15 @@
 ---
-import type { Time } from '@/lib/utils'
-
-import P from '@/components/typography/P.astro'
-import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
-import T from '@/components/typography/T.astro'
-import Skill from '@/components/typography/Skill.astro'
 import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
-
-import { translations } from '../_translations'
-
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import type { Time } from '@/lib/utils'
 import FearOfDeathCast from '../_components/FearOfDeathCast.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time

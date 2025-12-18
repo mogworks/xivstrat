@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@source "../../node_modules/@xivstrat";
+@source "../../node_modules/@xivstrat/shadcn-react";
+@source "../../node_modules/@xivstrat/shadcn-vue";
 
 @custom-variant dark (&:where(.dark, .dark *));
 

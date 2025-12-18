@@ -1,23 +1,21 @@
 ---
-import type { Time } from '@/lib/utils'
-
-import Span from '@/components/Span.vue'
-import ToggleSwitch from '@/components/ToggleSwitch.astro'
-import MechanicSection from '@/components/section/MechanicSection.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 
+import Span from '@/components/Span.vue'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import ToggleSwitch from '@/components/ToggleSwitch.astro'
 import ImgGrid from '@/components/typography/ImgGrid.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import P from '@/components/typography/P.astro'
 import Quote from '@/components/typography/Quote.astro'
-import T from '@/components/typography/T.astro'
 import Skill from '@/components/typography/Skill.astro'
-
-import XfangCast from '../_components/XfangCast.astro'
+import T from '@/components/typography/T.astro'
+import type { Time } from '@/lib/utils'
 import GleamingFang from '../_components/entities/GleamingFang.astro'
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import XfangCast from '../_components/XfangCast.astro'
 
 import { translations } from '../_translations'
 

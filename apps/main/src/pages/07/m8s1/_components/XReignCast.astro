@@ -1,18 +1,14 @@
 ---
-import { timeToSeconds, type Time } from '@/lib/utils'
-
 import Badge from '@/components/Badge.astro'
-
+import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import PhysicalVulnerabilityUp from '@/components/buff/PhysicalVulnerabilityUp.astro'
-
 import Skill from '@/components/typography/Skill.astro'
-
-import WolvesReignCast from '../_components/WolvesReignCast.astro'
+import { type Time, timeToSeconds } from '@/lib/utils'
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import WolvesReignCast from '../_components/WolvesReignCast.astro'
 
 import { translations } from '../_translations'
 

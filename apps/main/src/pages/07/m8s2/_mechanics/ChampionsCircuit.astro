@@ -1,29 +1,27 @@
 ---
+import Badge from '@/components/Badge.astro'
+import DamageDown from '@/components/buff/DamageDown.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import Hint from '@/components/typography/Hint.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
 import { type Time } from '@/lib/utils'
 
-import MechanicSection from '@/components/section/MechanicSection.astro'
-import P from '@/components/typography/P.astro'
-import SolutionSection from '@/components/section/SolutionSection.astro'
-import T from '@/components/typography/T.astro'
-import EventSection from '@/components/section/EventSection.astro'
-import Badge from '@/components/Badge.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import DamageDown from '@/components/buff/DamageDown.astro'
-import Hint from '@/components/typography/Hint.astro'
-import Span from '@/components/Span.vue'
-import Skill from '@/components/typography/Skill.astro'
-import ImgRow from '@/components/typography/ImgRow.astro'
-
 import BareFangsCast from '../_components/BareFangsCast.astro'
-import ChampionsCircuitActivate from '../_components/ChampionsCircuitActivate.astro'
-import ChampionsCircuitCast from '../_components/ChampionsCircuitCast.astro'
-import HowlingBlade from '../_components/entities/HowlingBlade.astro'
-import GleamingFang from '../_components/entities/GleamingFang.astro'
-import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
-import ChampionsCircuitCarousel from '../_components/ChampionsCircuitCarousel.astro'
-
-import { translations } from '../_translations'
 import BossAttackSection from '../_components/BossAttackSection.astro'
+import ChampionsCircuitActivate from '../_components/ChampionsCircuitActivate.astro'
+import ChampionsCircuitCarousel from '../_components/ChampionsCircuitCarousel.astro'
+import ChampionsCircuitCast from '../_components/ChampionsCircuitCast.astro'
+import GleamingFang from '../_components/entities/GleamingFang.astro'
+import HowlingBlade from '../_components/entities/HowlingBlade.astro'
+import ImmobileSuitDebuff from '../_components/ImmobileSuitDebuff.astro'
+import { translations } from '../_translations'
 
 interface Props {
   start: Time
@@ -75,7 +73,7 @@ const gleamingBarrage = translations.gleamingBarrage
       <DamageInfo damage="150000" type="magical" />
       <DamageDown tag="30" percent={50} />
     </P>
-    <T variant="yellow" text=`${championsCircuit}` class="mt-8" />
+    <T variant="yellow" text={`${championsCircuit}`} class="mt-8" />
     <P>
       <HowlingBlade />
       随机面向一个平台中心，读条

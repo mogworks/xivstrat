@@ -1,9 +1,8 @@
 ---
-import CosImage from '@/components/CosImage.astro'
-
 import AreaBox from '@/components/AreaBox.astro'
-import Separator from '@/components/Separator.astro'
+import CosImage from '@/components/CosImage.astro'
 import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
+import Separator from '@/components/Separator.astro'
 import T from '@/components/typography/T.astro'
 
 import { cn } from '@/lib/utils'
@@ -105,9 +104,11 @@ const href = hrefOrigin ? new URL(hrefOrigin, import.meta.env.PUBLIC_COS_BASE_UR
       }
     }
 
+    // biome-ignore lint/suspicious/noExplicitAny: 点击事件处理
     handleClick(e: { composedPath: () => any[] }) {
       const isClickInDialog = !!e
         .composedPath()
+        // biome-ignore lint/suspicious/noExplicitAny: 查找确认对话框元素
         .find((el: { classList: { contains: (arg0: string) => any } }) => el.classList?.contains('confirm-dialog'))
 
       if (!this.disabled && !this.#confirmOpen && !isClickInDialog) {

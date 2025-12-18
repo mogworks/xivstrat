@@ -1,17 +1,16 @@
 ---
-import type { Time } from '@/lib/utils'
-
 import CosImage from '@/components/CosImage.astro'
+import ListDot from '@/components/ListDot.astro'
 
 import Separator from '@/components/Separator.astro'
-import StratLink from '@/components/StratLink.astro'
 import Span from '@/components/Span.vue'
 import StratBoard from '@/components/StratBoard.astro'
+import StratLink from '@/components/StratLink.astro'
 import CastSection from '@/components/section/CastSection.astro'
-import ListDot from '@/components/ListDot.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import type { Time } from '@/lib/utils'
 
 import BurnBabyBurn from '../_components/BurnBabyBurn.astro'
 
@@ -361,9 +360,9 @@ const { start }: Props = Astro.props
 </NoteSection>
 
 <script>
-  import type { VideoSource } from 'pixi.js'
 
   import { listenKeys } from 'nanostores'
+  import type { VideoSource } from 'pixi.js'
   import { Assets, Container, Graphics, Sprite } from 'pixi.js'
 
   import { getScale, YmToPx } from '@/pixi/utils'
@@ -373,7 +372,7 @@ const { start }: Props = Astro.props
   import { waymarkData } from '../_data/waymark'
 
   function calcSpotlightPositions(s: number) {
-    let x1, y1, x2, y2
+    let x1: number, y1: number, x2: number, y2: number
     if (s % 16 < 4) {
       x1 = -2.5
       y1 = -7.5 + 3.75 * (s % 8)

@@ -1,9 +1,8 @@
 ---
-import type { VariantType } from '@/lib/variant'
-
 import VueBuff from '@/components/Buff.vue'
-import VueHoverBuff from '@/components/HoverBuff.vue'
 import CosImage from '@/components/CosImage.astro'
+import VueHoverBuff from '@/components/HoverBuff.vue'
+import type { VariantType } from '@/lib/variant'
 
 interface Props {
   icon: string
@@ -24,13 +23,16 @@ const {
   hover = false,
   class: className = '',
 }: Props = Astro.props
-const iconUrl = new URL(icon, import.meta.env.PUBLIC_COS_BASE_URL).href
+const iconUrl = new URL(icon, import.meta.env.PUBLIC_COS_BASE_URL)
+iconUrl.searchParams.set('width', '48')
+iconUrl.searchParams.set('height', '64')
+const iconFullHref = iconUrl.href
 ---
 
 {
   hover ? (
     <VueHoverBuff
-      icon={iconUrl}
+      icon={iconFullHref}
       name={name}
       nameVariant={nameVariant}
       description={description}
@@ -38,14 +40,14 @@ const iconUrl = new URL(icon, import.meta.env.PUBLIC_COS_BASE_URL).href
       class={className}
       client:idle
     >
-      <CosImage slot="icon" src={icon} alt={description} />
+      <CosImage slot="icon" src={iconUrl} alt={description} />
       <slot>
         <p>{description}</p>
       </slot>
     </VueHoverBuff>
   ) : (
-    <VueBuff icon={iconUrl} name={name} description={description} tag={tag} class={className} client:idle>
-      <CosImage src={icon} alt={description} />
+    <VueBuff icon={iconFullHref} name={name} description={description} tag={tag} class={className} client:idle>
+      <CosImage src={iconUrl} alt={description} />
     </VueBuff>
   )
 }

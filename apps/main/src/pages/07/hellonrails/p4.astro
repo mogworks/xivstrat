@@ -1,0 +1,202 @@
+---
+import Boss from '@/components/Boss.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+const dutyId = '07/hellonrails'
+
+const base = '03:00.000'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <SeparatorSection />
+  <NoteSection>
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <P>由于每个队伍通过P2的时间不同，从P3开始，以P2结束的转场AoE【无尽狂奔】伤害判定为新的时间起点</P>
+      </div>
+      <div class="space-y-4">
+        <P>P4初始场地如下图，黑色区域表示立方体箱子，一开始人群只能站第一排</P>
+        <ImgRow
+          wrapperClass="max-w-60"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/p4/1.png',
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </NoteSection>
+
+
+  <SeparatorSection />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="念动反应">
+        <T><Skill name="念动反应" /></T>
+        <P>BOSS抬起若干（2、3、5）个箱子（黑色区块），砸向随机几人（有点名标记和AoE范围提示）</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <CastSection start="03:00.000" duration={6.7} ability="念动反应" />
+  <EventSection time="03:08.030">
+    <Skill name="掉落" />伤害判定
+  </EventSection>
+  <EventSection time="03:09.993">
+    <Skill name="雷光一闪" />位置判定
+  </EventSection>
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4" id="念动反应">
+        <P>这一轮会从第一排和第二排选两个箱子</P>
+        <ImgRow
+          wrapperClass="max-w-60"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/p4/2.png',
+            },
+          ]}
+        />
+        <P>点名判定后全员别急着动，等【雷光一闪】（飞翎羽）判定后再躲避</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <CastSection start="03:15.084" duration={6.7} ability="念动反应" />
+  <EventSection time="03:23.127">
+    <Skill name="掉落" />伤害判定
+  </EventSection>
+  <CastSection start="03:24.111" duration={4.7} ability="雷电爆发" />
+  <!-- <CastSection start="03:29.176" duration={0.2} ability="雷电爆发" />
+  <CastSection start="03:29.176" duration={0.2} ability="雷电爆发" /> -->
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>这一轮会再选三个箱子</P>
+        <ImgRow
+          wrapperClass="max-w-60"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/p4/3.png',
+            },
+          ]}
+        />
+        <P>这轮没有【雷光一闪】，但有【雷电爆发】（双T死刑），点名判定后把左上右上角让开</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <CastSection start="03:31.237" duration={6.7} ability="念动反应" />
+  <EventSection time="03:39.265">
+    <Skill name="掉落" />伤害判定
+  </EventSection>
+  <EventSection time="03:41.237">
+    <Skill name="雷光一闪" />位置判定
+  </EventSection>
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>这一轮会再选五个箱子</P>
+        <ImgRow
+          wrapperClass="max-w-60"
+          imgs={[
+            {
+              src: 'imgs/07/hellonrails/plan/p4/4.png',
+            },
+          ]}
+        />
+        <P>点名判定后全员别急着动，等【雷光一闪】（飞翎羽）判定后再躲避</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+
+  <SeparatorSection />
+  <CastSection start="03:49.341" duration={5.7} ability="脱轨捶打" />
+  <!-- <CastSection start="03:49.341" duration={11.7} ability="脱轨捶打" />
+  <CastSection start="04:00.230" duration={0.2} ability="脱轨捶打" /> -->
+  <CastSection start="04:01.965" duration={4.8} ability="脱轨" />
+  <!-- <CastSection start="04:01.965" duration={4.7} ability="脱轨" /> -->
+
+
+  <SeparatorSection />
+  <NoteSection id="p5">
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <P>从这里开始，就没有新机制了，往后都是之前机制的组合</P>
+      </div>
+    </div>
+  </NoteSection>
+
+
+  <SeparatorSection />
+  <CastSection start="04:17.211" duration={3.7} ability="超增压" />
+  <CastSection start="04:23.233" duration={2.7} ability="炮塔出击" />
+  <CastSection start="04:28.461" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
+  <EventSection time="04:32.298">
+    <Boss />准备释放
+    <Skill name={["雷鸣吐息", "前照光"]}><Span slot="separator">/</Span></Skill>
+  </EventSection>
+
+
+  <SeparatorSection />
+  <CastSection start="04:44.485" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
+  <CastSection start="04:47.338" duration={6.7} ability="念动反应" />
+  <EventSection time="04:55.375">
+    <Skill name="掉落" />伤害判定
+  </EventSection>
+  <EventSection time="04:57.339">
+    <Skill name="雷光一闪" />位置判定
+  </EventSection>
+
+
+  <SeparatorSection />
+  <CastSection start="05:01.531" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
+  <CastSection start="05:04.423" duration={5.7} ability="超增压急行" />
+  <CastSection start="05:11.463" duration={0.7} ability="等离子射线" source="雷光环×4" sourceRole="enemy" />
+  <CastSection start="05:17.442" duration={4.7} ability="雷电爆发" />
+  <!-- <CastSection start="05:22.538" duration={0.2} ability="雷电爆发" />
+  <CastSection start="05:22.538" duration={0.2} ability="雷电爆发" /> -->
+
+
+  <SeparatorSection />
+  <CastSection start="05:26.489" duration={3.7} ability="超增压" />
+  <CastSection start="05:32.515" duration={1.7} ability="魔法阵展开" />
+  <CastSection start="05:43.491" duration={2.4} ability="雷光雨" />
+  <CastSection start="05:57.534" duration={2.4} ability="雷光雨" />
+  <EventSection time="06:03.869">
+    <Skill name="雷光一闪" />位置判定
+  </EventSection>
+
+
+  <SeparatorSection />
+  <CastSection start="06:10.683" duration={5.7} ability="超增压抽雾" />
+  <!-- <CastSection start="06:10.683" duration={6.7} ability="超增压抽雾" /> -->
+  <!-- <CastSection start="06:16.734" duration={2.7} ability="超增压排雾" /> -->
+  <EventSection time="06:23.631">
+    <Boss />准备释放
+    <Skill name={["雷鸣吐息", "前照光"]}><Span slot="separator">/</Span></Skill>
+  </EventSection>
+  <CastSection start="06:36.657" duration={4.7} ability="雷电爆发" />
+  <!-- <CastSection start="06:41.739" duration={0.2} ability="雷电爆发" />
+  <CastSection start="06:41.739" duration={0.2} ability="雷电爆发" /> -->
+  <EventSection time="06:44.783">
+    <Skill name="雷光一闪" />位置判定
+  </EventSection>
+
+
+  <SeparatorSection />
+  <CastSection start="06:51.717" duration={5.7} ability="脱轨捶打" />
+  <!-- <CastSection start="06:51.717" duration={12.7} ability="脱轨捶打" />
+  <CastSection start="07:03.709" duration={0.2} ability="脱轨捶打" /> -->
+  <CastSection start="07:04.828" duration={14.8} ability="脱轨" />
+  <!-- <CastSection start="07:04.828" duration={14.7} ability="脱轨" /> -->
+</DutyStratLayout>

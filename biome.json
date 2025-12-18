@@ -48,16 +48,12 @@
       "tailwindDirectives": true
     }
   },
+  "html": {
+    "experimentalFullSupportEnabled": true
+  },
   "overrides": [
     {
       "includes": ["**/*.astro", "**/*.vue"],
-      "assist": {
-        "actions": {
-          "source": {
-            "organizeImports": "off"
-          }
-        }
-      },
       "linter": {
         "rules": {
           "style": {

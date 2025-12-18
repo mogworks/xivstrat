@@ -1,11 +1,10 @@
 ---
 import { getCollection } from 'astro:content'
 import { pinyin } from 'pinyin-pro'
-
-import Layout from '@/layouts/Layout.astro'
+import DeveloperCard from '@/components/DeveloperCard.astro'
 import Footer from '@/components/Footer.astro'
 import LinkIcons from '@/components/LinkIcons.astro'
-import DeveloperCard from '@/components/DeveloperCard.astro'
+import Layout from '@/layouts/Layout.astro'
 
 const developers = await getCollection('developers')
 

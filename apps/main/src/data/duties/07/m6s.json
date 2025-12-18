@@ -13,7 +13,7 @@
   "href": "/07/m6s",
   "status": "done",
   "indexAvailable": true,
-  "bilibili": "https://www.bilibili.com/video/BV1riKdzoESQ/",
+  "videoLink": "https://www.bilibili.com/video/BV1riKdzoESQ/",
   "phases": [
     {
       "href": "/07/m6s/p1",
@@ -223,15 +223,5 @@
         }
       ]
     }
-  ],
-  "locales": {
-    "Mousse Mural": {},
-    "Color Riot": {},
-    "Warm Tint": {},
-    "Cool Tint": {},
-    "Warm Bomb": {},
-    "Cool Bomb": {},
-    "Bodily aether has become unbalanced by the influence of warm hues. Will take severe damage if hit by another Warm Bomb.": {},
-    "Bodily aether has become unbalanced by the influence of cool hues. Will take severe damage if hit by another Cool Bomb.": {}
-  }
+  ]
 }

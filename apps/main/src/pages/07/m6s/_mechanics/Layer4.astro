@@ -1,22 +1,20 @@
 ---
-import { timeToSeconds } from '@/lib/utils'
-
+import LimitBreak from '@/components/action/LimitBreak.astro'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import Stun from '@/components/buff/Stun.astro'
+import SustainedDamage from '@/components/buff/SustainedDamage.astro'
 import CosImage from '@/components/CosImage.astro'
-
 import DamageInfo from '@/components/DamageInfo.astro'
 import DotInfo from '@/components/DotInfo.astro'
 import ListDot from '@/components/ListDot.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
-import StratLink from '@/components/StratLink.astro'
 import StratInterval from '@/components/StratInterval.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-import Stun from '@/components/buff/Stun.astro'
-import SustainedDamage from '@/components/buff/SustainedDamage.astro'
-import LimitBreak from '@/components/action/LimitBreak.astro'
+import StratLink from '@/components/StratLink.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import { timeToSeconds } from '@/lib/utils'
 
 import ExplosionActivate from '../_components/ExplosionActivate.astro'
 import LayerCast from '../_components/LayerCast.astro'

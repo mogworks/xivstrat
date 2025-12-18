@@ -1,9 +1,5 @@
 <script setup lang="ts">
 import { useStore } from '@nanostores/vue'
-
-import RadioGroup from '@/components/StratSettingsRadioGroup.vue'
-import TriggerButton from '@/components/StratSettingsTriggerButton.vue'
-import { $stratSettings } from '@/stores/stratSettings'
 import {
   Dialog,
   DialogContent,
@@ -13,6 +9,9 @@ import {
   DialogTrigger,
   Separator,
 } from '@xivstrat/shadcn-vue'
+import RadioGroup from '@/components/StratSettingsRadioGroup.vue'
+import TriggerButton from '@/components/StratSettingsTriggerButton.vue'
+import { $stratSettings } from '@/stores/stratSettings'
 
 const stratSettings = useStore($stratSettings)
 

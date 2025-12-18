@@ -1,11 +1,10 @@
 ---
-import { timeToSeconds, type Time } from '@/lib/utils'
-
-import CastSection from '@/components/section/CastSection.astro'
 import Boss from '@/components/Boss.astro'
+import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
+import CastSection from '@/components/section/CastSection.astro'
 import EventSection from '@/components/section/EventSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
-import DirectionalDisregard from '@/components/buff/DirectionalDisregard.astro'
+import { type Time, timeToSeconds } from '@/lib/utils'
 import { translations } from '../_translations'
 
 interface Props {

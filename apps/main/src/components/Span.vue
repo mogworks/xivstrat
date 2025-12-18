@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-
+import { cn } from '@/lib/utils'
 import type { VariantType } from '@/lib/variant'
 
-import { cn } from '@/lib/utils'
-
 const props = defineProps<{
-  variant: VariantType
+  variant?: VariantType
   class?: HTMLAttributes['class']
 }>()
 
@@ -34,7 +32,7 @@ const style = {
   zinc: 'text-zinc-600 [text-shadow:_0_0_1px_var(--color-zinc-600)] dark:text-zinc-400',
   neutral: 'text-neutral-600 [text-shadow:_0_0_1px_var(--color-neutral-600)] dark:text-neutral-400',
   stone: 'text-stone-600 [text-shadow:_0_0_1px_var(--color-stone-600)] dark:text-stone-400',
-}[props.variant]
+}[props.variant ?? 'default']
 </script>
 
 <template>

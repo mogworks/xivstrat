@@ -1,14 +1,11 @@
 ---
-import type { Time } from '@/lib/utils'
-
 import { getEntry } from 'astro:content'
-
-import DutyLayout from '@/layouts/DutyLayout.astro'
-
 import FooterPagination from '@/components/FooterPagination.astro'
 import Separator from '@/components/Separator.astro'
 import StratAside from '@/components/StratAside.vue'
 import StratSettings from '@/components/StratSettings.vue'
+import DutyLayout from '@/layouts/DutyLayout.astro'
+import type { Time } from '@/lib/utils'
 
 interface Props {
   dutyId: string
@@ -95,8 +92,9 @@ const duty = (await getEntry('duties', dutyId))!.data
       if (stratSettings.viewMode === 'damage') {
         // 视图模式为仅伤害时，隐藏collapse-summary，展开collapse-details
         document.querySelectorAll('collapse-section').forEach((e) => {
-          e.querySelector('.collapse-summary')?.classList.toggle('hidden', true)
-          ;(e as any).forceOpen()
+          e.querySelector('.collapse-summary')?.classList.toggle('hidden', true);
+          // biome-ignore lint/suspicious/noExplicitAny: 强制打开collapse-section
+          (e as any).forceOpen()
           // 检测collapse-details，无子元素则隐藏本身
           const detailsSection = e.querySelector('.collapse-details') as HTMLElement
           const allChildrenHidden = Array.from(detailsSection.children)
@@ -111,8 +109,9 @@ const duty = (await getEntry('duties', dutyId))!.data
       } else {
         document.querySelectorAll('collapse-section').forEach((e) => {
           e.classList.toggle('hidden', false)
-          e.querySelector('.collapse-summary')?.classList.toggle('hidden', false)
-          ;(e as any).reset()
+          e.querySelector('.collapse-summary')?.classList.toggle('hidden', false);
+          // biome-ignore lint/suspicious/noExplicitAny: 重置collapse-section
+          (e as any).reset()
         })
       }
     }

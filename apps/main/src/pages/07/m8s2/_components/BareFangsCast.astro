@@ -1,13 +1,11 @@
 ---
-import type { Time } from '@/lib/utils'
-
-import CastSection from '@/components/section/CastSection.astro'
 import Span from '@/components/Span.vue'
 
-import HowlingBlade from './entities/HowlingBlade.astro'
-import GleamingFang from './entities/GleamingFang.astro'
-
+import CastSection from '@/components/section/CastSection.astro'
+import type { Time } from '@/lib/utils'
 import { translations } from '../_translations'
+import GleamingFang from './entities/GleamingFang.astro'
+import HowlingBlade from './entities/HowlingBlade.astro'
 
 interface Props {
   start: Time

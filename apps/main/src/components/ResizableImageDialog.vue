@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { ref, useTemplateRef, watch } from 'vue'
-
-import MagnifierCursorSVGRaw from '@/svg/magnifier-cursor.svg?raw'
 import {
   Dialog,
   DialogContent,
@@ -11,6 +8,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@xivstrat/shadcn-vue'
+import { ref, useTemplateRef, watch } from 'vue'
+import MagnifierCursorSVGRaw from '@/svg/magnifier-cursor.svg?raw'
 
 withDefaults(
   defineProps<{

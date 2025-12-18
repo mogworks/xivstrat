@@ -1,11 +1,9 @@
 ---
-import type { DutyPhase } from '@/data/duty'
 import CosImage from '@/components/CosImage.astro'
-
-import { cn } from '@/lib/utils'
-
 import LinkIcons from '@/components/LinkIcons.astro'
 import Separator from '@/components/Separator.astro'
+import type { DutyPhase } from '@/data/duty'
+import { cn } from '@/lib/utils'
 
 const XivStratLightLogo = 'imgs/developer/group/XivStrat/XivStrat_light.png'
 const XivStratDarkLogo = 'imgs/developer/group/XivStrat/XivStrat_dark.png'
@@ -15,10 +13,10 @@ interface Props {
   baseUrl?: string
   name: string
   phases: DutyPhase[]
-  bilibili?: string
+  videoLink?: string
 }
 
-const { baseUrl, name, phases, bilibili = 'https://space.bilibili.com/25787773' }: Props = Astro.props
+const { baseUrl, name, phases, videoLink = 'https://space.bilibili.com/25787773' }: Props = Astro.props
 ---
 
 <header
@@ -83,6 +81,6 @@ const { baseUrl, name, phases, bilibili = 'https://space.bilibili.com/25787773' 
       </nav>
       <Separator orientation="vertical" class="h-8" />
     </section>
-    <LinkIcons bilibili={bilibili} />
+    <LinkIcons videoLink={videoLink} />
   </div>
 </header>

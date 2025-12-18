@@ -1,15 +1,14 @@
 ---
-import type { Time } from '@/lib/utils'
-import type { CombinedRoleType, RoleType } from '@/lib/role'
-import type { DamageVariantType } from '@/lib/damage_variant'
-
-import { timeToSeconds } from '@/lib/utils'
 import Boss from '@/components/Boss.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import StratInterval from '@/components/StratInterval.astro'
 import Section from '@/components/section/Section.astro'
+import type { DamageVariantType } from '@/lib/damage_variant'
+import type { CombinedRoleType, RoleType } from '@/lib/role'
+import type { Time } from '@/lib/utils'
+import { timeToSeconds } from '@/lib/utils'
 
 interface Props {
   start?: Time
@@ -17,6 +16,8 @@ interface Props {
   end?: Time
 
   ability?: string
+  source?: string
+  sourceRole?: 'boss' | 'enemy'
   target?: boolean | RoleType | CombinedRoleType
   targetTag?: string
   damage?: string
@@ -24,6 +25,7 @@ interface Props {
   damageVariant?: DamageVariantType
   damageVariants?: DamageVariantType[]
   adjustDuration?: boolean
+  notime?: boolean
   [key: string]: unknown
 }
 
@@ -32,6 +34,8 @@ const {
   duration = undefined,
   end = undefined,
   ability = '',
+  source = undefined,
+  sourceRole = undefined,
   target = false,
   targetTag = undefined,
   damage = undefined,
@@ -39,6 +43,7 @@ const {
   damageVariant = undefined,
   damageVariants = [],
   adjustDuration = true,
+  notime = false,
   ...rest
 }: Props = Astro.props
 
@@ -52,11 +57,11 @@ const adjustedDuration = adjustDuration
 
 <Section {...rest}>
   <div class="self-center justify-self-end px-4">
-    <StratInterval start={start} duration={adjustedDuration} end={end} />
+    {!notime && <StratInterval start={start} duration={adjustedDuration} end={end} />}
   </div>
   <div class="flex flex-wrap items-center gap-1 px-4 text-lg">
     <slot name="source">
-      <Boss />
+      <Boss name={source} role={sourceRole} />
     </slot>
     {
       target && (
