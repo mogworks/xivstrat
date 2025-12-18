@@ -22,7 +22,7 @@
     "@xivstrat/shadcn-vue": "workspace:*",
     "astro": "5.16.6",
     "clsx": "2.1.1",
-    "lucide-vue-next": "0.561.0",
+    "lucide-vue-next": "0.562.0",
     "motion": "12.23.26",
     "motion-v": "1.7.4",
     "nanostores": "1.1.0",
