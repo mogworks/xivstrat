@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger, Separator } from '@xivstrat/shadcn-vue'
 
 import { ChevronsUpDown } from 'lucide-vue-next'
 import { animate } from 'motion-v'
+import type { HTMLAttributes } from 'vue'
 import { ref, useTemplateRef, watch } from 'vue'
-
 import { cn } from '@/lib/utils'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger, Separator } from '@xivstrat/shadcn-vue'
 
 const props = withDefaults(
   defineProps<{

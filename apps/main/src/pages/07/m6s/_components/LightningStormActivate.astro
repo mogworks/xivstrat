@@ -1,13 +1,12 @@
 ---
-import type { Time } from '@/lib/utils'
-
 import Badge from '@/components/Badge.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
-import EventSection from '@/components/section/EventSection.astro'
 import Span from '@/components/Span.vue'
-import SugarRiot from './SugarRiot.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import type { Time } from '@/lib/utils'
 import { translations } from '../_translations'
+import SugarRiot from './SugarRiot.astro'
 
 interface Props {
   time: Time

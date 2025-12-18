@@ -54,13 +54,6 @@
   "overrides": [
     {
       "includes": ["**/*.astro", "**/*.vue"],
-      "assist": {
-        "actions": {
-          "source": {
-            "organizeImports": "off"
-          }
-        }
-      },
       "linter": {
         "rules": {
           "style": {

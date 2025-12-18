@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-
-import type { VariantType } from '@/lib/variant'
-
 import { cn } from '@/lib/utils'
+import type { VariantType } from '@/lib/variant'
 
 const props = defineProps<{
   variant?: VariantType

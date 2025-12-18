@@ -1,36 +1,30 @@
 ---
-
-import type { Time } from '@/lib/utils'
-
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
-
-import Stoneringer2Cast from '../_components/Stoneringer2Cast.astro'
-import { translations } from '../_translations'
-
+import NoteSection from '@/components/section/NoteSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
 import Skill from '@/components/typography/Skill.astro'
 import T from '@/components/typography/T.astro'
-
+import type { Time } from '@/lib/utils'
+import AttackSection from '../_components/BossAttackSection.astro'
 import BruteAbombinator from '../_components/BruteAbombinator.astro'
 import BrutishSwingCast from '../_components/BrutishSwingCast.astro'
 import LashingLariatCast from '../_components/LashingLariatCast.astro'
-
-import SlaminatorCast from '../_components/SlaminatorCast.astro'
-import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
-import RoleIcon from '@/components/RoleIcon.astro'
 import MoveToCenterEvent from '../_components/MoveToCenterEvent.astro'
-import StrangeSeedsAppear from '../_components/StrangeSeedsAppear.astro'
+import SlaminatorCast from '../_components/SlaminatorCast.astro'
+import Stoneringer2Cast from '../_components/Stoneringer2Cast.astro'
 import StrangeSeedsActivate from '../_components/StrangeSeedsActivate.astro'
+import StrangeSeedsAppear from '../_components/StrangeSeedsAppear.astro'
+import StrangeSeedsCast from '../_components/StrangeSeedsCast.astro'
 import TendrilsofTerrorAppear from '../_components/TendrilsofTerrorAppear.astro'
-import Quote from '@/components/typography/Quote.astro'
-import P from '@/components/typography/P.astro'
-import StratLink from '@/components/StratLink.astro'
-import DamageInfo from '@/components/DamageInfo.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
-import AttackSection from '../_components/BossAttackSection.astro'
+import { translations } from '../_translations'
 
 interface Props {
   time: Time

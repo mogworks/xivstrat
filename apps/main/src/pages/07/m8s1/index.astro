@@ -1,27 +1,24 @@
 ---
-import CosImage from '@/components/CosImage.astro'
 import { getEntry } from 'astro:content'
-
-import ScannerSVG from '@/svg/scanner.svg'
-import BiliBiliSVG from '@/svg/bilibili.svg'
-
-import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
-import CollapsibleBox from '@/components/CollapsibleBox.vue'
 import AreaBox from '@/components/AreaBox.astro'
-
-import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
+import CollapsibleBox from '@/components/CollapsibleBox.vue'
+import CosImage from '@/components/CosImage.astro'
 import Macro from '@/components/Macro.astro'
 import ReferenceItem from '@/components/ReferenceItem.astro'
+import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
 import Thanks from '@/components/thanks/Thanks.astro'
+import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
+import BiliBiliSVG from '@/svg/bilibili.svg'
+import ScannerSVG from '@/svg/scanner.svg'
 
 const CheatsheetsImage = 'imgs/cheatsheets/07/m8s1.png'
 const WaymarkImage = 'imgs/waymarks/07/m8s.png'
 const TimelineImage = 'imgs/timelines/07/m8s.png'
 
+import WaymarkBox from '@/components/WaymarkBox.astro'
 import { macro } from './_data/macro'
 import { referenceList } from './_data/reference'
 import { thanksList } from './_data/thanks'
-import WaymarkBox from '@/components/WaymarkBox.astro'
 
 const dutyId = '07/m8s1'
 const duty = (await getEntry('duties', dutyId))!.data

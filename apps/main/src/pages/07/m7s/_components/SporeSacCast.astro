@@ -1,15 +1,12 @@
 ---
-import { timeToSeconds, type Time } from '@/lib/utils'
-
-import CastSection from '@/components/section/CastSection.astro'
-
-import BruteAbombinator from './BruteAbombinator.astro'
-import Span from '@/components/Span.vue'
-import EventSection from '@/components/section/EventSection.astro'
 import Badge from '@/components/Badge.astro'
-
-import MoveToCenterEvent from './MoveToCenterEvent.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import { type Time, timeToSeconds } from '@/lib/utils'
 import { translations } from '../_translations'
+import BruteAbombinator from './BruteAbombinator.astro'
+import MoveToCenterEvent from './MoveToCenterEvent.astro'
 
 interface Props {
   start: Time

@@ -1,8 +1,8 @@
 ---
-import { timeToSeconds } from '@/lib/utils'
-
+import DamageDown from '@/components/buff/DamageDown.astro'
+import Dropsy from '@/components/buff/Dropsy.astro'
+import LightningResistanceDownII from '@/components/buff/LightningResistanceDownII.astro'
 import CosImage from '@/components/CosImage.astro'
-
 import DamageInfo from '@/components/DamageInfo.astro'
 import DotInfo from '@/components/DotInfo.astro'
 import ListDot from '@/components/ListDot.astro'
@@ -10,11 +10,9 @@ import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import StratBoard from '@/components/StratBoard.astro'
 import StratLink from '@/components/StratLink.astro'
-import DamageDown from '@/components/buff/DamageDown.astro'
-import Dropsy from '@/components/buff/Dropsy.astro'
-import LightningResistanceDownII from '@/components/buff/LightningResistanceDownII.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+import { timeToSeconds } from '@/lib/utils'
 
 import HighlightningCast from '../_components/HighlightningCast.astro'
 import LayerCast from '../_components/LayerCast.astro'
@@ -410,10 +408,9 @@ const { DoubleStyle, Layer, TasteofThunder, Highlightning, LightningBolt, Lightn
 
 <script>
   import type { AnimationSequence } from 'motion'
-  import type { VideoSource } from 'pixi.js'
-
   import { animate } from 'motion'
   import { listenKeys } from 'nanostores'
+  import type { VideoSource } from 'pixi.js'
   import { Assets, Container, Sprite } from 'pixi.js'
 
   import { $stratBoards } from '@/stores/stratBoards'

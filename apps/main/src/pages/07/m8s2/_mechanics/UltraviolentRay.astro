@@ -1,23 +1,20 @@
 ---
-import { type Time } from '@/lib/utils'
-
-import Span from '@/components/Span.vue'
+import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
-import P from '@/components/typography/P.astro'
-import T from '@/components/typography/T.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
-import Skill from '@/components/typography/Skill.astro'
-import MagicVulnerabilityUp from '@/components/buff/MagicVulnerabilityUp.astro'
+import P from '@/components/typography/P.astro'
 import Quote from '@/components/typography/Quote.astro'
-
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import { type Time } from '@/lib/utils'
+import BossAttackSection from '../_components/BossAttackSection.astro'
+import GleamingFang from '../_components/entities/GleamingFang.astro'
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import UltraviolentRayCast from '../_components/UltraviolentRayCast.astro'
-import GleamingFang from '../_components/entities/GleamingFang.astro'
-
 import { translations } from '../_translations'
-import BossAttackSection from '../_components/BossAttackSection.astro'
 
 interface Props {
   start: Time

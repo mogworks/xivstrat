@@ -1,15 +1,11 @@
 ---
-
-import type { Time } from '@/lib/utils'
-
 import { getEntry } from 'astro:content'
-
-import DutyLayout from '@/layouts/DutyLayout.astro'
-
 import FooterPagination from '@/components/FooterPagination.astro'
 import Separator from '@/components/Separator.astro'
 import StratAside from '@/components/StratAside.vue'
 import StratSettings from '@/components/StratSettings.vue'
+import DutyLayout from '@/layouts/DutyLayout.astro'
+import type { Time } from '@/lib/utils'
 
 interface Props {
   dutyId: string

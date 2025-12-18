@@ -1,14 +1,13 @@
 ---
-import type { Time } from '@/lib/utils'
+import Bind from '@/components/buff/Bind.astro'
 
 import DamageInfo from '@/components/DamageInfo.astro'
-import Span from '@/components/Span.vue'
-import Bind from '@/components/buff/Bind.astro'
-import EventSection from '@/components/section/EventSection.astro'
-
-import Jabberwock from './Jabberwock.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import type { Time } from '@/lib/utils'
 import { translations } from '../_translations'
+import Jabberwock from './Jabberwock.astro'
 
 interface Props {
   time: Time

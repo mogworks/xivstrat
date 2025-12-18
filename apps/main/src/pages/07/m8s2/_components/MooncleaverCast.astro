@@ -1,16 +1,14 @@
 ---
-import { timeToSeconds, type Time } from '@/lib/utils'
-
 import Badge from '@/components/Badge.astro'
-
+import DamageUp from '@/components/buff/DamageUp.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import StratInterval from '@/components/StratInterval.astro'
+import EventSection from '@/components/section/EventSection.astro'
+import Skill from '@/components/typography/Skill.astro'
+import { type Time, timeToSeconds } from '@/lib/utils'
 import HowlingBlade from '../_components/entities/HowlingBlade.astro'
 import { translations } from '../_translations'
-import RoleIcon from '@/components/RoleIcon.astro'
-import Skill from '@/components/typography/Skill.astro'
-import EventSection from '@/components/section/EventSection.astro'
-import StratInterval from '@/components/StratInterval.astro'
-import Span from '@/components/Span.vue'
-import DamageUp from '@/components/buff/DamageUp.astro'
 
 interface Props {
   start: Time

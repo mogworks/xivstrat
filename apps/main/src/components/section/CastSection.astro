@@ -1,15 +1,14 @@
 ---
-import type { Time } from '@/lib/utils'
-import type { CombinedRoleType, RoleType } from '@/lib/role'
-import type { DamageVariantType } from '@/lib/damage_variant'
-
-import { timeToSeconds } from '@/lib/utils'
 import Boss from '@/components/Boss.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import StratInterval from '@/components/StratInterval.astro'
 import Section from '@/components/section/Section.astro'
+import type { DamageVariantType } from '@/lib/damage_variant'
+import type { CombinedRoleType, RoleType } from '@/lib/role'
+import type { Time } from '@/lib/utils'
+import { timeToSeconds } from '@/lib/utils'
 
 interface Props {
   start?: Time

@@ -1,19 +1,16 @@
 ---
-import { type Time } from '@/lib/utils'
-
-import CastSection from '@/components/section/CastSection.astro'
-
-import BruteAbombinator from './BruteAbombinator.astro'
-import Span from '@/components/Span.vue'
-import EventSection from '@/components/section/EventSection.astro'
-import AttackSection from '../_components/BossAttackSection.astro'
-
-import MoveToCenterEvent from './MoveToCenterEvent.astro'
-import { translations } from '../_translations'
-import RoleIcon from '@/components/RoleIcon.astro'
 import Badge from '@/components/Badge.astro'
-import ThornsOfDeathDebuff from './ThornsOfDeathDebuff.astro'
+import RoleIcon from '@/components/RoleIcon.astro'
+import Span from '@/components/Span.vue'
+import CastSection from '@/components/section/CastSection.astro'
+import EventSection from '@/components/section/EventSection.astro'
 import P from '@/components/typography/P.astro'
+import { type Time } from '@/lib/utils'
+import AttackSection from '../_components/BossAttackSection.astro'
+import { translations } from '../_translations'
+import BruteAbombinator from './BruteAbombinator.astro'
+import MoveToCenterEvent from './MoveToCenterEvent.astro'
+import ThornsOfDeathDebuff from './ThornsOfDeathDebuff.astro'
 
 interface Props {
   start: Time

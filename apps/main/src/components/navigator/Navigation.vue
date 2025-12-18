@@ -1,10 +1,8 @@
 <script lang="ts" setup>
 import CloseSVG from '@/svg/close.svg?component'
 import MenuSVG from '@/svg/menu.svg?component'
-
-import type { Route } from './type'
-
 import NavItem from './NavItem.vue'
+import type { Route } from './type'
 
 const props = defineProps<{
   routes?: Route[]

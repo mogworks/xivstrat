@@ -1,11 +1,9 @@
 <script setup lang="ts">
+import { Separator } from '@xivstrat/shadcn-vue'
 import { motion } from 'motion-v'
 import { computed, onMounted, onUnmounted } from 'vue'
-
 import type { DutyMechanic, DutyPhase } from '@/data/duty'
-
 import { useAnchorObserver } from '@/hooks/anchor'
-import { Separator } from '@xivstrat/shadcn-vue'
 
 const props = defineProps<{
   currentUrl: string
