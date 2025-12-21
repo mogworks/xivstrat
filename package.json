@@ -17,7 +17,7 @@
     "cross-env": "10.1.0",
     "lefthook": "2.0.12",
     "rimraf": "6.1.2",
-    "turbo": "2.6.3",
+    "turbo": "2.7.1",
     "typescript": "5.9.3"
   },
   "packageManager": "pnpm@10.26.1",
