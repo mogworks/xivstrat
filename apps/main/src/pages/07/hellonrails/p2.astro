@@ -1,12 +1,16 @@
 ---
+import Span from '@/components/Span.vue'
+
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
 import SolutionSection from '@/components/section/SolutionSection.astro'
+
 import ImgRow from '@/components/typography/ImgRow.astro'
 import P from '@/components/typography/P.astro'
 import Skill from '@/components/typography/Skill.astro'
 import T from '@/components/typography/T.astro'
+
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
 const dutyId = '07/hellonrails'
@@ -67,7 +71,7 @@ const base = '02:30.00'
       <div class="space-y-4" id="以太冲击波|以太炮">
         <T><Skill name={["以太冲击波", "以太炮"]} /></T>
         <P>每轮大火车绕场过程中，会鸣笛（有喷蓝火特效）【2】或【3】次，分别对应【以太冲击波】和【以太炮】</P>
-        <P>【以太冲击波】是点名双奶的圆形分摊，【以太炮】则是点名随机三名D/H的圆形分散</P>
+        <P>【以太冲击波】是点名双奶的圆形分摊，总伤为，三人分摊伤害约为<Span variant="pink">153000</Span>，类型为<Span variant='purple'>魔法</Span>；【以太炮】则是点名随机三名D/H的圆形分散，造成<Span variant="pink">153000</Span>的<Span variant='purple'>魔法</Span>伤害</P>
       </div>
     </div>
   </MechanicSection>
