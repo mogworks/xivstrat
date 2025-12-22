@@ -17,11 +17,18 @@ const base = '00:00.00'
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
+  <NoteSection>
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <P>MMW文档链接：<StratLink variant="teal" href="https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn" target="_blank">腾讯文档</StratLink></P>
+      </div>
+    </div>
+  </NoteSection>
   <SeparatorSection />
   <NoteSection>
     <div class="space-y-8">
       <div class="space-y-4">
-        <P>初始场地如下图，紫色区域表示被围栏挡住的区域，无法站入其中</P>
+        <P>初始场地如下图，有两块方格是被围栏挡住的区域，无法站入其中</P>
         <ImgRow
           wrapperClass="max-w-60"
           imgs={[
@@ -70,7 +77,6 @@ const base = '00:00.00'
             },
           ]}
         />
-        <P>紫色区域表示被围栏挡住的区域，无法站入其中</P>
       </div>
       <div class="space-y-4" id="超增压急行">
         <T><Skill name="超增压急行" /></T>
@@ -82,7 +88,7 @@ const base = '00:00.00'
             }
           ]}
         />
-        <P>直线击退，可以被场地上的护栏区域（上图红圈）挡住，防击退有效</P>
+        <P>直线击退，可以被场地上的围栏区域（上图红圈）挡住，防击退有效</P>
       </div>
       <div class="space-y-4" id="等离子射线">
         <T><Skill name="等离子射线" /></T>
@@ -123,7 +129,7 @@ const base = '00:00.00'
             },
           ]}
         />
-        <P>直线吸引（防击退有效，也可被护栏区域挡住）后接地面AoE，前两行方格地板会被攻击，注意之后会紧跟判定超增压</P>
+        <P>直线吸引（防击退有效，也可被围栏区域挡住）后接地面AoE，前两行方格地板会被攻击，注意之后会紧跟判定超增压</P>
       </div>
     </div>
   </MechanicSection>
@@ -145,7 +151,8 @@ const base = '00:00.00'
             }
           ]}
         />
-        <P>紫色区域表示被围栏围住的区域，黑色区域表示隆起的高台</P>
+        <P>新平台围栏区域位置改变，并新增两个箱子（立方体）</P>
+        <P>箱子除了可以像围栏一样挡住吸引和击退，还可以用来挡住【雷转质射线】（围栏区域不行）</P>
       </div>
     </div>
   </MechanicSection>
