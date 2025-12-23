@@ -31,4 +31,8 @@ export default defineConfig({
   }),
 
   cacheDir: './cache',
+
+  redirects: {
+    '/07/hellonrails/[...slug]': '/07/doomtrain/[...slug]',
+  },
 })
