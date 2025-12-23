@@ -8,6 +8,14 @@ import svgLoader from 'vite-svg-loader'
 export default defineConfig({
   site: 'https://xivstrat.cn',
 
+  redirects: {
+    '/07/hellonrails': '/07/doomtrain',
+    '/07/hellonrails/p1': '/07/doomtrain/p1',
+    '/07/hellonrails/p2': '/07/doomtrain/p2',
+    '/07/hellonrails/p3': '/07/doomtrain/p3',
+    '/07/hellonrails/p4': '/07/doomtrain/p4',
+  },
+
   integrations: [
     vue(),
     react({
@@ -26,17 +34,8 @@ export default defineConfig({
 
   adapter: node({
     mode: 'standalone',
-    // EdgeOne 不支持缓存流式HTML
-    experimentalDisableStreaming: true,
+    experimentalDisableStreaming: true, // EdgeOne 不支持缓存流式HTML
   }),
 
   cacheDir: './cache',
-
-  redirects: {
-    '/07/hellonrails': '/07/doomtrain',
-    '/07/hellonrails/p1': '/07/doomtrain/p1',
-    '/07/hellonrails/p2': '/07/doomtrain/p2',
-    '/07/hellonrails/p3': '/07/doomtrain/p3',
-    '/07/hellonrails/p4': '/07/doomtrain/p4',
-  },
 })
