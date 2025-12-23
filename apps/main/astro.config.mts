@@ -33,6 +33,10 @@ export default defineConfig({
   cacheDir: './cache',
 
   redirects: {
-    '/07/hellonrails/[...slug]': '/07/doomtrain/[...slug]',
+    '/07/hellonrails': '/07/doomtrain',
+    '/07/hellonrails/p1': '/07/doomtrain/p1',
+    '/07/hellonrails/p2': '/07/doomtrain/p2',
+    '/07/hellonrails/p3': '/07/doomtrain/p3',
+    '/07/hellonrails/p4': '/07/doomtrain/p4',
   },
 })
