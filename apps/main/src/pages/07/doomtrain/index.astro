@@ -16,7 +16,7 @@ import { macro } from './_data/macro'
 import { referenceList } from './_data/reference'
 import { thanksList } from './_data/thanks'
 
-const dutyId = '07/hellonrails'
+const dutyId = '07/doomtrain'
 const duty = (await getEntry('duties', dutyId))!.data
 const navList = [
   { label: '小抄速览', id: 'cheatsheet' },
@@ -33,7 +33,7 @@ const videoLink = duty.videoLink ?? undefined
 
 <DutyHomeLayout dutyId={dutyId} navList={navList}>
   <Fragment slot="operation">
-    <a href="/07/hellonrails/p1">
+    <a href="/07/doomtrain/p1">
       <button
         class="flex w-max cursor-pointer items-center justify-between rounded-lg border border-purple-400 bg-purple-500 p-2 px-4 align-middle text-white hover:bg-purple-700/60 dark:border-purple-500 dark:bg-purple-700/75"
       >

@@ -12,7 +12,7 @@ import Skill from '@/components/typography/Skill.astro'
 import T from '@/components/typography/T.astro'
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
-const dutyId = '07/hellonrails'
+const dutyId = '07/doomtrain'
 
 const base = '03:00.000'
 ---
@@ -30,7 +30,7 @@ const base = '03:00.000'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/p4/1.png',
+              src: 'imgs/07/doomtrain/plan/p4/1.png',
             },
           ]}
         />
@@ -44,7 +44,7 @@ const base = '03:00.000'
     <div class="space-y-8">
       <div class="space-y-4" id="念动反应">
         <T><Skill name="念动反应" /></T>
-        <P>BOSS抬起若干（2、3、5）个箱子（黑色区块），砸向随机几人（有点名标记和AoE范围提示）</P>
+        <P>BOSS抬起若干（2、3、5）个箱子（黑色区块），砸向随机几人（有点名标记和AoE范围提示），造成约<Span variant="pink">145000</Span>的<Span variant="orange">物理</Span>伤害</P>
       </div>
     </div>
   </MechanicSection>
@@ -63,7 +63,7 @@ const base = '03:00.000'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/p4/2.png',
+              src: 'imgs/07/doomtrain/plan/p4/2.png',
             },
           ]}
         />
@@ -72,7 +72,7 @@ const base = '03:00.000'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/p4/3.png',
+              src: 'imgs/07/doomtrain/plan/p4/3.png',
             },
           ]}
         />
@@ -83,7 +83,7 @@ const base = '03:00.000'
   <EventSection time="03:23.127">
     <Skill name="掉落" />伤害判定
   </EventSection>
-  <CastSection start="03:24.111" duration={4.7} ability="雷电爆发" />
+  <CastSection start="03:24.111" duration={4.7} ability="雷电爆发" damage='310000' damageType='magical'/>
   <!-- <CastSection start="03:29.176" duration={0.2} ability="雷电爆发" />
   <CastSection start="03:29.176" duration={0.2} ability="雷电爆发" /> -->
   <MechanicSection>
@@ -94,7 +94,7 @@ const base = '03:00.000'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/p4/4.png',
+              src: 'imgs/07/doomtrain/plan/p4/4.png',
             },
           ]}
         />
@@ -103,7 +103,7 @@ const base = '03:00.000'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/p4/5.png',
+              src: 'imgs/07/doomtrain/plan/p4/5.png',
             },
           ]}
         />
@@ -125,7 +125,7 @@ const base = '03:00.000'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/p4/6.png',
+              src: 'imgs/07/doomtrain/plan/p4/6.png',
             },
           ]}
         />
@@ -134,7 +134,7 @@ const base = '03:00.000'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/p4/7.png',
+              src: 'imgs/07/doomtrain/plan/p4/7.png',
             },
           ]}
         />
@@ -157,7 +157,7 @@ const base = '03:00.000'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/p4/8.png',
+              src: 'imgs/07/doomtrain/plan/p4/8.png',
             },
           ]}
         />
@@ -201,7 +201,7 @@ const base = '03:00.000'
   <CastSection start="05:01.531" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
   <CastSection start="05:04.423" duration={5.7} ability="超增压急行" />
   <CastSection start="05:11.463" duration={0.7} ability="等离子射线" source="雷光环×4" sourceRole="enemy" />
-  <CastSection start="05:17.442" duration={4.7} ability="雷电爆发" />
+  <CastSection start="05:17.442" duration={4.7} ability="雷电爆发" damage='310000' damageType='magical'/>
   <!-- <CastSection start="05:22.538" duration={0.2} ability="雷电爆发" />
   <CastSection start="05:22.538" duration={0.2} ability="雷电爆发" /> -->
 
@@ -224,7 +224,7 @@ const base = '03:00.000'
     <Boss />准备释放
     <Skill name={["雷鸣吐息", "前照光"]}><Span slot="separator">/</Span></Skill>
   </EventSection>
-  <CastSection start="06:36.657" duration={4.7} ability="雷电爆发" />
+  <CastSection start="06:36.657" duration={4.7} ability="雷电爆发" damage='310000' damageType='magical'/>
   <!-- <CastSection start="06:41.739" duration={0.2} ability="雷电爆发" />
   <CastSection start="06:41.739" duration={0.2} ability="雷电爆发" /> -->
   <EventSection time="06:44.783">
