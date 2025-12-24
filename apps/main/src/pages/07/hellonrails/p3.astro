@@ -31,7 +31,7 @@ const base = '00:00.00'
   
   <SeparatorSection />
   <EventSection time="00:00.00">
-    <Skill name="无尽狂奔" />伤害判定
+    <Skill name="无尽狂奔"/>伤害判定,造成<Span variant='pink'>210000</Span>的<Span variant='orange'>物理</Span>伤害
   </EventSection>
   <MechanicSection>
     <div class="space-y-8">
@@ -51,20 +51,20 @@ const base = '00:00.00'
     <div class="space-y-8">
       <div class="space-y-4" id="冲击波">
         <T><Skill name="冲击波" /></T>
-        <P>无读条AoE</P>
+        <P>无读条AoE,,造成<Span variant='pink'>150000</Span>的<Span variant='orange'>魔法</Span>伤害</P>
       </div>
     </div>
   </MechanicSection>
   
   
   <SeparatorSection />
-  <CastSection start="00:23.304" duration={4.7} ability="雷电爆发" />
+  <CastSection start="00:23.304" duration={4.7} ability="雷电爆发" damage='310000' damageType='magical'/>
   <!-- <CastSection start="00:28.402" duration={0.2} ability="雷电爆发" />
   <CastSection start="00:28.402" duration={0.2} ability="雷电爆发" /> -->
 
 
   <SeparatorSection />
-  <CastSection start="00:30.444" duration={5.7} ability="脱轨捶打" />
+  <CastSection start="00:30.444" duration={5.7} ability="脱轨捶打"/>
   <!-- <CastSection start="00:30.444" duration={9.7} ability="脱轨捶打" />
   <CastSection start="00:39.459" duration={0.2} ability="脱轨捶打" /> -->
   <CastSection start="00:40.582" duration={4.8} ability="脱轨" />
@@ -73,7 +73,7 @@ const base = '00:00.00'
     <div class="space-y-8">
       <div class="space-y-4">
         <T><Skill name="脱轨捶打" /></T>
-        <P>平台最前方的连续分摊踩塔，本轮判定3次伤害，这次建议全员分摊</P>
+        <P>平台最前方的连续分摊踩塔，本轮判定3次伤害,前两次小后一次大伤害，类型为<Span variant='orange'>物理</Span>，8人分摊时分别为<Span variant='pink'>55000</Span>和<Span variant='pink'>110000</Span>，这次建议全员分摊</P>
         <ImgRow
           wrapperClass="max-w-60"
           imgs={[
@@ -172,8 +172,8 @@ const base = '00:00.00'
           ]}
         />
         <P>读条后，BOSS会累计使用3轮（P5时为2轮）魔法阵</P>
-        <P>地上会出现一个沿着菱形场地线移动的法阵（大范围圆形AoE），法阵会顺/逆时针转移2~4次，BOSS双手合拢时法阵即判定，移动次数取决于BOSS双手合拢的速度，合拢快就移动2次，慢点就3次，最慢时4次</P>
-        <P>同时，机制开始时，BOSS会指定 1T 1H 一个【选定目标：重雷】的 debuff，每次地面法阵判定的同时，以这俩人为中心，释放可分摊的大范围圆形AoE，附带魔法受伤加重，不能重叠</P>
+        <P>地上会出现一个沿着菱形场地线移动的法阵（大范围圆形AoE），法阵会顺/逆时针转移2~4次，BOSS双手合拢时法阵即判定，移动次数取决于BOSS双手合拢的速度，合拢快就移动2次，慢点就3次，最慢时4次,吃到造成<Span variant='pink'>182000</Span>的<Span variant='purple'>魔法</Span>伤害，附带易伤</P>
+        <P>同时，机制开始时，BOSS会指定 1T 1H 一个【选定目标：重雷】的 debuff，每次地面法阵判定的同时，以这俩人为中心，释放可分摊的大范围圆形AoE，总伤为<Span variant='pink'>500000</Span>，类型为<Span variant='purple'>魔法</Span>，附带魔法受伤加重，不能重叠</P>
       </div>
     </div>
   </MechanicSection>
@@ -204,7 +204,7 @@ const base = '00:00.00'
   <EventSection time="02:17.301">
     <Skill name="雷光一闪" />位置判定
   </EventSection>
-  <CastSection start="02:23.328" duration={4.7} ability="雷电爆发" />
+  <CastSection start="02:23.328" duration={4.7} ability="雷电爆发" damage='310000' damageType='magical'/>
   <!-- <CastSection start="02:28.407" duration={0.2} ability="雷电爆发" />
   <CastSection start="02:28.407" duration={0.2} ability="雷电爆发" /> -->
 
