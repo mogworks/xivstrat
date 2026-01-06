@@ -1,0 +1,39 @@
+---
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+const dutyId = '07/m9s'
+
+const base = '00:00.00'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <NoteSection>
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <P>MMW文档链接：<StratLink variant="teal" href="https://docs.qq.com/doc/DS21mcXZ2Q0x3b0J6" target="_blank">腾讯文档</StratLink></P>
+      </div>
+      <div class="space-y-4">
+        <P>初始场地如下图</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/floor/07/m9s/1.png',
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </NoteSection>
+  <SeparatorSection />
+</DutyStratLayout>

@@ -1,0 +1,26 @@
+{
+  "name": "阿卡狄亚零式登天斗技场 重量级3",
+  "short": "M11S",
+  "type": "raid",
+  "title": "阿卡狄亚零式登天斗技场 重量级3 攻略",
+  "description": "最终幻想14 阿卡狄亚零式登天斗技场 重量级3 超详解动态图文攻略",
+  "navigationInfo": {
+    "name": "M11S",
+    "parent": ["阿卡狄亚零式登天斗技场 重量级"]
+  },
+  "banner": "imgs/banners/07/m11s.png",
+  "date": "26/01/06 18:00",
+  "href": "/07/m11s",
+  "status": "live",
+  "indexAvailable": false,
+  "docLink": "https://docs.qq.com/doc/DS2pXVk5PZnR3ZEJx",
+  "phases": [
+    {
+      "href": "/07/m11s/p1",
+      "title": "Phase 1",
+      "subtitle": "",
+      "name": "P1",
+      "mechanics": []
+    }
+  ]
+}
