@@ -20,7 +20,12 @@
       "title": "Phase 1",
       "subtitle": "",
       "name": "P1",
-      "mechanics": []
+      "mechanics": [
+        {
+          "href": "#火蛇|水蛇夺浪",
+          "name": "火蛇/水蛇夺浪"
+        }
+      ]
     }
   ]
 }
