@@ -5,6 +5,7 @@ import CastSection from '@/components/section/CastSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import P from '@/components/typography/P.astro'
 import Skill from '@/components/typography/Skill.astro'
@@ -35,5 +36,34 @@ const base = '00:00.00'
       </div>
     </div>
   </NoteSection>
+  
   <SeparatorSection />
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <Skill name="火蛇/水蛇夺浪 · 近战优化解法" variant='lime' />
+      </div>
+      <div class="space-y-4">
+        <P>初始场地如下图</P>
+        {
+          (() => {
+            const snakingImages = Array.from({ length: 12 }, (_, i) => `imgs/07/m10s/plan/p2/snaking/${i + 1}.png`)
+            const imgRows = []
+            for (let i = 0; i < snakingImages.length; i += 2) {
+              imgRows.push(
+                <ImgRow
+                  wrapperClass="max-w-110"
+                  imgs={[
+                    { src: snakingImages[i] },
+                    { src: snakingImages[i + 1] },
+                  ]}
+                />
+              )
+            }
+            return imgRows
+          })()
+        }
+      </div>
+    </div>
+  </SolutionSection>
 </DutyStratLayout>
