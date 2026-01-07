@@ -96,4 +96,34 @@ const base = '00:00.00'
       </div>
     </div>
   </SolutionSection>
+
+  <SeparatorSection />
+  <SolutionSection id="浪顶炽火">
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <Skill name="浪顶炽火 · 解法" variant='lime' />
+      </div>
+      <div class="space-y-4">
+        <P>战术板链接：<StratLink variant="teal" href="https://plan.xivstrat.cn/#/plan/eJztml9zmzgQwN_zKTK-1xAjbP71Le1cOzc3d51p7q3T6cggbBoMnJDP8XXy3U9g7AJaQHZ6RrGTh4y9Elj700raXe33q-vrUUwe2W_-6M010p2bXIApiTH__p1_4V8fyIZ_Gf2B9Puv6G50s5UGUZLQfScuyBY4JXnHOIlJ2YuL16HPFlxsGvpetiDhfMG2wkL2VL50TkO_-k62qbyy1pPxQa8oqXZe0Sjvu2Aszd6Mx16S3T6G_2SMYnbrxeN0NYtCb1yMe6zb4yXSszHCt2syS48cbpjdp0kYEfqeknwojK5I2TTD3sOcJqu4pk-KfT-M5xVRrkqS5vB__GD-eMJYshTEEQmYIKTl6FA5Oj6-q93_YqSjjJE04z0-F_L9aJLZN-KxHw3Vxhp-nJBPvOfoptqYpNgL2aawG73WsmPo1MV7jNNGf5owzMIk5k31hkdBshEkhcEYNdEMZ-RdEhXmOfolmNn6xKuPPYxjQj9EybrSLZgSFDRUXLEojKvvChzXdkfCr33cszCm-7anm26qa7xZYvrwgVtJ2vhd6hP6V9ntzng7qTenEfbIksRs1yX7e8XXbL0TxX64yprGkhtD-G_-0ATVpMH8Y-t8BvNPbTM063is3UCeP-H1waf5fPrlApTmT2Ky3MjadEnNllQk9JK42FOtIxWc_K9qWAerYQhqNO2qRRH59cB3mfc4ltVkb99m01pxfBfPo8LGW9XUbPNYheoP1veaiYfNYNa716DADoK-vcZ2Ce81UhMf0o_mZ73yu9am4rYgic9WF9-7kHoROYKgwEJDrghDEBY8nA4eBNvI8PuPfsNBU6P36Dc9XVeJB5oAONzLxQFZB9LV5XHC3fr47QahDoBD7jcM0zlphCS5u5K3jbHHeJC37fLVK-zuNuVxV623V5k8nf-1TYZlwnPRgJpx3oX88xc554puI8F6vFy0-CTAq4j9iZfk923wXYZqt1uVoJUk7zobCi1aDdzE0ESxVduu8Q5ViilreOGlr204cuaw97WnjsjONAV0UxMA1-9tn1QVcyqligbqYiqmC5LTBT6HLMWUsaSUgXWxh9lA5A_9i_AJpV1CdBE-ofzp0nB8LooHtFyMLhfv_E9bV0RniegMCFy_J3XaTd0WVZmIqpiQKv35xtOqAqSXgFnRwGlRzQkCcqfAtGjgvPQ7QUNElMgGNhy5gNJ4zf_lUfXR6VND4QTgyfhZx-Pr8g0vBR86fvV2-ZKD4qM0Wbfld3SdWEbTO-m9vm6s0f31dePqqMK14V0VY_o13l1MihFXcxtojWhM92WBQIZ5IAnA_CAQlv6yQJg_gYMGgkAvC8TPWBpw-GIdkM9UgYRmGAehQBZEYgJkzCz5ogElSBj680nAIA4oOlABhIbsw0DYgEk4EIgDwgcVQCD3-SBADpX0a_npy1WFyhmWxFldccJrTVzj7u4cauKsemhzhkVxlrwbrHhVnH2AHztQYY1dv7sbPi08cGVN46i5KB6gfXQl8obk8VoZcmRliO0oZHPw3Z2t2l3m4JUhUFDU8AS2dZL9J87gpSHIRaIdWIA_7_RnPwavDUGNWWhXRrVrRKA2BFqhoJUdkIIYpDbEuQivRtqpcS7CqZE_XxxVnZqBakOcrizC-Z-3UG2ILaCzXABcvy81eG2I48qp0h91D14b4hqiQUO6uKp5QUAGAfQbIF3kr4DC2A89zCOfe4a9h5akmGz6ox3Q1lVwxM3FBrYWpMunBYcevwYrIJ9dP6EC8vz7a5IVGX4L_kodcvmpTOpf5Z-e_gNbMHsb" target="_blank">XivPlan · 浪顶炽火 · 解法</StratLink></P>
+        {
+          (() => {
+            const imgs = Array.from({ length: 2 }, (_, i) => `imgs/07/m10s/plan/p2/%E6%B5%AA%E9%A1%B6%E7%82%BD%E7%81%AB/${i + 1}.png`)
+            const imgRows = []
+            for (let i = 0; i < imgs.length; i += 2) {
+              imgRows.push(
+                <ImgRow
+                  wrapperClass="max-w-110"
+                  imgs={[
+                    { src: imgs[i] },
+                    { src: imgs[i + 1] },
+                  ]}
+                />
+              )
+            }
+            return imgRows
+          })()
+        }
+      </div>
+    </div>
+  </SolutionSection>
 </DutyStratLayout>
