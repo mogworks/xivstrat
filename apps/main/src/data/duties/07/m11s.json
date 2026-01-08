@@ -20,7 +20,16 @@
       "title": "Phase 1",
       "subtitle": "",
       "name": "P1",
-      "mechanics": []
+      "mechanics": [
+        {
+          "name": "天顶的主宰",
+          "href": "#天顶的主宰"
+        },
+        {
+          "name": "铸兵之令：轰击",
+          "href": "#铸兵之令：轰击"
+        }
+      ]
     }
   ]
 }

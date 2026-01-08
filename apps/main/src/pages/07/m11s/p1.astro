@@ -1,10 +1,12 @@
 ---
+import ListDot from '@/components/ListDot.astro'
 import Span from '@/components/Span.vue'
 import StratLink from '@/components/StratLink.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import NoteSection from '@/components/section/NoteSection.astro'
 import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
 import ImgRow from '@/components/typography/ImgRow.astro'
 import P from '@/components/typography/P.astro'
 import Skill from '@/components/typography/Skill.astro'
@@ -23,17 +25,64 @@ const base = '00:00.00'
         <P>MMW文档链接：<StratLink variant="teal" href="https://docs.qq.com/doc/DS2pXVk5PZnR3ZEJx" target="_blank">腾讯文档</StratLink></P>
       </div>
       <div class="space-y-4">
-        <P>初始场地如下图</P>
+        <P>参考标点</P>
         <ImgRow
           wrapperClass="max-w-100"
           imgs={[
             {
-              src: 'imgs/floor/07/m11s/1.png',
+              src: 'imgs/waymarks/07/m11s.png',
             },
           ]}
         />
       </div>
     </div>
   </NoteSection>
-  <SeparatorSection />
+
+  <SeparatorSection id="天顶的主宰" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="天顶的主宰" /></T>
+        <P>全屏物理AoE</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+  <SeparatorSection id="铸兵之令：轰击" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="铸兵之令：轰击" /></T>
+        <P>看生成的兵器：</P>
+        <P>
+          <ListDot />
+          如果是斧头，则是点名二仇的可分摊死刑 + 点名 DH 六人的圆形分散，物理伤害
+        </P>
+        <P>
+          <ListDot />
+          如果是镰刀，则是点名一二仇的扇形分散死刑 + 点名随机 DH 的扇形分摊，物理伤害
+        </P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>斧头的情况奶妈和远程避开近战和坦克灵性分散即可，不用死认下图站位</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E9%93%B8%E5%85%B5%E4%B9%8B%E4%BB%A4%EF%BC%9A%E8%BD%B0%E5%87%BB/1.png',
+              title: '情形1：斧头'
+            },
+            {
+              src: 'imgs/07/m11s/plan/p1/%E9%93%B8%E5%85%B5%E4%B9%8B%E4%BB%A4%EF%BC%9A%E8%BD%B0%E5%87%BB/2.png',
+              title: '情形2：镰刀'
+            }
+          ]}
+         />
+      </div>
+    </div>
+  </SolutionSection>
 </DutyStratLayout>
