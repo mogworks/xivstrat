@@ -32,21 +32,28 @@ const base = '00:00.00'
     <div class="space-y-8">
       <div class="space-y-4">
         <T><Skill name="绝命分断击" /></T>
-        <P>TODO</P>
+        <P>击飞全员并把场地从中间拆开，和普通大型是一样的，站在AoE区域里也没事</P>
       </div>
     </div>
   </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>MT组站目标圈正左，ST组站目标圈正右，击飞后分别落在左右平台</P>
+      </div>
+    </div>
+  </SolutionSection>
 
   <SeparatorSection id="王者陨石" />
   <MechanicSection>
     <div class="space-y-8">
       <div class="space-y-4">
         <T><Skill name="王者陨石" /></T>
-        <P>TODO</P>
+        <P>魔法阵直线AoE + 魔法阵连线 + 击飞塔</P>
       </div>
       <div class="space-y-4">
         <T><Skill name="火焰吐息" /></T>
-        <P>闲人直线</P>
+        <P>读条开始时锁定点名最近4人，读条结束时对其释放直线AoE。读条时还会点名全员三轮脚底黄圈</P>
       </div>
       <div class="space-y-4">
         <T><Skill name="重陨石" /></T>
@@ -60,7 +67,7 @@ const base = '00:00.00'
     <div class="space-y-8">
       <div class="space-y-4">
         <T><Skill name="登天碎地" /></T>
-        <P>TODO</P>
+        <P>踩塔 + 拆地板</P>
       </div>
     </div>
   </MechanicSection>
@@ -108,6 +115,7 @@ const base = '00:00.00'
         <P>被点名的两个远程去自己的那条边，从远离距离衰减AoE的一侧开始，按箭头示意放屎圈</P>
         <P><Span variant='pink'>注意起始位置要大于四个小方格，以确保场地角落不会被屎圈覆盖</Span></P>
         <P>其他人从BOSS目标圈中心，按箭头示意放黄圈</P>
+        <P><Span variant='pink'>双T放下第一个黄圈时开启铁壁，可以覆盖死刑塔，且能在第三轮【碎心踢】时转好</Span></P>
         <ImgRow
           wrapperClass="max-w-100"
           bordered={false}
@@ -205,6 +213,7 @@ const base = '00:00.00'
         <P><ListDot />第一轮：MT无敌单吃，5次判定共 8s 左右，10s 无敌有大概 2s 容错</P>
         <P><ListDot />第二轮：双T先在塔里裸吃第 1 次判定，然后MT走出塔，ST留在塔里无敌单吃剩下 5 次</P>
         <P><ListDot />第三轮：双T全减分摊</P>
+        <P class='pl-4'><ListDot /><Span variant='pink'>双T在【陨石狂奔】机制中，放下第一个黄圈时开启铁壁，这里才能转好</Span></P>
       </div>
     </div>
   </SolutionSection>
