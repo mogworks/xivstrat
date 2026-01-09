@@ -1,0 +1,111 @@
+---
+import ListDot from '@/components/ListDot.astro'
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+const dutyId = '07/m11s'
+
+const base = '00:00.00'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <NoteSection>
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <P>MMW文档链接：<StratLink variant="teal" href="https://docs.qq.com/doc/DS2pXVk5PZnR3ZEJx" target="_blank">腾讯文档</StratLink></P>
+      </div>
+    </div>
+  </NoteSection>
+
+  <SeparatorSection id="绝命分断击" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="绝命分断击" /></T>
+        <P>TODO</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+  <SeparatorSection id="王者陨石" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="王者陨石" /></T>
+        <P>TODO</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="火焰吐息" /></T>
+        <P>闲人直线</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="重陨石" /></T>
+        <P>五连四四分摊</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+  <SeparatorSection id="登天碎地" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="登天碎地" /></T>
+        <P>TODO</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+  <SeparatorSection id="陨石狂奔" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="陨石狂奔" /></T>
+        <P>拆地板</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="双向/四向四旋火" /></T>
+        <P>拆地板</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+  <SeparatorSection id="碎心踢" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="碎心踢" /></T>
+        <P>连续踩塔，第一轮判定 5 次，后续每轮增加 1 次，每次判定间隔 2s</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>解法概要：MT单吃 → MT辅助ST单吃 → 双T全减分摊</P>
+        <P><ListDot />第一轮：MT无敌单吃，5次判定共 8s 左右，10s 无敌有大概 2s 容错</P>
+        <P><ListDot />第二轮：双T先在塔里裸吃第 1 次判定，然后MT走出塔，ST留在塔里无敌单吃剩下 5 次</P>
+        <P><ListDot />第三轮：双T全减分摊</P>
+      </div>
+    </div>
+  </SolutionSection>
+
+  <SeparatorSection id="碎心击" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="碎心击" /></T>
+        <P>狂暴</P>
+      </div>
+    </div>
+  </MechanicSection>
+</DutyStratLayout>
