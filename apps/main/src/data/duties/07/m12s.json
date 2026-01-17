@@ -18,8 +18,15 @@
     {
       "href": "/07/m12s/p1",
       "title": "Phase 1",
-      "subtitle": "",
+      "subtitle": "前半",
       "name": "P1",
+      "mechanics": []
+    },
+    {
+      "href": "/07/m12s/p2",
+      "title": "Phase 2",
+      "subtitle": "后半",
+      "name": "P2",
       "mechanics": []
     }
   ]
