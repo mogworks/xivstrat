@@ -1,0 +1,307 @@
+---
+import ListDot from '@/components/ListDot.astro'
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+const dutyId = '07/m11s'
+
+const base = '00:00.00'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <NoteSection>
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <P>MMW文档链接：<StratLink variant="teal" href="https://docs.qq.com/doc/DS2pXVk5PZnR3ZEJx" target="_blank">腾讯文档</StratLink></P>
+      </div>
+    </div>
+  </NoteSection>
+
+  <SeparatorSection id="绝命分断击" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="绝命分断击" /></T>
+        <P>击飞全员并把场地从中间拆开，和普通大型是一样的，站在AoE区域里也没事</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>MT组站目标圈正左，ST组站目标圈正右，击飞后分别落在左右平台</P>
+      </div>
+    </div>
+  </SolutionSection>
+
+  <!-- https://plan.xivstrat.cn/#/plan/eJztXduOo0YQfd-vWDmv4zFd3ExeV8pFuUlJlJdoFTGYscl4wMI4s5No_z1ge82tGFcNAzSXWWllN9jdpxp3V_c5HP579_79zHc_Rd-vZl-_VxX9JimwQ9e34_f_xW_itw_uc_xm9pMQv_2lzW5OhffbIAgv58QF-429c5Pz_MB3z2fFxU_eKtrExTool7KN6603UVyoKcqx7PP5S9eht8p-Z_Sc-crcmVHc5kPoZk8-hNvk3E0U7fZfLxZOsL_95P2zj0I7unX8xe5wt_WcxbHdC8VcPAqxX2i3T-7djt7aS2Gwsx0vSuIiChi8_W-7wNu64Tehm7QvCg_u-dCd7Tysw-Dg50Du7NXK89eZogRfsIsLrEuFyaeDKAoejzVmSrfufVQ8Mzw32FLOZZ_fffn_2MrZPnJ3-_iEP4_ll5YEd3-7TpQeyB7M9UfkRhs3nN3kjp3K4qNbL3MBnK6NyA5Pl9hSzR1w_dWxGESu-Es3GLlSJ9geL7nZV_dgWPf3-TrSHlkquQPHS8oSl6LPN42B01Bwmtk0OGgDnIGDWzYNTm0DnI6DM5oGp10FlxtpbjDYuxjFcwGZ929yCPKdEwaRHXmBHx8ptMUJ_CNgHXLln5JazXxZ0pK5BWUswpAMi1nGYpSxoFBk6xajBGUutDIWIRAwQB_6XN99fK66fos4z2AMhQmm8IFPpTOfy589Zic6Gcej62x-tVeevf3BD5yHZN7Nowrjg4f9cU4noq3EdeoM5MKao72xpPdGguL34Kk4or1h2504F0kSBVEu_cPeHtx8KpD8icy7j7XiQJ-z2u5NOgjTGnBnMvpS6VVf4l1pjqwr8Sgspe1JdGzBQVxPRPrblYww0OfLJ_v50Q4f0GRFFXVDcP7238-VaTMaKHysUa-nZp2gUsuoGKDoa5xWQQENFI6JPsG3ikkQLz8c1PXsrdWFQWH1XQkGW-Ro18eHdrFY5YuNusbRZFt76mUsOjIaoP1yPRNpF4tArjEymOsJRbtgNAQMdYcDeHnuh2SSd0Pp8oub3FvIv1Xzb7XMOyQZUYVSCp2OrN2X9AluxJGbo6GjJzzjCB0WOYFGjrdhNM7IzfHQ8ZZQww_dHJDYARo63kbC8EMnyJGjbz7Ygftjic6pDswX4qbQkq3rr4_lGlQGci4KvE311SAwTPmk9s7eux9Svuj4Nyud8UslEM_33fDbbfD08pcEhyhhu9LvMXXsePolyvFv1pf4o5cUFn5LGWT4Iztcu1G-0iTFTY4tbCcKwsXplL82h7V7u_PX-XMzlOX9seaKfjTy7b6MSELJH9jH3XU88OfHqn4sdPBJ8DALHn0vX_nKvbcP2-hn-9H94aQ7OasSbk-IvosBlVfwJAJJQGaAOb_6-C4T7zaFEKJwyX-hnIXSuBSCnhbVgSdweKJxMQQ9dakDD9exCNG4HIKeXtSBBxXwGhdEyLZfQBNECNVAsFxnB2UURMxFYc_1NHgq1zc_utZEiKUo9wy2XRgPsuRfkdSaCKFIustej-QRgt4__WF54kI5UdWheYSQlLuqxfMI2RRgVKKnYvAW8nM98-Ic-kLn9JPtQZOEOCGWDAyR7lmaGBjZ0jci3YOD4am7hr-TR6Z7xMSUZarg8T2CodcdR-zIhE-8bJ1Cd6mCx_gImCjatAoe5SNg4mjTKlicjwD6bmRvSB8B-URvKLRDX1gfAeYg4z_RPplPMGifTB5_ftUd7VO4GfSys642vbMuVHpOXgffEsenaY3ja-MW32LulOLTG8fXxl2-orAzk-JTG8d3PQHtmvoxkQkIhSLZ7iHC_CBQ5jgWeoImN1Wi0pnTPlElKl011SOqRKXvvfWHKtHoM3CPqBKtB_fEkEc77fok2znLje7poCOeZDwJyvqQ0Wiy5QcYUYJtVaJgJCPkMKKEmu304eYrcr9MO3lpFTzOh3Df2hS6Cs6HcJvcuGJH53y0iaVNq2ByPvpE06ZVMDkffaJp0yp4nI9O38nqD-ej5zfIhsI59IbzKWSwQ4n_xPlkPkHf7NPpu5aev_IcOw7kT3b4UBycr-5fFnib66uTokCzaqmFoqLf2yIpKg2FRV85SACLjIqe08uJCgUlE5dqVnCpBYFnA1yV0QqXalZwqWbjXLHRCpdaqDrF1zhXbLTCpZoVXKrZOJdqyLZXitxGp5VHHHyVasjPpmJgKtbcxlD4VIOejPSJTzUkpYnr8amGpCxxLT7VkJQkrsenmpLdaIveekYf70zJ6GGMUcVvpFtiaCTjh1FKlQFHtjwB41SxXw6ORrZEAbv7jJz2EPx7O6dV6V0zGYqlVfB4VaYz-UhDh_OqTD_z4ceOzqsyn20wztBV5DzMByIMP3YMXpX5gJThx47OqzKeqdIfXnU58aoNdACdV11OvOrEq6ZXQ794VXyfQkWR9YtbRdeRJgqsV-wqA1ev-FXOlUjPvONZ5IMXOlvyPHIZf5Btf7Lg26Knt403EL-Ng_G41zdtITmCrEyt0fZVBJDuBtJ4AwsPZz03kC7Ub7yB-CKQ4bPbdAsttH30Ca_p9lUEkD5xNT7MWCrWQJZhfbMNrAihRFMJ-jsGgq1sey1EgwgMs9i3bSK2SEMb2NFsQm5fZjI5v-pMNAYVzt3QuHM3KG04kwPgD6EHaFoUB0ob1uRQ8FZK8eEbJm-Jjz7c18GHP4oehNU4Ptn8yhHRGFVFAUIyFQXZfB1HMxC_cpDVArueaAxkNcGuJRoDggl270RjQLDC7p9oDGSzxKb7leNwZDPFporGLGyNI5srNl00hsORLU-gisZQNASr6u5FY-RxgGAeLaVoDO-ayc45rYIlGoPJzTlTBU80BpObc6YKlmgMGG7O4w1dxTYjTBLZtAqeaAxg0simVbBEYwADfOouwPTY3QY6gCwag4KuYUDxb19uAQQbR4mELvhK0sIWKwxHa1mBCRUFRs--JQDGwEXPjCXFVXEhdiTVIAuagGFe3YWgCRgu1J0ImoBhKN2JoAkY5tDdCJqAYPTcpaAJCN7NnQqagOBg3KmgCRjut90ImoDgm9yxoInghty1oInh1NuNoIlhh9uJoInhOTvdZ1KIMS3C2Yf5nF-9UjLWH8mKLpt9QS3JCsOBUW7JCsN0sU-SFYbpYo8kKwzTxf5IVvQh-hwBwUOxT5IVgmVijyQrBIPEPklWpPNDrCVZkc4QsZZkhWCI2B_JCsMU8dVkTgWbYy4rR3EhzFtDyfwhlx9ZWsK7LastiAbcalmESnn4Y0hAeHd2tYUR1PIPja7N4N0L9qaYltUJxhwZPOiiCZV3-9hrQBkVmPQXMAkojyGkxYZa-GUWiNM71VGdwl4CRo2K-B9KjWZPMi3Tapx6fkX0agQPRh-8OTJ7EYP3os_LKIL3-ti96FHUbex-dZ2o7kC-cb31JtEyadSVYqVeB52Z9JfChwg9eHqQ0kn9CB91M9oyJI3eOJR29MSZ4Sw-4tDhCTnDv3wcsaPn_QyX9PGGroIpJXixjyt2DE02wfh9XLGja7IJLvMTv1yLX7YqLUneJa8-_w9bmGL1 -->
+  <SeparatorSection id="王者陨石" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="王者陨石" /></T>
+        <P>魔法阵直线AoE + 魔法阵连线 + 击飞塔</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="火焰吐息" /></T>
+        <P>读条开始时锁定点名最近4人，读条结束时对其释放直线AoE。读条时还会点名全员三轮脚底黄圈</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="重陨石" /></T>
+        <P>五连四四分摊</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>第一轮踩塔时，固定站位，连自己平台线的人要击飞到对面平台，其他人竖直方向击飞到自己平台即可</P>
+        <ImgRow
+          wrapperClass="max-w-150"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p2/%E7%8E%8B%E8%80%85%E9%99%A8%E7%9F%B3/1.png',
+              title: '固定站位踩塔',
+            },
+            {
+              src: 'imgs/07/m11s/plan/p2/%E7%8E%8B%E8%80%85%E9%99%A8%E7%9F%B3/2.png',
+              title: '击飞后'
+            }
+          ]}
+        />
+      </div>
+      <div class="space-y-4">
+        <P>闲人靠近BOSS引导火焰吐息点名，连线的人则稍微远一丢丢，然后沿平台长边放黄圈，闲人上下方向按照预占位分，拉线的则要让线交叉</P>
+        <P>这里黄圈只要不覆盖平台短边中点和四个数字点即可，建议贴长边放</P>
+        <ImgRow
+          wrapperClass="max-w-150"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p2/%E7%8E%8B%E8%80%85%E9%99%A8%E7%9F%B3/3.png',
+              title: '集合准备引导火点名和黄圈',
+            },
+            {
+              src: 'imgs/07/m11s/plan/p2/%E7%8E%8B%E8%80%85%E9%99%A8%E7%9F%B3/4.png',
+              title: '贴长边放黄圈'
+            }
+          ]}
+        />
+      </div>
+      <div class="space-y-4">
+        <P>连线的人站平台短边中点，其他人站四个数字点中心，根据魔法阵的直线AoE左右微调站位</P>
+        <ImgRow
+          wrapperClass="max-w-150"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p2/%E7%8E%8B%E8%80%85%E9%99%A8%E7%9F%B3/5.png',
+              title: '各就各位',
+            },
+            {
+              src: 'imgs/07/m11s/plan/p2/%E7%8E%8B%E8%80%85%E9%99%A8%E7%9F%B3/6.png',
+              title: '连线和火焰吐息判定'
+            }
+          ]}
+        />
+      </div>
+       <div class="space-y-4">
+        <P>后续二三轮塔都按照前一轮处理后的相对位置踩塔即可，比如上图判定结束后，H1、D1、H2、D2都在上半场，那么下一轮踩塔他们就都踩上半场的塔</P>
+      </div>
+    </div>
+  </SolutionSection>
+
+  <!-- https://plan.xivstrat.cn/#/plan/eJy1VNuOmzAQfc9XRPQ1C5iGJM0HVF318rKPq2hlYAB3wbbsoRu6yr_XXJbF0HTRSs0Dypw5Hs8ZnfHzar12OJzxNnGO68OmCakCTk30bAITPkJtAuc7IXcPW2fTgWkhhBo4BtA5ldDwuODQswz8xBLMDRwG_oDlwLIcDbj1_Ra79EUzxZJxTaxHJS0mmo4rBWNypYqGmyNKffS8WGj3zH5pVBTdmHuyigoWe23fnr_3SkK0t3WfIJLv7JbpOylYAeqzgqYTVBX0qYjGj5kSFbfkSJokjGcjqFEipAHIcF9zWiCKcooWkOIUU31rxO-xy-rl23bpaASpDeG-xYdORPQTYnxNjJPW5CNBVXIbC-5sxmkhacywbm_2rYxmv5uDOxtVAikyU-W4thPMlO6cd7Dws4FuyKRKPT_eHCUDctn8Ww1wKOv_rWRy4DxjXpERLJZBBXxjoyV7Q8iLqbcTvACedW73r2okwVzNzadwpicM54J2iwUhVRmgM5tnk_NojGZjO8pDXmXgSrNDFjcWRfsYOR_S1De_a5PZ2V0qmrBKtxOzE9robxP3p6WDUd1iO6LkzL4-gZRWBf6gJXztXtJ--9xO0xcjyXmfZT4unrCkCifO7_0dHBba6G3nk2b2fjDTQsK5GrL_i2P2r3r6f6fhPTutLn8AZ9lulw -->
+  <SeparatorSection id="登天碎地" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="登天碎地" /></T>
+        <P>踩塔 + 拆地板 + 直线AoE</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>看BOSS目标圈箭头面向哪块平台，那么这块平台就是要被拆除的，在该平台的四人要往安全平台击飞</P>
+        <P>之后看BOSS目标圈箭头，往垂直于BOSS面向的角落躲避直线AoE</P>
+        <ImgRow
+          wrapperClass="max-w-120"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p2/%E7%99%BB%E5%A4%A9%E7%A2%8E%E5%9C%B0/1.png',
+            }
+          ]}
+         />
+      </div>
+    </div>
+  </SolutionSection>
+
+  <!-- https://plan.xivstrat.cn/#/plan/eJztnV1v28oRhu_zKwz1Noq5_NiPcxu0RdGeokCC3hwEB7RE22pkSaCoOu5B_nspiXKk5TAaciRrR0teGDIlW5x3ucvZmWdn_3h3czOYZd-Kv40Hv9wIocz79Zk0z2ZpeeKP8pfy16_ZS_nL4FchPv0eDd5vT95P5_P89TPlieVjusjWn5vNZ1n1qfL082RcPJan4yB4PfeYTR4ei-3Jzbnv1T99yCfj_f9ZvOz9y4NPFuVFr_Js_8OrfLr-7GNRLJa_3N6O5ssP3yb_XRZ5WnwYzW4Xq7vpZHS7ue7bQN0-CbG8jT48Z3eLjlc7WX5azCfTLP9Lnq2vpMhXWfXWXTr6-pDPV7MDcxbpeDyZPeydWlsyX6y1f_2-9V_Pi2L-ZJ-dZveFfS6vLk0E1bnv73Y_N1c5WBbZYll-4LfN-dcrmd_9JxsVP97Yf_NA-WyWPb0M3u-_NV-ko0nxsvnW4OCd5eR_6z-Sh2fzeZEWk_msfOfwjcloPtvceNYffKt98qX-t5u_C9XBycVkNsvGVUu8vvH9_c9NLNL8ISsGtUtbv3ebjorydtl-5PflUzqdfliULXjw4dF8uukKgz_d3wflgZUrT8eT1boNEkvGUq_N-d--4ITMtzfVYDzJD797nN2nq2nxz_Qp-_u2E1cN_2Fr0ae1QYOu4usTiP-cvjyl-dcBdB9FAitkkzDVf_9cfVlcN3UoZFizdihECBlsuBkc1Q1uYW8UcLM3xNnbYK7gZq5A3s8N9obc7B1D9ga40SqKuFk7wgzMNfsra2Nu1t4BXRfbtAk3Y1NM0za0rCQY23zlOxkWaV68gCJYj_vjXl0Sdr9_k8gxW0TNFvTIkwjHbJHdbz7llimxqjeLrNsCNUriliVJ3RLk_aUSxxpFCF2zBdUoKtE_LKlefXm3Z9eVTV9VcooJxVM2evxXPv82eZrYLfg6wQwtSzs8wbZDXgKN4Alkm5IuWgAZ0HD9xweIPoBACiAoq98w8NtoAQQl2c0wSQEEJdnNMCkBBCXZTTFJAQQl2U0yCQEEJdnNMgkBBCUp00xmAQQlT5FGYBJAUJIStucSQFDSOGZL9wCCUoFjtnQOICjlWCykcwBBqdAtSwgBBOVYsK17AEHF6OF6MhtPRmk5N_u1HFazvGWMwIrCImyK6gMAMJhpsH00J6uguy4EzdoboqtX1xzt0eIU7rKb0R4dHR_XXY726Oj4I7aP9pCiPVqwmz_Roj1asJtCkaI9WrCbRVGiPVqww59I0R4t2NFPhGiPtjwWBtYSoj06ZBeY7h7t0SG7qHT3aI8OKTHpS0d7TATcwCaBzDw-8bv4bNy68I01loWVMcfne287H197qQFm_gregccjcQ7NXsFbTkG3XHQ8AOSQXeDdp6C7L9qLBlWvrnlarvQpnvT9pLCj-BTH49KPJ8i9ijRgpXEtgA88nawLb2ow49iDtunZNLRsfKn7ZdvhLsBHrtJ59nGSj6ZZ684JDE543yY4vPPu0mX2cW-0kJFQ1sBTdqL8r9P588HH4tDymeerYjqZHfyv8ruSwWX0sBrnZ3pEPugxbCFI7IUgLXpM4oUgYGgOegDpQPogCPZ5rAPlgxz4CWegvdUD9gmMr3qAcojAVznA3iKEF3IAEwIJ5gW8cE-R8yMt2DqnMeVBC0lh8CtAjl5cQrk4CfmI5viqKfTV2cGqn1xdUgeZIqhXGXzU9OjlKdLlDSNgEDQBHpg4en2a5OLBrYtHpo5enmnhkgNRh6G1FrvSDx92YMQ8KM0ut0Zb4aLZLfkgrXDR7FZ80Fa4aHbMEmWFi2YHLFFWuGh2uBJhhYtmBysRVrjoU5BKaZ7Pn5tydEGQyTDEzit2ReWsefRrXTnbuf2hkFWBaXNNf57tbKn3dA1EOIS1uqnyP_DLm51QwrRUIsbGRk3QYprighLDllJAAyIUNTdBixkRRyGs5ao_U6LF7IGjEsOkHsxokqLFPNQFKdoJAYaEJTTfFS3mu9ehAyxDi2z5dcgAOBhG4NEvJ1QI45Y6AEOlBuZHRhxfOeiUEEK3FAKI-oJOhMAvPHRCCKoLAS2iMoKZTylautdR3adMwF7BzKNs2yusslWbBZ6QDMz8ybDt7QAAOgmQPzWCmTsZBe2EGAIdY5hAUW9x1d7kUNYHyqGA7ohwz5usXl0zY61PUmClZ6w7in9lBV8kaKRr9V7qiDUwOkCWIKq97C-l_zhfzYos_zx_theWvN62lvffITY7Wn9J7TG_OfvvdLrKDgeo9XEw6t0c_uHNTXT4a7z325eabkMFLV2BghVhuyoE1y8doBwsHH5C--bCCVfuOVg5_JzHD-XwnRU_S3pdP_c5nX29Wy2LRvEisnhtWl8bfPzjrW3AtoM2LWbtl1kAo7wgDPHrPRRbxvBMC2BUvwDGEqRfAGMJ0i-AOZCjXwBzqIe3C2DABR9WPNgjOeD1QMrb9UBgb9H9ApgDObxwT7ELYLSrzikjjF7z46xppQP5cdak0oH8QGta6UB-qDWldCA_1ppSOvAksDUTjF5bnCUDYwmlAw2b2kxxvV48PgztWPH72NRswScjHCvOBG16oSFWBDTGsW0NgV0vwOWeCgQ-HCvpaNE53-qngIW5lSmuZdqTmimy3l_AWyzyC8MxJ9nxu8dwOorPuRIvEsMxkWtPoK4YjolcT4ua2NVIy2XSoib2IwvYQhA_soAteowXWUB8WtTEXuQBsWlRE3ubBgTToib2Nu8FpQGN5Xd6JAeYFjWJH3lAZFrUJN7mAaG0qEm8cE-RaVGTuOqcMkqLmoRdmpCUFjUJuzwhJS1qEnZpQlJa1CTsEoWEtKhJ2CUKCWlRYz0qGFjbPS1qJLvt47qnRY08SRA9Kx7tBSDVufLd9RPd0qFI82IT0TRWfimbjbfnrXotu0XPh4-Qvdh7KM39fZMLBGZ-1PGQKJu0r8Sv3CG0lTQNbRWfva0cC8RT0toSX1yF0q_ChrZKzt5WjiEIpLS9dGyQIKXt5fE1ilzS9hJfjYXSiYKGTqTP3olca6ruWILE14tBrim2Kp9wW1MMeN2hAG-Cw5OPk3HW1jPzQ1FbvibP3hoVe0G3B-YWhe9QyyPsBd0eQAUG9C0aHle0enXVcJfqayxt3rgI3KX41FiqE1HA2AWFK5Vr4GcdUwvrsxSotfQJN685D9vlx5pCPMrk7KrCS7Fd2tV84qXYLu0H7IZnu7QXsBua7dJeoG54tkt7y7qBLJP2FnWD2S5rpaNHeoC9xfiBumHZLuOFe4plu4yrzikntsv4VfLCGHYsG4ntMuxQNhrbZdixbBS2y7Aj2Shsl2FHsnVnu8qPsSPZusNd5clToGzdE-gisDaQ32XQyys7N99VfsXxMuCXBryGAtzjUgMhobVkb9NkcVOTnRsdKr_Cfc6rVYvhV12TWixpajF1_hZzDVSp015QizU1GIMqLbisUHlx7hdpgUgYwP0sLw6_0xKpI8HQZPmGOHtHQmzJeWniC3xaNfSkFltr-kGAYKmv2l3YQzXbozP2VfNCe0W3R2fuq-Yk9opuj-7gV82L85X8KoWgBNd40Eelka55Z13xo9KUFttgXoQ_EkHoRf4PzduUgniRAcQTSKUiXiQB8QhSqYiricALMUilIl5galgIqdTDC0oNTSGVgnhBqWExpFIPfzG1BkG85dQaOowfoBqSRBJB5IWjikSRSjkcdlP_UQslN4uxCxjb56fZ7GHzRtIczIiieiQWH0xM8Aul39CmMK7bhA6UJPitdt_QJAEEzNHhtKRVeea3MkkCKQB8K7Uoc9Ev07NkxkbK2GFZNKyyfCCcolwRH66yNJhSZ58dWFnayw6cJZGVpcHsyFkCWlmay46cJbCVpbnsRmgKXBmxA2cpcGVEAWdZkYfxcZiDE5YXu1-hrAVpEzMoUYZNJcau0YQEZi12jSWkAV0xPsvrB9nRIgZzeLaHZbYHAeiyRsxe0e1BALqSHjrcHacCuhIEdVi9um6gi1QZ3j2gS4C5cO1aPam6G1Y3JQI9l8Q1U1A7OMK2SNeLY5WX6HCS6yJwmvQDxWqjiB8oVptO4wWK1QZOk17AWHg4TXrLYjXAadJbGAtmsaS3LFYDnCb9gLHQcJpVf_1a9UDDacoLRxUNpymH3VQecBpiqxhucBpipyJucBpioyxucBpie5UeTiPCaSep4M8KTiOVzecIpyl2pcNocJpVuYOBvUQ4TbPbCpMEp2l2dCkJTtPs2FIKnKbZkaUUOE1TsFJWcJp2jBkiwmnaNWyIBKdp18pcoIAuOMNrrqtCl-krdP34inZxC9PDMrvjRECX6St07Y4TAV2mr9C1O04FdFmJA3-BLlL5e_eArhh-PrrmiNUpqLj-sIfbC78F86UgKONF7hGP_Nj_9UoFaQFBicCL9GMLCEoEDmcgLwJBicALUA4NQYnAC0wOD0GJwAtKDg1BicBfSq5BEG8puYYO4wclh4WgSk_VVz2gqYUQDrupXVAUS4tXEiW0KIy9-dpQaMwjGpTv_LhQB4O6W3N2nqtL85ju9hzfQert7SGY02I7op566qaxoORdOVJPglSunyH1JPhVXSNRT0Kww9po1JMQ7LA2CvUkrM0RGJhLoZ5EyI5pI1BPImSHtBGoJxFSiLbLU08BEAyXsKHub5SpgS4Jbn0nQtcqWNWRJ1WfDttT350xjuFoUDkuZN5QhK6lQFH0FpjOFaFrJBpAb5m6NQZumL4Y14-vaMVuCavCfs_FbI_u7JawPIBe0e3Rnd0SUc8X7o4TsVsi6otxVUJQlkG4x25FsJGueZSYYlwJ6LdErvmTqGJcDba02ozkEhyanfdyKp91EQ4t8iLf2YZDix1OeV6GQ4v9IPNacGixF2QeFHRt0MMLLq8FhxZ7C-bB2FXsLZfXwKHF3oJ5DR3GDy4PzaHFXjiqaA4tdthNdR7bOvsekR2soUB1-OVOPefUUeOEXTUNKueUsCO7iJxTwg7sonFOCTuui8g5kfZl4Mc5JeywLhLnZD1zGZhL4ZwkO6qLwjlJCtXFiXOSjm3VR-KcpGPQFolzkq6l2FBsEJwulK7l2ChskMTP5vyABPBskLUjQM9dbA8CG2RtKdAruj0IbJC1KUGv6PagsEEKAbBVryo26N361ff_A-ts0fI -->
+  <SeparatorSection id="陨石狂奔" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="陨石狂奔" /></T>
+        <P>机制概要：</P>
+        <P><ListDot />读条结束时，场地任意对角出现一对距离衰减攻击</P>
+        <P><ListDot />读条结束时，锁定点名最远四人中的随机俩人，在其脚下放置六轮屎圈</P>
+        <P class='pl-4'><ListDot />屎圈会持续到整个机制结束</P>
+        <P><ListDot />读条结束后，点名剩余六人六轮黄圈，同【流星雨】</P>
+        <P><ListDot />六轮屎圈/黄圈结束后，场内斜角方向生成两座单人死刑塔 + 两座双人塔，随机顺序分布</P>
+        <P><ListDot />塔判定后，场边四个中点出现魔法阵，分别连线四个塔里的随机一人，稍后释放直线AoE</P>
+        <P class='pl-4'><ListDot />直线AoE附带火属性耐性降低</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="双向/四向回旋火" /></T>
+        <P>双向是点名最近两人直线分摊，四向是点名最近四人直线分摊</P>
+        <P>如果直线上第一位有火属性耐性降低，伤害会提高</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>读条时，全员按下图站位，四个远程在目标圈外，四个近战直接站BOSS目标圈中心，等点名出现</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p2/%E9%99%A8%E7%9F%B3%E7%8B%82%E5%A5%94/1.png',
+            },
+            {
+              src: 'imgs/07/m11s/plan/p2/%E9%99%A8%E7%9F%B3%E7%8B%82%E5%A5%94/2.png',
+            }
+          ]}
+        />
+      </div>
+      <div class="space-y-4">
+        <P>被点名的两个远程去自己的那条边，从远离距离衰减AoE的一侧开始，按箭头示意放屎圈</P>
+        <P><Span variant='pink'>注意起始位置要大于四个小方格，以确保场地角落不会被屎圈覆盖</Span></P>
+        <P>其他人从BOSS目标圈中心，按箭头示意放黄圈</P>
+        <P><Span variant='pink'>双T放下第一个黄圈时开启铁壁，可以覆盖死刑塔，且能在第三轮【碎心踢】时转好</Span></P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p2/%E9%99%A8%E7%9F%B3%E7%8B%82%E5%A5%94/3.png',
+            },
+            {
+              src: 'imgs/07/m11s/plan/p2/%E9%99%A8%E7%9F%B3%E7%8B%82%E5%A5%94/4.png',
+            }
+          ]}
+        />
+      </div>
+      <div class="space-y-4">
+        <P>塔出现，放屎圈的俩人不参与踩塔，剩下六人：</P>
+        <P><ListDot />双T踩死刑塔，MT从A点开始顺时针找第一个塔，ST踩另一个</P>
+        <P><ListDot />剩下四人一定是两个近战位（D1、D2）和两个远程位（治疗或D3、D4）</P>
+        <P class='pl-4'><ListDot />D1、D2从A点开始顺时针找第一个双人塔，剩下俩远程位踩另一个</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p2/%E9%99%A8%E7%9F%B3%E7%8B%82%E5%A5%94/5.png',
+            }
+          ]}
+        />
+      </div>
+      <div class="space-y-4">
+        <P>踩塔结束，连线出现：</P>
+        <P><ListDot />连线的人把线拉直，远离魔法阵到顺时针的下一个角落（如果面向自己的魔法阵，就是拉去右下角）</P>
+        <P><ListDot />剩下四人在BOSS目标圈内正点方向预站位</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p2/%E9%99%A8%E7%9F%B3%E7%8B%82%E5%A5%94/6.png',
+            },
+             {
+              src: 'imgs/07/m11s/plan/p2/%E9%99%A8%E7%9F%B3%E7%8B%82%E5%A5%94/7.png',
+            }
+          ]}
+        />
+      </div>
+      <div class="space-y-4">
+        <P>连线判定，同时BOSS读条双向/四向回旋火：</P>
+        <P><ListDot />如果是双向：BD方向的俩人顺时针找AC方向的人集合</P>
+        <P><ListDot />如果是四向：不用动</P>
+        <P><ListDot />做好团减，这个打法直线分摊是少一半人吃的</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p2/%E9%99%A8%E7%9F%B3%E7%8B%82%E5%A5%94/8.png',
+            },
+             {
+              src: 'imgs/07/m11s/plan/p2/%E9%99%A8%E7%9F%B3%E7%8B%82%E5%A5%94/9.png',
+            }
+          ]}
+        />
+      </div>
+      <div class="space-y-4">
+        <P>直线分摊判定，连线的四人从斜点方向慢慢回场中</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p2/%E9%99%A8%E7%9F%B3%E7%8B%82%E5%A5%94/10.png',
+            },
+             {
+              src: 'imgs/07/m11s/plan/p2/%E9%99%A8%E7%9F%B3%E7%8B%82%E5%A5%94/11.png',
+            }
+          ]}
+        />
+      </div>
+    </div>
+  </SolutionSection>
+
+  <SeparatorSection id="碎心踢" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="碎心踢" /></T>
+        <P>连续踩塔，第一轮判定 5 次，后续每轮增加 1 次，每次判定间隔 2s</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>解法概要：MT单吃 → MT辅助ST单吃 → 双T全减分摊</P>
+        <P><ListDot />第一轮：MT无敌单吃，5次判定共 8s 左右，10s 无敌有大概 2s 容错</P>
+        <P><ListDot />第二轮：双T先在塔里裸吃第 1 次判定，然后MT走出塔，ST留在塔里无敌单吃剩下 5 次</P>
+        <P><ListDot />第三轮：双T全减分摊</P>
+        <P class='pl-4'><ListDot /><Span variant='pink'>双T在【陨石狂奔】机制中，放下第一个黄圈时开启铁壁，这里才能转好</Span></P>
+      </div>
+    </div>
+  </SolutionSection>
+
+  <SeparatorSection id="碎心击" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="碎心击" /></T>
+        <P>狂暴</P>
+      </div>
+    </div>
+  </MechanicSection>
+</DutyStratLayout>

@@ -1,0 +1,95 @@
+# 全局配置
+{
+	admin off
+}
+
+:11452 {
+	# 静态文件服务
+	root * /srv
+	file_server
+
+	handle_errors {
+		# 避免 CDN 缓存错误页（如 404/5xx），防止把 HTML 错误页缓存到 JS 资源路径下
+		header {
+			-Cache-Control
+			Cache-Control "no-store, no-cache, must-revalidate"
+			Pragma "no-cache"
+		}
+		@custom_err file /{err.status_code}.html
+		handle @custom_err {
+			rewrite * {file_match.relative}
+			file_server
+		}
+		respond "{err.status_code} {err.status_text}"
+	}
+
+	# 缓存配置
+	@header_general {
+		path / */
+	}
+	header @header_general {
+		Cache-Control "public, max-age=300"
+	}
+
+	# astro
+	@header_astro {
+		path /_astro/*
+	}
+	header @header_astro {
+		Cache-Control "public, max-age=604800, immutable"
+	}
+
+	# pixi
+	@header_pixi {
+		path /pixi/* /videos/*
+	}
+	header @header_pixi {
+		Cache-Control "public, max-age=604800"
+	}
+
+	# scripts
+	@header_scripts {
+		path /scripts/*
+	}
+	header @header_scripts {
+		Cache-Control "public, max-age=604800"
+	}
+
+	# favicon
+	@favicon {
+		path /favicon.png /favicon.ico
+	}
+	header @favicon {
+		Cache-Control "public, max-age=2592000"
+	}
+
+	# .DAT 文件特殊处理
+	@header_dat {
+		path *.dat *.DAT
+	}
+	header @header_dat {
+		Content-Disposition "attachment"
+		Cache-Control "no-cache, no-store, must-revalidate"
+	}
+
+	# 安全头
+	header {
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy strict-origin-when-cross-origin
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self';"
+		# EdgeOne 头部
+		X-Real-IP {http.request.header.EO-Client-IP}
+		X-Client-IP {http.request.header.EO-Client-IP}
+		X-Client-Country {http.request.header.EO-Client-IPCountry}
+		# 保留标准头部以兼容其他 CDN
+		X-Forwarded-For {http.request.header.X-Forwarded-For}
+		-Server
+	}
+
+	# 日志
+	log {
+		output stdout
+		format console
+	}
+}
