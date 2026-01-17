@@ -1,0 +1,462 @@
+---
+import ListDot from '@/components/ListDot.astro'
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+const dutyId = '07/m11s'
+
+const base = '00:00.00'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <NoteSection>
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <P>MMW文档链接：<StratLink variant="teal" href="https://docs.qq.com/doc/DS2pXVk5PZnR3ZEJx" target="_blank">腾讯文档</StratLink></P>
+      </div>
+      <div class="space-y-4">
+        <P>参考标点</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/waymarks/07/m11s.png',
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </NoteSection>
+
+  <SeparatorSection id="天顶的主宰" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="天顶的主宰" /></T>
+        <P>全屏物理AoE</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+  <!-- https://plan.xivstrat.cn/#/plan/eJztmV1v2jAUhu_5FVV2CyTOByG9myp1mqbtprurqsokDngNceSYUVbx3-d8jMax6Qx0JalWpCo5x3HOc3yw_ZqnwcWFkaJH9jkyLi-ABYaFAVKUQn7_xG_47QPa8BvjKwA398AYVsY4IYTu2nBDvoAZKtqlJEV1K25e44gtuNm1rJ1tgfB8wSpjadvWnc4pjpp9sk2jS6El4zGvKGo2XtGkaLtgLMsvTTMk-fgR_8wZhWwcpma2miU4NMu4Tcs3lwDkJhiv0Sw7Mlqc32QEJ4heU1REwugK1a4ZDB_mlKxSASeDUYTTecNUkJCMG3avKx4mjJFly5igmLVMtI7Lqk3bwZ__ZYRGzlCWc_9tad9FQWY_UMieHU2nkHUG6RwxY9j04ZCkhc-EIeN5rJrc50uYJOOMowmNQ5KUNWJ8iGOL_4leksEQs01Zd5bgoTDCqyJAT7TnDLLSfnsntifcgcvAWh1V2TYiTMV3RyiGq4R9g0v0paruOivjiuimABIfeZR630iWsnrdqWDLcJqiSCiP2pPADSrTU0dj7Jzb4csjg1K03OhmM8e_iocmll7OihEuZ4PWA_r8_n5-bcIMUtYirDnsqW4V_ZXQ8yXCdid7GCfTjpFMJJKRLorfMRRPQnFlkJGrQPGCjqG48qhos3StwoBehUnGqshAx2hsrW_-Hhi7WzBuIMN4EovvySR-x4altXRWRaaH4ulPY5CgK0zDBJ26HzlomrU6FN-eunbOFKLunDhxzxOgdnzeeeI7YIgn3YlQFZ7-Av6q4cnBKWdLsdkM5ujqWeHMnNAJW2KJ73zpp4SsG81iwD-tmFcswWmzr9gP_EBfDqzhZgnpg3J2doBufvbNznXv3-uXubIsGoGJrShAYMs5dMQt0XHi4E15HZn3AFynb7i2Hq6a1u4bLdAsZjUu6BtupMLVm5pbCrMHsKHO-Y16mWxp0B7AzhRfW82B7d2MDHUGVj2uWtNxfXU3aJD_Pz1tOP7l6an_whoieN7p6an_GjuGNxHroChKSz6tU0yyngq0YwdcilMUhe7zFLpgqi_tz3aKoouifyDUI9ExFYe2B0vcSaIjsPqGe4roCHq3Cz9JdAS901gniI6gd_L5BNER9G4jfrzoCHonsI4XHcFrKGdI0DVMD5YATssRw_RjOk-QvEo08uDIPybrDar4c3p3zkffMnmjo7M3fV_Zs7292XO9fdkD0yNlE7Aam_D6qhbwg-Jq-xv9YPnG -->
+  <SeparatorSection id="铸兵之令：轰击" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="铸兵之令：轰击" /></T>
+        <P>看生成的兵器：</P>
+        <P>
+          <ListDot />
+          如果是斧头，则是点名二仇的可分摊死刑 + 点名 DH 六人的圆形分散，物理伤害
+        </P>
+        <P>
+          <ListDot />
+          如果是镰刀，则是点名一二仇的扇形分散死刑 + 点名随机 DH 的扇形分摊，物理伤害
+        </P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>斧头的情况奶妈和远程避开近战和坦克灵性分散即可，不用死认下图站位</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E9%93%B8%E5%85%B5%E4%B9%8B%E4%BB%A4%EF%BC%9A%E8%BD%B0%E5%87%BB/1.png',
+              title: '情形1：斧头'
+            },
+            {
+              src: 'imgs/07/m11s/plan/p1/%E9%93%B8%E5%85%B5%E4%B9%8B%E4%BB%A4%EF%BC%9A%E8%BD%B0%E5%87%BB/2.png',
+              title: '情形2：镰刀'
+            }
+          ]}
+         />
+      </div>
+    </div>
+  </SolutionSection>
+
+  <!-- https://plan.xivstrat.cn/#/plan/eJztXW1v20YS_p5fEei-Rjb3hW_9VqTIoei1B5wL3IeiKCiJsnmRSYGimviK_PeSEq2QuyNpyGXEHcsNUMgkLe8zu9yd55nZ2b_evH07SePPxY-LyXdvheu-qy5EeZxG5c9_lT-UP36Mn8ofJj8zdvcHm7zbX1yusiw_PFNe2DxE67h6Ls3SuH6qvPwpWRQP5WXpOIdrD3Fy_1DsL-6ufam_9D5PFs3vLJ4aX9l6sijbvM3j5sPbfFU9-1AU6813t7fzbHPzOflzU-RRcTNPb9fb2SqZ3-7afev4t4-MbW7Zzad4tu7Z2mRzt86SVZx_yOOqJUW-jetbs2j-8T7PtmkLzjpaLJL0vnGpQpKtywuHP1f9clYU2aNycRUvC-VSXrfLqS99efP8_10LJ5siXm_K-7_trh9akc3-F8-LrzeaN1tWL6L8Pi4m75r3knmWVvduo3lR2nH_yB-bx2i1ulmX0FoPz7PVboxM_rFcOuV_7bvZOponRTW0mOO07uTRItlWDXTb1zdFVOyu__Z7-_msvJHsGqZ80d7ak0WSt__2Il5G21XxS_QY_7Qf3bVVbvaI7ipA7V_5rH37k3ZlN3pl0Lq2TtI0XrSGR31nFT3FO_PUrZkcbn55d7pn4jR-fMJac5P8v_olz8HZrOrh3Wyg_AIev38c_1mEx2E8Y19HeaFgrxHyoCNC19cQqn_1CEYvsAyJpyGZYqH4lkFxNShSBzKVABQ3tAyK1HsFjcW2EcZwI0y7uB9kzDI0HPXmHwHD7QIjQx2Mq2HxXR2Jb1m3KEvnfpDhoLjnp7HnBkdZ_D7J56vY1B_pNM06FrXvyLgWIzUROyd6cpwGotvnjtO-Dl3s2dNCqHnnF_Bv0jy9ceBs2X5sFm3i918ZzkzMxVwhS6Xnm_9zlX1qPLZk5T-lzdtilaTN71r6oR_i6cCn6Okxyj-Cc7BgWPscm53rb_-1_mNSp0VT5nFgADKu21C0XaJu5GAUvELH2wGuoAaX4-DCaDk1tAw5mGG4jBrcBQQXNzUrDJMA2DlGv4GXSYWDEgA7A15bZMeSm5EjTMfC_YqajutPv79pIH9VTxs3vqV66p9YQ1p3Xqh66pt4DBcl66walI6u1gGTrAsBtUzgAlQUgPe5AC8IzlP70VUULJTzghBB0hG0u5bAEmdEOkKHGlwT0hGS88KNSEdIjmMZkI6QHH02IB0hOUe8P-kIyRGs_qQjHII5R1n8IUo7UwCh3FhG6ffp_SrWV4mGHYQeTMZ1ajucbo8-eknjTXtbL3hZ1uPuUetJ95j1WNCTNjGn4YTXn66QwE-VuMXQFL50OPVwrAD7Ywi3bFimrhrnFFfvANTEIRuBsOuZD8gX7BLRYeD1x_eE-yLJK2Mn8gntBGzEXhkjx9ZN6Cvj5Ni6EX9lnBxfNyCwjJOj6wYMlnFyfL0_hWWcHF_vz2EZH4KwJ-kimUel43xXRHMF88EFwEZajpsD79O4DZ-m_mRIGkrX54cs3RZYz2dH4v5zxOE_2EQCOUuB7hUFgKLPgjYfrXjlvw_NEZ3ywXqRaGV9a9BAcbSnp57upWLxKtJSm0eLuesuZ2d5NFv6y-U5Hu2H0ax86FsbkHk9DMj1EBDafvp4uT77TZm-NQRtwFMy2LUYUAljd7LfKSHsWuw35dJgBIYvy4L91hD1RexgQa60hLwFZT8L9h-DXNGZyFuw5xgE5Da0BZmlFqQojH9jXRw7M7v4HSzDat8dpG80FvxuF0pyq0tOfjSTW5URQACvkdzqkZMfzeRWj5wAaSK3euQESBO51SOnQBrIrd4VpQwxzyRnaPQaGkoEr2qJFwIow_Pe0NhVNJgj9C5TQlg1mPPx8bHraHi6Z-dCa0ZoWUI7UEfDhd4kCWAJbKsJohNCJfHzeLdYVncCKAni6yNMnQ1qLLZVntB3fyjwqob4PjTCbNvIomv_TJGzq5aEYLCoUUWj_mQeELsrqfNsm2_QQbGvoouyumzW2cd4p2fpl_9bl247sVozfUoU-rtXOluebhreLf_pX0mKzn56LjqnMLFVnN6rxehURFNFe-oGiVms0Q1pQC6PGhDQPzrYT1hqP4oK3VT18IfW6ND9ynx8rZ6BM1RVG5zS6TrgeZmJkT45Rmim1PnkSjAYKXW-SR1JgkqdTy7P10Sp88nJ7CZKnZLXTgCtgVIXkJPYDZS6gMz2D5AX6nx96gYATN8y7QHg62rO1g4MB2Za7ljG2AEhhXFdQwXLaHDnfBh2bIFryoFhBowy7tgm1unCI5O6IAwWg-TO-dzasQXhqdDBgETXNkEYEOpd4IURgFDPHdsKXusRlKnUnUZlb0XdMXhmd0i-r5QVIAH_LG1VfJg_f9lWZxSwY2gZVOlVMc7eY4Jw4fNkLo1rqu7Y2o0-Aaw9EsrqYo3puv50hfuU7UjH4hyfwmR7Ohbn-K0chEQezsmpAEYiD-fkVAATkYdzcjKAkcjDlXgNAbwGIg-nVyHXQOTh9Mof9xd5OL3K1v1FHm5UtdyKGh_IZAYuG4RiGPe0fzEQwBnCwkCcN_PqPhu7zxKfEmG9-yzxjJOS-yyvK0bK5VXFSNVNogTgmrnPp85WtBOvifssyZEjE_dZWQYJoDVwn11yzMjAfXbJxEghzVqPK0hIikccQHdZJsCgEKmuv3tgj1m2mQHaiK5TASagoCLi5L0Ld4weiPf0fmESAtM84rT-ZMjPrPfMEccSjj5HCCDALaHAlm15FOAsAWxIYRwajb5lXQNME1C8Xq3KUIOxbDcaNE8wqa9G6nM1mkucRQm91YBTIIAdQNy_xIGtYGVfYLsVtAYiDqh51ZCMNSTEYcoUdRd6W7PNdBd6u7ONdBej_dkEdRePnM5kort45FQmE93FI6cyGeguyhnOBMAa6C7-ECIT2qPtAfUUp5I6v5_6UHKqjz80_CJYYOEFqIkBEvxg8HNMrCf4iEMHRyf4AZD1zRikAwYUGD6Qh8ugEi08IMDwuU7oOIiFAMGXOhYBJTgEeHr_Sk77z0z4pWVYjQKrJwoHv1V90BZiV2fh4DNxBpZ5kCuucPAKxKAtZMC7DvpxwsHnpgxrQ6wQLDoUR6Gk4tA7SddMxaF3lq6RikPvLF0zFYfecbomKg6983RNVBx6J-oaqDiDHKlLRcUJh9Bex1JxGAMcRSbA2QkfbxtRx_EgIQCSpULL9rJDzBlIpxegE29ZjQGQOQP5QAykTPiNkoe9xT-Xr3KcY33q50nE6wpLmXaOjjig0KlAbGu3CRakQAWAaiMQxToswgWJURKEhZcWbIAFzBQuNFMgKkVYBAuaM6CaEaJPnYURYQEZLoCIKBhe-bAAFexKQERHMLwcYQEwMLgQArEF0SyLUX964cEhwSxzPYyCQ4JZVhPIKDgkmGUp75CLKwAVGFy4LKsJZhAcEmyssAWaHQl56pDM5SJ01JrIQOnk5dJ3F4rCq5VOXi7iufpd7TNwR4qgdJg1lLDFFRoLLyMIeerwy-swFnbOU9ayazQVQNcYKIEoBOgKbYUWWJTtfldoKrwL5Z46QuAqbIV1apRanDQs9Zp705v4cbyVCaUUCE4uxG6UUiA4uRi7SUqB4ORC7EYpBYKTC7IbpBQITi7IbpBSIDi5KHv_lAJBr85o_5QCMUiRUftTCgQnsTUELZoJyypZIJPxYUItrJPCDXIKBK3gOzanQJCKveNzCgSt4Dug53mgqE4q-A5OFWBSgaQVfccmFUhS4XdsUkGHoqAWoOqQVNChQqgFwPBJBfLoiRRvqk9f_gZ_nnWK -->
+  <SeparatorSection id="历战之兵武" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="历战之兵武" /></T>
+        <P>在场地上生成三把兵器，分别是斧头、镰刀、剑，呈等边三角形分布</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="铸兵突袭" /></T>
+        <P>BOSS随机面向一把兵器，读条结束后冲锋到该兵器处，释放相应技能，然后按顺时针方向依次冲到剩下两把兵器处释放相应技能</P>
+        <P>
+          <ListDot />
+          斧头：钢铁 + 全员圆形分摊
+        </P>
+        <P>
+          <ListDot />
+          镰刀：月环 + 八方扇形分散
+        </P>
+        <P>
+          <ListDot />
+          剑：十字AoE + 四四直线分摊
+        </P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>始终以BOSS冲锋后的面向为基准，按下图站位：</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E5%8E%86%E6%88%98%E4%B9%8B%E5%85%B5%E6%AD%A6/1.png',
+              title: '情形1：斧头'
+            },
+            {
+              src: 'imgs/07/m11s/plan/p1/%E5%8E%86%E6%88%98%E4%B9%8B%E5%85%B5%E6%AD%A6/2.png',
+              title: '情形2：镰刀'
+            },
+            { 
+              src: 'imgs/07/m11s/plan/p1/%E5%8E%86%E6%88%98%E4%B9%8B%E5%85%B5%E6%AD%A6/3.png',
+              title: '情形3：剑'
+            }
+          ]}
+        />
+      </div>
+    </div>
+  </SolutionSection>
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="彗星雨" /></T>
+        <P>第二轮【历战之兵武】和【铸兵突袭】之间，BOSS还会插入读条【彗星雨】，效果是，在【铸兵突袭】的第一把兵器【开始前】和第三把兵器【结束后】，点名全员 3 次黄圈 + 八人分摊/分散</P>
+      </div>
+    </div>
+  </MechanicSection>
+    <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>在【铸兵突袭】的第一把兵器【开始前】和第三把兵器【结束后】，近战在BOSS背面集合，然后顺时针绕BOSS放黄圈，远程可以在外面灵性放黄圈，不要影响近战</P>
+        <P>第一把兵器【开始前】和第三把兵器【结束后】，必定不同，比如开始前是分散，那么结束后就是分摊</P>
+        <P>这里尤其要注意第三把兵器是镰刀（月环 + 八方）的情况，人群分散在BOSS周围，月环八方判定完一定要马上去BOSS背面集合，否则近战会被黄圈妨碍</P>
+        <P>下图以第三把兵器是镰刀，结束后【彗星雨】为分散的情况为例：</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E5%8E%86%E6%88%98%E4%B9%8B%E5%85%B5%E6%AD%A6/2.png',
+            },
+            {
+              src: 'imgs/07/m11s/plan/p1/%E5%8E%86%E6%88%98%E4%B9%8B%E5%85%B5%E6%AD%A6/4.png',
+            },
+            { 
+              src: 'imgs/07/m11s/plan/p1/%E5%8E%86%E6%88%98%E4%B9%8B%E5%85%B5%E6%AD%A6/5.png',
+            }
+          ]}
+        />
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E5%8E%86%E6%88%98%E4%B9%8B%E5%85%B5%E6%AD%A6/6.png',
+            },
+            {
+              src: 'imgs/07/m11s/plan/p1/%E5%8E%86%E6%88%98%E4%B9%8B%E5%85%B5%E6%AD%A6/7.png',
+            },
+            { 
+              src: 'imgs/07/m11s/plan/p1/%E5%8E%86%E6%88%98%E4%B9%8B%E5%85%B5%E6%AD%A6/8.png',
+            }
+          ]}
+        />
+      </div>
+    </div>
+  </SolutionSection>
+
+  <!-- https://plan.xivstrat.cn/#/plan/eJztml1vmzAUhu_zKyp2mw9MgEBvJ22apm1Su7upqhxwEq8EI-Oszar89wGhKQaTOGRpTUsuIjj-4DzntY3h8Ni7uNBC9MC--Nrlxdh1-6kBUhTC5PwxOUlO79A6OdG-AXB9C7T-1jgLCKG7OokhXsAIpfVCEqK8VmK-xz5bJGZT13e2BcLzBdsaM9sm73ROsV_sk60LXXI1WeLziqJi5RUN0roLxqL4cjTySDx8wH9iRiEbeuEoWk0D7I0yv0f6ZLQEIB6B4T2aRg29xfF1RHCA6CeKUk8YXaG8aAq9uzklq5DDiaDv43BeMKUkJEoMu8uljQljZFkyBmjGSiaa-6Xnpk3v6T_zUIsZiuKk_Fdm33lBpr-Rx54LioVc1FGIlmutXywiEfQwS4cD0HWuJMZ_00Y2b6WEQYZJyHuexs4jYTbmSg0eKjXX1bbZWLVNzhjhMER-rsKuYNPfjwgJukqCIQspGB6ZfTdEgCS-GBNYItDJmDNOYYw-kiCbfNqHWfbj_U8jQT8H5H5_NbJiAQ4LfenZT6tc7UdtPPIunitMLLEnXBctVWdQI4_ZyaOCPEJtrE6bc2vjVsWpzJRafexOn6P0sY_Xx7QaTh6nE-fs4oBxY3Um71UdBukclcRJt5Np2Qh6LNneb6vcxksYBMMo2XFzlb1CAKps9TpT6ONVum8urW5xImdm_3UjdwOj24cAzceUv7aPZnAVsO9wib5uH7ryzfpwS3SdAmkNR8yEHzHNNsz3cL2E9I73Id_7j4FsIOsCk_f-M7-YWUUdANsQ7MyAIQJ22gY8rgIfw-u2jdeQ4xXjOnrbcIHkeK7hBW3j9UW8uuT9zWgbrSezMFf4c9px22ingqkrK-3_eHPzorBQRtoaZS0Z2PzopldAf2Mv7MxTth_1GE_sEaRsLRwNhlNHOHBrGK1JdXAL1mlHgGk7ysHYUjCDUr0tzUQ5muoDE6iOv3LrrKWrHIspw1JpnjVVb5gBuWEmnDRAORpDikY4ZwzVYEy3AjOQnDQT5ZQxHSkY8aw5vJyp-XJbnHqw-FC8o3dAaqlTkxmy3E4eFeQRZo_1Tptza3NKZsgGnT5H6fOSmaHSRqgTR6nMkN19L3KcOmV78YMv-fuO9NLmHH4OfQUgwWItvdFxlZRIikiIc_iZR1WcGn0OP5GeC8iy7Togw2i6wrljFXmar9iuKc3TJb8bhdhsXSr4xNz3nhQLVzKbX3HvXNQMxml58T25tRbG4qSc-Z6kagtDcVo-fU86vYWxOCHXXnqJ3fZInJCHt_Yka1sYieY5eutt3T-a5--ts988cOhjDyYbt2sGvVI8dpsu2Sx9fahqpoEoSzJ2rXZ4L3beVtF50W3JdkTuy6eoXtn9gdj_QmI6P8q_aumlR5t_wrHzcA -->
+  <SeparatorSection id="铸兵之令：统治" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="铸兵之令：统治" /></T>
+        <P>六连全屏物理AoE + 剑舞 + 2222分摊</P>
+        <P>BOSS生成大剑，释放六连全屏斩击，地上会留下六道斩痕，之后会扩散为直线AoE，同时点名 4TH 或 4D 分摊</P>
+        <P>斩痕一定有两条穿过场地对角线，剩下四条是【三横一竖】或【三竖一横】，六道直线AoE刚好会留下四个小安全区</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>始终以那条单独的斩痕（【三横一竖】里的【一竖】或者【三竖一横】里的【一横】）为12点基准，按下图站位处理：</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E9%93%B8%E5%85%B5%E4%B9%8B%E4%BB%A4%EF%BC%9A%E7%BB%9F%E6%B2%BB/1.png',
+              title: '初始斩痕示例'
+            },
+            {
+              src: 'imgs/07/m11s/plan/p1/%E9%93%B8%E5%85%B5%E4%B9%8B%E4%BB%A4%EF%BC%9A%E7%BB%9F%E6%B2%BB/2.png',
+              title: '以单独那条为12点'
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </SolutionSection>
+
+  <SeparatorSection id="霸王大漩涡" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="霸王大漩涡" /></T>
+        <P>强制全员1血</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+  <!-- https://plan.xivstrat.cn/#/plan/eJztmV1vmzAUhu_zKyJ2mwQMhkDvpkqdpmm76e6mqjJgEq_ERsYszar89xlCMz6cyWmqjmzJRRQfH9vneY8_wHkajccGxY_iY2xcjSEIJqUBcUyRLD_Jgiw-4I0sGJ8BuL23jcnOmKSM8b2PNORLlOHSjzKKay9pXpNYLMu-LWtvW2KyWIqdsbJt604XnMTNPsWm0WXLU8iYC46bzgVPS9-lEFl-ZZoRy2eP5EcuOBKziJpZEaYkMqu4TWturgDITXu2xmH2wmhJfpsxkmJ-w3EZieAFrqtCFD0sOCtoCydDcUzoomEqSVgmDfvhysZMCLbqGFOciI6J13FZtWk7ev6uIjRygbNc1n-r7PsoWPgdR-J3RbOypTqmeLUxJs0qlqGIiHI6AMtq1eTkZ9nIa1s5E0gQRtuRl9pFjFZzrtPgsee56bct2zkebBkzQimO6yzsK7aTPyMihq8Jj1Ksi8lRTIq8mgwacU-B7SpCD4KWMUQ5vmZptZyMd9BDyAvb8ZRs_EPK1g03Kwg82Am7ECmhjb6iIEli3xiKHEo1YKfLf1QNALSmNbTA_6DGVFsOe7hy3CB6tBa2265IEH1PF2nZZXBw65xC98WrCwx1PgnEF1h0xo4qXsNEkZCn9M7lPl-hNJ1l8uBsOUf7oZPEkp-jc9FJRS71ruzf7vTOML47y42Y8PbYMU5QkYovaIU_7Z6d6jN3tiO6LYEMjZSqzr35_BXOvTXarBB_aMdQH-EO0BXykDB171_rwWAfdQo8u0crNwVbBeyfG7DTBz6GNzg3XluPV43rW-eGCzTn8wFecG68sYrX0tutfPvcaCOdjbnHX9M650YbKpaubmpf4wXsTWGRTmoPZNZ9BdgMcbFRotr-qaj7F2p33s-o28eECkr5nDcwFq-_80BFyjzle6U3MJj-Q7yCZXoABg4MBvYzo5pm3XTVNP7AaGytNaOGAdbAYIBeatSZmQ8LBgZ9mCNWjTMwGr9Ho7-dudosb3k3ccrVxOVuR323o307BpyLglIt5xQJ4UVCtYS6f2dA4F4kHJ-moHdRUHWSaC_i-UU_5QzUFtD_WwLWv-5Gz6W70fYXEZnNOQ -->
+  <SeparatorSection id="历战之极武" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="历战之极武" /></T>
+        <P>依次在场地上按顺时针或逆时针顺序生成六把兵器，后四把在【正点】方向</P>
+        <P>和【历战之兵武】的区别是，【兵武】是一次性生成三把，而【极武】是依次生成六把</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="铸兵崩落" /></T>
+        <P>BOSS面向第一把兵器，读条结束后冲锋到该兵器处，释放相应技能，之后依次冲锋到剩下的兵器处释放技能</P>
+        <P>和【铸兵突袭】的区别是，【突袭】是顺时针冲到下一把兵器处，而【崩落】是根据场地上兵器的生成顺序来冲锋，有可能顺时针，也有可能逆时针，且后四把武器技能释放完后，还会留下四个风圈</P>
+        <P>最后每个风圈都会点名最近的两人开角90°的扇形魔法攻击，附带魔法受伤加重</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <P>兵器的技能还是按之前的方式正常处理，最后风圈扇形按下图站位引导：</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E5%8E%86%E6%88%98%E4%B9%8B%E6%9E%81%E6%AD%A6/1.png',
+            }
+          ]}
+         />
+      </div>
+    </div>
+  </SolutionSection>
+
+  <SeparatorSection id="万劫不朽的统治" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="万劫不朽的统治" /></T>
+        <P>无实际意义</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+  <SeparatorSection id="举世无双的霸王" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="举世无双的霸王" /></T>
+        <P>全屏物理AoE</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+  <SeparatorSection id="火焰流" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="火焰流" /></T>
+        <P>点名一仇的二连挡枪分摊直线死刑，对最前的人附加【火属性耐性降低】，还会在原地留下直线区域，稍后判定二段伤害</P>
+        <P>除了无敌单吃，也可由双T开减伤互相交替挡枪</P>
+        <P>副本全程该技能共出现两次，第一次建议【除骑士外】的 T 无敌单吃，第二次建议双T互相挡枪</P>
+      </div>
+    </div>
+  </MechanicSection>
+
+  <!-- https://plan.xivstrat.cn/#/plan/eJztXF1vozgUfe-vqNjXtrEJNjBvq5Fmtdqvh472ZTQaEeKmbAlExNk2O-p_X0iYJICTOrlR4pu6DxXYBvseLsacc8L3q-trJxMv8teh8-GaU_-mKogKkUXl_vdyp9x9EvNyx_mD0vtvfedmWfiQ5nmxalMWTB-jiajaZXkm6lZl8XMylI9lsUfIquxRJKNHuSxclL3WJx0VyXDznHK-ccpGS1mOeVaIzcazIq3aPko5mX7o9eJ8eveS_DuVRSTv4qw3mQ3SJO4txt0jfm9M6bTXv3sWg8mBo02m95M8SUXxqRDVSGQxE3XVIIqfRkU-yxrhTKLhMMlGG0VVJPmkLAhX_VVH51Lm47KUbpam4kG2y4p6aCGpy16vfvxfjNKZSjGZlg2-LMpXI8kH_4hYris2KxvIi0yM587NZlU-ieJEzhdDIY2aafJfdRBvlha5jGSSZ2WNzxo1SZxny8RrHvFSFjVL5p2SRaJ4ntsonCRZJob1pVhVvN7sjlFGxUhIpzO0qq4XxbLMl2WTb9NxlKZ3k_ISNhrHebq4F5yfHh5I-aeLVxENk1l1EVgLxxKwRfmXr5pIFsu0coZJ0ex8KB6iWSr_jMbit-VtXF_6u2VI91VEzqHo94-A_nM0H0fFk6PKpD7VRXKNTLOiPvvnujOvG-ot5W4n2ltKXVXAHraA-92A94mXYYvX1Yt3S7gcW7hUM5-3xOtji3eoipdozlYBtmhjnYm5E38dbYgt2oHi1tW8tK3nJ4JgI51Lq76yjAKC3T7yHzBMokLOlSC4gV6oq2Vd64576a5bqoG4yiBds0Kh1bqO0G6GduMJmCqevnYejkX8-LF8dZCi-Jw_i9aCbrVm9Ag0JeOqk-qAbunfUToTzdeD6q_R8vrabe72m7vext7XDnC3rJvvLlOmgmehW3XxooBpMXI1dEwbuigXvycbL-5vIPPjRZk2i1ORjZYv0O5WJGnQfdtTZgNVhtRcow2iqfi48fpV_TmdFn9tjaOaPItf0vx590nymUxLdNbnac1jdf36JIvpgjgGwu_6XfjbUO_IKB8n_PXW16uNi3FxbAiHrAwsGwJkQ_gxuChMbAhHR__A2BCOjv0BsSEcHfkDY0M4OvYHwoZwdNwPhA3h6LgfABvC0VE_ADaktZo1mA2BUgj-25TI-3oP1qcQfMu-rLvYj0LwDWZf3LNkXRunHWnnW-xWXWxLu_ZdXEMXmAtd_xzQaSddQM1FzjsHcvr3a2DwE_Ys0KnuVzVyBj9gz3K7Kmc69RM20H_CYiHpW3wcGpbYGPhhJL1vNZLTwL9l7RJa-I8_-Sgf48rZp3W0xf8Y-Oujb-f-46O_R_Lbuf80c796LYdUHkeH_ra1dIAT_3rrsu0JwTF0iYNT8cSLcEZ2rgIHoduPd6ai-3Ym-oy-lYntuDupWCZz7IcnmApO_A7KyM6pADP-n6Jsb0-N129WPETZz9korU4Z6s4A2nc68_aiNE4Wj8sODkjfSGn9Uwc-HlrXDYFsDfRPhcew6yHyT4XoDHIg_1SIzh4H80-F6OxxEP9UiM4dB_FPhei8cQD_VIjOGgfwT4UQZxwq_1QYal-892EC0vZPMUIsdKsu9vJPMWKwHcNw_xQjBvsxzPZPMWINGesu9vFPMWKw4dFs_xQj-izJ-4BO1z_FCDcXOcP9U4zou2wN1LGUIbUaopGxjIEf5iBhlFr8z-YgYS12yaJ_DPT3SP6-hf9sDhJGPYv-GR0kjCK1r9VbF-0gYUf5QJ-BDhL1KtDbaSbD7GA4q4NE_0noXaaFxDoUDpx-QF_eQ-hQYAydYg9yKDCGTrKHOBQYQ6fYgxwKjKHT7AEOBcbQafYAhwJj6ET7wx0KjKH7nM3hDgXGILZxIxwKtwqLAqUKjwLjBgvtpqvF3GDJ03C1mBuseZqtFnMrea672E8t5gZrnmarxdzg7wqZrhZz_Q8LIZHLfCtWHh99fZLQt2olDH6QXOZbsfI06G-ZTn2kcmW9ddlymX8MvstEuWxLLu789AVauebMepn-g_Ay5Uqrlh06-6AjKYFqmY_uu9swtaw1WSCIF6SWBejUX5haFqATfyFqWYBO-oWoZQE65ReglgXoZF-AWhZAVF9kallgedB1F3vJFqHBOqPhskVo8A96zZYtQoN_zmu6bBHqi9tYiPMQqdPeGPhBxHmI9Dux9dZlE7egj7IYTNyqM9F-KBMIP2ge5q0OLwV_y9seNvlwgo7ngvG2nKAjukC8LSfoqC4Ib8sJOq4LxNtygo7uAvC2nLynXzlw8o5-5cAJOgHxcN6Wk_fzKwdOLfu47mIv9pFTgzk0o9lHTjcYtHqrJhGuqq3X_wHCpkZe -->
+  <SeparatorSection id="星轨链" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="星轨链" /></T>
+        <P>场地纵向和横向依次出现四对魔法阵，按照出现顺序释放穿过场地的直线AoE</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="兽焰连尾击" /></T>
+        <P>BOSS朝自身正面和背面释放开角90°的扇形攻击，和第一对魔法阵的直线AoE同时判定</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="通用跑法" variant='lime' /></T>
+        <P>下图以【计数塔】代表场外的魔法阵，塔数字代表出现顺序（实际游戏里都长一个样）</P>
+        <P>机制开始后，MT迅速找到第一对魔法阵，调整BOSS面向，让BOSS侧面对准第一对魔法阵射线的交点，人群去第一对魔法阵射线的交点附近等待</P>
+        <P>这里MT一定要迅速调整面向，一旦开始读条【兽焰连尾击】就无法再调整了</P>
+        <P>接着等BOSS前后刀和第一对魔法阵判定后，全员穿到第一对魔法阵射线的交点处，这个机制就处理完了</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E6%98%9F%E8%BD%A8%E9%93%BE/1.png',
+              title: 'MT调整BOSS面向',
+            },
+            {
+              src: 'imgs/07/m11s/plan/p1/%E6%98%9F%E8%BD%A8%E9%93%BE/2.png',
+              title: '在第一对魔法阵交点附近等待',
+            },
+            {
+              src: 'imgs/07/m11s/plan/p1/%E6%98%9F%E8%BD%A8%E9%93%BE/3.png',
+              title: '前后刀和第一对魔法阵判定',
+            }
+          ]}
+        />
+        <ImgRow
+          wrapperClass="max-w-100"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E6%98%9F%E8%BD%A8%E9%93%BE/4.png',
+              title: '穿到第一对魔法阵交点处',
+            },
+            {
+              src: 'imgs/07/m11s/plan/p1/%E6%98%9F%E8%BD%A8%E9%93%BE/5.png',
+              title: '原地等待',
+            },
+            {
+              src: 'imgs/07/m11s/plan/p1/%E6%98%9F%E8%BD%A8%E9%93%BE/6.png',
+              title: '原地等待',
+            }
+          ]}
+        />
+        <P>值得注意的是，魔法阵射线宽度10m，刚好覆盖4个场地小方格，走位时可以参考地面花纹</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="近战跑法" variant='lime' /></T>
+        <P>只需要在BOSS目标圈内移动，根据与BOSS目标圈相切的射线出现顺序来躲避即可，其它外围射线根本不用管</P>
+        <P>参考视频：<StratLink variant="teal" href="https://www.bilibili.com/video/BV1xgrwBUE6N/" target="_blank">莫古力看了都会的M11S星轨链场中游龙解说</StratLink></P>
+      </div>
+    </div>
+  </SolutionSection>
+
+  <!-- https://plan.xivstrat.cn/#/plan/eJzlnVFvo0YQx9_zKSL3NY5ZWHbhXitVqtq7l5z6cjqdCN7ENDZYeH0595TvXrCJA-y4XrME79R5OMGAbf7sADO_GfZ-Xl1fj1LxQ_4-HX245j6_KQ1RLtKoWP9ZrBSrT2JTrIw-EnL3zRvd7IwP8yzL9_sUhtUsWopyvzRLRbVXYX5OpnJWmKnj7G0zkTzO5M64tb1UX_qYJ9P6d8pN7Ssbe8rimNe5qO-8zuflvjMpl6sPk0mcrW5_JN9XMo_kbZxOluv7eRJPtsc9cfhkQchq4t0-i_tlx6NNVnfLLJmL_LdclEci87WoNt1H8dNjnq3ThpxlNJ0m6WPNVCrJloUh3P9e-elMymzRts7Fg2zb8urQQqeyvVy9_rs9ytFKiuWq2OHL1r4_kuz-bxHLtw31jY0zL1Kx2Ixu6puyZRQnsnQJ4jiNLavkn_JDrGnNMxnJJEuLLc0NSZylW79rfeCHsudG_ez2cy5vGJdJmoppNRL7DS83_y1RRvmjkCPl0MptkyiWhbvsdvm2WkTz-e2yGMHGznE2314Ko18eHpziT_d05dE0WZdj4LdOY3G-tvYvX_VOZL5zqtE0yZu_PRUP0XouP0UL8cfuIq4G_nan6K4UNOp68oMeTv5ztFlE-dMI8iOP6J7IQyem-vbP1Y9RVeqYMFdROybEhQSH2AR7quAT9HoONr2unt4Dcgk2uUTTnw_odbHpnUJ6Hb27ledhUxvr3JgV_ZVaik3tPXDp6g6tj01spDO0B0aW9SB2GeVyA0ptPdQ7SN1Hdb6rjqivNaC-Z5kSoigZ60ohR6UcPrKTRWpI8RQpHLircND1uF3DQrmixQe0-OC4-G9aqqWvVzVl586USOumZpwrcdpHNIcxV2qfyrNkS5yiiy7NsiVO0YWXRtkSp-gCTJNsiVN0EaZRtsQpuiDTIFvitI8oE0u2xGkfGBFJtsQpOmzXPVvitA9kl6TTJI6K2OZjcVAiPzHGayVsx8Na4kHphgM8iALoRuU72sLOlQa2nh0b1VRJOZ48nT8PhAambazkuEflYMkFuW0pukEuyH2K6VYAXDwMvHj801X9maTiTkbx04nCgqb1-6d1Wb0kh9SOW8FUKYsBo8XA0WJvuqolqzJ32nPizvxLLXJSC_J25qMLlwyrnP6FVTlb1yUCvUZVToaOQ5lVORk6DGVS5WToIJRJlZOhY1AGVU6GDkAZVDlZH_xJCjlrx-iVrdg6T2ptirvzUIQLu0ZIxptPfZFOd3bWjMVe2wWbR6sbKgWQch5q61uIePZrtk6lyD9nz22l-8CrVfjpMK5x-SNKQL-1_hXN16IZY5d_jT2vr93mqtdcpbW1r4rLAGmcC5b0mH550sAzWoP25hnBe3tGoE9DLsMz2m6we1LAvhFonzsLUvwivIGUUVCZ_v1iGEamghiAWIwh3se4beiS6Q4NRCoYt6z3g5S3HAdAL0xR1DJVeo7zS4suIsjrXNDrOuC_oUBZu3fhACmD3a8DAOw0XP6p1xVptSceGC4fHC2GSRVcHgihRJXb1l0VqGo8rojh4CDpP26H0RKqWqD7A3ECQE2g_1jau9znKH26X6_kwdir1X3dQd2pKjrcvYdSoetXQa3qVC1Zxf5779pjQR-IAyP8t6JrjwXooIsh_Q_QNf6Y0f8AXeuPEf0P0FWzzOh_gK6YZUL_QwebWhP6H6KrZBnQ_xBdGcuA_od9VLG6M17uNB-Ce8YbNqOBd2C8oT6LGJzxuqr1_RmvwnMP8_9Qn3eY-AY_4BvvXhkK9cnHhfgGWACAfUMfrliALsGsHmSXoWWgxVdxpWazLwttK2QANE-3ksGd48jIVvQ_htg_d_SLjxZcQLo9sk4HJoahR9bR7862AJJDV5UHDtdQjdoDs3_u6IcutrP_Ini2TAvA_kngqSNDXALJ6RA5DIXNT5HRoQHCMvrPHf0IwYrLH-wUAN9AIbVwoVqyqq7R9zsNnPTBbjCWNWx4p4ETdDDJcC4Cgq4t2mwuAoKuMdpoLgKCrkpnNhcBQVekM5mLgKAr0ZnMRUDQVegM5iIg6MpzBnMRuH1U5wzIdWsGxFdyzd3mLaZ_cs1dizvXPdV6JnINZgauPqEycQ16wDXou7uGPqm6DNeA6l2Ku1Tn7jgOsxUyg4zZ7cAoEDRic69D_6hVNBZqxObeUBWBoWGsp3_LPRvAhFIFD9Ji2zQtKliGSlAeqKUD_R8IYepr6PBOxlAYVtunkL2BoY9hT5jg1gZl2nUzr_ZgrZaswssHRHely7SXOS4w0uXWF50DLlN8E26YwWWKb84NI7hM8c26YQKXKb55N4zgMu1l6g0scJmyS4LLlF0QXKbsguAybU3SeY6JbocO1xn5f4brjAw1WcnQr7gTy1p8d8BSnZ94TAL1f3dRjFVuVdNULVW51VW59PIvikOGrw -->
+  <SeparatorSection id="流星雨" />
+  <MechanicSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <T><Skill name="流星雨" /></T>
+        <P>每轮BOSS点名最近两人落石，共 3 轮，落石距离过近会爆炸</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="大火" /></T>
+        <P>每轮BOSS点名一位非T非落石玩家直线挡枪分摊，共 4 轮，对第一位造成大伤害，可以由坦克或落石挡枪</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="三重霸王坠击" /></T>
+        <P>三连全屏秒杀AoE，每块落石可以抵挡一次伤害</P>
+      </div>
+      <div class="space-y-4">
+        <T><Skill name="机制流程" /></T>
+        <P><ListDot />第 1 轮：点名BOSS最近的两人落石 + 点名一位非T非落石玩家挡枪直线分摊</P>
+        <P><ListDot />第 2、3 轮：点名BOSS最近的两人落石 + 点名一位非T非落石玩家挡枪直线分摊 + 场外两个魔法阵连线死刑</P>
+        <P><ListDot />第 4 轮：点名一位非T玩家挡枪直线分摊 + 场外两个魔法阵连线死刑</P>
+      </div>
+    </div>
+  </MechanicSection>
+  <SolutionSection>
+    <div class="space-y-8">
+      <div class="space-y-4">
+        <Quote variant="pink"><Span variant="pink">注意：本解法与 MMW 文档的 H1 D3 放置落石点位不同，H1 D3 的位置互换了一下</Span></Quote>
+        <P>解法概要：</P>
+        <P><ListDot />引导落石顺序：H → 远 → 近</P>
+        <P><ListDot />双T截线：连线初始是连在落石上的，故可以MT找4点方向落石相连的线，ST找2、3点方向落石相连的线</P>
+        <P class="pl-4"><ListDot />该方法缺点是，若人群在落石和魔法阵之间，则连线有可能一开始就被人群接走</P>
+        <P class="pl-4"><ListDot />另一种方法是根据魔法阵的位置来分（如MT找A顺，ST找A逆），缺点是要环顾场外找魔法阵</P>
+      </div>
+      <div class="space-y-4">
+        <P>第 1 轮，双奶进目标圈引导落石点名，然后将落石放置在图示位置，TD在BOSS右后方集合分摊，T在D前挡枪：</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E6%B5%81%E6%98%9F%E9%9B%A8/1.png',
+            },
+            {
+              src: 'imgs/07/m11s/plan/p1/%E6%B5%81%E6%98%9F%E9%9B%A8/2.png',
+            }
+          ]}
+        />
+      </div>
+      <div class="space-y-4">
+        <P>第 2 轮，D3 D4进目标圈引导落石点名，然后将落石放置在图示位置，双T截线，其他人去右上落石后集合分摊：</P>
+        <ImgRow
+          wrapperClass="max-w-120"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E6%B5%81%E6%98%9F%E9%9B%A8/3.png',
+            }
+          ]}
+        />
+      </div>
+      <div class="space-y-4">
+        <P>第 3 轮，D1 D2进目标圈引导落石点名，然后将落石放置在图示位置，双T截线，其他人去右下落石后集合分摊：</P>
+        <ImgRow
+          wrapperClass="max-w-120"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E6%B5%81%E6%98%9F%E9%9B%A8/4.png',
+            }
+          ]}
+        />
+      </div>
+      <div class="space-y-4">
+        <P>第 4 轮，双T截线，其他人去右上落石后集合分摊：</P>
+        <ImgRow
+          wrapperClass="max-w-120"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E6%B5%81%E6%98%9F%E9%9B%A8/5.png',
+            }
+          ]}
+        />
+      </div>
+      <div class="space-y-4">
+        <P>BOSS读条三重霸王坠击，全员去左下角躲避：</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          bordered={false}
+          imgs={[
+            {
+              src: 'imgs/07/m11s/plan/p1/%E6%B5%81%E6%98%9F%E9%9B%A8/6.png',
+            }
+          ]}
+        />
+      </div>
+    </div>
+  </SolutionSection>
+</DutyStratLayout>

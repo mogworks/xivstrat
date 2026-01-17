@@ -1,0 +1,129 @@
+---
+import Span from '@/components/Span.vue'
+import StratLink from '@/components/StratLink.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import MechanicSection from '@/components/section/MechanicSection.astro'
+import NoteSection from '@/components/section/NoteSection.astro'
+import SeparatorSection from '@/components/section/SeparatorSection.astro'
+import SolutionSection from '@/components/section/SolutionSection.astro'
+import ImgRow from '@/components/typography/ImgRow.astro'
+import P from '@/components/typography/P.astro'
+import Skill from '@/components/typography/Skill.astro'
+import T from '@/components/typography/T.astro'
+import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+
+const dutyId = '07/m10s'
+
+const base = '00:00.00'
+---
+
+<DutyStratLayout dutyId={dutyId} base={base}>
+  <NoteSection>
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <P>MMW文档链接：<StratLink variant="teal" href="https://docs.qq.com/doc/DS0dtUm96a1RtdUdV" target="_blank">腾讯文档</StratLink></P>
+      </div>
+      <div class="space-y-4">
+        <P>初始场地如下图</P>
+        <ImgRow
+          wrapperClass="max-w-100"
+          imgs={[
+            {
+              src: 'imgs/floor/07/m10s/1a.png',
+            },
+          ]}
+        />
+      </div>
+    </div>
+  </NoteSection>
+  
+  <SeparatorSection />
+  <SolutionSection id="火蛇|水蛇夺浪">
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <Skill name="火蛇/水蛇夺浪 · 近战优化解法" variant='lime' />
+      </div>
+      <div class="space-y-4">
+        <P>战术板链接：<StratLink variant="teal" href="https://plan.xivstrat.cn/#/plan/eJztXe1v28YZ_56_ovC-xjHv-CKqwDqkxVoM61Zg7ocBy1AwMmVrkSlPoptkRYG0TWMvXZcGW4CucQtsTbOsL2m6pEhqJ80_Y0rKp_0LIyVaFo-PzifzKL7oCYKEvqNkPr_nePfc_X733FsnnntuwbEvuL9YWXj-OY0aJ4MCq207lv_zW_4P_o_n7Iv-Dwu_IsryG-T0wslhab3ZarVHN_kFnTVrww5udFqOHd7lF59vrLhrfrFOlVHZmt1YXXOHhYOyt8MvXW03Vsa_07049pWRO13_oTfb9vjNm-1mcO-a6250nl9aqrU6py403uy4bcs9VXOWNjbPNhu1pcFzLymVpXWidJaIdeq8fXZD_HFHha16vWO7v_VLoyY0OssbrUbTbr_ctoPHc9ubdlh11qqdW223Np2IjRvWykrDWR0rCsxrbfgF5PD3BR9vuW5rPVbctOturLAdPjEJAfaf78TBv4MnXei49kbHv-N3g_LR07TO_sGuuYcV45URl9iOvX5x4eR4VWvDqjXcoLEQRYnUdBp_Cj5kREvbLddyGy0nwDBS0ai1nEGLNGik_ELszuCXUcp8Ovhk9IMbDcexV0JvjCrePinfxMrUJioxExeJEbeSLRtYqUqw0mrZL1uOqJlta6WxGTQPXY9W1C3ntLPatNmmGAWBmHFzAY8qgK2aBFvPWxfXrfa5V_yXcIOxuL1it18PbztNX1Sj1RtNq2av2457cEvnj5t-N7kAY8MCELYNlUQRW31tIsz11d9MajlnOR_j-G3S18EeAPAnctraS412rWlP39ziT02q8ederAJPbkbxszr2IYLM9waVL7Wag5Ft4Se2VSF0Jfqsgd3tV5qt84e31alJNMqYtOk2G87Yd9Xrek1RFgoBogqAaCCIU4EIYagjhlNhCL3MFQ6GVCsMhpNBOkB3w2q7TPQRjiM02qEdHWPoagzuRaLG8WbLhv1-ko5_pmb6v8L_A9kKtC3Y1iRBxtG2Bk_KNMB1a9Uen7VYHX9WEZm3bDaWgs8tUaL51gX_qab-xlqbnPLnQD-rt9rrlvvTDX8CEfnig3kMifY5o6nM5BBtArjD3xupW7cuLLv-nKYT-5RjrQ-s6t570L-55d3a7X7_5QLgFwr4RYNiP2OyXyI1TeuiPXhF66sL6DD5DjNFHaYX3GFaRg7TpnRY752vOA6DXjB4csWZSaK_ZuYvYN4Pu4szJqO7ZuYucAADHaZW03BYOoE4Afp4KBInvHl1gULxVFDURUEsyXwmFRDhSQoIo4owcmCE5j8gjLQcMOJINqoRHcmAyB4eyczJfkkz9JC5HGLE7Bcf9Dgz0ZxZSWJWCg9KnNlbzozUgKYsPGgoRTFTMwEzRTt1TugpPB4FdHvUFKvZWA2eeMg_R6rqLcddDi2NPk9trI8P_giTq-7FAbN4MFYsiOE3eGr_U_t7X3TvPXjxteVl78p__f5v_8mHvSd39x_tEtp794czjnf73e5nO72vv95_dKn_5K7fVXo7297OHe_h7f89_ot37zvv_Tve9Y_9H71r95_d2PHeu8b41W23ztmhYcEiJNDDQq0SmtpReuiV8Or3J8Z8VDqqXuOMKMINNP9cvSbjPSwKWa8n6VqRrU_O1uvFpet13iQEaVJBvl7nzYgRRUHCPj7lRRB5IILvM0_2UKpFhbQpe43GAGc6y6FEIt05KpKijFvUuFsMyC2VyW6J1OR35SS5wkJPEuxj2xzVyCbs9VQIqsIs6zFTwTwPDMdf1jPSfffysqxnpOtLZA4Yv4hy4EZGooW8rMMaMvakZEP1G7x5UIFC-EypfgM5ahlUv1GS6WTGVL_B29BRIBhxwB7VyKb6jYwmrOiwiMNERaFGRlM4dFfEXcLxcCWVeHg0rLTbrfPRpztk3xXFNijbN0909Ah1BUZ9MlccbZGDR_q5A9oYxgBGDDr2YYbQqccH6Aiuni81yIke4kjFQ--rfwQih70r_avvnnG69-90L1_zdna9nXv9q9_1dn8AhgWgm9Eh6M1DhMOrgsoTYOoeWhwjiir83uVfiEAU3Eo_rMpsK72ShKHJlp0nCk-xjpyoID1PFMxKkJyfJ0oVUUxM0LPLgCVeC5DJUVRigIOLWKoOIK4mWQuerZlQ4AS9nqCZxVHL62LenJAioTA5EhgV6pTpEUi6zRbZe8YxwFKCBr5nk-fD6LBZOgxYWoUdVkGH5cJhohlICCl6hoSyeExU0UR4yXwK4bE5Ww8nvG2H6LCZOUyUbyK8vbDor5n5S1yBRUgqjG7GaUgwD4mMPCSEt5I27yhOsaeceRcRxyiO4plISDlwxOFsVCNbn0QoZzkqzQAkJ5sWCE2S_70ouxYITUJXF2fbAqGFybqSSAZPqBTyOw_yJranEhA4xUEyofVBOnl9sOwQAe0IhIiRgMiHCFKHpQER1aaEqAK8aSBEZgKI5kIm1_3zlvfkX972Le_uJ95Hfz3jdO896O1d9ravdG98PvgpSBq0__iT_taX3sPv-k-3up9-AYQswATchLo-tSrcNLk6MmbsnH3OHlIZU8SFV2nKAHNgcFZZimYsdeSlFk7VzhmLIDUZu_FQBBn7OnERJC_nuPgIno0IUsPEMDJEkBpvLx_CGIcRRhHPZpIggtRKkok7g4QwogGHAmTFIYky1aF-YlQjqp-A1t0INHvUkY7Pw3q4OLurIx-fB4cJ6yd03F-dB39NoZ_gZS87vscy1k_oyPxL0E8wbz2iOI7iFCyYURLeP2v9hIFHuczrcCasnzAy0rTnRT9hFEdZkEA_YRRGV5BMP2EUZrNhMv0ELy2T-LBUcuY72hYk7a-ad078-tUUOHGx1LvhVWFTzUBogA23IvwKZ0WyirF7pgy-HPnV2NdN4QFJBw5lwa8yhUhpHQkjyAxWeZNphFGQX63igUQS-NVqSdIf54RfhVJDgLCnO8dFepXxC7D4AKVRJNVoUyheBohyrJaBgTngL6pktNcI_RXxl6iOlSpFz9dRDn-JZ1ihvLSkx_dYtuQqVfC0guTkKlVKclhBxuQq5eZuRRxFl-ApN3lrgXDE4WxUk4BcnTCczc2JehXIfOa-HM-xBblVaGmIFifxpzC3CttZmHy1wtwqbGeSPUlzQQ_6_aO3s73UvfdguEv24Or61THK0L8pIAm9m595O7v7j74ZlPT2LndvPNh_8jfvx0v7jz7wfrjf-_feoKb_dKd35wPv1if97-_tP7q0v3vzjNO_-5-QYHz4ae_2nn_X6y8Mbr3e3f74hSEnCUzngZVxcDpPxni28Krs3CIlknYfp7qBU_hVpUkGGCQYkxOMlMrYKpwNwUgpcjoSCEZKeaQOwihGMFJgxogo8lCEX-mSLLUVi2CkidI5IcE4qpFMMFJOCqliOKwcK0bCBCNNZW8Z-mtKfwkTjBSPW82Dv6YgGJnYqxwEo4r75SQQjGpJdstlTTCqJRH5ZU0wqrwZYYFwxOFsVCOdYFQzys-SE4KxQGcLJiAY1SSb_QpEMKpJtgsViGBUk2zKSZtgrNmO6_cUkcpsKMZgw-HjG963j_sP7_cfvhfvJ4EFagPivDQlT2M92CS46fvyONaHV6XnSzUZG62zYlKFx1ENN2oOqzLjUbXibtSkADuF1BUXRnAM0HGjpgQeVUdSXwKPqpdkDadgPKqOGzVzyaMyaXCRR805j4pZcHPhL2EeFbPg5sJfU_CoZcyCSzELrgweFbPgyuFRMQuuHB4Vs-DO63DGnNcWQGcAx49QJgeupPD-kGxx11hGJSzza-MkTcf1p6RDTJh0prazEpZroDOid4se9AlF0BrVJbTHnLDEpUvxCy58lTDFL2xnYTh_iCU2412SDnZJSXinueWIzzjd-3e6l6_t7-72fry1_-jD_u13ut_-fbRntP_U_7tzfCbZkMGTZcUxGzi7mW6SCA4mlaIx9UegWAMgPO4R4SOAKXOo4zQIa8x-wrVW08cnZlZ4VXoBQiX_yaCnGLylnKCMQoPY14kLDSoFFhowMxXkdo-EEXwJTRQaSBAamCg0kCA0MFFokIXQwEShQS6FBiYKDXKxcszMXwb-qkL-SuWMIfTXlP4SFhqYKDTIg7-mEBrwzhA6vscyFhqYuBQnQWjAPSBo3lGcQmjAPSEIcRQWGnDPCCoQjjicjWokCw2qqQgNsibiF_V4tKxB0XLK5xDlhIivzgkRX50LIr6KRPxMN2tXi0yxVzGuT06xq8x3IorjKIp30GrhTigJr8rO6atK_pOwi0Y7aqIzPpDRT87oq4nOH8mW0VcJkqgSGH2VYAr25Iy-SjAFe3JGX2UWavIfdUxAsViMvkowBXseGX2VYAr2XCzRCjL6KsEzufPgL1FGXyWYgj0P_lqsqDGHVaG5L_OwkvdaZsPnqxQZ1OR8vso9j2veURTn81XugVyIoyifr3KP5CoQjjiYjWrk8vkqzUiumw8-X0352K988PkqLXT6dTMel4GcBO_oqXxZmYDNV3kHNh1pJbL5I8AF2XyVd9xSnsZ_8MXHY5VksPl4rJIcNh-PVZpyjgmiqBWtNYZXBdVEAOMEe2h76BdVQpPKLAFCNR4wLxJoPNSSKGBRLSFBLaElUedmrJbgnhKDBLWoWoI50wVhPApGGEWeuhBRFFRLaCVRDM92BaAaA3yRKCSG-CJhGukQc8ZfuV1MLYlUogo5RgUdE72zeNx7Vh6bdvn7KHELwL4vguw7s8iGHsvMYxR6yaApiJ7RHkR0GeMyRYu7TIVoFmZZvxySCb0kMtFsJRN6ybKRZiWZ0HlTQsRRWDKhF23LWfbDWXklExNGs2hhITUTkFC_AkVgGhSBGUk2bM3W0Hga50VCgLgFlIcwMWmO7Zy4_QLQFUywNQl_MSfCAj8gDoQFty73PrribV_p3vg8-Pf6VSF5AXRKiZroZI-s5QUGRsAS5AUGRsBS5AUGRsAS5AXG3MS_MqOMCtBwK8AYAG6wM2QktF-3a2uv-hha7V86rdq5s34kPKWOgC1e-_Xmul8cdfmbw0IiBtAkAYUCwcDgdeyX5tVYgDHZ9NHEhNEmNW1ndVChTcPfA_HzBFOF4ufwqqDCGVBSQqHZRCVJlF0c5UxFhkAIlTOCnQz42uUu2BZXzlR4sTaKFUSVM9zDrxBGQeVMBfVHEpQzlbkJtZE5Hd0xMSfKIrTbx0xFnZAxcWqWZFdqtsSpiYtvUohTE5ffpBCnZkmW35A4HdWIHoUC8GngRN_MKDPRTNKcAR3OIgHH9CTLfTkxlsY9Dq55VJMQxXNCKo7vVvav_XfMu_mZt711fFKxKmNBLStSsYq7RCWQilWMsaWQilWMsiWQitXyxdgvW87UEGoMYHXLOe2sDgYxNs_E2KjBJn6cinXwg81Dq8KrohJKDE86lDIBEZamEGFP5p420hQZgznSRrGvE6aNNEUGcZcNbaQpvDgAV-oFaSNNQfYtOW2kKUi-JaeNNAUX2uaVNgJiBoaKDZvI5IW2jBq3KDmkKSVJJ5ApOaSReGeKKB6gKE4OaQQT6MkghzTuKUkFwnG2SUIAVTEFhgATGgKIli9jhlxCPIntIrTrTCOQRfqRFqXNGDTtOlOVzSak172t3f3d3d6Pt844Q-LA29p7dulS95s9b_u6X_b0_Wf_3Os__LR3e8-__cXXlpe7O5f6T3dEOAVIo64lOpwnY0pBIyWJmDOlFDRSErlaxpSCRjDCTU4paExvWwYUi0Ip0LHl9fAqpBROBFdv_x_M9BeW" target="_blank">XivPlan · 火蛇/水蛇夺浪 · 近战优化解法</StratLink></P>
+        {
+          (() => {
+            const imgs = Array.from({ length: 12 }, (_, i) => `imgs/07/m10s/plan/p2/%E5%A4%BA%E6%B5%AA/${i + 1}.png`)
+            const imgRows = []
+            for (let i = 0; i < imgs.length; i += 2) {
+              imgRows.push(
+                <ImgRow
+                  wrapperClass="max-w-110"
+                  imgs={[
+                    { src: imgs[i] },
+                    { src: imgs[i + 1] },
+                  ]}
+                />
+              )
+            }
+            return imgRows
+          })()
+        }
+      </div>
+    </div>
+  </SolutionSection>
+
+  <SeparatorSection />
+  <SolutionSection id="水牢">
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <Skill name="水牢 · 解法" variant='lime' />
+      </div>
+      <div class="space-y-4">
+        <P>战术板链接：<StratLink variant="teal" href="https://plan.xivstrat.cn/#/plan/eJztXFtr3EYUfvevMNtXx6u7tHlLAg2ll0DdtzgErXZ2V7VWUrWztbfBkFICNYnjtA-BFvrQYgi0SRpIKY5DCfS3rGz3X3R0WXtHmnVnVWkl7coPRjpnJM83lzPn-zTjeyurqzUT7MAPWrWrqw12zbtXHWCq6PYeukG3W2CIbmofs8zGXe5abS2wtg3Lcs4LIUO_q9rAK2haJghLIfO23oJdZBY55tzWBXqnCwOjb9sNX9px9NbkO-Fw4pVYSYjqPHDAZOGBY3hluxDa_av1umb113f0L_vQUeG6ZtbtQdPQtbpf7zoj13ss069z6vo2aNoJq6v3N2xLN4DzvgO8qkBnAEJXU9W2Oo41MDE8ttpq6WZnwuRBsWxkYC_-oPe4BaHVi5kN0IYxoxPWjg1rh-q3Mv7t17TWh8DuoxK3fft5bazm50CDF45JJ9b82-qwpzpbNxGei6YKXuG0gPNZWOwad53H3bahaqAHTDgu0v9igEYXXshRW_qgH4XlVVv_ynuIZzFru3PLVjUdeoOSZZiI71MLqlC3TOTEXc1LHrOmepxpr9uJWYYxiz-W8crbummCVjhUzh27a5e3P1SdDoB4q-maX6taXdUgGtBBkbua7mgGWLfRGMNKa5bhz9bae802w7TbNVr8474RIl2DmsW3375D115OMOzx4OB7WqCtDgz4idoDHwaRJhyX6wGmGz6kWsLWFzGboQ6B3wzhH62l0TkAdtFLsTeFNuQ19Che1HROEG7xugGz5VtZfMSMA5I0pT_bqD8ZZlp_SqQ24eaAjWWI4KSssfHU2IAJekPaeRCGIokyOniTM8ArJBu3XAoDcz4AuRjAKxxDhVHMCaM8M0aa0B8FrceHezKINppSEYghEE75v6vYOUTWm2gMG8PJcjQ9KZQd5hU6nHwqy8VOZNlRDb3jL-V-dofnM5YJN4JWYPFWmAyS3g_1HIBDw6-HNYDx-D21Bf1ao6f-ub83OjocHf168vTF2YN3Z18_Gh396D5-e_Lqj9O9XzZN98Gf7stvRsfHp7_94H77k_vsIfJcv7WxcfL0jfvku00zeNqzBG738M3Zs-8bzN-vNs3T589HR_fP_no5Oj50D_ZOHu6dHr-LLjCOtQWmLg5BXwrx2RmLSX5_yin0p2qBj2LtOL39x0uegpsNYHaCpXD6mGaVxHFIKRfQyFifZVFp4Em_2gc3zmcKr6liuxlJo1FTODcNa_uiGNuW4xMqmC0XheQGkKOFShj4om_y5wpLzKzSIDK5YiUhbZCQMuVCSsjAJKq5wlKt2-HVnZUJ2JWEMFcJIY00stIQEmsIeJpQLA2Bw0f2mGdHgkwGRFuZB7gGGRyXNbgGNbhiqwhprGR5yQiUCR-XRl5ScBmBS0MOKoGOwKVBsMsgJHBpKCaXKAnBJyE8r6mkhJmlBHolgUtDzCyFlMClkYzODyknJF9Z8Lyv0hL-M_ZRiwlcGoJUKcSESApbeKTx2UKnJfBUqWZ4VWkJuWkJfLUfIXDkoyXw-PwqlpbA40v7mG4LeFaePt3m6T_aJwcnCERwvJw1OIEaXKG1BD6vz_VpaAn0mQmfRnpbHDmBnJTwaXz4LIGewJc-zaTdmJBGlpl0Z0KE--YkJ7hPHp--feEe7LuH--6b12c_PwpIv7v_2j34PcEuAo4wmzie0PiRVKTojDh52BDSyB3zBEq_DERUg4r7J9hHQG7Y0ku8BKDEyVKyTXGJdxEIVIlheFUx_9yYv1Qx_8CRD_OXisz8JTLzl7Nm_tI8mL9MZv5S1sxfWhDmL5WZ-c_wUUJaBuovLQn1l5aF-ksZU__LtxIsJPenp_6RmVs-RkwbNuSyU_8Z1gG54v4zBipa8i8vC_mXS0_-6bi_XHH_UnB_oTpBEDjy4f5CkU8QiOQTBGLWJwiEeZwgEMknCMSsTxAIC3KCQEwjwS3SV39iXiIu1hkCYkoiLskZArH0OSYl8RczPkNQffO_hPiLi7jfnxw3yrXfn4SUfh2odvzPFpGpNRWx9HIsrVImln7DP-V3_0ipivsHvsJxf7ni_oEjH-4vF5n7K2Tur2TN_eV5cH-FzP2VrLm_vCDcX6EK8IVASPndn5iaKEtA_pUlIf_KspB_Jdd_ILCQ7J-e_CtLQ_6V8pP_GRaCiv3PGKqo6b-yNPRfKT39p2P_EexU7H_Fu9r9F7QeETg" target="_blank">XivPlan · 水牢 · 解法</StratLink></P>
+        {
+          (() => {
+            const imgs = Array.from({ length: 6 }, (_, i) => `imgs/07/m10s/plan/p2/%E6%B0%B4%E7%89%A2/${i + 1}.png`)
+            const imgRows = []
+            for (let i = 0; i < imgs.length; i += 2) {
+              imgRows.push(
+                <ImgRow
+                  wrapperClass="max-w-110"
+                  imgs={[
+                    { src: imgs[i] },
+                    { src: imgs[i + 1] },
+                  ]}
+                />
+              )
+            }
+            return imgRows
+          })()
+        }
+      </div>
+    </div>
+  </SolutionSection>
+
+  <SeparatorSection />
+  <SolutionSection id="浪顶炽火">
+    <div class="space-y-8">
+      <div class="space-y-4 text-2xl">
+        <Skill name="浪顶炽火 · 解法" variant='lime' />
+      </div>
+      <div class="space-y-4">
+        <P>战术板链接：<StratLink variant="teal" href="https://plan.xivstrat.cn/#/plan/eJztWt9zmzgQfs9fkfG9xjHC5lff0s61c3Nz15nm3jqdjgzCpsHACfkcXyf_-wmMXRALyKRnFDt5yNirBev7tFrtrvb71fX1KCKP7Ddv9OYaafZNJsCURJh__86_8K8PZMu_jP5A2v1XdDe62Un9MI7pQYkL0iVOSKYYxREptLh4E3hsycWGrh1kSxIslmwnzGVPxUsXNPDK72Tb0isrmoxPek1JWXlNw0x3yViSvplM3Di9fQz-SRnF7NaNJsl6HgbuJJ_3RLMmK6SlE4RvN2Se9JxukN4ncRAS-p6SbCqMrkkxNMfuw4LG66iCJ8GeF0SLkiiDEicZ-T9-MHs8Zixe1cQh8VlNSIvZoWJ2fH5X-__5TEcpI0nKNT7n8sNs4vk34rIfA-XBCv04Jp-45uimPBgn2A3YNrcbrTKy59Cuig80zgR9GjPMgjjiQ9WBx5pkW5PkBqNXRHOckndxmJvn6Bd_bmlTtzr3IIoI_RDGm5KaPyPIFyCuWRhE5Xf5tmM5o9qvfTxwoc8OY0837axu8HaF6cMHbiWJ8LvUI_SvQu1OfzutDichdsmKRGyvkv695nu2qkSxF6xT0VgyYwj-zR6aoorUX3xsXE9_8alpheYtjzUbyPMXvDr5JFtPr9iA0vyTiKy2sjZdsGZJAgncOMp9qtkT4PR_hWEeDUOvwRDtqgGI_H7gXuY9jmSRHOzbEK0VR3fRIsxtvBHm2DL6Aqo-WPU1Uxcb_rzT1yDf8v0uX2M5hGuN1KQPab35M1_5ux7P6m5Bkj5LXfreBdQNSQ8Ga1yMkVMnoybM-bBb-CDYQrrXffTrNprpnUe_4WqaSnygKUCHc7l0QNaBNHX5OKG37u9uEGohcEh_wzBdECElycKVbGyCXcaTvJ3KVze3u9uE510Vbbe0eBr_a1oM04DXQiA15Xzn8s9f5IIrussEq_lyPuIRH69D9idekd93yXeRqt3uIEE7ST501hXatGPQiaGpYru2GfGeqgRTJkThRayt23LmcIi1Z3adO8OoUTczAOK6o-2TQjFmUlDGIBZDMSxIDgt8DpmKgTGlwMBYrGEciPyhfxExoXRIiC4iJpQ_XYTA56L4gLaL3hbinf9p69SpM-vU6RBx3ZHUaZ26VYcyrUMxICjd9cbTQgHKS8CqjMFlUS0IAmqnwLKMwXXpDoKGyCiRBTgcuYRSf63_ZVl17_KprnAB8GT8mf3pa4sNL4U-1H_3tsWSg9JHabxpqu9oGjF1MTrpvL4W9ujh-lq4OirxKkRX-Zx-jfYXk_WMS3QDjRmN4bwsIpBuHMkEYH4QEab2sogwfgIPY5AI9LKI-BlbA05fzCPqmSowMdb1o6hAJsTEFKiYmfJNA0owoWvPZwIm4oimAxWIGCPrOCIswCRsiIgj0gcViEDO84kAeSiVX4tPX65KrJxhS5zZlie89sQJd3fn0BNnVlObM2yKM-XDYMW74qwj4tiBGmus6t3d8GXhgTtrhKPmovgA7aOtkDckH6-dIT07QyxbIZuD7-4s1e4yB-8McYCcyDbrzNndJ87grSFIKG7v7MBGAJru8sfgzSFIm8miUe0iEegOgQIb2NCOqEIM0h5iX0RgIx3X2BcR18gfMbaqcc1A7SF2WyHh_I9coD1Eg45cC2CuO54avD8EOHFhLN2p9-ANIsLlZHHeAkeUo1osBNQRACNrACN_ExREXuBingDdM-w-NNTGZKsgzQwVFzhQvGDX58_DJEUBmJIrwNdKRQRI6INtWYHu7uRB5g9mA4BzQlqpJbn4VNT3r7JPT_8B-Z19Ig" target="_blank">XivPlan · 浪顶炽火 · 解法</StratLink></P>
+        {
+          (() => {
+            const imgs = Array.from({ length: 2 }, (_, i) => `imgs/07/m10s/plan/p2/%E6%B5%AA%E9%A1%B6%E7%82%BD%E7%81%AB/${i + 1}.png?v=1`)
+            const imgRows = []
+            for (let i = 0; i < imgs.length; i += 2) {
+              imgRows.push(
+                <ImgRow
+                  wrapperClass="max-w-110"
+                  imgs={[
+                    { src: imgs[i] },
+                    { src: imgs[i + 1] },
+                  ]}
+                />
+              )
+            }
+            return imgRows
+          })()
+        }
+      </div>
+    </div>
+  </SolutionSection>
+</DutyStratLayout>

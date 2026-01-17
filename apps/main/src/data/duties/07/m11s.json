@@ -1,0 +1,103 @@
+{
+  "name": "阿卡狄亚零式登天斗技场 重量级3",
+  "short": "M11S",
+  "type": "raid",
+  "title": "阿卡狄亚零式登天斗技场 重量级3 攻略",
+  "description": "最终幻想14 阿卡狄亚零式登天斗技场 重量级3 超详解动态图文攻略",
+  "navigationInfo": {
+    "name": "M11S",
+    "parent": ["阿卡狄亚零式登天斗技场 重量级"]
+  },
+  "banner": "imgs/banners/07/m11s.png",
+  "date": "26/01/06 18:00",
+  "href": "/07/m11s",
+  "status": "done",
+  "indexAvailable": false,
+  "docLink": "https://docs.qq.com/doc/DS2pXVk5PZnR3ZEJx",
+  "phases": [
+    {
+      "href": "/07/m11s/p1",
+      "title": "Phase 1",
+      "subtitle": "",
+      "name": "P1",
+      "mechanics": [
+        {
+          "name": "天顶的主宰",
+          "href": "#天顶的主宰"
+        },
+        {
+          "name": "铸兵之令：轰击",
+          "href": "#铸兵之令：轰击"
+        },
+        {
+          "name": "历战之兵武",
+          "href": "#历战之兵武"
+        },
+        {
+          "name": "铸兵之令：统治",
+          "href": "#铸兵之令：统治"
+        },
+        {
+          "name": "霸王大漩涡",
+          "href": "#霸王大漩涡"
+        },
+        {
+          "name": "历战之极武",
+          "href": "#历战之极武"
+        },
+        {
+          "name": "万劫不朽的统治",
+          "href": "#万劫不朽的统治"
+        },
+        {
+          "name": "举世无双的霸王",
+          "href": "#举世无双的霸王"
+        },
+        {
+          "name": "火焰流",
+          "href": "#火焰流"
+        },
+        {
+          "name": "星轨链",
+          "href": "#星轨链"
+        },
+        {
+          "name": "流星雨",
+          "href": "#流星雨"
+        }
+      ]
+    },
+    {
+      "href": "/07/m11s/p2",
+      "title": "Phase 2",
+      "subtitle": "",
+      "name": "P2",
+      "mechanics": [
+        {
+          "name": "绝命分断击",
+          "href": "#绝命分断击"
+        },
+        {
+          "name": "王者陨石",
+          "href": "#王者陨石"
+        },
+        {
+          "name": "登天碎地",
+          "href": "#登天碎地"
+        },
+        {
+          "name": "陨石狂奔",
+          "href": "#陨石狂奔"
+        },
+        {
+          "name": "碎心踢",
+          "href": "#碎心踢"
+        },
+        {
+          "name": "碎心击",
+          "href": "#碎心击"
+        }
+      ]
+    }
+  ]
+}

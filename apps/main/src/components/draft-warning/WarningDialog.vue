@@ -14,7 +14,7 @@ onMounted(() => {
 <template>
   <Dialog v-model:open="isOpen">
     <DialogContent
-      class="w-[80%]"
+      class="w-[80%] sm:max-w-xl md:max-w-3xl lg:max-w-5xl"
       @interact-outside="
         (event) => {
           const target = event.target as HTMLElement

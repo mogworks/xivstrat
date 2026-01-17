@@ -11,7 +11,7 @@ import Skill from '@/components/typography/Skill.astro'
 import T from '@/components/typography/T.astro'
 import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
 
-const dutyId = '07/hellonrails'
+const dutyId = '07/doomtrain'
 
 const base = '00:00.00'
 ---
@@ -21,6 +21,14 @@ const base = '00:00.00'
     <div class="space-y-8">
       <div class="space-y-4 text-2xl">
         <P>MMW文档链接：<StratLink variant="teal" href="https://docs.qq.com/doc/DUHBrWHBjZ05UZ3Nn" target="_blank">腾讯文档</StratLink></P>
+        <ImgRow
+          wrapperClass="max-w-full"
+          imgs={[
+            {
+              src: 'imgs/cheatsheets/07/doomtrain.png',
+            },
+          ]}
+        />
       </div>
     </div>
   </NoteSection>
@@ -33,7 +41,7 @@ const base = '00:00.00'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/p1/1.png',
+              src: 'imgs/07/doomtrain/plan/p1/1.png',
             },
           ]}
         />
@@ -44,7 +52,7 @@ const base = '00:00.00'
   
   <SeparatorSection />
   <CastSection start="00:09.000" duration={3.7} ability="超增压" />
-  <CastSection start="00:15.020" duration={5.7} ability="超增压急行" />
+  <CastSection start="00:15.020" duration={5.7} ability="超增压急行" damageType='physical' damage='16200'/>
   <CastSection start="00:22.054" duration={0.7} ability="等离子射线" source="雷光环×4" sourceRole="enemy" />
   <MechanicSection>
     <div class="space-y-8">
@@ -54,25 +62,25 @@ const base = '00:00.00'
           wrapperClass="max-w-100"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/1.png',
+              src: 'imgs/07/doomtrain/1.png',
               title: '情形1：4球',
             },
             {
-              src: 'imgs/07/hellonrails/2.png',
+              src: 'imgs/07/doomtrain/2.png',
               title: '情形2：8球',
             },
           ]}
         />
-        <P>BOSS读条时，前方浮现4/8个蓝色雷球，分别代表存储44分摊/8人分散，之后会延时释放，大致按下图站位处理即可：</P>
+        <P>BOSS读条时，前方浮现4/8个蓝色雷球，分别代表存储22分摊/8人分散，之后会延时释放，造成<Span variant='pink'>131000</Span>的<Span variant='purple'>魔法</Span>伤害，大致按下图站位处理即可：</P>
         <ImgRow
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/p1/2.png',
+              src: 'imgs/07/doomtrain/plan/p1/2.png',
               title: '情形1：4球',
             },
             {
-              src: 'imgs/07/hellonrails/plan/p1/3.png',
+              src: 'imgs/07/doomtrain/plan/p1/3.png',
               title: '情形2：8球',
             },
           ]}
@@ -84,7 +92,7 @@ const base = '00:00.00'
           wrapperClass="max-w-150"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/3.png',
+              src: 'imgs/07/doomtrain/3.png',
             }
           ]}
         />
@@ -96,10 +104,10 @@ const base = '00:00.00'
           wrapperClass="max-w-150"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/4.png',
+              src: 'imgs/07/doomtrain/4.png',
             },
             {
-              src: 'imgs/07/hellonrails/5.png',
+              src: 'imgs/07/doomtrain/5.png',
             },
           ]}
         />
@@ -122,10 +130,10 @@ const base = '00:00.00'
           wrapperClass="max-w-100"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/6.png',
+              src: 'imgs/07/doomtrain/6.png',
             },
             {
-              src: 'imgs/07/hellonrails/7.png',
+              src: 'imgs/07/doomtrain/7.png',
             },
           ]}
         />
@@ -136,7 +144,7 @@ const base = '00:00.00'
 
 
   <SeparatorSection />
-  <CastSection start="00:47.111" duration={4.7} ability="无控急行" />
+  <CastSection start="00:47.111" duration={4.7} ability="无控急行" damage='181000' damageType='physical'/>
   <!-- <CastSection start="00:47.111" duration={5.6} ability="无控急行" /> -->
   <MechanicSection>
     <div class="space-y-8">
@@ -147,7 +155,7 @@ const base = '00:00.00'
           wrapperClass="max-w-60"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/plan/p1/4.png',
+              src: 'imgs/07/doomtrain/plan/p1/4.png',
             }
           ]}
         />
@@ -170,7 +178,7 @@ const base = '00:00.00'
           wrapperClass="max-w-150"
           imgs={[
             {
-              src: 'imgs/07/hellonrails/8.png',
+              src: 'imgs/07/doomtrain/8.png',
             }
           ]}
         />
@@ -186,7 +194,7 @@ const base = '00:00.00'
   <SeparatorSection />
   <CastSection start="01:27.255" duration={3.7} ability="超增压" />
   <CastSection start="01:28.940" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
-  <CastSection start="01:33.266" duration={4.7} ability="雷电爆发" />
+  <CastSection start="01:33.266" duration={4.7} ability="雷电爆发" damage='310000' damageType='magical' />
   <!-- <CastSection start="01:38.347" duration={0.2} ability="雷电爆发" />
   <CastSection start="01:38.347" duration={0.2} ability="雷电爆发" /> -->
   <MechanicSection>
@@ -196,7 +204,7 @@ const base = '00:00.00'
         <P>
           双T圆形死刑，先躲雷转质射线，再<StratLink variant="teal" href="https://www.bilibili.com/video/BV1c34y1J7Bn/" target="_blank">【两个t左右出】</StratLink>
         </P>
-      </div>
+      </div>c
     </div>
   </MechanicSection>
   <CastSection start="01:40.528" duration={6.7} ability="雷转质射线" source="护卫炮塔×6" sourceRole="enemy" />
@@ -207,7 +215,7 @@ const base = '00:00.00'
   <SeparatorSection />
   <CastSection start="01:55.540" duration={4.7} ability="无控急行" />
   <!-- <CastSection start="01:55.540" duration={5.6} ability="无控急行" /> -->
-  <CastSection start="02:11.577" duration={4.7} ability="雷电爆发" />
+  <CastSection start="02:11.577" duration={4.7} ability="雷电爆发" damage='310000' damageType='magical'/>
   <!-- <CastSection start="02:16.660" duration={0.2} ability="雷电爆发" />
   <CastSection start="02:16.660" duration={0.2} ability="雷电爆发" /> -->
   <CastSection start="02:24.817" duration={4.7} ability="无尽狂奔" />

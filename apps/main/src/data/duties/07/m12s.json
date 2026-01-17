@@ -1,0 +1,33 @@
+{
+  "name": "阿卡狄亚零式登天斗技场 重量级4",
+  "short": "M12S",
+  "type": "raid",
+  "title": "阿卡狄亚零式登天斗技场 重量级4 攻略",
+  "description": "最终幻想14 阿卡狄亚零式登天斗技场 重量级4 超详解动态图文攻略",
+  "navigationInfo": {
+    "name": "M12S",
+    "parent": ["阿卡狄亚零式登天斗技场 重量级"]
+  },
+  "banner": "imgs/banners/07/m12s.png",
+  "date": "26/01/06 18:00",
+  "href": "/07/m12s",
+  "status": "live",
+  "indexAvailable": false,
+  "docLink": "https://docs.qq.com/doc/DS21mcXZ2Q0x3b0J6",
+  "phases": [
+    {
+      "href": "/07/m12s/p1",
+      "title": "Phase 1",
+      "subtitle": "前半",
+      "name": "P1",
+      "mechanics": []
+    },
+    {
+      "href": "/07/m12s/p2",
+      "title": "Phase 2",
+      "subtitle": "后半",
+      "name": "P2",
+      "mechanics": []
+    }
+  ]
+}

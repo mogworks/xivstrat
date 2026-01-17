@@ -127,7 +127,7 @@ watch(
         <slot />
       </div>
     </DialogTrigger>
-    <DialogContent class="w-[80%]">
+    <DialogContent class="w-[80%] sm:max-w-full">
       <DialogHeader>
         <DialogTitle>
           <slot name="title">
