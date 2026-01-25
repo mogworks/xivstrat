@@ -9,8 +9,8 @@ import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
 import BiliBiliSVG from '@/svg/bilibili.svg'
 import ScannerSVG from '@/svg/scanner.svg'
 
-const CheatsheetsImage = 'imgs/cheatsheets/07/necron.png'
-const WaymarkImage = 'imgs/waymarks/07/necron.png'
+const CheatsheetsImage = 'cheatsheets/07/necron.webp'
+const WaymarkImage = 'waymarks/07/necron.webp'
 
 const dutyId = '07/necron'
 const duty = (await getEntry('duties', dutyId))!.data
@@ -59,7 +59,7 @@ const videoLink = duty.videoLink ?? undefined
 
   <CollapsibleBox id="waymark" client:idle class="w-full">
     <WaymarkBox
-      href="public/waymarks/07/Necron/UISAVE.DAT"
+      href="waymarks/07/Necron/UISAVE.DAT"
       img={WaymarkImage}
       downloadLabel="下载标点文件"
       pageNumber={1}

@@ -9,10 +9,10 @@ interface Props {
 }
 
 const { tag = '', hover = false, class: className = '', level = 1 }: Props = Astro.props
-const TDeathI = 'imgs/buff/07/m7s/214260.png'
-const TDeathII = 'imgs/buff/07/m7s/214261.png'
-const TDeathIII = 'imgs/buff/07/m7s/214262.png'
-const TDeathIV = 'imgs/buff/07/m7s/214263.png'
+const TDeathI = 'buff/07/m7s/214260.webp'
+const TDeathII = 'buff/07/m7s/214261.webp'
+const TDeathIII = 'buff/07/m7s/214262.webp'
+const TDeathIV = 'buff/07/m7s/214263.webp'
 
 const icons = [TDeathI, TDeathII, TDeathIII, TDeathIV]
 const icon = icons[level - 1] ?? TDeathI

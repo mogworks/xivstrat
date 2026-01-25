@@ -64,8 +64,8 @@ const text =
     <EntityIcon icon="" tag={tag} alt={tag ?? role} class={className}>
       <CombinedIcon
         slot="icon"
-        img1={`public/pixi/${img[0]}.png?width=64&height=64`}
-        img2={`public/pixi/${img[1]}.png?width=64&height=64`}
+        img1={`pixi/${img[0]}.png`}
+        img2={`pixi/${img[1]}.png`}
         tag={tag}
         alt={tag ?? role}
       />
@@ -73,7 +73,7 @@ const text =
     </EntityIcon>
   ) : (
     <EntityIcon
-      icon={`public/pixi/${img}.png?width=64&height=64`}
+      icon={`pixi/${img}.png`}
       tag={tag}
       alt={tag ?? role}
       class={className}

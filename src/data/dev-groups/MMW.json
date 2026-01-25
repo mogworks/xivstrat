@@ -1,7 +1,7 @@
 {
   "name": "猫猫窝攻略组",
   "description": "MMW攻略组",
-  "iconLight": "imgs/developer/group/MMW.png",
-  "iconDark": "imgs/developer/group/MMW.png",
+  "iconLight": "developer/group/MMW.webp",
+  "iconDark": "developer/group/MMW.webp",
   "link": "https://space.bilibili.com/1578887"
 }

@@ -1,8 +1,6 @@
 ---
-import { Image } from 'astro:assets'
-
 interface Props {
-  src: string | URL // path or full URL, eg. 'imgs/icon.png' or URL('https://cos.xivstrat.cn/imgs/icon.png')
+  src: string | URL // path or full URL, eg. 'icon.webp' or URL('https://cos.xivstrat.cn/icon.webp')
   alt?: string
   [key: string]: unknown
 }
@@ -21,9 +19,17 @@ const inferSize = width === null || height === null
 
 {
   inferSize ? (
-    <Image src={url.href} alt={alt ?? ""} inferSize {...rest} />
+    // <Image src={url.href} alt={alt ?? ""} inferSize {...rest} />
+    <img src={url.href} alt={alt ?? ""} {...rest} />
   ) : (
-    <Image
+    // <Image
+    //   src={url.href}
+    //   alt={alt ?? ""}
+    //   width={parseInt(width)}
+    //   height={parseInt(height)}
+    //   {...rest}
+    // />
+    <img
       src={url.href}
       alt={alt ?? ""}
       width={parseInt(width)}
