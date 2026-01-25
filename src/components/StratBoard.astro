@@ -43,7 +43,7 @@ const {
       const manifest = manifestJson as AssetsManifest
 
       StratBoard.assetsInitPromise = Assets.init({
-        basePath: `${import.meta.env.PUBLIC_COS_BASE_URL}/public/pixi`,
+        basePath: `${import.meta.env.PUBLIC_COS_BASE_URL}/pixi`,
         manifest,
         texturePreference: {
           resolution: (() => {

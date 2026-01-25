@@ -12,9 +12,9 @@ import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
 import BiliBiliSVG from '@/svg/bilibili.svg'
 import ScannerSVG from '@/svg/scanner.svg'
 
-const CheatsheetsImage = 'imgs/cheatsheets/07/m8s2.png'
-const WaymarkImage = 'imgs/waymarks/07/m8s.png'
-const TimelineImage = 'imgs/timelines/07/m8s.png'
+const CheatsheetsImage = 'cheatsheets/07/m8s2.webp'
+const WaymarkImage = 'waymarks/07/m8s.webp'
+const TimelineImage = 'timelines/07/m8s.webp'
 
 import { thanksList } from '@/pages/07/m8s1/_data/thanks' // 与门神共用
 import { macro } from './_data/macro'
@@ -73,7 +73,7 @@ const videoLink = duty.videoLink ?? undefined
   </CollapsibleBox>
   <CollapsibleBox id="waymark" client:idle class="w-full">
     <WaymarkBox
-      href="public/waymarks/07/AacCruiserweight/UISAVE.DAT"
+      href="waymarks/07/AacCruiserweight/UISAVE.DAT"
       img={WaymarkImage}
       downloadLabel="下载5~8层标点文件"
       pageNumber={3}

@@ -1,12 +1,14 @@
-import node from '@astrojs/node'
 import react from '@astrojs/react'
 import vue from '@astrojs/vue'
+import edgeoneAdapter from '@edgeone/astro'
 import tailwindcss from '@tailwindcss/vite'
-import { defineConfig } from 'astro/config'
+import { defineConfig, passthroughImageService } from 'astro/config'
 import svgLoader from 'vite-svg-loader'
 
 export default defineConfig({
   site: 'https://xivstrat.cn',
+
+  adapter: edgeoneAdapter(),
 
   integrations: [
     vue(),
@@ -20,14 +22,9 @@ export default defineConfig({
   },
 
   image: {
-    domains: ['cos.xivstrat.cn'], // 只有来自这些域名的远程图片才会被 Astro 的 <Image /> 组件优化处理
-    layout: 'constrained',
+    // EdgeOne Pages 暂不支持 <Image /> 组件
+    // 参考1：https://docs.astro.build/en/guides/images/#configure-no-op-passthrough-service
+    // 参考2：https://edgeone.cloud.tencent.com/pages/document/194734898363867136
+    service: passthroughImageService(),
   },
-
-  adapter: node({
-    mode: 'standalone',
-    experimentalDisableStreaming: true, // EdgeOne 不支持缓存流式HTML
-  }),
-
-  cacheDir: './cache',
 })

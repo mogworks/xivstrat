@@ -1,7 +1,7 @@
 {
   "name": "XivStrat",
   "description": "莫古力工坊 | Mogworks",
-  "iconLight": "imgs/developer/group/XivStrat/XivStrat_light.png",
-  "iconDark": "imgs/developer/group/XivStrat/XivStrat_dark.png",
+  "iconLight": "developer/group/XivStrat/XivStrat_light.webp",
+  "iconDark": "developer/group/XivStrat/XivStrat_dark.webp",
   "link": "/about"
 }
