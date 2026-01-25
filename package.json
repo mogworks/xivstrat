@@ -19,6 +19,7 @@
     "@astrojs/node": "9.5.2",
     "@astrojs/react": "4.4.2",
     "@astrojs/vue": "5.1.4",
+    "@edgeone/astro": "1.0.8",
     "@nanostores/persistent": "1.2.0",
     "@nanostores/vue": "1.0.1",
     "@radix-ui/react-slot": "1.2.4",
