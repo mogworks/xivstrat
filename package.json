@@ -31,14 +31,14 @@
     "embla-carousel-vue": "8.6.0",
     "lucide-react": "0.563.0",
     "lucide-vue-next": "0.563.0",
-    "motion": "12.29.0",
-    "motion-v": "1.10.0",
+    "motion": "12.29.2",
+    "motion-v": "1.10.2",
     "nanostores": "1.1.0",
     "pinyin-pro": "3.28.0",
     "pixi-filters": "6.1.5",
     "pixi.js": "8.15.0",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "reka-ui": "2.7.0",
     "sharp": "0.34.5",
     "tailwind-merge": "3.4.0",
@@ -50,18 +50,18 @@
   "devDependencies": {
     "@astrojs/check": "0.9.6",
     "@astrojs/ts-plugin": "1.10.6",
-    "@biomejs/biome": "2.3.12",
+    "@biomejs/biome": "2.3.13",
     "@types/node": "25.0.10",
-    "@types/react": "19.2.9",
+    "@types/react": "19.2.10",
     "@types/react-dom": "19.2.3",
     "cross-env": "10.1.0",
     "esbuild": "0.27.2",
-    "lefthook": "2.0.15",
+    "lefthook": "2.0.16",
     "typescript": "5.9.3",
     "vite-svg-loader": "5.1.0",
-    "vue-tsc": "3.2.3"
+    "vue-tsc": "3.2.4"
   },
-  "packageManager": "pnpm@10.28.1",
+  "packageManager": "pnpm@10.28.2",
   "engines": {
     "node": ">=24"
   }
