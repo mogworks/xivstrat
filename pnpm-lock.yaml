@@ -184,6 +184,9 @@ importers:
       tw-animate-css:
         specifier: 1.4.0
         version: 1.4.0
+      vue-sonner:
+        specifier: 2.0.9
+        version: 2.0.9
     devDependencies:
       '@types/node':
         specifier: 25.0.10
@@ -3285,6 +3288,20 @@ packages:
       vue: ^3.0.0-0 || ^2.6.0
     peerDependenciesMeta:
       '@vue/composition-api':
+        optional: true
+
+  vue-sonner@2.0.9:
+    resolution: {integrity: sha512-i6BokNlNDL93fpzNxN/LZSn6D6MzlO+i3qXt6iVZne3x1k7R46d5HlFB4P8tYydhgqOrRbIZEsnRd3kG7qGXyw==}
+    peerDependencies:
+      '@nuxt/kit': ^4.0.3
+      '@nuxt/schema': ^4.0.3
+      nuxt: ^4.0.3
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
+      '@nuxt/schema':
+        optional: true
+      nuxt:
         optional: true
 
   vue-tsc@3.2.4:
@@ -6674,6 +6691,8 @@ snapshots:
   vue-demi@0.14.10(vue@3.5.27(typescript@5.9.3)):
     dependencies:
       vue: 3.5.27(typescript@5.9.3)
+
+  vue-sonner@2.0.9: {}
 
   vue-tsc@3.2.4(typescript@5.9.3):
     dependencies:
