@@ -3,6 +3,7 @@ import '@/styles/global.css'
 import { getCollection, getEntries } from 'astro:content'
 import Navigation from '@/components/navigator/Navigation.vue'
 import type { Route } from '@/components/navigator/type'
+import { Toaster } from '@/components/shadcn-react/sonner'
 import { findOrCreateRouteNode } from '@/lib/utils'
 
 interface Props {
@@ -147,6 +148,7 @@ const routes: Route[] = [...staticRoutes, ...dutyRoutes]
   <body>
     <slot />
     <Navigation client:load routes={routes} />
+    <Toaster client:load />
   </body>
 </html>
 
