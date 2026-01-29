@@ -12,10 +12,10 @@ export function PasswordStrengthIndicator({ password }: PasswordStrengthIndicato
     if (password && /[A-Z]/.test(password)) score++
     if (password && /[0-9]/.test(password)) score++
     if (password && /[^A-Za-z0-9]/.test(password)) score++
-    return score as 0 | 1 | 2 | 3
+    return score as 0 | 1 | 2 | 3 | 4
   }
 
-  const getMessage = (strength: 0 | 1 | 2 | 3) => {
+  const getMessage = (strength: 0 | 1 | 2 | 3 | 4) => {
     switch (strength) {
       case 0:
         return '密码强度：弱'
@@ -24,19 +24,23 @@ export function PasswordStrengthIndicator({ password }: PasswordStrengthIndicato
       case 2:
         return '密码强度：中'
       case 3:
+        return '密码强度：中'
+      case 4:
         return '密码强度：强'
     }
   }
 
-  const getStrengthColor = (strength: 0 | 1 | 2 | 3) => {
+  const getStrengthColor = (strength: 0 | 1 | 2 | 3 | 4) => {
     switch (strength) {
       case 0:
         return 'bg-gray-200'
       case 1:
         return 'bg-red-500'
       case 2:
-        return 'bg-yellow-500'
+        return 'bg-amber-500'
       case 3:
+        return 'bg-yellow-500'
+      case 4:
         return 'bg-green-500'
     }
   }
@@ -51,11 +55,11 @@ export function PasswordStrengthIndicator({ password }: PasswordStrengthIndicato
           <motion.div
             className={`h-full ${getStrengthColor(strength)}`}
             initial={{ width: 0 }}
-            animate={{ width: `${(strength / 3) * 100}%` }}
+            animate={{ width: `${strength * 25}%` }}
             transition={{
               type: 'spring',
               stiffness: 200,
-              damping: 20,
+              damping: 40,
             }}
           />
         </div>

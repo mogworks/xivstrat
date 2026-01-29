@@ -1,6 +1,7 @@
+import type { TurnstileInstance } from '@marsidev/react-turnstile'
 import { useDebounceFn } from 'ahooks'
 import { Loader2 } from 'lucide-react'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { toast } from 'sonner'
 import { authClient } from '@/auth/reactClient'
 import { emailSchema, signInSchema } from '@/auth/schema'
@@ -16,6 +17,7 @@ export default function SignIn() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const turnstileRef = useRef<TurnstileInstance | null>(null)
 
   const { run: handleSubmit } = useDebounceFn(
     async () => {
@@ -48,11 +50,20 @@ export default function SignIn() {
                 headers: {
                   'x-captcha-response': turnstileToken,
                 },
+                onError: (_ctx) => {
+                  setTurnstileToken(null)
+                  turnstileRef.current?.reset()
+                },
               },
             }),
             {
               loading: '登录中...',
-              success: () => {
+              success: (res) => {
+                if (!res || res.error || !res.data) {
+                  setTurnstileToken(null)
+                  turnstileRef.current?.reset()
+                  throw new Error(res?.error?.message || '登录失败，请检查您的邮箱和密码')
+                }
                 const searchParams = new URLSearchParams(window.location.search)
                 const callbackUrl = searchParams.get('callbackUrl')
                 if (callbackUrl) {
@@ -74,11 +85,20 @@ export default function SignIn() {
                 headers: {
                   'x-captcha-response': turnstileToken,
                 },
+                onError: (_ctx) => {
+                  setTurnstileToken(null)
+                  turnstileRef.current?.reset()
+                },
               },
             }),
             {
               loading: '登录中...',
-              success: () => {
+              success: (res) => {
+                if (!res || res.error || !res.data) {
+                  setTurnstileToken(null)
+                  turnstileRef.current?.reset()
+                  throw new Error(res?.error?.message || '登录失败，请检查您的账号和密码')
+                }
                 const searchParams = new URLSearchParams(window.location.search)
                 const callbackUrl = searchParams.get('callbackUrl')
                 if (callbackUrl) {
@@ -151,6 +171,7 @@ export default function SignIn() {
 
           <div className="grid gap-2">
             <TurnstileCaptcha
+              ref={turnstileRef}
               onSuccess={(token) => setTurnstileToken(token)}
               onExpire={() => setTurnstileToken(null)}
               onError={() => setTurnstileToken(null)}

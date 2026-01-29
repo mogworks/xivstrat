@@ -1,6 +1,7 @@
+import type { TurnstileInstance } from '@marsidev/react-turnstile'
 import { useDebounceFn } from 'ahooks'
 import { Loader2 } from 'lucide-react'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { toast } from 'sonner'
 import { authClient } from '@/auth/reactClient'
 import { signUpSchema } from '@/auth/schema'
@@ -19,6 +20,7 @@ export default function SignUp() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  const turnstileRef = useRef<TurnstileInstance | null>(null)
 
   const { run: handleSubmit } = useDebounceFn(
     async () => {
@@ -42,41 +44,44 @@ export default function SignUp() {
 
       const data = validationResult.data
 
+      setLoading(true)
       try {
-        setLoading(true)
-        await authClient.signUp.email({
-          email: data.email,
-          password: data.password,
-          name: data.name || data.email.split('@')[0],
-          username: data.username,
-          fetchOptions: {
-            headers: {
-              'x-captcha-response': turnstileToken,
+        toast.promise(
+          authClient.signUp.email({
+            email: data.email,
+            password: data.password,
+            name: data.name || data.email.split('@')[0],
+            username: data.username,
+            fetchOptions: {
+              headers: {
+                'x-captcha-response': turnstileToken,
+              },
+              onError: (_ctx) => {
+                setTurnstileToken(null)
+                turnstileRef.current?.reset()
+              },
             },
-            onError: (ctx) => {
-              const errorMessage = ctx.error.message || '注册失败，请稍后重试'
-              toast.error(errorMessage)
+          }),
+          {
+            loading: '注册中...',
+            success: (res) => {
+              if (!res || res.error || !res.data) {
+                setTurnstileToken(null)
+                turnstileRef.current?.reset()
+                throw new Error(res?.error?.message || '注册失败，请稍后重试')
+              }
+              const searchParams = new URLSearchParams(window.location.search)
+              const callbackUrl = searchParams.get('callbackUrl')
+              if (callbackUrl) {
+                window.location.href = callbackUrl
+              } else {
+                window.location.href = '/account'
+              }
+              return '注册成功，请查收验证邮件'
             },
-            onSuccess: () => {
-              toast.success('注册成功，请查收验证邮件', {
-                duration: 3000,
-                position: 'top-center',
-                onAutoClose: () => {
-                  const searchParams = new URLSearchParams(window.location.search)
-                  const callbackUrl = searchParams.get('callbackUrl')
-                  if (callbackUrl) {
-                    window.location.href = callbackUrl
-                  } else {
-                    window.location.href = '/account'
-                  }
-                },
-              })
-            },
+            error: (error) => error.message || '注册失败，请稍后重试',
           },
-        })
-      } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : '注册失败，请稍后重试'
-        toast.error(errorMessage)
+        )
       } finally {
         setLoading(false)
       }
@@ -157,6 +162,7 @@ export default function SignUp() {
 
           <div className="grid gap-2">
             <TurnstileCaptcha
+              ref={turnstileRef}
               onSuccess={(token) => setTurnstileToken(token)}
               onExpire={() => setTurnstileToken(null)}
               onError={() => setTurnstileToken(null)}
