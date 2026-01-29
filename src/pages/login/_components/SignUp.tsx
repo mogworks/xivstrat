@@ -1,7 +1,7 @@
 import type { TurnstileInstance } from '@marsidev/react-turnstile'
 import { useDebounceFn } from 'ahooks'
 import { Loader2 } from 'lucide-react'
-import { useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { toast } from 'sonner'
 import { authClient } from '@/auth/reactClient'
 import { signUpSchema } from '@/auth/schema'
@@ -21,7 +21,28 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false)
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
   const [registered, setRegistered] = useState(false)
+  const [countdown, setCountdown] = useState(10)
   const turnstileRef = useRef<TurnstileInstance | null>(null)
+
+  const isPopup = new URLSearchParams(window.location.search).get('isPopup') === 'true'
+
+  const handleAuthSuccess = useCallback(() => {
+    if (isPopup && window.opener) {
+      window.opener.postMessage('sign-up-success', '*')
+      window.close()
+    }
+  }, [isPopup])
+
+  useEffect(() => {
+    if (registered && countdown > 0) {
+      const timer = setTimeout(() => {
+        setCountdown(countdown - 1)
+      }, 1000)
+      return () => clearTimeout(timer)
+    } else if (registered && countdown === 0) {
+      handleAuthSuccess()
+    }
+  }, [registered, countdown, handleAuthSuccess])
 
   const { run: handleSubmit } = useDebounceFn(
     async () => {
@@ -77,7 +98,7 @@ export default function SignUp() {
               }
               setRegistered(true)
               setTurnstileToken(null)
-              return '注册成功，请查收验证邮件'
+              return '注册信息已提交，请查收验证邮件，完成邮箱验证后即可登录'
             },
             error: (error) => error.message || '注册失败，请稍后重试',
           },
@@ -106,16 +127,21 @@ export default function SignUp() {
             <div className="mb-4">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
                 <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <title>注册成功</title>
+                  <title>注册信息已提交</title>
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
             </div>
-            <h3 className="text-lg font-semibold mb-2">注册成功</h3>
-            <p className="text-muted-foreground mb-4">请查收验证邮件完成账户验证</p>
-            <p className="text-sm text-muted-foreground">
+            <h3 className="text-lg font-semibold mb-2">注册信息已提交</h3>
+            <p className="text-muted-foreground mb-4">注册信息已提交，请查收验证邮件，完成邮箱验证后即可登录</p>
+            <p className="text-sm text-muted-foreground mb-4">
               验证邮件已发送至：<span className="font-medium">{email}</span>
             </p>
+            {isPopup && (
+              <p className="text-sm text-muted-foreground">
+                窗口将在 <span className="font-medium">{countdown}</span> 秒后自动关闭
+              </p>
+            )}
           </div>
         ) : (
           <div className="grid gap-4">

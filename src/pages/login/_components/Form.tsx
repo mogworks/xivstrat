@@ -8,8 +8,11 @@ const Glow = () => (
 )
 
 export default function Form() {
+  const urlParams = new URLSearchParams(window.location.search)
+  const defaultTab = urlParams.get('tab') === 'signup' ? 'signup' : 'signin'
+
   return (
-    <Tabs defaultValue="signin" className="w-full">
+    <Tabs defaultValue={defaultTab} className="w-full">
       <TabsList className="grid w-full grid-cols-2 relative mb-1">
         <Glow />
         <TabsTrigger value="signin">登录</TabsTrigger>

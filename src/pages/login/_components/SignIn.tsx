@@ -19,6 +19,15 @@ export default function SignIn() {
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
   const turnstileRef = useRef<TurnstileInstance | null>(null)
 
+  const isPopup = new URLSearchParams(window.location.search).get('isPopup') === 'true'
+
+  const handleAuthSuccess = () => {
+    if (isPopup && window.opener) {
+      window.opener.postMessage('sign-in-success', '*')
+      window.close()
+    }
+  }
+
   const { run: handleSubmit } = useDebounceFn(
     async () => {
       const validationResult = signInSchema.safeParse({
@@ -68,6 +77,7 @@ export default function SignIn() {
                   turnstileRef.current?.reset()
                   throw new Error(res?.error?.message || '登录失败，请检查您的邮箱和密码')
                 }
+                handleAuthSuccess()
                 window.location.href = callbackURL
                 return '登录成功'
               },
@@ -98,6 +108,7 @@ export default function SignIn() {
                   turnstileRef.current?.reset()
                   throw new Error(res?.error?.message || '登录失败，请检查您的账号和密码')
                 }
+                handleAuthSuccess()
                 window.location.href = callbackURL
                 return '登录成功'
               },
