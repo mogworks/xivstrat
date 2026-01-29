@@ -11,6 +11,7 @@ declare namespace App {
 }
 
 interface ImportMetaEnv {
+  readonly PUBLIC_SITE_URL: string
   readonly PUBLIC_SERVER_URL: string
   readonly PUBLIC_COS_BASE_URL: string
   readonly PUBLIC_TURNSTILE_SITE_KEY: string

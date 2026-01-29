@@ -46,6 +46,7 @@ export default function SignIn() {
             authClient.signIn.email({
               email: data.emailOrUsername,
               password: data.password,
+              callbackURL: `${import.meta.env.PUBLIC_SITE_URL}/account`,
               fetchOptions: {
                 headers: {
                   'x-captcha-response': turnstileToken,
@@ -81,6 +82,7 @@ export default function SignIn() {
             authClient.signIn.username({
               username: data.emailOrUsername,
               password: data.password,
+              callbackURL: `${import.meta.env.PUBLIC_SITE_URL}/account`,
               fetchOptions: {
                 headers: {
                   'x-captcha-response': turnstileToken,

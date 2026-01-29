@@ -28,18 +28,15 @@ export const signInSchema = z.object({
   password: passwordSchema,
 })
 
-export const signUpSchema = z
-  .object({
-    name: z.string().optional(),
-    email: emailSchema,
-    username: usernameSchema.optional(),
-    password: passwordSchema,
-  })
-  .superRefine((data, _ctx) => {
-    if (!data.name && data.email) {
-      const emailPrefix = data.email.split('@')[0]
-      if (emailPrefix) {
-        data.name = emailPrefix
-      }
-    }
-  })
+export const signUpSchema = z.object({
+  name: z.string().optional(),
+  email: emailSchema,
+  username: z
+    .string()
+    .optional()
+    .refine((val) => {
+      if (!val || val.trim() === '') return true
+      return usernameSchema.safeParse(val).success
+    }, '账号必须是4-32位，且只能包含字母、数字、下划线或点'),
+  password: passwordSchema,
+})
