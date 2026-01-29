@@ -45,6 +45,9 @@ export default function SignUp() {
 
       const data = validationResult.data
 
+      const searchParams = new URLSearchParams(window.location.search)
+      const callbackURL = searchParams.get('callbackURL') || `${import.meta.env.PUBLIC_SITE_URL}/account`
+
       setLoading(true)
       try {
         toast.promise(
@@ -53,7 +56,7 @@ export default function SignUp() {
             password: data.password,
             name: data.name?.trim() || data.email.split('@')[0],
             username: data.username?.trim() || undefined,
-            callbackURL: `${import.meta.env.PUBLIC_SITE_URL}/account`,
+            callbackURL,
             fetchOptions: {
               headers: {
                 'x-captcha-response': turnstileToken,

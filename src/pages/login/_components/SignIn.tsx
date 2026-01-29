@@ -39,6 +39,9 @@ export default function SignIn() {
 
       const data = validationResult.data
 
+      const searchParams = new URLSearchParams(window.location.search)
+      const callbackURL = searchParams.get('callbackURL') || `${import.meta.env.PUBLIC_SITE_URL}/account`
+
       setLoading(true)
       try {
         if (emailSchema.safeParse(data.emailOrUsername).success) {
@@ -46,7 +49,7 @@ export default function SignIn() {
             authClient.signIn.email({
               email: data.emailOrUsername,
               password: data.password,
-              callbackURL: `${import.meta.env.PUBLIC_SITE_URL}/account`,
+              callbackURL,
               fetchOptions: {
                 headers: {
                   'x-captcha-response': turnstileToken,
@@ -65,13 +68,7 @@ export default function SignIn() {
                   turnstileRef.current?.reset()
                   throw new Error(res?.error?.message || '登录失败，请检查您的邮箱和密码')
                 }
-                const searchParams = new URLSearchParams(window.location.search)
-                const callbackUrl = searchParams.get('callbackUrl')
-                if (callbackUrl) {
-                  window.location.href = callbackUrl
-                } else {
-                  window.location.href = '/account'
-                }
+                window.location.href = callbackURL
                 return '登录成功'
               },
               error: (error) => error.message || '登录失败，请检查您的邮箱和密码',
@@ -82,7 +79,7 @@ export default function SignIn() {
             authClient.signIn.username({
               username: data.emailOrUsername,
               password: data.password,
-              callbackURL: `${import.meta.env.PUBLIC_SITE_URL}/account`,
+              callbackURL,
               fetchOptions: {
                 headers: {
                   'x-captcha-response': turnstileToken,
@@ -101,13 +98,7 @@ export default function SignIn() {
                   turnstileRef.current?.reset()
                   throw new Error(res?.error?.message || '登录失败，请检查您的账号和密码')
                 }
-                const searchParams = new URLSearchParams(window.location.search)
-                const callbackUrl = searchParams.get('callbackUrl')
-                if (callbackUrl) {
-                  window.location.href = callbackUrl
-                } else {
-                  window.location.href = '/account'
-                }
+                window.location.href = callbackURL
                 return '登录成功'
               },
               error: (error) => error.message || '登录失败，请检查您的账号和密码',
