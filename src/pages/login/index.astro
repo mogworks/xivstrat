@@ -3,6 +3,15 @@ import LinkIcons from "@/components/LinkIcons.astro";
 import LogoImage from "@/components/LogoImage.astro";
 import Layout from "@/layouts/Layout.astro";
 import Form from "./_components/Form";
+
+export const prerender = false
+
+const user = Astro.locals.user;
+const session = Astro.locals.session;
+
+if (user && session) {
+  return Astro.redirect("/account");
+}
 ---
 
 <Layout>

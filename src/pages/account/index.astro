@@ -3,9 +3,10 @@ import Layout from "@/layouts/Layout.astro";
 
 export const prerender = false
 
+const user = Astro.locals.user;
 const session = Astro.locals.session;
 
-if (!session) {
+if (!user || !session) {
   return Astro.redirect("/login");
 }
 ---
