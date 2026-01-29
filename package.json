@@ -21,6 +21,7 @@
     "@astrojs/vue": "5.1.4",
     "@base-ui/react": "1.1.0",
     "@edgeone/astro": "1.0.8",
+    "@marsidev/react-turnstile": "1.4.1",
     "@nanostores/persistent": "1.2.1",
     "@nanostores/react": "1.0.0",
     "@nanostores/vue": "1.0.1",
