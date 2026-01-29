@@ -1,60 +1,135 @@
-import { Loader2, X } from 'lucide-react'
+import { useDebounceFn } from 'ahooks'
+import { Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { authClient } from '@/auth/reactClient'
+import { signUpSchema } from '@/auth/schema'
 import { Button } from '@/components/shadcn-react/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/shadcn-react/card'
 import { Input } from '@/components/shadcn-react/input'
 import { Label } from '@/components/shadcn-react/label'
+import { PasswordInput } from './PasswordInput'
+import { PasswordStrengthIndicator } from './PasswordStrengthIndicator'
+import { TurnstileCaptcha } from './TurnstileCaptcha'
 
 export default function SignUp() {
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [passwordConfirmation, setPasswordConfirmation] = useState('')
   const [loading, setLoading] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+
+  const { run: handleSubmit } = useDebounceFn(
+    async () => {
+      const validationResult = signUpSchema.safeParse({
+        name,
+        email,
+        username,
+        password,
+      })
+
+      if (!validationResult.success) {
+        const firstError = validationResult.error.issues[0]
+        toast.error(firstError.message)
+        return
+      }
+
+      if (!turnstileToken) {
+        toast.error('请完成人机验证')
+        return
+      }
+
+      const data = validationResult.data
+
+      try {
+        setLoading(true)
+        await authClient.signUp.email({
+          email: data.email,
+          password: data.password,
+          name: data.name || data.email.split('@')[0],
+          username: data.username,
+          fetchOptions: {
+            headers: {
+              'x-captcha-response': turnstileToken,
+            },
+            onError: (ctx) => {
+              const errorMessage = ctx.error.message || '注册失败，请稍后重试'
+              toast.error(errorMessage)
+            },
+            onSuccess: () => {
+              toast.success('注册成功，请查收验证邮件', {
+                duration: 3000,
+                position: 'top-center',
+                onAutoClose: () => {
+                  const searchParams = new URLSearchParams(window.location.search)
+                  const callbackUrl = searchParams.get('callbackUrl')
+                  if (callbackUrl) {
+                    window.location.href = callbackUrl
+                  } else {
+                    window.location.href = '/account'
+                  }
+                },
+              })
+            },
+          },
+        })
+      } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : '注册失败，请稍后重试'
+        toast.error(errorMessage)
+      } finally {
+        setLoading(false)
+      }
+    },
+    {
+      wait: 500,
+      leading: true,
+    },
+  )
 
   return (
-    <Card className="z-50 rounded-md rounded-t-none max-w-md">
+    <Card className="w-full">
       <CardHeader>
-        <CardTitle className="text-lg md:text-xl">Sign Up</CardTitle>
-        <CardDescription className="text-xs md:text-sm">Enter your information to create an account</CardDescription>
+        <CardTitle>注册</CardTitle>
+        <CardDescription>创建一个新账户</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="first-name">First name</Label>
-              <Input
-                id="first-name"
-                placeholder="Max"
-                required
-                onChange={(e) => {
-                  setFirstName(e.target.value)
-                }}
-                value={firstName}
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="last-name">Last name</Label>
-              <Input
-                id="last-name"
-                placeholder="Robinson"
-                required
-                onChange={(e) => {
-                  setLastName(e.target.value)
-                }}
-                value={lastName}
-              />
-            </div>
-          </div>
           <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="name">昵称</Label>
+            <Input
+              id="name"
+              type="text"
+              placeholder="选填，默认为邮箱前缀"
+              onChange={(e) => {
+                setName(e.target.value)
+              }}
+              value={name}
+            />
+          </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="username">账号</Label>
+            <Input
+              id="username"
+              type="text"
+              placeholder="选填，4~32位字母、数字、下划线或点"
+              onChange={(e) => {
+                setUsername(e.target.value)
+              }}
+              value={username}
+            />
+          </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="email">
+              邮箱
+              <span className="bg-red-500 h-1 w-1 rounded-full"></span>
+            </Label>
             <Input
               id="email"
               type="email"
-              placeholder="m@example.com"
+              placeholder="请输入邮箱地址"
               required
               onChange={(e) => {
                 setEmail(e.target.value)
@@ -62,56 +137,34 @@ export default function SignUp() {
               value={email}
             />
           </div>
+
           <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
-            <Input
+            <Label htmlFor="password">
+              密码
+              <span className="bg-red-500 h-1 w-1 rounded-full"></span>
+            </Label>
+            <PasswordInput
               id="password"
-              type="password"
+              placeholder="请输入8~32位密码"
+              required
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              autoComplete="new-password"
-              placeholder="Password"
+              onChange={(e) => {
+                setPassword(e.target.value)
+              }}
             />
+            <PasswordStrengthIndicator password={password} />
           </div>
+
           <div className="grid gap-2">
-            <Label htmlFor="password_confirmation">Confirm Password</Label>
-            <Input
-              id="password_confirmation"
-              type="password"
-              value={passwordConfirmation}
-              onChange={(e) => setPasswordConfirmation(e.target.value)}
-              autoComplete="new-password"
-              placeholder="Confirm Password"
+            <TurnstileCaptcha
+              onSuccess={(token) => setTurnstileToken(token)}
+              onExpire={() => setTurnstileToken(null)}
+              onError={() => setTurnstileToken(null)}
             />
           </div>
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={loading}
-            onClick={async () => {
-              await authClient.signUp.email({
-                email,
-                password,
-                name: `${firstName} ${lastName}`,
-                callbackURL: '/account',
-                fetchOptions: {
-                  onResponse: () => {
-                    setLoading(false)
-                  },
-                  onRequest: () => {
-                    setLoading(true)
-                  },
-                  onError: (ctx) => {
-                    toast.error(ctx.error.message)
-                  },
-                  onSuccess: () => {
-                    // TODO
-                  },
-                },
-              })
-            }}
-          >
-            {loading ? <Loader2 size={16} className="animate-spin" /> : 'Create your account'}
+
+          <Button type="submit" className="w-full" disabled={loading || !turnstileToken} onClick={handleSubmit}>
+            {loading ? <Loader2 size={16} className="animate-spin" /> : <p>注册</p>}
           </Button>
         </div>
       </CardContent>

@@ -27,6 +27,7 @@
     "@nanostores/vue": "1.0.1",
     "@tailwindcss/vite": "4.1.18",
     "@vueuse/core": "14.1.0",
+    "ahooks": "3.9.6",
     "astro": "5.16.16",
     "better-auth": "1.4.18",
     "class-variance-authority": "0.7.1",

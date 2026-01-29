@@ -148,7 +148,7 @@ const routes: Route[] = [...staticRoutes, ...dutyRoutes]
   <body>
     <slot />
     <Navigation client:load routes={routes} />
-    <Toaster client:load />
+    <Toaster position="top-center" client:only="react" />
   </body>
 </html>
 

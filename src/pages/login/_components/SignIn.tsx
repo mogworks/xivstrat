@@ -1,31 +1,120 @@
+import { useDebounceFn } from 'ahooks'
 import { Loader2 } from 'lucide-react'
 import { useState } from 'react'
+import { toast } from 'sonner'
 import { authClient } from '@/auth/reactClient'
+import { emailSchema, signInSchema } from '@/auth/schema'
 import { Button } from '@/components/shadcn-react/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/shadcn-react/card'
 import { Input } from '@/components/shadcn-react/input'
 import { Label } from '@/components/shadcn-react/label'
-
-const isEmail = (str: string) => {
-  // TODO
-  return false
-}
+import { PasswordInput } from './PasswordInput'
+import { TurnstileCaptcha } from './TurnstileCaptcha'
 
 export default function SignIn() {
   const [emailOrUsername, setEmailOrUsername] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+
+  const { run: handleSubmit } = useDebounceFn(
+    async () => {
+      const validationResult = signInSchema.safeParse({
+        emailOrUsername,
+        password,
+      })
+
+      if (!validationResult.success) {
+        const firstError = validationResult.error.issues[0]
+        toast.error(firstError.message)
+        return
+      }
+
+      if (!turnstileToken) {
+        toast.error('请完成人机验证')
+        return
+      }
+
+      const data = validationResult.data
+
+      setLoading(true)
+      try {
+        if (emailSchema.safeParse(data.emailOrUsername).success) {
+          toast.promise(
+            authClient.signIn.email({
+              email: data.emailOrUsername,
+              password: data.password,
+              fetchOptions: {
+                headers: {
+                  'x-captcha-response': turnstileToken,
+                },
+              },
+            }),
+            {
+              loading: '登录中...',
+              success: () => {
+                const searchParams = new URLSearchParams(window.location.search)
+                const callbackUrl = searchParams.get('callbackUrl')
+                if (callbackUrl) {
+                  window.location.href = callbackUrl
+                } else {
+                  window.location.href = '/account'
+                }
+                return '登录成功'
+              },
+              error: (error) => error.message || '登录失败，请检查您的邮箱和密码',
+            },
+          )
+        } else {
+          toast.promise(
+            authClient.signIn.username({
+              username: data.emailOrUsername,
+              password: data.password,
+              fetchOptions: {
+                headers: {
+                  'x-captcha-response': turnstileToken,
+                },
+              },
+            }),
+            {
+              loading: '登录中...',
+              success: () => {
+                const searchParams = new URLSearchParams(window.location.search)
+                const callbackUrl = searchParams.get('callbackUrl')
+                if (callbackUrl) {
+                  window.location.href = callbackUrl
+                } else {
+                  window.location.href = '/account'
+                }
+                return '登录成功'
+              },
+              error: (error) => error.message || '登录失败，请检查您的账号和密码',
+            },
+          )
+        }
+      } finally {
+        setLoading(false)
+      }
+    },
+    {
+      wait: 500,
+      leading: true,
+    },
+  )
 
   return (
-    <Card className="max-w-md">
+    <Card className="w-full">
       <CardHeader>
-        <CardTitle className="text-lg md:text-xl">登录</CardTitle>
-        <CardDescription className="text-xs md:text-sm">在下方输入您的邮箱/账号登录您的账户</CardDescription>
+        <CardTitle>登录</CardTitle>
+        <CardDescription>在下方输入您的邮箱/账号登录您的账户</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
           <div className="grid gap-2">
-            <Label htmlFor="email-or-username">邮箱/账号</Label>
+            <Label htmlFor="email-or-username">
+              邮箱/账号
+              <span className="bg-red-500 h-1 w-1 rounded-full"></span>
+            </Label>
             <Input
               id="email-or-username"
               type="text"
@@ -40,56 +129,35 @@ export default function SignIn() {
 
           <div className="grid gap-2">
             <div className="flex items-center">
-              <Label htmlFor="password">密码</Label>
-              <a href="/" className="ml-auto inline-block text-sm underline">
+              <Label htmlFor="password">
+                密码
+                <span className="bg-red-500 h-1 w-1 rounded-full"></span>
+              </Label>
+              <a href="/reset-password" className="ml-auto inline-block text-sm underline hover:text-primary">
                 忘记密码？
               </a>
             </div>
 
-            <Input
+            <PasswordInput
               id="password"
-              type="password"
               placeholder="请输入密码"
               required
-              autoComplete="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value)
+              }}
             />
           </div>
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={loading}
-            onClick={async () => {
-              if (isEmail(emailOrUsername)) {
-                await authClient.signIn.email({
-                  email: emailOrUsername,
-                  password,
-                  fetchOptions: {
-                    onRequest: () => {
-                      setLoading(true)
-                    },
-                    onResponse: () => {
-                      setLoading(false)
-                    },
-                  },
-                })
-              } else {
-                await authClient.signIn.username({
-                  username: emailOrUsername,
-                  password,
-                  fetchOptions: {
-                    onRequest: () => {
-                      setLoading(true)
-                    },
-                    onResponse: () => {
-                      setLoading(false)
-                    },
-                  },
-                })
-              }
-            }}
-          >
+
+          <div className="grid gap-2">
+            <TurnstileCaptcha
+              onSuccess={(token) => setTurnstileToken(token)}
+              onExpire={() => setTurnstileToken(null)}
+              onError={() => setTurnstileToken(null)}
+            />
+          </div>
+
+          <Button type="submit" className="w-full" disabled={loading || !turnstileToken} onClick={handleSubmit}>
             {loading ? <Loader2 size={16} className="animate-spin" /> : <p>登录</p>}
           </Button>
         </div>
