@@ -29,6 +29,10 @@
       "recommended": true,
       "style": {
         "noNonNullAssertion": "off"
+      },
+      "a11y": {
+        "useKeyWithClickEvents": "off",
+        "useSemanticElements": "off"
       }
     },
     "domains": {
