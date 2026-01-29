@@ -1,13 +1,9 @@
 ---
-import CosImage from '@/components/CosImage.astro'
 import LinkIcons from '@/components/LinkIcons.astro'
+import Logo from '@/components/Logo.astro'
 import Separator from '@/components/Separator.astro'
 import type { DutyPhase } from '@/data/duty'
 import { cn } from '@/lib/utils'
-
-const XivStratLightLogo = 'developer/group/XivStrat/XivStrat_light.webp'
-const XivStratDarkLogo = 'developer/group/XivStrat/XivStrat_dark.webp'
-const XivStratHoverLogo = 'developer/group/XivStrat/XivStrat_hover.webp'
 
 interface Props {
   baseUrl?: string
@@ -24,11 +20,7 @@ const { baseUrl, name, phases, videoLink = 'https://space.bilibili.com/25787773'
 >
   <div class="max-w-strat-max min-w-strat-min mx-auto grid grid-cols-[16rem_1fr_16rem] px-4">
     <section class="flex items-center justify-self-end px-4">
-      <a href="/" class="group relative">
-        <CosImage src={XivStratHoverLogo} alt="XivStrat" class="hidden h-8 w-auto -translate-x-5 scale-250 group-hover:block" draggable="false" loading="eager" />
-        <CosImage src={XivStratLightLogo} alt="XivStrat" class="h-8 w-auto -translate-x-5 scale-250 group-hover:hidden dark:hidden" draggable="false" loading="eager" />
-        <CosImage src={XivStratDarkLogo} alt="XivStrat" class="hidden h-8 w-auto -translate-x-5 scale-250 dark:block dark:group-hover:hidden" draggable="false" loading="eager" />
-      </a>
+      <Logo />
     </section>
     <section class="flex items-center">
       <Separator orientation="vertical" class="h-8" />

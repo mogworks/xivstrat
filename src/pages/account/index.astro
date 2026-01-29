@@ -1,0 +1,13 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+export const prerender = false
+
+const session = Astro.locals.session;
+
+if (!session) {
+  return Astro.redirect("/login");
+}
+---
+
+<Layout />
