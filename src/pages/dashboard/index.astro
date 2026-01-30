@@ -1,0 +1,10 @@
+---
+import AuthLayout from "@/layouts/AuthLayout.astro";
+import Dashboard from "./_components/Dashboard";
+---
+
+<AuthLayout>
+  <main class="mt-12 w-full z-50">
+    <Dashboard client:only="react" />
+  </main>
+</AuthLayout>

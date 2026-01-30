@@ -49,7 +49,7 @@ export default function SignIn() {
       const data = validationResult.data
 
       const searchParams = new URLSearchParams(window.location.search)
-      const callbackURL = searchParams.get('callbackURL') || `${import.meta.env.PUBLIC_SITE_URL}/account`
+      const callbackURL = searchParams.get('callbackURL') || `${import.meta.env.PUBLIC_SITE_URL}/dashboard`
 
       setLoading(true)
       try {
