@@ -1,4 +1,8 @@
 import { z } from 'zod'
+import type { authClient } from './client'
+
+export type User = typeof authClient.$Infer.Session.user
+export type Session = typeof authClient.$Infer.Session.session
 
 export const emailSchema = z.email('请输入有效的邮箱格式')
 
