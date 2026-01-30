@@ -1,7 +1,6 @@
-import { defineMiddleware } from 'astro:middleware'
 import { authClient } from '@/auth/client'
 
-export const onRequest = defineMiddleware(async (context, next) => {
+export const onRequest = async (context, next) => {
   if (context.isPrerendered) {
     return next()
   }
@@ -27,4 +26,4 @@ export const onRequest = defineMiddleware(async (context, next) => {
   } catch {}
 
   return next()
-})
+}
