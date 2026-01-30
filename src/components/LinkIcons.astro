@@ -1,6 +1,7 @@
 ---
 import DarkModeButton from '@/components/DarkModeButton.astro'
 import { cn } from '@/lib/utils'
+import AccountSVG from '@/svg/account.svg'
 import ArtboardSVG from '@/svg/artboard.svg'
 import BilibiliSVG from '@/svg/bilibili.svg'
 import GitHubSVG from '@/svg/github.svg'
@@ -23,5 +24,8 @@ const { class: className = '', videoLink = 'https://space.bilibili.com/25787773'
   </a>
   <a class="h-5 w-5 text-current/75 hover:text-current" href={videoLink} target="_blank">
     <BilibiliSVG />
+  </a>
+  <a class="h-5 w-5 text-current/75 hover:text-current" href="/account">
+    <AccountSVG />
   </a>
 </section>

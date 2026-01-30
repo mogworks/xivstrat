@@ -3,6 +3,7 @@ import '@/styles/global.css'
 import { getCollection, getEntries } from 'astro:content'
 import Navigation from '@/components/navigator/Navigation.vue'
 import type { Route } from '@/components/navigator/type'
+import { Toaster } from '@/components/shadcn-react/sonner'
 import { findOrCreateRouteNode } from '@/lib/utils'
 
 interface Props {
@@ -63,6 +64,7 @@ const dutyGroups = await getCollection('dutyGroups')
 const staticRoutes: Route[] = [
   { name: '首页', path: '/' },
   { name: '关于', path: '/about' },
+  { name: '账户', path: '/account' },
 ]
 const dutyRoutes = await (async () => {
   const list: Route[] = []
@@ -146,6 +148,7 @@ const routes: Route[] = [...staticRoutes, ...dutyRoutes]
   <body>
     <slot />
     <Navigation client:load routes={routes} />
+    <Toaster position="top-center" client:only="react" />
   </body>
 </html>
 

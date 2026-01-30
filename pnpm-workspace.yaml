@@ -1,10 +1,11 @@
 onlyBuiltDependencies:
-  - "@ffmpeg-installer/linux-x64"
-  - "@tailwindcss/oxide"
-  - "core-js"
-  - "cpu-features"
-  - "esbuild"
-  - "lefthook"
-  - "sharp"
-  - "unrs-resolver"
-  - "vue-demi"
+  - '@ffmpeg-installer/linux-x64'
+  - '@tailwindcss/oxide'
+  - core-js
+  - cpu-features
+  - esbuild
+  - lefthook
+  - msw
+  - sharp
+  - unrs-resolver
+  - vue-demi
