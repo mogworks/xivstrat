@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/*",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://xivstrat.cn https://*.xivstrat.cn https://challenges.cloudflare.com; frame-src 'self' https://xivstrat.cn https://*.xivstrat.cn https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' https: data: blob:; font-src 'self' data:; connect-src 'self' https://xivstrat.cn https://*.xivstrat.cn https://xivapi.com https://*.xivapi.com https://xivcdn.com https://*.xivcdn.com; worker-src 'self' blob:;"
+        }
+      ]
+    }
+  ]
+}

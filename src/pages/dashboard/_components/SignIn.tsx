@@ -5,14 +5,18 @@ import { useRef, useState } from 'react'
 import { toast } from 'sonner'
 import { authClient } from '@/auth/reactClient'
 import { signInSchema } from '@/auth/schema'
+import { PasswordInput } from '@/components/PasswordInput'
 import { Button } from '@/components/shadcn-react/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/shadcn-react/card'
 import { Input } from '@/components/shadcn-react/input'
 import { Label } from '@/components/shadcn-react/label'
 import { TurnstileCaptcha } from '@/components/TurnstileCaptcha'
-import { PasswordInput } from './PasswordInput'
 
-export default function SignIn() {
+interface SignInProps {
+  onSwitchToReset?: (email?: string) => void
+}
+
+export default function SignIn({ onSwitchToReset }: SignInProps) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -49,7 +53,7 @@ export default function SignIn() {
       const data = validationResult.data
 
       const searchParams = new URLSearchParams(window.location.search)
-      const callbackURL = searchParams.get('callbackURL') || `${import.meta.env.PUBLIC_SITE_URL}/account`
+      const callbackURL = searchParams.get('callbackURL') || `${import.meta.env.PUBLIC_SITE_URL}/dashboard`
 
       setLoading(true)
       try {
@@ -124,14 +128,19 @@ export default function SignIn() {
                 密码
                 <span className="bg-red-500 h-1 w-1 rounded-full"></span>
               </Label>
-              <a href="/reset-password" className="ml-auto inline-block text-sm underline hover:text-primary">
+              <button
+                type="button"
+                onClick={() => onSwitchToReset?.(email)}
+                className="ml-auto inline-block text-sm underline hover:text-primary"
+              >
                 忘记密码？
-              </a>
+              </button>
             </div>
 
             <PasswordInput
               id="password"
               placeholder="请输入密码"
+              autoComplete="current-password"
               required
               value={password}
               onChange={(e) => {

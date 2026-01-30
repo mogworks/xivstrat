@@ -19,6 +19,25 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss(), svgLoader()],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules/better-auth-localization')) return 'vendor-auth-i18n'
+            if (id.includes('node_modules/better-auth')) return 'vendor-auth'
+            if (id.includes('node_modules/motion')) return 'vendor-motion'
+            if (id.includes('node_modules/pinyin-pro')) return 'vendor-pinyin'
+            if (id.includes('node_modules/pixi-filters')) return 'vendor-pixi-filters'
+            if (id.includes('node_modules/pixi.js')) return 'vendor-pixi'
+            if (id.includes('node_modules/react')) return 'vendor-react'
+            if (id.includes('node_modules/shadcn')) return 'vendor-shadcn'
+            if (id.includes('node_modules/vue')) return 'vendor-vue'
+            if (id.includes('node_modules/zod')) return 'vendor-zod'
+          },
+        },
+      },
+      chunkSizeWarningLimit: 600,
+    },
   },
 
   image: {

@@ -5,13 +5,13 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { toast } from 'sonner'
 import { authClient } from '@/auth/reactClient'
 import { signUpSchema } from '@/auth/schema'
+import { PasswordInput } from '@/components/PasswordInput'
+import { PasswordStrengthIndicator } from '@/components/PasswordStrengthIndicator'
 import { Button } from '@/components/shadcn-react/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/shadcn-react/card'
 import { Input } from '@/components/shadcn-react/input'
 import { Label } from '@/components/shadcn-react/label'
 import { TurnstileCaptcha } from '@/components/TurnstileCaptcha'
-import { PasswordInput } from './PasswordInput'
-import { PasswordStrengthIndicator } from './PasswordStrengthIndicator'
 
 export default function SignUp() {
   const [name, setName] = useState('')
@@ -65,7 +65,7 @@ export default function SignUp() {
       const data = validationResult.data
 
       const searchParams = new URLSearchParams(window.location.search)
-      const callbackURL = searchParams.get('callbackURL') || `${import.meta.env.PUBLIC_SITE_URL}/account`
+      const callbackURL = searchParams.get('callbackURL') || `${import.meta.env.PUBLIC_SITE_URL}/dashboard`
 
       setLoading(true)
       try {
@@ -112,7 +112,7 @@ export default function SignUp() {
 
   return (
     <Card className="w-full">
-      {registered ? null : (
+      {!registered && (
         <CardHeader>
           <CardTitle>注册</CardTitle>
           <CardDescription>创建一个新账户</CardDescription>
@@ -180,6 +180,7 @@ export default function SignUp() {
               <PasswordInput
                 id="password"
                 placeholder="请输入8~32位密码"
+                autoComplete="new-password"
                 required
                 value={password}
                 onChange={(e) => {
