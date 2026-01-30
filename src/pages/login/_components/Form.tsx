@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { authClient } from '@/auth/reactClient'
 import { GlowEffect } from '@/components/GlowEffect'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/shadcn-react/tabs'
 import SignIn from './SignIn'
@@ -6,6 +8,15 @@ import SignUp from './SignUp'
 export default function Form() {
   const urlParams = new URLSearchParams(window.location.search)
   const defaultTab = urlParams.get('tab') === 'signup' ? 'signup' : 'signin'
+
+  const { data: authData } = authClient.useSession()
+  const { user, session } = authData || {}
+
+  useEffect(() => {
+    if (user?.emailVerified && session) {
+      window.location.href = '/account'
+    }
+  }, [user, session])
 
   return (
     <Tabs defaultValue={defaultTab} className="w-full">
