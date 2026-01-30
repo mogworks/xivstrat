@@ -5,13 +5,13 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { toast } from 'sonner'
 import { authClient } from '@/auth/reactClient'
 import { signUpSchema } from '@/auth/schema'
+import { PasswordStrengthIndicator } from '@/components/PasswordStrengthIndicator'
 import { Button } from '@/components/shadcn-react/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/shadcn-react/card'
 import { Input } from '@/components/shadcn-react/input'
 import { Label } from '@/components/shadcn-react/label'
 import { TurnstileCaptcha } from '@/components/TurnstileCaptcha'
 import { PasswordInput } from './PasswordInput'
-import { PasswordStrengthIndicator } from './PasswordStrengthIndicator'
 
 export default function SignUp() {
   const [name, setName] = useState('')

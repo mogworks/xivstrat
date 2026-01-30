@@ -5,12 +5,12 @@ import { toast } from 'sonner'
 import { authClient } from '@/auth/reactClient'
 import { emailSchema, passwordSchema } from '@/auth/schema'
 import { GlowEffect } from '@/components/GlowEffect'
+import { PasswordStrengthIndicator } from '@/components/PasswordStrengthIndicator'
 import { Button } from '@/components/shadcn-react/button'
 import { Card, CardContent } from '@/components/shadcn-react/card'
 import { Input } from '@/components/shadcn-react/input'
 import { Label } from '@/components/shadcn-react/label'
 import { PasswordInput } from '@/pages/login/_components/PasswordInput'
-import { PasswordStrengthIndicator } from '@/pages/login/_components/PasswordStrengthIndicator'
 
 interface AccountProps {
   initialUserInfo: { name: string; email: string }
