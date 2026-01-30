@@ -9,9 +9,9 @@ import { Button } from '@/components/shadcn-react/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/shadcn-react/card'
 import { Input } from '@/components/shadcn-react/input'
 import { Label } from '@/components/shadcn-react/label'
+import { TurnstileCaptcha } from '@/components/TurnstileCaptcha'
 import { PasswordInput } from './PasswordInput'
 import { PasswordStrengthIndicator } from './PasswordStrengthIndicator'
-import { TurnstileCaptcha } from './TurnstileCaptcha'
 
 export default function SignUp() {
   const [name, setName] = useState('')

@@ -1,11 +1,6 @@
 import { Eye, EyeOff } from 'lucide-react'
 import { useState } from 'react'
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-} from '../../../components/shadcn-react/input-group'
+import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/components/shadcn-react/input-group'
 
 interface PasswordInputProps {
   value: string

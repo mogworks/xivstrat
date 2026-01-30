@@ -1,11 +1,7 @@
-import { GlowingEffect } from '@/components/shadcn-react/glowing-effect'
+import { GlowEffect } from '@/components/GlowEffect'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/shadcn-react/tabs'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
-
-const Glow = () => (
-  <GlowingEffect blur={0} borderWidth={1} spread={80} glow={true} disabled={false} proximity={64} inactiveZone={0.01} />
-)
 
 export default function Form() {
   const urlParams = new URLSearchParams(window.location.search)
@@ -14,16 +10,16 @@ export default function Form() {
   return (
     <Tabs defaultValue={defaultTab} className="w-full">
       <TabsList className="grid w-full grid-cols-2 relative mb-1">
-        <Glow />
+        <GlowEffect />
         <TabsTrigger value="signin">登录</TabsTrigger>
         <TabsTrigger value="signup">注册</TabsTrigger>
       </TabsList>
       <TabsContent value="signin" className="relative rounded-xl">
-        <Glow />
+        <GlowEffect />
         <SignIn />
       </TabsContent>
       <TabsContent value="signup" className="relative rounded-xl">
-        <Glow />
+        <GlowEffect />
         <SignUp />
       </TabsContent>
     </Tabs>
