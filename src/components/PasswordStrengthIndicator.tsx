@@ -1,11 +1,10 @@
-import { motion } from 'motion/react'
+import { cn } from '@/lib/utils'
 
 interface PasswordStrengthIndicatorProps {
   password: string
 }
 
 export function PasswordStrengthIndicator({ password }: PasswordStrengthIndicatorProps) {
-  // 直接计算密码强度，不需要内部状态
   const calculateStrength = () => {
     let score = 0
     if (password && password.length >= 8) score++
@@ -52,27 +51,12 @@ export function PasswordStrengthIndicator({ password }: PasswordStrengthIndicato
     <div className="mt-2">
       <div className="flex items-center gap-2">
         <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
-          <motion.div
-            className={`h-full ${getStrengthColor(strength)}`}
-            initial={{ width: 0 }}
-            animate={{ width: `${strength * 25}%` }}
-            transition={{
-              type: 'spring',
-              stiffness: 200,
-              damping: 40,
-            }}
+          <div
+            className={cn('h-full transition-all duration-300 ease-out', getStrengthColor(strength))}
+            style={{ width: `${strength * 25}%` }}
           />
         </div>
-        <motion.span
-          className="text-sm text-foreground/80"
-          initial={{ opacity: 0, y: -5 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.2,
-          }}
-        >
-          {message}
-        </motion.span>
+        <span className="text-sm text-foreground/80">{message}</span>
       </div>
     </div>
   )
