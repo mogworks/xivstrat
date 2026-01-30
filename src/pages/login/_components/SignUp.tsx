@@ -16,7 +16,6 @@ import { PasswordStrengthIndicator } from './PasswordStrengthIndicator'
 export default function SignUp() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
@@ -49,7 +48,6 @@ export default function SignUp() {
       const validationResult = signUpSchema.safeParse({
         name,
         email,
-        username,
         password,
       })
 
@@ -76,7 +74,6 @@ export default function SignUp() {
             email: data.email,
             password: data.password,
             name: data.name?.trim() || data.email.split('@')[0],
-            username: data.username?.trim() || undefined,
             callbackURL,
             fetchOptions: {
               headers: {
@@ -155,19 +152,6 @@ export default function SignUp() {
                   setName(e.target.value)
                 }}
                 value={name}
-              />
-            </div>
-
-            <div className="grid gap-2">
-              <Label htmlFor="username">账号</Label>
-              <Input
-                id="username"
-                type="text"
-                placeholder="选填，4~32位字母、数字、下划线或点"
-                onChange={(e) => {
-                  setUsername(e.target.value)
-                }}
-                value={username}
               />
             </div>
 

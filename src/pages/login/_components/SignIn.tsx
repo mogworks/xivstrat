@@ -4,7 +4,7 @@ import { Loader2 } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { toast } from 'sonner'
 import { authClient } from '@/auth/reactClient'
-import { emailSchema, signInSchema } from '@/auth/schema'
+import { signInSchema } from '@/auth/schema'
 import { Button } from '@/components/shadcn-react/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/shadcn-react/card'
 import { Input } from '@/components/shadcn-react/input'
@@ -13,7 +13,7 @@ import { TurnstileCaptcha } from '@/components/TurnstileCaptcha'
 import { PasswordInput } from './PasswordInput'
 
 export default function SignIn() {
-  const [emailOrUsername, setEmailOrUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
@@ -31,7 +31,7 @@ export default function SignIn() {
   const { run: handleSubmit } = useDebounceFn(
     async () => {
       const validationResult = signInSchema.safeParse({
-        emailOrUsername,
+        email,
         password,
       })
 
@@ -53,69 +53,36 @@ export default function SignIn() {
 
       setLoading(true)
       try {
-        if (emailSchema.safeParse(data.emailOrUsername).success) {
-          toast.promise(
-            authClient.signIn.email({
-              email: data.emailOrUsername,
-              password: data.password,
-              callbackURL,
-              fetchOptions: {
-                headers: {
-                  'x-captcha-response': turnstileToken,
-                },
-                onError: (_ctx) => {
-                  setTurnstileToken(null)
-                  turnstileRef.current?.reset()
-                },
+        toast.promise(
+          authClient.signIn.email({
+            email: data.email,
+            password: data.password,
+            callbackURL,
+            fetchOptions: {
+              headers: {
+                'x-captcha-response': turnstileToken,
               },
-            }),
-            {
-              loading: '登录中...',
-              success: (res) => {
-                if (!res || res.error || !res.data) {
-                  setTurnstileToken(null)
-                  turnstileRef.current?.reset()
-                  throw new Error(res?.error?.message || '登录失败，请检查您的邮箱和密码')
-                }
-                handleAuthSuccess()
-                window.location.href = callbackURL
-                return '登录成功'
+              onError: (_ctx) => {
+                setTurnstileToken(null)
+                turnstileRef.current?.reset()
               },
-              error: (error) => error.message || '登录失败，请检查您的邮箱和密码',
             },
-          )
-        } else {
-          toast.promise(
-            authClient.signIn.username({
-              username: data.emailOrUsername,
-              password: data.password,
-              callbackURL,
-              fetchOptions: {
-                headers: {
-                  'x-captcha-response': turnstileToken,
-                },
-                onError: (_ctx) => {
-                  setTurnstileToken(null)
-                  turnstileRef.current?.reset()
-                },
-              },
-            }),
-            {
-              loading: '登录中...',
-              success: (res) => {
-                if (!res || res.error || !res.data) {
-                  setTurnstileToken(null)
-                  turnstileRef.current?.reset()
-                  throw new Error(res?.error?.message || '登录失败，请检查您的账号和密码')
-                }
-                handleAuthSuccess()
-                window.location.href = callbackURL
-                return '登录成功'
-              },
-              error: (error) => error.message || '登录失败，请检查您的账号和密码',
+          }),
+          {
+            loading: '登录中...',
+            success: (res) => {
+              if (!res || res.error || !res.data) {
+                setTurnstileToken(null)
+                turnstileRef.current?.reset()
+                throw new Error(res?.error?.message || '登录失败，请检查您的邮箱和密码')
+              }
+              handleAuthSuccess()
+              window.location.href = callbackURL
+              return '登录成功'
             },
-          )
-        }
+            error: (error) => error.message || '登录失败，请检查您的邮箱和密码',
+          },
+        )
       } finally {
         setLoading(false)
       }
@@ -130,24 +97,24 @@ export default function SignIn() {
     <Card className="w-full">
       <CardHeader>
         <CardTitle>登录</CardTitle>
-        <CardDescription>在下方输入您的邮箱/账号登录您的账户</CardDescription>
+        <CardDescription>在下方输入您的邮箱登录您的账户</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
           <div className="grid gap-2">
-            <Label htmlFor="email-or-username">
-              邮箱/账号
+            <Label htmlFor="email">
+              邮箱
               <span className="bg-red-500 h-1 w-1 rounded-full"></span>
             </Label>
             <Input
-              id="email-or-username"
-              type="text"
-              placeholder="请输入邮箱或账号"
+              id="email"
+              type="email"
+              placeholder="请输入邮箱"
               required
               onChange={(e) => {
-                setEmailOrUsername(e.target.value)
+                setEmail(e.target.value)
               }}
-              value={emailOrUsername}
+              value={email}
             />
           </div>
 
