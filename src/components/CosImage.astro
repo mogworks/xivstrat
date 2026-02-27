@@ -26,8 +26,8 @@ const inferSize = width === null || height === null
     <Image
       src={url.href}
       alt={alt ?? ""}
-      width={parseInt(width)}
-      height={parseInt(height)}
+      width={parseInt(width, 10)}
+      height={parseInt(height, 10)}
       {...rest}
     />
   )
