@@ -1,21 +1,30 @@
 ---
-import StratLink from '@/components/StratLink.astro'
-import NoteSection from '@/components/section/NoteSection.astro'
-import SeparatorSection from '@/components/section/SeparatorSection.astro'
-import ImgRow from '@/components/typography/ImgRow.astro'
-import P from '@/components/typography/P.astro'
-import DutyStratLayout from '@/layouts/DutyStratLayout.astro'
+import ReferenceItem from "@/components/ReferenceItem.astro"
+import NoteSection from "@/components/section/NoteSection.astro"
+import SeparatorSection from "@/components/section/SeparatorSection.astro"
+import ImgRow from "@/components/typography/ImgRow.astro"
+import P from "@/components/typography/P.astro"
+import DutyStratLayout from "@/layouts/DutyStratLayout.astro"
+import { referenceList } from "../m12s/_data/reference"
 
-const dutyId = '07/m12s'
 
-const base = '00:00.00'
+const dutyId = "07/m12s"
+
+const base = "00:00.00"
 ---
 
 <DutyStratLayout dutyId={dutyId} base={base}>
   <NoteSection>
     <div class="space-y-8">
-      <div class="space-y-4 text-2xl">
-        <P>MMW文档链接：<StratLink variant="teal" href="https://docs.qq.com/doc/DS3NWWXBVTWdEeXBD" target="_blank">腾讯文档</StratLink></P>
+      <div class="space-y-4">
+        <div class="space-y-4 text-2xl">
+          <Fragment slot="header">
+            <span>参考资料</span>
+          </Fragment>
+        </div>
+        <div class="space-y-4">
+          <ReferenceItem list={referenceList} />
+        </div>
       </div>
       <div class="space-y-4">
         <P>初始场地如下图</P>
@@ -23,7 +32,7 @@ const base = '00:00.00'
           wrapperClass="max-w-100"
           imgs={[
             {
-              src: 'floor/07/m12s/1.webp',
+              src: "floor/07/m12s/1.webp",
             },
           ]}
         />
