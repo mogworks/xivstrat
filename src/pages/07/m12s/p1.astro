@@ -1,12 +1,16 @@
 ---
 import ReferenceItem from "@/components/ReferenceItem.astro"
+import MechanicSection from "@/components/section/MechanicSection.astro"
 import NoteSection from "@/components/section/NoteSection.astro"
 import SeparatorSection from "@/components/section/SeparatorSection.astro"
 import ImgRow from "@/components/typography/ImgRow.astro"
 import P from "@/components/typography/P.astro"
 import DutyStratLayout from "@/layouts/DutyStratLayout.astro"
 import { referenceList } from "../m12s/_data/reference"
-
+import MortalSlayerCast from "./_components/MortalSlayerCast.astro"
+import TheFixerCast from "./_components/TheFixerCast.astro"
+import MortalSlayer from "./_mechanics/MortalSlayer.astro"
+import { translations } from './_translations/cn'
 
 const dutyId = "07/m12s"
 
@@ -39,5 +43,20 @@ const base = "00:00.00"
       </div>
     </div>
   </NoteSection>
-  <SeparatorSection />
+  <SeparatorSection title={translations.TheFixer} />
+  <TheFixerCast start="00:10.200" />
+  <MechanicSection>
+    <div class="flex flex-col gap-4">
+      <P>全屏魔法AOE，注意减伤，该机制全程共出现3次</P>
+    </div>
+  </MechanicSection>
+  <SeparatorSection title={translations.MortalSlayer} id="MortalSlayer"/>
+  <MortalSlayerCast start="00:28.527" />
+  <MortalSlayer />
+  <SeparatorSection title={translations.GrotesquerieAct1} id="GrotesquerieAct1"/>
+  <SeparatorSection title={translations.GrotesquerieAct2} id="GrotesquerieAct2"/>
+  <SeparatorSection title={translations.GrotesquerieAct3} id="GrotesquerieAct3"/>
+  <SeparatorSection title={translations.GrotesquerieCurtainCall} id="GrotesquerieCurtainCall"/>
+    <SeparatorSection title={translations.Slaughtershed + "三连"} id="Slaughtershed"/>
+  
 </DutyStratLayout>

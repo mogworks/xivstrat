@@ -1,0 +1,22 @@
+---
+import Buff from '@/components/Buff.astro'
+
+interface Props {
+  tag?: string
+  hover?: boolean
+  class?: string
+}
+
+const { tag = '', hover = false, class: className = '' }: Props = Astro.props
+const icon = 'buff/215057.webp'
+---
+<!-- icon待更新，目前是复制的魔法易伤的 -->
+<Buff
+  icon={icon}
+  name="毒属性耐性降低"
+  nameVariant="yellow"
+  description="受到毒属性攻击的伤害增加"
+  tag={tag}
+  hover={hover}
+  class={className}
+/>

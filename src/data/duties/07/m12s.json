@@ -20,7 +20,32 @@
       "title": "Phase 1",
       "subtitle": "前半",
       "name": "P1",
-      "mechanics": []
+      "mechanics": [
+        {
+          "name": "致命灾变",
+          "href": "#MortalSlayer"
+        },
+        {
+          "name": "细胞附身：早期",
+          "href": "#GrotesquerieAct1"
+        },
+        {
+          "name": "细胞附身：中期",
+          "href": "#GrotesquerieAct2"
+        },
+        {
+          "name": "细胞附身：晚期",
+          "href": "#GrotesquerieAct3"
+        },
+        {
+          "name": "细胞附身：末期",
+          "href": "#GrotesquerieCurtainCall"
+        },
+        {
+          "name": "喋血三连",
+          "href": "#Slaughtershed"
+        }
+      ]
     },
     {
       "href": "/07/m12s/p2",
