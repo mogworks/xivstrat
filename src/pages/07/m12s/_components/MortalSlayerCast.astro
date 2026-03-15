@@ -1,0 +1,20 @@
+---
+import Badge from '@/components/Badge.astro'
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import type { Time } from '@/lib/utils'
+import { translations } from '../_translations/cn'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const Lindwurm = translations.Lindwurm
+const MortalSlayer = translations.MortalSlayer
+---
+
+<CastSection start={start} duration={11.7} ability={MortalSlayer}>
+  <Boss name={Lindwurm} slot="source" />
+</CastSection>
