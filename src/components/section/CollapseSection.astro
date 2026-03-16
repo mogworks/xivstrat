@@ -5,9 +5,15 @@ import RightArrowSVG from '@/svg/right-arrow.svg'
 
 interface Props {
   wider?: boolean
+  color?: string
 }
 
-const { wider = false }: Props = Astro.props
+const bgColor = {
+  teal: 'bg-teal-500',
+  red: 'bg-red-500',
+  blue: 'bg-blue-500',
+}[Astro.props.color || 'teal']
+const { wider = false ,  }: Props = Astro.props
 ---
 
 <collapse-section>
@@ -27,7 +33,7 @@ const { wider = false }: Props = Astro.props
   <div class="collapse-details relative flex max-h-0 flex-col gap-(--article-row-gap) opacity-0">
     <div
       class={cn(
-        'pointer-events-none absolute top-1/2 left-40 h-[calc(100%-1rem)] w-0.5 -translate-y-1/2 bg-teal-500',
+        'pointer-events-none absolute top-1/2 left-40 h-[calc(100%-1rem)] w-0.5 -translate-y-1/2 ',bgColor,
         wider ? 'left-12' : '',
       )}
     >

@@ -1,0 +1,42 @@
+---
+import Badge from '@/components/Badge.astro'
+import PoisonResistanceDown from '@/components/buff/PoisonResistanceDown.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import Separator from '@/components/Separator.astro'
+import Span from '@/components/Span.vue'
+import EventSection from '@/components/section/EventSection.astro'
+import P from '@/components/typography/P.astro'
+import Quote from '@/components/typography/Quote.astro'
+import type { Time } from '@/lib/utils'
+
+import { translations } from '../_translations/cn'
+
+interface Props {
+  time: Time
+}
+
+const { time }: Props = Astro.props
+const MortalSlayer = translations.MortalSlayer
+---
+
+<EventSection time={time} ability={MortalSlayer}>
+  <P>
+    <Span variant="yellow">{MortalSlayer}</Span>伤害判定
+    <Separator orientation="vertical" class="w-0.1 bg-red h-16" />
+  </P>
+  <Quote variant="red">
+    <P>
+      <Span variant="purple">紫球</Span>
+      造成<DamageInfo damage="xxxxxx" type="magical" />
+      <PoisonResistanceDown tag='12' hover={true}/>
+      <Badge variant="green">6m圆形</Badge>
+      <Badge variant="purple">tank buster</Badge>
+    </P>
+    <P>
+      <Span variant="green">绿球</Span>
+      造成<DamageInfo damage="203000" type="magical" />
+      <PoisonResistanceDown tag='12' hover={true}/>
+      <Badge variant="green">6m圆形</Badge>
+    </P>
+  </Quote>
+</EventSection>

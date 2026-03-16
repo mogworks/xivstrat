@@ -1,6 +1,7 @@
 ---
 import ReferenceItem from "@/components/ReferenceItem.astro"
 import Span from "@/components/Span.vue"
+import CollapseSection from "@/components/section/CollapseSection.astro"
 import MechanicSection from "@/components/section/MechanicSection.astro"
 import NoteSection from "@/components/section/NoteSection.astro"
 import SeparatorSection from "@/components/section/SeparatorSection.astro"
@@ -8,7 +9,13 @@ import ImgRow from "@/components/typography/ImgRow.astro"
 import P from "@/components/typography/P.astro"
 import DutyStratLayout from "@/layouts/DutyStratLayout.astro"
 import { referenceList } from "../m12s/_data/reference"
+import GrotesquerieAct1Cast from "./_components/GrotesquerieAct1Cast.astro"
+import MortalSlayerActivate from "./_components/MortalSlayerActivate.astro"
 import MortalSlayerCast from "./_components/MortalSlayerCast.astro"
+import PhagocyteSpotlight from "./_components/PhagocyteSpotlight.astro"
+import RavenousReachCast from "./_components/RavenousReachCast.astro"
+import SlaughtershedCast from "./_components/SlaughtershedCast.astro"
+import SplattershedCast from "./_components/SplattershedCast.astro"
 import TheFixerCast from "./_components/TheFixerCast.astro"
 import MortalSlayer from "./_mechanics/MortalSlayer.astro"
 import { translations } from './_translations/cn'
@@ -54,11 +61,41 @@ const base = "00:00.00"
   </MechanicSection>
   <SeparatorSection title={translations.MortalSlayer} id="MortalSlayer"/>
   <MortalSlayerCast start="00:28.527" />
+  <MortalSlayerActivate time="00:40.578" />
+  <CollapseSection color="red">
+    <Fragment slot="summary">
+      后续三次伤害判定
+    </Fragment>
+    <Fragment slot="details">
+      <MortalSlayerActivate time="00:43.617" />
+      <MortalSlayerActivate time="00:46.609" />
+      <MortalSlayerActivate time="00:49.597" />
+    </Fragment>
+  </CollapseSection>
   <MortalSlayer />
+
   <SeparatorSection title={translations.GrotesquerieAct1} id="GrotesquerieAct1"/>
+  <GrotesquerieAct1Cast start="01:06.914" />
+  <PhagocyteSpotlight time="01:16.138"/>
+  <CollapseSection color="red">
+    <Fragment slot="summary">
+      后续三次黄圈
+    </Fragment>
+    <Fragment slot="details">
+      <PhagocyteSpotlight time="01:18.143"/>
+      <PhagocyteSpotlight time="01:20.146"/>
+      <PhagocyteSpotlight time="01:22.107"/>
+    </Fragment>
+  </CollapseSection>
+  <RavenousReachCast start="1:16.138" />
+
   <SeparatorSection title={translations.GrotesquerieAct2} id="GrotesquerieAct2"/>
+  <SplattershedCast start="03:02.629" />
+
   <SeparatorSection title={translations.GrotesquerieAct3} id="GrotesquerieAct3"/>
   <SeparatorSection title={translations.GrotesquerieCurtainCall} id="GrotesquerieCurtainCall"/>
-    <SeparatorSection title={translations.Slaughtershed + "三连"} id="Slaughtershed"/>
+  <SeparatorSection title={translations.Slaughtershed + "三连"} id="Slaughtershed"/>
+  <SlaughtershedCast start="05:36.723" />
+
   
 </DutyStratLayout>
