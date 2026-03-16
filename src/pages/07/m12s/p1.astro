@@ -1,5 +1,6 @@
 ---
 import ReferenceItem from "@/components/ReferenceItem.astro"
+import Span from "@/components/Span.vue"
 import MechanicSection from "@/components/section/MechanicSection.astro"
 import NoteSection from "@/components/section/NoteSection.astro"
 import SeparatorSection from "@/components/section/SeparatorSection.astro"
@@ -11,6 +12,7 @@ import MortalSlayerCast from "./_components/MortalSlayerCast.astro"
 import TheFixerCast from "./_components/TheFixerCast.astro"
 import MortalSlayer from "./_mechanics/MortalSlayer.astro"
 import { translations } from './_translations/cn'
+
 
 const dutyId = "07/m12s"
 
@@ -31,7 +33,7 @@ const base = "00:00.00"
         </div>
       </div>
       <div class="space-y-4">
-        <P>初始场地如下图</P>
+        <P>初始场地如下图，长40m，宽30m，场地上<Span variant="pink">小方格边长2.5m</Span></P>
         <ImgRow
           wrapperClass="max-w-100"
           imgs={[
