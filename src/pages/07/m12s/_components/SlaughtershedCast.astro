@@ -1,0 +1,23 @@
+---
+import Badge from '@/components/Badge.astro'
+import Boss from '@/components/Boss.astro'
+import DamageInfo from '@/components/DamageInfo.astro'
+import CastSection from '@/components/section/CastSection.astro'
+import type { Time } from '@/lib/utils'
+import { translations } from '../_translations/cn'
+
+interface Props {
+  start: Time
+}
+
+const { start }: Props = Astro.props
+const Lindwurm = translations.Lindwurm
+const slaughtershed = translations.Slaughtershed
+---
+
+<CastSection start={start} duration={4.7} ability={slaughtershed}>
+  <Boss name={Lindwurm} slot="source" />
+  <DamageInfo damage="265000" type="magical" />
+  <Badge variant="purple">全屏AOE</Badge>
+  <Badge variant="purple">上debuff</Badge>
+</CastSection>

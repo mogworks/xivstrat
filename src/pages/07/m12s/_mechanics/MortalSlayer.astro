@@ -2,13 +2,14 @@
 import Badge from '@/components/Badge.astro'
 import Boss from '@/components/Boss.astro'
 import PoisonResistance from '@/components/buff/PoisonResistanceDown.astro'
+import PoisonResistanceDown from '@/components/buff/PoisonResistanceDown.astro'
 import DamageInfo from '@/components/DamageInfo.astro'
+import ListDot from '@/components/ListDot.astro'
 import RoleIcon from '@/components/RoleIcon.astro'
 import Span from '@/components/Span.vue'
 import MechanicSection from '@/components/section/MechanicSection.astro'
 import MultiSolutionSection from '@/components/section/MultiSolutionSection.vue'
 import NoteSection from '@/components/section/NoteSection.astro'
-import ImgRow from '@/components/typography/ImgRow.astro'
 import P from '@/components/typography/P.astro'
 import T from '@/components/typography/T.astro'
 import { translations } from '../_translations/cn'
@@ -38,14 +39,26 @@ const defaultSolution = '解法：传统球'
       <P><Boss name={Lindwurm} />读条时，双翼左右4对爪子<Span variant="pink">从上到下</Span>结出<Span variant="pink">4</Span>轮球，
         每轮<Span variant="pink">2</Span>个，可在躯干左右同侧或异侧</P>
       <P>读条完毕后，球按照结出顺序，砸向<Span variant="pink">自身所在半场</Span>距离<Boss name={Lindwurm} /><Span variant="pink">躯干中轴线最近</Span>的玩家，
-        造成<Badge variant='emerald'>6m圆形</Badge><Badge variant='yellow'>AOE</Badge>，附带<PoisonResistance tag='12' hover={true}/></P>
-        <P>球有两种颜色，<Span variant="purple">紫色</Span>造成<DamageInfo damage="xxxxxx" type="magical"/>，需要<RoleIcon role="tank" tag='双T'/>承伤；<Span variant="green">绿色</Span>造成<DamageInfo damage="203000" type="magical"/>，由<RoleIcon role='healer|dps' tag='其他'/>承伤</P>
+        造成<Badge variant='emerald'>6m圆形</Badge><Badge variant='yellow'>AOE</Badge>，附带<PoisonResistance tag='12' hover={true}/>，如果两球在同半场，则<Span variant="pink">从上到下</Span>砸向第1近、第2近的玩家</P>
+      <P>球有两种颜色，<Span variant="purple">紫色</Span>造成<DamageInfo damage="xxxxxx" type="magical"/>，<Span variant="purple">tank buster</Span>；<Span variant="green">绿色</Span>造成<DamageInfo damage="203000" type="magical"/></P>
     </div>
 </MechanicSection>
 
-<NoteSection>
+<MechanicSection title='机制补充'>
+  <div class="flex flex-col gap-4">
     <P>8个球全部刷新完毕后，2个紫球必定在翅膀的<Span variant="pink">同一侧</Span></P>
     <P>一定是<Span variant="pink">2绿2紫+4绿</Span>。不会出现两边各1紫3绿的情况。<em>--来自《整合文档》</em></P>
+  </div>
+  </MechanicSection>
+
+<NoteSection title='解法思路说明'>
+  <div class="flex flex-col gap-4">
+    <P>由于<PoisonResistanceDown tag='12' hover={true}/>的存在，每个人最多只能吃1个球的伤害</P>
+    <P>（因为时间每隔3s砸一次，共计12s，且伤害量不算很高，不考虑无敌吃），故8人需要引导8个球</P>
+    <P>2个紫球让<RoleIcon role="tank" tag='双T'/>承伤；剩余6个绿球则由<RoleIcon role='healer|dps' tag='其他'/>承伤</P>
+    <P>球AOE的实际半径是2.5个小方格边长，引导时要注意与其他玩家保持距离</P>
+
+  </div>
 </NoteSection>
 
 <MultiSolutionSection solutions={solutions} defaultSolution={defaultSolution} client:idle>
@@ -55,14 +68,36 @@ const defaultSolution = '解法：传统球'
             <P><RoleIcon role='ranged_magic' tag="远程"/>负责补充<RoleIcon role="tank" tag='紫球T'/>的位置，保证1侧4个人，补位的远程引导最后一个绿球</P>
             <P>引导时两人1组，第1组站在目标圈内靠北场边，第2组站在目标圈内环，其余人站在目标圈外等待自己的轮次然后就位，如下图所示</P>
             <P>引导者如果自己被砸到，向<Boss name={Lindwurm} />目标圈外两侧撤退，如果没被砸，前进到第1组的位置</P>
+            <P><Span variant='lime'>优点：</Span>思路直接，站位宽松，撤退路线安全</P>
+            <P><Span variant='lime'>缺点：</Span><RoleIcon role='ranged_magic' tag="D3/4"/>需要观察情况换位</P>
+            <T variant='lime' text="解法示意图如下："/>
         </div>
     </div>
-    <div slot="解法：固定球" class="flex flex-col gap-4"></div>
-    <div slot="解法：北美解法" class="flex flex-col gap-4"></div>
+    <div slot="解法：固定球" class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4"> 
+        <P>目前的国服野队主流解法</P>
+        <P>按照<RoleIcon role='tank|healer' tag="T奶"/>和<RoleIcon role='dps' tag='DPS'/>分组，<RoleIcon role='tank|healer' tag="T奶"/>前往有紫球的一侧，<RoleIcon role='dps' tag='DPS'/>前往另一侧，按照引导顺序，前往对应点位就位</P>
+        <P><ListDot /><RoleIcon role='tank|healer' tag="T奶"/>侧，<RoleIcon role='tank' tag='MT'/>引导紫球1，<RoleIcon role="tank" tag='ST'/>引导紫球2，<RoleIcon role="healer" tag="H1"/><RoleIcon role="healer" tag="H2"/>依次引导绿球</P>
+        <P><ListDot /><RoleIcon role='dps' tag='DPS'/>侧，按照<RoleIcon role="dps" tag="D1"/><RoleIcon role="dps" tag="D2"/><RoleIcon role="dps" tag="D3"/><RoleIcon role="dps" tag="D4"/>的顺序引导绿球</P>
+        <P>引导到后撤退到远离<Boss name={Lindwurm} />目标圈的位置</P>
+        <P>1号点位的玩家撤退时，请其路线上的玩家<Span variant="pink">向内靠近</Span>，帮助其<Span variant="pink">尽早离开自身AOE范围</Span></P>
+        <P><Span variant='lime'>优点：</Span><RoleIcon role='dps' tag='DPS'/>不用观察情况，<RoleIcon role='magic' tag="D4"/>此处基本不用移动</P>
+        <P><Span variant='lime'>缺点：</Span>站位要求精准；两侧1号点位撤退路线需要额外注意（实际上打起来2/3/4号位还是要微调）；</P>
+        <div class="flex flex-col gap-4 ml-13"> 
+          
+          <P>无标点2号点位难记；针对优点第二条，理论上此处没有哪个法系排不出足够瞬发</P>
+        </div>
+        <T variant='lime' text="解法精确站位图如下："/>
+      </div>
+    </div>
+    <div slot="解法：北美解法" class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4">
+        <P>固定球的引导分组及顺序+传统球的引导站位</P>
+        <P><Span variant='lime'>优点：</Span>具有传统球的所有优点；<RoleIcon role='dps' tag='DPS'/>不用观察情况</P>
+        <P><Span variant='lime'>缺点：</Span>暂无明显缺点</P>
+        <T variant='lime' text="解法示意图如下："/>
+
+      </div>
+    </div>
 </MultiSolutionSection>
 
-<NoteSection>
-    <div class="flex flex-col gap-4">
-        
-    </div>
-</NoteSection>

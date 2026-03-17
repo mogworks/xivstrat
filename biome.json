@@ -32,7 +32,8 @@
       },
       "a11y": {
         "useKeyWithClickEvents": "off",
-        "useSemanticElements": "off"
+        "useSemanticElements": "off",
+        "useValidAriaRole": "off"
       }
     },
     "domains": {

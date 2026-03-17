@@ -1,4 +1,5 @@
 ---
+import Badge from '@/components/Badge.astro'
 import Boss from '@/components/Boss.astro'
 import CastSection from '@/components/section/CastSection.astro'
 import type { Time } from '@/lib/utils'
@@ -10,9 +11,11 @@ interface Props {
 
 const { start }: Props = Astro.props
 const Lindwurm = translations.Lindwurm
-const MortalSlayer = translations.MortalSlayer
+const ravenousReach = translations.RavenousReach
 ---
 
-<CastSection start={start} duration={11.7} ability={MortalSlayer}>
+<CastSection start={start} duration={11.7} ability={ravenousReach}>
   <Boss name={Lindwurm} slot="source" />
+  <Badge variant="green">扇形</Badge>
+  <Badge variant='purple'>超大范围AOE</Badge>
 </CastSection>
