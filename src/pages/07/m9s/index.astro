@@ -1,0 +1,42 @@
+---
+import { getEntry } from 'astro:content'
+import AreaBox from '@/components/AreaBox.astro'
+import CollapsibleBox from '@/components/CollapsibleBox.vue'
+import CosImage from '@/components/CosImage.astro'
+import ResizableImageDialog from '@/components/ResizableImageDialog.vue'
+import WaymarkBox from '@/components/WaymarkBox.astro'
+import DutyHomeLayout from '@/layouts/DutyHomeLayout.astro'
+import BiliBiliSVG from '@/svg/bilibili.svg'
+import ScannerSVG from '@/svg/scanner.svg'
+
+
+
+const WaymarkImage = 'waymarks/07/necron.webp'
+const dutyId = '07/m9s'
+const duty = (await getEntry('duties', dutyId))!.data
+const navList = [
+  // { label: '小抄速览', id: 'cheatsheet' },
+  { label: '场地标点', id: 'waymark' },
+  // { label: '宏', id: 'macro' },
+  // { label: '简易时间轴', id: 'timeline' },
+  // { label: '参考资料', id: 'reference' },
+  // { label: '鸣谢', id: 'thanks' },
+]
+const videoLink = duty.videoLink ?? undefined
+---
+
+<DutyHomeLayout dutyId={dutyId} navList={navList}>
+  <CollapsibleBox id="waymark" client:idle class="w-full">
+    <WaymarkBox
+      href="waymarks/07/aac/UISAVE.DAT"
+      img={WaymarkImage}
+      downloadLabel="下载标点文件"
+      pageNumber={1}
+      slotStart={1}
+      slotEnd={1}
+    />
+    <Fragment slot="header">
+      <span>场地标点</span>
+    </Fragment>
+  </CollapsibleBox>
+</DutyHomeLayout>
