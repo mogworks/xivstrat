@@ -68,7 +68,8 @@
           "correctness": {
             "noUnusedVariables": "off",
             "noUnusedImports": "off",
-            "useHookAtTopLevel": "off"
+            "useHookAtTopLevel": "off",
+            "useJsxKeyInIterable": "off"
           },
           "suspicious": {
             "noAssignInExpressions": "off"
