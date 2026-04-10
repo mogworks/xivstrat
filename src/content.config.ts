@@ -1,5 +1,6 @@
-import { defineCollection, reference, z } from 'astro:content'
+import { defineCollection, reference } from 'astro:content'
 import { file, glob } from 'astro/loaders'
+import { z } from 'astro/zod'
 
 const duties = defineCollection({
   loader: glob({ pattern: '**/[^_]*.json', base: './src/data/duties' }),

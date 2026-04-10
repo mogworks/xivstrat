@@ -41,6 +41,13 @@ export default defineConfig({
   },
 
   image: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.xivstrat.cn',
+      },
+    ],
+
     // EdgeOne Pages 暂不支持 <Image /> 组件
     // 参考1：https://docs.astro.build/en/guides/images/#configure-no-op-passthrough-service
     // 参考2：https://edgeone.cloud.tencent.com/pages/document/194734898363867136

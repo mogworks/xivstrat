@@ -1,5 +1,6 @@
 # build output
 dist/
+.edgeone/
 
 # generated types
 .astro/
